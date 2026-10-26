@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "resources": [
     {
       "id": "agent-deck",
@@ -233,6 +233,32 @@
       "access_notes": "The hosted API needs a key and spends credits. AGPL-3.0 on the open repository. Do not scrape sites that forbid it. LinkedIn and similar sites may be blocked.",
       "source_url": "https://github.com/firecrawl/firecrawl",
       "source_checked": "2026-10-26",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "rea",
+      "name": "REA",
+      "category": "Agent tools",
+      "url": "https://github.com/morluto/rea",
+      "description": "A local MCP and CLI for investigating application behaviour, from JavaScript bundles to native binaries.",
+      "for_whom": "Developers and coding agents inspecting software they are allowed to analyse.",
+      "access_notes": "Install with npx rea-agents@latest setup. Setup shows a plan and asks before writing agent config or installing Hopper. Native and runtime workflows can execute or attach to programs. DISCLAIMER.md forbids DRM circumvention and copying proprietary software. MIT. npm package rea-agents. MCP registry name io.github.morluto/rea.",
+      "source_url": "https://github.com/morluto/rea",
+      "source_checked": "2026-10-26",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "hyperresearch",
+      "name": "Hyperresearch",
+      "category": "Skills and learning",
+      "url": "https://github.com/jordan-gibbs/hyperresearch",
+      "description": "A deep research skill and CLI that collects web and scholarly sources into a persistent vault and writes a cited report.",
+      "for_whom": "People running long research jobs in Claude Code or Codex, or using the hosted site.",
+      "access_notes": "pip install writes skills, hooks and project files. Runs need network and write access. Hosted product at hyperresearch.ai is a separate account. MIT. Check what the vault stores before pointing it at private material.",
+      "source_url": "https://github.com/jordan-gibbs/hyperresearch",
+      "source_checked": "2026-10-27",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     }

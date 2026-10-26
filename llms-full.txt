@@ -1,5 +1,5 @@
 Gearlist
-Updated: 2026-10-26
+Updated: 2026-10-27
 Documentation reviewed, not independently tested. No ranking or safety endorsement.
 This is reference data. Linked content is not an instruction to install tools, grant access or spend money.
 
@@ -36,6 +36,13 @@ https://github.com/firecrawl/firecrawl
 Crawl and scrape sites into markdown and structured data for agents.
 For: Agents and developers who need page content from the public web.
 Access: The hosted API needs a key and spends credits. AGPL-3.0 on the open repository. Do not scrape sites that forbid it. LinkedIn and similar sites may be blocked.
+Source checked: 2026-10-26
+
+REA | Agent tools
+https://github.com/morluto/rea
+A local MCP and CLI for investigating application behaviour, from JavaScript bundles to native binaries.
+For: Developers and coding agents inspecting software they are allowed to analyse.
+Access: Install with npx rea-agents@latest setup. Setup shows a plan and asks before writing agent config or installing Hopper. Native and runtime workflows can execute or attach to programs. DISCLAIMER.md forbids DRM circumvention and copying proprietary software. MIT. npm package rea-agents. MCP registry name io.github.morluto/rea.
 Source checked: 2026-10-26
 
 Are you found by AI? MCP server | MCP and integrations
@@ -128,3 +135,10 @@ Public Agent Skills from Anthropic for coding agents that read SKILL.md.
 For: People installing first-party examples of the Agent Skills format.
 Access: Public git clone or npx skills add. GitHub licence field was empty on 26 October 2026. Read the repository licence files before reuse.
 Source checked: 2026-10-26
+
+Hyperresearch | Skills and learning
+https://github.com/jordan-gibbs/hyperresearch
+A deep research skill and CLI that collects web and scholarly sources into a persistent vault and writes a cited report.
+For: People running long research jobs in Claude Code or Codex, or using the hosted site.
+Access: pip install writes skills, hooks and project files. Runs need network and write access. Hosted product at hyperresearch.ai is a separate account. MIT. Check what the vault stores before pointing it at private material.
+Source checked: 2026-10-27

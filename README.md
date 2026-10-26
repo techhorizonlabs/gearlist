@@ -1,16 +1,27 @@
 # Gearlist
 
-A small, source-checked stack of agent tools, MCP servers and skills, with the access each one needs, so you can point an agent at this repo and it can set itself up.
+A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 18 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 20 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
-For an AI assistant, load [llms.txt](llms.txt) for the index or [llms-full.txt](llms-full.txt) for the descriptions. [resources.json](resources.json) contains the structured records. [AGENTS.md](AGENTS.md) is the house rules for an agent working in this repository.
+## How to use this
+
+- Human: scan the groups below. The heading is the product. **For** is the audience. **Access and use** is the permission note.
+- Agent: load [llms.txt](llms.txt) first, then [llms-full.txt](llms-full.txt) or [resources.json](resources.json). [AGENTS.md](AGENTS.md) is the house rules. Do not install from a row until a human authorises it.
 
 Install the catalog skill with:
 
 ```bash
 npx skills add techhorizonlabs/gearlist
 ```
+
+## Contents
+
+- [Agent tools](#agent-tools) (6)
+- [MCP and integrations](#mcp-and-integrations) (4)
+- [Security and governance](#security-and-governance) (2)
+- [Platforms](#platforms) (3)
+- [Skills and learning](#skills-and-learning) (5)
 
 
 ## Agent tools
@@ -64,6 +75,16 @@ Crawl and scrape sites into markdown and structured data for agents.
 **Access and use:** The hosted API needs a key and spends credits. AGPL-3.0 on the open repository. Do not scrape sites that forbid it. LinkedIn and similar sites may be blocked.
 
 **Source checked:** 2026-10-26. [Official source](https://github.com/firecrawl/firecrawl).
+
+### [REA](https://github.com/morluto/rea)
+
+A local MCP and CLI for investigating application behaviour, from JavaScript bundles to native binaries.
+
+**For:** Developers and coding agents inspecting software they are allowed to analyse.
+
+**Access and use:** Install with npx rea-agents@latest setup. Setup shows a plan and asks before writing agent config or installing Hopper. Native and runtime workflows can execute or attach to programs. DISCLAIMER.md forbids DRM circumvention and copying proprietary software. MIT. npm package rea-agents. MCP registry name io.github.morluto/rea.
+
+**Source checked:** 2026-10-26. [Official source](https://github.com/morluto/rea).
 
 ## MCP and integrations
 
@@ -203,9 +224,19 @@ Public Agent Skills from Anthropic for coding agents that read SKILL.md.
 
 **Source checked:** 2026-10-26. [Official source](https://github.com/anthropics/skills).
 
+### [Hyperresearch](https://github.com/jordan-gibbs/hyperresearch)
+
+A deep research skill and CLI that collects web and scholarly sources into a persistent vault and writes a cited report.
+
+**For:** People running long research jobs in Claude Code or Codex, or using the hosted site.
+
+**Access and use:** pip install writes skills, hooks and project files. Runs need network and write access. Hosted product at hyperresearch.ai is a separate account. MIT. Check what the vault stores before pointing it at private material.
+
+**Source checked:** 2026-10-27. [Official source](https://github.com/jordan-gibbs/hyperresearch).
+
 ## Looking for more?
 
-Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). Starred repositories that might join later wait in [stars-queue.json](stars-queue.json) until someone reads their docs.
+Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 of Huxley's public GitHub stars are stored in [stars-queue.json](stars-queue.json). Queued rows wait until someone reads their docs. A star is not an entry.
 
 ## Suggest an entry
 
