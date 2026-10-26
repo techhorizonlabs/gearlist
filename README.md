@@ -189,7 +189,7 @@ The official hosted registry of publicly available Model Context Protocol server
 
 ### [x402](https://x402.org/)
 
-An open protocol for payments over HTTP using the 402 response, not a hosted platform.
+An open protocol for payments over HTTP using the 402 response.
 
 **For:** Developers building services that charge per request.
 
@@ -251,11 +251,11 @@ A deep research skill and CLI that collects web and scholarly sources into a per
 
 ### [Tech Horizon Academy](https://academy.techhorizonlabs.com/)
 
-THL's free academy of Claude skills, prompts and AI tools for Australian small businesses. Tech Horizon Labs project.
+A free academy of Claude skills, prompts and AI tools for Australian small businesses. Tech Horizon Labs project.
 
 **For:** Australian operators and the agents they run.
 
-**Access and use:** Public site, no card. Skills and prompts are instructions; tools in the directory may need their own accounts. Semrush is not listed here. 67 skills counted on 27 Oct 2026.
+**Access and use:** Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. 67 skills counted on 27 Oct 2026.
 
 **Source checked:** 2026-10-27. [Official source](https://academy.techhorizonlabs.com/skills).
 
@@ -265,7 +265,7 @@ Anthropic's official courses on Claude, Claude Code, MCP, skills and the Claude 
 
 **For:** People learning Claude products and MCP.
 
-**Access and use:** Free courses at academy.claude.com. Some lessons need a Claude account. Completing a course does not install MCP servers.
+**Access and use:** Free courses at academy.claude.com. Some lessons need a Claude account.
 
 **Source checked:** 2026-10-27. [Official source](https://academy.claude.com/courses).
 
