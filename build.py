@@ -90,7 +90,7 @@ for category in dict.fromkeys(e["category"] for e in entries):
 lines += [
     "## Looking for more?",
     "",
-    "Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Queued rows wait until someone reads their docs. A star is not an entry.",
+    "Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Queued rows wait until someone reads their docs. A star or a marketplace listing is not an entry.",
     "",
     "## Suggest an entry",
     "",

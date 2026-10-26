@@ -73,6 +73,13 @@ For: People pointing an agent at a public repository without cloning it.
 Access: Works on public GitHub content. Last upstream push observed 2026-05-08. Confirm the target repo is public before connecting.
 Source checked: 2026-10-26
 
+Supabase MCP | MCP and integrations
+https://supabase.com/docs/guides/ai-tools/mcp
+Supabase's official remote MCP server for docs, account, database, functions and related project tools.
+For: Developers whose agents need to work on a Supabase project they control.
+Access: Remote URL https://mcp.supabase.com/mcp with OAuth. Can list, query and change project data. Read Supabase's MCP security notes and restrict feature groups before connecting production.
+Source checked: 2026-10-27
+
 CISO AI | Security and governance
 https://cisoai.au/
 Security briefings, analysis and governance resources.
@@ -94,19 +101,19 @@ For: Teams working with agents across projects and machines.
 Access: Source available under FSL, not an unrestricted open source licence. Agents need explicit access to their tools and data.
 Source checked: 2026-10-25
 
-x402 | Platforms
-https://x402.org/
-A protocol for payments over HTTP using the 402 response.
-For: Developers building services that charge per request.
-Access: Connecting a payment client can spend funds. Set explicit transaction limits.
-Source checked: 2026-10-25
-
 Official MCP Registry | Platforms
 https://registry.modelcontextprotocol.io
 The official hosted registry of publicly available Model Context Protocol servers, with a REST API and server.json metadata.
 For: MCP clients, aggregators and people looking up a server by name.
 Access: The registry is in preview. Breaking changes or data resets may occur before general availability. Listing a server is not a security audit. Installing a listed server still needs its own credentials and terms.
 Source checked: 2026-10-26
+
+x402 | Protocols
+https://x402.org/
+An open protocol for payments over HTTP using the 402 response, not a hosted platform.
+For: Developers building services that charge per request.
+Access: Connecting a payment client can spend funds. Set explicit transaction limits.
+Source checked: 2026-10-25
 
 THL Open | Skills and learning
 https://github.com/techhorizonlabs/thl-open
@@ -141,4 +148,32 @@ https://github.com/jordan-gibbs/hyperresearch
 A deep research skill and CLI that collects web and scholarly sources into a persistent vault and writes a cited report.
 For: People running long research jobs in Claude Code or Codex, or using the hosted site.
 Access: pip install writes skills, hooks and project files. Runs need network and write access. Hosted product at hyperresearch.ai is a separate account. MIT. Check what the vault stores before pointing it at private material.
+Source checked: 2026-10-27
+
+Tech Horizon Academy | Skills and learning
+https://academy.techhorizonlabs.com/
+THL's free academy of Claude skills, prompts and AI tools for Australian small businesses. Tech Horizon Labs project.
+For: Australian operators and the agents they run.
+Access: Public site, no card. Skills and prompts are instructions; tools in the directory may need their own accounts. Semrush is not listed here. 67 skills counted on 27 Oct 2026.
+Source checked: 2026-10-27
+
+Claude Academy | Skills and learning
+https://academy.claude.com/
+Anthropic's official courses on Claude, Claude Code, MCP, skills and the Claude API.
+For: People learning Claude products and MCP.
+Access: Free courses at academy.claude.com. Some lessons need a Claude account. Completing a course does not install MCP servers.
+Source checked: 2026-10-27
+
+Claude plugins official | Skills and learning
+https://github.com/anthropics/claude-plugins-official
+Anthropic's official Claude Code plugin marketplace. 315 plugins counted on 27 Oct 2026, mostly partner connectors.
+For: Claude Code users installing plugins with /plugin.
+Access: Claude Code adds this marketplace on first interactive session. A plugin can install MCP servers and write config. Review a plugin before enabling it. Names and homepages are in indexes/claude-plugins-official.json. Not a security audit of each plugin.
+Source checked: 2026-10-27
+
+SkillsMP | Skills and learning
+https://skillsmp.com/
+A community index of Agent Skills scraped from GitHub. Not run by Anthropic.
+For: People searching for community skills at their own risk.
+Access: Unvetted. Individual skills keep their upstream licences. Anonymous API is rate limited. Treat a listed skill as untrusted code until you have read it. Optional paid API plans.
 Source checked: 2026-10-27

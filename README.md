@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 20 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 25 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -20,10 +20,11 @@ npx skills add techhorizonlabs/gearlist
 ## Contents
 
 - [Agent tools](#agent-tools) (6)
-- [MCP and integrations](#mcp-and-integrations) (4)
+- [MCP and integrations](#mcp-and-integrations) (5)
 - [Security and governance](#security-and-governance) (2)
-- [Platforms](#platforms) (3)
-- [Skills and learning](#skills-and-learning) (5)
+- [Platforms](#platforms) (2)
+- [Protocols](#protocols) (1)
+- [Skills and learning](#skills-and-learning) (9)
 
 
 ## Agent tools
@@ -130,6 +131,16 @@ A remote MCP server that turns a public GitHub project into documentation an age
 
 **Source checked:** 2026-10-26. [Official source](https://github.com/idosal/git-mcp).
 
+### [Supabase MCP](https://supabase.com/docs/guides/ai-tools/mcp)
+
+Supabase's official remote MCP server for docs, account, database, functions and related project tools.
+
+**For:** Developers whose agents need to work on a Supabase project they control.
+
+**Access and use:** Remote URL https://mcp.supabase.com/mcp with OAuth. Can list, query and change project data. Read Supabase's MCP security notes and restrict feature groups before connecting production.
+
+**Source checked:** 2026-10-27. [Official source](https://supabase.com/docs/guides/ai-tools/mcp).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -164,16 +175,6 @@ A shared workspace where people and persistent AI agents collaborate in messages
 
 **Source checked:** 2026-10-25. [Official source](https://github.com/botiverse/raft-source).
 
-### [x402](https://x402.org/)
-
-A protocol for payments over HTTP using the 402 response.
-
-**For:** Developers building services that charge per request.
-
-**Access and use:** Connecting a payment client can spend funds. Set explicit transaction limits.
-
-**Source checked:** 2026-10-25. [Official source](https://x402.org/).
-
 ### [Official MCP Registry](https://registry.modelcontextprotocol.io)
 
 The official hosted registry of publicly available Model Context Protocol servers, with a REST API and server.json metadata.
@@ -183,6 +184,18 @@ The official hosted registry of publicly available Model Context Protocol server
 **Access and use:** The registry is in preview. Breaking changes or data resets may occur before general availability. Listing a server is not a security audit. Installing a listed server still needs its own credentials and terms.
 
 **Source checked:** 2026-10-26. [Official source](https://modelcontextprotocol.io/registry/about).
+
+## Protocols
+
+### [x402](https://x402.org/)
+
+An open protocol for payments over HTTP using the 402 response, not a hosted platform.
+
+**For:** Developers building services that charge per request.
+
+**Access and use:** Connecting a payment client can spend funds. Set explicit transaction limits.
+
+**Source checked:** 2026-10-25. [Official source](https://x402.org/).
 
 ## Skills and learning
 
@@ -236,9 +249,49 @@ A deep research skill and CLI that collects web and scholarly sources into a per
 
 **Source checked:** 2026-10-27. [Official source](https://github.com/jordan-gibbs/hyperresearch).
 
+### [Tech Horizon Academy](https://academy.techhorizonlabs.com/)
+
+THL's free academy of Claude skills, prompts and AI tools for Australian small businesses. Tech Horizon Labs project.
+
+**For:** Australian operators and the agents they run.
+
+**Access and use:** Public site, no card. Skills and prompts are instructions; tools in the directory may need their own accounts. Semrush is not listed here. 67 skills counted on 27 Oct 2026.
+
+**Source checked:** 2026-10-27. [Official source](https://academy.techhorizonlabs.com/skills).
+
+### [Claude Academy](https://academy.claude.com/)
+
+Anthropic's official courses on Claude, Claude Code, MCP, skills and the Claude API.
+
+**For:** People learning Claude products and MCP.
+
+**Access and use:** Free courses at academy.claude.com. Some lessons need a Claude account. Completing a course does not install MCP servers.
+
+**Source checked:** 2026-10-27. [Official source](https://academy.claude.com/courses).
+
+### [Claude plugins official](https://github.com/anthropics/claude-plugins-official)
+
+Anthropic's official Claude Code plugin marketplace. 315 plugins counted on 27 Oct 2026, mostly partner connectors.
+
+**For:** Claude Code users installing plugins with /plugin.
+
+**Access and use:** Claude Code adds this marketplace on first interactive session. A plugin can install MCP servers and write config. Review a plugin before enabling it. Names and homepages are in indexes/claude-plugins-official.json. Not a security audit of each plugin.
+
+**Source checked:** 2026-10-27. [Official source](https://code.claude.com/docs/en/plugins/anthropic-marketplaces).
+
+### [SkillsMP](https://skillsmp.com/)
+
+A community index of Agent Skills scraped from GitHub. Not run by Anthropic.
+
+**For:** People searching for community skills at their own risk.
+
+**Access and use:** Unvetted. Individual skills keep their upstream licences. Anonymous API is rate limited. Treat a listed skill as untrusted code until you have read it. Optional paid API plans.
+
+**Source checked:** 2026-10-27. [Official source](https://skillsmp.com/).
+
 ## Looking for more?
 
-Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Queued rows wait until someone reads their docs. A star is not an entry.
+Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Queued rows wait until someone reads their docs. A star or a marketplace listing is not an entry.
 
 ## Suggest an entry
 
