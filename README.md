@@ -1,5 +1,7 @@
 # Gearlist
 
+![Gearlist](social-preview.png)
+
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
 By Tech Horizon Labs. This edition contains 20 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
@@ -236,7 +238,7 @@ A deep research skill and CLI that collects web and scholarly sources into a per
 
 ## Looking for more?
 
-Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 of Huxley's public GitHub stars are stored in [stars-queue.json](stars-queue.json). Queued rows wait until someone reads their docs. A star is not an entry.
+Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Queued rows wait until someone reads their docs. A star is not an entry.
 
 ## Suggest an entry
 

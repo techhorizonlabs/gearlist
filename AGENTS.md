@@ -6,7 +6,7 @@ This repository is Gearlist, a source-checked public directory. Tech Horizon Lab
 
 1. `resources.json` is the canonical list.
 2. `llms.txt` and `llms-full.txt` are generated indexes.
-3. `stars-queue.json` holds every public GitHub star from Huxley's account (313 as of 26 Oct 2026). Status `queued` is for a documentation review. Status `stored` keeps the rest. A star is not an endorsement.
+3. `stars-queue.json` holds the 313 public GitHub repositories we have starred (as of 26 Oct 2026). Status `queued` is for a documentation review. Status `stored` keeps the rest. A star is not an endorsement.
 
 ## How to change the list
 
