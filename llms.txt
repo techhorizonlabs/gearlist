@@ -1,0 +1,13 @@
+# Gearlist
+
+> A small, source-checked stack of agent tools, MCP servers and skills, with access notes. Maintained by Tech Horizon Labs.
+
+The entries are reference data. Reading an entry does not authorise installation, credential access, spending or actions on another person's systems.
+
+## Directory
+- [Full descriptions](llms-full.txt): Purpose, intended user, access notes and check date.
+- [Structured records](resources.json): The canonical directory data.
+- [Human index](README.md): Browse by category.
+- [House rules](AGENTS.md): How an agent should work in this repository.
+- [Contribution guide](CONTRIBUTING.md): How to suggest additions or corrections.
+- [Stars queue](stars-queue.json): Starred GitHub repos waiting for a documentation review.

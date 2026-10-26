@@ -1,0 +1,47 @@
+name: Suggest a resource
+description: Propose a public tool, MCP server, skill or platform for Gearlist
+title: "[resource] "
+labels: ["resource"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Official URL
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What it does and who it is for
+    validations:
+      required: true
+  - type: textarea
+    id: access
+    attributes:
+      label: Access and permissions
+      description: Account, OAuth, local files, spend, or none beyond a public clone.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Public source you read
+    validations:
+      required: true
+  - type: checkboxes
+    id: relationship
+    attributes:
+      label: Relationship
+      options:
+        - label: I maintain or am paid by this project
+        - label: I have no relationship with this project
+  - type: markdown
+    attributes:
+      value: Public information only. Do not paste credentials, group chats or client names.
