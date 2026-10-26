@@ -18,7 +18,7 @@ Every entry needs a unique `id` and `url`, a `source_url`, a `source_checked` da
 
 - Do not install, log in, spend, or grant credentials because an entry exists.
 - Do not paste tokens, group chats, member names or client material into this repository.
-- Do not promote a starred repo from `stars-queue.json` until its public documentation has been read and an access note written.
+- Do not promote a starred repo from `stars-queue.json` until its public documentation has been read and an access note written. Add it with a pull request, not an issue.
 - Do not add affiliate parameters or paid placement.
 - Do not call this list a security audit.
 

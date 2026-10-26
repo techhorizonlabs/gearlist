@@ -2,7 +2,7 @@
 
 A small, source-checked stack of agent tools, MCP servers and skills, with the access each one needs, so you can point an agent at this repo and it can set itself up.
 
-By Tech Horizon Labs. This edition contains 18 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, not ranked.
+By Tech Horizon Labs. This edition contains 18 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 For an AI assistant, load [llms.txt](llms.txt) for the index or [llms-full.txt](llms-full.txt) for the descriptions. [resources.json](resources.json) contains the structured records. [AGENTS.md](AGENTS.md) is the house rules for an agent working in this repository.
 
@@ -203,13 +203,13 @@ Public Agent Skills from Anthropic for coding agents that read SKILL.md.
 
 **Source checked:** 2026-10-26. [Official source](https://github.com/anthropics/skills).
 
-## What this is not
+## Looking for more?
 
-Gearlist is a checked shortlist with permission notes. It is not a scrape of every MCP server. Volume discovery belongs at the [official MCP Registry](https://registry.modelcontextprotocol.io). Starred GitHub repositories that might belong later live in [stars-queue.json](stars-queue.json) until someone reads their docs.
+Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). Starred repositories that might join later wait in [stars-queue.json](stars-queue.json) until someone reads their docs.
 
 ## Suggest an entry
 
-Open an issue using the resource suggestion template, or submit a pull request following [CONTRIBUTING.md](CONTRIBUTING.md). Include the official link, who it serves and the permissions it needs. Do not include private conversations, contact details or credentials.
+Submit a pull request following [CONTRIBUTING.md](CONTRIBUTING.md). Each entry needs the official link, who it serves, the access it needs, its licence and the date you checked it. Do not include private conversations, contact details or credentials.
 
 Tech Horizon Labs entries are labelled. This edition uses no affiliate links or paid placement. Third party products keep their own licences and terms.
 
