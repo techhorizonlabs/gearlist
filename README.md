@@ -157,7 +157,7 @@ A local-first search engine and MCP server that indexes code, docs, logs and PDF
 
 **For:** People who want cited local search and agent memory without a hosted search cluster.
 
-**Access and use:** Installer is curl -fsSL https://xerj.org/get | sh. The binary indexes local paths and can serve an Elasticsearch-compatible API on localhost. Apache-2.0.
+**Access and use:** Installer is curl -fsSL https://xerj.org/get | sh. Read the script before running it. The binary indexes local paths and can serve an Elasticsearch-compatible API on localhost. Apache-2.0.
 
 **Source checked:** 2026-10-27. [Official source](https://github.com/xerj-org/xerj).
 

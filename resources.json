@@ -217,7 +217,7 @@
       "url": "https://xerj.org",
       "description": "A local-first search engine and MCP server that indexes code, docs, logs and PDFs for agents.",
       "for_whom": "People who want cited local search and agent memory without a hosted search cluster.",
-      "access_notes": "Installer is curl -fsSL https://xerj.org/get | sh. The binary indexes local paths and can serve an Elasticsearch-compatible API on localhost. Apache-2.0.",
+      "access_notes": "Installer is curl -fsSL https://xerj.org/get | sh. Read the script before running it. The binary indexes local paths and can serve an Elasticsearch-compatible API on localhost. Apache-2.0.",
       "source_url": "https://github.com/xerj-org/xerj",
       "source_checked": "2026-10-27",
       "verification": "Official documentation reviewed; not independently tested",
