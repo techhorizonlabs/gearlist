@@ -120,7 +120,7 @@
         "postman",
         "developer-experience"
       ],
-      "estimatedTime": "2–6 hours for a first comprehensive pass",
+      "estimatedTime": "2 to 6 hours for a first comprehensive pass",
       "useCase": null,
       "url": "https://academy.techhorizonlabs.com/skills/api-documentation-generator"
     },
@@ -150,7 +150,7 @@
         "rdti",
         "instant-asset-writeoff"
       ],
-      "estimatedTime": "1–2 days first draft; lean plan 90 min",
+      "estimatedTime": "1 to 2 days first draft; lean plan 90 min",
       "useCase": "Professional business planning for loans, grants, investors",
       "url": "https://academy.techhorizonlabs.com/skills/business-plan-writer-au"
     },
@@ -180,7 +180,7 @@
         "outreach",
         "spam-act"
       ],
-      "estimatedTime": "4–6 hours to design a sequence; ongoing per-send checklist",
+      "estimatedTime": "4 to 6 hours to design a sequence; ongoing per-send checklist",
       "useCase": "Compliant B2B cold outreach in Australia",
       "url": "https://academy.techhorizonlabs.com/skills/au-cold-outreach-spam-compliant"
     },
@@ -210,7 +210,7 @@
         "privacy-app-8",
         "privacy-policy"
       ],
-      "estimatedTime": "45–60 min first draft, 15 min per update",
+      "estimatedTime": "45 to 60 min first draft, 15 min per update",
       "useCase": "Legal compliance for Australian business websites and apps",
       "url": "https://academy.techhorizonlabs.com/skills/privacy-policy-generator-au"
     },
@@ -241,7 +241,7 @@
         "nes",
         "sham-contracting"
       ],
-      "estimatedTime": "30–45 min per contract",
+      "estimatedTime": "30 to 45 min per contract",
       "useCase": null,
       "url": "https://academy.techhorizonlabs.com/skills/australian-employment-contract"
     },
@@ -272,7 +272,7 @@
         "tax-invoice",
         "xero"
       ],
-      "estimatedTime": "5–10 min per invoice",
+      "estimatedTime": "5 to 10 min per invoice",
       "useCase": "Quick professional invoicing for Australian small businesses",
       "url": "https://academy.techhorizonlabs.com/skills/australian-invoice-generator"
     },
@@ -479,7 +479,7 @@
         "extended-thinking",
         "reasoning"
       ],
-      "estimatedTime": "15–20 min per decision",
+      "estimatedTime": "15 to 20 min per decision",
       "useCase": "High-stakes SME decisions that benefit from deeper reasoning",
       "url": "https://academy.techhorizonlabs.com/skills/claude-4-7-extended-thinking-for-sme"
     },
@@ -507,7 +507,7 @@
         "proposal",
         "sales"
       ],
-      "estimatedTime": "30–45 min per proposal (vs 2–4 hours unaided)",
+      "estimatedTime": "30 to 45 min per proposal (vs 2 to 4 hours unaided)",
       "useCase": "Discovery-to-proposal conversion for professional services SMEs",
       "url": "https://academy.techhorizonlabs.com/skills/client-intake-to-proposal-pro-services"
     },
@@ -537,7 +537,7 @@
         "security",
         "static-review"
       ],
-      "estimatedTime": "10–30 min per review",
+      "estimatedTime": "10 to 30 min per review",
       "useCase": null,
       "url": "https://academy.techhorizonlabs.com/skills/code-review-assistant"
     },
@@ -566,7 +566,7 @@
         "ibisworld",
         "productreview"
       ],
-      "estimatedTime": "4–8 hours first pass; monthly skim thereafter",
+      "estimatedTime": "4 to 8 hours first pass; monthly skim thereafter",
       "useCase": "Strategic positioning and finding competitive advantages",
       "url": "https://academy.techhorizonlabs.com/skills/competitor-research"
     },
@@ -654,7 +654,7 @@
         "segmentation",
         "marketing-strategy"
       ],
-      "estimatedTime": "4–8 hours for 2–3 grounded personas",
+      "estimatedTime": "4 to 8 hours for 2 to 3 grounded personas",
       "useCase": "Better understand and target your ideal Australian customers",
       "url": "https://academy.techhorizonlabs.com/skills/customer-persona-builder"
     },
@@ -681,7 +681,7 @@
         "re-engagement",
         "retention"
       ],
-      "estimatedTime": "Initial setup 2–4 hours; ongoing 30 min/week",
+      "estimatedTime": "Initial setup 2 to 4 hours; ongoing 30 min/week",
       "useCase": "Proactive retention and churn prevention for AU SMEs",
       "url": "https://academy.techhorizonlabs.com/skills/customer-retention-churn-signals"
     },
@@ -771,7 +771,7 @@
         "advanced",
         "database"
       ],
-      "estimatedTime": "1–2 hours initial setup",
+      "estimatedTime": "1 to 2 hours initial setup",
       "useCase": "Build persistent AI memory for your business so Claude never loses context",
       "url": "https://academy.techhorizonlabs.com/skills/design-postgres-brain-for-claude"
     },
@@ -832,7 +832,7 @@
         "activecampaign",
         "beehiiv"
       ],
-      "estimatedTime": "30–60 min per campaign",
+      "estimatedTime": "30 to 60 min per campaign",
       "useCase": "Engaging email marketing that sounds professionally Australian",
       "url": "https://academy.techhorizonlabs.com/skills/email-campaign-writer"
     },
@@ -924,7 +924,7 @@
         "underpayment",
         "wage-theft"
       ],
-      "estimatedTime": "4–8 hours end-to-end",
+      "estimatedTime": "4 to 8 hours end-to-end",
       "useCase": "Risk reduction in employment practices for Australian businesses",
       "url": "https://academy.techhorizonlabs.com/skills/fair-work-compliance"
     },
@@ -953,7 +953,7 @@
         "openai",
         "primer"
       ],
-      "estimatedTime": "30 minutes to read; 30–45 minutes to build your first GPT",
+      "estimatedTime": "30 minutes to read; 30 to 45 minutes to build your first GPT",
       "useCase": "First-time orientation to Custom GPTs + Claude Skills comparison",
       "url": "https://academy.techhorizonlabs.com/skills/getting-started-with-chatgpt-custom-gpts"
     },
@@ -1041,7 +1041,7 @@
         "penalty-rates",
         "rostering"
       ],
-      "estimatedTime": "60–90 min per week",
+      "estimatedTime": "60 to 90 min per week",
       "useCase": "Weekly roster proposal with demand forecast and Fair Work compliance check",
       "url": "https://academy.techhorizonlabs.com/skills/hospitality-rostering-demand-forecast"
     },
@@ -1130,7 +1130,7 @@
         "profile-optimisation",
         "posting-cadence"
       ],
-      "estimatedTime": "30–45 min per post; 90 min for profile overhaul",
+      "estimatedTime": "30 to 45 min per post; 90 min for profile overhaul",
       "useCase": null,
       "url": "https://academy.techhorizonlabs.com/skills/linkedin-content-creator"
     },
@@ -1161,7 +1161,7 @@
         "schema",
         "seo"
       ],
-      "estimatedTime": "Initial setup 4–8 hours; ongoing 2 hrs/month",
+      "estimatedTime": "Initial setup 4 to 8 hours; ongoing 2 hrs/month",
       "useCase": "Rank in Google Maps and local organic for suburb-qualified queries",
       "url": "https://academy.techhorizonlabs.com/skills/au-local-seo-small-business"
     },
@@ -1220,7 +1220,7 @@
         "1-on-1",
         "quarterly-review"
       ],
-      "estimatedTime": "10–20 min to build a good agenda",
+      "estimatedTime": "10 to 20 min to build a good agenda",
       "useCase": null,
       "url": "https://academy.techhorizonlabs.com/skills/meeting-agenda-builder"
     },
@@ -1251,7 +1251,7 @@
         "gemini",
         "follow-up"
       ],
-      "estimatedTime": "10–15 min per meeting",
+      "estimatedTime": "10 to 15 min per meeting",
       "useCase": null,
       "url": "https://academy.techhorizonlabs.com/skills/meeting-notes-to-action-items"
     },
@@ -1313,7 +1313,7 @@
         "service-agreement",
         "sil"
       ],
-      "estimatedTime": "5–10 min per note; 30 min for service agreement; 60–90 min for pre-audit sweep",
+      "estimatedTime": "5 to 10 min per note; 30 min for service agreement; 60 to 90 min for pre-audit sweep",
       "useCase": "Audit-ready NDIS documentation at weekly cadence",
       "url": "https://academy.techhorizonlabs.com/skills/ndis-progress-notes-assistant"
     },
@@ -1373,7 +1373,7 @@
         "board-update",
         "narrative-structure"
       ],
-      "estimatedTime": "4–12 hours per deck depending on archetype",
+      "estimatedTime": "4 to 12 hours per deck depending on archetype",
       "useCase": null,
       "url": "https://academy.techhorizonlabs.com/skills/presentation-designer"
     },
@@ -1402,7 +1402,7 @@
         "professional-services",
         "value-pricing"
       ],
-      "estimatedTime": "2–4 weeks end-to-end (with stakeholder buy-in)",
+      "estimatedTime": "2 to 4 weeks end-to-end (with stakeholder buy-in)",
       "useCase": "Fee-structure redesign for professional services SMEs",
       "url": "https://academy.techhorizonlabs.com/skills/pricing-packaging-professional-services"
     },
@@ -1462,7 +1462,7 @@
         "onboarding",
         "training"
       ],
-      "estimatedTime": "30–90 min per SOP",
+      "estimatedTime": "30 to 90 min per SOP",
       "useCase": null,
       "url": "https://academy.techhorizonlabs.com/skills/process-documentation-writer"
     },
@@ -1699,7 +1699,7 @@
         "seo",
         "technical-seo"
       ],
-      "estimatedTime": "60–180 min",
+      "estimatedTime": "60 to 180 min",
       "useCase": "Diagnose and prioritise SEO issues on a website",
       "url": "https://academy.techhorizonlabs.com/skills/seo-audit"
     },
@@ -1728,7 +1728,7 @@
         "structured-data",
         "intent-matching"
       ],
-      "estimatedTime": "30–60 min per page",
+      "estimatedTime": "30 to 60 min per page",
       "useCase": "Better Google rankings for Australian local searches",
       "url": "https://academy.techhorizonlabs.com/skills/seo-content-optimizer"
     },
@@ -1788,7 +1788,7 @@
         "content-strategy",
         "eofy"
       ],
-      "estimatedTime": "3–5 hours per 4-week plan",
+      "estimatedTime": "3 to 5 hours per 4-week plan",
       "useCase": "Consistent social media presence without daily planning stress",
       "url": "https://academy.techhorizonlabs.com/skills/social-media-calendar"
     },
@@ -1821,7 +1821,7 @@
         "spreadsheet",
         "xero"
       ],
-      "estimatedTime": "30–60 min per workflow run",
+      "estimatedTime": "30 to 60 min per workflow run",
       "useCase": "Data-driven decisions without expensive analytics tools",
       "url": "https://academy.techhorizonlabs.com/skills/spreadsheet-analyst"
     },
@@ -1939,7 +1939,7 @@
         "thl",
         "vite"
       ],
-      "estimatedTime": "1–3 days for THA-scale sites",
+      "estimatedTime": "1 to 3 days for THA-scale sites",
       "useCase": "Fix SPA indexability for organic-traffic-dependent sites",
       "url": "https://academy.techhorizonlabs.com/skills/thl-react-spa-seo-remediation"
     },
@@ -2002,7 +2002,7 @@
         "hook-writing",
         "talking-head"
       ],
-      "estimatedTime": "30–90 min per script",
+      "estimatedTime": "30 to 90 min per script",
       "useCase": "Professional video content without expensive scriptwriters",
       "url": "https://academy.techhorizonlabs.com/skills/video-script-writer"
     }
