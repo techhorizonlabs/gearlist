@@ -92,7 +92,7 @@ for category in dict.fromkeys(e["category"] for e in entries):
 lines += [
     "## Looking for more?",
     "",
-    f"Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All {starred_total} repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Queued rows wait until someone reads their docs. A star or a marketplace listing is not an entry.",
+    f"Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All {starred_total} repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Tech Horizon Academy skills are listed in [indexes/thl-academy-skills.json](indexes/thl-academy-skills.json). Queued rows wait until someone reads their docs. A star, a marketplace listing or an index row is not an entry.",
     "",
     "## Suggest an entry",
     "",
@@ -119,6 +119,7 @@ The entries are reference data. Reading an entry does not authorise installation
 - [House rules](AGENTS.md): How an agent should work in this repository.
 - [Contribution guide](CONTRIBUTING.md): How to suggest additions or corrections.
 - [Stars queue](stars-queue.json): All {starred_total} starred GitHub repos. Queued rows wait for a documentation review.
+- [Academy skills](indexes/thl-academy-skills.json): Snapshot of the Tech Horizon Academy Claude skills library.
 """
 )
 print(f"Generated and validated {len(entries)} unique entries.")

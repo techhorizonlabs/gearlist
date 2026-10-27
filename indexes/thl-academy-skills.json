@@ -1,0 +1,2010 @@
+{
+  "title": "Tech Horizon Academy Claude skills, snapshot",
+  "source": "https://academy.techhorizonlabs.com/api/claude-skills",
+  "listing": "https://academy.techhorizonlabs.com/skills",
+  "checked": "2026-10-27",
+  "count": 67,
+  "rule": "This is an index of the academy skills library, not a Gearlist endorsement of each skill. The catalog row is Tech Horizon Academy. Skills are instructions; they may need their own accounts. Do not paste a full skill body into resources.json.",
+  "skills": [
+    {
+      "name": "AI Adoption Checklist (Australian Government Guidance)",
+      "slug": "au-ai-safety-standard-checklist",
+      "description": "Turns the Australian Government's Guidance for AI Adoption (which evolves the Voluntary AI Safety Standard) into a short checklist for a small business adopting one AI tool. Use before rolling out a chatbot, AI note-taker, AI writing tool or any other AI product to staff or customers.",
+      "category": "compliance",
+      "subcategory": "ai-governance",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "ai safety standard checklist",
+        "guidance for ai adoption",
+        "responsible ai",
+        "ai policy",
+        "ai register",
+        "compliance"
+      ],
+      "estimatedTime": "20 minutes",
+      "useCase": "Responsible AI adoption",
+      "url": "https://academy.techhorizonlabs.com/skills/au-ai-safety-standard-checklist"
+    },
+    {
+      "name": "AI ROI Measurement Framework for SMEs",
+      "slug": "ai-roi-measurement-for-sme",
+      "description": "Set up honest measurement for AI tools and workflows in a small or medium business. Baseline → intervention → measurement → decision (keep / tweak / kill). Specific metrics per common use case, anti-vanity-metric discipline, one-page monthly review. Addresses the 46% of AU SMEs who don't measure AI impact at all.",
+      "category": "productivity",
+      "subcategory": "measurement",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "ai-strategy",
+        "cancellation-decision",
+        "cost-justification",
+        "measurement",
+        "roi"
+      ],
+      "estimatedTime": "30 min to set up, 5 min per workflow per month",
+      "useCase": "Measure whether AI tools and workflows are paying off",
+      "url": "https://academy.techhorizonlabs.com/skills/ai-roi-measurement-for-sme"
+    },
+    {
+      "name": "AI Visibility Self-Check",
+      "slug": "ai-visibility-self-check",
+      "description": "Helps an Australian business owner check whether ChatGPT, Claude, Perplexity and Google's AI features recommend their business, by writing the buyer questions for their trade and suburb, recording who gets named and which sources are cited, and turning the results into a fix list. Use when an owner asks \"does AI recommend us?\" or wants to know why a competitor keeps being named instead.",
+      "category": "research",
+      "subcategory": "ai-search",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "does ai recommend my business",
+        "ai visibility",
+        "chatgpt",
+        "perplexity",
+        "local seo",
+        "ai-visibility"
+      ],
+      "estimatedTime": "45 minutes",
+      "useCase": "AI search visibility",
+      "url": "https://academy.techhorizonlabs.com/skills/ai-visibility-self-check"
+    },
+    {
+      "name": "API Documentation Generator",
+      "slug": "api-documentation-generator",
+      "description": "Generate API documentation from code, OpenAPI/Swagger specs, or direct description: authentication, endpoints, request/response schemas, error codes, rate limits, examples, SDK snippets, Postman collections. Covers the 4 modes (doc-first / code-first / hybrid / retroactive) + tool recommendations (Redoc, Scalar, Stoplight, Mintlify).",
+      "category": "coding",
+      "subcategory": "documentation",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "api",
+        "documentation",
+        "openapi",
+        "swagger",
+        "rest",
+        "postman",
+        "developer-experience"
+      ],
+      "estimatedTime": "2–6 hours for a first comprehensive pass",
+      "useCase": null,
+      "url": "https://academy.techhorizonlabs.com/skills/api-documentation-generator"
+    },
+    {
+      "name": "AU Business Plan Writer",
+      "slug": "business-plan-writer-au",
+      "description": "Draft a practical business plan for an AU SME or startup, structured around how banks, grant bodies, and investors actually read them in 2026. Covers the 10 sections that matter, AU-specific funding pathways (grants, instant asset write-off, R&D Tax Incentive), and a lean-plan variant for founders who just need clarity.",
+      "category": "business",
+      "subcategory": "planning",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "business-plan",
+        "strategy",
+        "funding",
+        "grants",
+        "startup",
+        "rdti",
+        "instant-asset-writeoff"
+      ],
+      "estimatedTime": "1–2 days first draft; lean plan 90 min",
+      "useCase": "Professional business planning for loans, grants, investors",
+      "url": "https://academy.techhorizonlabs.com/skills/business-plan-writer-au"
+    },
+    {
+      "name": "AU Cold Outreach (Spam Act compliant)",
+      "slug": "au-cold-outreach-spam-compliant",
+      "description": "Build a Spam Act 2003-compliant B2B cold email outreach system. Handles the express-vs-inferred consent decision tree, mandatory sender-ID and unsubscribe requirements (functional 30+ days, honoured within 5 business days), and the burden-of-proof record-keeping. Produces the 4-touch sequence (connection, value, light CTA, graceful close) plus compliance checklist per send.",
+      "category": "content",
+      "subcategory": "outreach",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "acma",
+        "b2b",
+        "cold-email",
+        "compliance",
+        "growth",
+        "outreach",
+        "spam-act"
+      ],
+      "estimatedTime": "4–6 hours to design a sequence; ongoing per-send checklist",
+      "useCase": "Compliant B2B cold outreach in Australia",
+      "url": "https://academy.techhorizonlabs.com/skills/au-cold-outreach-spam-compliant"
+    },
+    {
+      "name": "AU Privacy Policy Generator",
+      "slug": "privacy-policy-generator-au",
+      "description": "Draft a Privacy Act 1988 compliant privacy policy for an AU SME, covering the 9 matters APP 1 requires, sector-specific overlays (health, NDIS, finance), cross-border disclosures (APP 8), and plain-English language accessible to non-lawyers. Produces ready-to-publish Markdown + a rollout checklist.",
+      "category": "compliance",
+      "subcategory": "privacy",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "app-1",
+        "compliance",
+        "oaic",
+        "privacy",
+        "privacy-act",
+        "privacy-app-8",
+        "privacy-policy"
+      ],
+      "estimatedTime": "45–60 min first draft, 15 min per update",
+      "useCase": "Legal compliance for Australian business websites and apps",
+      "url": "https://academy.techhorizonlabs.com/skills/privacy-policy-generator-au"
+    },
+    {
+      "name": "Australian Employment Contract Generator",
+      "slug": "australian-employment-contract",
+      "description": "Draft Fair Work Act 2009 compliant employment contracts for AU SMEs: full-time, part-time, casual, fixed-term, maximum-term, contractor. Covers the 11 NES inclusions, modern-award references, the Aug-2024 casual-employment definition, sham-contracting risks, restraint enforceability, and the 2023 fixed-term cap. Produces ready-to-sign contract + onboarding checklist.",
+      "category": "compliance",
+      "subcategory": "hr",
+      "skillType": "instructional",
+      "difficulty": "advanced",
+      "source": "official",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "pro",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "casual",
+        "contractor",
+        "employment-contract",
+        "fair-work",
+        "hr",
+        "modern-award",
+        "nes",
+        "sham-contracting"
+      ],
+      "estimatedTime": "30–45 min per contract",
+      "useCase": null,
+      "url": "https://academy.techhorizonlabs.com/skills/australian-employment-contract"
+    },
+    {
+      "name": "Australian Invoice Generator",
+      "slug": "australian-invoice-generator",
+      "description": "Generate GST-compliant tax invoices, recipient-created tax invoices (RCTI), and adjustment notes for an AU SME. Covers the 7 mandatory tax-invoice fields, GST treatment per line (taxable / GST-free / input-taxed), RCTI conditions, due dates, payment instruction formats, and the ATO audit flags that trip up small businesses.",
+      "category": "business",
+      "subcategory": "finance",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "ato",
+        "billing",
+        "gst",
+        "invoice",
+        "myob",
+        "rcti",
+        "tax-invoice",
+        "xero"
+      ],
+      "estimatedTime": "5–10 min per invoice",
+      "useCase": "Quick professional invoicing for Australian small businesses",
+      "url": "https://academy.techhorizonlabs.com/skills/australian-invoice-generator"
+    },
+    {
+      "name": "BAS and GST Prep (Australia)",
+      "slug": "au-bas-gst-prep",
+      "description": "Prepares a draft BAS worksheet for a GST-registered Australian business from Xero, MYOB, QuickBooks or a spreadsheet, covering GST, PAYG withholding and PAYG instalments, with reconciliation checks and a pack for your BAS or tax agent. Use it before each monthly or quarterly BAS.",
+      "category": "business",
+      "subcategory": "tax",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Labs, adapted from Anthropic (Apache 2.0)",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "bas prep",
+        "gst",
+        "activity statement",
+        "payg withholding",
+        "xero",
+        "finance"
+      ],
+      "estimatedTime": "30 minutes",
+      "useCase": "Prepare a draft BAS worksheet and agent pack",
+      "url": "https://academy.techhorizonlabs.com/skills/au-bas-gst-prep"
+    },
+    {
+      "name": "Brand Guidelines Manager",
+      "slug": "brand-guidelines-manager",
+      "description": "Apply consistent brand guidelines across all your content - from social media posts to proposals. Perfect for Australian small businesses maintaining professional brand identity.",
+      "category": "business",
+      "subcategory": "branding",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "official",
+      "author": "Anthropic",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api",
+        "claude-code"
+      ],
+      "tags": [
+        "branding",
+        "consistency",
+        "marketing",
+        "professional",
+        "small-business"
+      ],
+      "estimatedTime": "30-45 min setup, 2-3 hours/week saved",
+      "useCase": "Maintain professional brand identity across all business communications without hiring a designer",
+      "url": "https://academy.techhorizonlabs.com/skills/brand-guidelines-manager"
+    },
+    {
+      "name": "Brand Voice Writer",
+      "slug": "brand-voice-writer",
+      "description": "Learns how your business sounds from a few real examples, saves that as a reusable voice profile, then writes new posts, emails and web copy that sound like you. Use it whenever you want marketing or customer writing that does not read like generic AI text.",
+      "category": "content",
+      "subcategory": "copywriting",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "brand voice",
+        "tone of voice",
+        "copywriting",
+        "marketing",
+        "social media posts"
+      ],
+      "estimatedTime": "15 minutes",
+      "useCase": "Writing marketing and customer copy that sounds like your business",
+      "url": "https://academy.techhorizonlabs.com/skills/brand-voice-writer"
+    },
+    {
+      "name": "Business Email Template Library (AU)",
+      "slug": "email-template-library",
+      "description": "20+ professional email templates for common AU SME business scenarios: follow-ups, proposals, payment chases, complaints, cancellations, intros, referrals, scope-creep flags, and more. Each template comes with voice variants (formal / warm / direct), AU-specific voice rules, and a channel check for when email is the wrong tool.",
+      "category": "productivity",
+      "subcategory": "communication",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "email-templates",
+        "communication",
+        "follow-up",
+        "proposal",
+        "payment-chase",
+        "customer-service",
+        "referral"
+      ],
+      "estimatedTime": "5 min per email (with a template in hand)",
+      "useCase": null,
+      "url": "https://academy.techhorizonlabs.com/skills/email-template-library"
+    },
+    {
+      "name": "Business Finance Analyst",
+      "slug": "business-finance-analyst",
+      "description": "Reads a spreadsheet or accounting export (profit and loss, sales by customer, cash flow, budget versus actual) and explains in plain English what the numbers show, what looks wrong, and the one thing to do next. Use it when you want to understand your numbers before talking to your accountant or making a decision. Not financial or tax advice.",
+      "category": "business",
+      "subcategory": "reporting",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "analyse profit and loss",
+        "financial analysis",
+        "xero report",
+        "small business finance",
+        "gst",
+        "finance"
+      ],
+      "estimatedTime": "15 minutes",
+      "useCase": "Understanding your numbers before a decision or accountant meeting",
+      "url": "https://academy.techhorizonlabs.com/skills/business-finance-analyst"
+    },
+    {
+      "name": "Cash Flow and Invoice Chase (Australia)",
+      "slug": "au-cash-flow-and-invoice-chase",
+      "description": "Builds a 30, 60 and 90 day cash forecast in AUD that includes BAS, PAYG and Payday Super outflows, then ranks overdue invoices and drafts a polite reminder sequence, escalating to a letter of demand and ASBFEO dispute support only when needed. Use it when cash is tight or customers are paying late.",
+      "category": "business",
+      "subcategory": "cash-flow",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Labs, adapted from Anthropic (Apache 2.0)",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "cash flow forecast",
+        "overdue invoices",
+        "invoice reminders",
+        "late payment",
+        "asbfeo",
+        "finance"
+      ],
+      "estimatedTime": "25 minutes",
+      "useCase": "Forecast cash and chase overdue invoices",
+      "url": "https://academy.techhorizonlabs.com/skills/au-cash-flow-and-invoice-chase"
+    },
+    {
+      "name": "Claude Adaptive Thinking and Effort for SME Workflows",
+      "slug": "claude-4-7-extended-thinking-for-sme",
+      "description": "Decision framework for when to give Claude more thinking, how to set the effort level on current models, and how to read the output. Includes five worked SME examples (pricing, hiring, contracts, compliance scope, marketing) and a cost guardrail.",
+      "category": "productivity",
+      "subcategory": "ai-workflow",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api",
+        "claude-code"
+      ],
+      "tags": [
+        "claude-4-7",
+        "cost-optimisation",
+        "decision-making",
+        "extended-thinking",
+        "reasoning"
+      ],
+      "estimatedTime": "15–20 min per decision",
+      "useCase": "High-stakes SME decisions that benefit from deeper reasoning",
+      "url": "https://academy.techhorizonlabs.com/skills/claude-4-7-extended-thinking-for-sme"
+    },
+    {
+      "name": "Client Intake to Proposal (Professional Services)",
+      "slug": "client-intake-to-proposal-pro-services",
+      "description": "Turn intake form responses, discovery-call notes, or initial emails into a structured client brief + first-draft proposal. For accountants, bookkeepers, lawyers, consultants, agencies, coaches, advisors. Produces: the brief, the proposal draft, clarifying questions to ask before send, and red flags to consider.",
+      "category": "business",
+      "subcategory": "sales",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "discovery",
+        "intake",
+        "professional-services",
+        "proposal",
+        "sales"
+      ],
+      "estimatedTime": "30–45 min per proposal (vs 2–4 hours unaided)",
+      "useCase": "Discovery-to-proposal conversion for professional services SMEs",
+      "url": "https://academy.techhorizonlabs.com/skills/client-intake-to-proposal-pro-services"
+    },
+    {
+      "name": "Code Review Assistant",
+      "slug": "code-review-assistant",
+      "description": "Systematic code review prioritising correctness, security, performance, maintainability, and AU privacy compliance. Produces a prioritised finding list (blocker / major / minor / nit) with file:line references and suggested fixes. Replaces the separate `code-reviewer` skill which is retired.",
+      "category": "coding",
+      "subcategory": "review",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "code-review",
+        "owasp",
+        "pr-review",
+        "privacy",
+        "privacy-app-8",
+        "security",
+        "static-review"
+      ],
+      "estimatedTime": "10–30 min per review",
+      "useCase": null,
+      "url": "https://academy.techhorizonlabs.com/skills/code-review-assistant"
+    },
+    {
+      "name": "Competitor Research (AU)",
+      "slug": "competitor-research",
+      "description": "Disciplined competitor analysis for AU SMEs, including the status quo (doing nothing) as the biggest competitor. Covers 4 competitor categories (direct/indirect/status-quo/adjacent), 8 dimensions to research, where to find information ethically, positioning gap analysis, and 3 to 5 actionable outputs per quarter. Works for launches, repositioning, and routine market monitoring.",
+      "category": "research",
+      "subcategory": "competitive",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "competitor-analysis",
+        "market-research",
+        "positioning",
+        "differentiation",
+        "ibisworld",
+        "productreview"
+      ],
+      "estimatedTime": "4–8 hours first pass; monthly skim thereafter",
+      "useCase": "Strategic positioning and finding competitive advantages",
+      "url": "https://academy.techhorizonlabs.com/skills/competitor-research"
+    },
+    {
+      "name": "Content Repurposer",
+      "slug": "content-repurposer",
+      "description": "Takes one piece of your content (a blog post, video transcript, newsletter or talk) and turns it into several ready-to-edit pieces for social media, email and your Google Business Profile, each with a different angle. Use it when you have written or recorded something and want more use out of it.",
+      "category": "content",
+      "subcategory": "content",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "repurpose content",
+        "content repurposing",
+        "social media posts",
+        "google business profile",
+        "marketing"
+      ],
+      "estimatedTime": "10 minutes",
+      "useCase": "Getting more use out of content you have already made",
+      "url": "https://academy.techhorizonlabs.com/skills/content-repurposer"
+    },
+    {
+      "name": "Contract Risk Review (Australia)",
+      "slug": "au-contract-risk-review",
+      "description": "Reads a contract you have been asked to sign and explains in plain English what you are committing to, which clauses carry risk, and which terms may raise Australian unfair contract terms questions, then gives you targeted questions for a lawyer. Use it before signing a supplier, customer, lease, software or services agreement. Not legal advice.",
+      "category": "compliance",
+      "subcategory": "contracts",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "contract review",
+        "unfair contract terms",
+        "small business contracts",
+        "accc",
+        "legal",
+        "compliance"
+      ],
+      "estimatedTime": "20 minutes",
+      "useCase": "Understanding a contract before signing or negotiating",
+      "url": "https://academy.techhorizonlabs.com/skills/au-contract-risk-review"
+    },
+    {
+      "name": "Customer Persona Builder (JTBD)",
+      "slug": "customer-persona-builder",
+      "description": "Build useful customer personas grounded in Jobs-To-Be-Done framework and real CRM/analytics data. Produces 2 to 4 actionable personas with the triggers, context, constraints, and language that actually drive marketing and product decisions. Avoids the generic 'Sarah is a 35-year-old professional' format nobody uses.",
+      "category": "content",
+      "subcategory": "strategy",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "personas",
+        "icp",
+        "jtbd",
+        "customer-research",
+        "segmentation",
+        "marketing-strategy"
+      ],
+      "estimatedTime": "4–8 hours for 2–3 grounded personas",
+      "useCase": "Better understand and target your ideal Australian customers",
+      "url": "https://academy.techhorizonlabs.com/skills/customer-persona-builder"
+    },
+    {
+      "name": "Customer Retention & Churn Signals",
+      "slug": "customer-retention-churn-signals",
+      "description": "Detect early-warning churn signals in your customer base and design re-engagement before they leave. Scoring model (behaviour + usage + sentiment), tiered cadence (healthy / at-risk / critical), ops rhythm (weekly / monthly / quarterly), and the 5 questions every churned customer should be asked.",
+      "category": "business",
+      "subcategory": "retention",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "pro",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "churn",
+        "nps",
+        "re-engagement",
+        "retention"
+      ],
+      "estimatedTime": "Initial setup 2–4 hours; ongoing 30 min/week",
+      "useCase": "Proactive retention and churn prevention for AU SMEs",
+      "url": "https://academy.techhorizonlabs.com/skills/customer-retention-churn-signals"
+    },
+    {
+      "name": "Cyber Incident: First Hour (Australia)",
+      "slug": "au-cyber-incident-first-hour",
+      "description": "Guides an Australian small business through the first hour of a suspected scam payment, phishing account takeover or ransomware attack, using ASD, Scamwatch and IDCARE contact points. Use when something has just gone wrong and the owner needs calm, ordered steps and the right numbers to call.",
+      "category": "compliance",
+      "subcategory": "incident-response",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "cyber incident what to do",
+        "ransomware",
+        "scam",
+        "reportcyber",
+        "incident response",
+        "security"
+      ],
+      "estimatedTime": "10 minutes",
+      "useCase": "Cyber incident first response",
+      "url": "https://academy.techhorizonlabs.com/skills/au-cyber-incident-first-hour"
+    },
+    {
+      "name": "Daily Priorities Brief",
+      "slug": "daily-priorities-brief",
+      "description": "Gives a business owner or manager a two-minute morning brief from their tasks, calendar and messages: today's meetings with prep notes, the top three priorities, overdue items, a focus block and what can safely wait. Use it at the start of each working day.",
+      "category": "productivity",
+      "subcategory": "productivity",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "daily planning",
+        "morning brief",
+        "priorities",
+        "productivity",
+        "task list",
+        "operations"
+      ],
+      "estimatedTime": "5 minutes",
+      "useCase": "Starting the working day with clear priorities",
+      "url": "https://academy.techhorizonlabs.com/skills/daily-priorities-brief"
+    },
+    {
+      "name": "Design a Postgres Brain for Claude",
+      "slug": "design-postgres-brain-for-claude",
+      "description": "Build a persistent knowledge base (a 'Postgres brain') that gives Claude permanent memory of your business context. Based on @angus.sewell's viral prompt: schema design, loading order, one sync per data source.",
+      "category": "productivity",
+      "subcategory": "knowledge-management",
+      "skillType": "hybrid",
+      "difficulty": "advanced",
+      "source": "community",
+      "author": "Angus Sewell / Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": false,
+      "compatibleTools": [
+        "claude-code",
+        "claude-cowork"
+      ],
+      "tags": [
+        "claude",
+        "postgres",
+        "knowledge-base",
+        "memory",
+        "mcp",
+        "advanced",
+        "database"
+      ],
+      "estimatedTime": "1–2 hours initial setup",
+      "useCase": "Build persistent AI memory for your business so Claude never loses context",
+      "url": "https://academy.techhorizonlabs.com/skills/design-postgres-brain-for-claude"
+    },
+    {
+      "name": "Document Summary",
+      "slug": "document-summary",
+      "description": "Reads a long document (proposal, report, tender, lease, policy, meeting pack or contract) and gives you a three-sentence summary, the commitments, the numbers and dates that matter, who has to do what, and anything that needs a closer look. Use it when you need to understand a document fast without missing the important parts. Not legal or financial advice.",
+      "category": "productivity",
+      "subcategory": "documents",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "summarise document",
+        "document summary",
+        "tender summary",
+        "lease summary",
+        "action items",
+        "operations"
+      ],
+      "estimatedTime": "5 minutes",
+      "useCase": "Understanding a long document quickly",
+      "url": "https://academy.techhorizonlabs.com/skills/document-summary"
+    },
+    {
+      "name": "Email Campaign Writer (AU)",
+      "slug": "email-campaign-writer",
+      "description": "Write email campaigns for AU SME audiences: newsletters, product updates, sales campaigns, event invites, re-engagement. Respects Spam Act 2003 consent rules, follows the one-CTA-per-email principle, covers subject-line + pre-header discipline, and protects sender reputation via list hygiene guidance. Output is ready to paste into Mailchimp / ActiveCampaign / Brevo / HubSpot / Klaviyo / Beehiiv.",
+      "category": "content",
+      "subcategory": "email",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "email",
+        "newsletter",
+        "campaign",
+        "spam-act",
+        "acma",
+        "mailchimp",
+        "activecampaign",
+        "beehiiv"
+      ],
+      "estimatedTime": "30–60 min per campaign",
+      "useCase": "Engaging email marketing that sounds professionally Australian",
+      "url": "https://academy.techhorizonlabs.com/skills/email-campaign-writer"
+    },
+    {
+      "name": "Essential Eight Check (Australia)",
+      "slug": "au-essential-eight-check",
+      "description": "Walks a 5 to 50 person Australian business through the ASD Essential Eight in plain language and produces a Maturity Level One gap list with a fix order. Use when an owner, office manager or IT provider wants to know where a Microsoft 365 or Google Workspace business stands against the Essential Eight.",
+      "category": "compliance",
+      "subcategory": "cyber-security",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "essential eight check",
+        "essential eight",
+        "cyber security",
+        "asd",
+        "maturity level one",
+        "small business",
+        "security"
+      ],
+      "estimatedTime": "30 minutes",
+      "useCase": "Cyber security self-assessment",
+      "url": "https://academy.techhorizonlabs.com/skills/au-essential-eight-check"
+    },
+    {
+      "name": "Fair Hiring Screener (Australia)",
+      "slug": "au-hiring-screener",
+      "description": "Ranks job applicants for an Australian small business against a written rubric only, with quoted evidence, anti-discrimination guardrails and privacy handling, then drafts invite, hold and decline replies for the owner to approve. Use it when applications have arrived and you need a fair shortlist.",
+      "category": "business",
+      "subcategory": "hiring",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Labs, adapted from Anthropic (Apache 2.0)",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "screen applicants",
+        "shortlist",
+        "hiring",
+        "anti-discrimination",
+        "privacy",
+        "people"
+      ],
+      "estimatedTime": "30 minutes",
+      "useCase": "Shortlist job applicants fairly and reply to everyone",
+      "url": "https://academy.techhorizonlabs.com/skills/au-hiring-screener"
+    },
+    {
+      "name": "Fair Work Compliance Audit",
+      "slug": "fair-work-compliance",
+      "description": "Run an 8-domain Fair Work Act compliance audit for AU SME employers: award classification, minimum wage, penalty rates, leave accruals, super, pay slips, record-keeping, and contractor classification. Produces a red/amber/green findings report with back-pay calculations where applicable and a remediation plan. Covers 2026 rules including the 12% SG rate and wage-theft criminal offences.",
+      "category": "compliance",
+      "subcategory": "employment",
+      "skillType": "instructional",
+      "difficulty": "advanced",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "pro",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "audit",
+        "awards",
+        "compliance",
+        "fair-work",
+        "penalty-rates",
+        "super",
+        "underpayment",
+        "wage-theft"
+      ],
+      "estimatedTime": "4–8 hours end-to-end",
+      "useCase": "Risk reduction in employment practices for Australian businesses",
+      "url": "https://academy.techhorizonlabs.com/skills/fair-work-compliance"
+    },
+    {
+      "name": "Getting Started with ChatGPT Custom GPTs",
+      "slug": "getting-started-with-chatgpt-custom-gpts",
+      "description": "A 30-minute primer on ChatGPT Custom GPTs and Projects for AU SME operators. How to create one, how to share across your team, and the honest comparison with Claude Skills (when each shines, how to migrate between them). Starting point for operators choosing between or running both tools.",
+      "category": "productivity",
+      "subcategory": "getting-started",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "chatgpt",
+        "claude-web"
+      ],
+      "tags": [
+        "chatgpt",
+        "custom-gpts",
+        "getting-started",
+        "onboarding",
+        "openai",
+        "primer"
+      ],
+      "estimatedTime": "30 minutes to read; 30–45 minutes to build your first GPT",
+      "useCase": "First-time orientation to Custom GPTs + Claude Skills comparison",
+      "url": "https://academy.techhorizonlabs.com/skills/getting-started-with-chatgpt-custom-gpts"
+    },
+    {
+      "name": "Getting Started with Claude Skills",
+      "slug": "getting-started-with-claude-skills",
+      "description": "A 30-minute primer on Claude Skills for AU SME operators. What they are, why they matter, how to install from GitHub repos, how to write your first skill, and how to share across your team. Cross-references the anthropics/skills repo and community catalogs. Starting point for anyone evaluating whether skills are worth the time.",
+      "category": "productivity",
+      "subcategory": "getting-started",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "claude",
+        "getting-started",
+        "onboarding",
+        "primer",
+        "skills"
+      ],
+      "estimatedTime": "30 minutes to read; 30 minutes to install and try your first skill",
+      "useCase": "First-time orientation to Claude Skills as a capability",
+      "url": "https://academy.techhorizonlabs.com/skills/getting-started-with-claude-skills"
+    },
+    {
+      "name": "Grants and Tenders (Australia)",
+      "slug": "au-grants-and-tenders",
+      "description": "Finds and qualifies Australian grants and government tenders using the business.gov.au grants finder, GrantConnect, AusTender and state and territory tender portals, runs a hard go or no-go, builds a compliance matrix and drafts the response from your real evidence. Use it when a grant or tender is in play.",
+      "category": "business",
+      "subcategory": "grants-and-tenders",
+      "skillType": "instructional",
+      "difficulty": "advanced",
+      "source": "community",
+      "author": "Tech Horizon Labs, adapted from Anthropic (Apache 2.0)",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "grants",
+        "government tenders",
+        "austender",
+        "grant application",
+        "grantconnect",
+        "finance"
+      ],
+      "estimatedTime": "45 minutes",
+      "useCase": "Find, qualify and draft grant and tender responses",
+      "url": "https://academy.techhorizonlabs.com/skills/au-grants-and-tenders"
+    },
+    {
+      "name": "Hospitality Rostering + Demand Forecasting (AU)",
+      "slug": "hospitality-rostering-demand-forecast",
+      "description": "Weekly roster planning for cafes, restaurants, pubs, hotels, catering, and event venues based on demand forecasting (booking data + weather + local events + historical patterns). Respects Fair Work Award minimum shifts, break entitlements, and penalty rates. Produces a roster proposal with labour-cost % calculated.",
+      "category": "business",
+      "subcategory": "hospitality",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "pro",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "demand-forecast",
+        "fair-work",
+        "hospitality",
+        "labour-cost",
+        "penalty-rates",
+        "rostering"
+      ],
+      "estimatedTime": "60–90 min per week",
+      "useCase": "Weekly roster proposal with demand forecast and Fair Work compliance check",
+      "url": "https://academy.techhorizonlabs.com/skills/hospitality-rostering-demand-forecast"
+    },
+    {
+      "name": "Human Prompt Craft",
+      "slug": "human-prompt-craft",
+      "description": "Write prompts that produce genuinely human-sounding content. Combines Chain-of-Verification (draft, verify, refine), taste-transfer philosophy, and anti-pattern detection. Use for social posts, marketing copy, newsletters, or any content that needs to sound like a real person.",
+      "category": "content",
+      "subcategory": "writing",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": false,
+      "compatibleTools": [
+        "claude-code",
+        "claude-api",
+        "claude-web",
+        "cursor"
+      ],
+      "tags": [
+        "anti-ai-detection",
+        "chain-of-verification",
+        "content-writing",
+        "prompt-engineering",
+        "voice-capture"
+      ],
+      "estimatedTime": null,
+      "useCase": "Content creation, social media posts, newsletters, marketing copy that sounds human",
+      "url": "https://academy.techhorizonlabs.com/skills/human-prompt-craft"
+    },
+    {
+      "name": "Job Ad, Interview Guide and Offer Checklist (Australia)",
+      "slug": "au-job-ad-and-interview",
+      "description": "Builds an Australian hiring pack: a job ad that meets Fair Work rules, a structured interview guide with a scoring rubric, a resume screening rubric and an offer checklist covering the award, NES and the information statements. Use it when you are about to advertise a role.",
+      "category": "business",
+      "subcategory": "hiring",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Labs, adapted from Anthropic (Apache 2.0)",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "job ad",
+        "hiring",
+        "interview questions",
+        "fair work",
+        "offer checklist",
+        "people"
+      ],
+      "estimatedTime": "25 minutes",
+      "useCase": "Advertise a role and prepare interviews and the offer",
+      "url": "https://academy.techhorizonlabs.com/skills/au-job-ad-and-interview"
+    },
+    {
+      "name": "LinkedIn Content Creator (AU SME)",
+      "slug": "linkedin-content-creator",
+      "description": "Write LinkedIn posts, articles, and profile content for AU SME founders and operators, calibrated for what actually pulls reach in 2026 (native text, specific stories, concrete numbers, pointed opinions). Covers the 4 post formats that work, the anti-patterns that tank reach, weekly cadence, comment strategy, and profile upgrades that drive lead flow.",
+      "category": "content",
+      "subcategory": "social",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "linkedin",
+        "content",
+        "social-media",
+        "thought-leadership",
+        "profile-optimisation",
+        "posting-cadence"
+      ],
+      "estimatedTime": "30–45 min per post; 90 min for profile overhaul",
+      "useCase": null,
+      "url": "https://academy.techhorizonlabs.com/skills/linkedin-content-creator"
+    },
+    {
+      "name": "Local SEO for AU Small Business",
+      "slug": "au-local-seo-small-business",
+      "description": "Optimise local search presence for an Australian SME with a physical location or defined service area. Covers Google Business Profile, review generation (ACCC-compliant), local schema markup, NAP consistency across AU directories, local content strategy, and citations. Complements the general `seo-audit` skill with AU-specific directory and local-pack focus.",
+      "category": "business",
+      "subcategory": "local-seo",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "gbp",
+        "google-business-profile",
+        "local-pack",
+        "local-seo",
+        "maps",
+        "reviews",
+        "schema",
+        "seo"
+      ],
+      "estimatedTime": "Initial setup 4–8 hours; ongoing 2 hrs/month",
+      "useCase": "Rank in Google Maps and local organic for suburb-qualified queries",
+      "url": "https://academy.techhorizonlabs.com/skills/au-local-seo-small-business"
+    },
+    {
+      "name": "Marketing Campaign Planner",
+      "slug": "marketing-campaign-planner",
+      "description": "Plans a small multichannel marketing campaign from one offer: the core message, copy for each channel, a two-week schedule and a budget in AUD, with Australian consent and advertising checks built in. Use it when you have an offer, event or product to promote.",
+      "category": "content",
+      "subcategory": "campaigns",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "marketing campaign plan",
+        "campaign planner",
+        "email marketing",
+        "social media",
+        "small business marketing",
+        "marketing"
+      ],
+      "estimatedTime": "20 minutes",
+      "useCase": "Planning a promotion, launch or event campaign",
+      "url": "https://academy.techhorizonlabs.com/skills/marketing-campaign-planner"
+    },
+    {
+      "name": "Meeting Agenda Builder",
+      "slug": "meeting-agenda-builder",
+      "description": "Build structured agendas for 6 meeting archetypes AU SMEs actually run: stand-ups, decision meetings, brainstorms, quarterly reviews, 1-on-1s, client catch-ups. Each archetype has its own structure, pre-work, timing discipline, and exit criteria. Enforces the 'would this be better as an async message?' filter.",
+      "category": "productivity",
+      "subcategory": "meetings",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "meetings",
+        "agenda",
+        "facilitation",
+        "stand-up",
+        "1-on-1",
+        "quarterly-review"
+      ],
+      "estimatedTime": "10–20 min to build a good agenda",
+      "useCase": null,
+      "url": "https://academy.techhorizonlabs.com/skills/meeting-agenda-builder"
+    },
+    {
+      "name": "Meeting Notes to Action Items",
+      "slug": "meeting-notes-to-action-items",
+      "description": "Turn raw meeting notes (transcripts, Otter/Gemini/Fireflies output, or scrappy hand-written notes) into a clean action-item list + brief recap. Separates the three things every meeting produces: decisions / action items / open questions, so nothing gets lost between 'we discussed it' and 'it actually happened'. Produces a shared recap + internal flag list.",
+      "category": "productivity",
+      "subcategory": "meetings",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "official",
+      "author": "Anthropic",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api",
+        "claude-code"
+      ],
+      "tags": [
+        "meetings",
+        "action-items",
+        "transcripts",
+        "otter",
+        "fireflies",
+        "gemini",
+        "follow-up"
+      ],
+      "estimatedTime": "10–15 min per meeting",
+      "useCase": null,
+      "url": "https://academy.techhorizonlabs.com/skills/meeting-notes-to-action-items"
+    },
+    {
+      "name": "Month-End Close (Australia)",
+      "slug": "au-month-end-close",
+      "description": "Walks a GST-registered Australian business through a month-end close in Xero, MYOB, QuickBooks or from exports: bank and payment processor reconciliation, GST coding, duplicates, missing tax invoices, payroll and super cross-checks, a plain-English P&L summary and a BAS readiness check. Use it at the end of every month.",
+      "category": "business",
+      "subcategory": "bookkeeping",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Labs, adapted from Anthropic (Apache 2.0)",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "month end close",
+        "bank reconciliation",
+        "bookkeeping",
+        "gst coding",
+        "bas ready",
+        "finance"
+      ],
+      "estimatedTime": "45 minutes",
+      "useCase": "Close the books each month and get BAS ready",
+      "url": "https://academy.techhorizonlabs.com/skills/au-month-end-close"
+    },
+    {
+      "name": "NDIS Progress Notes & Documentation Assistant",
+      "slug": "ndis-progress-notes-assistant",
+      "description": "Generate audit-ready NDIS progress notes, service agreements, and participant records that meet the 2026 NDIS Practice Standards. Enforces the shift from 'service happened' to 'quality demonstrated' that 2026 audits expect, produces notes within the 24-hour window, and captures the choice-and-control evidence auditors look for.",
+      "category": "compliance",
+      "subcategory": "ndis",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "pro",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api",
+        "claude-code"
+      ],
+      "tags": [
+        "allied-health",
+        "audit",
+        "compliance",
+        "ndis",
+        "progress-notes",
+        "sda",
+        "service-agreement",
+        "sil"
+      ],
+      "estimatedTime": "5–10 min per note; 30 min for service agreement; 60–90 min for pre-audit sweep",
+      "useCase": "Audit-ready NDIS documentation at weekly cadence",
+      "url": "https://academy.techhorizonlabs.com/skills/ndis-progress-notes-assistant"
+    },
+    {
+      "name": "Payroll and Super Check (Australia)",
+      "slug": "au-payroll-super-check",
+      "description": "Runs a pre-pay-run check for an Australian employer: timesheets, anomalies, award items to look up, cash to cover the run, Single Touch Payroll reminders and Payday Super deadlines, then stages a run sheet for the owner to approve. Use it before every pay run.",
+      "category": "business",
+      "subcategory": "payroll",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Labs, adapted from Anthropic (Apache 2.0)",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "payroll check",
+        "payday super",
+        "single touch payroll",
+        "superannuation",
+        "pay run",
+        "people"
+      ],
+      "estimatedTime": "20 minutes",
+      "useCase": "Check a pay run and super deadlines before paying staff",
+      "url": "https://academy.techhorizonlabs.com/skills/au-payroll-super-check"
+    },
+    {
+      "name": "Presentation Designer",
+      "slug": "presentation-designer",
+      "description": "Structure business presentations for 6 archetypes: investor pitch, sales pitch, board update, client workshop, keynote talk, internal team presentation. Covers slide design principles (one idea per slide, minimum text, supporting visual, title tells the story), pre-presentation work, speaker notes, and tool recommendations (Google Slides / Keynote / PowerPoint / Pitch / Gamma).",
+      "category": "content",
+      "subcategory": "presentations",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "presentations",
+        "pitch-deck",
+        "sales-pitch",
+        "keynote",
+        "board-update",
+        "narrative-structure"
+      ],
+      "estimatedTime": "4–12 hours per deck depending on archetype",
+      "useCase": null,
+      "url": "https://academy.techhorizonlabs.com/skills/presentation-designer"
+    },
+    {
+      "name": "Pricing & Packaging (Professional Services)",
+      "slug": "pricing-packaging-professional-services",
+      "description": "Move accountants, bookkeepers, lawyers, consultants, agencies, and coaches from hourly billing to value-based packaging. Three-tier (Good / Better / Best) structure, price anchoring, productisation, transitioning existing hourly clients, and the awkward conversations you'll need to have.",
+      "category": "business",
+      "subcategory": "pricing",
+      "skillType": "workflow",
+      "difficulty": "advanced",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "pro",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "accountants",
+        "consultants",
+        "packaging",
+        "pricing",
+        "professional-services",
+        "value-pricing"
+      ],
+      "estimatedTime": "2–4 weeks end-to-end (with stakeholder buy-in)",
+      "useCase": "Fee-structure redesign for professional services SMEs",
+      "url": "https://academy.techhorizonlabs.com/skills/pricing-packaging-professional-services"
+    },
+    {
+      "name": "Privacy Check for AI Use (Australia)",
+      "slug": "au-privacy-ai-check",
+      "description": "Checks a planned AI use, such as putting customer data into ChatGPT or Claude, an AI meeting note-taker or a website chatbot, against the Australian Privacy Principles and OAIC guidance on commercially available AI products. Use before staff put personal information into any AI tool.",
+      "category": "compliance",
+      "subcategory": "privacy",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "privacy ai check",
+        "australian privacy principles",
+        "oaic",
+        "chatgpt customer data",
+        "ai note-taker",
+        "compliance"
+      ],
+      "estimatedTime": "20 minutes",
+      "useCase": "Privacy review of AI tools",
+      "url": "https://academy.techhorizonlabs.com/skills/au-privacy-ai-check"
+    },
+    {
+      "name": "Process Documentation Writer (SOPs)",
+      "slug": "process-documentation-writer",
+      "description": "Document business processes + SOPs at the right level of detail: overview (the map), SOP (the procedure), or checklist (execution). Covers the 10 fields every SOP needs, a pilot-test approach to validate the doc works, and maintenance cadence so docs don't rot. Includes a ready-to-paste SOP template.",
+      "category": "productivity",
+      "subcategory": "documentation",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "sop",
+        "documentation",
+        "process",
+        "handover",
+        "onboarding",
+        "training"
+      ],
+      "estimatedTime": "30–90 min per SOP",
+      "useCase": null,
+      "url": "https://academy.techhorizonlabs.com/skills/process-documentation-writer"
+    },
+    {
+      "name": "Prompt Engineering with CoVe",
+      "slug": "prompt-engineering-cove",
+      "description": "Production-grade prompt engineering with Chain-of-Verification (CoVe) for factual accuracy. Combines structured outputs, few-shot learning, chain-of-thought, and verification loops to maximize LLM reliability.",
+      "category": "coding",
+      "subcategory": "prompt-engineering",
+      "skillType": "hybrid",
+      "difficulty": "advanced",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": false,
+      "compatibleTools": [
+        "claude-code",
+        "claude-api",
+        "cursor"
+      ],
+      "tags": [
+        "chain-of-verification",
+        "hallucination-reduction",
+        "production-llm",
+        "prompt-engineering",
+        "structured-output"
+      ],
+      "estimatedTime": null,
+      "useCase": "Building reliable LLM applications, reducing hallucinations, implementing self-correcting prompt chains",
+      "url": "https://academy.techhorizonlabs.com/skills/prompt-engineering-cove"
+    },
+    {
+      "name": "Reviews and Reputation (Australia)",
+      "slug": "au-review-reputation",
+      "description": "Gathers an Australian business's reviews from Google Business Profile, ProductReview.com.au, Facebook and other sites, groups them into themes with verbatim quotes, and drafts a reply to each one for the owner to approve, while keeping review requests inside ACCC rules on fake and incentivised reviews. Use it when you want to check or respond to reviews.",
+      "category": "content",
+      "subcategory": "reputation",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Labs, adapted from Anthropic (Apache 2.0)",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "google reviews",
+        "review replies",
+        "online reputation",
+        "accc",
+        "productreview",
+        "marketing"
+      ],
+      "estimatedTime": "20 minutes",
+      "useCase": "Reply to reviews and ask for new ones within ACCC rules",
+      "url": "https://academy.techhorizonlabs.com/skills/au-review-reputation"
+    },
+    {
+      "name": "Sales Call Prep",
+      "slug": "sales-call-prep",
+      "description": "Builds a one-page brief before a sales or discovery call, from whatever you paste in or your CRM, so you walk in knowing the business, the person's likely priorities and the questions to ask. Use it before any booked call with a prospect.",
+      "category": "business",
+      "subcategory": "call-preparation",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "sales call prep",
+        "discovery call",
+        "sales",
+        "prospect research",
+        "call brief"
+      ],
+      "estimatedTime": "10 minutes",
+      "useCase": "Preparing for a booked sales or discovery call",
+      "url": "https://academy.techhorizonlabs.com/skills/sales-call-prep"
+    },
+    {
+      "name": "Sales Follow-up Email (Spam Act check)",
+      "slug": "au-sales-follow-up-email",
+      "description": "Turns rough call notes into a short follow-up email with clear next steps, and checks it against the Australian Spam Act rules on consent, sender identification and unsubscribing. Use it straight after a sales or client call.",
+      "category": "business",
+      "subcategory": "follow-up",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "follow up email",
+        "spam act",
+        "sales email",
+        "acma",
+        "call notes",
+        "sales"
+      ],
+      "estimatedTime": "5 minutes",
+      "useCase": "Writing a compliant follow-up email after a sales call",
+      "url": "https://academy.techhorizonlabs.com/skills/au-sales-follow-up-email"
+    },
+    {
+      "name": "Sales Objection Prep",
+      "slug": "sales-objection-prep",
+      "description": "Reads a deal's history (pasted notes, an email thread or a CRM record) and prepares you for the objections you are most likely to hear next, with honest responses and one recommended next move. Use it before a follow-up, negotiation or renewal call.",
+      "category": "business",
+      "subcategory": "deal-coaching",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "objection handling",
+        "sales objections",
+        "deal coaching",
+        "sales",
+        "negotiation"
+      ],
+      "estimatedTime": "10 minutes",
+      "useCase": "Handling objections before a follow-up, negotiation or renewal call",
+      "url": "https://academy.techhorizonlabs.com/skills/sales-objection-prep"
+    },
+    {
+      "name": "Sales Pipeline Review",
+      "slug": "sales-pipeline-review",
+      "description": "Scans your open deals or quotes from a CRM export, spreadsheet or pasted list, sorts them into stalled, at risk, on track and upsell-ready, and tells you exactly which ones to act on today and what to do. Use it as a weekly or daily pipeline check to find revenue that is slipping away.",
+      "category": "business",
+      "subcategory": "pipeline",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "sales pipeline review",
+        "stalled deals",
+        "open quotes",
+        "crm",
+        "revenue",
+        "sales"
+      ],
+      "estimatedTime": "10 minutes",
+      "useCase": "Weekly or daily check for revenue slipping out of the pipeline",
+      "url": "https://academy.techhorizonlabs.com/skills/sales-pipeline-review"
+    },
+    {
+      "name": "Scam and Invoice Fraud Check (Australia)",
+      "slug": "au-scam-and-invoice-fraud-check",
+      "description": "Checks an email, invoice or request to change bank details for signs of business email compromise and payment redirection scams, then walks the user through a call-back verification before any money moves. Use whenever a supplier, customer or staff member asks for a payment to new bank details.",
+      "category": "compliance",
+      "subcategory": "fraud-prevention",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": true,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "invoice scam check",
+        "business email compromise",
+        "payment redirection",
+        "bank details change",
+        "scamwatch",
+        "security"
+      ],
+      "estimatedTime": "10 minutes",
+      "useCase": "Payment fraud prevention",
+      "url": "https://academy.techhorizonlabs.com/skills/au-scam-and-invoice-fraud-check"
+    },
+    {
+      "name": "SEO Audit",
+      "slug": "seo-audit",
+      "description": "End-to-end technical, on-page and content SEO audit framework. Diagnoses crawlability, indexation, Core Web Vitals, title/description/heading discipline, structured-data gaps, and E-E-A-T. Distinguishes what tools can and cannot detect (especially JS-injected schema).",
+      "category": "business",
+      "subcategory": "seo",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Corey Haines (adapted)",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "audit",
+        "core-web-vitals",
+        "e-e-a-t",
+        "on-page",
+        "seo",
+        "technical-seo"
+      ],
+      "estimatedTime": "60–180 min",
+      "useCase": "Diagnose and prioritise SEO issues on a website",
+      "url": "https://academy.techhorizonlabs.com/skills/seo-audit"
+    },
+    {
+      "name": "SEO Content Optimizer",
+      "slug": "seo-content-optimizer",
+      "description": "Page-level SEO optimisation for individual pages and articles: on-page SEO, search intent matching, semantic keyword coverage, E-E-A-T, internal linking, and structured data. Complements the broader `seo-audit` skill with a per-page checklist and before/after recommendations for title, meta, H1, opening paragraph, content structure.",
+      "category": "content",
+      "subcategory": "seo",
+      "skillType": "instructional",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "seo",
+        "on-page-seo",
+        "content",
+        "e-e-a-t",
+        "structured-data",
+        "intent-matching"
+      ],
+      "estimatedTime": "30–60 min per page",
+      "useCase": "Better Google rankings for Australian local searches",
+      "url": "https://academy.techhorizonlabs.com/skills/seo-content-optimizer"
+    },
+    {
+      "name": "Set Up Claude Properly (9 Golden Rules)",
+      "slug": "setup-claude-9-golden-rules",
+      "description": "The 9 essential setup steps every Claude user should complete before their first real task. Covers desktop app, model selection, folder structure, About Me file, anti-AI style file, Global Instructions, and the AskUserQuestion pattern.",
+      "category": "productivity",
+      "subcategory": "claude-setup",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Ruben Hassid / Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-cowork"
+      ],
+      "tags": [
+        "claude",
+        "setup",
+        "productivity",
+        "cowork",
+        "beginner",
+        "golden-rules"
+      ],
+      "estimatedTime": "30 min one-time setup",
+      "useCase": "One-time setup that permanently improves every Claude interaction",
+      "url": "https://academy.techhorizonlabs.com/skills/setup-claude-9-golden-rules"
+    },
+    {
+      "name": "Social Media Content Calendar (AU)",
+      "slug": "social-media-calendar",
+      "description": "Build a 4-week social media calendar for an AU SME across LinkedIn, Facebook, Instagram, and optionally TikTok / X / YouTube Shorts. Uses the 5-category mix (40% educational / 20% BTS / 15% social proof / 15% POV / 10% promotional), respects AU seasonal anchors (EOFY, school hols, long weekends, grand finals), and produces 36 post concepts as CSV + asset brief.",
+      "category": "content",
+      "subcategory": "social",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "social-media",
+        "content-calendar",
+        "linkedin",
+        "instagram",
+        "facebook",
+        "tiktok",
+        "content-strategy",
+        "eofy"
+      ],
+      "estimatedTime": "3–5 hours per 4-week plan",
+      "useCase": "Consistent social media presence without daily planning stress",
+      "url": "https://academy.techhorizonlabs.com/skills/social-media-calendar"
+    },
+    {
+      "name": "Spreadsheet Analyst (AU SME)",
+      "slug": "spreadsheet-analyst",
+      "description": "Turn raw spreadsheet data (Xero / MYOB / QuickBooks / Google Sheets / Excel exports) into business insights for an AU SME. Covers P&L margin analysis, aged debtor review, 6-week cashflow forecast, product/service line profitability, and ratio analysis: the five workflows that cover 80% of AU SME analysis needs.",
+      "category": "business",
+      "subcategory": "analysis",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api",
+        "claude-code"
+      ],
+      "tags": [
+        "analysis",
+        "cashflow",
+        "debtor-days",
+        "excel",
+        "margin",
+        "myob",
+        "p&l",
+        "spreadsheet",
+        "xero"
+      ],
+      "estimatedTime": "30–60 min per workflow run",
+      "useCase": "Data-driven decisions without expensive analytics tools",
+      "url": "https://academy.techhorizonlabs.com/skills/spreadsheet-analyst"
+    },
+    {
+      "name": "Spreadsheet Data Cleaner",
+      "slug": "spreadsheet-data-cleaner",
+      "description": "Cleans a messy spreadsheet or CSV (customer lists, sales exports, stock sheets, job logs) by fixing formats, removing exact duplicates and flagging problems without deleting data, then explains what the data shows. Use it when a file is too messy to use or before importing it into another system.",
+      "category": "productivity",
+      "subcategory": "data",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "custom",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "clean spreadsheet",
+        "data cleaning",
+        "csv",
+        "duplicates",
+        "customer list",
+        "operations"
+      ],
+      "estimatedTime": "15 minutes",
+      "useCase": "Tidying a file before import or analysis",
+      "url": "https://academy.techhorizonlabs.com/skills/spreadsheet-data-cleaner"
+    },
+    {
+      "name": "Stop Hitting Your Claude Limit",
+      "slug": "stop-hitting-claude-limit",
+      "description": "12 practical tips to save your Claude tokens and avoid hitting usage limits. Covers before, during, and after your chat sessions, from model selection to session management.",
+      "category": "productivity",
+      "subcategory": "claude-optimization",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Ruben Hassid / Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "free",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-cowork"
+      ],
+      "tags": [
+        "claude",
+        "token-saving",
+        "productivity",
+        "cost-optimization",
+        "beginner"
+      ],
+      "estimatedTime": "5 min read",
+      "useCase": "Reduce Claude usage costs and avoid hitting monthly token limits",
+      "url": "https://academy.techhorizonlabs.com/skills/stop-hitting-claude-limit"
+    },
+    {
+      "name": "THL ChatGPT → Claude Migration",
+      "slug": "thl-chatgpt-to-claude-migration",
+      "description": "Move a client from ChatGPT Plus/Business/Enterprise to Claude (Pro/Team/Max/Enterprise). Includes the memory-extraction prompt, ChatGPT→Claude concept mapping, honest gain/loss conversation (DALL-E, voice, GPT store), billing-overlap avoidance, and first-week adoption playbook.",
+      "category": "productivity",
+      "subcategory": "migration",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-desktop",
+        "claude-code"
+      ],
+      "tags": [
+        "adoption",
+        "chatgpt",
+        "claude",
+        "migration",
+        "thl"
+      ],
+      "estimatedTime": "7-day first-week playbook + ongoing support",
+      "useCase": "Full migration from ChatGPT to Claude with adoption support",
+      "url": "https://academy.techhorizonlabs.com/skills/thl-chatgpt-to-claude-migration"
+    },
+    {
+      "name": "THL React SPA SEO Remediation",
+      "slug": "thl-react-spa-seo-remediation",
+      "description": "Diagnose and fix the '33 pages canonicalising to homepage' failure mode on React + Vite SPAs hosted on Replit (the exact issue currently affecting techhorizonlabs.com and academy.techhorizonlabs.com). Covers pre-render / SSR / SSG trade-offs, Option-A implementation path, build-time meta + JSON-LD injection, sitemap regeneration, and Googlebot UA validation.",
+      "category": "coding",
+      "subcategory": "seo-engineering",
+      "skillType": "workflow",
+      "difficulty": "advanced",
+      "source": "official",
+      "author": "Tech Horizon Labs",
+      "auSpecific": false,
+      "tierRequired": "pro",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-code",
+        "claude-api"
+      ],
+      "tags": [
+        "geo",
+        "pre-render",
+        "react",
+        "replit",
+        "seo",
+        "spa",
+        "thl",
+        "vite"
+      ],
+      "estimatedTime": "1–3 days for THA-scale sites",
+      "useCase": "Fix SPA indexability for organic-traffic-dependent sites",
+      "url": "https://academy.techhorizonlabs.com/skills/thl-react-spa-seo-remediation"
+    },
+    {
+      "name": "Trades Quote-to-Invoice Workflow (AU)",
+      "slug": "trades-quote-to-invoice",
+      "description": "Run the quote-to-paid-invoice workflow for an Australian trades business. Site visit → itemised quote (with GST + retention + progress-claim treatment) → signed acceptance → invoice → unpaid-invoice chase. Integrates with ServiceM8, AroFlo, Tradify, simPRO, or Xero. Flags common margin leaks.",
+      "category": "business",
+      "subcategory": "trades-ops",
+      "skillType": "workflow",
+      "difficulty": "intermediate",
+      "source": "official",
+      "author": "Tech Horizon Academy",
+      "auSpecific": true,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "aroflo",
+        "gst",
+        "invoicing",
+        "quotes",
+        "retention",
+        "servicem8",
+        "simpro",
+        "trades",
+        "tradify"
+      ],
+      "estimatedTime": "Variable by stage (15 min quote → 5 min invoice → 2 min chase email)",
+      "useCase": "End-to-end quote-to-cash for trades SMEs",
+      "url": "https://academy.techhorizonlabs.com/skills/trades-quote-to-invoice"
+    },
+    {
+      "name": "Video Script Writer",
+      "slug": "video-script-writer",
+      "description": "Scripts for short and long-form business videos: social reels, YouTube explainers, sales videos, explainer animations, webinar openings. 5 script formats + hook mechanics that decide whether anyone watches past 3 seconds. Covers talking-head vs voiceover, pacing for spoken delivery, and caption-first design for mobile muted viewing. Does not handle filming or editing.",
+      "category": "content",
+      "subcategory": "video",
+      "skillType": "instructional",
+      "difficulty": "beginner",
+      "source": "community",
+      "author": "Tech Horizon Academy",
+      "auSpecific": false,
+      "tierRequired": "base",
+      "isFeatured": true,
+      "compatibleTools": [
+        "claude-web",
+        "claude-api"
+      ],
+      "tags": [
+        "video",
+        "script",
+        "youtube",
+        "reels",
+        "tiktok",
+        "linkedin-video",
+        "hook-writing",
+        "talking-head"
+      ],
+      "estimatedTime": "30–90 min per script",
+      "useCase": "Professional video content without expensive scriptwriters",
+      "url": "https://academy.techhorizonlabs.com/skills/video-script-writer"
+    }
+  ]
+}

@@ -175,7 +175,7 @@ Tech Horizon Academy | Skills and learning
 https://academy.techhorizonlabs.com/
 A free academy of Claude skills, prompts and AI tools for Australian small businesses. Tech Horizon Labs project.
 For: Australian operators and the agents they run.
-Access: Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. 67 skills counted on 27 Oct 2026.
+Access: Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. 67 skills indexed in indexes/thl-academy-skills.json on 27 Oct 2026. That index is names and notes, not the full skill body.
 Source checked: 2026-10-27
 
 Claude Academy | Skills and learning

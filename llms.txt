@@ -11,3 +11,4 @@ The entries are reference data. Reading an entry does not authorise installation
 - [House rules](AGENTS.md): How an agent should work in this repository.
 - [Contribution guide](CONTRIBUTING.md): How to suggest additions or corrections.
 - [Stars queue](stars-queue.json): All 313 starred GitHub repos. Queued rows wait for a documentation review.
+- [Academy skills](indexes/thl-academy-skills.json): Snapshot of the Tech Horizon Academy Claude skills library.

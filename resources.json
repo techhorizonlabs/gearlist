@@ -282,7 +282,7 @@
       "url": "https://academy.techhorizonlabs.com/",
       "description": "A free academy of Claude skills, prompts and AI tools for Australian small businesses.",
       "for_whom": "Australian operators and the agents they run.",
-      "access_notes": "Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. 67 skills counted on 27 Oct 2026.",
+      "access_notes": "Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. 67 skills indexed in indexes/thl-academy-skills.json on 27 Oct 2026. That index is names and notes, not the full skill body.",
       "source_url": "https://academy.techhorizonlabs.com/skills",
       "source_checked": "2026-10-27",
       "verification": "Official documentation reviewed; not independently tested",

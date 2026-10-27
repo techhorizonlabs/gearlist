@@ -285,7 +285,7 @@ A free academy of Claude skills, prompts and AI tools for Australian small busin
 
 **For:** Australian operators and the agents they run.
 
-**Access and use:** Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. 67 skills counted on 27 Oct 2026.
+**Access and use:** Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. 67 skills indexed in indexes/thl-academy-skills.json on 27 Oct 2026. That index is names and notes, not the full skill body.
 
 **Source checked:** 2026-10-27. [Official source](https://academy.techhorizonlabs.com/skills).
 
@@ -321,7 +321,7 @@ A community index of Agent Skills scraped from GitHub. Not run by Anthropic.
 
 ## Looking for more?
 
-Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Queued rows wait until someone reads their docs. A star or a marketplace listing is not an entry.
+Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Tech Horizon Academy skills are listed in [indexes/thl-academy-skills.json](indexes/thl-academy-skills.json). Queued rows wait until someone reads their docs. A star, a marketplace listing or an index row is not an entry.
 
 ## Suggest an entry
 
