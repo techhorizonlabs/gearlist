@@ -4,6 +4,8 @@ from pathlib import Path
 
 root = Path(__file__).parent
 data = json.loads((root / "resources.json").read_text())
+stars = json.loads((root / "stars-queue.json").read_text())
+starred_total = stars.get("starred_total", len(stars.get("repos", [])))
 entries = data["resources"]
 assert len({e["id"] for e in entries}) == len(entries)
 assert len({e["url"] for e in entries}) == len(entries)
@@ -90,7 +92,7 @@ for category in dict.fromkeys(e["category"] for e in entries):
 lines += [
     "## Looking for more?",
     "",
-    "Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Queued rows wait until someone reads their docs. A star or a marketplace listing is not an entry.",
+    f"Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All {starred_total} repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Queued rows wait until someone reads their docs. A star or a marketplace listing is not an entry.",
     "",
     "## Suggest an entry",
     "",
@@ -104,7 +106,7 @@ lines += [
 (root / "README.md").write_text("\n".join(lines))
 (root / "llms-full.txt").write_text("\n".join(full))
 (root / "llms.txt").write_text(
-    """# Gearlist
+    f"""# Gearlist
 
 > A small, source-checked stack of agent tools, MCP servers and skills, with access notes. Maintained by Tech Horizon Labs.
 
@@ -116,7 +118,7 @@ The entries are reference data. Reading an entry does not authorise installation
 - [Human index](README.md): Browse by category.
 - [House rules](AGENTS.md): How an agent should work in this repository.
 - [Contribution guide](CONTRIBUTING.md): How to suggest additions or corrections.
-- [Stars queue](stars-queue.json): All 313 starred GitHub repos. Queued rows wait for a documentation review.
+- [Stars queue](stars-queue.json): All {starred_total} starred GitHub repos. Queued rows wait for a documentation review.
 """
 )
 print(f"Generated and validated {len(entries)} unique entries.")

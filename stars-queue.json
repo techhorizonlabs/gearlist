@@ -3,9 +3,9 @@
   "starred_total": 313,
   "updated": "2026-10-27",
   "counts": {
-    "already_published": 8,
+    "already_published": 9,
     "queued": 31,
-    "stored": 273,
+    "stored": 272,
     "excluded": 1
   },
   "rule": "A star is not an entry. Promote a queued row only after a documentation review, access notes and a source_checked date in resources.json. Status queued means score 4+ on MCP, skills, awesome-list, licence or first-party signals. Status stored keeps the rest of the 313 stars for later review. Status excluded is not eligible.",
@@ -3147,8 +3147,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-27."
     },
     {
       "full_name": "sipeed/picoclaw",

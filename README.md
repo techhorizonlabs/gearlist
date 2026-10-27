@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 27 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 28 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,7 +19,7 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (6)
+- [Agent tools](#agent-tools) (7)
 - [MCP and integrations](#mcp-and-integrations) (7)
 - [Security and governance](#security-and-governance) (2)
 - [Platforms](#platforms) (2)
@@ -88,6 +88,16 @@ A local MCP and CLI for investigating application behaviour, from JavaScript bun
 **Access and use:** Install with npx rea-agents@latest setup. Setup shows a plan and asks before writing agent config or installing Hopper. Native and runtime workflows can execute or attach to programs. DISCLAIMER.md forbids DRM circumvention and copying proprietary software. MIT. npm package rea-agents. MCP registry name io.github.morluto/rea.
 
 **Source checked:** 2026-10-26. [Official source](https://github.com/morluto/rea).
+
+### [OpenCLI](https://opencli.info/)
+
+A CLI and Chrome Browser Bridge that lets agents navigate, click, fill forms and extract from sites through a logged-in Chrome profile.
+
+**For:** People whose agents need to operate websites they are already signed into, or reuse site-specific CLI adapters.
+
+**Access and use:** Install npm package @jackwener/opencli (Node.js 20.18.1 or later) or the desktop app, plus the OpenCLI Chrome extension. Browser commands act through the signed-in Chrome profile, including cookies for the target site. Treat that as the same access the person has in the browser. Apache-2.0. Skills install with npx skills add jackwener/opencli.
+
+**Source checked:** 2026-10-27. [Official source](https://github.com/jackwener/OpenCLI).
 
 ## MCP and integrations
 

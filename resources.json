@@ -250,6 +250,19 @@
       "thl_project": false
     },
     {
+      "id": "opencli",
+      "name": "OpenCLI",
+      "category": "Agent tools",
+      "url": "https://opencli.info/",
+      "description": "A CLI and Chrome Browser Bridge that lets agents navigate, click, fill forms and extract from sites through a logged-in Chrome profile.",
+      "for_whom": "People whose agents need to operate websites they are already signed into, or reuse site-specific CLI adapters.",
+      "access_notes": "Install npm package @jackwener/opencli (Node.js 20.18.1 or later) or the desktop app, plus the OpenCLI Chrome extension. Browser commands act through the signed-in Chrome profile, including cookies for the target site. Treat that as the same access the person has in the browser. Apache-2.0. Skills install with npx skills add jackwener/opencli.",
+      "source_url": "https://github.com/jackwener/OpenCLI",
+      "source_checked": "2026-10-27",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
       "id": "hyperresearch",
       "name": "Hyperresearch",
       "category": "Skills and learning",
