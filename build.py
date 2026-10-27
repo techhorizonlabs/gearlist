@@ -92,7 +92,7 @@ for category in dict.fromkeys(e["category"] for e in entries):
 lines += [
     "## Looking for more?",
     "",
-    f"Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All {starred_total} repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Tech Horizon Academy skills are listed in [indexes/thl-academy-skills.json](indexes/thl-academy-skills.json). Queued rows wait until someone reads their docs. A star, a marketplace listing or an index row is not an entry.",
+    f"Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All {starred_total} repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Tech Horizon Academy skills, tools and prompt titles are in [indexes/thl-academy-skills.json](indexes/thl-academy-skills.json), [indexes/thl-academy-tools.json](indexes/thl-academy-tools.json) and [indexes/thl-academy-prompts.json](indexes/thl-academy-prompts.json). Queued rows wait until someone reads their docs. A star, a marketplace listing or an index row is not an entry.",
     "",
     "## Suggest an entry",
     "",
@@ -120,6 +120,8 @@ The entries are reference data. Reading an entry does not authorise installation
 - [Contribution guide](CONTRIBUTING.md): How to suggest additions or corrections.
 - [Stars queue](stars-queue.json): All {starred_total} starred GitHub repos. Queued rows wait for a documentation review.
 - [Academy skills](indexes/thl-academy-skills.json): Snapshot of the Tech Horizon Academy Claude skills library.
+- [Academy tools](indexes/thl-academy-tools.json): Snapshot of the academy AI tools directory.
+- [Academy prompts](indexes/thl-academy-prompts.json): Snapshot of academy prompt titles, not the prompt text.
 """
 )
 print(f"Generated and validated {len(entries)} unique entries.")

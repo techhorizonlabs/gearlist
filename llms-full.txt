@@ -52,6 +52,13 @@ For: People whose agents need to operate websites they are already signed into, 
 Access: Install npm package @jackwener/opencli (Node.js 20.18.1 or later) or the desktop app, plus the OpenCLI Chrome extension. Browser commands act through the signed-in Chrome profile, including cookies for the target site. Treat that as the same access the person has in the browser. Apache-2.0. Skills install with npx skills add jackwener/opencli.
 Source checked: 2026-10-27
 
+Graphify | Agent tools
+https://www.graphify.com
+Turns a codebase, docs, SQL schemas, configs and PDFs into a local queryable knowledge graph for coding agents.
+For: People whose agents need a map of a repository without sending the tree to a hosted vector store.
+Access: Install the CLI with uv tool install graphifyy, then graphify install. It reads local project files and writes graphify-out. Apache-2.0.
+Source checked: 2026-10-27
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -80,6 +87,13 @@ For: People pointing an agent at a public repository without cloning it.
 Access: Works on public GitHub content. Last upstream push observed 2026-05-08. Confirm the target repo is public before connecting.
 Source checked: 2026-10-26
 
+XERJ | MCP and integrations
+https://xerj.org
+A local-first search engine and MCP server that indexes code, docs, logs and PDFs for agents.
+For: People who want cited local search and agent memory without a hosted search cluster.
+Access: Installer is curl -fsSL https://xerj.org/get | sh. The binary indexes local paths and can serve an Elasticsearch-compatible API on localhost. Apache-2.0.
+Source checked: 2026-10-27
+
 Supabase MCP | MCP and integrations
 https://supabase.com/docs/guides/ai-tools/mcp
 Supabase's official remote MCP server for docs, account, database, functions and related project tools.
@@ -107,6 +121,20 @@ Security briefings, analysis and governance resources.
 For: Teams following security developments and governance topics.
 Access: Read the linked primary sources and check dates before using advice in an operational decision.
 Source checked: 2026-10-25
+
+node9 | Security and governance
+https://node9.ai/
+Access control for AI agents. It decides what Claude Code, Codex, Gemini, Cursor and MCP servers may do, and can block or review risky actions.
+For: People running coding agents against Slack, GitHub, email, files or databases.
+Access: Install with brew tap node9-ai/node9 && brew install node9, or npm install -g node9-ai. Needs Node.js 22 or later. Local protection needs no account. Optional dashboard login. Apache-2.0.
+Source checked: 2026-10-27
+
+ClawSecCheck | Security and governance
+https://github.com/gl0di/clawseccheck
+A local, read-only security audit for an OpenClaw agent. It looks for config, prompt-injection and supply-chain risks and can vet a skill before install.
+For: People running OpenClaw who want a local A to F grade without sending config off the machine.
+Access: Python 3.10 or later. Install with pipx from the GitHub repo. The scanner reports and does not change OpenClaw config. Official docs say the scanner makes no network calls. MIT.
+Source checked: 2026-10-27
 
 GuardStein | Security and governance
 https://guardstein.com/
@@ -175,7 +203,7 @@ Tech Horizon Academy | Skills and learning
 https://academy.techhorizonlabs.com/
 A free academy of Claude skills, prompts and AI tools for Australian small businesses. Tech Horizon Labs project.
 For: Australian operators and the agents they run.
-Access: Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. 67 skills indexed in indexes/thl-academy-skills.json on 27 Oct 2026. That index is names and notes, not the full skill body.
+Access: Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. Indexes on 27 Oct 2026: 67 skills, 206 tools, 1217 prompt titles. Indexes are names and notes, not skill bodies or prompt text. Some academy tool pages carry partner flags; Gearlist omits referral parameters.
 Source checked: 2026-10-27
 
 Claude Academy | Skills and learning

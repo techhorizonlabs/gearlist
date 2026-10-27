@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 28 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 32 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,9 +19,9 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (7)
-- [MCP and integrations](#mcp-and-integrations) (7)
-- [Security and governance](#security-and-governance) (2)
+- [Agent tools](#agent-tools) (8)
+- [MCP and integrations](#mcp-and-integrations) (8)
+- [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (2)
 - [Protocols](#protocols) (1)
 - [Skills and learning](#skills-and-learning) (9)
@@ -99,6 +99,16 @@ A CLI and Chrome Browser Bridge that lets agents navigate, click, fill forms and
 
 **Source checked:** 2026-10-27. [Official source](https://github.com/jackwener/OpenCLI).
 
+### [Graphify](https://www.graphify.com)
+
+Turns a codebase, docs, SQL schemas, configs and PDFs into a local queryable knowledge graph for coding agents.
+
+**For:** People whose agents need a map of a repository without sending the tree to a hosted vector store.
+
+**Access and use:** Install the CLI with uv tool install graphifyy, then graphify install. It reads local project files and writes graphify-out. Apache-2.0.
+
+**Source checked:** 2026-10-27. [Official source](https://github.com/Graphify-Labs/graphify).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -141,6 +151,16 @@ A remote MCP server that turns a public GitHub project into documentation an age
 
 **Source checked:** 2026-10-26. [Official source](https://github.com/idosal/git-mcp).
 
+### [XERJ](https://xerj.org)
+
+A local-first search engine and MCP server that indexes code, docs, logs and PDFs for agents.
+
+**For:** People who want cited local search and agent memory without a hosted search cluster.
+
+**Access and use:** Installer is curl -fsSL https://xerj.org/get | sh. The binary indexes local paths and can serve an Elasticsearch-compatible API on localhost. Apache-2.0.
+
+**Source checked:** 2026-10-27. [Official source](https://github.com/xerj-org/xerj).
+
 ### [Supabase MCP](https://supabase.com/docs/guides/ai-tools/mcp)
 
 Supabase's official remote MCP server for docs, account, database, functions and related project tools.
@@ -182,6 +202,26 @@ Security briefings, analysis and governance resources.
 **Access and use:** Read the linked primary sources and check dates before using advice in an operational decision.
 
 **Source checked:** 2026-10-25. [Official source](https://cisoai.au/).
+
+### [node9](https://node9.ai/)
+
+Access control for AI agents. It decides what Claude Code, Codex, Gemini, Cursor and MCP servers may do, and can block or review risky actions.
+
+**For:** People running coding agents against Slack, GitHub, email, files or databases.
+
+**Access and use:** Install with brew tap node9-ai/node9 && brew install node9, or npm install -g node9-ai. Needs Node.js 22 or later. Local protection needs no account. Optional dashboard login. Apache-2.0.
+
+**Source checked:** 2026-10-27. [Official source](https://github.com/node9-ai/node9-proxy).
+
+### [ClawSecCheck](https://github.com/gl0di/clawseccheck)
+
+A local, read-only security audit for an OpenClaw agent. It looks for config, prompt-injection and supply-chain risks and can vet a skill before install.
+
+**For:** People running OpenClaw who want a local A to F grade without sending config off the machine.
+
+**Access and use:** Python 3.10 or later. Install with pipx from the GitHub repo. The scanner reports and does not change OpenClaw config. Official docs say the scanner makes no network calls. MIT.
+
+**Source checked:** 2026-10-27. [Official source](https://github.com/gl0di/clawseccheck).
 
 ### [GuardStein](https://guardstein.com/)
 
@@ -285,7 +325,7 @@ A free academy of Claude skills, prompts and AI tools for Australian small busin
 
 **For:** Australian operators and the agents they run.
 
-**Access and use:** Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. 67 skills indexed in indexes/thl-academy-skills.json on 27 Oct 2026. That index is names and notes, not the full skill body.
+**Access and use:** Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. Indexes on 27 Oct 2026: 67 skills, 206 tools, 1217 prompt titles. Indexes are names and notes, not skill bodies or prompt text. Some academy tool pages carry partner flags; Gearlist omits referral parameters.
 
 **Source checked:** 2026-10-27. [Official source](https://academy.techhorizonlabs.com/skills).
 
@@ -321,7 +361,7 @@ A community index of Agent Skills scraped from GitHub. Not run by Anthropic.
 
 ## Looking for more?
 
-Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Tech Horizon Academy skills are listed in [indexes/thl-academy-skills.json](indexes/thl-academy-skills.json). Queued rows wait until someone reads their docs. A star, a marketplace listing or an index row is not an entry.
+Gearlist is a checked shortlist with permission notes. For every public MCP server, use the [official MCP Registry](https://registry.modelcontextprotocol.io). All 313 repositories we've starred on GitHub are stored in [stars-queue.json](stars-queue.json). Official Claude Code plugins are listed in [indexes/claude-plugins-official.json](indexes/claude-plugins-official.json). Tech Horizon Academy skills, tools and prompt titles are in [indexes/thl-academy-skills.json](indexes/thl-academy-skills.json), [indexes/thl-academy-tools.json](indexes/thl-academy-tools.json) and [indexes/thl-academy-prompts.json](indexes/thl-academy-prompts.json). Queued rows wait until someone reads their docs. A star, a marketplace listing or an index row is not an entry.
 
 ## Suggest an entry
 

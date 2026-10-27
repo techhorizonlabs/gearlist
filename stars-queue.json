@@ -3,8 +3,8 @@
   "starred_total": 313,
   "updated": "2026-10-27",
   "counts": {
-    "already_published": 9,
-    "queued": 31,
+    "already_published": 13,
+    "queued": 27,
     "stored": 272,
     "excluded": 1
   },
@@ -171,8 +171,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-27."
     },
     {
       "full_name": "Panniantong/Agent-Reach",
@@ -304,8 +304,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-27."
     },
     {
       "full_name": "trailhq/Trail-Code",
@@ -532,8 +532,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-27."
     },
     {
       "full_name": "imshaikot/browsentic",
@@ -627,8 +627,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-27."
     },
     {
       "full_name": "ruvnet/RuView",
