@@ -326,6 +326,32 @@
       "source_checked": "2026-10-27",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "notion-mcp",
+      "name": "Notion MCP",
+      "category": "MCP and integrations",
+      "url": "https://developers.notion.com/guides/mcp/overview",
+      "description": "Notion's hosted MCP server for searching, reading, creating and updating pages and databases in a workspace the user can access.",
+      "for_whom": "People whose agents need live Notion context they already have permission to see.",
+      "access_notes": "Remote URL https://mcp.notion.com/mcp with OAuth. Can read and write workspace content. Workspace owners can manage which clients connect. Prefer the hosted server over the unmaintained self-hosted repo.",
+      "source_url": "https://developers.notion.com/guides/mcp/get-started-with-mcp",
+      "source_checked": "2026-10-27",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "cloudflare-mcp",
+      "name": "Cloudflare MCP",
+      "category": "MCP and integrations",
+      "url": "https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/",
+      "description": "Cloudflare's hosted API MCP server covering DNS, Workers, R2, Zero Trust and the rest of the Cloudflare API, plus docs search.",
+      "for_whom": "People whose agents work on a Cloudflare account they control.",
+      "access_notes": "Remote URL https://mcp.cloudflare.com/mcp with OAuth, or a scoped API token as a bearer. Can change account configuration. Grant the smallest permission set. Other product-specific Cloudflare MCP URLs exist; this is the main API server.",
+      "source_url": "https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/",
+      "source_checked": "2026-10-27",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

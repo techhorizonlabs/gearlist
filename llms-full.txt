@@ -80,6 +80,20 @@ For: Developers whose agents need to work on a Supabase project they control.
 Access: Remote URL https://mcp.supabase.com/mcp with OAuth. Can list, query and change project data. Read Supabase's MCP security notes and restrict feature groups before connecting production.
 Source checked: 2026-10-27
 
+Notion MCP | MCP and integrations
+https://developers.notion.com/guides/mcp/overview
+Notion's hosted MCP server for searching, reading, creating and updating pages and databases in a workspace the user can access.
+For: People whose agents need live Notion context they already have permission to see.
+Access: Remote URL https://mcp.notion.com/mcp with OAuth. Can read and write workspace content. Workspace owners can manage which clients connect. Prefer the hosted server over the unmaintained self-hosted repo.
+Source checked: 2026-10-27
+
+Cloudflare MCP | MCP and integrations
+https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/
+Cloudflare's hosted API MCP server covering DNS, Workers, R2, Zero Trust and the rest of the Cloudflare API, plus docs search.
+For: People whose agents work on a Cloudflare account they control.
+Access: Remote URL https://mcp.cloudflare.com/mcp with OAuth, or a scoped API token as a bearer. Can change account configuration. Grant the smallest permission set. Other product-specific Cloudflare MCP URLs exist; this is the main API server.
+Source checked: 2026-10-27
+
 CISO AI | Security and governance
 https://cisoai.au/
 Security briefings, analysis and governance resources.

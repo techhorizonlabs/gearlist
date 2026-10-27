@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 25 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 27 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -20,7 +20,7 @@ npx skills add techhorizonlabs/gearlist
 ## Contents
 
 - [Agent tools](#agent-tools) (6)
-- [MCP and integrations](#mcp-and-integrations) (5)
+- [MCP and integrations](#mcp-and-integrations) (7)
 - [Security and governance](#security-and-governance) (2)
 - [Platforms](#platforms) (2)
 - [Protocols](#protocols) (1)
@@ -140,6 +140,26 @@ Supabase's official remote MCP server for docs, account, database, functions and
 **Access and use:** Remote URL https://mcp.supabase.com/mcp with OAuth. Can list, query and change project data. Read Supabase's MCP security notes and restrict feature groups before connecting production.
 
 **Source checked:** 2026-10-27. [Official source](https://supabase.com/docs/guides/ai-tools/mcp).
+
+### [Notion MCP](https://developers.notion.com/guides/mcp/overview)
+
+Notion's hosted MCP server for searching, reading, creating and updating pages and databases in a workspace the user can access.
+
+**For:** People whose agents need live Notion context they already have permission to see.
+
+**Access and use:** Remote URL https://mcp.notion.com/mcp with OAuth. Can read and write workspace content. Workspace owners can manage which clients connect. Prefer the hosted server over the unmaintained self-hosted repo.
+
+**Source checked:** 2026-10-27. [Official source](https://developers.notion.com/guides/mcp/get-started-with-mcp).
+
+### [Cloudflare MCP](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/)
+
+Cloudflare's hosted API MCP server covering DNS, Workers, R2, Zero Trust and the rest of the Cloudflare API, plus docs search.
+
+**For:** People whose agents work on a Cloudflare account they control.
+
+**Access and use:** Remote URL https://mcp.cloudflare.com/mcp with OAuth, or a scoped API token as a bearer. Can change account configuration. Grant the smallest permission set. Other product-specific Cloudflare MCP URLs exist; this is the main API server.
+
+**Source checked:** 2026-10-27. [Official source](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/).
 
 ## Security and governance
 
