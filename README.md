@@ -585,7 +585,7 @@ A CLI and skill that lets a coding agent tap, type and read a real iPhone or And
 
 **For:** People who want an agent to operate a physical phone they already have, or a hosted cloud phone.
 
-**Access and use:** uv tool install --python 3.12 --upgrade --force phone-harness, then phone-harness skill. iPhone: macOS 15+, iPhone Mirroring paired to an iOS 18+ iPhone, Accessibility and Screen Recording. Android: adb with USB or wireless debugging. Cloud: phone-harness cloud login, then cloud start. A cloud Android bills by the minute. A cloud iPhone has no per-minute charge. The harness never types a PIN, a password or a 2FA code. PHONE_HARNESS_NO_UPDATE_CHECK=1 skips the daily PyPI check. MIT.
+**Access and use:** uv tool install --python 3.12 --upgrade --force phone-harness, then phone-harness skill. iPhone: macOS 15+, iPhone Mirroring paired to an iOS 18+ iPhone, Accessibility and Screen Recording. Android: adb with USB or wireless debugging. Cloud: phone-harness cloud login, then cloud start. A cloud Android bills by the minute. A cloud iPhone has no per-minute charge. The harness never types a PIN. PHONE_HARNESS_NO_UPDATE_CHECK=1 skips the daily PyPI check. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/ShawnPana/phone-harness).
 
