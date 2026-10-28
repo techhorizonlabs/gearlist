@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 64 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 66 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (26)
+- [Agent tools](#agent-tools) (27)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (4)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (17)
+- [Skills and learning](#skills-and-learning) (18)
 
 
 ## Agent tools
@@ -288,6 +288,16 @@ A CLI, Chromium extension and agent skill that drives Chrome or Edge through the
 **Access and use:** Installer is curl -fsSL https://raw.githubusercontent.com/Tencent/BrowserSkill/main/install.sh | sh. Read the script before running it. Then install the Chrome or Edge extension, enable the local connection, and run bsk install-skill. The Agent Window shares that profile's website logins. Optional remote pairing uses authenticated WSS from the browser. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/Tencent/BrowserSkill).
+
+### [Page Agent](https://alibaba.github.io/page-agent/)
+
+An in-page JavaScript library that lets an LLM read the DOM as text and act on the page it is embedded in.
+
+**For:** People adding a copilot to a site they control, or trying one in the optional Chrome extension.
+
+**Access and use:** npm install page-agent, then construct PageAgent with a model, baseURL and apiKey. The demo CDN script uses a free testing LLM API for evaluation only; that path processes data in Mainland China and is not for production. Bring your own key for real use. Optional Chrome extension sends task text and cleaned HTML to the configured LLM. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/alibaba/page-agent).
 
 ## MCP and integrations
 
@@ -678,6 +688,16 @@ A local CLI, Electron app and Claude Code skill that crawls a site, scores techn
 **Access and use:** Node.js 20.3 or later. npm install -g @seomator/seo-audit, then seomator audit URL. For Core Web Vitals, npx playwright install chromium. Audits land in ~/.seomator by default; seomator serve binds loopback with a per-launch token. Claude Code: npx skills add seo-skills/seo-audit-skill. MIT. This entry covers the open-source audit engine only.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/seo-skills/seo-audit-skill).
+
+### [Hallmark](https://www.usehallmark.com/)
+
+A design skill that deals a theme, builds a self-contained HTML page from the job, and lints it in a browser for contrast, layout and common machine-made tells.
+
+**For:** People who want a coding agent to design a page with a named theme and a local lint pass.
+
+**Access and use:** npx skills add nutlope/hallmark -g. Needs Node 18 or later. Browser checks need puppeteer-core and Chrome; static checks still run without them. MIT. Bundled photo index points at Wikimedia Commons; each photograph keeps its own licence and is credited on the page.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Nutlope/hallmark).
 
 ## Looking for more?
 

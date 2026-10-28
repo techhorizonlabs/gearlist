@@ -833,6 +833,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "page-agent",
+      "name": "Page Agent",
+      "category": "Agent tools",
+      "url": "https://alibaba.github.io/page-agent/",
+      "description": "An in-page JavaScript library that lets an LLM read the DOM as text and act on the page it is embedded in.",
+      "for_whom": "People adding a copilot to a site they control, or trying one in the optional Chrome extension.",
+      "access_notes": "npm install page-agent, then construct PageAgent with a model, baseURL and apiKey. The demo CDN script uses a free testing LLM API for evaluation only; that path processes data in Mainland China and is not for production. Bring your own key for real use. Optional Chrome extension sends task text and cleaned HTML to the configured LLM. MIT.",
+      "source_url": "https://github.com/alibaba/page-agent",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "hallmark",
+      "name": "Hallmark",
+      "category": "Skills and learning",
+      "url": "https://www.usehallmark.com/",
+      "description": "A design skill that deals a theme, builds a self-contained HTML page from the job, and lints it in a browser for contrast, layout and common machine-made tells.",
+      "for_whom": "People who want a coding agent to design a page with a named theme and a local lint pass.",
+      "access_notes": "npx skills add nutlope/hallmark -g. Needs Node 18 or later. Browser checks need puppeteer-core and Chrome; static checks still run without them. MIT. Bundled photo index points at Wikimedia Commons; each photograph keeps its own licence and is credited on the page.",
+      "source_url": "https://github.com/Nutlope/hallmark",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

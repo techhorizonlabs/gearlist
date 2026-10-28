@@ -185,6 +185,13 @@ For: People whose agents need to read, click and fill sites they already use, wi
 Access: Installer is curl -fsSL https://raw.githubusercontent.com/Tencent/BrowserSkill/main/install.sh | sh. Read the script before running it. Then install the Chrome or Edge extension, enable the local connection, and run bsk install-skill. The Agent Window shares that profile's website logins. Optional remote pairing uses authenticated WSS from the browser. MIT.
 Source checked: 2026-10-28
 
+Page Agent | Agent tools
+https://alibaba.github.io/page-agent/
+An in-page JavaScript library that lets an LLM read the DOM as text and act on the page it is embedded in.
+For: People adding a copilot to a site they control, or trying one in the optional Chrome extension.
+Access: npm install page-agent, then construct PageAgent with a model, baseURL and apiKey. The demo CDN script uses a free testing LLM API for evaluation only; that path processes data in Mainland China and is not for production. Bring your own key for real use. Optional Chrome extension sends task text and cleaned HTML to the configured LLM. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -449,4 +456,11 @@ https://github.com/seo-skills/seo-audit-skill
 A local CLI, Electron app and Claude Code skill that crawls a site, scores technical, content and AI-crawler checks, and writes console, JSON, HTML, Markdown or LLM XML reports.
 For: People who want a local site audit they can run from a terminal, a desktop window or Claude Code.
 Access: Node.js 20.3 or later. npm install -g @seomator/seo-audit, then seomator audit URL. For Core Web Vitals, npx playwright install chromium. Audits land in ~/.seomator by default; seomator serve binds loopback with a per-launch token. Claude Code: npx skills add seo-skills/seo-audit-skill. MIT. This entry covers the open-source audit engine only.
+Source checked: 2026-10-28
+
+Hallmark | Skills and learning
+https://www.usehallmark.com/
+A design skill that deals a theme, builds a self-contained HTML page from the job, and lints it in a browser for contrast, layout and common machine-made tells.
+For: People who want a coding agent to design a page with a named theme and a local lint pass.
+Access: npx skills add nutlope/hallmark -g. Needs Node 18 or later. Browser checks need puppeteer-core and Chrome; static checks still run without them. MIT. Bundled photo index points at Wikimedia Commons; each photograph keeps its own licence and is credited on the page.
 Source checked: 2026-10-28
