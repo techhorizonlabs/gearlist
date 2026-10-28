@@ -675,7 +675,7 @@ A local CLI, Electron app and Claude Code skill that crawls a site, scores techn
 
 **For:** People who want a local site audit they can run from a terminal, a desktop window or Claude Code.
 
-**Access and use:** Node.js 20.3 or later. npm install -g @seomator/seo-audit, then seomator audit URL. For Core Web Vitals, npx playwright install chromium. Audits land in ~/.seomator by default; seomator serve binds loopback with a per-launch token. Claude Code: npx skills add seo-skills/seo-audit-skill. MIT. This row is the open-source audit engine.
+**Access and use:** Node.js 20.3 or later. npm install -g @seomator/seo-audit, then seomator audit URL. For Core Web Vitals, npx playwright install chromium. Audits land in ~/.seomator by default; seomator serve binds loopback with a per-launch token. Claude Code: npx skills add seo-skills/seo-audit-skill. MIT. This entry covers the open-source audit engine only.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/seo-skills/seo-audit-skill).
 
