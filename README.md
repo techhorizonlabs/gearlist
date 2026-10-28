@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 188 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 190 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (68)
+- [Agent tools](#agent-tools) (69)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (46)
+- [Platforms](#platforms) (47)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (46)
 
@@ -708,6 +708,16 @@ An Apache-licensed OceanBase search database that unifies vector, text and struc
 **Access and use:** pip install -U pyseekdb. Needs Python 3.11 or later. Embedded mode on Linux and macOS: import pyseekdb then client = pyseekdb.Client() writes a local database (for example ./seekdb.db). Windows uses server mode only. AI_EMBED, AI_COMPLETE and similar SQL functions send text to the embedding or LLM service you register. Data stays in that local file or on the seekdb or OceanBase server you connect to. Apache-2.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/oceanbase/seekdb).
+
+### [CashClaw](https://moltlaunch.com)
+
+An MIT Node agent that quotes, does and gets paid for marketplace tasks, then stores what it learned for the next job.
+
+**For:** Operators who want a local process that takes Moltlaunch tasks, or a fork they can point at their own clients.
+
+**Access and use:** npm install -g cashclaw-agent moltlaunch then cashclaw. Setup is http://localhost:3777. Needs a Moltlaunch wallet (mltl) and an Anthropic, OpenAI or OpenRouter key. Quotes and payouts are in ETH on Base through that wallet. Optional AgentCash calls charge USDC from ~/.agentcash/wallet.json. State is ~/.cashclaw. Auto-quote and auto-work are toggles in Settings. Prompts go to the LLM you set. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/moltlaunch/cashclaw).
 
 ## MCP and integrations
 
@@ -1414,6 +1424,16 @@ An AGPL self-hosted issue tracker where people and agents share the same board, 
 **Access and use:** git clone https://github.com/croffasia/itsaplan.git && bun install && bun run setup, then answer Try it. UI is http://localhost:3001; API is http://localhost:3000. Production: copy .env.example to .env, set the secrets and public URLs, then docker compose up -d behind TLS. The first account is instance admin. Issues live in Postgres; files live in RustFS. Agent prompts go to the model or CLI you configure. A daily telemetry snapshot goes to https://telemetry.itsaplan.dev by default (counts as ranges, plus which features and integrations are on); set TELEMETRY_DISABLED=1 or DO_NOT_TRACK=1 to stop it. MCP is on the API origin. AGPL-3.0; the runner package is Apache-2.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/croffasia/itsaplan).
+
+### [openwork](https://github.com/langchain-ai/openwork)
+
+A LangChain desktop UI for deepagentsjs, with filesystem tools, planning and subagent delegation.
+
+**For:** People who want a desktop harness that can read the workspace and run shell commands after you approve the tool call.
+
+**Access and use:** npx openwork, or npm install -g openwork then openwork. Needs Node.js 18 or later. From source: git clone https://github.com/langchain-ai/openwork.git && npm install && npm run dev. Set Anthropic, OpenAI or Google keys in the settings panel. Agents can read the filesystem and run shell commands; review each tool call and only open workspaces you trust. Prompts go to the model provider you choose. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/langchain-ai/openwork).
 
 ## Protocols
 

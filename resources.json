@@ -2445,6 +2445,32 @@
       "source_checked": "2026-10-29",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "openwork",
+      "name": "openwork",
+      "category": "Platforms",
+      "url": "https://github.com/langchain-ai/openwork",
+      "description": "A LangChain desktop UI for deepagentsjs, with filesystem tools, planning and subagent delegation.",
+      "for_whom": "People who want a desktop harness that can read the workspace and run shell commands after you approve the tool call.",
+      "access_notes": "npx openwork, or npm install -g openwork then openwork. Needs Node.js 18 or later. From source: git clone https://github.com/langchain-ai/openwork.git && npm install && npm run dev. Set Anthropic, OpenAI or Google keys in the settings panel. Agents can read the filesystem and run shell commands; review each tool call and only open workspaces you trust. Prompts go to the model provider you choose. MIT.",
+      "source_url": "https://github.com/langchain-ai/openwork",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "cashclaw",
+      "name": "CashClaw",
+      "category": "Agent tools",
+      "url": "https://moltlaunch.com",
+      "description": "An MIT Node agent that quotes, does and gets paid for marketplace tasks, then stores what it learned for the next job.",
+      "for_whom": "Operators who want a local process that takes Moltlaunch tasks, or a fork they can point at their own clients.",
+      "access_notes": "npm install -g cashclaw-agent moltlaunch then cashclaw. Setup is http://localhost:3777. Needs a Moltlaunch wallet (mltl) and an Anthropic, OpenAI or OpenRouter key. Quotes and payouts are in ETH on Base through that wallet. Optional AgentCash calls charge USDC from ~/.agentcash/wallet.json. State is ~/.cashclaw. Auto-quote and auto-work are toggles in Settings. Prompts go to the LLM you set. MIT.",
+      "source_url": "https://github.com/moltlaunch/cashclaw",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
