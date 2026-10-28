@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 184 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 186 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,9 +22,9 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (67)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (44)
+- [Platforms](#platforms) (45)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (45)
+- [Skills and learning](#skills-and-learning) (46)
 
 
 ## Agent tools
@@ -1385,6 +1385,16 @@ An MIT screen-sharing app for one host and up to 20 viewers, with browser watch,
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/TNTcraftHIM/Piik).
 
+### [Whiteboard](https://dev.fast)
+
+An MIT desktop canvas where humans and coding agents draw software maps, traces and semantic diffs against a local checkout.
+
+**For:** Developers who want an agent to diagram a change beside the local repository.
+
+**Access and use:** macOS, Windows and Linux installers from https://dev.fast/install. On macOS: brew install --cask devdotfast/tap/whiteboard. Connect Claude Code, Codex or another coding agent from the welcome screen. Whiteboards stay in ~/.dev/review-api.db. Anonymous telemetry is on by default and goes to PostHog as feature counts, durations and versions under a random installation ID; it omits source code, diffs, paths, prompts and model output. Turn it off in Settings under Share anonymous usage data, or set DO_NOT_TRACK=1. After a crash, the next launch can upload a dump that may include process memory; with telemetry off those dumps stay on the machine. whiteboard share uploads a copy of that whiteboard, traces and referenced source to the /dev/fast share service. Trace capture is off until you allow a repository. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/devdotfast/whiteboard).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -1878,6 +1888,16 @@ A Claude Code workspace of slash commands, agents and 26 marketing skills for re
 **Access and use:** git clone https://github.com/TheCraigHewitt/seomachine.git && cd seomachine && pip install -r data_sources/requirements.txt then claude. Needs Claude Code (Claude Pro, Max, Team, Enterprise, or Anthropic Console API billing) and a DataForSEO account. Optional Google Analytics 4 and Search Console credentials. Keyword and SERP calls go to DataForSEO. Fill context/brand-voice.md and the other context templates before writing. Docker: docker-compose build && docker-compose run seomachine bash. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/TheCraigHewitt/seomachine).
+
+### [Legal Templates](https://github.com/General-Legal/legal-templates)
+
+CC0 attorney-drafted startup templates in LLM-oriented markdown and original Word files, covering NDAs, DPAs, privacy policies, MSAs and related forms.
+
+**For:** Founders and agents who need a starting draft of common technology-company contracts.
+
+**Access and use:** git clone https://github.com/General-Legal/legal-templates.git and open the markdown under templates/ or the files in docx-originals/. Fill the marked fields before you use a document. A lawyer reviews the finished version. The templates are CC0 1.0; the authors ask you to keep the General Legal footnote. CC0-1.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/General-Legal/legal-templates).
 
 ## Looking for more?
 

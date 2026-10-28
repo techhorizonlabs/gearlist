@@ -948,6 +948,13 @@ For: Friends who want a private watch-together room they can run themselves.
 Access: Hosted demo is https://demo.piik.tv, P2P only; video and audio travel between participants. App: download Piik App from https://piik.tv, then choose Public invite or Local room. Self-host: extract the Server archive from GitHub Releases and run ./piik-server (Linux) or ./piik-server.exe (Windows). Local UI is http://localhost:8787. Room records stay in SQLite. Docker: download compose.yaml and .env.example from the repo, set your domain, then docker compose up -d. Default is P2P with STUN on UDP 3478; optional SFU on UDP 7882 forwards video and audio through the server. Remote control, once you approve it, lets viewers use the host keyboard, mouse or a supported gamepad. MIT.
 Source checked: 2026-10-29
 
+Whiteboard | Platforms
+https://dev.fast
+An MIT desktop canvas where humans and coding agents draw software maps, traces and semantic diffs against a local checkout.
+For: Developers who want an agent to diagram a change beside the local repository.
+Access: macOS, Windows and Linux installers from https://dev.fast/install. On macOS: brew install --cask devdotfast/tap/whiteboard. Connect Claude Code, Codex or another coding agent from the welcome screen. Whiteboards stay in ~/.dev/review-api.db. Anonymous telemetry is on by default and goes to PostHog as feature counts, durations and versions under a random installation ID; it omits source code, diffs, paths, prompts and model output. Turn it off in Settings under Share anonymous usage data, or set DO_NOT_TRACK=1. After a crash, the next launch can upload a dump that may include process memory; with telemetry off those dumps stay on the machine. whiteboard share uploads a copy of that whiteboard, traces and referenced source to the /dev/fast share service. Trace capture is off until you allow a repository. MIT.
+Source checked: 2026-10-29
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.
@@ -1289,4 +1296,11 @@ https://github.com/TheCraigHewitt/seomachine
 A Claude Code workspace of slash commands, agents and 26 marketing skills for researching, writing and optimising long-form blog posts.
 For: People drafting SEO articles in Claude Code who will fill in brand, keyword and competitor context files.
 Access: git clone https://github.com/TheCraigHewitt/seomachine.git && cd seomachine && pip install -r data_sources/requirements.txt then claude. Needs Claude Code (Claude Pro, Max, Team, Enterprise, or Anthropic Console API billing) and a DataForSEO account. Optional Google Analytics 4 and Search Console credentials. Keyword and SERP calls go to DataForSEO. Fill context/brand-voice.md and the other context templates before writing. Docker: docker-compose build && docker-compose run seomachine bash. MIT.
+Source checked: 2026-10-29
+
+Legal Templates | Skills and learning
+https://github.com/General-Legal/legal-templates
+CC0 attorney-drafted startup templates in LLM-oriented markdown and original Word files, covering NDAs, DPAs, privacy policies, MSAs and related forms.
+For: Founders and agents who need a starting draft of common technology-company contracts.
+Access: git clone https://github.com/General-Legal/legal-templates.git and open the markdown under templates/ or the files in docx-originals/. Fill the marked fields before you use a document. A lawyer reviews the finished version. The templates are CC0 1.0; the authors ask you to keep the General Legal footnote. CC0-1.0.
 Source checked: 2026-10-29
