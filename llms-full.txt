@@ -570,6 +570,20 @@ For: Teams who want one API in front of several model providers, with a budget p
 Access: pip install experiential then exp. Local gateway is http://127.0.0.1:8000/v1. Hosted API is api.experientiallabs.ai. Anonymous PostHog product telemetry is on by default; exp config telemetry disable turns it off. exp capture (experimental, macOS) installs an extension and certificate to read your Codex and Claude Code desktop traffic, and sends those traces to your Experiential account. Apache-2.0.
 Source checked: 2026-10-28
 
+QM | Platforms
+https://github.com/yc-software/qm
+A multiplayer agent harness for Slack and the web, with a personal sandbox per person and shared rooms.
+For: Startups who want each person to have their own agent workspace, plus shared rooms on Slack and the web.
+Access: npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>. Needs Node 24.15 or later. The agent acts with that person's credentials. Default security posture is Auto, which blocks private-network access. Strict pauses every harness tool call. Dangerous drops those gates. Sessions need DATABASE_URL and SESSION_STORE=postgres to survive restart. Hosted trial is agent37.com/qm. MIT.
+Source checked: 2026-10-28
+
+Cloudflare OS | Platforms
+https://os.cloudflare.app
+An early-access workspace where agents build sandboxed apps (Gadgets) behind Gatekeepers that log and queue side-effect approvals.
+For: Companies who want an internal agent workspace with sandboxed apps and a security layer they can copy.
+Access: pnpm run-local then visit http://localhost:8787. Needs pnpm. Early-access v2. Deploy to a Cloudflare account at os.cloudflare.app/deploy. Gadgets are sandboxed. Gatekeepers log actions and can queue side-effect approvals. Agents get only the resources you introduce. Apache-2.0.
+Source checked: 2026-10-28
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.

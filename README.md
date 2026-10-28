@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 120 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 122 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,7 +22,7 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (45)
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (19)
+- [Platforms](#platforms) (21)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (35)
 
@@ -844,6 +844,26 @@ An OpenAI-compatible gateway that routes hosted, BYOK and local models, with spe
 **Access and use:** pip install experiential then exp. Local gateway is http://127.0.0.1:8000/v1. Hosted API is api.experientiallabs.ai. Anonymous PostHog product telemetry is on by default; exp config telemetry disable turns it off. exp capture (experimental, macOS) installs an extension and certificate to read your Codex and Claude Code desktop traffic, and sends those traces to your Experiential account. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/experientiallabs/experiential).
+
+### [QM](https://github.com/yc-software/qm)
+
+A multiplayer agent harness for Slack and the web, with a personal sandbox per person and shared rooms.
+
+**For:** Startups who want each person to have their own agent workspace, plus shared rooms on Slack and the web.
+
+**Access and use:** npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>. Needs Node 24.15 or later. The agent acts with that person's credentials. Default security posture is Auto, which blocks private-network access. Strict pauses every harness tool call. Dangerous drops those gates. Sessions need DATABASE_URL and SESSION_STORE=postgres to survive restart. Hosted trial is agent37.com/qm. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/yc-software/qm).
+
+### [Cloudflare OS](https://os.cloudflare.app)
+
+An early-access workspace where agents build sandboxed apps (Gadgets) behind Gatekeepers that log and queue side-effect approvals.
+
+**For:** Companies who want an internal agent workspace with sandboxed apps and a security layer they can copy.
+
+**Access and use:** pnpm run-local then visit http://localhost:8787. Needs pnpm. Early-access v2. Deploy to a Cloudflare account at os.cloudflare.app/deploy. Gadgets are sandboxed. Gatekeepers log actions and can queue side-effect approvals. Agents get only the resources you introduce. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/cloudflare-os).
 
 ## Protocols
 
