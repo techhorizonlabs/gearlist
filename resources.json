@@ -1821,6 +1821,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "browseros-neo",
+      "name": "BrowserOS neo",
+      "category": "Agent tools",
+      "url": "https://github.com/browseros-ai/BrowserOS",
+      "description": "A second browser for coding agents. It can import Chrome logins and run each agent in its own tab, with session replay on disk.",
+      "for_whom": "People who want Claude Code, Codex or another MCP agent to drive a logged-in browser on the machine.",
+      "access_notes": "brew tap browseros-ai/tap then brew install --cask browseros-neo, or a download from cdn.browseros.com for macOS, Windows or Linux. One click imports Chrome logins, bookmarks and extensions. Agents then use those accounts. Sessions and screenshots live under ~/.browserclaw/. It runs on 127.0.0.1. Anonymous product events (connect, disconnect, version, OS) go to PostHog until you turn them off in Settings. Prompts go to the AI vendor you already use. AGPL-3.0.",
+      "source_url": "https://github.com/browseros-ai/BrowserOS",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "geo-seo-claude",
+      "name": "GEO-SEO Claude",
+      "category": "Skills and learning",
+      "url": "https://github.com/zubair-trabzada/geo-seo-claude",
+      "description": "A Claude Code skill pack that audits a URL for AI-search citability, crawler access, schema and llms.txt.",
+      "for_whom": "People who want Claude Code to score a site for AI citation and crawler access.",
+      "access_notes": "curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/geo-seo-claude/main/install.sh | bash; read the script before running it. Needs Python 3.10+ and Claude Code. Dependencies go into ~/.claude/skills/geo/.venv/. /geo audit fetches the target URL. Optional Playwright takes screenshots. Prospect files live in ~/.geo-prospects/ and stay after uninstall. MIT.",
+      "source_url": "https://github.com/zubair-trabzada/geo-seo-claude",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

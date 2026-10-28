@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 140 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 142 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (58)
+- [Agent tools](#agent-tools) (59)
 - [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (23)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (37)
+- [Skills and learning](#skills-and-learning) (38)
 
 
 ## Agent tools
@@ -608,6 +608,16 @@ A VS Code extension and CLI that shows Claude Code sessions as pixel characters 
 **Access and use:** Install the VS Code extension from the Marketplace or Open VSX, or run npx pixel-agents. The CLI defaults to 127.0.0.1. Binding 0.0.0.0 exposes the UI and WebSocket on the local network. The printed URL carries a token that can install hooks and launch agents; treat it as a secret. Hooks write into ~/.claude/settings.json. Settings, Skip Permissions turns on Claude Code --dangerously-skip-permissions for every agent from that host. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/pixel-agents-hq/pixel-agents).
+
+### [BrowserOS neo](https://github.com/browseros-ai/BrowserOS)
+
+A second browser for coding agents. It can import Chrome logins and run each agent in its own tab, with session replay on disk.
+
+**For:** People who want Claude Code, Codex or another MCP agent to drive a logged-in browser on the machine.
+
+**Access and use:** brew tap browseros-ai/tap then brew install --cask browseros-neo, or a download from cdn.browseros.com for macOS, Windows or Linux. One click imports Chrome logins, bookmarks and extensions. Agents then use those accounts. Sessions and screenshots live under ~/.browserclaw/. It runs on 127.0.0.1. Anonymous product events (connect, disconnect, version, OS) go to PostHog until you turn them off in Settings. Prompts go to the AI vendor you already use. AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/browseros-ai/BrowserOS).
 
 ## MCP and integrations
 
@@ -1438,6 +1448,16 @@ Agent skills that filter generic AI UI, copy and comments, with a delivery gate 
 **Access and use:** npx antislop-ai. The npm name antislop is a different package. Also npx skills add miqdadbadjuber/anti-slop. Optional mode preference is ~/.config/antislop/settings.json. There is no antislop coin, token or fundraise. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/miqdadbadjuber/anti-slop).
+
+### [GEO-SEO Claude](https://github.com/zubair-trabzada/geo-seo-claude)
+
+A Claude Code skill pack that audits a URL for AI-search citability, crawler access, schema and llms.txt.
+
+**For:** People who want Claude Code to score a site for AI citation and crawler access.
+
+**Access and use:** curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/geo-seo-claude/main/install.sh | bash; read the script before running it. Needs Python 3.10+ and Claude Code. Dependencies go into ~/.claude/skills/geo/.venv/. /geo audit fetches the target URL. Optional Playwright takes screenshots. Prospect files live in ~/.geo-prospects/ and stay after uninstall. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/zubair-trabzada/geo-seo-claude).
 
 ## Looking for more?
 
