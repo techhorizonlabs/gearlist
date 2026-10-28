@@ -192,6 +192,13 @@ For: People adding a copilot to a site they control, or trying one in the option
 Access: npm install page-agent, then construct PageAgent with a model, baseURL and apiKey. The demo CDN script uses a free testing LLM API for evaluation only; that path processes data in Mainland China and is not for production. Bring your own key for real use. Optional Chrome extension sends task text and cleaned HTML to the configured LLM. MIT.
 Source checked: 2026-10-28
 
+OfficeCLI | Agent tools
+https://officecli.ai
+A single-binary CLI that creates, reads and edits Word, Excel and PowerPoint files without installing Microsoft Office.
+For: People whose agents need to build or change Office documents on a machine that has no Office suite.
+Access: Installer is curl -fsSL https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.sh | bash. Read the script before running it. Also brew install officecli, npm install -g @officecli/officecli, or GitHub Releases. officecli install puts the binary on PATH and writes a skill into coding agents it finds. Auto-update is on by default; officecli config autoUpdate false or OFFICECLI_SKIP_UPDATE=1 turns it off. Config lives in ~/.officecli. Built-in MCP: officecli mcp claude. Apache-2.0.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -477,4 +484,11 @@ https://github.com/obra/superpowers
 A skills pack that makes a coding agent specify, plan, test and review before it writes code.
 For: People who want a spec-plan-TDD workflow in Claude Code, Codex, Cursor and other coding agents.
 Access: Claude Code: /plugin install superpowers@claude-plugins-official. Other harnesses have their own plugin install in the README. Optional visual companion loads a logo from primeradiant.com with the Superpowers version; set SUPERPOWERS_DISABLE_TELEMETRY to turn that off. MIT.
+Source checked: 2026-10-28
+
+Spec Kit | Skills and learning
+https://github.github.io/spec-kit/
+A GitHub toolkit that gives a coding agent spec-driven build, bug-fix and idea-assessment processes, plus templates you can replace with your own.
+For: People who want a coding agent to work from a written spec, a bug report, or an idea assessment rather than jumping straight to code.
+Access: Python 3.11 or later and uv. uv tool install specify-cli, then specify init my-project --integration copilot (or another listed agent). Bug-fix and assessment extensions are specify extension add bug and specify extension add assess. Community catalog listings are unvetted. MIT.
 Source checked: 2026-10-28

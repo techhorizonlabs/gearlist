@@ -885,6 +885,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "officecli",
+      "name": "OfficeCLI",
+      "category": "Agent tools",
+      "url": "https://officecli.ai",
+      "description": "A single-binary CLI that creates, reads and edits Word, Excel and PowerPoint files without installing Microsoft Office.",
+      "for_whom": "People whose agents need to build or change Office documents on a machine that has no Office suite.",
+      "access_notes": "Installer is curl -fsSL https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.sh | bash. Read the script before running it. Also brew install officecli, npm install -g @officecli/officecli, or GitHub Releases. officecli install puts the binary on PATH and writes a skill into coding agents it finds. Auto-update is on by default; officecli config autoUpdate false or OFFICECLI_SKIP_UPDATE=1 turns it off. Config lives in ~/.officecli. Built-in MCP: officecli mcp claude. Apache-2.0.",
+      "source_url": "https://github.com/iOfficeAI/OfficeCLI",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "spec-kit",
+      "name": "Spec Kit",
+      "category": "Skills and learning",
+      "url": "https://github.github.io/spec-kit/",
+      "description": "A GitHub toolkit that gives a coding agent spec-driven build, bug-fix and idea-assessment processes, plus templates you can replace with your own.",
+      "for_whom": "People who want a coding agent to work from a written spec, a bug report, or an idea assessment rather than jumping straight to code.",
+      "access_notes": "Python 3.11 or later and uv. uv tool install specify-cli, then specify init my-project --integration copilot (or another listed agent). Bug-fix and assessment extensions are specify extension add bug and specify extension add assess. Community catalog listings are unvetted. MIT.",
+      "source_url": "https://github.com/github/spec-kit",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

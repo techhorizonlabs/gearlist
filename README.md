@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 68 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 70 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (27)
+- [Agent tools](#agent-tools) (28)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (5)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (19)
+- [Skills and learning](#skills-and-learning) (20)
 
 
 ## Agent tools
@@ -298,6 +298,16 @@ An in-page JavaScript library that lets an LLM read the DOM as text and act on t
 **Access and use:** npm install page-agent, then construct PageAgent with a model, baseURL and apiKey. The demo CDN script uses a free testing LLM API for evaluation only; that path processes data in Mainland China and is not for production. Bring your own key for real use. Optional Chrome extension sends task text and cleaned HTML to the configured LLM. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/alibaba/page-agent).
+
+### [OfficeCLI](https://officecli.ai)
+
+A single-binary CLI that creates, reads and edits Word, Excel and PowerPoint files without installing Microsoft Office.
+
+**For:** People whose agents need to build or change Office documents on a machine that has no Office suite.
+
+**Access and use:** Installer is curl -fsSL https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.sh | bash. Read the script before running it. Also brew install officecli, npm install -g @officecli/officecli, or GitHub Releases. officecli install puts the binary on PATH and writes a skill into coding agents it finds. Auto-update is on by default; officecli config autoUpdate false or OFFICECLI_SKIP_UPDATE=1 turns it off. Config lives in ~/.officecli. Built-in MCP: officecli mcp claude. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/iOfficeAI/OfficeCLI).
 
 ## MCP and integrations
 
@@ -718,6 +728,16 @@ A skills pack that makes a coding agent specify, plan, test and review before it
 **Access and use:** Claude Code: /plugin install superpowers@claude-plugins-official. Other harnesses have their own plugin install in the README. Optional visual companion loads a logo from primeradiant.com with the Superpowers version; set SUPERPOWERS_DISABLE_TELEMETRY to turn that off. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/obra/superpowers).
+
+### [Spec Kit](https://github.github.io/spec-kit/)
+
+A GitHub toolkit that gives a coding agent spec-driven build, bug-fix and idea-assessment processes, plus templates you can replace with your own.
+
+**For:** People who want a coding agent to work from a written spec, a bug report, or an idea assessment rather than jumping straight to code.
+
+**Access and use:** Python 3.11 or later and uv. uv tool install specify-cli, then specify init my-project --integration copilot (or another listed agent). Bug-fix and assessment extensions are specify extension add bug and specify extension add assess. Community catalog listings are unvetted. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/github/spec-kit).
 
 ## Looking for more?
 
