@@ -297,6 +297,13 @@ For: People who want a coding agent or a script to fetch pages, render JavaScrip
 Access: pip install scrapling. Browser fetchers need pip install "scrapling[fetchers]" then scrapling install. MCP extra is pip install "scrapling[ai]". StealthyFetcher can drive a browser, keep login sessions and solve Cloudflare challenges. robots_txt_obey is optional on spiders. Follow each site's terms and robots.txt. BSD-3-Clause.
 Source checked: 2026-10-28
 
+vphone-cli | Agent tools
+https://github.com/Lakr233/vphone-cli
+A tool that runs a virtual iPhone on an Apple Silicon Mac for research, reverse engineering and debugging.
+For: People who need a local iOS guest on a Mac they already have.
+Access: Needs a physical Apple Silicon Mac on macOS 15 or later. Download the notarized vphone-launchpad zip from GitHub Releases. Host setup uses Recovery commands csrutil enable --without debug and csrutil allow-research-guests enable. Optional API is --api-listen 127.0.0.1:8765 with a printed token. The project issues no token; listings on token sites are scams. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -533,6 +540,13 @@ https://github.com/block/buzz
 A self-hosted workspace where humans and agents share signed events on a relay you run.
 For: Teams who want agents in the same rooms as people, with their own keys and an audit trail.
 Access: Download the desktop app from GitHub Releases, or git clone then just setup && just dev. Needs Docker. Default relay is ws://localhost:3000. Agents use buzz-cli with BUZZ_PRIVATE_KEY; they can open repos, send patches and run workflows on that relay. The Windows installer is unsigned. Apache-2.0.
+Source checked: 2026-10-28
+
+OpenSandbox | Platforms
+https://open-sandbox.ai
+A sandbox runtime that gives agents isolated Docker or Kubernetes environments for commands, files, browsers and desktops.
+For: People who want coding agents to run sandboxes on their own infrastructure.
+Access: uvx opensandbox-server init-config ~/.sandbox.toml --example docker then uvx opensandbox-server. Needs Docker and Python 3.10 or later. SDK: pip install opensandbox. CLI: pip install opensandbox-cli. MCP: pip install opensandbox-mcp then opensandbox-mcp --domain localhost:8080 --protocol http. Apache-2.0.
 Source checked: 2026-10-28
 
 x402 | Protocols

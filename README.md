@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 114 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 116 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (42)
+- [Agent tools](#agent-tools) (43)
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (17)
+- [Platforms](#platforms) (18)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (34)
 
@@ -449,6 +449,16 @@ A Python scraping library with HTTP fetchers, stealth browsers, spiders and an M
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/D4Vinci/Scrapling).
 
+### [vphone-cli](https://github.com/Lakr233/vphone-cli)
+
+A tool that runs a virtual iPhone on an Apple Silicon Mac for research, reverse engineering and debugging.
+
+**For:** People who need a local iOS guest on a Mac they already have.
+
+**Access and use:** Needs a physical Apple Silicon Mac on macOS 15 or later. Download the notarized vphone-launchpad zip from GitHub Releases. Host setup uses Recovery commands csrutil enable --without debug and csrutil allow-research-guests enable. Optional API is --api-listen 127.0.0.1:8765 with a printed token. The project issues no token; listings on token sites are scams. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Lakr233/vphone-cli).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -794,6 +804,16 @@ A self-hosted workspace where humans and agents share signed events on a relay y
 **Access and use:** Download the desktop app from GitHub Releases, or git clone then just setup && just dev. Needs Docker. Default relay is ws://localhost:3000. Agents use buzz-cli with BUZZ_PRIVATE_KEY; they can open repos, send patches and run workflows on that relay. The Windows installer is unsigned. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/block/buzz).
+
+### [OpenSandbox](https://open-sandbox.ai)
+
+A sandbox runtime that gives agents isolated Docker or Kubernetes environments for commands, files, browsers and desktops.
+
+**For:** People who want coding agents to run sandboxes on their own infrastructure.
+
+**Access and use:** uvx opensandbox-server init-config ~/.sandbox.toml --example docker then uvx opensandbox-server. Needs Docker and Python 3.10 or later. SDK: pip install opensandbox. CLI: pip install opensandbox-cli. MCP: pip install opensandbox-mcp then opensandbox-mcp --domain localhost:8080 --protocol http. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/opensandbox-group/OpenSandbox).
 
 ## Protocols
 

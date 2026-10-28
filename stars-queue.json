@@ -3,9 +3,9 @@
   "starred_total": 313,
   "updated": "2026-10-28",
   "counts": {
-    "already_published": 88,
+    "already_published": 90,
     "queued": 8,
-    "stored": 216,
+    "stored": 214,
     "excluded": 1
   },
   "rule": "A star is not an entry. Promote a queued row only after a documentation review, access notes and a source_checked date in resources.json. Status queued means score 4+ on MCP, skills, awesome-list, licence or first-party signals. Status stored keeps the rest of the 313 stars for later review. Status excluded is not eligible.",
@@ -3504,8 +3504,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "Lakr233/vphone-cli",
@@ -3521,8 +3521,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "yc-software/qm",

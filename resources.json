@@ -1483,6 +1483,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "opensandbox",
+      "name": "OpenSandbox",
+      "category": "Platforms",
+      "url": "https://open-sandbox.ai",
+      "description": "A sandbox runtime that gives agents isolated Docker or Kubernetes environments for commands, files, browsers and desktops.",
+      "for_whom": "People who want coding agents to run sandboxes on their own infrastructure.",
+      "access_notes": "uvx opensandbox-server init-config ~/.sandbox.toml --example docker then uvx opensandbox-server. Needs Docker and Python 3.10 or later. SDK: pip install opensandbox. CLI: pip install opensandbox-cli. MCP: pip install opensandbox-mcp then opensandbox-mcp --domain localhost:8080 --protocol http. Apache-2.0.",
+      "source_url": "https://github.com/opensandbox-group/OpenSandbox",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "vphone-cli",
+      "name": "vphone-cli",
+      "category": "Agent tools",
+      "url": "https://github.com/Lakr233/vphone-cli",
+      "description": "A tool that runs a virtual iPhone on an Apple Silicon Mac for research, reverse engineering and debugging.",
+      "for_whom": "People who need a local iOS guest on a Mac they already have.",
+      "access_notes": "Needs a physical Apple Silicon Mac on macOS 15 or later. Download the notarized vphone-launchpad zip from GitHub Releases. Host setup uses Recovery commands csrutil enable --without debug and csrutil allow-research-guests enable. Optional API is --api-listen 127.0.0.1:8765 with a printed token. The project issues no token; listings on token sites are scams. MIT.",
+      "source_url": "https://github.com/Lakr233/vphone-cli",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
