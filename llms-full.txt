@@ -332,6 +332,13 @@ For: Teams who want to train and score a specialised agent from their own traces
 Access: SDK and CLI: pip install overmind, then overmind init and overmind sync. Hosted console is console.overmindlab.ai with a project API key. MCP is https://api.overmindlab.ai/api/mcp/ with X-Api-Key. Self-host is docker compose; the API needs OpenRouter, Modal, AWS and Hugging Face keys before it boots. SDK and CLI are MIT. The platform is AGPL-3.0. SDK and CLI send anonymous usage to PostHog; opt out with OVERMIND_ANALYTICS_ENABLED=false or DO_NOT_TRACK=1.
 Source checked: 2026-10-28
 
+OpenBot | Platforms
+https://www.copilotkit.ai/openbot
+A self-hosted AG-UI coworker app. Each bot gets its own computer, browser logins and files, and every action is decided and recorded before it runs.
+For: Teams that want a clone-and-own agent workspace on their own infrastructure, with their own model keys.
+Access: Clone https://github.com/CopilotKit/OpenBot. Needs Docker, Bun 1.3 or later, a CopilotKit Intelligence project, and a model key. Default OPENBOT_SINGLE_USER admits every request as one administrator until you turn sign-in on. Credentials are encrypted at rest. Published image ghcr.io/copilotkit/openbot. MIT. Marked beta.
+Source checked: 2026-10-28
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.
@@ -463,4 +470,11 @@ https://www.usehallmark.com/
 A design skill that picks a theme, builds a self-contained HTML page from your brief, and lints it in a browser for contrast, layout and common machine-made tells.
 For: People who want a coding agent to design a page with a named theme and a local lint pass.
 Access: npx skills add nutlope/hallmark -g. Needs Node 18 or later. Browser checks need puppeteer-core and Chrome; static checks still run without them. MIT. Bundled photo index points at Wikimedia Commons; each photograph keeps its own licence and is credited on the page.
+Source checked: 2026-10-28
+
+Superpowers | Skills and learning
+https://github.com/obra/superpowers
+A skills pack that makes a coding agent specify, plan, test and review before it writes code.
+For: People who want a spec-plan-TDD workflow in Claude Code, Codex, Cursor and other coding agents.
+Access: Claude Code: /plugin install superpowers@claude-plugins-official. Other harnesses have their own plugin install in the README. Optional visual companion loads a logo from primeradiant.com with the Superpowers version; set SUPERPOWERS_DISABLE_TELEMETRY to turn that off. MIT.
 Source checked: 2026-10-28

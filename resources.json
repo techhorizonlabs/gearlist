@@ -859,6 +859,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "openbot",
+      "name": "OpenBot",
+      "category": "Platforms",
+      "url": "https://www.copilotkit.ai/openbot",
+      "description": "A self-hosted AG-UI coworker app. Each bot gets its own computer, browser logins and files, and every action is decided and recorded before it runs.",
+      "for_whom": "Teams that want a clone-and-own agent workspace on their own infrastructure, with their own model keys.",
+      "access_notes": "Clone https://github.com/CopilotKit/OpenBot. Needs Docker, Bun 1.3 or later, a CopilotKit Intelligence project, and a model key. Default OPENBOT_SINGLE_USER admits every request as one administrator until you turn sign-in on. Credentials are encrypted at rest. Published image ghcr.io/copilotkit/openbot. MIT. Marked beta.",
+      "source_url": "https://github.com/CopilotKit/OpenBot",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "superpowers",
+      "name": "Superpowers",
+      "category": "Skills and learning",
+      "url": "https://github.com/obra/superpowers",
+      "description": "A skills pack that makes a coding agent specify, plan, test and review before it writes code.",
+      "for_whom": "People who want a spec-plan-TDD workflow in Claude Code, Codex, Cursor and other coding agents.",
+      "access_notes": "Claude Code: /plugin install superpowers@claude-plugins-official. Other harnesses have their own plugin install in the README. Optional visual companion loads a logo from primeradiant.com with the Superpowers version; set SUPERPOWERS_DISABLE_TELEMETRY to turn that off. MIT.",
+      "source_url": "https://github.com/obra/superpowers",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 66 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 68 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,9 +22,9 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (27)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (4)
+- [Platforms](#platforms) (5)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (18)
+- [Skills and learning](#skills-and-learning) (19)
 
 
 ## Agent tools
@@ -505,6 +505,16 @@ A hosted or self-hosted platform that turns production traces into evals, prompt
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/overmind-core/overmind).
 
+### [OpenBot](https://www.copilotkit.ai/openbot)
+
+A self-hosted AG-UI coworker app. Each bot gets its own computer, browser logins and files, and every action is decided and recorded before it runs.
+
+**For:** Teams that want a clone-and-own agent workspace on their own infrastructure, with their own model keys.
+
+**Access and use:** Clone https://github.com/CopilotKit/OpenBot. Needs Docker, Bun 1.3 or later, a CopilotKit Intelligence project, and a model key. Default OPENBOT_SINGLE_USER admits every request as one administrator until you turn sign-in on. Credentials are encrypted at rest. Published image ghcr.io/copilotkit/openbot. MIT. Marked beta.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/CopilotKit/OpenBot).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -698,6 +708,16 @@ A design skill that picks a theme, builds a self-contained HTML page from your b
 **Access and use:** npx skills add nutlope/hallmark -g. Needs Node 18 or later. Browser checks need puppeteer-core and Chrome; static checks still run without them. MIT. Bundled photo index points at Wikimedia Commons; each photograph keeps its own licence and is credited on the page.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/Nutlope/hallmark).
+
+### [Superpowers](https://github.com/obra/superpowers)
+
+A skills pack that makes a coding agent specify, plan, test and review before it writes code.
+
+**For:** People who want a spec-plan-TDD workflow in Claude Code, Codex, Cursor and other coding agents.
+
+**Access and use:** Claude Code: /plugin install superpowers@claude-plugins-official. Other harnesses have their own plugin install in the README. Optional visual companion loads a logo from primeradiant.com with the Superpowers version; set SUPERPOWERS_DISABLE_TELEMETRY to turn that off. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/obra/superpowers).
 
 ## Looking for more?
 
