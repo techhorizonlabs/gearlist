@@ -1093,6 +1093,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "huginn",
+      "name": "Huginn",
+      "category": "Platforms",
+      "url": "https://github.com/huginn/huginn",
+      "description": "A self-hosted agent system that watches the web, mail and feeds, then takes actions you define.",
+      "for_whom": "People who want IFTTT-style automations on a server they control, with their data staying there.",
+      "access_notes": "Quick try: docker run -it -p 3000:3000 ghcr.io/huginn/huginn then open http://localhost:3000 and log in as admin with the password printed once in the container log. Production needs MySQL or PostgreSQL and a web process plus a worker. MIT.",
+      "source_url": "https://github.com/huginn/huginn",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "agency-agents",
+      "name": "The Agency",
+      "category": "Skills and learning",
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "description": "A large roster of specialist agent files for coding tools, covering engineering, design, sales, marketing and operations.",
+      "for_whom": "People who want to drop named specialist agents into Claude Code, Cursor, Codex and other hosts.",
+      "access_notes": "Native app at https://agencyagents.app, or brew install --cask msitarzewski/agency-agents/agency-agents. From a clone: ./scripts/install.sh --tool claude-code, or --tool with another listed host. Install a subset with --division or --agent. OpenCode currently registers about 119 agents and drops the rest. MIT.",
+      "source_url": "https://github.com/msitarzewski/agency-agents",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

@@ -402,6 +402,13 @@ For: People who want to run DeepSeek's plugin-based agent stack on their own mac
 Access: npx @deepseek-ai/dsh web. Default web UI is http://127.0.0.1:3080. Marked developer preview with expected breaking changes. The SAFETY notice says it can execute model-generated code, load plugins, and has not been security audited. MIT.
 Source checked: 2026-10-28
 
+Huginn | Platforms
+https://github.com/huginn/huginn
+A self-hosted agent system that watches the web, mail and feeds, then takes actions you define.
+For: People who want IFTTT-style automations on a server they control, with their data staying there.
+Access: Quick try: docker run -it -p 3000:3000 ghcr.io/huginn/huginn then open http://localhost:3000 and log in as admin with the password printed once in the container log. Production needs MySQL or PostgreSQL and a web process plus a worker. MIT.
+Source checked: 2026-10-28
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.
@@ -589,4 +596,11 @@ https://github.com/garrytan/gstack
 A skills pack that turns a coding agent into a sprint team: office hours, architecture, review, browser QA and a ship command.
 For: People who want named specialist skills on Claude Code, Codex, OpenCode and other hosts.
 Access: Needs Git, Bun 1.4.2 or later, and Node on Windows. git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup. Other hosts: ./setup --host auto. Team mode runs a silent hourly update check. MIT.
+Source checked: 2026-10-28
+
+The Agency | Skills and learning
+https://github.com/msitarzewski/agency-agents
+A large roster of specialist agent files for coding tools, covering engineering, design, sales, marketing and operations.
+For: People who want to drop named specialist agents into Claude Code, Cursor, Codex and other hosts.
+Access: Native app at https://agencyagents.app, or brew install --cask msitarzewski/agency-agents/agency-agents. From a clone: ./scripts/install.sh --tool claude-code, or --tool with another listed host. Install a subset with --division or --agent. OpenCode currently registers about 119 agents and drops the rest. MIT.
 Source checked: 2026-10-28

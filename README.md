@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 84 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 86 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,9 +22,9 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (31)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (10)
+- [Platforms](#platforms) (11)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (26)
+- [Skills and learning](#skills-and-learning) (27)
 
 
 ## Agent tools
@@ -605,6 +605,16 @@ An open-source agent harness from DeepSeek where every capability is a plugin, w
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/deepseek-ai/deepseek-harness).
 
+### [Huginn](https://github.com/huginn/huginn)
+
+A self-hosted agent system that watches the web, mail and feeds, then takes actions you define.
+
+**For:** People who want IFTTT-style automations on a server they control, with their data staying there.
+
+**Access and use:** Quick try: docker run -it -p 3000:3000 ghcr.io/huginn/huginn then open http://localhost:3000 and log in as admin with the password printed once in the container log. Production needs MySQL or PostgreSQL and a web process plus a worker. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/huginn/huginn).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -878,6 +888,16 @@ A skills pack that turns a coding agent into a sprint team: office hours, archit
 **Access and use:** Needs Git, Bun 1.4.2 or later, and Node on Windows. git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup. Other hosts: ./setup --host auto. Team mode runs a silent hourly update check. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/garrytan/gstack).
+
+### [The Agency](https://github.com/msitarzewski/agency-agents)
+
+A large roster of specialist agent files for coding tools, covering engineering, design, sales, marketing and operations.
+
+**For:** People who want to drop named specialist agents into Claude Code, Cursor, Codex and other hosts.
+
+**Access and use:** Native app at https://agencyagents.app, or brew install --cask msitarzewski/agency-agents/agency-agents. From a clone: ./scripts/install.sh --tool claude-code, or --tool with another listed host. Install a subset with --division or --agent. OpenCode currently registers about 119 agents and drops the rest. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/msitarzewski/agency-agents).
 
 ## Looking for more?
 
