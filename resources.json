@@ -2549,6 +2549,32 @@
       "source_checked": "2026-10-29",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "chatpack",
+      "name": "Chatpack",
+      "category": "Agent tools",
+      "url": "https://docs.chatpack.dev",
+      "description": "An MIT chat backend you mount in your app for 1:1 and group messages, permissions, read-state and SSE delivery.",
+      "for_whom": "Developers who need conversations in an existing app and already have auth and a database.",
+      "access_notes": "npm install @chatpack/core @chatpack/adapter-memory. Create chatpack({ storage, auth }) where auth returns { id } from your session cookie or null. Mount chat.handler() on a catch-all under /api/chat (Next.js app/api/chat/[...chatpack]/route.ts). Live events are GET /api/chat/stream as EventSource; cookie sessions work for SSE. Production: @chatpack/adapter-drizzle with DATABASE_URL Postgres, or @chatpack/adapter-prisma on PostgreSQL 16. Messages live in the database you attach. Optional npm install @chatpack/client react with credentials include. Agent skill: npx skills add chddaniel/chatpack. Docs MCP: npx -y @chatpack/mcp (stdio, bundled docs, no network). Docs https://docs.chatpack.dev. API is 0.x. MIT.",
+      "source_url": "https://github.com/chddaniel/chatpack",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "hands",
+      "name": "Hands",
+      "category": "Platforms",
+      "url": "https://hands.build",
+      "description": "An MIT Cloudflare-native release platform for draft-first app builds, staged rollouts, share pages, crash reports and in-app feedback.",
+      "for_whom": "Teams shipping Android, iOS, HarmonyOS or Electron builds who want agents and CI to publish through one API.",
+      "access_notes": "Hosted dashboard https://app.hands.build and API https://hands.build, run by Oranix on Cloudflare Workers, D1 and R2. Login with Raft. CLI: npm install -g @botiverse/hands-cli, then hands login (browser JWT saved at $XDG_CONFIG_HOME/quiver/auth.json) or CI HANDS_API=https://hands.build with HANDS_AUTH_TOKEN or HANDS_BEARER_TOKEN. Builds, crash reports, feedback and installable artifacts go to that Cloudflare account. Self-host: git clone https://github.com/botiverse/hands.git, pnpm install, pnpm --filter @botiverse/hands-worker dev at http://127.0.0.1:8787, pnpm --filter @botiverse/hands-admin dev at http://localhost:5173 (proxies /api to 8787). Docker is needed for the APK parser container. Set RAFT_CLIENT_ID in worker config and wrangler secret put RAFT_CLIENT_SECRET. The production Worker config turns Cloudflare observability traces on (5 percent head sample, persist). MIT.",
+      "source_url": "https://github.com/botiverse/hands",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

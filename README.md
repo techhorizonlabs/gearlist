@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 196 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 198 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (71)
+- [Agent tools](#agent-tools) (72)
 - [MCP and integrations](#mcp-and-integrations) (20)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (49)
+- [Platforms](#platforms) (50)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (47)
 
@@ -738,6 +738,16 @@ An MIT training recipe and Apache-2.0 14B Qwen2.5-Instruct model that proposes r
 **Access and use:** Inference: pip install transformers torch, then load T1anyu/DeepInnovator with AutoModelForCausalLM.from_pretrained. The weights are about 15 billion parameters in BF16; Hugging Face documents GPU load. Training: git clone https://github.com/HKUDS/DeepInnovator.git, pip install openai omegaconf python-dotenv feedparser requests PyPDF2 tqdm python-dateutil datasets numpy torch transformers, set OPENAI_API_KEY and OPENAI_API_BASE in .env, then cd recipe/DeepInnovator/data_preparation and bash run.sh 100 ./data/arxiv_data. train_rl.sh needs a CUDA GPU. Data preparation sends paper text to the OpenAI-compatible API you set. GitHub recipe MIT. Hugging Face weights Apache-2.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/HKUDS/DeepInnovator).
+
+### [Chatpack](https://docs.chatpack.dev)
+
+An MIT chat backend you mount in your app for 1:1 and group messages, permissions, read-state and SSE delivery.
+
+**For:** Developers who need conversations in an existing app and already have auth and a database.
+
+**Access and use:** npm install @chatpack/core @chatpack/adapter-memory. Create chatpack({ storage, auth }) where auth returns { id } from your session cookie or null. Mount chat.handler() on a catch-all under /api/chat (Next.js app/api/chat/[...chatpack]/route.ts). Live events are GET /api/chat/stream as EventSource; cookie sessions work for SSE. Production: @chatpack/adapter-drizzle with DATABASE_URL Postgres, or @chatpack/adapter-prisma on PostgreSQL 16. Messages live in the database you attach. Optional npm install @chatpack/client react with credentials include. Agent skill: npx skills add chddaniel/chatpack. Docs MCP: npx -y @chatpack/mcp (stdio, bundled docs, no network). Docs https://docs.chatpack.dev. API is 0.x. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/chddaniel/chatpack).
 
 ## MCP and integrations
 
@@ -1484,6 +1494,16 @@ An MIT GitHub-repo auditor that scores security, bugs and quality with DeepSeek 
 **Access and use:** Self-host: git clone https://github.com/danish296/codevibes.git, npm install, then cd codevibes-backend && npm install, copy .env.example to .env, set DEEPSEEK_API_KEY, JWT_SECRET and a 32-character ENCRYPTION_KEY. Backend: npm run dev at http://localhost:3001. Frontend: npm run dev at http://localhost:8080. History is SQLite at codevibes-backend/data/codevibes.db. Repo files go to DeepSeek. Private repos need a GitHub token or GitHub OAuth (GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET). MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/danish296/codevibes).
+
+### [Hands](https://hands.build)
+
+An MIT Cloudflare-native release platform for draft-first app builds, staged rollouts, share pages, crash reports and in-app feedback.
+
+**For:** Teams shipping Android, iOS, HarmonyOS or Electron builds who want agents and CI to publish through one API.
+
+**Access and use:** Hosted dashboard https://app.hands.build and API https://hands.build, run by Oranix on Cloudflare Workers, D1 and R2. Login with Raft. CLI: npm install -g @botiverse/hands-cli, then hands login (browser JWT saved at $XDG_CONFIG_HOME/quiver/auth.json) or CI HANDS_API=https://hands.build with HANDS_AUTH_TOKEN or HANDS_BEARER_TOKEN. Builds, crash reports, feedback and installable artifacts go to that Cloudflare account. Self-host: git clone https://github.com/botiverse/hands.git, pnpm install, pnpm --filter @botiverse/hands-worker dev at http://127.0.0.1:8787, pnpm --filter @botiverse/hands-admin dev at http://localhost:5173 (proxies /api to 8787). Docker is needed for the APK parser container. Set RAFT_CLIENT_ID in worker config and wrangler secret put RAFT_CLIENT_SECRET. The production Worker config turns Cloudflare observability traces on (5 percent head sample, persist). MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/botiverse/hands).
 
 ## Protocols
 
