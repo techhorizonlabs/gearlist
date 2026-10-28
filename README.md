@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 158 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 160 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,9 +22,9 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (64)
 - [MCP and integrations](#mcp-and-integrations) (17)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (27)
+- [Platforms](#platforms) (28)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (41)
+- [Skills and learning](#skills-and-learning) (42)
 
 
 ## Agent tools
@@ -1165,6 +1165,16 @@ A local control room for language-agent societies: pause a run, ask a resident, 
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/XiaoLuoLYG/GOD).
 
+### [EdgeEver](https://edgeever.org)
+
+An open-source notes and knowledge workspace with three-pane editing, multi-device sync, and a native remote MCP so agents can create and edit notes in the same account.
+
+**For:** People who want a self-hosted or Cloudflare-hosted notebook that coding agents can read and write through MCP.
+
+**Access and use:** Cloudflare deploy forks the repo, creates D1 edgeever and R2 edgeever-resources, then a Worker from main. Set runtime Secret EDGE_EVER_AUTH_PASSWORD (32 characters or longer). Username defaults to admin via EDGE_EVER_AUTH_USERNAME. Notes and attachments then live in that Cloudflare account. Docker: curl -fsSL https://edgeever.org/install.sh | bash (read the script before running it). The installer writes ~/edgeever, pulls ghcr.io/tianma-if/edgeever, generates an administrator password, and serves http://localhost:8787. Daily auto-update is crontab 04:17 unless EDGE_EVER_AUTO_UPDATE=false. Profile -> API / MCP issues a token with full CRUD on notes, notebooks, tags, attachments, history, templates and AI instructions. BYOK sends note text to the model endpoint you configure. The public demo at https://demo.edgeever.org resets daily; keep private notes off it. AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/tianma-if/edgeever).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -1618,6 +1628,16 @@ A native macOS app that discovers, installs and mounts agent skills across Claud
 **Access and use:** macOS 14 or later. Download Skills Manager 2.0.0 from GitHub Releases and drag it to Applications. The zip is Developer ID signed and Apple-notarized; SHA-256 8da1f38838119864e593e9e591355dd53b5d407e4a7383aac68f095efdac1ad5. There is no Skills Manager backend. Discover refreshes from skills.sh and caches under ~/.skills-manager/. Installing from Discover downloads the GitHub skill package into the Library and links it into agents. Try sends the skill to your own Claude, OpenAI, OpenRouter, Ollama or LM Studio endpoint. Local Ollama and LM Studio endpoints are rewritten to 127.0.0.1. The TUI is npm exec skills-manager from tui/. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/yibie/skills-manager).
+
+### [Screenwriting Skills](https://github.com/jtydhr88/screenwriting-skills)
+
+Twenty-six agent skills for screenwriting, television writing and dramaturgy, following the agentskills.io format for Claude Code and Codex.
+
+**For:** Writers and agents drafting features, series or stage work who want craft checklists beside the script.
+
+**Access and use:** Claude Code: /plugin marketplace add jtydhr88/screenwriting-skills then /plugin install screenwriting@screenwriting-skills. Skills run as /screenwriting:<skill>. Codex: codex plugin marketplace add jtydhr88/screenwriting-skills then install Screenwriting Skills from Plugins. Manual copy writes plugins/screenwriting/skills/* into ~/.claude/skills/ or ~/.agents/skills/ (or the project .claude/skills / .agents/skills). Skill bodies are Chinese; the agent answers in the language you asked. sw-workflow keeps project state in story-bible.md. MIT covers the skill architecture; quotations from the listed books and scripts stay with their rights holders (NOTICE).
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/jtydhr88/screenwriting-skills).
 
 ## Looking for more?
 
