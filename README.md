@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 134 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 136 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,7 +19,7 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (52)
+- [Agent tools](#agent-tools) (54)
 - [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (23)
@@ -548,6 +548,26 @@ A menu-bar and system-tray app that lists listening TCP ports and can terminate 
 **Access and use:** macOS 15+: brew install --cask productdevbook/tap/portkiller, or a .dmg from GitHub Releases. Windows 10+: extract the zip from Releases. Killing a process is immediate. Kubernetes port-forwards use your kubectl context. Cloudflare Tunnels lists active tunnels. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/productdevbook/port-killer).
+
+### [ClawRouter](https://github.com/BlockRunAI/ClawRouter)
+
+A local LLM router that picks a model per request and can pay the gateway with a wallet signature over x402, or with a BlockRun API key.
+
+**For:** People running agents that need a local OpenAI-compatible proxy with per-call billing.
+
+**Access and use:** npx @blockrun/clawrouter listens on localhost:8402. First run generates a wallet locally. Paid models spend USDC from that wallet per call, or sign up at user.blockrun.ai and run clawrouter login with a brk_live_ key. Free models need no wallet. The OpenClaw plugin path is curl -fsSL https://blockrun.ai/ClawRouter-update | bash; read the script before running it. Outbound voice and phone tools bill the wallet automatically. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/BlockRunAI/ClawRouter).
+
+### [OpenCreator](https://github.com/krillinai/OpenCreator)
+
+A local creator workspace around Codex CLI for video, images, voice, translation and agent conversations.
+
+**For:** People who want Codex-backed creative tools on the machine, with data and attachments local by default.
+
+**Access and use:** Download the desktop installer from GitHub Releases (macOS Apple Silicon, macOS Intel, Windows x64). First launch can reuse a local Codex ChatGPT sign-in or API key. Web from source is pnpm web:dev at http://127.0.0.1:19861/. The daemon listens on loopback only. Video downloads from some platforms need cookies. Follow each site's terms. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/krillinai/OpenCreator).
 
 ## MCP and integrations
 

@@ -1743,6 +1743,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "clawrouter",
+      "name": "ClawRouter",
+      "category": "Agent tools",
+      "url": "https://github.com/BlockRunAI/ClawRouter",
+      "description": "A local LLM router that picks a model per request and can pay the gateway with a wallet signature over x402, or with a BlockRun API key.",
+      "for_whom": "People running agents that need a local OpenAI-compatible proxy with per-call billing.",
+      "access_notes": "npx @blockrun/clawrouter listens on localhost:8402. First run generates a wallet locally. Paid models spend USDC from that wallet per call, or sign up at user.blockrun.ai and run clawrouter login with a brk_live_ key. Free models need no wallet. The OpenClaw plugin path is curl -fsSL https://blockrun.ai/ClawRouter-update | bash; read the script before running it. Outbound voice and phone tools bill the wallet automatically. MIT.",
+      "source_url": "https://github.com/BlockRunAI/ClawRouter",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "opencreator",
+      "name": "OpenCreator",
+      "category": "Agent tools",
+      "url": "https://github.com/krillinai/OpenCreator",
+      "description": "A local creator workspace around Codex CLI for video, images, voice, translation and agent conversations.",
+      "for_whom": "People who want Codex-backed creative tools on the machine, with data and attachments local by default.",
+      "access_notes": "Download the desktop installer from GitHub Releases (macOS Apple Silicon, macOS Intel, Windows x64). First launch can reuse a local Codex ChatGPT sign-in or API key. Web from source is pnpm web:dev at http://127.0.0.1:19861/. The daemon listens on loopback only. Video downloads from some platforms need cookies. Follow each site's terms. Apache-2.0.",
+      "source_url": "https://github.com/krillinai/OpenCreator",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
