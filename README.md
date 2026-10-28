@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 130 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 132 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (49)
+- [Agent tools](#agent-tools) (50)
 - [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (23)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (36)
+- [Skills and learning](#skills-and-learning) (37)
 
 
 ## Agent tools
@@ -518,6 +518,16 @@ An SDK for persistent, stateful agents on Cloudflare Durable Objects, with MCP, 
 **Access and use:** npm install agents, or npm create cloudflare@latest -- --template cloudflare/agents-starter. Needs a Durable Object binding and a SQLite migration in wrangler.jsonc. Agents hibernate when idle. MCP can act as a server or a client. Sandboxed execution runs generated code in an isolated Worker. x402 pay-per-call is optional. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/agents).
+
+### [pxpipe](https://github.com/teamchong/pxpipe)
+
+A local proxy that rewrites bulky coding-agent request context into PNG pages so the model reads them as images.
+
+**For:** People who want a local proxy in front of Claude Code, Codex or Gemini CLI to cut request tokens.
+
+**Access and use:** npx pxpipe-proxy listens on 127.0.0.1:47821. pxpipe warp wraps a client such as claude, agy or opencode. The dashboard is http://127.0.0.1:47821/. Requests still go to the provider after imaging. Events log to ~/.pxpipe/events.jsonl. Exact strings in imaged history can be misread; keep recent turns as text. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/teamchong/pxpipe).
 
 ## MCP and integrations
 
@@ -1338,6 +1348,16 @@ A Claude Code plugin and Agent Skills pack that turns inbox sources into a linke
 **Access and use:** claude plugin marketplace add AgriciDaniel/claude-obsidian then claude plugin install claude-obsidian@agricidaniel-claude-obsidian. Needs Python 3.11 or later. Notes Claude reads are sent to Claude like any other prompt. Web research and remote models stay off until you allow them for a task. The vault stays as local Markdown. The plugin has no telemetry. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/AgriciDaniel/claude-obsidian).
+
+### [antislop](https://github.com/miqdadbadjuber/anti-slop)
+
+Agent skills that filter generic AI UI, copy and comments, with a delivery gate before you ship.
+
+**For:** People who want a coding agent to reject generic output before it lands in the repo.
+
+**Access and use:** npx antislop-ai. The npm name antislop is a different package. Also npx skills add miqdadbadjuber/anti-slop. Optional mode preference is ~/.config/antislop/settings.json. There is no antislop coin, token or fundraise. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/miqdadbadjuber/anti-slop).
 
 ## Looking for more?
 

@@ -346,6 +346,13 @@ For: Developers who want agents that keep state on Cloudflare and wake only when
 Access: npm install agents, or npm create cloudflare@latest -- --template cloudflare/agents-starter. Needs a Durable Object binding and a SQLite migration in wrangler.jsonc. Agents hibernate when idle. MCP can act as a server or a client. Sandboxed execution runs generated code in an isolated Worker. x402 pay-per-call is optional. MIT.
 Source checked: 2026-10-28
 
+pxpipe | Agent tools
+https://github.com/teamchong/pxpipe
+A local proxy that rewrites bulky coding-agent request context into PNG pages so the model reads them as images.
+For: People who want a local proxy in front of Claude Code, Codex or Gemini CLI to cut request tokens.
+Access: npx pxpipe-proxy listens on 127.0.0.1:47821. pxpipe warp wraps a client such as claude, agy or opencode. The dashboard is http://127.0.0.1:47821/. Requests still go to the provider after imaging. Events log to ~/.pxpipe/events.jsonl. Exact strings in imaged history can be misread; keep recent turns as text. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -911,4 +918,11 @@ https://github.com/AgriciDaniel/claude-obsidian
 A Claude Code plugin and Agent Skills pack that turns inbox sources into a linked Markdown wiki you can open in Obsidian.
 For: People who keep research in an Obsidian vault and want Claude to file, cite and query it.
 Access: claude plugin marketplace add AgriciDaniel/claude-obsidian then claude plugin install claude-obsidian@agricidaniel-claude-obsidian. Needs Python 3.11 or later. Notes Claude reads are sent to Claude like any other prompt. Web research and remote models stay off until you allow them for a task. The vault stays as local Markdown. The plugin has no telemetry. MIT.
+Source checked: 2026-10-28
+
+antislop | Skills and learning
+https://github.com/miqdadbadjuber/anti-slop
+Agent skills that filter generic AI UI, copy and comments, with a delivery gate before you ship.
+For: People who want a coding agent to reject generic output before it lands in the repo.
+Access: npx antislop-ai. The npm name antislop is a different package. Also npx skills add miqdadbadjuber/anti-slop. Optional mode preference is ~/.config/antislop/settings.json. There is no antislop coin, token or fundraise. MIT.
 Source checked: 2026-10-28

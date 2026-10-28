@@ -1495,8 +1495,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "CopilotKit/OpenBot",
@@ -3878,8 +3878,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "TheCraigHewitt/seomachine",
