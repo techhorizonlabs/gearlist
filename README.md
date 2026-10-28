@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 182 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 184 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (66)
+- [Agent tools](#agent-tools) (67)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (43)
+- [Platforms](#platforms) (44)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (45)
 
@@ -688,6 +688,16 @@ A local AI trading workspace that connects Claude Code, Codex, OpenCode and simi
 **Access and use:** Desktop app for macOS and Windows from GitHub Releases; a broker account is optional for research. Source: git clone https://github.com/TraderAlice/OpenAlice.git && pnpm install && pnpm dev. State is ~/.openalice; workspaces are local Git directories. Broker credentials are sealed at rest. Agents and market-data providers still send prompts and quotes to their own services. Trading execution is beta: start with simulator, paper, demo or testnet; you review and approve live orders. AGPL-3.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/TraderAlice/OpenAlice).
+
+### [thinking-orbs](https://libraries.dev/orbs)
+
+A React canvas library of nine dotted thought-orb animations for agent status, in two sizes, with automatic light and dark themes.
+
+**For:** People building agent chat UIs who want a status glyph instead of a spinner.
+
+**Access and use:** npm install thinking-orbs. Needs React 18 or newer. Import ThinkingOrb and set a state such as searching, working or solving, with size 64 or 20. The package is a canvas component; it does not call a model. Demo is https://libraries.dev/orbs. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/Jakubantalik/thinking-orbs).
 
 ## MCP and integrations
 
@@ -1364,6 +1374,16 @@ An Apache-licensed research workbench that plans, searches literature, runs code
 **Access and use:** Desktop app for macOS, Windows and Linux from https://openscience.sh/download. CLI: npm install -g @synsci/openscience then openscience. Or npx synsci. Or curl -fsSL https://openscience.sh/install | bash (read the script before running it). First launch of the GUI asks you to sign in to a Synthetic Sciences account. Project files stay in the connected folder. Prompts go to the model provider you connect, a local endpoint, or Ace Wallet pay as you go. Ace auto reload is a separate opt-in that charges a saved card. Search, database connectors and remote compute send queries and selected files to those services. While signed in, session traces are shared by default, including sessions that use your own keys or a local model; turn that off under Customize, Permissions, Data and privacy. Apache-2.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/synthetic-sciences/openscience).
+
+### [Piik](https://piik.tv)
+
+An MIT screen-sharing app for one host and up to 20 viewers, with browser watch, optional remote control, voice and a self-hosted server.
+
+**For:** Friends who want a private watch-together room they can run themselves.
+
+**Access and use:** Hosted demo is https://demo.piik.tv, P2P only; video and audio travel between participants. App: download Piik App from https://piik.tv, then choose Public invite or Local room. Self-host: extract the Server archive from GitHub Releases and run ./piik-server (Linux) or ./piik-server.exe (Windows). Local UI is http://localhost:8787. Room records stay in SQLite. Docker: download compose.yaml and .env.example from the repo, set your domain, then docker compose up -d. Default is P2P with STUN on UDP 3478; optional SFU on UDP 7882 forwards video and audio through the server. Remote control, once you approve it, lets viewers use the host keyboard, mouse or a supported gamepad. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/TNTcraftHIM/Piik).
 
 ## Protocols
 

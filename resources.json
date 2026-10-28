@@ -2367,6 +2367,32 @@
       "source_checked": "2026-10-29",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "thinking-orbs",
+      "name": "thinking-orbs",
+      "category": "Agent tools",
+      "url": "https://libraries.dev/orbs",
+      "description": "A React canvas library of nine dotted thought-orb animations for agent status, in two sizes, with automatic light and dark themes.",
+      "for_whom": "People building agent chat UIs who want a status glyph instead of a spinner.",
+      "access_notes": "npm install thinking-orbs. Needs React 18 or newer. Import ThinkingOrb and set a state such as searching, working or solving, with size 64 or 20. The package is a canvas component; it does not call a model. Demo is https://libraries.dev/orbs. MIT.",
+      "source_url": "https://github.com/Jakubantalik/thinking-orbs",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "piik",
+      "name": "Piik",
+      "category": "Platforms",
+      "url": "https://piik.tv",
+      "description": "An MIT screen-sharing app for one host and up to 20 viewers, with browser watch, optional remote control, voice and a self-hosted server.",
+      "for_whom": "Friends who want a private watch-together room they can run themselves.",
+      "access_notes": "Hosted demo is https://demo.piik.tv, P2P only; video and audio travel between participants. App: download Piik App from https://piik.tv, then choose Public invite or Local room. Self-host: extract the Server archive from GitHub Releases and run ./piik-server (Linux) or ./piik-server.exe (Windows). Local UI is http://localhost:8787. Room records stay in SQLite. Docker: download compose.yaml and .env.example from the repo, set your domain, then docker compose up -d. Default is P2P with STUN on UDP 3478; optional SFU on UDP 7882 forwards video and audio through the server. Remote control, once you approve it, lets viewers use the host keyboard, mouse or a supported gamepad. MIT.",
+      "source_url": "https://github.com/TNTcraftHIM/Piik",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
