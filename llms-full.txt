@@ -584,6 +584,13 @@ For: Teams evaluating document sharing for deals and reviews.
 Access: Encryption claims are the provider's. Review its security model and recovery process before uploading sensitive documents.
 Source checked: 2026-10-25
 
+Quicksand | Security and governance
+https://microsoft.github.io/quicksand/
+An async Python API that boots QEMU Linux VMs so agents can run commands, mounts and a desktop without root or Docker.
+For: People who want coding agents to work inside a local virtual machine.
+Access: pip install 'quick-sandbox[qemu,alpine]', or pip install quick-sandbox then quicksand install qemu alpine. Desktop images: quicksand install ubuntu-desktop or alpine-desktop. Sandboxes are network-isolated by default; NetworkMode.FULL gives internet. Host directories can be mounted into the guest. Bidirectional port forwards map host and guest TCP ports. MIT.
+Source checked: 2026-10-28
+
 Raft | Platforms
 https://github.com/botiverse/raft-source
 A shared workspace where people and persistent AI agents collaborate in messages and tasks.
@@ -757,6 +764,13 @@ https://hybridclaw.io
 A self-hosted assistant runtime with a local gateway, sandbox, web chat and TUI, plus HybridAI Cloud as a hosted path.
 For: People who want a local assistant on Node 22 with their own model keys, or the HybridAI Cloud workspace.
 Access: npm install -g @hybridaione/hybridclaw, or curl -fsSL https://raw.githubusercontent.com/HybridAIOne/hybridclaw/main/scripts/install.sh | bash; read the script before running it. Needs Node.js 22.23.4 or later, below 23. hybridclaw onboarding then hybridclaw gateway. Default bind is 127.0.0.1:9090; web chat is http://127.0.0.1:9090/chat. Config is ~/.hybridclaw/config.json. Provider keys live in the encrypted store under ~/.hybridclaw/credentials.json. Docker is the default sandbox. Hosted path is hybridclaw.io. Set ops.webApiToken before exposing the gateway beyond loopback. Treat inbound channel messages as untrusted. MIT.
+Source checked: 2026-10-28
+
+HarnessRouter | Platforms
+https://harnessrouter.ai
+A self-hosted gateway that runs Codex, Claude Code and other harnesses through one OpenAI Responses-compatible API.
+For: People who want one local console and API in front of several coding-agent harnesses, using their own model keys.
+Access: docker run -d --name harnessrouter -p 127.0.0.1:3000:3000 -v harnessrouter:/data harnessrouter/harnessrouter. Needs Docker and about 4 GB of disk. Console is http://127.0.0.1:3000. Default Console login is harnessrouter / harnessrouter; change it before exposing the instance. First launch installs harness CLIs into the volume. Provider keys go under Bring your own key. Product API keys are created in the Console and belong in a backend, not a browser. Gateway :8080 and Runner :8081 stay on loopback inside the container. Hosted path is harnessrouter.ai. Apache-2.0.
 Source checked: 2026-10-28
 
 x402 | Protocols

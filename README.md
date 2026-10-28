@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 152 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 154 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -21,8 +21,8 @@ npx skills add techhorizonlabs/gearlist
 
 - [Agent tools](#agent-tools) (62)
 - [MCP and integrations](#mcp-and-integrations) (17)
-- [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (25)
+- [Security and governance](#security-and-governance) (5)
+- [Platforms](#platforms) (26)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (40)
 
@@ -863,6 +863,16 @@ A document and deal room service that describes browser encryption and controlle
 
 **Source checked:** 2026-10-25. [Official source](https://guardstein.com/).
 
+### [Quicksand](https://microsoft.github.io/quicksand/)
+
+An async Python API that boots QEMU Linux VMs so agents can run commands, mounts and a desktop without root or Docker.
+
+**For:** People who want coding agents to work inside a local virtual machine.
+
+**Access and use:** pip install 'quick-sandbox[qemu,alpine]', or pip install quick-sandbox then quicksand install qemu alpine. Desktop images: quicksand install ubuntu-desktop or alpine-desktop. Sandboxes are network-isolated by default; NetworkMode.FULL gives internet. Host directories can be mounted into the guest. Bidirectional port forwards map host and guest TCP ports. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/quicksand).
+
 ## Platforms
 
 ### [Raft](https://github.com/botiverse/raft-source)
@@ -1114,6 +1124,16 @@ A self-hosted assistant runtime with a local gateway, sandbox, web chat and TUI,
 **Access and use:** npm install -g @hybridaione/hybridclaw, or curl -fsSL https://raw.githubusercontent.com/HybridAIOne/hybridclaw/main/scripts/install.sh | bash; read the script before running it. Needs Node.js 22.23.4 or later, below 23. hybridclaw onboarding then hybridclaw gateway. Default bind is 127.0.0.1:9090; web chat is http://127.0.0.1:9090/chat. Config is ~/.hybridclaw/config.json. Provider keys live in the encrypted store under ~/.hybridclaw/credentials.json. Docker is the default sandbox. Hosted path is hybridclaw.io. Set ops.webApiToken before exposing the gateway beyond loopback. Treat inbound channel messages as untrusted. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/HybridAIOne/hybridclaw).
+
+### [HarnessRouter](https://harnessrouter.ai)
+
+A self-hosted gateway that runs Codex, Claude Code and other harnesses through one OpenAI Responses-compatible API.
+
+**For:** People who want one local console and API in front of several coding-agent harnesses, using their own model keys.
+
+**Access and use:** docker run -d --name harnessrouter -p 127.0.0.1:3000:3000 -v harnessrouter:/data harnessrouter/harnessrouter. Needs Docker and about 4 GB of disk. Console is http://127.0.0.1:3000. Default Console login is harnessrouter / harnessrouter; change it before exposing the instance. First launch installs harness CLIs into the volume. Provider keys go under Bring your own key. Product API keys are created in the Console and belong in a backend, not a browser. Gateway :8080 and Runner :8081 stay on loopback inside the container. Hosted path is harnessrouter.ai. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/HarnessRouter/harnessrouter).
 
 ## Protocols
 

@@ -1977,6 +1977,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "quicksand",
+      "name": "Quicksand",
+      "category": "Security and governance",
+      "url": "https://microsoft.github.io/quicksand/",
+      "description": "An async Python API that boots QEMU Linux VMs so agents can run commands, mounts and a desktop without root or Docker.",
+      "for_whom": "People who want coding agents to work inside a local virtual machine.",
+      "access_notes": "pip install 'quick-sandbox[qemu,alpine]', or pip install quick-sandbox then quicksand install qemu alpine. Desktop images: quicksand install ubuntu-desktop or alpine-desktop. Sandboxes are network-isolated by default; NetworkMode.FULL gives internet. Host directories can be mounted into the guest. Bidirectional port forwards map host and guest TCP ports. MIT.",
+      "source_url": "https://github.com/microsoft/quicksand",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "harnessrouter",
+      "name": "HarnessRouter",
+      "category": "Platforms",
+      "url": "https://harnessrouter.ai",
+      "description": "A self-hosted gateway that runs Codex, Claude Code and other harnesses through one OpenAI Responses-compatible API.",
+      "for_whom": "People who want one local console and API in front of several coding-agent harnesses, using their own model keys.",
+      "access_notes": "docker run -d --name harnessrouter -p 127.0.0.1:3000:3000 -v harnessrouter:/data harnessrouter/harnessrouter. Needs Docker and about 4 GB of disk. Console is http://127.0.0.1:3000. Default Console login is harnessrouter / harnessrouter; change it before exposing the instance. First launch installs harness CLIs into the volume. Provider keys go under Bring your own key. Product API keys are created in the Console and belong in a backend, not a browser. Gateway :8080 and Runner :8081 stay on loopback inside the container. Hosted path is harnessrouter.ai. Apache-2.0.",
+      "source_url": "https://github.com/HarnessRouter/harnessrouter",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
