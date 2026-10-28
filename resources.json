@@ -1119,6 +1119,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "agent-tars",
+      "name": "Agent TARS",
+      "category": "Platforms",
+      "url": "https://agent-tars.com",
+      "description": "A multimodal agent stack with a CLI and web UI, plus a desktop GUI agent that can operate a local or remote computer and browser.",
+      "for_whom": "People who want a vision-capable agent that can drive a browser or desktop, using their own model keys.",
+      "access_notes": "Needs Node 22 or later. npx @agent-tars/cli@latest, or npm install @agent-tars/cli@latest -g, then agent-tars --provider anthropic --model MODEL --apiKey KEY. The same repository ships UI-TARS Desktop. Treat computer and browser operators as full desktop control. Apache-2.0.",
+      "source_url": "https://github.com/bytedance/UI-TARS-desktop",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "copilotkit",
+      "name": "CopilotKit",
+      "category": "Platforms",
+      "url": "https://docs.copilotkit.ai",
+      "description": "An SDK that puts an agent into a web, mobile or chat UI, with shared state, generative UI and human-in-the-loop pauses.",
+      "for_whom": "Teams adding an agent to an app they already ship, or connecting one agent to Slack, Teams and similar channels.",
+      "access_notes": "From the app root: npx --yes copilotkit@latest onboard start. New project: npx copilotkit@latest create. Optional skills: npx copilotkit@latest skills install. CopilotKit Intelligence is a separate hosted or self-hosted product. MIT.",
+      "source_url": "https://github.com/CopilotKit/CopilotKit",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

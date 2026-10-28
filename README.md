@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 86 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 88 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,7 +22,7 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (31)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (11)
+- [Platforms](#platforms) (13)
 - [Protocols](#protocols) (1)
 - [Skills and learning](#skills-and-learning) (27)
 
@@ -614,6 +614,26 @@ A self-hosted agent system that watches the web, mail and feeds, then takes acti
 **Access and use:** Quick try: docker run -it -p 3000:3000 ghcr.io/huginn/huginn then open http://localhost:3000 and log in as admin with the password printed once in the container log. Production needs MySQL or PostgreSQL and a web process plus a worker. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/huginn/huginn).
+
+### [Agent TARS](https://agent-tars.com)
+
+A multimodal agent stack with a CLI and web UI, plus a desktop GUI agent that can operate a local or remote computer and browser.
+
+**For:** People who want a vision-capable agent that can drive a browser or desktop, using their own model keys.
+
+**Access and use:** Needs Node 22 or later. npx @agent-tars/cli@latest, or npm install @agent-tars/cli@latest -g, then agent-tars --provider anthropic --model MODEL --apiKey KEY. The same repository ships UI-TARS Desktop. Treat computer and browser operators as full desktop control. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/bytedance/UI-TARS-desktop).
+
+### [CopilotKit](https://docs.copilotkit.ai)
+
+An SDK that puts an agent into a web, mobile or chat UI, with shared state, generative UI and human-in-the-loop pauses.
+
+**For:** Teams adding an agent to an app they already ship, or connecting one agent to Slack, Teams and similar channels.
+
+**Access and use:** From the app root: npx --yes copilotkit@latest onboard start. New project: npx copilotkit@latest create. Optional skills: npx copilotkit@latest skills install. CopilotKit Intelligence is a separate hosted or self-hosted product. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/CopilotKit/CopilotKit).
 
 ## Protocols
 
