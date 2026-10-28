@@ -1351,8 +1351,8 @@
         "mcp",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "browseros-ai/BrowserOS",
@@ -4048,8 +4048,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "DedSecInside/TorBot",

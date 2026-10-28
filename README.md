@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 132 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 134 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,7 +19,7 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (50)
+- [Agent tools](#agent-tools) (52)
 - [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (23)
@@ -528,6 +528,26 @@ A local proxy that rewrites bulky coding-agent request context into PNG pages so
 **Access and use:** npx pxpipe-proxy listens on 127.0.0.1:47821. pxpipe warp wraps a client such as claude, agy or opencode. The dashboard is http://127.0.0.1:47821/. Requests still go to the provider after imaging. Events log to ~/.pxpipe/events.jsonl. Exact strings in imaged history can be misread; keep recent turns as text. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/teamchong/pxpipe).
+
+### [Codex ChatGPT Web](https://github.com/miuuyy/codex-chatgpt-web)
+
+A local launcher that signs into ChatGPT in an embedded browser so Codex can pick those web models, including a full harness that connects ChatGPT tools back to the current Codex task.
+
+**For:** People who already use Codex and a ChatGPT account and want those web models in the Codex picker.
+
+**Access and use:** Download from GitHub Releases, or pipe the published install-launcher.sh or install-launcher.ps1. Read the script before running it. Unofficial browser automation. Sign in to ChatGPT in the embedded browser. Browser state is a login artifact; the loopback listener is reachable by other processes as the same local user. Builds are unsigned, so Gatekeeper or SmartScreen may warn. Full harness uses an outbound OpenAI tunnel-client and ChatGPT Developer Mode with a connector named Codex Native2, Authentication None and Allow all actions. --auto-approve-tool-calls clicks Allow once. Conversations stay in ChatGPT history. Follow OpenAI's terms. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/miuuyy/codex-chatgpt-web).
+
+### [PortKiller](https://github.com/productdevbook/port-killer)
+
+A menu-bar and system-tray app that lists listening TCP ports and can terminate the process behind one click.
+
+**For:** Developers who need to free a local port, or keep kubectl port-forwards and Cloudflare tunnels in view.
+
+**Access and use:** macOS 15+: brew install --cask productdevbook/tap/portkiller, or a .dmg from GitHub Releases. Windows 10+: extract the zip from Releases. Killing a process is immediate. Kubernetes port-forwards use your kubectl context. Cloudflare Tunnels lists active tunnels. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/productdevbook/port-killer).
 
 ## MCP and integrations
 

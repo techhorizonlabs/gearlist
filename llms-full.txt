@@ -353,6 +353,20 @@ For: People who want a local proxy in front of Claude Code, Codex or Gemini CLI 
 Access: npx pxpipe-proxy listens on 127.0.0.1:47821. pxpipe warp wraps a client such as claude, agy or opencode. The dashboard is http://127.0.0.1:47821/. Requests still go to the provider after imaging. Events log to ~/.pxpipe/events.jsonl. Exact strings in imaged history can be misread; keep recent turns as text. MIT.
 Source checked: 2026-10-28
 
+Codex ChatGPT Web | Agent tools
+https://github.com/miuuyy/codex-chatgpt-web
+A local launcher that signs into ChatGPT in an embedded browser so Codex can pick those web models, including a full harness that connects ChatGPT tools back to the current Codex task.
+For: People who already use Codex and a ChatGPT account and want those web models in the Codex picker.
+Access: Download from GitHub Releases, or pipe the published install-launcher.sh or install-launcher.ps1. Read the script before running it. Unofficial browser automation. Sign in to ChatGPT in the embedded browser. Browser state is a login artifact; the loopback listener is reachable by other processes as the same local user. Builds are unsigned, so Gatekeeper or SmartScreen may warn. Full harness uses an outbound OpenAI tunnel-client and ChatGPT Developer Mode with a connector named Codex Native2, Authentication None and Allow all actions. --auto-approve-tool-calls clicks Allow once. Conversations stay in ChatGPT history. Follow OpenAI's terms. MIT.
+Source checked: 2026-10-28
+
+PortKiller | Agent tools
+https://github.com/productdevbook/port-killer
+A menu-bar and system-tray app that lists listening TCP ports and can terminate the process behind one click.
+For: Developers who need to free a local port, or keep kubectl port-forwards and Cloudflare tunnels in view.
+Access: macOS 15+: brew install --cask productdevbook/tap/portkiller, or a .dmg from GitHub Releases. Windows 10+: extract the zip from Releases. Killing a process is immediate. Kubernetes port-forwards use your kubectl context. Cloudflare Tunnels lists active tunnels. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.

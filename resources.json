@@ -1717,6 +1717,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "codex-chatgpt-web",
+      "name": "Codex ChatGPT Web",
+      "category": "Agent tools",
+      "url": "https://github.com/miuuyy/codex-chatgpt-web",
+      "description": "A local launcher that signs into ChatGPT in an embedded browser so Codex can pick those web models, including a full harness that connects ChatGPT tools back to the current Codex task.",
+      "for_whom": "People who already use Codex and a ChatGPT account and want those web models in the Codex picker.",
+      "access_notes": "Download from GitHub Releases, or pipe the published install-launcher.sh or install-launcher.ps1. Read the script before running it. Unofficial browser automation. Sign in to ChatGPT in the embedded browser. Browser state is a login artifact; the loopback listener is reachable by other processes as the same local user. Builds are unsigned, so Gatekeeper or SmartScreen may warn. Full harness uses an outbound OpenAI tunnel-client and ChatGPT Developer Mode with a connector named Codex Native2, Authentication None and Allow all actions. --auto-approve-tool-calls clicks Allow once. Conversations stay in ChatGPT history. Follow OpenAI's terms. MIT.",
+      "source_url": "https://github.com/miuuyy/codex-chatgpt-web",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "portkiller",
+      "name": "PortKiller",
+      "category": "Agent tools",
+      "url": "https://github.com/productdevbook/port-killer",
+      "description": "A menu-bar and system-tray app that lists listening TCP ports and can terminate the process behind one click.",
+      "for_whom": "Developers who need to free a local port, or keep kubectl port-forwards and Cloudflare tunnels in view.",
+      "access_notes": "macOS 15+: brew install --cask productdevbook/tap/portkiller, or a .dmg from GitHub Releases. Windows 10+: extract the zip from Releases. Killing a process is immediate. Kubernetes port-forwards use your kubectl context. Cloudflare Tunnels lists active tunnels. MIT.",
+      "source_url": "https://github.com/productdevbook/port-killer",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
