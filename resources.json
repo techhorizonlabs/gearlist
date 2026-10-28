@@ -1795,6 +1795,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "openhuman",
+      "name": "OpenHuman",
+      "category": "Agent tools",
+      "url": "https://github.com/tinyhumansai/openhuman",
+      "description": "A desktop app, terminal app and Rust library for running agent fleets with MCP, skills, memory and computer control.",
+      "for_whom": "People who want a desktop agent harness, or a Rust library that runs many agents on one machine.",
+      "access_notes": "Download the desktop app from GitHub Releases (macOS dmg, Windows msi or exe, Linux deb or AppImage), or brew install --cask openhuman. The curl install script is curl -fsSL https://raw.githubusercontent.com/tinyhumansai/openhuman/main/scripts/install.sh | bash; read the script before running it. The agent can drive a Chrome browser and desktop apps, and it asks before actions it cannot undo. Memory items go to CortexDB: TinyHumans hosted memory needs sign-in, or you point it at your own endpoint; with neither, memory is off. The OpenHuman backend brokers LLM calls, OAuth tokens and some search. Privacy Mode keeps a run local. GPL-3.0.",
+      "source_url": "https://github.com/tinyhumansai/openhuman",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "pixel-agents",
+      "name": "Pixel Agents",
+      "category": "Agent tools",
+      "url": "https://github.com/pixel-agents-hq/pixel-agents",
+      "description": "A VS Code extension and CLI that shows Claude Code sessions as pixel characters in a shared office view.",
+      "for_whom": "People who want to watch Claude Code terminals as characters in a pixel office.",
+      "access_notes": "Install the VS Code extension from the Marketplace or Open VSX, or run npx pixel-agents. The CLI defaults to 127.0.0.1. Binding 0.0.0.0 exposes the UI and WebSocket on the local network. The printed URL carries a token that can install hooks and launch agents; treat it as a secret. Hooks write into ~/.claude/settings.json. Settings, Skip Permissions turns on Claude Code --dangerously-skip-permissions for every agent from that host. MIT.",
+      "source_url": "https://github.com/pixel-agents-hq/pixel-agents",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

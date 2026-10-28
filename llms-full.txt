@@ -395,6 +395,20 @@ For: People who want an agent to operate a physical phone they already have, or 
 Access: uv tool install --python 3.12 --upgrade --force phone-harness, then phone-harness skill. iPhone: macOS 15+, iPhone Mirroring paired to an iOS 18+ iPhone, Accessibility and Screen Recording. Android: adb with USB or wireless debugging. Cloud: phone-harness cloud login, then cloud start. A cloud Android bills by the minute. A cloud iPhone has no per-minute charge. The harness never types a PIN. PHONE_HARNESS_NO_UPDATE_CHECK=1 skips the daily PyPI check. MIT.
 Source checked: 2026-10-28
 
+OpenHuman | Agent tools
+https://github.com/tinyhumansai/openhuman
+A desktop app, terminal app and Rust library for running agent fleets with MCP, skills, memory and computer control.
+For: People who want a desktop agent harness, or a Rust library that runs many agents on one machine.
+Access: Download the desktop app from GitHub Releases (macOS dmg, Windows msi or exe, Linux deb or AppImage), or brew install --cask openhuman. The curl install script is curl -fsSL https://raw.githubusercontent.com/tinyhumansai/openhuman/main/scripts/install.sh | bash; read the script before running it. The agent can drive a Chrome browser and desktop apps, and it asks before actions it cannot undo. Memory items go to CortexDB: TinyHumans hosted memory needs sign-in, or you point it at your own endpoint; with neither, memory is off. The OpenHuman backend brokers LLM calls, OAuth tokens and some search. Privacy Mode keeps a run local. GPL-3.0.
+Source checked: 2026-10-28
+
+Pixel Agents | Agent tools
+https://github.com/pixel-agents-hq/pixel-agents
+A VS Code extension and CLI that shows Claude Code sessions as pixel characters in a shared office view.
+For: People who want to watch Claude Code terminals as characters in a pixel office.
+Access: Install the VS Code extension from the Marketplace or Open VSX, or run npx pixel-agents. The CLI defaults to 127.0.0.1. Binding 0.0.0.0 exposes the UI and WebSocket on the local network. The printed URL carries a token that can install hooks and launch agents; treat it as a secret. Hooks write into ~/.claude/settings.json. Settings, Skip Permissions turns on Claude Code --dangerously-skip-permissions for every agent from that host. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.

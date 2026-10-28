@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 138 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 140 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,7 +19,7 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (56)
+- [Agent tools](#agent-tools) (58)
 - [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (23)
@@ -588,6 +588,26 @@ A CLI and skill that lets a coding agent tap, type and read a real iPhone or And
 **Access and use:** uv tool install --python 3.12 --upgrade --force phone-harness, then phone-harness skill. iPhone: macOS 15+, iPhone Mirroring paired to an iOS 18+ iPhone, Accessibility and Screen Recording. Android: adb with USB or wireless debugging. Cloud: phone-harness cloud login, then cloud start. A cloud Android bills by the minute. A cloud iPhone has no per-minute charge. The harness never types a PIN. PHONE_HARNESS_NO_UPDATE_CHECK=1 skips the daily PyPI check. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/ShawnPana/phone-harness).
+
+### [OpenHuman](https://github.com/tinyhumansai/openhuman)
+
+A desktop app, terminal app and Rust library for running agent fleets with MCP, skills, memory and computer control.
+
+**For:** People who want a desktop agent harness, or a Rust library that runs many agents on one machine.
+
+**Access and use:** Download the desktop app from GitHub Releases (macOS dmg, Windows msi or exe, Linux deb or AppImage), or brew install --cask openhuman. The curl install script is curl -fsSL https://raw.githubusercontent.com/tinyhumansai/openhuman/main/scripts/install.sh | bash; read the script before running it. The agent can drive a Chrome browser and desktop apps, and it asks before actions it cannot undo. Memory items go to CortexDB: TinyHumans hosted memory needs sign-in, or you point it at your own endpoint; with neither, memory is off. The OpenHuman backend brokers LLM calls, OAuth tokens and some search. Privacy Mode keeps a run local. GPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/tinyhumansai/openhuman).
+
+### [Pixel Agents](https://github.com/pixel-agents-hq/pixel-agents)
+
+A VS Code extension and CLI that shows Claude Code sessions as pixel characters in a shared office view.
+
+**For:** People who want to watch Claude Code terminals as characters in a pixel office.
+
+**Access and use:** Install the VS Code extension from the Marketplace or Open VSX, or run npx pixel-agents. The CLI defaults to 127.0.0.1. Binding 0.0.0.0 exposes the UI and WebSocket on the local network. The printed URL carries a token that can install hooks and launch agents; treat it as a secret. Hooks write into ~/.claude/settings.json. Settings, Skip Permissions turns on Claude Code --dangerously-skip-permissions for every agent from that host. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/pixel-agents-hq/pixel-agents).
 
 ## MCP and integrations
 
