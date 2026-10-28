@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 142 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 144 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -20,9 +20,9 @@ npx skills add techhorizonlabs/gearlist
 ## Contents
 
 - [Agent tools](#agent-tools) (59)
-- [MCP and integrations](#mcp-and-integrations) (14)
+- [MCP and integrations](#mcp-and-integrations) (15)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (23)
+- [Platforms](#platforms) (24)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (38)
 
@@ -761,6 +761,16 @@ An SDK and spec that add ChatGPT-specific MCP capabilities so plugins can open f
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/openai/mcp-extensions).
 
+### [MCPProxy](https://mcpproxy.app)
+
+A local proxy that sits in front of many MCP servers, holds new tools until you approve them, and gives agents a small discovery set.
+
+**For:** People who want many MCP servers behind one localhost endpoint, with a review gate before agents can call new tools.
+
+**Access and use:** brew install --cask smart-mcp-proxy/mcpproxy/mcpproxy, or brew install smart-mcp-proxy/mcpproxy/mcpproxy for the CLI, or a GitHub Release for macOS, Windows or Linux. mcpproxy serve listens on 127.0.0.1:8080. Config and data live under ~/.mcpproxy/. New servers stay quarantined until you review and approve them. Update checks query GitHub Releases on startup and every 4 hours until you set update_check.enabled to false or MCPPROXY_DISABLE_AUTO_UPDATE=true. JavaScript code execution is on by default. The tray Unix socket is trusted without the API key until you set enable_socket to false. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/smart-mcp-proxy/mcpproxy-go).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -1034,6 +1044,16 @@ A WebAssembly sandbox that gives each agent files, processes, a shell and networ
 **Access and use:** Library: npm install @rivet-dev/agentos-core, then AgentOs.create() in your backend. The sidecar is a separate Rust process. Guest code reaches host files, environment or the network only through mounts, host functions or network allow rules you add. Hosted: npm install @rivet-dev/agentos, set RIVET_NAMESPACE and RIVET_TOKEN from the Rivet dashboard, and keep the token on the backend. Browser clients need a JWT scoped to that VM. Preview URLs expire. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/rivet-dev/agentos).
+
+### [Solo Agent](https://soloagent.team)
+
+A local-first workspace where humans and coding agents share channels, tasks, teams and memory.
+
+**For:** People who run Claude Code, Codex, OpenCode, Hermes or OpenClaw and want them in one workspace.
+
+**Access and use:** git clone then make dev. Needs Go 1.25+, Node.js 20+, Docker and at least one supported agent CLI on PATH. make dev starts PostgreSQL in Docker on port 5432, a Go API on 8080, a daemon on 8081 and the UI on 3000. Register at http://localhost:3000. Signup stays on until you set ALLOW_SIGNUP=false. LLM_PROVIDER defaults to local, so agents are your installed CLIs. Workspace data lives in PostgreSQL. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/solo-agent/solo).
 
 ## Protocols
 
