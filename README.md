@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 174 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 176 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,7 +22,7 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (65)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (37)
+- [Platforms](#platforms) (39)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (44)
 
@@ -1294,6 +1294,26 @@ Open-source OIDC and OAuth 2.1 identity infrastructure with multi-tenancy, SSO, 
 **Access and use:** Cloud is https://cloud.logto.io; identity data then lives on Logto Cloud. Local Docker Compose: curl -fsSL https://raw.githubusercontent.com/logto-io/logto/HEAD/docker-compose.yml | docker compose -p logto -f - up. That compose bundles Postgres and drops data if you run it again. npm init @logto@latest needs Node.js 26+ and PostgreSQL 14+. Core is http://localhost:3001; Admin Console is http://localhost:3002. The welcome page creates one admin account with username and password. Recommended host: 2 vCPU, 8 GiB RAM, 256 GiB disk. MPL-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/logto-io/logto).
+
+### [Leantime](https://leantime.io)
+
+An AGPL project-management system for goals, tasks, timesheets, wikis and canvases, designed for neurodivergent teams.
+
+**For:** Small teams who want kanban, gantt, goals and docs on a host they run.
+
+**Access and use:** Cloud is https://leantime.io; project data then lives on Leantime's hosted service. Self-host needs PHP 8.2+ and MySQL 8.0+ or MariaDB 10.6+. Docker: docker run -d --restart unless-stopped -p 8080:8080 with LEAN_DB_HOST, LEAN_DB_USER, LEAN_DB_PASSWORD, LEAN_DB_DATABASE and LEAN_EMAIL_RETURN, then open http://localhost:8080/install. Files can go to local disk or S3. Plugins need the plugins volume mounted and writable by www-data. AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Leantime/leantime).
+
+### [Fluxer](https://fluxer.app)
+
+An AGPL instant-messaging and VoIP app for friends, groups and communities, with desktop, mobile and a browser client.
+
+**For:** People who want chat and calls on Fluxer's hosted service or on an instance they run.
+
+**Access and use:** Hosted: https://web.fluxer.app or the desktop and mobile apps; messages then live on Fluxer's servers. Self-host: curl -fsSL https://fluxer.dev/install.sh | sh (read the script before running it). Windows: irm https://fluxer.dev/install.ps1 | iex (read the script before running it). Needs 2 CPU cores, 4 GB RAM, 20 GB disk, a domain A record, TCP 80, 443 and 7881, and UDP 443 and 7882. rexctl creates one admin account in the terminal or with a setup token. AGPL-3.0-or-later for the source; artwork is CC BY-SA 4.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/fluxerapp/fluxer).
 
 ## Protocols
 
