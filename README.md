@@ -397,7 +397,7 @@ A hosted MCP, CLI and skill for discovering, inspecting and running third-party 
 
 **For:** Teams who want one billed catalog of agent tools, or to add a connector as a pull request.
 
-**Access and use:** Hosted MCP is https://mcp.monid.ai/v1 and signs in with a Monid account. Skill setup is the public file https://monid.ai/SKILL.md plus an API key from app.monid.ai. CLI is npm install -g @monid-ai/cli, then monid keys add. Hosted runs spend a prepaid balance or x402 USDC, priced per call or per result on each endpoint. Local clone needs Deno 2.x; deno task check and deno task test run offline, and engine:run needs that provider's vendor key. Hosted OAuth is a Monid account. MIT.
+**Access and use:** Hosted MCP is https://mcp.monid.ai/v1 and signs in with a Monid account. Skill setup is the public file https://monid.ai/SKILL.md plus an API key from app.monid.ai. CLI is npm install -g @monid-ai/cli, then monid keys add. Hosted runs spend a prepaid balance or x402 USDC (a stablecoin payment), priced per call or per result on each endpoint. Local clone needs Deno 2.x; deno task check and deno task test run offline, and engine:run needs that provider's vendor key. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/monid-ai/monid).
 
@@ -651,7 +651,7 @@ A Claude Code skill that reads a website URL and renders a local launch film wit
 
 ### [jev-seo](https://github.com/AgriciDaniel/jev-seo)
 
-A local Python CLI and Claude Code skill that crawls a site, scores technical rules, optionally asks TypeSafe Jev about each page, and writes a PDF, Excel tracker and Markdown from one audit record.
+A local Python CLI and Claude Code skill that crawls a site, scores technical rules, optionally has the Jev model from TypeSafe judge each page, and writes a PDF, Excel tracker and Markdown from one audit record.
 
 **For:** People who want a live site audit with ranked, evidence-linked fixes from a homepage URL.
 
