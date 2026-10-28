@@ -1201,7 +1201,7 @@ A multi-agent simulation engine that builds a digital world from seed documents 
 
 **For:** People who want to simulate public opinion, policy or story trajectories with an LLM swarm on their own machine.
 
-**Access and use:** Needs Node.js 18+, Python 3.11 or 3.12, and uv. Copy .env.example to .env. Set LLM_API_KEY, LLM_BASE_URL and LLM_MODEL_NAME for any OpenAI-compatible endpoint, plus ZEP_API_KEY from https://app.getzep.com/. Agent memory is stored on Zep Cloud. npm run setup:all then npm run dev. Frontend is http://localhost:3000; backend is http://localhost:5001. Docker: docker compose up -d with the same .env. Upstream says LLM use is high; try fewer than 40 rounds first. AGPL-3.0.
+**Access and use:** Needs Node.js 18+, Python 3.11 or 3.12, and uv. Copy .env.example to .env. Set LLM_API_KEY, LLM_BASE_URL and LLM_MODEL_NAME for any OpenAI-compatible endpoint, plus ZEP_API_KEY from https://app.getzep.com/. Your seed documents and agent memory are sent to Zep Cloud, and prompts go to the LLM endpoint you set. npm run setup:all then npm run dev. Frontend is http://localhost:3000; backend is http://localhost:5001. Docker: docker compose up -d with the same .env. Upstream says LLM use is high; try fewer than 40 rounds first. AGPL-3.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/666ghj/MiroFish).
 
@@ -1211,7 +1211,7 @@ An AGPL project-management app for work items, cycles, modules, views, pages and
 
 **For:** Teams who want issues, sprints and docs on a stack they can host.
 
-**Access and use:** Cloud sign-up is https://app.plane.so. Community self-host: mkdir plane-selfhost && cd plane-selfhost, curl -fsSL -o setup.sh https://github.com/makeplane/plane/releases/latest/download/setup.sh, chmod +x setup.sh, then ./setup.sh action 1. Edit plane.env WEB_URL and CORS_ALLOWED_ORIGINS (defaults http://localhost on ports 80 and 443), then ./setup.sh action 2 to start. Commercial installer: curl -fsSL https://prime.plane.so/install/ | sh - (read the script before running it); that edition starts on a free plan with 12 seats. Needs 2 CPU cores and 4 GB RAM. Instance admins configure the host in God mode. AGPL-3.0.
+**Access and use:** Cloud sign-up is https://app.plane.so. Community self-host: mkdir plane-selfhost && cd plane-selfhost, curl -fsSL -o setup.sh https://github.com/makeplane/plane/releases/latest/download/setup.sh, chmod +x setup.sh, then ./setup.sh action 1. Edit plane.env WEB_URL and CORS_ALLOWED_ORIGINS (defaults http://localhost on ports 80 and 443), then ./setup.sh action 2 to start. Commercial installer: curl -fsSL https://prime.plane.so/install/ | sh - (read the script before running it); that edition starts on a free plan with 12 seats. Needs 2 CPU cores and 4 GB RAM. Instance admins configure the host in God mode. Self-hosted Plane sends telemetry to Plane by default: the admin's name and email, the instance ID, anonymised usage counts and performance data including stack traces. Turn it off in God mode under General Settings, Telemetry. AGPL-3.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/makeplane/plane).
 
