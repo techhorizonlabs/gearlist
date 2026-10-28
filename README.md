@@ -155,7 +155,7 @@ A local markdown vault an agent can grow, lint and query as a digital brain.
 
 **For:** People who want durable notes an agent can read and write in a folder they own.
 
-**Access and use:** Install with pip install obsidian-wiki, then obsidian-wiki setup --vault ~/brain. Also on PyPI. MIT. The vault is local files.
+**Access and use:** Install with pip install obsidian-wiki, then obsidian-wiki setup --vault ~/brain. MIT. The vault is local files.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/Ar9av/obsidian-wiki).
 

@@ -386,7 +386,7 @@
       "url": "https://github.com/Ar9av/obsidian-wiki",
       "description": "A local markdown vault an agent can grow, lint and query as a digital brain.",
       "for_whom": "People who want durable notes an agent can read and write in a folder they own.",
-      "access_notes": "Install with pip install obsidian-wiki, then obsidian-wiki setup --vault ~/brain. Also on PyPI. MIT. The vault is local files.",
+      "access_notes": "Install with pip install obsidian-wiki, then obsidian-wiki setup --vault ~/brain. MIT. The vault is local files.",
       "source_url": "https://github.com/Ar9av/obsidian-wiki",
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
