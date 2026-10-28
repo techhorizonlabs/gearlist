@@ -691,7 +691,7 @@ A local CLI, Electron app and Claude Code skill that crawls a site, scores techn
 
 ### [Hallmark](https://www.usehallmark.com/)
 
-A design skill that deals a theme, builds a self-contained HTML page from the job, and lints it in a browser for contrast, layout and common machine-made tells.
+A design skill that picks a theme, builds a self-contained HTML page from your brief, and lints it in a browser for contrast, layout and common machine-made tells.
 
 **For:** People who want a coding agent to design a page with a named theme and a local lint pass.
 

@@ -460,7 +460,7 @@ Source checked: 2026-10-28
 
 Hallmark | Skills and learning
 https://www.usehallmark.com/
-A design skill that deals a theme, builds a self-contained HTML page from the job, and lints it in a browser for contrast, layout and common machine-made tells.
+A design skill that picks a theme, builds a self-contained HTML page from your brief, and lints it in a browser for contrast, layout and common machine-made tells.
 For: People who want a coding agent to design a page with a named theme and a local lint pass.
 Access: npx skills add nutlope/hallmark -g. Needs Node 18 or later. Browser checks need puppeteer-core and Chrome; static checks still run without them. MIT. Bundled photo index points at Wikimedia Commons; each photograph keeps its own licence and is credited on the page.
 Source checked: 2026-10-28

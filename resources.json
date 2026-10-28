@@ -852,7 +852,7 @@
       "name": "Hallmark",
       "category": "Skills and learning",
       "url": "https://www.usehallmark.com/",
-      "description": "A design skill that deals a theme, builds a self-contained HTML page from the job, and lints it in a browser for contrast, layout and common machine-made tells.",
+      "description": "A design skill that picks a theme, builds a self-contained HTML page from your brief, and lints it in a browser for contrast, layout and common machine-made tells.",
       "for_whom": "People who want a coding agent to design a page with a named theme and a local lint pass.",
       "access_notes": "npx skills add nutlope/hallmark -g. Needs Node 18 or later. Browser checks need puppeteer-core and Chrome; static checks still run without them. MIT. Bundled photo index points at Wikimedia Commons; each photograph keeps its own licence and is credited on the page.",
       "source_url": "https://github.com/Nutlope/hallmark",
