@@ -437,6 +437,13 @@ For: Teams adding an agent to an app they already ship, or connecting one agent 
 Access: From the app root: npx --yes copilotkit@latest onboard start. New project: npx copilotkit@latest create. Optional skills: npx copilotkit@latest skills install. CopilotKit Intelligence is a separate hosted or self-hosted product. MIT.
 Source checked: 2026-10-28
 
+Sim | Platforms
+https://www.sim.ai
+A workspace to build, deploy and monitor agents and workflows, with a visual builder, tables, files and a knowledge base.
+For: Teams that want a self-hosted or hosted agent workspace with MCP access from Claude Code and Codex.
+Access: Cloud at sim.ai. Self-host: npx sim-setup. Read the script before running it. Then open http://localhost:3000. Needs Node 20 or later and Docker. Chat on a self-hosted install uses a Chat API key from sim.ai. Cloud MCP is https://mcp.sim.ai/mcp. Apache-2.0.
+Source checked: 2026-10-28
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.
@@ -645,4 +652,11 @@ https://aitmpl.com
 A catalog of Claude Code agents, commands, hooks, settings and MCP installs you can browse and add with one npx command.
 For: People who want a ready-made Claude Code stack of agents, commands and MCP installs.
 Access: npx claude-code-templates@latest, then pick components, or pass --agent, --command, --mcp, --hook or --setting with --yes. The CLI sends anonymous usage tracking to aitmpl.com by default; set CCT_NO_TRACKING=true to turn it off. Analytics, chats and health-check are extra flags on the same CLI. Bundled third-party skills keep their original licences. MIT.
+Source checked: 2026-10-28
+
+book-to-skill | Skills and learning
+https://github.com/virgiliojr94/book-to-skill
+A converter that turns a book, folder or set of documents you already have into a structured agent skill with on-demand chapters.
+For: People who want a coding agent to answer from a book or internal docs they own.
+Access: npx skills add virgiliojr94/book-to-skill. Then /book-to-skill ./my-book.pdf. Extraction and analysis run on your machine. The MIT licence covers the converter. Books you process keep their own copyright. Keep generated skills of copyrighted books private. MIT.
 Source checked: 2026-10-28

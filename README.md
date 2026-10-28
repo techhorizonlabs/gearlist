@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 92 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 94 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,9 +22,9 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (33)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (13)
+- [Platforms](#platforms) (14)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (29)
+- [Skills and learning](#skills-and-learning) (30)
 
 
 ## Agent tools
@@ -655,6 +655,16 @@ An SDK that puts an agent into a web, mobile or chat UI, with shared state, gene
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/CopilotKit/CopilotKit).
 
+### [Sim](https://www.sim.ai)
+
+A workspace to build, deploy and monitor agents and workflows, with a visual builder, tables, files and a knowledge base.
+
+**For:** Teams that want a self-hosted or hosted agent workspace with MCP access from Claude Code and Codex.
+
+**Access and use:** Cloud at sim.ai. Self-host: npx sim-setup. Read the script before running it. Then open http://localhost:3000. Needs Node 20 or later and Docker. Chat on a self-hosted install uses a Chat API key from sim.ai. Cloud MCP is https://mcp.sim.ai/mcp. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/simstudioai/sim).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -958,6 +968,16 @@ A catalog of Claude Code agents, commands, hooks, settings and MCP installs you 
 **Access and use:** npx claude-code-templates@latest, then pick components, or pass --agent, --command, --mcp, --hook or --setting with --yes. The CLI sends anonymous usage tracking to aitmpl.com by default; set CCT_NO_TRACKING=true to turn it off. Analytics, chats and health-check are extra flags on the same CLI. Bundled third-party skills keep their original licences. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/davila7/claude-code-templates).
+
+### [book-to-skill](https://github.com/virgiliojr94/book-to-skill)
+
+A converter that turns a book, folder or set of documents you already have into a structured agent skill with on-demand chapters.
+
+**For:** People who want a coding agent to answer from a book or internal docs they own.
+
+**Access and use:** npx skills add virgiliojr94/book-to-skill. Then /book-to-skill ./my-book.pdf. Extraction and analysis run on your machine. The MIT licence covers the converter. Books you process keep their own copyright. Keep generated skills of copyrighted books private. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/virgiliojr94/book-to-skill).
 
 ## Looking for more?
 
