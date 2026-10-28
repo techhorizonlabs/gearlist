@@ -1218,7 +1218,7 @@
       "url": "https://github.com/virgiliojr94/book-to-skill",
       "description": "A converter that turns a book, folder or set of documents you already have into a structured agent skill with on-demand chapters.",
       "for_whom": "People who want a coding agent to answer from a book or internal docs they own.",
-      "access_notes": "npx skills add virgiliojr94/book-to-skill. Then /book-to-skill ./my-book.pdf. Extraction and analysis run on your machine. The MIT licence covers the converter. Books you process keep their own copyright. Keep generated skills of copyrighted books private. MIT.",
+      "access_notes": "npx skills add virgiliojr94/book-to-skill. Then /book-to-skill ./my-book.pdf. Extraction runs on your machine and the tool uploads nothing, but if your agent uses a cloud model, the text goes to that provider like any prompt. The MIT licence covers the converter. Books you process keep their own copyright. Keep generated skills of copyrighted books private. MIT.",
       "source_url": "https://github.com/virgiliojr94/book-to-skill",
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",

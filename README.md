@@ -975,7 +975,7 @@ A converter that turns a book, folder or set of documents you already have into 
 
 **For:** People who want a coding agent to answer from a book or internal docs they own.
 
-**Access and use:** npx skills add virgiliojr94/book-to-skill. Then /book-to-skill ./my-book.pdf. Extraction and analysis run on your machine. The MIT licence covers the converter. Books you process keep their own copyright. Keep generated skills of copyrighted books private. MIT.
+**Access and use:** npx skills add virgiliojr94/book-to-skill. Then /book-to-skill ./my-book.pdf. Extraction runs on your machine and the tool uploads nothing, but if your agent uses a cloud model, the text goes to that provider like any prompt. The MIT licence covers the converter. Books you process keep their own copyright. Keep generated skills of copyrighted books private. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/virgiliojr94/book-to-skill).
 
