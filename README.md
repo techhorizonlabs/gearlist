@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 55 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 57 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (23)
+- [Agent tools](#agent-tools) (24)
 - [MCP and integrations](#mcp-and-integrations) (11)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (3)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (13)
+- [Skills and learning](#skills-and-learning) (14)
 
 
 ## Agent tools
@@ -258,6 +258,16 @@ A local Chrome agent from Browser Use. One model chooses each click or field, an
 **Access and use:** Clone the repo, uv sync, then set TYPESAFE_API_KEY and TEXT_MODEL_API_KEY in .env. TEXT_MODEL_API_KEY is an OpenRouter key in the example. Chrome connects through Browser Harness; allow remote debugging when prompted. Owned tabs share your existing Chrome profile. Local inspector is http://127.0.0.1:8766. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/browser-use/jev-ultrafast).
+
+### [Boop](https://github.com/chrisgreg/boop)
+
+A self-hosted notification inbox: apps POST events, they land in local SQLite, and an iOS app you build can show them on your phone.
+
+**For:** Developers and agents that need a private event inbox they run themselves.
+
+**Access and use:** Clone then docker compose up, or run a GitHub release binary. Data lives in a local SQLite file. APNs credentials are optional. Set BOOP_ADMIN_USER and BOOP_ADMIN_PASSWORD for the web UI, or put the server behind your own proxy. Read-only MCP is POST /mcp with BOOP_MCP_TOKEN; Settings can turn that endpoint off. You build and sign the iOS app. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/chrisgreg/boop).
 
 ## MCP and integrations
 
@@ -588,6 +598,16 @@ Open-source Claude Code skills for growth experiments, sales pipeline, content o
 **Access and use:** Clone the repo, then copy each skill directory (SKILL.md plus any scripts, references or agents) into your agent's skills folder. Categories also ship Python scripts; pip install -r requirements.txt and fill .env with the API keys that category needs. Local usage logs live at ~/.ai-marketing-skills/analytics/. Remote telemetry stays off until you opt in. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/ericosiu/ai-marketing-skills).
+
+### [Solid Glass](https://deeplethe.github.io/solid-glass)
+
+A shadcn/ui stylesheet and component registry for agent workspaces: status, composer, tool steps, diffs and related screens.
+
+**For:** People building agent UIs on React 19, Tailwind CSS 4 and shadcn/ui.
+
+**Access and use:** Start from a shadcn/ui project, then npx shadcn@latest add deeplethe/solid-glass/solid-glass and import the stylesheet after Tailwind and shadcn. Extra components such as status-glyph install the same way. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/deeplethe/solid-glass).
 
 ## Looking for more?
 

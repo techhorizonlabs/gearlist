@@ -716,6 +716,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "boop",
+      "name": "Boop",
+      "category": "Agent tools",
+      "url": "https://github.com/chrisgreg/boop",
+      "description": "A self-hosted notification inbox: apps POST events, they land in local SQLite, and an iOS app you build can show them on your phone.",
+      "for_whom": "Developers and agents that need a private event inbox they run themselves.",
+      "access_notes": "Clone then docker compose up, or run a GitHub release binary. Data lives in a local SQLite file. APNs credentials are optional. Set BOOP_ADMIN_USER and BOOP_ADMIN_PASSWORD for the web UI, or put the server behind your own proxy. Read-only MCP is POST /mcp with BOOP_MCP_TOKEN; Settings can turn that endpoint off. You build and sign the iOS app. MIT.",
+      "source_url": "https://github.com/chrisgreg/boop",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "solid-glass",
+      "name": "Solid Glass",
+      "category": "Skills and learning",
+      "url": "https://deeplethe.github.io/solid-glass",
+      "description": "A shadcn/ui stylesheet and component registry for agent workspaces: status, composer, tool steps, diffs and related screens.",
+      "for_whom": "People building agent UIs on React 19, Tailwind CSS 4 and shadcn/ui.",
+      "access_notes": "Start from a shadcn/ui project, then npx shadcn@latest add deeplethe/solid-glass/solid-glass and import the stylesheet after Tailwind and shadcn. Extra components such as status-glyph install the same way. MIT.",
+      "source_url": "https://github.com/deeplethe/solid-glass",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
