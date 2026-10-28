@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 194 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 196 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (70)
+- [Agent tools](#agent-tools) (71)
 - [MCP and integrations](#mcp-and-integrations) (20)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (48)
+- [Platforms](#platforms) (49)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (47)
 
@@ -728,6 +728,16 @@ An MIT VS Code extension that graphs LLM calls and agent frameworks in a checkou
 **Access and use:** Run the backend first: git clone https://github.com/michaelzixizhou/codag.git, copy backend/.env.example to backend/.env, set GEMINI_API_KEY, then make setup and docker compose up -d. Backend is http://localhost:52104. Then install Codag from the VS Code Marketplace. On activation it writes .mcp.json (or .cursor/mcp.json) into the workspace. Selected files go to Gemini 2.5 Flash for workflow labels. Live edits stay on the machine (tree-sitter). MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/michaelzixizhou/codag).
+
+### [DeepInnovator](https://huggingface.co/T1anyu/DeepInnovator)
+
+An MIT training recipe and Apache-2.0 14B Qwen2.5-Instruct model that proposes research ideas from scientific literature.
+
+**For:** Researchers who want a local 14B model that drafts next research ideas, or who want to rerun the paper's RL recipe.
+
+**Access and use:** Inference: pip install transformers torch, then load T1anyu/DeepInnovator with AutoModelForCausalLM.from_pretrained. The weights are about 15 billion parameters in BF16; Hugging Face documents GPU load. Training: git clone https://github.com/HKUDS/DeepInnovator.git, pip install openai omegaconf python-dotenv feedparser requests PyPDF2 tqdm python-dateutil datasets numpy torch transformers, set OPENAI_API_KEY and OPENAI_API_BASE in .env, then cd recipe/DeepInnovator/data_preparation and bash run.sh 100 ./data/arxiv_data. train_rl.sh needs a CUDA GPU. Data preparation sends paper text to the OpenAI-compatible API you set. GitHub recipe MIT. Hugging Face weights Apache-2.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/HKUDS/DeepInnovator).
 
 ## MCP and integrations
 
@@ -1464,6 +1474,16 @@ An Apache-licensed zero-trust mesh of HTTP/2 tunnels, with a hub, agents, TLS ce
 **Access and use:** Download the CLI or desktop app from GitHub Releases. Hub: ztm start hub --listen 0.0.0.0:8888 --names YOUR_PUBLIC_IP:8888 --permit root.json. Agent: ztm start agent, then ztm join MESH --as NAME --permit root.json. GUI is http://localhost:7777 after the agent starts. Hub state is ~/.ztm/ztm-hub.db; agent state is ~/.ztm/ztm.db. Traffic is TLS. The permit file is the join key. Apache-2.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/flomesh-io/ztm).
+
+### [CodeVibes](https://codevibes.akadanish.dev)
+
+An MIT GitHub-repo auditor that scores security, bugs and quality with DeepSeek and a 0 to 100 Vibe Score.
+
+**For:** Developers who want an AI pass over a GitHub repo for secrets, injection and quality.
+
+**Access and use:** Hosted: https://codevibes.akadanish.dev. Self-host: git clone https://github.com/danish296/codevibes.git, npm install, then cd codevibes-backend && npm install, copy .env.example to .env, set DEEPSEEK_API_KEY, JWT_SECRET and a 32-character ENCRYPTION_KEY. Backend: npm run dev at http://localhost:3001. Frontend: npm run dev at http://localhost:8080. History is SQLite at codevibes-backend/data/codevibes.db. Repo files go to DeepSeek. Private repos need a GitHub token or GitHub OAuth (GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET). MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/danish296/codevibes).
 
 ## Protocols
 

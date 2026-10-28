@@ -493,6 +493,13 @@ For: Engineers who want a map of which files call which models, beside the sourc
 Access: Run the backend first: git clone https://github.com/michaelzixizhou/codag.git, copy backend/.env.example to backend/.env, set GEMINI_API_KEY, then make setup and docker compose up -d. Backend is http://localhost:52104. Then install Codag from the VS Code Marketplace. On activation it writes .mcp.json (or .cursor/mcp.json) into the workspace. Selected files go to Gemini 2.5 Flash for workflow labels. Live edits stay on the machine (tree-sitter). MIT.
 Source checked: 2026-10-29
 
+DeepInnovator | Agent tools
+https://huggingface.co/T1anyu/DeepInnovator
+An MIT training recipe and Apache-2.0 14B Qwen2.5-Instruct model that proposes research ideas from scientific literature.
+For: Researchers who want a local 14B model that drafts next research ideas, or who want to rerun the paper's RL recipe.
+Access: Inference: pip install transformers torch, then load T1anyu/DeepInnovator with AutoModelForCausalLM.from_pretrained. The weights are about 15 billion parameters in BF16; Hugging Face documents GPU load. Training: git clone https://github.com/HKUDS/DeepInnovator.git, pip install openai omegaconf python-dotenv feedparser requests PyPDF2 tqdm python-dateutil datasets numpy torch transformers, set OPENAI_API_KEY and OPENAI_API_BASE in .env, then cd recipe/DeepInnovator/data_preparation and bash run.sh 100 ./data/arxiv_data. train_rl.sh needs a CUDA GPU. Data preparation sends paper text to the OpenAI-compatible API you set. GitHub recipe MIT. Hugging Face weights Apache-2.0.
+Source checked: 2026-10-29
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -1002,6 +1009,13 @@ https://github.com/flomesh-io/ztm
 An Apache-licensed zero-trust mesh of HTTP/2 tunnels, with a hub, agents, TLS certificates and apps for tunnel, proxy, script and terminal.
 For: People who want a small private mesh across home, work and a cloud box, without a SaaS overlay.
 Access: Download the CLI or desktop app from GitHub Releases. Hub: ztm start hub --listen 0.0.0.0:8888 --names YOUR_PUBLIC_IP:8888 --permit root.json. Agent: ztm start agent, then ztm join MESH --as NAME --permit root.json. GUI is http://localhost:7777 after the agent starts. Hub state is ~/.ztm/ztm-hub.db; agent state is ~/.ztm/ztm.db. Traffic is TLS. The permit file is the join key. Apache-2.0.
+Source checked: 2026-10-29
+
+CodeVibes | Platforms
+https://codevibes.akadanish.dev
+An MIT GitHub-repo auditor that scores security, bugs and quality with DeepSeek and a 0 to 100 Vibe Score.
+For: Developers who want an AI pass over a GitHub repo for secrets, injection and quality.
+Access: Hosted: https://codevibes.akadanish.dev. Self-host: git clone https://github.com/danish296/codevibes.git, npm install, then cd codevibes-backend && npm install, copy .env.example to .env, set DEEPSEEK_API_KEY, JWT_SECRET and a 32-character ENCRYPTION_KEY. Backend: npm run dev at http://localhost:3001. Frontend: npm run dev at http://localhost:8080. History is SQLite at codevibes-backend/data/codevibes.db. Repo files go to DeepSeek. Private repos need a GitHub token or GitHub OAuth (GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET). MIT.
 Source checked: 2026-10-29
 
 x402 | Protocols
