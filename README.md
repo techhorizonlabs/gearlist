@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 94 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 96 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,7 +19,7 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (33)
+- [Agent tools](#agent-tools) (35)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (14)
@@ -358,6 +358,26 @@ A terminal tool that scores which local LLMs will fit your RAM, CPU and GPU, wit
 **Access and use:** Installer is curl -fsSL https://llmfit.axjns.dev/install.sh | sh. Read the script before running it. Also brew install AlexsJones/llmfit/llmfit, winget install --exact --id AlexsJones.llmfit, or uvx llmfit. Default llmfit opens the TUI. llmfit serve --host 0.0.0.0 --port 8787 binds the API on every interface. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/AlexsJones/llmfit).
+
+### [Beads](https://beads.gascity.com/)
+
+A graph issue tracker for coding agents, with a CLI that stores tasks in a Dolt database so agents can claim ready work.
+
+**For:** Teams whose coding agents need a shared, dependency-aware task list across machines.
+
+**Access and use:** Installer is curl -fsSL https://raw.githubusercontent.com/gastownhall/beads/main/scripts/install.sh | bash. Read the script before running it. Also brew install beads or npm install -g @beads/bd. Then bd init in your project. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/gastownhall/beads).
+
+### [PicoClaw](https://picoclaw.io)
+
+A small Go assistant that runs on a laptop or a cheap Linux board, with a local Web UI and chat-app channels.
+
+**For:** People who want a local assistant on modest hardware, using their own model keys.
+
+**Access and use:** Download from picoclaw.io or GitHub Releases. picoclaw-launcher opens http://localhost:18800. The -public flag listens on every interface. Needs an LLM API key or a local model such as Ollama. Tools can read files and run commands on the host. Treat inbound messages as untrusted. Do not deploy to production before v1.0. PicoClaw has issued no official token; listings on token sites are scams. Official site is picoclaw.io. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/sipeed/picoclaw).
 
 ## MCP and integrations
 

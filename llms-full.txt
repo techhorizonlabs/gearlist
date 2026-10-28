@@ -234,6 +234,20 @@ For: People choosing a local model for a coding agent or a laptop they already h
 Access: Installer is curl -fsSL https://llmfit.axjns.dev/install.sh | sh. Read the script before running it. Also brew install AlexsJones/llmfit/llmfit, winget install --exact --id AlexsJones.llmfit, or uvx llmfit. Default llmfit opens the TUI. llmfit serve --host 0.0.0.0 --port 8787 binds the API on every interface. MIT.
 Source checked: 2026-10-28
 
+Beads | Agent tools
+https://beads.gascity.com/
+A graph issue tracker for coding agents, with a CLI that stores tasks in a Dolt database so agents can claim ready work.
+For: Teams whose coding agents need a shared, dependency-aware task list across machines.
+Access: Installer is curl -fsSL https://raw.githubusercontent.com/gastownhall/beads/main/scripts/install.sh | bash. Read the script before running it. Also brew install beads or npm install -g @beads/bd. Then bd init in your project. MIT.
+Source checked: 2026-10-28
+
+PicoClaw | Agent tools
+https://picoclaw.io
+A small Go assistant that runs on a laptop or a cheap Linux board, with a local Web UI and chat-app channels.
+For: People who want a local assistant on modest hardware, using their own model keys.
+Access: Download from picoclaw.io or GitHub Releases. picoclaw-launcher opens http://localhost:18800. The -public flag listens on every interface. Needs an LLM API key or a local model such as Ollama. Tools can read files and run commands on the host. Treat inbound messages as untrusted. Do not deploy to production before v1.0. PicoClaw has issued no official token; listings on token sites are scams. Official site is picoclaw.io. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
