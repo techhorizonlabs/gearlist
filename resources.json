@@ -2003,6 +2003,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "skills-manager",
+      "name": "Skills Manager",
+      "category": "Skills and learning",
+      "url": "https://github.com/yibie/skills-manager",
+      "description": "A native macOS app that discovers, installs and mounts agent skills across Claude Code, Cursor, Codex and dozens of other coding agents.",
+      "for_whom": "People who keep skills in several coding agents on a Mac and want one local library they can mount on demand.",
+      "access_notes": "macOS 14 or later. Download Skills Manager 2.0.0 from GitHub Releases and drag it to Applications. The zip is Developer ID signed and Apple-notarized; SHA-256 8da1f38838119864e593e9e591355dd53b5d407e4a7383aac68f095efdac1ad5. There is no Skills Manager backend. Discover refreshes from skills.sh and caches under ~/.skills-manager/. Installing from Discover downloads the GitHub skill package into the Library and links it into agents. Try sends the skill to your own Claude, OpenAI, OpenRouter, Ollama or LM Studio endpoint. Local Ollama and LM Studio endpoints are rewritten to 127.0.0.1. The TUI is npm exec skills-manager from tui/. MIT.",
+      "source_url": "https://github.com/yibie/skills-manager",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "clui-cc",
+      "name": "Clui CC",
+      "category": "Agent tools",
+      "url": "https://github.com/lcoutodemos/clui-cc",
+      "description": "A macOS overlay for Claude Code with multi-tab sessions, a permission UI, voice input and a skills marketplace.",
+      "for_whom": "People who run Claude Code on a Mac and want a floating desktop UI for approvals, tabs and voice.",
+      "access_notes": "git clone https://github.com/lcoutodemos/clui-cc.git then double-click install-app.command; read the script before running it. Needs macOS 13+, Node 18+ (20 or 22 recommended), Xcode Command Line Tools, Python setuptools, and an authenticated Claude Code CLI. The packaged app is unsigned. Opening it is your call (System Settings, Privacy and Security, Open Anyway). Whisper is required and the installer installs it. Permission hooks listen on 127.0.0.1:19836. Marketplace catalog fetches anthropics GitHub repos; skill auto-install writes ~/.claude/skills/. Prompts go through your local Claude Code CLI. The README says there is no telemetry. MIT.",
+      "source_url": "https://github.com/lcoutodemos/clui-cc",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

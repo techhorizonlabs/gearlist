@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 154 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 156 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (62)
+- [Agent tools](#agent-tools) (63)
 - [MCP and integrations](#mcp-and-integrations) (17)
 - [Security and governance](#security-and-governance) (5)
 - [Platforms](#platforms) (26)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (40)
+- [Skills and learning](#skills-and-learning) (41)
 
 
 ## Agent tools
@@ -648,6 +648,16 @@ A CodeAgent and MCP server that drives a Chromium browser over CDP, with a CLI d
 **Access and use:** pip install openbrowser-ai, brew install openbrowser-ai, or curl -fsSL https://raw.githubusercontent.com/billy-enrizky/openbrowser-ai/main/install.sh | sh; read the script before running it. Needs Python 3.12+. uvx openbrowser-ai --mcp is the stdio MCP server. Default MCP profiles live under ~/.config/openbrowser/profiles/. The CLI daemon uses a Unix socket and ~/.config/openbrowser/profiles/daemon. Agent mode needs an LLM API key. The hosted dashboard at openbrowser.me stores cookies and scheduled tasks. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/billy-enrizky/openbrowser-ai).
+
+### [Clui CC](https://github.com/lcoutodemos/clui-cc)
+
+A macOS overlay for Claude Code with multi-tab sessions, a permission UI, voice input and a skills marketplace.
+
+**For:** People who run Claude Code on a Mac and want a floating desktop UI for approvals, tabs and voice.
+
+**Access and use:** git clone https://github.com/lcoutodemos/clui-cc.git then double-click install-app.command; read the script before running it. Needs macOS 13+, Node 18+ (20 or 22 recommended), Xcode Command Line Tools, Python setuptools, and an authenticated Claude Code CLI. The packaged app is unsigned. Opening it is your call (System Settings, Privacy and Security, Open Anyway). Whisper is required and the installer installs it. Permission hooks listen on 127.0.0.1:19836. Marketplace catalog fetches anthropics GitHub repos; skill auto-install writes ~/.claude/skills/. Prompts go through your local Claude Code CLI. The README says there is no telemetry. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/lcoutodemos/clui-cc).
 
 ## MCP and integrations
 
@@ -1578,6 +1588,16 @@ Open-source Claude Code plugins for plan-first coding, review and self-learning,
 **Access and use:** curl -fsSL https://raw.githubusercontent.com/closedloop-ai/claude-plugins/main/install.sh | bash; read the script before running it. Needs Claude Code, Python 3.11+ and jq. It registers the closedloop-ai marketplace and installs code, code-review, platform and self-learning at user scope under ~/.claude/plugins, with auto-update on. claude /plugin marketplace install closedloop is the interactive path. Codex: codex plugin marketplace add https://github.com/closedloop-ai/claude-plugins then add closedloop-core@closedloop-ai. /code-review:start writes inline GitHub pull-request comments. self-learning writes under .learnings/; org share uses CLAUDE_ORG_ID. bootstrap writes .claude/agents and .closedloop-ai/. The README calls this an engineering preview for trusted environments. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/closedloop-ai/claude-plugins).
+
+### [Skills Manager](https://github.com/yibie/skills-manager)
+
+A native macOS app that discovers, installs and mounts agent skills across Claude Code, Cursor, Codex and dozens of other coding agents.
+
+**For:** People who keep skills in several coding agents on a Mac and want one local library they can mount on demand.
+
+**Access and use:** macOS 14 or later. Download Skills Manager 2.0.0 from GitHub Releases and drag it to Applications. The zip is Developer ID signed and Apple-notarized; SHA-256 8da1f38838119864e593e9e591355dd53b5d407e4a7383aac68f095efdac1ad5. There is no Skills Manager backend. Discover refreshes from skills.sh and caches under ~/.skills-manager/. Installing from Discover downloads the GitHub skill package into the Library and links it into agents. Try sends the skill to your own Claude, OpenAI, OpenRouter, Ollama or LM Studio endpoint. Local Ollama and LM Studio endpoints are rewritten to 127.0.0.1. The TUI is npm exec skills-manager from tui/. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/yibie/skills-manager).
 
 ## Looking for more?
 
