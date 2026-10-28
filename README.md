@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 186 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 188 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (67)
+- [Agent tools](#agent-tools) (68)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (45)
+- [Platforms](#platforms) (46)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (46)
 
@@ -698,6 +698,16 @@ A React canvas library of nine dotted thought-orb animations for agent status, i
 **Access and use:** npm install thinking-orbs. Needs React 18 or newer. Import ThinkingOrb and set a state such as searching, working or solving, with size 64 or 20. The package is a canvas component; it does not call a model. Demo is https://libraries.dev/orbs. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/Jakubantalik/thinking-orbs).
+
+### [seekdb](https://www.seekdb.ai)
+
+An Apache-licensed OceanBase search database that unifies vector, text and structured data for hybrid search and in-database AI functions.
+
+**For:** Teams who want agent memory and RAG on a local file or a MySQL-compatible server.
+
+**Access and use:** pip install -U pyseekdb. Needs Python 3.11 or later. Embedded mode on Linux and macOS: import pyseekdb then client = pyseekdb.Client() writes a local database (for example ./seekdb.db). Windows uses server mode only. AI_EMBED, AI_COMPLETE and similar SQL functions send text to the embedding or LLM service you register. Data stays in that local file or on the seekdb or OceanBase server you connect to. Apache-2.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/oceanbase/seekdb).
 
 ## MCP and integrations
 
@@ -1394,6 +1404,16 @@ An MIT desktop canvas where humans and coding agents draw software maps, traces 
 **Access and use:** macOS, Windows and Linux installers from https://dev.fast/install. On macOS: brew install --cask devdotfast/tap/whiteboard. Connect Claude Code, Codex or another coding agent from the welcome screen. Whiteboards stay in ~/.dev/review-api.db. Anonymous telemetry is on by default and goes to PostHog as feature counts, durations and versions under a random installation ID; it omits source code, diffs, paths, prompts and model output. Turn it off in Settings under Share anonymous usage data, or set DO_NOT_TRACK=1. After a crash, the next launch uploads the dump to bug.dev.fast, and it can contain process memory including open source text; with telemetry off, dumps are deleted without upload. whiteboard share uploads a copy of that whiteboard, traces and referenced source to the /dev/fast share service. Trace capture is off until you allow a repository. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/devdotfast/whiteboard).
+
+### [It's a Plan](https://itsaplan.dev)
+
+An AGPL self-hosted issue tracker where people and agents share the same board, with REST, webhooks and MCP.
+
+**For:** Teams who want Linear-style tracking on their own Postgres, with agents as assignees.
+
+**Access and use:** git clone https://github.com/croffasia/itsaplan.git && bun install && bun run setup, then answer Try it. UI is http://localhost:3001; API is http://localhost:3000. Production: copy .env.example to .env, set the secrets and public URLs, then docker compose up -d behind TLS. The first account is instance admin. Issues live in Postgres; files live in RustFS. Agent prompts go to the model or CLI you configure. A daily telemetry snapshot goes to https://telemetry.itsaplan.dev by default (counts as ranges, plus which features and integrations are on); set TELEMETRY_DISABLED=1 or DO_NOT_TRACK=1 to stop it. MCP is on the API origin. AGPL-3.0; the runner package is Apache-2.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/croffasia/itsaplan).
 
 ## Protocols
 
