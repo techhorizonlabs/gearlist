@@ -325,7 +325,7 @@ An open-source crawler that turns a page into LLM-ready Markdown, with a CLI, Py
 
 **For:** People who want to scrape pages into Markdown on their own machine.
 
-**Access and use:** pip install -U crawl4ai, then crawl4ai-setup to install the browser. CLI is crwl URL -o markdown. Docker server listens on port 11235 and needs CRAWL4AI_API_TOKEN; without a token it answers only inside the container. Optional hosted cloud at crawl4ai.com is a paid product with its own key. Apache-2.0.
+**Access and use:** pip install -U crawl4ai, then crawl4ai-setup to install the browser. CLI is crwl URL -o markdown. Docker server listens on port 11235 and needs CRAWL4AI_API_TOKEN; without a token it answers only inside the container. Optional hosted cloud at crawl4ai.com uses its own key and has a free plan alongside paid ones. Apache-2.0, plus a clause that any public use must credit the project in a README, About page or acknowledgments.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/unclecode/crawl4ai).
 

@@ -971,7 +971,7 @@
       "url": "https://docs.crawl4ai.com",
       "description": "An open-source crawler that turns a page into LLM-ready Markdown, with a CLI, Python library and a Docker server.",
       "for_whom": "People who want to scrape pages into Markdown on their own machine.",
-      "access_notes": "pip install -U crawl4ai, then crawl4ai-setup to install the browser. CLI is crwl URL -o markdown. Docker server listens on port 11235 and needs CRAWL4AI_API_TOKEN; without a token it answers only inside the container. Optional hosted cloud at crawl4ai.com is a paid product with its own key. Apache-2.0.",
+      "access_notes": "pip install -U crawl4ai, then crawl4ai-setup to install the browser. CLI is crwl URL -o markdown. Docker server listens on port 11235 and needs CRAWL4AI_API_TOKEN; without a token it answers only inside the container. Optional hosted cloud at crawl4ai.com uses its own key and has a free plan alongside paid ones. Apache-2.0, plus a clause that any public use must credit the project in a README, About page or acknowledgments.",
       "source_url": "https://github.com/unclecode/crawl4ai",
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
