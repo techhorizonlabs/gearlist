@@ -562,3 +562,17 @@ A research skill that searches Reddit, Hacker News, GitHub, Polymarket and optio
 For: People who want a coding agent to brief them on a person, product or topic from recent public conversation.
 Access: Claude Code: /plugin marketplace add mvanhorn/last30days-skill then /plugin install last30days. Other hosts: npx skills add mvanhorn/last30days-skill -g. Reddit, HN, Polymarket and GitHub work with no keys. Extra sources need API keys or a logged-in browser. Needs Python 3.12 or later. MIT.
 Source checked: 2026-10-28
+
+Matt Pocock Skills | Skills and learning
+https://github.com/mattpocock/skills
+A pack of engineering skills for coding agents covering grilling, specs, TDD, architecture and pull-request shape.
+For: People who want a coding agent to interview them, write a spec, then implement with tests and a review.
+Access: Claude Code: claude plugin install mattpocock-skills@claude-plugins-official. Other hosts: npx skills@latest add mattpocock/skills. Pick the plugin or the copied files for each agent; installing both puts every skill in twice. Run /setup-matt-pocock-skills once per repo. MIT.
+Source checked: 2026-10-28
+
+career-ops | Skills and learning
+https://career-ops.org
+A local job-search skill that scores a listing against your CV, drafts the application, and leaves Submit to you.
+For: People who want a coding agent to filter and prepare applications on their own machine.
+Access: npx @santifer/career-ops init, then open your coding agent in that folder. Claude Code plugin: /plugin marketplace add career-ops-hq/career-ops then /plugin install career-ops@career-ops. Data stays in the workspace (plugin installs use ~/career-ops-data). It drafts CVs, cover letters and emails; it never POSTs an application or sends mail. MIT.
+Source checked: 2026-10-28

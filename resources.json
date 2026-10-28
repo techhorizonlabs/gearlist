@@ -1041,6 +1041,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "mattpocock-skills",
+      "name": "Matt Pocock Skills",
+      "category": "Skills and learning",
+      "url": "https://github.com/mattpocock/skills",
+      "description": "A pack of engineering skills for coding agents covering grilling, specs, TDD, architecture and pull-request shape.",
+      "for_whom": "People who want a coding agent to interview them, write a spec, then implement with tests and a review.",
+      "access_notes": "Claude Code: claude plugin install mattpocock-skills@claude-plugins-official. Other hosts: npx skills@latest add mattpocock/skills. Pick the plugin or the copied files for each agent; installing both puts every skill in twice. Run /setup-matt-pocock-skills once per repo. MIT.",
+      "source_url": "https://github.com/mattpocock/skills",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "career-ops",
+      "name": "career-ops",
+      "category": "Skills and learning",
+      "url": "https://career-ops.org",
+      "description": "A local job-search skill that scores a listing against your CV, drafts the application, and leaves Submit to you.",
+      "for_whom": "People who want a coding agent to filter and prepare applications on their own machine.",
+      "access_notes": "npx @santifer/career-ops init, then open your coding agent in that folder. Claude Code plugin: /plugin marketplace add career-ops-hq/career-ops then /plugin install career-ops@career-ops. Data stays in the workspace (plugin installs use ~/career-ops-data). It drafts CVs, cover letters and emails; it never POSTs an application or sends mail. MIT.",
+      "source_url": "https://github.com/career-ops-hq/career-ops",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
