@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 60 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 62 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -20,11 +20,11 @@ npx skills add techhorizonlabs/gearlist
 ## Contents
 
 - [Agent tools](#agent-tools) (25)
-- [MCP and integrations](#mcp-and-integrations) (11)
+- [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (4)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (15)
+- [Skills and learning](#skills-and-learning) (16)
 
 
 ## Agent tools
@@ -391,6 +391,16 @@ A local MCP server that indexes a codebase with tree-sitter and returns the func
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/jgravelle/jcodemunch-mcp).
 
+### [Monid](https://monid.ai/)
+
+A hosted MCP, CLI and skill for discovering, inspecting and running third-party data endpoints against one Monid balance. The public repo is the MIT Deno connector framework those endpoints are written in.
+
+**For:** Teams who want one billed catalog of agent tools, or to add a connector as a pull request.
+
+**Access and use:** Hosted MCP is https://mcp.monid.ai/v1 and signs in with a Monid account. Skill setup is the public file https://monid.ai/SKILL.md plus an API key from app.monid.ai. CLI is npm install -g @monid-ai/cli, then monid keys add. Hosted runs spend a prepaid balance or x402 USDC, priced per call or per result on each endpoint. Local clone needs Deno 2.x; deno task check and deno task test run offline, and engine:run needs that provider's vendor key. Hosted OAuth is a Monid account. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/monid-ai/monid).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -638,6 +648,16 @@ A Claude Code skill that reads a website URL and renders a local launch film wit
 **Access and use:** npx skills add AbubakrChan/product-launch-motion. Needs Claude Code, Node 20 or later, Playwright, FFmpeg, and Python with numpy. Renders on the local machine. MIT on the skill and references. The sample films belong to Cheerful, and the MIT licence doesn't cover them.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/AbubakrChan/product-launch-motion).
+
+### [jev-seo](https://github.com/AgriciDaniel/jev-seo)
+
+A local Python CLI and Claude Code skill that crawls a site, scores technical rules, optionally asks TypeSafe Jev about each page, and writes a PDF, Excel tracker and Markdown from one audit record.
+
+**For:** People who want a live site audit with ranked, evidence-linked fixes from a homepage URL.
+
+**Access and use:** Python 3.10 or later. git clone, then python3 -m venv and pip install -r requirements.txt. WeasyPrint needs Pango. Set TYPESAFE_API_KEY in .env for Jev judgments; without it the audit still runs as a partial audit. Optional PAGESPEED_API_KEY, and for --full DATAFORSEO_USERNAME and DATAFORSEO_PASSWORD. Optional Playwright Chromium for JavaScript-only pages. Reports land under jev-seo-reports/. Claude Code: ln -s the clone into ~/.claude/skills/jev-seo. MIT. Bundled fonts are SIL. Jev citability answers are model judgments of a page.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/AgriciDaniel/jev-seo).
 
 ## Looking for more?
 
