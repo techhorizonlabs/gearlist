@@ -365,7 +365,7 @@ A graph issue tracker for coding agents, with a CLI that stores tasks in a Dolt 
 
 **For:** Teams whose coding agents need a shared, dependency-aware task list across machines.
 
-**Access and use:** Installer is curl -fsSL https://raw.githubusercontent.com/gastownhall/beads/main/scripts/install.sh | bash. Read the script before running it. Also brew install beads or npm install -g @beads/bd. Then bd init in your project. MIT.
+**Access and use:** Installer is curl -fsSL https://raw.githubusercontent.com/gastownhall/beads/main/scripts/install.sh | bash. Read the script before running it. Also brew install beads or npm install -g @beads/bd. Then bd init in your project, which writes AGENTS.md and installs Claude Code, Codex and Cursor integrations unless you pass --skip-agents or --stealth. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/gastownhall/beads).
 
