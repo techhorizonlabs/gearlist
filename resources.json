@@ -2185,6 +2185,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "gallery-dl",
+      "name": "gallery-dl",
+      "category": "Agent tools",
+      "url": "https://github.com/mikf/gallery-dl",
+      "description": "A command-line downloader for image galleries and collections from hundreds of hosts, with JSON config, cookies and OAuth for logged-in sites.",
+      "for_whom": "People pulling galleries, manga or artist collections onto their own disk from supported hosts.",
+      "access_notes": "Needs Python 3.8+ and Requests. python -m pip install -U gallery-dl. macOS: brew install gallery-dl. Run gallery-dl URL. Config is ~/.config/gallery-dl/config.json (Linux/macOS) or %APPDATA%\\gallery-dl\\config.json (Windows). Login cookies, passwords and OAuth tokens are sent to the host you download from. Active development is on Codeberg: https://codeberg.org/mikf/gallery-dl. GPL-2.0.",
+      "source_url": "https://github.com/mikf/gallery-dl",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "simplex-chat",
+      "name": "SimpleX Chat",
+      "category": "Platforms",
+      "url": "https://simplex.chat/",
+      "description": "An AGPL messenger that connects people with one-off invitation links or QR codes, using SMP relays instead of user accounts.",
+      "for_whom": "People who want encrypted chat on iOS, Android or a terminal, with relays they can pick or host.",
+      "access_notes": "Mobile: App Store, Google Play, F-Droid (https://app.simplex.chat) or the APK from GitHub Releases. Terminal: curl -o- https://raw.githubusercontent.com/simplex-chat/simplex-chat/stable/install.sh | bash (read the script before running it). Connect by scanning a QR code or opening an smp invitation link. Encrypted messages travel through the SMP relays you choose; the default public relays are operated by SimpleX Chat Ltd. AGPL-3.0.",
+      "source_url": "https://github.com/simplex-chat/simplex-chat",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

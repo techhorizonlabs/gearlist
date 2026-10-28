@@ -451,6 +451,13 @@ For: People who want Claude Code or Codex CLI to keep a continuous company loop 
 Access: git clone then make start (Claude Code default) or ENGINE=codex make start. Needs Python 3.10+, Git, make, and an authenticated Claude Code or Codex CLI. Product Center is http://127.0.0.1:8810/center (make center). Daemon mode uses launchd on macOS and systemd --user on WSL. CLAUDE_PERMISSION_MODE=bypassPermissions is the documented way to stop permission prompts; the README says prompt rules are not a sandbox and each cycle spends model quota. Optional Cursor and OpenAI-compatible adapters need explicit config. MIT.
 Source checked: 2026-10-28
 
+gallery-dl | Agent tools
+https://github.com/mikf/gallery-dl
+A command-line downloader for image galleries and collections from hundreds of hosts, with JSON config, cookies and OAuth for logged-in sites.
+For: People pulling galleries, manga or artist collections onto their own disk from supported hosts.
+Access: Needs Python 3.8+ and Requests. python -m pip install -U gallery-dl. macOS: brew install gallery-dl. Run gallery-dl URL. Config is ~/.config/gallery-dl/config.json (Linux/macOS) or %APPDATA%\gallery-dl\config.json (Windows). Login cookies, passwords and OAuth tokens are sent to the host you download from. Active development is on Codeberg: https://codeberg.org/mikf/gallery-dl. GPL-2.0.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -841,6 +848,13 @@ https://invidious.io/
 An AGPL YouTube front-end for videos, subscriptions and comments, as a self-hosted instance or a public one.
 For: People who want a lighter YouTube player they can host, or who will pick a public instance they trust.
 Access: Public instances are listed at https://instances.invidious.io; that operator holds your subscriptions, history and watch requests, and the instance fetches video from YouTube. Self-host: git clone https://github.com/iv-org/invidious.git && cd invidious. Generate two 16-character keys with pwgen 16 1, put them in docker-compose.yml as hmac_key and invidious_companion_key (companion SERVER_SECRET_KEY must match). Default compose binds 127.0.0.1:3000. Needs about 20 GB disk and 2 GB RAM; restart at least daily. Playback needs Invidious companion. AGPL-3.0.
+Source checked: 2026-10-28
+
+SimpleX Chat | Platforms
+https://simplex.chat/
+An AGPL messenger that connects people with one-off invitation links or QR codes, using SMP relays instead of user accounts.
+For: People who want encrypted chat on iOS, Android or a terminal, with relays they can pick or host.
+Access: Mobile: App Store, Google Play, F-Droid (https://app.simplex.chat) or the APK from GitHub Releases. Terminal: curl -o- https://raw.githubusercontent.com/simplex-chat/simplex-chat/stable/install.sh | bash (read the script before running it). Connect by scanning a QR code or opening an smp invitation link. Encrypted messages travel through the SMP relays you choose; the default public relays are operated by SimpleX Chat Ltd. AGPL-3.0.
 Source checked: 2026-10-28
 
 x402 | Protocols

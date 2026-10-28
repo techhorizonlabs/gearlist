@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 168 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 170 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (64)
+- [Agent tools](#agent-tools) (65)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (32)
+- [Platforms](#platforms) (33)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (44)
 
@@ -669,6 +669,16 @@ A local loop of 14 expert-persona agents that research, decide and write code on
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/MaxMiksa/Autonomous-Company).
 
+### [gallery-dl](https://github.com/mikf/gallery-dl)
+
+A command-line downloader for image galleries and collections from hundreds of hosts, with JSON config, cookies and OAuth for logged-in sites.
+
+**For:** People pulling galleries, manga or artist collections onto their own disk from supported hosts.
+
+**Access and use:** Needs Python 3.8+ and Requests. python -m pip install -U gallery-dl. macOS: brew install gallery-dl. Run gallery-dl URL. Config is ~/.config/gallery-dl/config.json (Linux/macOS) or %APPDATA%\gallery-dl\config.json (Windows). Login cookies, passwords and OAuth tokens are sent to the host you download from. Active development is on Codeberg: https://codeberg.org/mikf/gallery-dl. GPL-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/mikf/gallery-dl).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -1234,6 +1244,16 @@ An AGPL YouTube front-end for videos, subscriptions and comments, as a self-host
 **Access and use:** Public instances are listed at https://instances.invidious.io; that operator holds your subscriptions, history and watch requests, and the instance fetches video from YouTube. Self-host: git clone https://github.com/iv-org/invidious.git && cd invidious. Generate two 16-character keys with pwgen 16 1, put them in docker-compose.yml as hmac_key and invidious_companion_key (companion SERVER_SECRET_KEY must match). Default compose binds 127.0.0.1:3000. Needs about 20 GB disk and 2 GB RAM; restart at least daily. Playback needs Invidious companion. AGPL-3.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/iv-org/invidious).
+
+### [SimpleX Chat](https://simplex.chat/)
+
+An AGPL messenger that connects people with one-off invitation links or QR codes, using SMP relays instead of user accounts.
+
+**For:** People who want encrypted chat on iOS, Android or a terminal, with relays they can pick or host.
+
+**Access and use:** Mobile: App Store, Google Play, F-Droid (https://app.simplex.chat) or the APK from GitHub Releases. Terminal: curl -o- https://raw.githubusercontent.com/simplex-chat/simplex-chat/stable/install.sh | bash (read the script before running it). Connect by scanning a QR code or opening an smp invitation link. Encrypted messages travel through the SMP relays you choose; the default public relays are operated by SimpleX Chat Ltd. AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/simplex-chat/simplex-chat).
 
 ## Protocols
 
