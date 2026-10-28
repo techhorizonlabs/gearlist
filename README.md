@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 90 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 92 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (32)
+- [Agent tools](#agent-tools) (33)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (13)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (28)
+- [Skills and learning](#skills-and-learning) (29)
 
 
 ## Agent tools
@@ -348,6 +348,16 @@ A local app to run and train models, and to point coding agents at those models 
 **Access and use:** Desktop builds are on GitHub Releases. Studio installer is curl -fsSL https://unsloth.ai/install.sh | sh. Read the script before running it. Also brew install --cask unsloth. Point an agent with unsloth start claude (or codex, opencode, dsh, openclaw). Default studio is local; --secure or a non-loopback bind asks for an admin password. Core package is Apache-2.0; Unsloth Studio UI is AGPL-3.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/unslothai/unsloth).
+
+### [llmfit](https://github.com/AlexsJones/llmfit)
+
+A terminal tool that scores which local LLMs will fit your RAM, CPU and GPU, with a TUI and an optional web API.
+
+**For:** People choosing a local model for a coding agent or a laptop they already have.
+
+**Access and use:** Installer is curl -fsSL https://llmfit.axjns.dev/install.sh | sh. Read the script before running it. Also brew install AlexsJones/llmfit/llmfit, winget install --exact --id AlexsJones.llmfit, or uvx llmfit. Default llmfit opens the TUI. llmfit serve --host 0.0.0.0 --port 8787 binds the API on every interface. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/AlexsJones/llmfit).
 
 ## MCP and integrations
 
@@ -938,6 +948,16 @@ Reference agents and skills for investment banking, equity research, private equ
 **Access and use:** Claude Code: claude plugin marketplace add anthropics/financial-services, then claude plugin install financial-analysis@claude-for-financial-services and the named agents you need. Cowork: Settings, Plugins, Add plugin, paste the repo URL. The README says nothing here is investment, legal, tax or accounting advice, and agents do not execute trades or post to a ledger. MCP data connectors may need a provider subscription. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/anthropics/financial-services).
+
+### [Claude Code Templates](https://aitmpl.com)
+
+A catalog of Claude Code agents, commands, hooks, settings and MCP installs you can browse and add with one npx command.
+
+**For:** People who want a ready-made Claude Code stack of agents, commands and MCP installs.
+
+**Access and use:** npx claude-code-templates@latest, then pick components, or pass --agent, --command, --mcp, --hook or --setting with --yes. Analytics, chats and health-check are extra flags on the same CLI. Bundled third-party skills keep their original licences. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/davila7/claude-code-templates).
 
 ## Looking for more?
 

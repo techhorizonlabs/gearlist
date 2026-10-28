@@ -227,6 +227,13 @@ For: People who want Claude Code, Codex or OpenCode to use a model on their own 
 Access: Desktop builds are on GitHub Releases. Studio installer is curl -fsSL https://unsloth.ai/install.sh | sh. Read the script before running it. Also brew install --cask unsloth. Point an agent with unsloth start claude (or codex, opencode, dsh, openclaw). Default studio is local; --secure or a non-loopback bind asks for an admin password. Core package is Apache-2.0; Unsloth Studio UI is AGPL-3.0.
 Source checked: 2026-10-28
 
+llmfit | Agent tools
+https://github.com/AlexsJones/llmfit
+A terminal tool that scores which local LLMs will fit your RAM, CPU and GPU, with a TUI and an optional web API.
+For: People choosing a local model for a coding agent or a laptop they already have.
+Access: Installer is curl -fsSL https://llmfit.axjns.dev/install.sh | sh. Read the script before running it. Also brew install AlexsJones/llmfit/llmfit, winget install --exact --id AlexsJones.llmfit, or uvx llmfit. Default llmfit opens the TUI. llmfit serve --host 0.0.0.0 --port 8787 binds the API on every interface. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -631,4 +638,11 @@ https://github.com/anthropics/financial-services
 Reference agents and skills for investment banking, equity research, private equity and fund ops, drafted for a human to sign off.
 For: Firms that want Claude to draft models, memos and reconciliations under a qualified reviewer's control.
 Access: Claude Code: claude plugin marketplace add anthropics/financial-services, then claude plugin install financial-analysis@claude-for-financial-services and the named agents you need. Cowork: Settings, Plugins, Add plugin, paste the repo URL. The README says nothing here is investment, legal, tax or accounting advice, and agents do not execute trades or post to a ledger. MCP data connectors may need a provider subscription. Apache-2.0.
+Source checked: 2026-10-28
+
+Claude Code Templates | Skills and learning
+https://aitmpl.com
+A catalog of Claude Code agents, commands, hooks, settings and MCP installs you can browse and add with one npx command.
+For: People who want a ready-made Claude Code stack of agents, commands and MCP installs.
+Access: npx claude-code-templates@latest, then pick components, or pass --agent, --command, --mcp, --hook or --setting with --yes. Analytics, chats and health-check are extra flags on the same CLI. Bundled third-party skills keep their original licences. MIT.
 Source checked: 2026-10-28
