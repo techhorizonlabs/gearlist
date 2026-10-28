@@ -251,7 +251,7 @@ A local code knowledge graph that answers with symbols, call paths and blast rad
 
 ### [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast)
 
-A local browser agent from Browser Use: TypeSafe Jev picks an operation and a page element, and a smaller model writes text only when the operation is TYPE_TEXT.
+A local Chrome agent from Browser Use. One model chooses each click or field, and a smaller model writes text only when a field needs typing.
 
 **For:** People who want a Chrome agent for a single goal, with a local inspector they can pause before a click.
 

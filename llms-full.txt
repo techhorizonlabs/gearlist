@@ -159,7 +159,7 @@ Source checked: 2026-10-28
 
 Jev Ultrafast | Agent tools
 https://github.com/browser-use/jev-ultrafast
-A local browser agent from Browser Use: TypeSafe Jev picks an operation and a page element, and a smaller model writes text only when the operation is TYPE_TEXT.
+A local Chrome agent from Browser Use. One model chooses each click or field, and a smaller model writes text only when a field needs typing.
 For: People who want a Chrome agent for a single goal, with a local inspector they can pause before a click.
 Access: Clone the repo, uv sync, then set TYPESAFE_API_KEY and TEXT_MODEL_API_KEY in .env. TEXT_MODEL_API_KEY is an OpenRouter key in the example. Chrome connects through Browser Harness; allow remote debugging when prompted. Owned tabs share your existing Chrome profile. Local inspector is http://127.0.0.1:8766. MIT.
 Source checked: 2026-10-28
