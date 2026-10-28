@@ -577,6 +577,13 @@ For: People generating English short-form videos on their own machine or Docker 
 Access: Needs a free Pexels API key, about 4 GB RAM, 2 vCPU and 5 GB disk. Docker tiny image: docker run -it --rm --name short-video-maker -p 3123:3123 -e PEXELS_API_KEY= gyoridavid/short-video-maker:latest-tiny. Web UI and REST at http://localhost:3123. MCP SSE at /mcp/sse. Videos land in ~/.ai-agents-az-video-generator with npm, or /app/data in Docker. English voiceover only. Windows is unsupported. MIT.
 Source checked: 2026-10-28
 
+AnythingMCP | MCP and integrations
+https://github.com/HelpCode-ai/anythingmcp
+A self-hosted MCP gateway that turns REST, OpenAPI, SOAP, GraphQL, OData or SQL systems into MCP tools, with a catalog of ready connectors.
+For: Teams who want Claude, ChatGPT or Copilot to call existing APIs and ERPs through one MCP URL they host.
+Access: Needs Docker 24+ and openssl. mkdir anythingmcp && cd anythingmcp, then curl the official docker-compose.quickstart.yml, write JWT_SECRET and ENCRYPTION_KEY with openssl rand -hex 32, then docker compose up -d. UI is http://localhost:3000; the first registered account is admin. MCP is http://localhost:4000/mcp. Keep the generated .env: ENCRYPTION_KEY decrypts stored connector credentials. Quickstart binds 127.0.0.1. Connector keys are stored encrypted and forwarded to the APIs you attach (SAP, shops, databases). SQL tools are read-only by default. Optional hosted trial at https://cloud.anythingmcp.com. AGPL-3.0 for the open tree; ee/ directories use a separate commercial licence.
+Source checked: 2026-10-28
+
 CISO AI | Security and governance
 https://cisoai.au/
 Security briefings, analysis and governance resources.
@@ -1135,4 +1142,11 @@ https://github.com/cookiy-ai/user-research-skill
 An MIT agent skill that plans user research, synthesises interview transcripts, and can run interviews and surveys through Cookiy AI.
 For: Product and research people who want an agent to plan studies or launch them on Cookiy.
 Access: Claude Code: /plugin marketplace add cookiy-ai/user-research-skill then /plugin install user-research@cookiy-ai then /reload-plugins. Invoke /user-research-cookiy. Cowork and Claude Desktop need network egress; allow s-api.cookiy.ai. Other agents: npx cookiy-ai or npm install -g @cookiyai/cookiy-cli (Node.js 18+). Planning and local transcript synthesis run in the agent. Running interviews or surveys needs a Cookiy login: the CLI prints a login URL, the human pastes an access token into cookiy save-token. On Cookiy, recruiting, synthetic interviews, report generation and discussion guide generation cost money from a wallet that charges your saved card when the balance is short; run cookiy user info for limits. MIT for the skill.
+Source checked: 2026-10-28
+
+Shader Skills | Skills and learning
+https://github.com/gokayfem/shader-skills
+An agent skill plus a 186-function GLSL library, bundler and checker for Shadertoy and WebGL2 procedural shaders.
+For: People writing SDF raymarching, terrain, water, clouds or generative GLSL with a coding agent.
+Access: Claude Code: claude plugin marketplace add gokayfem/shader-skills then claude plugin install shader-skills@shader-skills. Other agents: npx skills add gokayfem/shader-skills (Node.js 22.20 or later; -g for a global install). Manual copy writes skills/shader-art-coding into ~/.claude/skills/ or ~/.agents/skills/. Python 3 glsl_tools.py search, bundle and check use the standard library; check compiles when glslangValidator is installed. Local harness: python3 tests/build_harness.py && python3 tests/serve.py then http://127.0.0.1:8765/build/harness.html. Targets Shadertoy, WebGL2 and GLSL ES 3.00. MIT.
 Source checked: 2026-10-28

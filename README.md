@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 162 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 164 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -20,11 +20,11 @@ npx skills add techhorizonlabs/gearlist
 ## Contents
 
 - [Agent tools](#agent-tools) (64)
-- [MCP and integrations](#mcp-and-integrations) (18)
+- [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
 - [Platforms](#platforms) (28)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (43)
+- [Skills and learning](#skills-and-learning) (44)
 
 
 ## Agent tools
@@ -851,6 +851,16 @@ A local MCP and REST server that turns English narration scenes into captioned s
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/gyoridavid/short-video-maker).
 
+### [AnythingMCP](https://github.com/HelpCode-ai/anythingmcp)
+
+A self-hosted MCP gateway that turns REST, OpenAPI, SOAP, GraphQL, OData or SQL systems into MCP tools, with a catalog of ready connectors.
+
+**For:** Teams who want Claude, ChatGPT or Copilot to call existing APIs and ERPs through one MCP URL they host.
+
+**Access and use:** Needs Docker 24+ and openssl. mkdir anythingmcp && cd anythingmcp, then curl the official docker-compose.quickstart.yml, write JWT_SECRET and ENCRYPTION_KEY with openssl rand -hex 32, then docker compose up -d. UI is http://localhost:3000; the first registered account is admin. MCP is http://localhost:4000/mcp. Keep the generated .env: ENCRYPTION_KEY decrypts stored connector credentials. Quickstart binds 127.0.0.1. Connector keys are stored encrypted and forwarded to the APIs you attach (SAP, shops, databases). SQL tools are read-only by default. Optional hosted trial at https://cloud.anythingmcp.com. AGPL-3.0 for the open tree; ee/ directories use a separate commercial licence.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/HelpCode-ai/anythingmcp).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -1658,6 +1668,16 @@ An MIT agent skill that plans user research, synthesises interview transcripts, 
 **Access and use:** Claude Code: /plugin marketplace add cookiy-ai/user-research-skill then /plugin install user-research@cookiy-ai then /reload-plugins. Invoke /user-research-cookiy. Cowork and Claude Desktop need network egress; allow s-api.cookiy.ai. Other agents: npx cookiy-ai or npm install -g @cookiyai/cookiy-cli (Node.js 18+). Planning and local transcript synthesis run in the agent. Running interviews or surveys needs a Cookiy login: the CLI prints a login URL, the human pastes an access token into cookiy save-token. On Cookiy, recruiting, synthetic interviews, report generation and discussion guide generation cost money from a wallet that charges your saved card when the balance is short; run cookiy user info for limits. MIT for the skill.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/cookiy-ai/user-research-skill).
+
+### [Shader Skills](https://github.com/gokayfem/shader-skills)
+
+An agent skill plus a 186-function GLSL library, bundler and checker for Shadertoy and WebGL2 procedural shaders.
+
+**For:** People writing SDF raymarching, terrain, water, clouds or generative GLSL with a coding agent.
+
+**Access and use:** Claude Code: claude plugin marketplace add gokayfem/shader-skills then claude plugin install shader-skills@shader-skills. Other agents: npx skills add gokayfem/shader-skills (Node.js 22.20 or later; -g for a global install). Manual copy writes skills/shader-art-coding into ~/.claude/skills/ or ~/.agents/skills/. Python 3 glsl_tools.py search, bundle and check use the standard library; check compiles when glslangValidator is installed. Local harness: python3 tests/build_harness.py && python3 tests/serve.py then http://127.0.0.1:8765/build/harness.html. Targets Shadertoy, WebGL2 and GLSL ES 3.00. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/gokayfem/shader-skills).
 
 ## Looking for more?
 
