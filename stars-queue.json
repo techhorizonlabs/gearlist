@@ -1,10 +1,10 @@
 {
   "title": "Huxley starred repositories for Gearlist",
   "starred_total": 313,
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "counts": {
-    "already_published": 13,
-    "queued": 27,
+    "already_published": 18,
+    "queued": 22,
     "stored": 272,
     "excluded": 1
   },
@@ -209,8 +209,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "ruvnet/ruflo",
@@ -418,8 +418,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "OyadotAI/oya-browser",
@@ -475,8 +475,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "yonatangross/orchestkit",
@@ -551,8 +551,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "Apra-Labs/apra-fleet",
@@ -589,8 +589,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "NeoZi12/dispatchseo",

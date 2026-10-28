@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "resources": [
     {
       "id": "agent-deck",
@@ -185,6 +185,19 @@
       "thl_project": false
     },
     {
+      "id": "omniroute",
+      "name": "OmniRoute",
+      "category": "Platforms",
+      "url": "https://github.com/cheaper-inference/OmniRoute",
+      "description": "A local AI gateway that routes coding tools to many provider accounts through one OpenAI-compatible endpoint.",
+      "for_whom": "People who already have provider accounts and want one local endpoint with fallback.",
+      "access_notes": "Install with npm install -g omniroute. It runs locally (default http://localhost:20128). Bring your own provider credentials. OmniRoute does not grant tokens. MIT.",
+      "source_url": "https://github.com/cheaper-inference/OmniRoute",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
       "id": "github-mcp-server",
       "name": "GitHub MCP Server",
       "category": "MCP and integrations",
@@ -315,6 +328,45 @@
       "thl_project": false
     },
     {
+      "id": "opencontext",
+      "name": "OpenContext",
+      "category": "Agent tools",
+      "url": "https://0xranx.github.io/OpenContext/en/",
+      "description": "A local GUI and CLI that stores project context, skills and notes so a coding agent can reuse them across sessions.",
+      "for_whom": "People who already run Claude Code, Codex or OpenCode and want a persistent memory for that work.",
+      "access_notes": "Install with npm install -g @aicontextlab/cli, then oc init in a project. Desktop app from GitHub releases. MIT.",
+      "source_url": "https://github.com/0xranx/OpenContext",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "stash",
+      "name": "Stash",
+      "category": "Agent tools",
+      "url": "https://joinstash.ai",
+      "description": "Captures agent runs and human corrections, then serves that history back as knowledge, skills, REST, MCP and a CLI.",
+      "for_whom": "Teams whose agents should remember lessons from earlier work.",
+      "access_notes": "Python client is pip install stash-sdk. It reads STASH_API_KEY and optional STASH_URL. The GitHub repo is MIT. Hosted and self-hosted paths are separate accounts.",
+      "source_url": "https://github.com/Fergana-Labs/stash",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "browsentic",
+      "name": "Browsentic",
+      "category": "Agent tools",
+      "url": "https://browsentic.com",
+      "description": "An agentic browser harness: a desktop app, npm CLI and Chrome or Firefox extension that lets an agent drive a signed-in browser.",
+      "for_whom": "People whose agents need to use the browser they already use, including logged-in sites.",
+      "access_notes": "Installer is curl -fsSL https://browsentic.com/install.sh | sh. Read the script before running it. Or npx browsentic@latest setup. The extension acts through the signed-in browser. Apache-2.0.",
+      "source_url": "https://github.com/imshaikot/browsentic",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
       "id": "hyperresearch",
       "name": "Hyperresearch",
       "category": "Skills and learning",
@@ -415,6 +467,19 @@
       "access_notes": "Remote URL https://mcp.cloudflare.com/mcp with OAuth, or a scoped API token as a bearer. Can change account configuration. Grant the smallest permission set. Other product-specific Cloudflare MCP URLs exist; this is the main API server.",
       "source_url": "https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/",
       "source_checked": "2026-10-27",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "omniseek",
+      "name": "OmniSeek",
+      "category": "MCP and integrations",
+      "url": "https://github.com/Battam1111/omniseek",
+      "description": "A local MCP add-on that searches places web search often misses, including Bilibili, Zhihu and scholarly papers.",
+      "for_whom": "People whose agents need those sources in Claude Code, Cursor or Codex.",
+      "access_notes": "Install with uv tool install omniseek, then claude mcp add omniseek -- omniseek. Runs on your computer. Apache-2.0. Python 3.11 or later.",
+      "source_url": "https://github.com/Battam1111/omniseek",
+      "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     }

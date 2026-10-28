@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 32 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 37 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (8)
-- [MCP and integrations](#mcp-and-integrations) (8)
+- [Agent tools](#agent-tools) (11)
+- [MCP and integrations](#mcp-and-integrations) (9)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (2)
+- [Platforms](#platforms) (3)
 - [Protocols](#protocols) (1)
 - [Skills and learning](#skills-and-learning) (9)
 
@@ -109,6 +109,36 @@ Turns a codebase, docs, SQL schemas, configs and PDFs into a local queryable kno
 
 **Source checked:** 2026-10-27. [Official source](https://github.com/Graphify-Labs/graphify).
 
+### [OpenContext](https://0xranx.github.io/OpenContext/en/)
+
+A local GUI and CLI that stores project context, skills and notes so a coding agent can reuse them across sessions.
+
+**For:** People who already run Claude Code, Codex or OpenCode and want a persistent memory for that work.
+
+**Access and use:** Install with npm install -g @aicontextlab/cli, then oc init in a project. Desktop app from GitHub releases. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/0xranx/OpenContext).
+
+### [Stash](https://joinstash.ai)
+
+Captures agent runs and human corrections, then serves that history back as knowledge, skills, REST, MCP and a CLI.
+
+**For:** Teams whose agents should remember lessons from earlier work.
+
+**Access and use:** Python client is pip install stash-sdk. It reads STASH_API_KEY and optional STASH_URL. The GitHub repo is MIT. Hosted and self-hosted paths are separate accounts.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Fergana-Labs/stash).
+
+### [Browsentic](https://browsentic.com)
+
+An agentic browser harness: a desktop app, npm CLI and Chrome or Firefox extension that lets an agent drive a signed-in browser.
+
+**For:** People whose agents need to use the browser they already use, including logged-in sites.
+
+**Access and use:** Installer is curl -fsSL https://browsentic.com/install.sh | sh. Read the script before running it. Or npx browsentic@latest setup. The extension acts through the signed-in browser. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/imshaikot/browsentic).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -191,6 +221,16 @@ Cloudflare's hosted API MCP server covering DNS, Workers, R2, Zero Trust and the
 
 **Source checked:** 2026-10-27. [Official source](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/).
 
+### [OmniSeek](https://github.com/Battam1111/omniseek)
+
+A local MCP add-on that searches places web search often misses, including Bilibili, Zhihu and scholarly papers.
+
+**For:** People whose agents need those sources in Claude Code, Cursor or Codex.
+
+**Access and use:** Install with uv tool install omniseek, then claude mcp add omniseek -- omniseek. Runs on your computer. Apache-2.0. Python 3.11 or later.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Battam1111/omniseek).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -254,6 +294,16 @@ The official hosted registry of publicly available Model Context Protocol server
 **Access and use:** The registry is in preview. Breaking changes or data resets may occur before general availability. Listing a server is not a security audit. Installing a listed server still needs its own credentials and terms.
 
 **Source checked:** 2026-10-26. [Official source](https://modelcontextprotocol.io/registry/about).
+
+### [OmniRoute](https://github.com/cheaper-inference/OmniRoute)
+
+A local AI gateway that routes coding tools to many provider accounts through one OpenAI-compatible endpoint.
+
+**For:** People who already have provider accounts and want one local endpoint with fallback.
+
+**Access and use:** Install with npm install -g omniroute. It runs locally (default http://localhost:20128). Bring your own provider credentials. OmniRoute does not grant tokens. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/cheaper-inference/OmniRoute).
 
 ## Protocols
 
