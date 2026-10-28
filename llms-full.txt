@@ -318,6 +318,13 @@ For: People who want an assistant that keeps its vault on the machine and can st
 Access: Download from rowboatlabs.com/downloads or GitHub Releases. Indexes email, meetings, Slack and assistant chats into a local Markdown vault. Meeting notes tap the mic and speaker. The built-in browser is isolated from your main browser. Optional keys live in ~/.rowboat/config. Hosted Spaces sign in with Google or Microsoft. Self-host Harbor with pnpm in apps/harbor; default port 4272. Without AUTH_ISSUER Harbor uses dev tokens that must stay off the public internet. Apache-2.0.
 Source checked: 2026-10-28
 
+Orchestrator.inc | Agent tools
+https://orchestrator.inc
+A local desktop workspace that runs a fleet of coding agents, each on its own branch and worktree, through plan, CI, review and merge.
+For: People who want several coding agents on one repo, each on its own branch.
+Access: Download from orchestrator.inc/download or GitHub Releases. Local workers keep code on your machine. Clone to the cloud runs workers in hosted GitHub workspaces. Pair a phone from Settings, Connect Mobile. Product telemetry records an installation ID and GitHub username (and AO Cloud email if you sign in); turn it off in Settings, General, Privacy, Share usage analytics. Apache-2.0.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -407,6 +414,13 @@ https://sylphxai.github.io/anymd/
 A local Rust MCP server and CLI that turns PDFs, Office files, HTML, images, audio and video into Markdown for agents.
 For: People whose coding agents need to read local documents as Markdown.
 Access: npx -y @sylphx/anymd setup. Needs Node 18 or later. Also brew install sylphxai/tap/anymd, pip, Docker or cargo. Local MIT binary needs no API key. OCR and ASR model downloads need explicit opt-in. Confine the MCP server with --allow-dir. Hosted Sylphx AI parse is a paid metered service that uses the same crates. anymd Pro is an optional one-time purchase for cite-check and video timelines. MIT.
+Source checked: 2026-10-28
+
+OpenAI MCP Extensions | MCP and integrations
+https://github.com/openai/mcp-extensions
+An SDK and spec that add ChatGPT-specific MCP capabilities so plugins can open from the sidebar, handle files and take composer mentions.
+For: People building ChatGPT plugins that need more than a plain MCP server.
+Access: npm install @openai/mcp-extensions, or pip install openai-mcp-extensions. For ChatGPT plugin developers. Try Bits & Bolts Remote from ChatGPT's plugin list. Apache-2.0.
 Source checked: 2026-10-28
 
 CISO AI | Security and governance

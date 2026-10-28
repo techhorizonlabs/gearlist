@@ -1587,6 +1587,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "orchestrator",
+      "name": "Orchestrator.inc",
+      "category": "Agent tools",
+      "url": "https://orchestrator.inc",
+      "description": "A local desktop workspace that runs a fleet of coding agents, each on its own branch and worktree, through plan, CI, review and merge.",
+      "for_whom": "People who want several coding agents on one repo, each on its own branch.",
+      "access_notes": "Download from orchestrator.inc/download or GitHub Releases. Local workers keep code on your machine. Clone to the cloud runs workers in hosted GitHub workspaces. Pair a phone from Settings, Connect Mobile. Product telemetry records an installation ID and GitHub username (and AO Cloud email if you sign in); turn it off in Settings, General, Privacy, Share usage analytics. Apache-2.0.",
+      "source_url": "https://github.com/OrchestratorInc/agent-orchestrator",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "openai-mcp-extensions",
+      "name": "OpenAI MCP Extensions",
+      "category": "MCP and integrations",
+      "url": "https://github.com/openai/mcp-extensions",
+      "description": "An SDK and spec that add ChatGPT-specific MCP capabilities so plugins can open from the sidebar, handle files and take composer mentions.",
+      "for_whom": "People building ChatGPT plugins that need more than a plain MCP server.",
+      "access_notes": "npm install @openai/mcp-extensions, or pip install openai-mcp-extensions. For ChatGPT plugin developers. Try Bits & Bolts Remote from ChatGPT's plugin list. Apache-2.0.",
+      "source_url": "https://github.com/openai/mcp-extensions",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

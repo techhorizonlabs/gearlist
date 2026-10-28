@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 122 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 124 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,8 +19,8 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (45)
-- [MCP and integrations](#mcp-and-integrations) (13)
+- [Agent tools](#agent-tools) (46)
+- [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (21)
 - [Protocols](#protocols) (4)
@@ -479,6 +479,16 @@ A local desktop assistant that indexes email, meetings and notes into a Markdown
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/rowboatlabs/rowboat).
 
+### [Orchestrator.inc](https://orchestrator.inc)
+
+A local desktop workspace that runs a fleet of coding agents, each on its own branch and worktree, through plan, CI, review and merge.
+
+**For:** People who want several coding agents on one repo, each on its own branch.
+
+**Access and use:** Download from orchestrator.inc/download or GitHub Releases. Local workers keep code on your machine. Clone to the cloud runs workers in hosted GitHub workspaces. Pair a phone from Settings, Connect Mobile. Product telemetry records an installation ID and GitHub username (and AO Cloud email if you sign in); turn it off in Settings, General, Privacy, Share usage analytics. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/OrchestratorInc/agent-orchestrator).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -610,6 +620,16 @@ A local Rust MCP server and CLI that turns PDFs, Office files, HTML, images, aud
 **Access and use:** npx -y @sylphx/anymd setup. Needs Node 18 or later. Also brew install sylphxai/tap/anymd, pip, Docker or cargo. Local MIT binary needs no API key. OCR and ASR model downloads need explicit opt-in. Confine the MCP server with --allow-dir. Hosted Sylphx AI parse is a paid metered service that uses the same crates. anymd Pro is an optional one-time purchase for cite-check and video timelines. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/SylphxAI/anymd).
+
+### [OpenAI MCP Extensions](https://github.com/openai/mcp-extensions)
+
+An SDK and spec that add ChatGPT-specific MCP capabilities so plugins can open from the sidebar, handle files and take composer mentions.
+
+**For:** People building ChatGPT plugins that need more than a plain MCP server.
+
+**Access and use:** npm install @openai/mcp-extensions, or pip install openai-mcp-extensions. For ChatGPT plugin developers. Try Bits & Bolts Remote from ChatGPT's plugin list. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/openai/mcp-extensions).
 
 ## Security and governance
 
