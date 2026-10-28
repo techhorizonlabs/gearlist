@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 190 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 192 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -20,11 +20,11 @@ npx skills add techhorizonlabs/gearlist
 ## Contents
 
 - [Agent tools](#agent-tools) (69)
-- [MCP and integrations](#mcp-and-integrations) (19)
+- [MCP and integrations](#mcp-and-integrations) (20)
 - [Security and governance](#security-and-governance) (5)
 - [Platforms](#platforms) (47)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (46)
+- [Skills and learning](#skills-and-learning) (47)
 
 
 ## Agent tools
@@ -910,6 +910,16 @@ A self-hosted MCP gateway that turns REST, OpenAPI, SOAP, GraphQL, OData or SQL 
 **Access and use:** Needs Docker 24+ and openssl. mkdir anythingmcp && cd anythingmcp, then curl the official docker-compose.quickstart.yml, write JWT_SECRET and ENCRYPTION_KEY with openssl rand -hex 32, then docker compose up -d. UI is http://localhost:3000; the first registered account is admin. MCP is http://localhost:4000/mcp. Keep the generated .env: ENCRYPTION_KEY decrypts stored connector credentials. Quickstart binds 127.0.0.1. Connector keys are stored encrypted and forwarded to the APIs you attach (SAP, shops, databases). SQL tools are read-only by default. The optional hosted trial at https://cloud.anythingmcp.com runs on the maintainers' servers in Frankfurt, Germany, and holds your connector credentials there. AGPL-3.0 for the open tree; ee/ directories use a separate commercial licence.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/HelpCode-ai/anythingmcp).
+
+### [Alumnium](https://alumnium.ai)
+
+An MIT AI test harness over Appium, Maestro, Playwright or Selenium, as a library and as MCP.
+
+**For:** Testers who want an agent to drive a browser or a phone with do, get and check.
+
+**Access and use:** MCP: curl -LsSf https://alumnium.ai/install.sh | sh (read the script before running it), then claude mcp add alumnium --env OPENAI_API_KEY=... -- alumnium mcp. Libraries: pip install alumnium, npm install alumnium, or the Java artifact. Agentic mode (default) sends page text, accessibility trees and screenshots to the model you set. Direct mode skips the model and lets your coding agent call driver actions. Browser profiles live in ~/.alumnium/profiles. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/alumnium-hq/alumnium).
 
 ## Security and governance
 
@@ -1938,6 +1948,16 @@ CC0 attorney-drafted startup templates in LLM-oriented markdown and original Wor
 **Access and use:** git clone https://github.com/General-Legal/legal-templates.git and open the markdown under templates/ or the files in docx-originals/. Fill the marked fields before you use a document. General Legal says the templates are for general reference only, are not legal advice, and that it does not review your changes. The templates are CC0 1.0; the authors ask you to keep the General Legal footnote. CC0-1.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/General-Legal/legal-templates).
+
+### [page-mascot](https://koboyo.com/page-mascot)
+
+An MIT React mascot that tracks the pointer, with a skill that draws the two sprite sheets and drops the component on a page.
+
+**For:** People who want a small character on a site, or an agent that can draw one from a prompt.
+
+**Access and use:** npm i page-mascot. Put two sprite sheets on the page and pass them as directions and reactions. Skill: npx skills add nilbuild/page-mascot --skill page-mascot --global --yes, then /page-mascot. Drawing a new character needs an image tool; Claude Code uses OPENAI_API_KEY for the OpenAI images API, and a photo you attach is sent there. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/nilbuild/page-mascot).
 
 ## Looking for more?
 

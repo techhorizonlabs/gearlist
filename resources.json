@@ -2471,6 +2471,32 @@
       "source_checked": "2026-10-29",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "page-mascot",
+      "name": "page-mascot",
+      "category": "Skills and learning",
+      "url": "https://koboyo.com/page-mascot",
+      "description": "An MIT React mascot that tracks the pointer, with a skill that draws the two sprite sheets and drops the component on a page.",
+      "for_whom": "People who want a small character on a site, or an agent that can draw one from a prompt.",
+      "access_notes": "npm i page-mascot. Put two sprite sheets on the page and pass them as directions and reactions. Skill: npx skills add nilbuild/page-mascot --skill page-mascot --global --yes, then /page-mascot. Drawing a new character needs an image tool; Claude Code uses OPENAI_API_KEY for the OpenAI images API, and a photo you attach is sent there. MIT.",
+      "source_url": "https://github.com/nilbuild/page-mascot",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "alumnium",
+      "name": "Alumnium",
+      "category": "MCP and integrations",
+      "url": "https://alumnium.ai",
+      "description": "An MIT AI test harness over Appium, Maestro, Playwright or Selenium, as a library and as MCP.",
+      "for_whom": "Testers who want an agent to drive a browser or a phone with do, get and check.",
+      "access_notes": "MCP: curl -LsSf https://alumnium.ai/install.sh | sh (read the script before running it), then claude mcp add alumnium --env OPENAI_API_KEY=... -- alumnium mcp. Libraries: pip install alumnium, npm install alumnium, or the Java artifact. Agentic mode (default) sends page text, accessibility trees and screenshots to the model you set. Direct mode skips the model and lets your coding agent call driver actions. Browser profiles live in ~/.alumnium/profiles. MIT.",
+      "source_url": "https://github.com/alumnium-hq/alumnium",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
