@@ -290,6 +290,13 @@ For: People feeding PDFs to an agent or auto-tagging untagged files for accessib
 Access: pip install -U opendataloader-pdf. Needs Java 11 or later and Python 3.11 or later. Also npm @opendataloader/pdf and Java Maven. Default conversion runs locally. Hybrid mode (pip install "opendataloader-pdf[hybrid]") starts a backend on port 5002 and sends complex pages to that AI backend. Auto-tagging to Tagged PDF is Apache-2.0. PDF/UA export is an enterprise add-on. Apache-2.0.
 Source checked: 2026-10-28
 
+Scrapling | Agent tools
+https://github.com/D4Vinci/Scrapling
+A Python scraping library with HTTP fetchers, stealth browsers, spiders and an MCP server for agents.
+For: People who want a coding agent or a script to fetch pages, render JavaScript and export Markdown or JSON.
+Access: pip install scrapling. Browser fetchers need pip install "scrapling[fetchers]" then scrapling install. MCP extra is pip install "scrapling[ai]". StealthyFetcher can drive a browser, keep login sessions and solve Cloudflare challenges. robots_txt_obey is optional on spiders. Follow each site's terms and robots.txt. BSD-3-Clause.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -519,6 +526,13 @@ https://omlx.ai
 A local LLM inference server for Apple Silicon, with a menu bar app, OpenAI-compatible API and SSD-backed KV cache.
 For: People who want coding agents and chat apps to call models that run on a Mac they already have.
 Access: Needs macOS 15 or later and Apple Silicon. Download the .dmg from GitHub Releases, or brew tap jundot/omlx then brew install jundot/omlx/omlx. Default server is http://localhost:8000/v1. A non-loopback bind (--host 0.0.0.0) needs a main API key. Optional MCP via pip install mcp then omlx restart. Apache-2.0.
+Source checked: 2026-10-28
+
+Buzz | Platforms
+https://github.com/block/buzz
+A self-hosted workspace where humans and agents share signed events on a relay you run.
+For: Teams who want agents in the same rooms as people, with their own keys and an audit trail.
+Access: Download the desktop app from GitHub Releases, or git clone then just setup && just dev. Needs Docker. Default relay is ws://localhost:3000. Agents use buzz-cli with BUZZ_PRIVATE_KEY; they can open repos, send patches and run workflows on that relay. The Windows installer is unsigned. Apache-2.0.
 Source checked: 2026-10-28
 
 x402 | Protocols

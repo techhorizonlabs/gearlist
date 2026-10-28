@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 112 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 114 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (41)
+- [Agent tools](#agent-tools) (42)
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (16)
+- [Platforms](#platforms) (17)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (34)
 
@@ -439,6 +439,16 @@ A local PDF parser that turns documents into Markdown, JSON with bounding boxes,
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/opendataloader-project/opendataloader-pdf).
 
+### [Scrapling](https://github.com/D4Vinci/Scrapling)
+
+A Python scraping library with HTTP fetchers, stealth browsers, spiders and an MCP server for agents.
+
+**For:** People who want a coding agent or a script to fetch pages, render JavaScript and export Markdown or JSON.
+
+**Access and use:** pip install scrapling. Browser fetchers need pip install "scrapling[fetchers]" then scrapling install. MCP extra is pip install "scrapling[ai]". StealthyFetcher can drive a browser, keep login sessions and solve Cloudflare challenges. robots_txt_obey is optional on spiders. Follow each site's terms and robots.txt. BSD-3-Clause.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/D4Vinci/Scrapling).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -774,6 +784,16 @@ A local LLM inference server for Apple Silicon, with a menu bar app, OpenAI-comp
 **Access and use:** Needs macOS 15 or later and Apple Silicon. Download the .dmg from GitHub Releases, or brew tap jundot/omlx then brew install jundot/omlx/omlx. Default server is http://localhost:8000/v1. A non-loopback bind (--host 0.0.0.0) needs a main API key. Optional MCP via pip install mcp then omlx restart. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/jundot/omlx).
+
+### [Buzz](https://github.com/block/buzz)
+
+A self-hosted workspace where humans and agents share signed events on a relay you run.
+
+**For:** Teams who want agents in the same rooms as people, with their own keys and an audit trail.
+
+**Access and use:** Download the desktop app from GitHub Releases, or git clone then just setup && just dev. Needs Docker. Default relay is ws://localhost:3000. Agents use buzz-cli with BUZZ_PRIVATE_KEY; they can open repos, send patches and run workflows on that relay. The Windows installer is unsigned. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/block/buzz).
 
 ## Protocols
 

@@ -1457,6 +1457,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "scrapling",
+      "name": "Scrapling",
+      "category": "Agent tools",
+      "url": "https://github.com/D4Vinci/Scrapling",
+      "description": "A Python scraping library with HTTP fetchers, stealth browsers, spiders and an MCP server for agents.",
+      "for_whom": "People who want a coding agent or a script to fetch pages, render JavaScript and export Markdown or JSON.",
+      "access_notes": "pip install scrapling. Browser fetchers need pip install \"scrapling[fetchers]\" then scrapling install. MCP extra is pip install \"scrapling[ai]\". StealthyFetcher can drive a browser, keep login sessions and solve Cloudflare challenges. robots_txt_obey is optional on spiders. Follow each site's terms and robots.txt. BSD-3-Clause.",
+      "source_url": "https://github.com/D4Vinci/Scrapling",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "buzz",
+      "name": "Buzz",
+      "category": "Platforms",
+      "url": "https://github.com/block/buzz",
+      "description": "A self-hosted workspace where humans and agents share signed events on a relay you run.",
+      "for_whom": "Teams who want agents in the same rooms as people, with their own keys and an audit trail.",
+      "access_notes": "Download the desktop app from GitHub Releases, or git clone then just setup && just dev. Needs Docker. Default relay is ws://localhost:3000. Agents use buzz-cli with BUZZ_PRIVATE_KEY; they can open repos, send patches and run workflows on that relay. The Windows installer is unsigned. Apache-2.0.",
+      "source_url": "https://github.com/block/buzz",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
