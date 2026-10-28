@@ -871,6 +871,20 @@ For: Teams who want fill-and-sign workflows on a host they run, or on DocuSeal's
 Access: Cloud sign-up is https://docuseal.com/sign_up; completed documents then live on DocuSeal LLC servers. Self-host: docker run --name docuseal -p 3000:3000 -v.:/data docuseal/docuseal then http://localhost:3000. Compose: curl https://raw.githubusercontent.com/docusealco/docuseal/master/docker-compose.yml > docker-compose.yml then sudo HOST=your-domain-name.com docker compose up. SQLite is the default; set DATABASE_URL for PostgreSQL or MySQL. Disk or S3/GCS/Azure for files. AGPL-3.0 with Section 7(b) additional terms: keep DocuSeal attribution in interactive UIs.
 Source checked: 2026-10-28
 
+Midday | Platforms
+https://midday.ai
+An AGPL business workspace for invoicing, time tracking, inbox matching, file vault and an assistant, for freelancers and solo operators.
+For: Freelancers and contractors who want invoices, time and bank feeds in one product they can host or run on Midday Cloud.
+Access: Cloud is https://app.midday.ai. Bank connections go through GoCardless (EU), Plaid (Canada and US) or Teller (US). Hosted analytics use OpenPanel. Local: git clone https://github.com/midday-ai/midday.git then bun i; you need a Supabase account and an Upstash account (https://docs.midday.ai/local-development). AGPL-3.0 for non-commercial use. For commercial use, Midday Labs AB asks for a commercial licence at engineer@midday.ai.
+Source checked: 2026-10-28
+
+Logto | Platforms
+https://logto.io/
+Open-source OIDC and OAuth 2.1 identity infrastructure with multi-tenancy, SSO, RBAC and SDKs for 30-plus frameworks.
+For: Teams adding sign-in, organisations and MCP-ready auth to a SaaS or agent product.
+Access: Cloud is https://cloud.logto.io; identity data then lives on Logto Cloud. Local Docker Compose: curl -fsSL https://raw.githubusercontent.com/logto-io/logto/HEAD/docker-compose.yml | docker compose -p logto -f - up. That compose bundles Postgres and drops data if you run it again. npm init @logto@latest needs Node.js 26+ and PostgreSQL 14+. Core is http://localhost:3001; Admin Console is http://localhost:3002. The welcome page creates one admin account with username and password. Recommended host: 2 vCPU, 8 GiB RAM, 256 GiB disk. MPL-2.0.
+Source checked: 2026-10-28
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.
