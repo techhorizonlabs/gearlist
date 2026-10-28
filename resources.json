@@ -2271,7 +2271,7 @@
       "url": "https://leantime.io",
       "description": "An AGPL project-management system for goals, tasks, timesheets, wikis and canvases, designed for neurodivergent teams.",
       "for_whom": "Small teams who want kanban, gantt, goals and docs on a host they run.",
-      "access_notes": "Cloud is https://leantime.io; project data then lives on Leantime's hosted service. Self-host needs PHP 8.2+ and MySQL 8.0+ or MariaDB 10.6+. Docker: docker run -d --restart unless-stopped -p 8080:8080 with LEAN_DB_HOST, LEAN_DB_USER, LEAN_DB_PASSWORD, LEAN_DB_DATABASE and LEAN_EMAIL_RETURN, then open http://localhost:8080/install. Files can go to local disk or S3. Plugins need the plugins volume mounted and writable by www-data. AGPL-3.0.",
+      "access_notes": "Cloud is https://leantime.io; project data then lives on Leantime's hosted service. Self-host needs PHP 8.2+ and MySQL 8.0+ or MariaDB 10.6+. Docker: docker run -d --restart unless-stopped -p 8080:8080 with LEAN_DB_HOST, LEAN_DB_USER, LEAN_DB_PASSWORD, LEAN_DB_DATABASE and LEAN_EMAIL_RETURN, then open http://localhost:8080/install. Files can go to local disk or S3. Plugins need the plugins volume mounted and writable by www-data. Self-hosted Leantime sends a daily anonymous usage summary (counts and versions) to telemetry.leantime.io by default; set LEAN_ALLOW_TELEMETRY=false to stop it. AGPL-3.0.",
       "source_url": "https://github.com/Leantime/leantime",
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
