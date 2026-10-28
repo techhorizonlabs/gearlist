@@ -8,6 +8,7 @@ This repository is Gearlist, a source-checked public directory. Tech Horizon Lab
 2. `llms.txt` and `llms-full.txt` are generated indexes.
 3. `stars-queue.json` holds the 313 public GitHub repositories we have starred (as of 27 Oct 2026). Status `queued` is for a documentation review. Status `stored` keeps the rest. A star is not an endorsement.
 4. `indexes/` holds snapshots of larger libraries (Claude plugins, Tech Horizon Academy skills, tools and prompt titles). An index row is not a catalog entry. On refresh, write number ranges as "2 to 6 hours", not with an en dash. Do not copy prompt bodies or skill bodies into this repository.
+5. `CLOUDFLARE.md` is the host prompt for putting https://gearlist.build on Cloudflare. Do not apply DNS from this file unless you can edit that zone.
 
 ## How to change the list
 

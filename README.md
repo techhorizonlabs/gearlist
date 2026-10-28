@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 156 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 158 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (63)
+- [Agent tools](#agent-tools) (64)
 - [MCP and integrations](#mcp-and-integrations) (17)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (26)
+- [Platforms](#platforms) (27)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (41)
 
@@ -659,6 +659,16 @@ A macOS overlay for Claude Code with multi-tab sessions, a permission UI, voice 
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/lcoutodemos/clui-cc).
 
+### [Autonomous Company](https://github.com/MaxMiksa/Autonomous-Company)
+
+A local loop of 14 expert-persona agents that research, decide and write code on a Mac or Windows WSL host, with a Product Center dashboard.
+
+**For:** People who want Claude Code or Codex CLI to keep a continuous company loop under goals, permissions and budgets they set.
+
+**Access and use:** git clone then make start (Claude Code default) or ENGINE=codex make start. Needs Python 3.10+, Git, make, and an authenticated Claude Code or Codex CLI. Product Center is http://127.0.0.1:8810/center (make center). Daemon mode uses launchd on macOS and systemd --user on WSL. CLAUDE_PERMISSION_MODE=bypassPermissions is the documented way to stop permission prompts; the README says prompt rules are not a sandbox and each cycle spends model quota. Optional Cursor and OpenAI-compatible adapters need explicit config. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/MaxMiksa/Autonomous-Company).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -1144,6 +1154,16 @@ A self-hosted gateway that runs Codex, Claude Code and other harnesses through o
 **Access and use:** docker run -d --name harnessrouter -p 127.0.0.1:3000:3000 -v harnessrouter:/data harnessrouter/harnessrouter. Needs Docker and about 4 GB of disk. Console is http://127.0.0.1:3000. Default Console login is harnessrouter / harnessrouter; change it before exposing the instance. First launch installs harness CLIs into the volume. Provider keys go under Bring your own key. Product API keys are created in the Console and belong in a backend, not a browser. Gateway :8080 and Runner :8081 stay on loopback inside the container. Hosted path is harnessrouter.ai. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/HarnessRouter/harnessrouter).
+
+### [GOD](https://xiaoluolyg.github.io/GOD/)
+
+A local control room for language-agent societies: pause a run, ask a resident, inject the next step, and export a replay pack.
+
+**For:** People who want to inspect and steer a town of LLM agents from one browser on their machine.
+
+**Access and use:** git clone https://github.com/XiaoLuoLYG/GOD.git then ./scripts/god.sh start (Windows: .\scripts\god.cmd start). The first run installs dependencies and opens a browser wizard. Paste an OpenAI-compatible API key, base URL and model name. The control room prints a URL such as http://127.0.0.1:5174/pixel-replay/god_town/1. .env stores local model and port settings. The model endpoint is the external service. Curated browser replays on the public site need no install or API key. Apache-2.0. Bundled AgentSociety and JiuwenClaw checkouts keep their own licences.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/XiaoLuoLYG/GOD).
 
 ## Protocols
 
