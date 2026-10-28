@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 104 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 106 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (38)
+- [Agent tools](#agent-tools) (39)
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (15)
+- [Platforms](#platforms) (16)
 - [Protocols](#protocols) (1)
 - [Skills and learning](#skills-and-learning) (33)
 
@@ -409,6 +409,16 @@ A Python library that uses an LLM and graph pipelines to extract structured data
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/ScrapeGraphAI/Scrapegraph-ai).
 
+### [ego lite](https://lite.ego.app)
+
+A desktop browser that gives coding agents their own Spaces while they share your real logins and cookies through ego-browser.
+
+**For:** People who want an agent to use signed-in sites in a separate Space.
+
+**Access and use:** macOS and Windows. npx skills add citrolabs/ego-lite, or download the app from lite.ego.app. On first launch it can migrate Chrome logins, cookies, extensions and bookmarks, and agents then use those sessions. Browsing data stays on the device. The app collects simple product signals such as whether it is the default browser. This entry covers the MIT skill repo. The browser is a separate free download. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/citrolabs/ego-lite).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -734,6 +744,16 @@ A self-hosted archiver that saves pages you give it as HTML, PDF, PNG, WARC and 
 **Access and use:** Installer is curl -fsSL https://get.archivebox.io | bash. Read the script before running it. Also docker compose from docker-compose.archivebox.io, or uv tool install archivebox. Docker -p 5797:5797 and archivebox server 0.0.0.0:5797 bind every interface. Pages are submitted to archive.org by default. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/ArchiveBox/ArchiveBox).
+
+### [oMLX](https://omlx.ai)
+
+A local LLM inference server for Apple Silicon, with a menu bar app, OpenAI-compatible API and SSD-backed KV cache.
+
+**For:** People who want coding agents and chat apps to call models that run on a Mac they already have.
+
+**Access and use:** Needs macOS 15 or later and Apple Silicon. Download the .dmg from GitHub Releases, or brew tap jundot/omlx then brew install jundot/omlx/omlx. Default server is http://localhost:8000/v1. A non-loopback bind (--host 0.0.0.0) needs a main API key. Optional MCP via pip install mcp then omlx restart. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/jundot/omlx).
 
 ## Protocols
 

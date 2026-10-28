@@ -1353,6 +1353,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "omlx",
+      "name": "oMLX",
+      "category": "Platforms",
+      "url": "https://omlx.ai",
+      "description": "A local LLM inference server for Apple Silicon, with a menu bar app, OpenAI-compatible API and SSD-backed KV cache.",
+      "for_whom": "People who want coding agents and chat apps to call models that run on a Mac they already have.",
+      "access_notes": "Needs macOS 15 or later and Apple Silicon. Download the .dmg from GitHub Releases, or brew tap jundot/omlx then brew install jundot/omlx/omlx. Default server is http://localhost:8000/v1. A non-loopback bind (--host 0.0.0.0) needs a main API key. Optional MCP via pip install mcp then omlx restart. Apache-2.0.",
+      "source_url": "https://github.com/jundot/omlx",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "ego-lite",
+      "name": "ego lite",
+      "category": "Agent tools",
+      "url": "https://lite.ego.app",
+      "description": "A desktop browser that gives coding agents their own Spaces while they share your real logins and cookies through ego-browser.",
+      "for_whom": "People who want an agent to use signed-in sites in a separate Space.",
+      "access_notes": "macOS and Windows. npx skills add citrolabs/ego-lite, or download the app from lite.ego.app. On first launch it can migrate Chrome logins, cookies, extensions and bookmarks, and agents then use those sessions. Browsing data stays on the device. The app collects simple product signals such as whether it is the default browser. This entry covers the MIT skill repo. The browser is a separate free download. MIT.",
+      "source_url": "https://github.com/citrolabs/ego-lite",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

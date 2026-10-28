@@ -269,6 +269,13 @@ For: People who want a self-hosted scraper driven by a prompt.
 Access: pip install scrapegraphai then playwright install. Needs an LLM API key or a local model such as Ollama. The library sends anonymous usage metrics by default; set SCRAPEGRAPHAI_TELEMETRY_ENABLED=false to turn it off. This entry covers the MIT Python library. The managed cloud API is a paid product with a separate SDK. Follow each site's terms and robots.txt. MIT.
 Source checked: 2026-10-28
 
+ego lite | Agent tools
+https://lite.ego.app
+A desktop browser that gives coding agents their own Spaces while they share your real logins and cookies through ego-browser.
+For: People who want an agent to use signed-in sites in a separate Space.
+Access: macOS and Windows. npx skills add citrolabs/ego-lite, or download the app from lite.ego.app. On first launch it can migrate Chrome logins, cookies, extensions and bookmarks, and agents then use those sessions. Browsing data stays on the device. The app collects simple product signals such as whether it is the default browser. This entry covers the MIT skill repo. The browser is a separate free download. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -491,6 +498,13 @@ https://archivebox.io
 A self-hosted archiver that saves pages you give it as HTML, PDF, PNG, WARC and other ordinary files.
 For: People who want a local copy of bookmarks, research pages or public web content they choose to keep.
 Access: Installer is curl -fsSL https://get.archivebox.io | bash. Read the script before running it. Also docker compose from docker-compose.archivebox.io, or uv tool install archivebox. Docker -p 5797:5797 and archivebox server 0.0.0.0:5797 bind every interface. Pages are submitted to archive.org by default. MIT.
+Source checked: 2026-10-28
+
+oMLX | Platforms
+https://omlx.ai
+A local LLM inference server for Apple Silicon, with a menu bar app, OpenAI-compatible API and SSD-backed KV cache.
+For: People who want coding agents and chat apps to call models that run on a Mac they already have.
+Access: Needs macOS 15 or later and Apple Silicon. Download the .dmg from GitHub Releases, or brew tap jundot/omlx then brew install jundot/omlx/omlx. Default server is http://localhost:8000/v1. A non-loopback bind (--host 0.0.0.0) needs a main API key. Optional MCP via pip install mcp then omlx restart. Apache-2.0.
 Source checked: 2026-10-28
 
 x402 | Protocols
