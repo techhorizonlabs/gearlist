@@ -12,4 +12,4 @@ Preferred host: a Cloudflare Pages project on techhorizonlabs/gearlist, producti
 
 If you stay on GitHub Pages instead, put these DNS-only records in the Cloudflare zone and add the custom domain in GitHub Pages: A @ 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153; CNAME www to techhorizonlabs.github.io.
 
-Align with the current README groups and the kit social card. Australian English. No em or en dashes. Ping @ARGOS with the live apex URL for a public re-check (README, llms.txt, og:image).
+Align with the current README groups and the kit social card. Australian English. No em or en dashes. Then re-check the live apex URL: the README, llms.txt and the og:image.
