@@ -339,6 +339,13 @@ For: People who want an agent to repeat a task they can demonstrate once.
 Access: Copy the commit-pinned install command from the latest GitHub Release. It pipes a script; read the script before running it. macOS is the primary target; Windows 11 x64 and ARM64 are supported. Needs Screen Recording. Recording stays on the machine. Analyze sends the event timeline, screen images, narration text and requested terminal excerpts to GitHub Copilot in the cloud. Needs a GitHub account with Copilot access. Keep secrets out of recordings. MIT.
 Source checked: 2026-10-28
 
+Cloudflare Agents | Agent tools
+https://developers.cloudflare.com/agents/
+An SDK for persistent, stateful agents on Cloudflare Durable Objects, with MCP, scheduling, workflows and sandboxed code.
+For: Developers who want agents that keep state on Cloudflare and wake only when they have work.
+Access: npm install agents, or npm create cloudflare@latest -- --template cloudflare/agents-starter. Needs a Durable Object binding and a SQLite migration in wrangler.jsonc. Agents hibernate when idle. MCP can act as a server or a client. Sandboxed execution runs generated code in an isolated Worker. x402 pay-per-call is optional. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -617,6 +624,13 @@ https://github.com/cloudflare/moltworker
 An experimental Cloudflare Worker that runs OpenClaw inside a Cloudflare Sandbox container.
 For: People who want OpenClaw hosted on Cloudflare Workers, with pairing and Access in front.
 Access: Experimental proof of concept. Needs a Workers Paid plan for Sandbox containers. npm install, then npx wrangler secret put ANTHROPIC_API_KEY (or the AI Gateway secrets) and MOLTBOT_GATEWAY_TOKEN, then npm run deploy. Open the Control UI with ?token=YOUR_GATEWAY_TOKEN. Cloudflare Access plus device pairing at /_admin/ are required before the Control UI works. Optional R2 keeps pairing and history across container restarts. SANDBOX_SLEEP_AFTER defaults to never; a timeout such as 10m sleeps the container to cut cost. DEV_MODE=true is local only and skips Access and pairing. Apache-2.0.
+Source checked: 2026-10-28
+
+agentOS | Platforms
+https://rivet.dev/agentos
+A WebAssembly sandbox that gives each agent files, processes, a shell and networking inside one compact runtime.
+For: People who want agent code isolated from the host process, with explicit mounts and network rules.
+Access: Library: npm install @rivet-dev/agentos-core, then AgentOs.create() in your backend. The sidecar is a separate Rust process. Guest code reaches host files, environment or the network only through mounts, host functions or network allow rules you add. Hosted: npm install @rivet-dev/agentos, set RIVET_NAMESPACE and RIVET_TOKEN from the Rivet dashboard, and keep the token on the backend. Browser clients need a JWT scoped to that VM. Preview URLs expire. Apache-2.0.
 Source checked: 2026-10-28
 
 x402 | Protocols

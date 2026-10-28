@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 128 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 130 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (48)
+- [Agent tools](#agent-tools) (49)
 - [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (22)
+- [Platforms](#platforms) (23)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (36)
 
@@ -509,6 +509,16 @@ A desktop app that records a work session on your screen and turns it into a reu
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/skill-recorder).
 
+### [Cloudflare Agents](https://developers.cloudflare.com/agents/)
+
+An SDK for persistent, stateful agents on Cloudflare Durable Objects, with MCP, scheduling, workflows and sandboxed code.
+
+**For:** Developers who want agents that keep state on Cloudflare and wake only when they have work.
+
+**Access and use:** npm install agents, or npm create cloudflare@latest -- --template cloudflare/agents-starter. Needs a Durable Object binding and a SQLite migration in wrangler.jsonc. Agents hibernate when idle. MCP can act as a server or a client. Sandboxed execution runs generated code in an isolated Worker. x402 pay-per-call is optional. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/agents).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -914,6 +924,16 @@ An experimental Cloudflare Worker that runs OpenClaw inside a Cloudflare Sandbox
 **Access and use:** Experimental proof of concept. Needs a Workers Paid plan for Sandbox containers. npm install, then npx wrangler secret put ANTHROPIC_API_KEY (or the AI Gateway secrets) and MOLTBOT_GATEWAY_TOKEN, then npm run deploy. Open the Control UI with ?token=YOUR_GATEWAY_TOKEN. Cloudflare Access plus device pairing at /_admin/ are required before the Control UI works. Optional R2 keeps pairing and history across container restarts. SANDBOX_SLEEP_AFTER defaults to never; a timeout such as 10m sleeps the container to cut cost. DEV_MODE=true is local only and skips Access and pairing. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/moltworker).
+
+### [agentOS](https://rivet.dev/agentos)
+
+A WebAssembly sandbox that gives each agent files, processes, a shell and networking inside one compact runtime.
+
+**For:** People who want agent code isolated from the host process, with explicit mounts and network rules.
+
+**Access and use:** Library: npm install @rivet-dev/agentos-core, then AgentOs.create() in your backend. The sidecar is a separate Rust process. Guest code reaches host files, environment or the network only through mounts, host functions or network allow rules you add. Hosted: npm install @rivet-dev/agentos, set RIVET_NAMESPACE and RIVET_TOKEN from the Rivet dashboard, and keep the token on the backend. Browser clients need a JWT scoped to that VM. Preview URLs expire. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/rivet-dev/agentos).
 
 ## Protocols
 

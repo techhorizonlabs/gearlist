@@ -1665,6 +1665,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "cloudflare-agents",
+      "name": "Cloudflare Agents",
+      "category": "Agent tools",
+      "url": "https://developers.cloudflare.com/agents/",
+      "description": "An SDK for persistent, stateful agents on Cloudflare Durable Objects, with MCP, scheduling, workflows and sandboxed code.",
+      "for_whom": "Developers who want agents that keep state on Cloudflare and wake only when they have work.",
+      "access_notes": "npm install agents, or npm create cloudflare@latest -- --template cloudflare/agents-starter. Needs a Durable Object binding and a SQLite migration in wrangler.jsonc. Agents hibernate when idle. MCP can act as a server or a client. Sandboxed execution runs generated code in an isolated Worker. x402 pay-per-call is optional. MIT.",
+      "source_url": "https://github.com/cloudflare/agents",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "agentos",
+      "name": "agentOS",
+      "category": "Platforms",
+      "url": "https://rivet.dev/agentos",
+      "description": "A WebAssembly sandbox that gives each agent files, processes, a shell and networking inside one compact runtime.",
+      "for_whom": "People who want agent code isolated from the host process, with explicit mounts and network rules.",
+      "access_notes": "Library: npm install @rivet-dev/agentos-core, then AgentOs.create() in your backend. The sidecar is a separate Rust process. Guest code reaches host files, environment or the network only through mounts, host functions or network allow rules you add. Hosted: npm install @rivet-dev/agentos, set RIVET_NAMESPACE and RIVET_TOKEN from the Rivet dashboard, and keep the token on the backend. Browser clients need a JWT scoped to that VM. Preview URLs expire. Apache-2.0.",
+      "source_url": "https://github.com/rivet-dev/agentos",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
