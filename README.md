@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 176 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 178 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,9 +22,9 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (65)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (39)
+- [Platforms](#platforms) (40)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (44)
+- [Skills and learning](#skills-and-learning) (45)
 
 
 ## Agent tools
@@ -1315,6 +1315,16 @@ An AGPL instant-messaging and VoIP app for friends, groups and communities, with
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/fluxerapp/fluxer).
 
+### [Suwayomi Server](https://github.com/Suwayomi/Suwayomi-Server)
+
+A Java manga reader server that runs Mihon (Tachiyomi) extensions, with a bundled web UI, library, downloads and OPDS.
+
+**For:** People who want a self-hosted manga library that talks to the same sources as Mihon.
+
+**Access and use:** OS bundles (Windows, macOS, Linux) ship JRE, Electron and a launcher from GitHub Releases. Docker: ghcr.io/suwayomi/tachidesk, default http://localhost:4567. Jar needs JRE 21+: java -jar Suwayomi-Server-vX.Y.Z-rxxxx.jar. Library, backups and downloads live on the host. Installed extensions fetch chapters from the manga sites you enable; optional FlareSolverr and trackers (MyAnimeList, AniList, MangaUpdates) send data to those services. MPL-2.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/Suwayomi/Suwayomi-Server).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -1798,6 +1808,16 @@ An agent skill plus a 186-function GLSL library, bundler and checker for Shadert
 **Access and use:** Claude Code: claude plugin marketplace add gokayfem/shader-skills then claude plugin install shader-skills@shader-skills. Other agents: npx skills add gokayfem/shader-skills (Node.js 22.20 or later; -g for a global install). Manual copy writes skills/shader-art-coding into ~/.claude/skills/ or ~/.agents/skills/. Python 3 glsl_tools.py search, bundle and check use the standard library; check compiles when glslangValidator is installed. Local harness: python3 tests/build_harness.py && python3 tests/serve.py then http://127.0.0.1:8765/build/harness.html. Targets Shadertoy, WebGL2 and GLSL ES 3.00. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/gokayfem/shader-skills).
+
+### [SEO Machine](https://github.com/TheCraigHewitt/seomachine)
+
+A Claude Code workspace of slash commands, agents and 26 marketing skills for researching, writing and optimising long-form blog posts.
+
+**For:** People drafting SEO articles in Claude Code who will fill in brand, keyword and competitor context files.
+
+**Access and use:** git clone https://github.com/TheCraigHewitt/seomachine.git && cd seomachine && pip install -r data_sources/requirements.txt then claude. Needs Claude Code (Claude Pro, Max, Team, Enterprise, or Anthropic Console API billing) and a DataForSEO account. Optional Google Analytics 4 and Search Console credentials. Keyword and SERP calls go to DataForSEO. Fill context/brand-voice.md and the other context templates before writing. Docker: docker-compose build && docker-compose run seomachine bash. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/TheCraigHewitt/seomachine).
 
 ## Looking for more?
 

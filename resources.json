@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "resources": [
     {
       "id": "agent-deck",
@@ -2287,6 +2287,32 @@
       "access_notes": "Hosted: https://web.fluxer.app or the desktop and mobile apps; messages then live on Fluxer's servers. Self-host: curl -fsSL https://fluxer.dev/install.sh | sh (read the script before running it). Windows: irm https://fluxer.dev/install.ps1 | iex (read the script before running it). Needs 2 CPU cores, 4 GB RAM, 20 GB disk, a domain A record, TCP 80, 443 and 7881, and UDP 443 and 7882. rexctl creates one admin account in the terminal or with a setup token. AGPL-3.0-or-later for the source; artwork is CC BY-SA 4.0.",
       "source_url": "https://github.com/fluxerapp/fluxer",
       "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "suwayomi-server",
+      "name": "Suwayomi Server",
+      "category": "Platforms",
+      "url": "https://github.com/Suwayomi/Suwayomi-Server",
+      "description": "A Java manga reader server that runs Mihon (Tachiyomi) extensions, with a bundled web UI, library, downloads and OPDS.",
+      "for_whom": "People who want a self-hosted manga library that talks to the same sources as Mihon.",
+      "access_notes": "OS bundles (Windows, macOS, Linux) ship JRE, Electron and a launcher from GitHub Releases. Docker: ghcr.io/suwayomi/tachidesk, default http://localhost:4567. Jar needs JRE 21+: java -jar Suwayomi-Server-vX.Y.Z-rxxxx.jar. Library, backups and downloads live on the host. Installed extensions fetch chapters from the manga sites you enable; optional FlareSolverr and trackers (MyAnimeList, AniList, MangaUpdates) send data to those services. MPL-2.0.",
+      "source_url": "https://github.com/Suwayomi/Suwayomi-Server",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "seo-machine",
+      "name": "SEO Machine",
+      "category": "Skills and learning",
+      "url": "https://github.com/TheCraigHewitt/seomachine",
+      "description": "A Claude Code workspace of slash commands, agents and 26 marketing skills for researching, writing and optimising long-form blog posts.",
+      "for_whom": "People drafting SEO articles in Claude Code who will fill in brand, keyword and competitor context files.",
+      "access_notes": "git clone https://github.com/TheCraigHewitt/seomachine.git && cd seomachine && pip install -r data_sources/requirements.txt then claude. Needs Claude Code (Claude Pro, Max, Team, Enterprise, or Anthropic Console API billing) and a DataForSEO account. Optional Google Analytics 4 and Search Console credentials. Keyword and SERP calls go to DataForSEO. Fill context/brand-voice.md and the other context templates before writing. Docker: docker-compose build && docker-compose run seomachine bash. MIT.",
+      "source_url": "https://github.com/TheCraigHewitt/seomachine",
+      "source_checked": "2026-10-29",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     }
