@@ -1391,7 +1391,7 @@ An MIT desktop canvas where humans and coding agents draw software maps, traces 
 
 **For:** Developers who want an agent to diagram a change beside the local repository.
 
-**Access and use:** macOS, Windows and Linux installers from https://dev.fast/install. On macOS: brew install --cask devdotfast/tap/whiteboard. Connect Claude Code, Codex or another coding agent from the welcome screen. Whiteboards stay in ~/.dev/review-api.db. Anonymous telemetry is on by default and goes to PostHog as feature counts, durations and versions under a random installation ID; it omits source code, diffs, paths, prompts and model output. Turn it off in Settings under Share anonymous usage data, or set DO_NOT_TRACK=1. After a crash, the next launch can upload a dump that may include process memory; with telemetry off those dumps stay on the machine. whiteboard share uploads a copy of that whiteboard, traces and referenced source to the /dev/fast share service. Trace capture is off until you allow a repository. MIT.
+**Access and use:** macOS, Windows and Linux installers from https://dev.fast/install. On macOS: brew install --cask devdotfast/tap/whiteboard. Connect Claude Code, Codex or another coding agent from the welcome screen. Whiteboards stay in ~/.dev/review-api.db. Anonymous telemetry is on by default and goes to PostHog as feature counts, durations and versions under a random installation ID; it omits source code, diffs, paths, prompts and model output. Turn it off in Settings under Share anonymous usage data, or set DO_NOT_TRACK=1. After a crash, the next launch uploads the dump to bug.dev.fast, and it can contain process memory including open source text; with telemetry off, dumps are deleted without upload. whiteboard share uploads a copy of that whiteboard, traces and referenced source to the /dev/fast share service. Trace capture is off until you allow a repository. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/devdotfast/whiteboard).
 
@@ -1895,7 +1895,7 @@ CC0 attorney-drafted startup templates in LLM-oriented markdown and original Wor
 
 **For:** Founders and agents who need a starting draft of common technology-company contracts.
 
-**Access and use:** git clone https://github.com/General-Legal/legal-templates.git and open the markdown under templates/ or the files in docx-originals/. Fill the marked fields before you use a document. A lawyer reviews the finished version. The templates are CC0 1.0; the authors ask you to keep the General Legal footnote. CC0-1.0.
+**Access and use:** git clone https://github.com/General-Legal/legal-templates.git and open the markdown under templates/ or the files in docx-originals/. Fill the marked fields before you use a document. General Legal says the templates are for general reference only, are not legal advice, and that it does not review your changes. The templates are CC0 1.0; the authors ask you to keep the General Legal footnote. CC0-1.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/General-Legal/legal-templates).
 
