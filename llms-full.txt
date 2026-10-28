@@ -213,6 +213,13 @@ For: People who want to scrape pages into Markdown on their own machine.
 Access: pip install -U crawl4ai, then crawl4ai-setup to install the browser. CLI is crwl URL -o markdown. Docker server listens on port 11235 and needs CRAWL4AI_API_TOKEN; without a token it answers only inside the container. Optional hosted cloud at crawl4ai.com uses its own key and has a free plan alongside paid ones. Apache-2.0, plus a clause that any public use must credit the project in a README, About page or acknowledgments.
 Source checked: 2026-10-28
 
+Hindsight | Agent tools
+https://hindsight.vectorize.io
+An agent memory server that retains, recalls and reflects, so an agent can learn across sessions.
+For: People who want long-term memory for a coding agent or a custom agent they run themselves.
+Access: Docker image ghcr.io/vectorize-io/hindsight:latest publishes API on localhost:8888 and UI on localhost:9999, and needs an LLM key. Also pip install hindsight-api. MCP is http://localhost:8888/mcp/{bank_id}/. Coding agents: npx @vectorize-io/hindsight-coding-agents install all. CLI installer is curl -fsSL https://hindsight.vectorize.io/get-cli | bash. Read the script before running it. Optional hosted cloud is a paid product. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -575,4 +582,11 @@ https://career-ops.org
 A local job-search skill that scores a listing against your CV, drafts the application, and leaves Submit to you.
 For: People who want a coding agent to filter and prepare applications on their own machine.
 Access: npx @santifer/career-ops init, then open your coding agent in that folder. Claude Code plugin: /plugin marketplace add career-ops-hq/career-ops then /plugin install career-ops@career-ops. Data stays in the workspace (plugin installs use ~/career-ops-data). It drafts CVs, cover letters and emails; it never POSTs an application or sends mail. MIT.
+Source checked: 2026-10-28
+
+gstack | Skills and learning
+https://github.com/garrytan/gstack
+A skills pack that turns a coding agent into a sprint team: office hours, architecture, review, browser QA and a ship command.
+For: People who want named specialist skills on Claude Code, Codex, OpenCode and other hosts.
+Access: Needs Git, Bun 1.4.2 or later, and Node on Windows. git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup. Other hosts: ./setup --host auto. Team mode runs a silent hourly update check. MIT.
 Source checked: 2026-10-28

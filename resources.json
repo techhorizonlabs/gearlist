@@ -1067,6 +1067,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "gstack",
+      "name": "gstack",
+      "category": "Skills and learning",
+      "url": "https://github.com/garrytan/gstack",
+      "description": "A skills pack that turns a coding agent into a sprint team: office hours, architecture, review, browser QA and a ship command.",
+      "for_whom": "People who want named specialist skills on Claude Code, Codex, OpenCode and other hosts.",
+      "access_notes": "Needs Git, Bun 1.4.2 or later, and Node on Windows. git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup. Other hosts: ./setup --host auto. Team mode runs a silent hourly update check. MIT.",
+      "source_url": "https://github.com/garrytan/gstack",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "hindsight",
+      "name": "Hindsight",
+      "category": "Agent tools",
+      "url": "https://hindsight.vectorize.io",
+      "description": "An agent memory server that retains, recalls and reflects, so an agent can learn across sessions.",
+      "for_whom": "People who want long-term memory for a coding agent or a custom agent they run themselves.",
+      "access_notes": "Docker image ghcr.io/vectorize-io/hindsight:latest publishes API on localhost:8888 and UI on localhost:9999, and needs an LLM key. Also pip install hindsight-api. MCP is http://localhost:8888/mcp/{bank_id}/. Coding agents: npx @vectorize-io/hindsight-coding-agents install all. CLI installer is curl -fsSL https://hindsight.vectorize.io/get-cli | bash. Read the script before running it. Optional hosted cloud is a paid product. MIT.",
+      "source_url": "https://github.com/vectorize-io/hindsight",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
