@@ -506,3 +506,17 @@ A GitHub toolkit that gives a coding agent spec-driven build, bug-fix and idea-a
 For: People who want a coding agent to work from a written spec, a bug report, or an idea assessment rather than jumping straight to code.
 Access: Python 3.11 or later and uv. uv tool install specify-cli, then specify init my-project --integration copilot (or another listed agent). Bug-fix and assessment extensions are specify extension add bug and specify extension add assess. Community catalog listings are unvetted. MIT.
 Source checked: 2026-10-28
+
+Marketing Skills | Skills and learning
+https://marketing-skills.com
+A pack of marketing skills for coding agents covering conversion, copy, SEO, ads, analytics and growth.
+For: Technical marketers and founders who want a coding agent to help with CRO, copy, SEO and measurement.
+Access: npx skills add coreyhaines31/marketingskills. From inside Claude Code, pass -a claude-code so it lands in .claude/skills. Claude Code plugin: /plugin marketplace add coreyhaines31/marketingskills then /plugin install marketing-skills. MIT. Verified partners fund the library and sit beside the integrations; the README says they do not change what the core skills recommend.
+Source checked: 2026-10-28
+
+Archify | Skills and learning
+https://archify.si
+A skill that turns a description or a repository into a self-contained interactive HTML diagram you can open in a browser.
+For: People who want a coding agent to draw an architecture, sequence or explainer page they can share as one file.
+Access: npx skills add tt-a1i/archify -g. Optional preview binds a random port on 127.0.0.1. Archify may GET a stable-release manifest to show an update reminder; set ARCHIFY_UPDATE_CHECK_DISABLED=1 to turn that off. Third-party paid services listed in the README are run by those providers. Apache-2.0.
+Source checked: 2026-10-28

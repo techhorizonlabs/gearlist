@@ -3,9 +3,9 @@
   "starred_total": 313,
   "updated": "2026-10-28",
   "counts": {
-    "already_published": 49,
+    "already_published": 51,
     "queued": 8,
-    "stored": 255,
+    "stored": 253,
     "excluded": 1
   },
   "rule": "A star is not an entry. Promote a queued row only after a documentation review, access notes and a source_checked date in resources.json. Status queued means score 4+ on MCP, skills, awesome-list, licence or first-party signals. Status stored keeps the rest of the 313 stars for later review. Status excluded is not eligible.",
@@ -829,8 +829,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "unclecode/crawl4ai",
@@ -991,8 +991,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "tinyhumansai/openhuman",

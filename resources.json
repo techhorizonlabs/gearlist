@@ -937,6 +937,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "marketing-skills",
+      "name": "Marketing Skills",
+      "category": "Skills and learning",
+      "url": "https://marketing-skills.com",
+      "description": "A pack of marketing skills for coding agents covering conversion, copy, SEO, ads, analytics and growth.",
+      "for_whom": "Technical marketers and founders who want a coding agent to help with CRO, copy, SEO and measurement.",
+      "access_notes": "npx skills add coreyhaines31/marketingskills. From inside Claude Code, pass -a claude-code so it lands in .claude/skills. Claude Code plugin: /plugin marketplace add coreyhaines31/marketingskills then /plugin install marketing-skills. MIT. Verified partners fund the library and sit beside the integrations; the README says they do not change what the core skills recommend.",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "archify",
+      "name": "Archify",
+      "category": "Skills and learning",
+      "url": "https://archify.si",
+      "description": "A skill that turns a description or a repository into a self-contained interactive HTML diagram you can open in a browser.",
+      "for_whom": "People who want a coding agent to draw an architecture, sequence or explainer page they can share as one file.",
+      "access_notes": "npx skills add tt-a1i/archify -g. Optional preview binds a random port on 127.0.0.1. Archify may GET a stable-release manifest to show an update reminder; set ARCHIFY_UPDATE_CHECK_DISABLED=1 to turn that off. Third-party paid services listed in the README are run by those providers. Apache-2.0.",
+      "source_url": "https://github.com/tt-a1i/archify",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

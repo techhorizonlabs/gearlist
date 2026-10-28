@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 72 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 74 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -24,7 +24,7 @@ npx skills add techhorizonlabs/gearlist
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (6)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (20)
+- [Skills and learning](#skills-and-learning) (22)
 
 
 ## Agent tools
@@ -758,6 +758,26 @@ A GitHub toolkit that gives a coding agent spec-driven build, bug-fix and idea-a
 **Access and use:** Python 3.11 or later and uv. uv tool install specify-cli, then specify init my-project --integration copilot (or another listed agent). Bug-fix and assessment extensions are specify extension add bug and specify extension add assess. Community catalog listings are unvetted. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/github/spec-kit).
+
+### [Marketing Skills](https://marketing-skills.com)
+
+A pack of marketing skills for coding agents covering conversion, copy, SEO, ads, analytics and growth.
+
+**For:** Technical marketers and founders who want a coding agent to help with CRO, copy, SEO and measurement.
+
+**Access and use:** npx skills add coreyhaines31/marketingskills. From inside Claude Code, pass -a claude-code so it lands in .claude/skills. Claude Code plugin: /plugin marketplace add coreyhaines31/marketingskills then /plugin install marketing-skills. MIT. Verified partners fund the library and sit beside the integrations; the README says they do not change what the core skills recommend.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/coreyhaines31/marketingskills).
+
+### [Archify](https://archify.si)
+
+A skill that turns a description or a repository into a self-contained interactive HTML diagram you can open in a browser.
+
+**For:** People who want a coding agent to draw an architecture, sequence or explainer page they can share as one file.
+
+**Access and use:** npx skills add tt-a1i/archify -g. Optional preview binds a random port on 127.0.0.1. Archify may GET a stable-release manifest to show an update reminder; set ARCHIFY_UPDATE_CHECK_DISABLED=1 to turn that off. Third-party paid services listed in the README are run by those providers. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/tt-a1i/archify).
 
 ## Looking for more?
 
