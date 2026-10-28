@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 37 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 41 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,7 +19,7 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (11)
+- [Agent tools](#agent-tools) (15)
 - [MCP and integrations](#mcp-and-integrations) (9)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (3)
@@ -138,6 +138,46 @@ An agentic browser harness: a desktop app, npm CLI and Chrome or Firefox extensi
 **Access and use:** Installer is curl -fsSL https://browsentic.com/install.sh | sh. Read the script before running it. Or npx browsentic@latest setup. The extension acts through the signed-in browser. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/imshaikot/browsentic).
+
+### [Trail-code](https://github.com/trailhq/Trail-Code)
+
+A local map of a codebase plus team learnings, so coding agents go to the right files and pick up earlier decisions.
+
+**For:** People running Claude Code, Cursor, Codex or similar on a repository they control.
+
+**Access and use:** Install with npm install -g @trailhq/trail-code && trail init. It reads the repo on the machine and writes .trail/. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/trailhq/Trail-Code).
+
+### [obsidian-wiki](https://github.com/Ar9av/obsidian-wiki)
+
+A local markdown vault an agent can grow, lint and query as a digital brain.
+
+**For:** People who want durable notes an agent can read and write in a folder they own.
+
+**Access and use:** Install with pip install obsidian-wiki, then obsidian-wiki setup --vault ~/brain. Also on PyPI. MIT. The vault is local files.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Ar9av/obsidian-wiki).
+
+### [earshot](https://github.com/Leonxlnx/earshot)
+
+A local CLI, Python API and MCP server that lets coding agents describe, score and generate sound on CPU.
+
+**For:** People whose agents make or review audio, film or game sound without a GPU.
+
+**Access and use:** Python 3.10 or later and ffmpeg on PATH. Clone the repo, venv, CPU torch, then pip install -e ".[mcp,llm,dev]". First model use downloads about 1.1 GB into a local cache. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Leonxlnx/earshot).
+
+### [PromptDirector](https://github.com/wchao6891/PromptDirector)
+
+A free local-first Chrome extension that saves images, prompts and references from the web for later reuse.
+
+**For:** People collecting visual and prompt references while they browse.
+
+**Access and use:** Chrome Web Store listing iahakaahijddcjjldidbclicedibgpjm. Optional local video component. Apache-2.0. Treat saved pages as the same access the signed-in browser has.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/wchao6891/PromptDirector).
 
 ## MCP and integrations
 

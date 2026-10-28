@@ -367,6 +367,58 @@
       "thl_project": false
     },
     {
+      "id": "trail-code",
+      "name": "Trail-code",
+      "category": "Agent tools",
+      "url": "https://github.com/trailhq/Trail-Code",
+      "description": "A local map of a codebase plus team learnings, so coding agents go to the right files and pick up earlier decisions.",
+      "for_whom": "People running Claude Code, Cursor, Codex or similar on a repository they control.",
+      "access_notes": "Install with npm install -g @trailhq/trail-code && trail init. It reads the repo on the machine and writes .trail/. MIT.",
+      "source_url": "https://github.com/trailhq/Trail-Code",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "obsidian-wiki",
+      "name": "obsidian-wiki",
+      "category": "Agent tools",
+      "url": "https://github.com/Ar9av/obsidian-wiki",
+      "description": "A local markdown vault an agent can grow, lint and query as a digital brain.",
+      "for_whom": "People who want durable notes an agent can read and write in a folder they own.",
+      "access_notes": "Install with pip install obsidian-wiki, then obsidian-wiki setup --vault ~/brain. Also on PyPI. MIT. The vault is local files.",
+      "source_url": "https://github.com/Ar9av/obsidian-wiki",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "earshot",
+      "name": "earshot",
+      "category": "Agent tools",
+      "url": "https://github.com/Leonxlnx/earshot",
+      "description": "A local CLI, Python API and MCP server that lets coding agents describe, score and generate sound on CPU.",
+      "for_whom": "People whose agents make or review audio, film or game sound without a GPU.",
+      "access_notes": "Python 3.10 or later and ffmpeg on PATH. Clone the repo, venv, CPU torch, then pip install -e \".[mcp,llm,dev]\". First model use downloads about 1.1 GB into a local cache. MIT.",
+      "source_url": "https://github.com/Leonxlnx/earshot",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "prompt-director",
+      "name": "PromptDirector",
+      "category": "Agent tools",
+      "url": "https://github.com/wchao6891/PromptDirector",
+      "description": "A free local-first Chrome extension that saves images, prompts and references from the web for later reuse.",
+      "for_whom": "People collecting visual and prompt references while they browse.",
+      "access_notes": "Chrome Web Store listing iahakaahijddcjjldidbclicedibgpjm. Optional local video component. Apache-2.0. Treat saved pages as the same access the signed-in browser has.",
+      "source_url": "https://github.com/wchao6891/PromptDirector",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
       "id": "hyperresearch",
       "name": "Hyperresearch",
       "category": "Skills and learning",

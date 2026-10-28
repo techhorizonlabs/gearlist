@@ -3,8 +3,8 @@
   "starred_total": 313,
   "updated": "2026-10-28",
   "counts": {
-    "already_published": 18,
-    "queued": 22,
+    "already_published": 22,
+    "queued": 18,
     "stored": 272,
     "excluded": 1
   },
@@ -323,8 +323,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "jordan-gibbs/hyperresearch",
@@ -361,8 +361,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "Leonxlnx/earshot",
@@ -380,8 +380,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "jgravelle/jcodemunch-mcp",
@@ -513,8 +513,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to resources.json after documentation review on 2026-10-28."
     },
     {
       "full_name": "node9-ai/node9-proxy",
