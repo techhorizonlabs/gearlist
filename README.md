@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 164 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 166 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,7 +22,7 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (64)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (28)
+- [Platforms](#platforms) (30)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (44)
 
@@ -1194,6 +1194,26 @@ An open-source notes and knowledge workspace with three-pane editing, multi-devi
 **Access and use:** Cloudflare: fork the repo, create D1 edgeever and R2 edgeever-resources, then a Worker from main. Set the runtime Secret EDGE_EVER_AUTH_PASSWORD; upstream recommends 32 characters or longer. Username defaults to admin via EDGE_EVER_AUTH_USERNAME. Notes and attachments then live in that Cloudflare account. Docker: curl -fsSL https://edgeever.org/install.sh | bash (read the script before running it). The installer writes ~/edgeever, pulls ghcr.io/tianma-if/edgeever, generates an administrator password, and serves http://localhost:8787. Daily auto-update is crontab 04:17 unless EDGE_EVER_AUTO_UPDATE=false. Profile -> API / MCP issues a token with full CRUD on notes, notebooks, tags, attachments, history, templates and AI instructions. BYOK sends note text to the model endpoint you configure. The public demo at https://demo.edgeever.org resets daily; keep private notes off it. AGPL-3.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/tianma-if/edgeever).
+
+### [MiroFish](https://github.com/666ghj/MiroFish)
+
+A multi-agent simulation engine that builds a digital world from seed documents and runs thousands of persona agents so you can rehearse what-if outcomes.
+
+**For:** People who want to simulate public opinion, policy or story trajectories with an LLM swarm on their own machine.
+
+**Access and use:** Needs Node.js 18+, Python 3.11 or 3.12, and uv. Copy .env.example to .env. Set LLM_API_KEY, LLM_BASE_URL and LLM_MODEL_NAME for any OpenAI-compatible endpoint, plus ZEP_API_KEY from https://app.getzep.com/. Agent memory is stored on Zep Cloud. npm run setup:all then npm run dev. Frontend is http://localhost:3000; backend is http://localhost:5001. Docker: docker compose up -d with the same .env. Upstream says LLM use is high; try fewer than 40 rounds first. AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/666ghj/MiroFish).
+
+### [Plane](https://github.com/makeplane/plane)
+
+An AGPL project-management app for work items, cycles, modules, views, pages and analytics, as a self-hosted or cloud Linear-style workspace.
+
+**For:** Teams who want issues, sprints and docs on a stack they can host.
+
+**Access and use:** Cloud sign-up is https://app.plane.so. Community self-host: mkdir plane-selfhost && cd plane-selfhost, curl -fsSL -o setup.sh https://github.com/makeplane/plane/releases/latest/download/setup.sh, chmod +x setup.sh, then ./setup.sh action 1. Edit plane.env WEB_URL and CORS_ALLOWED_ORIGINS (defaults http://localhost on ports 80 and 443), then ./setup.sh action 2 to start. Commercial installer: curl -fsSL https://prime.plane.so/install/ | sh - (read the script before running it); that edition starts on a free plan with 12 seats. Needs 2 CPU cores and 4 GB RAM. Instance admins configure the host in God mode. AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/makeplane/plane).
 
 ## Protocols
 

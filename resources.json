@@ -2133,6 +2133,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "mirofish",
+      "name": "MiroFish",
+      "category": "Platforms",
+      "url": "https://github.com/666ghj/MiroFish",
+      "description": "A multi-agent simulation engine that builds a digital world from seed documents and runs thousands of persona agents so you can rehearse what-if outcomes.",
+      "for_whom": "People who want to simulate public opinion, policy or story trajectories with an LLM swarm on their own machine.",
+      "access_notes": "Needs Node.js 18+, Python 3.11 or 3.12, and uv. Copy .env.example to .env. Set LLM_API_KEY, LLM_BASE_URL and LLM_MODEL_NAME for any OpenAI-compatible endpoint, plus ZEP_API_KEY from https://app.getzep.com/. Agent memory is stored on Zep Cloud. npm run setup:all then npm run dev. Frontend is http://localhost:3000; backend is http://localhost:5001. Docker: docker compose up -d with the same .env. Upstream says LLM use is high; try fewer than 40 rounds first. AGPL-3.0.",
+      "source_url": "https://github.com/666ghj/MiroFish",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "plane",
+      "name": "Plane",
+      "category": "Platforms",
+      "url": "https://github.com/makeplane/plane",
+      "description": "An AGPL project-management app for work items, cycles, modules, views, pages and analytics, as a self-hosted or cloud Linear-style workspace.",
+      "for_whom": "Teams who want issues, sprints and docs on a stack they can host.",
+      "access_notes": "Cloud sign-up is https://app.plane.so. Community self-host: mkdir plane-selfhost && cd plane-selfhost, curl -fsSL -o setup.sh https://github.com/makeplane/plane/releases/latest/download/setup.sh, chmod +x setup.sh, then ./setup.sh action 1. Edit plane.env WEB_URL and CORS_ALLOWED_ORIGINS (defaults http://localhost on ports 80 and 443), then ./setup.sh action 2 to start. Commercial installer: curl -fsSL https://prime.plane.so/install/ | sh - (read the script before running it); that edition starts on a free plan with 12 seats. Needs 2 CPU cores and 4 GB RAM. Instance admins configure the host in God mode. AGPL-3.0.",
+      "source_url": "https://github.com/makeplane/plane",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
