@@ -150,6 +150,20 @@ For: People coordinating coding agents on more than one machine they already own
 Access: Requires Node.js 22.16 or later. npm install -g @apralabs/apra-fleet, then apra-fleet install and apra-fleet start. MCP is http://localhost:7523/mcp by default. Secrets are entered out of band and never shown to the model. Apache-2.0.
 Source checked: 2026-10-28
 
+CodeGraph | Agent tools
+https://colbymchenry.github.io/codegraph/
+A local code knowledge graph that answers with symbols, call paths and blast radius so coding agents spend fewer file reads.
+For: People whose Claude Code, Cursor, Codex, Gemini, OpenCode, Copilot or similar agent needs a live map of a repository.
+Access: Install with npm i -g @colbymchenry/codegraph, then codegraph install and, in each project, codegraph init. The README also offers curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh. Read the script before running it. Indexes live in .codegraph/ as local SQLite. The installer asks about anonymous usage telemetry; turn it off with codegraph telemetry off. Hosted product waitlist is getcodegraph.com. MIT.
+Source checked: 2026-10-28
+
+Jev Ultrafast | Agent tools
+https://github.com/browser-use/jev-ultrafast
+A local browser agent from Browser Use: TypeSafe Jev picks an operation and a page element, and a smaller model writes text only when the operation is TYPE_TEXT.
+For: People who want a Chrome agent for a single goal, with a local inspector they can pause before a click.
+Access: Clone the repo, uv sync, then set TYPESAFE_API_KEY and TEXT_MODEL_API_KEY in .env. TEXT_MODEL_API_KEY is an OpenRouter key in the example. Chrome connects through Browser Harness; allow remote debugging when prompted. Owned tabs share your existing Chrome profile. Local inspector is http://127.0.0.1:8766. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -358,4 +372,18 @@ https://orchestkit.dev
 A free Claude Code plugin of skills, agents and hooks for review, testing, security and memory, with a smaller pack for Cursor and Codex.
 For: People who want those playbooks and quality gates on Claude Code or a compatible host.
 Access: Claude Code: claude plugin marketplace add yonatangross/orchestkit && claude plugin install ork@orchestkit, then /ork:setup. Hooks read tool events and write local metrics under ~/.local/state/orchestkit/. Prompt text is not recorded. Network telemetry is off unless you set a destination. MIT.
+Source checked: 2026-10-28
+
+UX/UI Agent Skills | Skills and learning
+https://plugin87.github.io/ux-ui-agent-skills/
+A design-system kit for coding agents (also called XIAS): tokens, 26 skills, 52 objective gates, and a library of design-system specs.
+For: People whose agents design or review UI in Claude Code, Codex, Cursor, Gemini CLI or an MCP client.
+Access: Claude Code: /plugin marketplace add plugin87/ux-ui-agent-skills then /plugin install ux-ui-agent-skills@ux-ui-agent-skills. Other hosts: npx ux-ui-agent-skills init, or Homebrew plugin87/tap/ux-ui-agent-skills. MCP is claude mcp add ux-ui-gates -- npx -y --package=ux-ui-agent-skills ux-ui-mcp. 34 of the 52 gates open a real browser using Chrome on the machine or npx playwright install chrome. Live demo needs no install. MIT.
+Source checked: 2026-10-28
+
+AI Marketing Skills | Skills and learning
+https://github.com/ericosiu/ai-marketing-skills
+Open-source Claude Code skills for growth experiments, sales pipeline, content ops, outbound, SEO, finance and related marketing workflows, published by Single Grain.
+For: Marketing and sales teams whose coding agent should run those playbooks.
+Access: Clone the repo, then copy each skill directory (SKILL.md plus any scripts, references or agents) into your agent's skills folder. Categories also ship Python scripts; pip install -r requirements.txt and fill .env with the API keys that category needs. Local usage logs live at ~/.ai-marketing-skills/analytics/. Remote telemetry stays off until you opt in. MIT.
 Source checked: 2026-10-28

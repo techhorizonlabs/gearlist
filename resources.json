@@ -664,6 +664,58 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "codegraph",
+      "name": "CodeGraph",
+      "category": "Agent tools",
+      "url": "https://colbymchenry.github.io/codegraph/",
+      "description": "A local code knowledge graph that answers with symbols, call paths and blast radius so coding agents spend fewer file reads.",
+      "for_whom": "People whose Claude Code, Cursor, Codex, Gemini, OpenCode, Copilot or similar agent needs a live map of a repository.",
+      "access_notes": "Install with npm i -g @colbymchenry/codegraph, then codegraph install and, in each project, codegraph init. The README also offers curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh. Read the script before running it. Indexes live in .codegraph/ as local SQLite. The installer asks about anonymous usage telemetry; turn it off with codegraph telemetry off. Hosted product waitlist is getcodegraph.com. MIT.",
+      "source_url": "https://github.com/colbymchenry/codegraph",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "ux-ui-agent-skills",
+      "name": "UX/UI Agent Skills",
+      "category": "Skills and learning",
+      "url": "https://plugin87.github.io/ux-ui-agent-skills/",
+      "description": "A design-system kit for coding agents (also called XIAS): tokens, 26 skills, 52 objective gates, and a library of design-system specs.",
+      "for_whom": "People whose agents design or review UI in Claude Code, Codex, Cursor, Gemini CLI or an MCP client.",
+      "access_notes": "Claude Code: /plugin marketplace add plugin87/ux-ui-agent-skills then /plugin install ux-ui-agent-skills@ux-ui-agent-skills. Other hosts: npx ux-ui-agent-skills init, or Homebrew plugin87/tap/ux-ui-agent-skills. MCP is claude mcp add ux-ui-gates -- npx -y --package=ux-ui-agent-skills ux-ui-mcp. 34 of the 52 gates open a real browser using Chrome on the machine or npx playwright install chrome. Live demo needs no install. MIT.",
+      "source_url": "https://github.com/plugin87/ux-ui-agent-skills",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "ai-marketing-skills",
+      "name": "AI Marketing Skills",
+      "category": "Skills and learning",
+      "url": "https://github.com/ericosiu/ai-marketing-skills",
+      "description": "Open-source Claude Code skills for growth experiments, sales pipeline, content ops, outbound, SEO, finance and related marketing workflows, published by Single Grain.",
+      "for_whom": "Marketing and sales teams whose coding agent should run those playbooks.",
+      "access_notes": "Clone the repo, then copy each skill directory (SKILL.md plus any scripts, references or agents) into your agent's skills folder. Categories also ship Python scripts; pip install -r requirements.txt and fill .env with the API keys that category needs. Local usage logs live at ~/.ai-marketing-skills/analytics/. Remote telemetry stays off until you opt in. MIT.",
+      "source_url": "https://github.com/ericosiu/ai-marketing-skills",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "jev-ultrafast",
+      "name": "Jev Ultrafast",
+      "category": "Agent tools",
+      "url": "https://github.com/browser-use/jev-ultrafast",
+      "description": "A local browser agent from Browser Use: TypeSafe Jev picks an operation and a page element, and a smaller model writes text only when the operation is TYPE_TEXT.",
+      "for_whom": "People who want a Chrome agent for a single goal, with a local inspector they can pause before a click.",
+      "access_notes": "Clone the repo, uv sync, then set TYPESAFE_API_KEY and TEXT_MODEL_API_KEY in .env. TEXT_MODEL_API_KEY is an OpenRouter key in the example. Chrome connects through Browser Harness; allow remote debugging when prompted. Owned tabs share your existing Chrome profile. Local inspector is http://127.0.0.1:8766. MIT.",
+      "source_url": "https://github.com/browser-use/jev-ultrafast",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
