@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 198 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 200 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (72)
+- [Agent tools](#agent-tools) (73)
 - [MCP and integrations](#mcp-and-integrations) (20)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (50)
+- [Platforms](#platforms) (51)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (47)
 
@@ -748,6 +748,16 @@ An MIT chat backend you mount in your app for 1:1 and group messages, permission
 **Access and use:** npm install @chatpack/core @chatpack/adapter-memory. Create chatpack({ storage, auth }) where auth returns { id } from your session cookie or null. Mount chat.handler() on a catch-all under /api/chat (Next.js app/api/chat/[...chatpack]/route.ts). Live events are GET /api/chat/stream as EventSource; cookie sessions work for SSE. Production: @chatpack/adapter-drizzle with DATABASE_URL Postgres, or @chatpack/adapter-prisma on PostgreSQL 16. Messages live in the database you attach. Optional npm install @chatpack/client react with credentials include. Agent skill: npx skills add chddaniel/chatpack. Docs MCP: npx -y @chatpack/mcp (stdio, bundled docs, no network). Docs https://docs.chatpack.dev. API is 0.x. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/chddaniel/chatpack).
+
+### [CodeMap AI](https://code-map-ai-mu.vercel.app)
+
+An MIT repo map: paste a GitHub URL and get file-dependency and function-call graphs plus issue mapping, parsed with ts-morph and tree-sitter.
+
+**For:** Developers, especially first-time open source contributors, who need a starting map of a large GitHub repository.
+
+**Access and use:** Hosted: https://code-map-ai-mu.vercel.app, the GitHub homepage of Ayansh0209/CodeMap-Ai (LICENSE Copyright 2026 Aayansh Singh). Paste a GitHub repo URL; that host downloads the tarball. Self-host: Node.js 20+, Redis and a GitHub token. cd backend && npm install, copy backend/.env.example to backend/.env, set REDIS_URL, GITHUB_TOKEN and PORT=5000. cd frontend && npm install. Terminal 1: cd backend && npm run dev at http://localhost:5000. Terminal 2: cd backend && npm run worker. Terminal 3: cd frontend && npm run dev at http://localhost:3000. The backend downloads the GitHub tarball and extracts it locally. BullMQ plus Redis runs the parse. ts-morph covers JS, TS, JSX and TSX; web-tree-sitter WASM covers Python, Go, C and C++. Graph artifacts go to S3-compatible storage (Backblaze B2, Cloudflare R2, Supabase) when R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET_NAME and R2_ENDPOINT or R2_ACCOUNT_ID are set; otherwise gzipped Redis. GEMINI_API_KEY enables issue mapping and chat on the parsed graph; selected file content goes to Gemini or Vertex AI. Without FIREBASE_SERVICE_ACCOUNT_BASE64 every request is anonymous trial; set it, or drop backend/firebase.json for local, for GitHub sign-in. README says the project is evolving and issue mapping can be wrong. MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/Ayansh0209/CodeMap-Ai).
 
 ## MCP and integrations
 
@@ -1504,6 +1514,16 @@ An MIT Cloudflare-native release platform for draft-first app builds, staged rol
 **Access and use:** Hosted dashboard https://app.hands.build and API https://hands.build, run by Oranix on Cloudflare Workers, D1 and R2. Login with Raft. CLI: npm install -g @botiverse/hands-cli, then hands login (browser JWT saved at $XDG_CONFIG_HOME/quiver/auth.json) or CI HANDS_API=https://hands.build with HANDS_AUTH_TOKEN or HANDS_BEARER_TOKEN. Builds, crash reports, feedback and installable artifacts go to that Cloudflare account. Self-host: git clone https://github.com/botiverse/hands.git, pnpm install, pnpm --filter @botiverse/hands-worker dev at http://127.0.0.1:8787, pnpm --filter @botiverse/hands-admin dev at http://localhost:5173 (proxies /api to 8787). Docker is needed for the APK parser container. Set RAFT_CLIENT_ID in worker config and wrangler secret put RAFT_CLIENT_SECRET. The production Worker config turns Cloudflare observability traces on (5 percent head sample, persist). MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/botiverse/hands).
+
+### [Antiproton](https://antiproton.ai)
+
+An Apache-2.0 Cloudflare-native multi-tenant runtime for autonomous agents, with Durable Object SQLite per tenant, V8 isolates and on-demand Run9 containers.
+
+**For:** Teams who want agents to call real APIs and sandboxes while keeping credentials out of the model context.
+
+**Access and use:** Hosted UI https://antiproton.ai and admin https://admin.antiproton.ai, run by botiverse on Cloudflare Workers, Durable Objects, D1 and R2. Custom domain antiproton.botiverse.dev sits behind Cloudflare Access. GitHub sign-in; UI_ALLOW_ANONYMOUS is 0; GITHUB_OPEN_SIGNUP is 1 so a GitHub account registers on first sign-in. Self-host: git clone https://github.com/botiverse/antiproton.git, npm install, Node.js 24+. cd cf && npx wrangler dev. npx wrangler secret put ANTHROPIC_API_KEY, or OPENROUTER_API_KEY or DEEPSEEK_API_KEY. Production deploy: cf/scripts/deploy-pinned.sh from origin/master. Default HARNESS_MODEL is deepseek-flash. USER_MODELS are deepseek-flash and gpt-5.6-luna through Cloudflare AI Gateway once AI_GATEWAY_TOKEN is set. Credentials stay behind the tool gateway and never enter model context prompts, tool outputs or execution logs. Three tiers: Durable Object plus SQLite per tenant and agent; V8 Dynamic Worker with globalOutbound null; Run9 containers with a 30 minute idle lease and a 5 minute warning. TRACE_INGEST_URL and TRACE_INGEST_TOKEN are unset so trace forwarding is off. Cloudflare observability is enabled. Raft provision APIs can create hosted agents. Daily spend limits apply on the operator model accounts. Docs: docs/agents-api.md, docs/agent-surface.md, docs/plugins.md, docs/runbook.md. Default branch is master. Apache-2.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/botiverse/antiproton).
 
 ## Protocols
 

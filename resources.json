@@ -2575,6 +2575,32 @@
       "source_checked": "2026-10-29",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "codemap-ai",
+      "name": "CodeMap AI",
+      "category": "Agent tools",
+      "url": "https://code-map-ai-mu.vercel.app",
+      "description": "An MIT repo map: paste a GitHub URL and get file-dependency and function-call graphs plus issue mapping, parsed with ts-morph and tree-sitter.",
+      "for_whom": "Developers, especially first-time open source contributors, who need a starting map of a large GitHub repository.",
+      "access_notes": "Hosted: https://code-map-ai-mu.vercel.app, the GitHub homepage of Ayansh0209/CodeMap-Ai (LICENSE Copyright 2026 Aayansh Singh). Paste a GitHub repo URL; that host downloads the tarball. Self-host: Node.js 20+, Redis and a GitHub token. cd backend && npm install, copy backend/.env.example to backend/.env, set REDIS_URL, GITHUB_TOKEN and PORT=5000. cd frontend && npm install. Terminal 1: cd backend && npm run dev at http://localhost:5000. Terminal 2: cd backend && npm run worker. Terminal 3: cd frontend && npm run dev at http://localhost:3000. The backend downloads the GitHub tarball and extracts it locally. BullMQ plus Redis runs the parse. ts-morph covers JS, TS, JSX and TSX; web-tree-sitter WASM covers Python, Go, C and C++. Graph artifacts go to S3-compatible storage (Backblaze B2, Cloudflare R2, Supabase) when R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET_NAME and R2_ENDPOINT or R2_ACCOUNT_ID are set; otherwise gzipped Redis. GEMINI_API_KEY enables issue mapping and chat on the parsed graph; selected file content goes to Gemini or Vertex AI. Without FIREBASE_SERVICE_ACCOUNT_BASE64 every request is anonymous trial; set it, or drop backend/firebase.json for local, for GitHub sign-in. README says the project is evolving and issue mapping can be wrong. MIT.",
+      "source_url": "https://github.com/Ayansh0209/CodeMap-Ai",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "antiproton",
+      "name": "Antiproton",
+      "category": "Platforms",
+      "url": "https://antiproton.ai",
+      "description": "An Apache-2.0 Cloudflare-native multi-tenant runtime for autonomous agents, with Durable Object SQLite per tenant, V8 isolates and on-demand Run9 containers.",
+      "for_whom": "Teams who want agents to call real APIs and sandboxes while keeping credentials out of the model context.",
+      "access_notes": "Hosted UI https://antiproton.ai and admin https://admin.antiproton.ai, run by botiverse on Cloudflare Workers, Durable Objects, D1 and R2. Custom domain antiproton.botiverse.dev sits behind Cloudflare Access. GitHub sign-in; UI_ALLOW_ANONYMOUS is 0; GITHUB_OPEN_SIGNUP is 1 so a GitHub account registers on first sign-in. Self-host: git clone https://github.com/botiverse/antiproton.git, npm install, Node.js 24+. cd cf && npx wrangler dev. npx wrangler secret put ANTHROPIC_API_KEY, or OPENROUTER_API_KEY or DEEPSEEK_API_KEY. Production deploy: cf/scripts/deploy-pinned.sh from origin/master. Default HARNESS_MODEL is deepseek-flash. USER_MODELS are deepseek-flash and gpt-5.6-luna through Cloudflare AI Gateway once AI_GATEWAY_TOKEN is set. Credentials stay behind the tool gateway and never enter model context prompts, tool outputs or execution logs. Three tiers: Durable Object plus SQLite per tenant and agent; V8 Dynamic Worker with globalOutbound null; Run9 containers with a 30 minute idle lease and a 5 minute warning. TRACE_INGEST_URL and TRACE_INGEST_TOKEN are unset so trace forwarding is off. Cloudflare observability is enabled. Raft provision APIs can create hosted agents. Daily spend limits apply on the operator model accounts. Docs: docs/agents-api.md, docs/agent-surface.md, docs/plugins.md, docs/runbook.md. Default branch is master. Apache-2.0.",
+      "source_url": "https://github.com/botiverse/antiproton",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
