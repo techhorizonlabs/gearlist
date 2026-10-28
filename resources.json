@@ -1613,6 +1613,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "claude-obsidian",
+      "name": "claude-obsidian",
+      "category": "Skills and learning",
+      "url": "https://github.com/AgriciDaniel/claude-obsidian",
+      "description": "A Claude Code plugin and Agent Skills pack that turns inbox sources into a linked Markdown wiki you can open in Obsidian.",
+      "for_whom": "People who keep research in an Obsidian vault and want Claude to file, cite and query it.",
+      "access_notes": "claude plugin marketplace add AgriciDaniel/claude-obsidian then claude plugin install claude-obsidian@agricidaniel-claude-obsidian. Needs Python 3.11 or later. Notes Claude reads are sent to Claude like any other prompt. Web research and remote models stay off until you allow them for a task. The vault stays as local Markdown. The plugin has no telemetry. MIT.",
+      "source_url": "https://github.com/AgriciDaniel/claude-obsidian",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "openwhispr",
+      "name": "OpenWhispr",
+      "category": "Agent tools",
+      "url": "https://openwhispr.com",
+      "description": "A desktop dictation app with local or cloud speech-to-text, a voice assistant, meeting transcription and notes.",
+      "for_whom": "People who want a hotkey that turns speech into text in any app, with the option to keep audio on the machine.",
+      "access_notes": "Download from GitHub Releases, or brew install --cask openwhispr. macOS, Windows and Linux. Dictation, note recording and audio upload each pick their own engine. Local keeps audio on the device. OpenWhispr Cloud sends audio to their servers, keeps the transcript text and discards the recording. Bring-your-own-key sends audio to the provider you configured. Microphone is required. Accessibility pastes at the cursor. Screen Recording is needed for meeting system audio, and for Share screen context, which is off unless you turn it on and then sends one screenshot of the display under your cursor with that voice-agent request. Cloud backup is off by default. Shared notes and team-space notes always sync to the cloud. Usage analytics is off by default. MIT.",
+      "source_url": "https://github.com/OpenWhispr/openwhispr",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

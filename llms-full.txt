@@ -325,6 +325,13 @@ For: People who want several coding agents on one repo, each on its own branch.
 Access: Download from orchestrator.inc/download or GitHub Releases. Local workers keep code on your machine. Clone to the cloud runs workers in hosted GitHub workspaces. Pair a phone from Settings, Connect Mobile. Product telemetry records an installation ID and GitHub username (and AO Cloud email if you sign in); turn it off in Settings, General, Privacy, Share usage analytics. Apache-2.0.
 Source checked: 2026-10-28
 
+OpenWhispr | Agent tools
+https://openwhispr.com
+A desktop dictation app with local or cloud speech-to-text, a voice assistant, meeting transcription and notes.
+For: People who want a hotkey that turns speech into text in any app, with the option to keep audio on the machine.
+Access: Download from GitHub Releases, or brew install --cask openwhispr. macOS, Windows and Linux. Dictation, note recording and audio upload each pick their own engine. Local keeps audio on the device. OpenWhispr Cloud sends audio to their servers, keeps the transcript text and discards the recording. Bring-your-own-key sends audio to the provider you configured. Microphone is required. Accessibility pastes at the cursor. Screen Recording is needed for meeting system audio, and for Share screen context, which is off unless you turn it on and then sends one screenshot of the display under your cursor with that voice-agent request. Cloud backup is off by default. Shared notes and team-space notes always sync to the cloud. Usage analytics is off by default. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -869,4 +876,11 @@ https://github.com/langchain-ai/openwiki
 A CLI that turns a repository into a linked Markdown wiki your coding agent can search, with facts tracked back to source lines.
 For: Teams who want agents to search a living wiki of the code.
 Access: npm install -g openwiki. Needs Node 22.22.0 or later. Then openwiki integrations install claude (or codex, cursor, opencode). Uses the coding agent's existing model session. openwiki visualize serves 127.0.0.1 only; the graph page still loads libraries from a public CDN. Native CLI init writes provider keys to ~/.openwiki/.env. MIT.
+Source checked: 2026-10-28
+
+claude-obsidian | Skills and learning
+https://github.com/AgriciDaniel/claude-obsidian
+A Claude Code plugin and Agent Skills pack that turns inbox sources into a linked Markdown wiki you can open in Obsidian.
+For: People who keep research in an Obsidian vault and want Claude to file, cite and query it.
+Access: claude plugin marketplace add AgriciDaniel/claude-obsidian then claude plugin install claude-obsidian@agricidaniel-claude-obsidian. Needs Python 3.11 or later. Notes Claude reads are sent to Claude like any other prompt. Web research and remote models stay off until you allow them for a task. The vault stays as local Markdown. The plugin has no telemetry. MIT.
 Source checked: 2026-10-28

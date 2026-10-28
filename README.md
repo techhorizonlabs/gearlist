@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 124 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 126 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (46)
+- [Agent tools](#agent-tools) (47)
 - [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (21)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (35)
+- [Skills and learning](#skills-and-learning) (36)
 
 
 ## Agent tools
@@ -488,6 +488,16 @@ A local desktop workspace that runs a fleet of coding agents, each on its own br
 **Access and use:** Download from orchestrator.inc/download or GitHub Releases. Local workers keep code on your machine. Clone to the cloud runs workers in hosted GitHub workspaces. Pair a phone from Settings, Connect Mobile. Product telemetry records an installation ID and GitHub username (and AO Cloud email if you sign in); turn it off in Settings, General, Privacy, Share usage analytics. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/OrchestratorInc/agent-orchestrator).
+
+### [OpenWhispr](https://openwhispr.com)
+
+A desktop dictation app with local or cloud speech-to-text, a voice assistant, meeting transcription and notes.
+
+**For:** People who want a hotkey that turns speech into text in any app, with the option to keep audio on the machine.
+
+**Access and use:** Download from GitHub Releases, or brew install --cask openwhispr. macOS, Windows and Linux. Dictation, note recording and audio upload each pick their own engine. Local keeps audio on the device. OpenWhispr Cloud sends audio to their servers, keeps the transcript text and discards the recording. Bring-your-own-key sends audio to the provider you configured. Microphone is required. Accessibility pastes at the cursor. Screen Recording is needed for meeting system audio, and for Share screen context, which is off unless you turn it on and then sends one screenshot of the display under your cursor with that voice-agent request. Cloud backup is off by default. Shared notes and team-space notes always sync to the cloud. Usage analytics is off by default. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/OpenWhispr/openwhispr).
 
 ## MCP and integrations
 
@@ -1278,6 +1288,16 @@ A CLI that turns a repository into a linked Markdown wiki your coding agent can 
 **Access and use:** npm install -g openwiki. Needs Node 22.22.0 or later. Then openwiki integrations install claude (or codex, cursor, opencode). Uses the coding agent's existing model session. openwiki visualize serves 127.0.0.1 only; the graph page still loads libraries from a public CDN. Native CLI init writes provider keys to ~/.openwiki/.env. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/langchain-ai/openwiki).
+
+### [claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian)
+
+A Claude Code plugin and Agent Skills pack that turns inbox sources into a linked Markdown wiki you can open in Obsidian.
+
+**For:** People who keep research in an Obsidian vault and want Claude to file, cite and query it.
+
+**Access and use:** claude plugin marketplace add AgriciDaniel/claude-obsidian then claude plugin install claude-obsidian@agricidaniel-claude-obsidian. Needs Python 3.11 or later. Notes Claude reads are sent to Claude like any other prompt. Web research and remote models stay off until you allow them for a task. The vault stays as local Markdown. The plugin has no telemetry. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/AgriciDaniel/claude-obsidian).
 
 ## Looking for more?
 
