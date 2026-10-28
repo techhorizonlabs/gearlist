@@ -1569,7 +1569,7 @@
       "url": "https://github.com/yc-software/qm",
       "description": "A multiplayer agent harness for Slack and the web, with a personal sandbox per person and shared rooms.",
       "for_whom": "Startups who want each person to have their own agent workspace, plus shared rooms on Slack and the web.",
-      "access_notes": "npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>. Needs Node 24.15 or later. The agent acts with that person's credentials. Default security posture is Auto, which blocks private-network access. Strict pauses every harness tool call. Dangerous drops those gates. Sessions need DATABASE_URL and SESSION_STORE=postgres to survive restart. Hosted trial is agent37.com/qm. MIT.",
+      "access_notes": "npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>. Needs Node 24.15 or later. The agent acts with that person's credentials. Default security posture is Auto, which blocks private-network access. Strict pauses every harness tool call. Dangerous drops those gates. Sessions need DATABASE_URL and SESSION_STORE=postgres to survive restart. A third-party hosted version runs at agent37.com/qm. MIT.",
       "source_url": "https://github.com/yc-software/qm",
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
