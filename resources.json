@@ -1405,6 +1405,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "mcp",
+      "name": "Model Context Protocol",
+      "category": "Protocols",
+      "url": "https://modelcontextprotocol.io",
+      "description": "An open protocol that connects LLM applications to tools, resources and data sources.",
+      "for_whom": "People building hosts, clients or servers that speak MCP.",
+      "access_notes": "Spec and docs at modelcontextprotocol.io. Official org is github.com/modelcontextprotocol. Python SDK (MIT): uv add \"mcp[cli]\" or pip install \"mcp[cli]\", Python 3.11 or later. TypeScript SDK at github.com/modelcontextprotocol/typescript-sdk. Public servers are listed in the Official MCP Registry already in this catalog. The servers repo keeps only steering-group reference servers. New spec and code contributions are Apache-2.0; some older MIT remains; docs excluding the spec are CC BY 4.0.",
+      "source_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "a2a",
+      "name": "Agent2Agent (A2A)",
+      "category": "Protocols",
+      "url": "https://a2a-protocol.org",
+      "description": "An open protocol for independent agents to discover each other and collaborate on tasks without exposing internal state.",
+      "for_whom": "People connecting agents built on different frameworks.",
+      "access_notes": "pip install a2a-sdk. Also official Go, JavaScript, Java, .NET and Rust SDKs. Spec v1.0 at a2a-protocol.org. Linux Foundation project, donated by Google. Apache-2.0.",
+      "source_url": "https://github.com/a2aproject/A2A",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

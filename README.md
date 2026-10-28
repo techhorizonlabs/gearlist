@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 108 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 110 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -23,7 +23,7 @@ npx skills add techhorizonlabs/gearlist
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (16)
-- [Protocols](#protocols) (1)
+- [Protocols](#protocols) (3)
 - [Skills and learning](#skills-and-learning) (34)
 
 
@@ -776,6 +776,26 @@ An open protocol for payments over HTTP using the 402 response.
 **Access and use:** Connecting a payment client can spend funds. Set explicit transaction limits.
 
 **Source checked:** 2026-10-25. [Official source](https://x402.org/).
+
+### [Model Context Protocol](https://modelcontextprotocol.io)
+
+An open protocol that connects LLM applications to tools, resources and data sources.
+
+**For:** People building hosts, clients or servers that speak MCP.
+
+**Access and use:** Spec and docs at modelcontextprotocol.io. Official org is github.com/modelcontextprotocol. Python SDK (MIT): uv add "mcp[cli]" or pip install "mcp[cli]", Python 3.11 or later. TypeScript SDK at github.com/modelcontextprotocol/typescript-sdk. Public servers are listed in the Official MCP Registry already in this catalog. The servers repo keeps only steering-group reference servers. New spec and code contributions are Apache-2.0; some older MIT remains; docs excluding the spec are CC BY 4.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/modelcontextprotocol/modelcontextprotocol).
+
+### [Agent2Agent (A2A)](https://a2a-protocol.org)
+
+An open protocol for independent agents to discover each other and collaborate on tasks without exposing internal state.
+
+**For:** People connecting agents built on different frameworks.
+
+**Access and use:** pip install a2a-sdk. Also official Go, JavaScript, Java, .NET and Rust SDKs. Spec v1.0 at a2a-protocol.org. Linux Foundation project, donated by Google. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/a2aproject/A2A).
 
 ## Skills and learning
 
