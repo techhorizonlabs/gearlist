@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 126 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 128 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (47)
+- [Agent tools](#agent-tools) (48)
 - [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (21)
+- [Platforms](#platforms) (22)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (36)
 
@@ -499,6 +499,16 @@ A desktop dictation app with local or cloud speech-to-text, a voice assistant, m
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/OpenWhispr/openwhispr).
 
+### [Skill Recorder](https://github.com/microsoft/skill-recorder)
+
+A desktop app that records a work session on your screen and turns it into a reusable agent skill or scheduled automation.
+
+**For:** People who want an agent to repeat a task they can demonstrate once.
+
+**Access and use:** Copy the commit-pinned install command from the latest GitHub Release. It pipes a script; read the script before running it. macOS is the primary target; Windows 11 x64 and ARM64 are supported. Needs Screen Recording. Recording stays on the machine. Analyze sends the event timeline, screen images, narration text and requested terminal excerpts to GitHub Copilot in the cloud. Needs a GitHub account with Copilot access. Keep secrets out of recordings. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/skill-recorder).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -894,6 +904,16 @@ An early-access workspace where agents build sandboxed apps (Gadgets) behind Gat
 **Access and use:** pnpm run-local then visit http://localhost:8787. Needs pnpm. Early-access v2. Deploy to a Cloudflare account at os.cloudflare.app/deploy. Gadgets are sandboxed. Gatekeepers log actions and can queue side-effect approvals. Agents get only the resources you introduce. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/cloudflare-os).
+
+### [moltworker](https://github.com/cloudflare/moltworker)
+
+An experimental Cloudflare Worker that runs OpenClaw inside a Cloudflare Sandbox container.
+
+**For:** People who want OpenClaw hosted on Cloudflare Workers, with pairing and Access in front.
+
+**Access and use:** Experimental proof of concept. Needs a Workers Paid plan for Sandbox containers. npm install, then npx wrangler secret put ANTHROPIC_API_KEY (or the AI Gateway secrets) and MOLTBOT_GATEWAY_TOKEN, then npm run deploy. Open the Control UI with ?token=YOUR_GATEWAY_TOKEN. Cloudflare Access plus device pairing at /_admin/ are required before the Control UI works. Optional R2 keeps pairing and history across container restarts. SANDBOX_SLEEP_AFTER defaults to never; a timeout such as 10m sleeps the container to cut cost. DEV_MODE=true is local only and skips Access and pairing. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/moltworker).
 
 ## Protocols
 

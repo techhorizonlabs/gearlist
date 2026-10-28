@@ -332,6 +332,13 @@ For: People who want a hotkey that turns speech into text in any app, with the o
 Access: Download from GitHub Releases, or brew install --cask openwhispr. macOS, Windows and Linux. Dictation, note recording and audio upload each pick their own engine. Local keeps audio on the device. OpenWhispr Cloud sends audio to their servers, keeps the transcript text and discards the recording. Bring-your-own-key sends audio to the provider you configured. Microphone is required. Accessibility pastes at the cursor. Screen Recording is needed for meeting system audio, and for Share screen context, which is off unless you turn it on and then sends one screenshot of the display under your cursor with that voice-agent request. Cloud backup is off by default. Shared notes and team-space notes always sync to the cloud. Usage analytics is off by default. MIT.
 Source checked: 2026-10-28
 
+Skill Recorder | Agent tools
+https://github.com/microsoft/skill-recorder
+A desktop app that records a work session on your screen and turns it into a reusable agent skill or scheduled automation.
+For: People who want an agent to repeat a task they can demonstrate once.
+Access: Copy the commit-pinned install command from the latest GitHub Release. It pipes a script; read the script before running it. macOS is the primary target; Windows 11 x64 and ARM64 are supported. Needs Screen Recording. Recording stays on the machine. Analyze sends the event timeline, screen images, narration text and requested terminal excerpts to GitHub Copilot in the cloud. Needs a GitHub account with Copilot access. Keep secrets out of recordings. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -603,6 +610,13 @@ https://os.cloudflare.app
 An early-access workspace where agents build sandboxed apps (Gadgets) behind Gatekeepers that log and queue side-effect approvals.
 For: Companies who want an internal agent workspace with sandboxed apps and a security layer they can copy.
 Access: pnpm run-local then visit http://localhost:8787. Needs pnpm. Early-access v2. Deploy to a Cloudflare account at os.cloudflare.app/deploy. Gadgets are sandboxed. Gatekeepers log actions and can queue side-effect approvals. Agents get only the resources you introduce. Apache-2.0.
+Source checked: 2026-10-28
+
+moltworker | Platforms
+https://github.com/cloudflare/moltworker
+An experimental Cloudflare Worker that runs OpenClaw inside a Cloudflare Sandbox container.
+For: People who want OpenClaw hosted on Cloudflare Workers, with pairing and Access in front.
+Access: Experimental proof of concept. Needs a Workers Paid plan for Sandbox containers. npm install, then npx wrangler secret put ANTHROPIC_API_KEY (or the AI Gateway secrets) and MOLTBOT_GATEWAY_TOKEN, then npm run deploy. Open the Control UI with ?token=YOUR_GATEWAY_TOKEN. Cloudflare Access plus device pairing at /_admin/ are required before the Control UI works. Optional R2 keeps pairing and history across container restarts. SANDBOX_SLEEP_AFTER defaults to never; a timeout such as 10m sleeps the container to cut cost. DEV_MODE=true is local only and skips Access and pairing. Apache-2.0.
 Source checked: 2026-10-28
 
 x402 | Protocols
