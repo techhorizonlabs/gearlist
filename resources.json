@@ -742,6 +742,45 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "overmind",
+      "name": "Overmind",
+      "category": "Platforms",
+      "url": "https://www.overmindlab.ai/",
+      "description": "A hosted or self-hosted platform that turns production traces into evals, prompt experiments and fine-tuned models for an agent you already run.",
+      "for_whom": "Teams who want to train and score a specialised agent from their own traces.",
+      "access_notes": "SDK and CLI: pip install overmind, then overmind init and overmind sync. Hosted console is console.overmindlab.ai with a project API key. MCP is https://api.overmindlab.ai/api/mcp/ with X-Api-Key. Self-host is docker compose; the API needs OpenRouter, Modal, AWS and Hugging Face keys before it boots. SDK and CLI are MIT. The platform is AGPL-3.0. SDK and CLI send anonymous usage to PostHog; opt out with OVERMIND_ANALYTICS_ENABLED=false or DO_NOT_TRACK=1.",
+      "source_url": "https://github.com/overmind-core/overmind",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "laya",
+      "name": "Laya",
+      "category": "Agent tools",
+      "url": "https://nandhakishorm.github.io/laya/",
+      "description": "A local decision model that answers typed choice, score and yes/no questions over text in one forward pass, with a router that picks a checkpoint per request.",
+      "for_whom": "People whose agents need typed choice, score or yes/no answers over text.",
+      "access_notes": "Python 3.10 or later. python -m pip install laya. The first predict downloads a Hugging Face checkpoint. Optional MCP: pip install \"laya[mcp]\" then laya-mcp-server. Optional HTTP playground: pip install \"laya[serve]\". Apache-2.0.",
+      "source_url": "https://github.com/NandhaKishorM/laya",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "product-launch-motion",
+      "name": "Product Launch Motion",
+      "category": "Skills and learning",
+      "url": "https://github.com/AbubakrChan/product-launch-motion",
+      "description": "A Claude Code skill that reads a website URL and renders a local launch film with Playwright, FFmpeg and music-timed springs.",
+      "for_whom": "People who want a product launch video directed from their site inside Claude Code.",
+      "access_notes": "npx skills add AbubakrChan/product-launch-motion. Needs Claude Code, Node 20 or later, Playwright, FFmpeg, and Python with numpy. Renders on the local machine. MIT on the skill and references. Sample films stay with Cheerful.",
+      "source_url": "https://github.com/AbubakrChan/product-launch-motion",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 57 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 60 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (24)
+- [Agent tools](#agent-tools) (25)
 - [MCP and integrations](#mcp-and-integrations) (11)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (3)
+- [Platforms](#platforms) (4)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (14)
+- [Skills and learning](#skills-and-learning) (15)
 
 
 ## Agent tools
@@ -269,6 +269,16 @@ A self-hosted notification inbox: apps POST events, they land in local SQLite, a
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/chrisgreg/boop).
 
+### [Laya](https://nandhakishorm.github.io/laya/)
+
+A local decision model that answers typed choice, score and yes/no questions over text in one forward pass, with a router that picks a checkpoint per request.
+
+**For:** People whose agents need typed choice, score or yes/no answers over text.
+
+**Access and use:** Python 3.10 or later. python -m pip install laya. The first predict downloads a Hugging Face checkpoint. Optional MCP: pip install "laya[mcp]" then laya-mcp-server. Optional HTTP playground: pip install "laya[serve]". Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/NandhaKishorM/laya).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -455,6 +465,16 @@ A local AI gateway that routes coding tools to many provider accounts through on
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/cheaper-inference/OmniRoute).
 
+### [Overmind](https://www.overmindlab.ai/)
+
+A hosted or self-hosted platform that turns production traces into evals, prompt experiments and fine-tuned models for an agent you already run.
+
+**For:** Teams who want to train and score a specialised agent from their own traces.
+
+**Access and use:** SDK and CLI: pip install overmind, then overmind init and overmind sync. Hosted console is console.overmindlab.ai with a project API key. MCP is https://api.overmindlab.ai/api/mcp/ with X-Api-Key. Self-host is docker compose; the API needs OpenRouter, Modal, AWS and Hugging Face keys before it boots. SDK and CLI are MIT. The platform is AGPL-3.0. SDK and CLI send anonymous usage to PostHog; opt out with OVERMIND_ANALYTICS_ENABLED=false or DO_NOT_TRACK=1.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/overmind-core/overmind).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -608,6 +628,16 @@ A shadcn/ui stylesheet and component registry for agent workspaces: status, comp
 **Access and use:** Start from a shadcn/ui project, then npx shadcn@latest add deeplethe/solid-glass/solid-glass and import the stylesheet after Tailwind and shadcn. Extra components such as status-glyph install the same way. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/deeplethe/solid-glass).
+
+### [Product Launch Motion](https://github.com/AbubakrChan/product-launch-motion)
+
+A Claude Code skill that reads a website URL and renders a local launch film with Playwright, FFmpeg and music-timed springs.
+
+**For:** People who want a product launch video directed from their site inside Claude Code.
+
+**Access and use:** npx skills add AbubakrChan/product-launch-motion. Needs Claude Code, Node 20 or later, Playwright, FFmpeg, and Python with numpy. Renders on the local machine. MIT on the skill and references. Sample films stay with Cheerful.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/AbubakrChan/product-launch-motion).
 
 ## Looking for more?
 

@@ -171,6 +171,13 @@ For: Developers and agents that need a private event inbox they run themselves.
 Access: Clone then docker compose up, or run a GitHub release binary. Data lives in a local SQLite file. APNs credentials are optional. Set BOOP_ADMIN_USER and BOOP_ADMIN_PASSWORD for the web UI, or put the server behind your own proxy. Read-only MCP is POST /mcp with BOOP_MCP_TOKEN; Settings can turn that endpoint off. You build and sign the iOS app. MIT.
 Source checked: 2026-10-28
 
+Laya | Agent tools
+https://nandhakishorm.github.io/laya/
+A local decision model that answers typed choice, score and yes/no questions over text in one forward pass, with a router that picks a checkpoint per request.
+For: People whose agents need typed choice, score or yes/no answers over text.
+Access: Python 3.10 or later. python -m pip install laya. The first predict downloads a Hugging Face checkpoint. Optional MCP: pip install "laya[mcp]" then laya-mcp-server. Optional HTTP playground: pip install "laya[serve]". Apache-2.0.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -297,6 +304,13 @@ For: People who already have provider accounts and want one local endpoint with 
 Access: Install with npm install -g omniroute. It runs locally (default http://localhost:20128). Bring your own provider credentials. OmniRoute does not grant tokens. MIT.
 Source checked: 2026-10-28
 
+Overmind | Platforms
+https://www.overmindlab.ai/
+A hosted or self-hosted platform that turns production traces into evals, prompt experiments and fine-tuned models for an agent you already run.
+For: Teams who want to train and score a specialised agent from their own traces.
+Access: SDK and CLI: pip install overmind, then overmind init and overmind sync. Hosted console is console.overmindlab.ai with a project API key. MCP is https://api.overmindlab.ai/api/mcp/ with X-Api-Key. Self-host is docker compose; the API needs OpenRouter, Modal, AWS and Hugging Face keys before it boots. SDK and CLI are MIT. The platform is AGPL-3.0. SDK and CLI send anonymous usage to PostHog; opt out with OVERMIND_ANALYTICS_ENABLED=false or DO_NOT_TRACK=1.
+Source checked: 2026-10-28
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.
@@ -400,4 +414,11 @@ https://deeplethe.github.io/solid-glass
 A shadcn/ui stylesheet and component registry for agent workspaces: status, composer, tool steps, diffs and related screens.
 For: People building agent UIs on React 19, Tailwind CSS 4 and shadcn/ui.
 Access: Start from a shadcn/ui project, then npx shadcn@latest add deeplethe/solid-glass/solid-glass and import the stylesheet after Tailwind and shadcn. Extra components such as status-glyph install the same way. MIT.
+Source checked: 2026-10-28
+
+Product Launch Motion | Skills and learning
+https://github.com/AbubakrChan/product-launch-motion
+A Claude Code skill that reads a website URL and renders a local launch film with Playwright, FFmpeg and music-timed springs.
+For: People who want a product launch video directed from their site inside Claude Code.
+Access: npx skills add AbubakrChan/product-launch-motion. Needs Claude Code, Node 20 or later, Playwright, FFmpeg, and Python with numpy. Renders on the local machine. MIT on the skill and references. Sample films stay with Cheerful.
 Source checked: 2026-10-28
