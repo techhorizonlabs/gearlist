@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 100 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 102 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,8 +19,8 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (36)
-- [MCP and integrations](#mcp-and-integrations) (12)
+- [Agent tools](#agent-tools) (37)
+- [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (15)
 - [Protocols](#protocols) (1)
@@ -389,6 +389,16 @@ A self-hosted watcher that checks web pages and notifies you when the content ch
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/dgtlmoon/changedetection.io).
 
+### [CodexBar](https://codexbar.app)
+
+A macOS menu bar app, Linux desktop app and CLI that shows remaining usage windows across AI coding providers.
+
+**For:** People who need to see when Codex, Claude and other coding-plan quotas reset.
+
+**Access and use:** macOS 14 or later: brew install --cask codexbar, or download from GitHub Releases. Linux: Qt desktop plus CLI via brew install steipete/tap/codexbar. Reuses existing provider sessions, cookies and API keys, and stores no passwords. Full Disk Access is optional for Safari cookies. Optional CLI serve defaults to 127.0.0.1:8080; a non-loopback bind needs a dashboard token and --allow-plain-http. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/steipete/CodexBar).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -510,6 +520,16 @@ A hosted MCP, CLI and skill for discovering, inspecting and running third-party 
 **Access and use:** Hosted MCP is https://mcp.monid.ai/v1 and signs in with a Monid account. Skill setup is the public file https://monid.ai/SKILL.md plus an API key from app.monid.ai. CLI is npm install -g @monid-ai/cli, then monid keys add. Hosted runs spend a prepaid balance or x402 USDC (a stablecoin payment), priced per call or per result on each endpoint. Local clone needs Deno 2.x; deno task check and deno task test run offline, and engine:run needs that provider's vendor key. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/monid-ai/monid).
+
+### [anymd](https://sylphxai.github.io/anymd/)
+
+A local Rust MCP server and CLI that turns PDFs, Office files, HTML, images, audio and video into Markdown for agents.
+
+**For:** People whose coding agents need to read local documents as Markdown.
+
+**Access and use:** npx -y @sylphx/anymd setup. Needs Node 18 or later. Also brew install sylphxai/tap/anymd, pip, Docker or cargo. Local MIT binary needs no API key. OCR and ASR model downloads need explicit opt-in. Confine the MCP server with --allow-dir. Hosted Sylphx AI parse is a paid metered service that uses the same crates. anymd Pro is an optional one-time purchase for cite-check and video timelines. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/SylphxAI/anymd).
 
 ## Security and governance
 

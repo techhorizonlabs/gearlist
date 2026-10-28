@@ -1301,6 +1301,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "codexbar",
+      "name": "CodexBar",
+      "category": "Agent tools",
+      "url": "https://codexbar.app",
+      "description": "A macOS menu bar app, Linux desktop app and CLI that shows remaining usage windows across AI coding providers.",
+      "for_whom": "People who need to see when Codex, Claude and other coding-plan quotas reset.",
+      "access_notes": "macOS 14 or later: brew install --cask codexbar, or download from GitHub Releases. Linux: Qt desktop plus CLI via brew install steipete/tap/codexbar. Reuses existing provider sessions, cookies and API keys, and stores no passwords. Full Disk Access is optional for Safari cookies. Optional CLI serve defaults to 127.0.0.1:8080; a non-loopback bind needs a dashboard token and --allow-plain-http. MIT.",
+      "source_url": "https://github.com/steipete/CodexBar",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "anymd",
+      "name": "anymd",
+      "category": "MCP and integrations",
+      "url": "https://sylphxai.github.io/anymd/",
+      "description": "A local Rust MCP server and CLI that turns PDFs, Office files, HTML, images, audio and video into Markdown for agents.",
+      "for_whom": "People whose coding agents need to read local documents as Markdown.",
+      "access_notes": "npx -y @sylphx/anymd setup. Needs Node 18 or later. Also brew install sylphxai/tap/anymd, pip, Docker or cargo. Local MIT binary needs no API key. OCR and ASR model downloads need explicit opt-in. Confine the MCP server with --allow-dir. Hosted Sylphx AI parse is a paid metered service that uses the same crates. anymd Pro is an optional one-time purchase for cite-check and video timelines. MIT.",
+      "source_url": "https://github.com/SylphxAI/anymd",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
