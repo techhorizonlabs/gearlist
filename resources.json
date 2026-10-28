@@ -2497,6 +2497,32 @@
       "source_checked": "2026-10-29",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "ztm",
+      "name": "ZTM",
+      "category": "Platforms",
+      "url": "https://github.com/flomesh-io/ztm",
+      "description": "An Apache-licensed zero-trust mesh of HTTP/2 tunnels, with a hub, agents, TLS certificates and apps for tunnel, proxy, script and terminal.",
+      "for_whom": "People who want a small private mesh across home, work and a cloud box, without a SaaS overlay.",
+      "access_notes": "Download the CLI or desktop app from GitHub Releases. Hub: ztm start hub --listen 0.0.0.0:8888 --names YOUR_PUBLIC_IP:8888 --permit root.json. Agent: ztm start agent, then ztm join MESH --as NAME --permit root.json. GUI is http://localhost:7777 after the agent starts. Hub state is ~/.ztm/ztm-hub.db; agent state is ~/.ztm/ztm.db. Traffic is TLS. The permit file is the join key. Apache-2.0.",
+      "source_url": "https://github.com/flomesh-io/ztm",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "codag",
+      "name": "Codag",
+      "category": "Agent tools",
+      "url": "https://codag.ai",
+      "description": "An MIT VS Code extension that graphs LLM calls and agent frameworks in a checkout, with a local Gemini backend for workflow labels.",
+      "for_whom": "Engineers who want a map of which files call which models, beside the source.",
+      "access_notes": "VS Code: install Codag from the Marketplace. Self-host: git clone https://github.com/michaelzixizhou/codag.git, copy backend/.env.example to backend/.env, set GEMINI_API_KEY, then make setup and docker compose up -d. Backend is http://localhost:52104. Selected files go to Gemini 2.5 Flash for workflow labels. Live edits stay on the machine (tree-sitter). MIT.",
+      "source_url": "https://github.com/michaelzixizhou/codag",
+      "source_checked": "2026-10-29",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

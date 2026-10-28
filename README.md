@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 192 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 194 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (69)
+- [Agent tools](#agent-tools) (70)
 - [MCP and integrations](#mcp-and-integrations) (20)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (47)
+- [Platforms](#platforms) (48)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (47)
 
@@ -718,6 +718,16 @@ An MIT Node agent that quotes, does and gets paid for marketplace tasks, then st
 **Access and use:** npm install -g cashclaw-agent moltlaunch then cashclaw. Setup is http://localhost:3777. Needs a Moltlaunch wallet (mltl) and an Anthropic, OpenAI or OpenRouter key. Quotes and payouts are in ETH on Base through that wallet. Optional AgentCash calls charge USDC from ~/.agentcash/wallet.json. State is ~/.cashclaw. Auto-quote and auto-work are on by default, so it quotes and submits work without asking; turn them off in Settings to approve each job. When idle it runs study sessions every 30 minutes by default, which call your LLM. Prompts go to the LLM you set. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/moltlaunch/cashclaw).
+
+### [Codag](https://codag.ai)
+
+An MIT VS Code extension that graphs LLM calls and agent frameworks in a checkout, with a local Gemini backend for workflow labels.
+
+**For:** Engineers who want a map of which files call which models, beside the source.
+
+**Access and use:** VS Code: install Codag from the Marketplace. Self-host: git clone https://github.com/michaelzixizhou/codag.git, copy backend/.env.example to backend/.env, set GEMINI_API_KEY, then make setup and docker compose up -d. Backend is http://localhost:52104. Selected files go to Gemini 2.5 Flash for workflow labels. Live edits stay on the machine (tree-sitter). MIT.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/michaelzixizhou/codag).
 
 ## MCP and integrations
 
@@ -1444,6 +1454,16 @@ A LangChain desktop UI for deepagentsjs, with filesystem tools, planning and sub
 **Access and use:** npx openwork, or npm install -g openwork then openwork. Needs Node.js 18 or later. From source: git clone https://github.com/langchain-ai/openwork.git && npm install && npm run dev. Set Anthropic, OpenAI or Google keys in the settings panel. Agents can read the filesystem and run shell commands; review each tool call and only open workspaces you trust. Prompts go to the model provider you choose. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/langchain-ai/openwork).
+
+### [ZTM](https://github.com/flomesh-io/ztm)
+
+An Apache-licensed zero-trust mesh of HTTP/2 tunnels, with a hub, agents, TLS certificates and apps for tunnel, proxy, script and terminal.
+
+**For:** People who want a small private mesh across home, work and a cloud box, without a SaaS overlay.
+
+**Access and use:** Download the CLI or desktop app from GitHub Releases. Hub: ztm start hub --listen 0.0.0.0:8888 --names YOUR_PUBLIC_IP:8888 --permit root.json. Agent: ztm start agent, then ztm join MESH --as NAME --permit root.json. GUI is http://localhost:7777 after the agent starts. Hub state is ~/.ztm/ztm-hub.db; agent state is ~/.ztm/ztm.db. Traffic is TLS. The permit file is the join key. Apache-2.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/flomesh-io/ztm).
 
 ## Protocols
 
