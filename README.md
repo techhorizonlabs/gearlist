@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 180 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 182 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,7 +22,7 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (66)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (41)
+- [Platforms](#platforms) (43)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (45)
 
@@ -1344,6 +1344,26 @@ An Apache-licensed FastAPI and Next.js executive persona backed by nine speciali
 **Access and use:** git clone https://github.com/SenteLabsAI/OpenExecutive.git && make install, copy .env.example to .env, set ANTHROPIC_API_KEY, then make dev. UI is http://localhost:3000; API is http://localhost:8000. Needs Python 3.11+ and Node 22.6+. First boot downloads an embedding model of about 90 MB. Local make dev with blank AUTH_GOOGLE_ID accepts connections from this computer only. Company documents and memory are stored on the host (ChromaDB and SQLite); prompts, retrieved document chunks and memory go to the Anthropic API. Slack, mail, Telegram, Google Chat and similar connectors send messages through those services when you set their tokens. Apache-2.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/SenteLabsAI/OpenExecutive).
+
+### [Mailflare](https://mailflare.co)
+
+An AGPL custom-domain inbox with calendar, booking, Drive and an MCP mail assistant, running on Cloudflare Workers or Docker.
+
+**For:** People who want mailboxes on their own domain, on a Cloudflare account or a Docker host they run.
+
+**Access and use:** Cloudflare: Deploy to Cloudflare with Worker name mailflare, then open /setup to create the first admin account. CF_TOKEN is a scoped API token that can edit DNS and Email Routing on the zones you connect, and Email Sending if you send through Cloudflare. Docker: git clone https://github.com/hieunc229/mailflare.git && cd mailflare && cp .env.docker.example .env.docker && docker compose up -d --build. Setup is http://localhost:3000/setup. On Cloudflare, mailbox records live in D1 and files live in R2 (or B2 or S3) in that account. Docker stores SQLite, mail and backups in the mailflare-data volume. Send and receive through Cloudflare Email, Resend, Amazon SES or SMTP. The assistant sends mailbox content to the AI provider you set under Admin, Agent. MCP is Streamable HTTP at /mcp on your origin with a Bearer key; request_send still needs confirmation in Mailflare. Optional Pro and Team licence keys are checked with Paymug. AGPL-3.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/hieunc229/mailflare).
+
+### [OpenScience](https://openscience.sh)
+
+An Apache-licensed research workbench that plans, searches literature, runs code and experiments, and writes up results with a visible trace.
+
+**For:** Researchers who want a local workbench that keeps project files on the machine and sends model calls to a provider they choose.
+
+**Access and use:** Desktop app for macOS, Windows and Linux from https://openscience.sh/download. CLI: npm install -g @synsci/openscience then openscience. Or npx synsci. Or curl -fsSL https://openscience.sh/install | bash (read the script before running it). First launch of the GUI asks you to sign in to a Synthetic Sciences account. Project files stay in the connected folder. Prompts go to the model provider you connect, a local endpoint, or Ace Wallet pay as you go. Ace auto reload is a separate opt-in that charges a saved card. Search, database connectors and remote compute send queries and selected files to those services. While signed in, session traces are shared by default, including sessions that use your own keys or a local model; turn that off under Customize, Permissions, Data and privacy. Apache-2.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/synthetic-sciences/openscience).
 
 ## Protocols
 
