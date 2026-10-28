@@ -335,7 +335,7 @@ An agent memory server that retains, recalls and reflects, so an agent can learn
 
 **For:** People who want long-term memory for a coding agent or a custom agent they run themselves.
 
-**Access and use:** Docker image ghcr.io/vectorize-io/hindsight:latest publishes API on localhost:8888 and UI on localhost:9999, and needs an LLM key. Also pip install hindsight-api. MCP is http://localhost:8888/mcp/{bank_id}/. Coding agents: npx @vectorize-io/hindsight-coding-agents install all. CLI installer is curl -fsSL https://hindsight.vectorize.io/get-cli | bash. Read the script before running it. Optional hosted cloud is a paid product. MIT.
+**Access and use:** Docker image ghcr.io/vectorize-io/hindsight:latest publishes API on localhost:8888 and UI on localhost:9999, and needs an LLM provider: an API key, a local model such as Ollama, or an existing Claude, ChatGPT, Cursor or Copilot subscription. Also pip install hindsight-api. MCP is http://localhost:8888/mcp/{bank_id}/. Coding agents: npx @vectorize-io/hindsight-coding-agents install all. CLI installer is curl -fsSL https://hindsight.vectorize.io/get-cli | bash. Read the script before running it. Optional hosted cloud is a paid product. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/vectorize-io/hindsight).
 
