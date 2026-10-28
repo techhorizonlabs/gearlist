@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 160 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 162 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -20,11 +20,11 @@ npx skills add techhorizonlabs/gearlist
 ## Contents
 
 - [Agent tools](#agent-tools) (64)
-- [MCP and integrations](#mcp-and-integrations) (17)
+- [MCP and integrations](#mcp-and-integrations) (18)
 - [Security and governance](#security-and-governance) (5)
 - [Platforms](#platforms) (28)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (42)
+- [Skills and learning](#skills-and-learning) (43)
 
 
 ## Agent tools
@@ -841,6 +841,16 @@ An MCP server that queries Plausible Analytics for traffic, conversions and peri
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/getsentry/plausible-mcp).
 
+### [Short Video Maker](https://github.com/gyoridavid/short-video-maker)
+
+A local MCP and REST server that turns English narration scenes into captioned short videos with Kokoro speech, Whisper captions, Pexels B-roll and Remotion.
+
+**For:** People generating English short-form videos on their own machine or Docker host.
+
+**Access and use:** Needs a free Pexels API key, about 4 GB RAM, 2 vCPU and 5 GB disk. Docker tiny image: docker run -it --rm --name short-video-maker -p 3123:3123 -e PEXELS_API_KEY= gyoridavid/short-video-maker:latest-tiny. Web UI and REST at http://localhost:3123. MCP SSE at /mcp/sse. Videos land in ~/.ai-agents-az-video-generator with npm, or /app/data in Docker. English voiceover only. Windows is unsupported. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/gyoridavid/short-video-maker).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -1638,6 +1648,16 @@ Twenty-six agent skills for screenwriting, television writing and dramaturgy, fo
 **Access and use:** Claude Code: /plugin marketplace add jtydhr88/screenwriting-skills then /plugin install screenwriting@screenwriting-skills. Skills run as /screenwriting:<skill>. Codex: codex plugin marketplace add jtydhr88/screenwriting-skills then install Screenwriting Skills from Plugins. Manual copy writes plugins/screenwriting/skills/* into ~/.claude/skills/ or ~/.agents/skills/ (or the project .claude/skills / .agents/skills). Skill bodies are Chinese; the agent answers in the language you asked. sw-workflow keeps project state in story-bible.md. MIT covers the skill architecture; quotations from the listed books and scripts stay with their rights holders (NOTICE).
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/jtydhr88/screenwriting-skills).
+
+### [Cookiy User Research](https://github.com/cookiy-ai/user-research-skill)
+
+An MIT agent skill that plans user research, synthesises interview transcripts, and can run interviews and surveys through Cookiy AI.
+
+**For:** Product and research people who want an agent to plan studies or launch them on Cookiy.
+
+**Access and use:** Claude Code: /plugin marketplace add cookiy-ai/user-research-skill then /plugin install user-research@cookiy-ai then /reload-plugins. Invoke /user-research-cookiy. Cowork and Claude Desktop need network egress; allow s-api.cookiy.ai. Other agents: npx cookiy-ai or npm install -g @cookiyai/cookiy-cli (Node.js 18+). Planning and local transcript synthesis run in the agent. Running interviews or surveys needs a Cookiy login: the CLI prints a login URL, the human pastes an access token into cookiy save-token. Recruited sessions spend money on cookiy.ai; run cookiy user info for limits. MIT for the skill.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/cookiy-ai/user-research-skill).
 
 ## Looking for more?
 

@@ -2081,6 +2081,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "cookiy-user-research",
+      "name": "Cookiy User Research",
+      "category": "Skills and learning",
+      "url": "https://github.com/cookiy-ai/user-research-skill",
+      "description": "An MIT agent skill that plans user research, synthesises interview transcripts, and can run interviews and surveys through Cookiy AI.",
+      "for_whom": "Product and research people who want an agent to plan studies or launch them on Cookiy.",
+      "access_notes": "Claude Code: /plugin marketplace add cookiy-ai/user-research-skill then /plugin install user-research@cookiy-ai then /reload-plugins. Invoke /user-research-cookiy. Cowork and Claude Desktop need network egress; allow s-api.cookiy.ai. Other agents: npx cookiy-ai or npm install -g @cookiyai/cookiy-cli (Node.js 18+). Planning and local transcript synthesis run in the agent. Running interviews or surveys needs a Cookiy login: the CLI prints a login URL, the human pastes an access token into cookiy save-token. Recruited sessions spend money on cookiy.ai; run cookiy user info for limits. MIT for the skill.",
+      "source_url": "https://github.com/cookiy-ai/user-research-skill",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "short-video-maker",
+      "name": "Short Video Maker",
+      "category": "MCP and integrations",
+      "url": "https://github.com/gyoridavid/short-video-maker",
+      "description": "A local MCP and REST server that turns English narration scenes into captioned short videos with Kokoro speech, Whisper captions, Pexels B-roll and Remotion.",
+      "for_whom": "People generating English short-form videos on their own machine or Docker host.",
+      "access_notes": "Needs a free Pexels API key, about 4 GB RAM, 2 vCPU and 5 GB disk. Docker tiny image: docker run -it --rm --name short-video-maker -p 3123:3123 -e PEXELS_API_KEY= gyoridavid/short-video-maker:latest-tiny. Web UI and REST at http://localhost:3123. MCP SSE at /mcp/sse. Videos land in ~/.ai-agents-az-video-generator with npm, or /app/data in Docker. English voiceover only. Windows is unsupported. MIT.",
+      "source_url": "https://github.com/gyoridavid/short-video-maker",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

@@ -570,6 +570,13 @@ For: People who want a coding agent to read Plausible stats with a Plausible API
 Access: Hosted: claude mcp add --transport http plausible https://plausible-mcp.sentry.dev/mcp --header "Authorization: Bearer YOUR_PLAUSIBLE_API_KEY". Queries go to that Sentry-hosted server with your key. Tools are read-only. Local: Node.js 20+, git clone, pnpm install and pnpm build, then node dist/index.js with PLAUSIBLE_API_KEY. PLAUSIBLE_BASE_URL points at a self-hosted Plausible. The hosted /internal path is for Sentry staff. MIT.
 Source checked: 2026-10-28
 
+Short Video Maker | MCP and integrations
+https://github.com/gyoridavid/short-video-maker
+A local MCP and REST server that turns English narration scenes into captioned short videos with Kokoro speech, Whisper captions, Pexels B-roll and Remotion.
+For: People generating English short-form videos on their own machine or Docker host.
+Access: Needs a free Pexels API key, about 4 GB RAM, 2 vCPU and 5 GB disk. Docker tiny image: docker run -it --rm --name short-video-maker -p 3123:3123 -e PEXELS_API_KEY= gyoridavid/short-video-maker:latest-tiny. Web UI and REST at http://localhost:3123. MCP SSE at /mcp/sse. Videos land in ~/.ai-agents-az-video-generator with npm, or /app/data in Docker. English voiceover only. Windows is unsupported. MIT.
+Source checked: 2026-10-28
+
 CISO AI | Security and governance
 https://cisoai.au/
 Security briefings, analysis and governance resources.
@@ -1121,4 +1128,11 @@ https://github.com/jtydhr88/screenwriting-skills
 Twenty-six agent skills for screenwriting, television writing and dramaturgy, following the agentskills.io format for Claude Code and Codex.
 For: Writers and agents drafting features, series or stage work who want craft checklists beside the script.
 Access: Claude Code: /plugin marketplace add jtydhr88/screenwriting-skills then /plugin install screenwriting@screenwriting-skills. Skills run as /screenwriting:<skill>. Codex: codex plugin marketplace add jtydhr88/screenwriting-skills then install Screenwriting Skills from Plugins. Manual copy writes plugins/screenwriting/skills/* into ~/.claude/skills/ or ~/.agents/skills/ (or the project .claude/skills / .agents/skills). Skill bodies are Chinese; the agent answers in the language you asked. sw-workflow keeps project state in story-bible.md. MIT covers the skill architecture; quotations from the listed books and scripts stay with their rights holders (NOTICE).
+Source checked: 2026-10-28
+
+Cookiy User Research | Skills and learning
+https://github.com/cookiy-ai/user-research-skill
+An MIT agent skill that plans user research, synthesises interview transcripts, and can run interviews and surveys through Cookiy AI.
+For: Product and research people who want an agent to plan studies or launch them on Cookiy.
+Access: Claude Code: /plugin marketplace add cookiy-ai/user-research-skill then /plugin install user-research@cookiy-ai then /reload-plugins. Invoke /user-research-cookiy. Cowork and Claude Desktop need network egress; allow s-api.cookiy.ai. Other agents: npx cookiy-ai or npm install -g @cookiyai/cookiy-cli (Node.js 18+). Planning and local transcript synthesis run in the agent. Running interviews or surveys needs a Cookiy login: the CLI prints a login URL, the human pastes an access token into cookiy save-token. Recruited sessions spend money on cookiy.ai; run cookiy user info for limits. MIT for the skill.
 Source checked: 2026-10-28
