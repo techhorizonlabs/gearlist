@@ -374,6 +374,13 @@ For: People who want answers from their own files that stay current as those fil
 Access: pip 23.1 or later. pip install serviette. Needs a free Pathway licence in PATHWAY_LICENSE_KEY from pathway.com/framework/get-license (GitHub or LinkedIn sign-in). Default server binds localhost:8989 with no built-in auth. Local embeddings extra is serviette[local]. MIT.
 Source checked: 2026-10-28
 
+DeerFlow | Platforms
+https://deerflow.tech
+A self-hosted agent harness that runs sub-agents, skills, memory and sandboxes for long research and coding jobs.
+For: People who want a local super-agent stack they can configure with their own model keys.
+Access: Clone https://github.com/bytedance/deer-flow then make setup. Docker is make docker-init and make docker-start. Python 3.12 or later and Node 22 or later for a local run. The Docker stack and local start bind to 127.0.0.1. Treat Gateway admin as code execution on the host. Set BIND_HOST only after you have put auth in place. MIT.
+Source checked: 2026-10-28
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.
@@ -533,4 +540,11 @@ https://archify.si
 A skill that turns a description or a repository into a self-contained interactive HTML diagram you can open in a browser.
 For: People who want a coding agent to draw an architecture, sequence or explainer page they can share as one file.
 Access: npx skills add tt-a1i/archify -g. Optional preview binds a random port on 127.0.0.1. Archify may GET a stable-release manifest to show an update reminder; set ARCHIFY_UPDATE_CHECK_DISABLED=1 to turn that off. Third-party paid services listed in the README are run by those providers. Apache-2.0.
+Source checked: 2026-10-28
+
+last30days | Skills and learning
+https://github.com/mvanhorn/last30days-skill
+A research skill that searches Reddit, Hacker News, GitHub, Polymarket and optional social APIs, then writes a cited brief from the last 30 days.
+For: People who want a coding agent to brief them on a person, product or topic from recent public conversation.
+Access: Claude Code: /plugin marketplace add mvanhorn/last30days-skill then /plugin install last30days. Other hosts: npx skills add mvanhorn/last30days-skill -g. Reddit, HN, Polymarket and GitHub work with no keys. Extra sources need API keys or a logged-in browser. Needs Python 3.12 or later. MIT.
 Source checked: 2026-10-28

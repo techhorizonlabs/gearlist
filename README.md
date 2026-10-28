@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 76 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 78 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,9 +22,9 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (30)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (7)
+- [Platforms](#platforms) (8)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (22)
+- [Skills and learning](#skills-and-learning) (23)
 
 
 ## Agent tools
@@ -565,6 +565,16 @@ A RAG server that watches a folder of documents, keeps a vector index live, and 
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/pathwaycom/serviette).
 
+### [DeerFlow](https://deerflow.tech)
+
+A self-hosted agent harness that runs sub-agents, skills, memory and sandboxes for long research and coding jobs.
+
+**For:** People who want a local super-agent stack they can configure with their own model keys.
+
+**Access and use:** Clone https://github.com/bytedance/deer-flow then make setup. Docker is make docker-init and make docker-start. Python 3.12 or later and Node 22 or later for a local run. The Docker stack and local start bind to 127.0.0.1. Treat Gateway admin as code execution on the host. Set BIND_HOST only after you have put auth in place. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/bytedance/deer-flow).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -798,6 +808,16 @@ A skill that turns a description or a repository into a self-contained interacti
 **Access and use:** npx skills add tt-a1i/archify -g. Optional preview binds a random port on 127.0.0.1. Archify may GET a stable-release manifest to show an update reminder; set ARCHIFY_UPDATE_CHECK_DISABLED=1 to turn that off. Third-party paid services listed in the README are run by those providers. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/tt-a1i/archify).
+
+### [last30days](https://github.com/mvanhorn/last30days-skill)
+
+A research skill that searches Reddit, Hacker News, GitHub, Polymarket and optional social APIs, then writes a cited brief from the last 30 days.
+
+**For:** People who want a coding agent to brief them on a person, product or topic from recent public conversation.
+
+**Access and use:** Claude Code: /plugin marketplace add mvanhorn/last30days-skill then /plugin install last30days. Other hosts: npx skills add mvanhorn/last30days-skill -g. Reddit, HN, Polymarket and GitHub work with no keys. Extra sources need API keys or a logged-in browser. Needs Python 3.12 or later. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/mvanhorn/last30days-skill).
 
 ## Looking for more?
 

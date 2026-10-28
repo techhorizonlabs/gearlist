@@ -989,6 +989,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "deerflow",
+      "name": "DeerFlow",
+      "category": "Platforms",
+      "url": "https://deerflow.tech",
+      "description": "A self-hosted agent harness that runs sub-agents, skills, memory and sandboxes for long research and coding jobs.",
+      "for_whom": "People who want a local super-agent stack they can configure with their own model keys.",
+      "access_notes": "Clone https://github.com/bytedance/deer-flow then make setup. Docker is make docker-init and make docker-start. Python 3.12 or later and Node 22 or later for a local run. The Docker stack and local start bind to 127.0.0.1. Treat Gateway admin as code execution on the host. Set BIND_HOST only after you have put auth in place. MIT.",
+      "source_url": "https://github.com/bytedance/deer-flow",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "last30days",
+      "name": "last30days",
+      "category": "Skills and learning",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "description": "A research skill that searches Reddit, Hacker News, GitHub, Polymarket and optional social APIs, then writes a cited brief from the last 30 days.",
+      "for_whom": "People who want a coding agent to brief them on a person, product or topic from recent public conversation.",
+      "access_notes": "Claude Code: /plugin marketplace add mvanhorn/last30days-skill then /plugin install last30days. Other hosts: npx skills add mvanhorn/last30days-skill -g. Reddit, HN, Polymarket and GitHub work with no keys. Extra sources need API keys or a logged-in browser. Needs Python 3.12 or later. MIT.",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
