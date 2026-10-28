@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 78 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 80 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,7 +22,7 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (30)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (8)
+- [Platforms](#platforms) (10)
 - [Protocols](#protocols) (1)
 - [Skills and learning](#skills-and-learning) (23)
 
@@ -574,6 +574,26 @@ A self-hosted agent harness that runs sub-agents, skills, memory and sandboxes f
 **Access and use:** Clone https://github.com/bytedance/deer-flow then make setup. Docker is make docker-init and make docker-start. Python 3.12 or later and Node 22 or later for a local run. The Docker stack and local start bind to 127.0.0.1. Treat Gateway admin as code execution on the host. Set BIND_HOST only after you have put auth in place. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/bytedance/deer-flow).
+
+### [OpenClaw](https://openclaw.ai)
+
+A self-hosted assistant gateway that meets you in the chat apps you already use, with native apps for macOS, iOS, Android, Windows and Linux.
+
+**For:** People who want one local assistant that can talk on WhatsApp, Slack, Telegram and other channels, using their own model keys.
+
+**Access and use:** Installer is curl -fsSL https://openclaw.ai/install.sh | bash. Read the script before running it. Also npm install -g openclaw@latest --allow-scripts=openclaw. Needs Node 24.22.1 or later, or Node 26.12.1 or later. After npm, run openclaw onboard --install-daemon. Daily version check is on by default; anonymous feature statistics are opt-in; update.checkOnStart: false turns both off. Tools run on the host unless you configure sandboxing. Treat inbound messages as untrusted. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/openclaw/openclaw).
+
+### [DeepSeek Harness](https://deepseek-harness.github.io/deepseek-harness/)
+
+An open-source agent harness from DeepSeek where every capability is a plugin, with a local web UI.
+
+**For:** People who want to run DeepSeek's plugin-based agent stack on their own machine.
+
+**Access and use:** npx @deepseek-ai/dsh web. Default web UI is http://127.0.0.1:3080. Marked developer preview with expected breaking changes. The SAFETY notice says it can execute model-generated code, load plugins, and has not been security audited. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/deepseek-ai/deepseek-harness).
 
 ## Protocols
 

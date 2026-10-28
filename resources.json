@@ -1015,6 +1015,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "category": "Platforms",
+      "url": "https://openclaw.ai",
+      "description": "A self-hosted assistant gateway that meets you in the chat apps you already use, with native apps for macOS, iOS, Android, Windows and Linux.",
+      "for_whom": "People who want one local assistant that can talk on WhatsApp, Slack, Telegram and other channels, using their own model keys.",
+      "access_notes": "Installer is curl -fsSL https://openclaw.ai/install.sh | bash. Read the script before running it. Also npm install -g openclaw@latest --allow-scripts=openclaw. Needs Node 24.22.1 or later, or Node 26.12.1 or later. After npm, run openclaw onboard --install-daemon. Daily version check is on by default; anonymous feature statistics are opt-in; update.checkOnStart: false turns both off. Tools run on the host unless you configure sandboxing. Treat inbound messages as untrusted. MIT.",
+      "source_url": "https://github.com/openclaw/openclaw",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "deepseek-harness",
+      "name": "DeepSeek Harness",
+      "category": "Platforms",
+      "url": "https://deepseek-harness.github.io/deepseek-harness/",
+      "description": "An open-source agent harness from DeepSeek where every capability is a plugin, with a local web UI.",
+      "for_whom": "People who want to run DeepSeek's plugin-based agent stack on their own machine.",
+      "access_notes": "npx @deepseek-ai/dsh web. Default web UI is http://127.0.0.1:3080. Marked developer preview with expected breaking changes. The SAFETY notice says it can execute model-generated code, load plugins, and has not been security audited. MIT.",
+      "source_url": "https://github.com/deepseek-ai/deepseek-harness",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
