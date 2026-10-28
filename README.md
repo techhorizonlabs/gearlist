@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 178 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 180 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (65)
+- [Agent tools](#agent-tools) (66)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (40)
+- [Platforms](#platforms) (41)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (45)
 
@@ -679,6 +679,16 @@ A command-line downloader for image galleries and collections from hundreds of h
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/mikf/gallery-dl).
 
+### [OpenAlice](https://openalice.ai)
+
+A local AI trading workspace that connects Claude Code, Codex, OpenCode and similar agents to market data, research folders and broker accounts.
+
+**For:** People who want agents to research markets on their machine, with optional paper or live trading they approve.
+
+**Access and use:** Desktop app for macOS and Windows from GitHub Releases; a broker account is optional for research. Source: git clone https://github.com/TraderAlice/OpenAlice.git && pnpm install && pnpm dev. State is ~/.openalice; workspaces are local Git directories. Broker credentials are sealed at rest. Agents and market-data providers still send prompts and quotes to their own services. Trading execution is beta: start with simulator, paper, demo or testnet; you review and approve live orders. AGPL-3.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/TraderAlice/OpenAlice).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -1324,6 +1334,16 @@ A Java manga reader server that runs Mihon (Tachiyomi) extensions, with a bundle
 **Access and use:** OS bundles (Windows, macOS, Linux) ship JRE, Electron and a launcher from GitHub Releases. Docker: ghcr.io/suwayomi/tachidesk, default http://localhost:4567. Jar needs JRE 21+: java -jar Suwayomi-Server-vX.Y.Z-rxxxx.jar. Library, backups and downloads live on the host. Installed extensions fetch chapters from the manga sites you enable; optional FlareSolverr and trackers (MyAnimeList, AniList, MangaUpdates) send data to those services. MPL-2.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/Suwayomi/Suwayomi-Server).
+
+### [Open Executive](https://github.com/SenteLabsAI/OpenExecutive)
+
+An Apache-licensed FastAPI and Next.js executive persona backed by nine specialist agents, with local RAG, episodic memory and optional chat and mail connectors.
+
+**For:** Teams who want a self-hosted executive assistant that drafts in one voice and keeps humans in the send loop.
+
+**Access and use:** git clone https://github.com/SenteLabsAI/OpenExecutive.git && make install, copy .env.example to .env, set ANTHROPIC_API_KEY, then make dev. UI is http://localhost:3000; API is http://localhost:8000. Needs Python 3.11+ and Node 22.6+. First boot downloads an embedding model of about 90 MB. Local make dev with blank AUTH_GOOGLE_ID accepts connections from this computer only. Company documents and memory stay on the host (ChromaDB and SQLite). Slack, mail, Telegram, Google Chat and similar connectors send messages through those services when you set their tokens. Apache-2.0.
+
+**Source checked:** 2026-10-29. [Official source](https://github.com/SenteLabsAI/OpenExecutive).
 
 ## Protocols
 

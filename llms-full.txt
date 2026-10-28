@@ -458,6 +458,13 @@ For: People pulling galleries, manga or artist collections onto their own disk f
 Access: Needs Python 3.8+ and Requests. python -m pip install -U gallery-dl. macOS: brew install gallery-dl. Run gallery-dl URL. Config is ~/.config/gallery-dl/config.json (Linux/macOS) or %APPDATA%\gallery-dl\config.json (Windows). Login cookies, passwords and OAuth tokens are sent to the host you download from. Active development is on Codeberg: https://codeberg.org/mikf/gallery-dl. GPL-2.0.
 Source checked: 2026-10-28
 
+OpenAlice | Agent tools
+https://openalice.ai
+A local AI trading workspace that connects Claude Code, Codex, OpenCode and similar agents to market data, research folders and broker accounts.
+For: People who want agents to research markets on their machine, with optional paper or live trading they approve.
+Access: Desktop app for macOS and Windows from GitHub Releases; a broker account is optional for research. Source: git clone https://github.com/TraderAlice/OpenAlice.git && pnpm install && pnpm dev. State is ~/.openalice; workspaces are local Git directories. Broker credentials are sealed at rest. Agents and market-data providers still send prompts and quotes to their own services. Trading execution is beta: start with simulator, paper, demo or testnet; you review and approve live orders. AGPL-3.0.
+Source checked: 2026-10-29
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -904,6 +911,13 @@ https://github.com/Suwayomi/Suwayomi-Server
 A Java manga reader server that runs Mihon (Tachiyomi) extensions, with a bundled web UI, library, downloads and OPDS.
 For: People who want a self-hosted manga library that talks to the same sources as Mihon.
 Access: OS bundles (Windows, macOS, Linux) ship JRE, Electron and a launcher from GitHub Releases. Docker: ghcr.io/suwayomi/tachidesk, default http://localhost:4567. Jar needs JRE 21+: java -jar Suwayomi-Server-vX.Y.Z-rxxxx.jar. Library, backups and downloads live on the host. Installed extensions fetch chapters from the manga sites you enable; optional FlareSolverr and trackers (MyAnimeList, AniList, MangaUpdates) send data to those services. MPL-2.0.
+Source checked: 2026-10-29
+
+Open Executive | Platforms
+https://github.com/SenteLabsAI/OpenExecutive
+An Apache-licensed FastAPI and Next.js executive persona backed by nine specialist agents, with local RAG, episodic memory and optional chat and mail connectors.
+For: Teams who want a self-hosted executive assistant that drafts in one voice and keeps humans in the send loop.
+Access: git clone https://github.com/SenteLabsAI/OpenExecutive.git && make install, copy .env.example to .env, set ANTHROPIC_API_KEY, then make dev. UI is http://localhost:3000; API is http://localhost:8000. Needs Python 3.11+ and Node 22.6+. First boot downloads an embedding model of about 90 MB. Local make dev with blank AUTH_GOOGLE_ID accepts connections from this computer only. Company documents and memory stay on the host (ChromaDB and SQLite). Slack, mail, Telegram, Google Chat and similar connectors send messages through those services when you set their tokens. Apache-2.0.
 Source checked: 2026-10-29
 
 x402 | Protocols
