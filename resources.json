@@ -1379,6 +1379,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "eigent",
+      "name": "Eigent",
+      "category": "Agent tools",
+      "url": "https://www.eigent.ai",
+      "description": "An open-source desktop app that runs a single agent or a multi-agent workforce with browser, terminal, files and MCP on your machine.",
+      "for_whom": "People who want a local Cowork-style desktop that can operate files, a browser and a terminal.",
+      "access_notes": "Download from eigent.ai/download. Local deployment is docker compose in server/ plus npm run dev with VITE_USE_LOCAL_PROXY=true pointing at localhost:3001. Needs Node 18 to 22. Quick start git clone then npm install && npm run dev uses Eigent cloud and needs an account. Built-in browser and terminal toolkits can operate the desktop and signed-in sites. Cloud model providers receive the text you send them. Developer uvicorn --host 0.0.0.0 binds every interface. Apache-2.0.",
+      "source_url": "https://github.com/eigent-ai/eigent",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "watch",
+      "name": "/watch",
+      "category": "Skills and learning",
+      "url": "https://github.com/bradautomates/claude-video",
+      "description": "An agent skill that turns a video URL or local file into timestamped frames and a transcript.",
+      "for_whom": "People who want a coding agent to inspect a video as evidence.",
+      "access_notes": "Claude Code: /plugin marketplace add bradautomates/claude-video then /plugin install watch@claude-video. Also npx skills add bradautomates/claude-video -g --skill watch. Needs Python 3.10 or later, ffmpeg and yt-dlp. Default Gemini engine uploads videos to Google; --engine local keeps extraction on the machine. Cookie files and --cookies-from-browser are opt-in. Claude Chat and Cowork are unsupported. MIT.",
+      "source_url": "https://github.com/bradautomates/claude-video",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

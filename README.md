@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 106 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 108 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (39)
+- [Agent tools](#agent-tools) (40)
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (16)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (33)
+- [Skills and learning](#skills-and-learning) (34)
 
 
 ## Agent tools
@@ -418,6 +418,16 @@ A desktop browser that gives coding agents their own Spaces while they share you
 **Access and use:** macOS and Windows. npx skills add citrolabs/ego-lite, or download the app from lite.ego.app. On first launch it can migrate Chrome logins, cookies, extensions and bookmarks, and agents then use those sessions. Browsing data stays on the device. The app collects simple product signals such as whether it is the default browser. This entry covers the MIT skill repo. The browser is a separate free download. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/citrolabs/ego-lite).
+
+### [Eigent](https://www.eigent.ai)
+
+An open-source desktop app that runs a single agent or a multi-agent workforce with browser, terminal, files and MCP on your machine.
+
+**For:** People who want a local Cowork-style desktop that can operate files, a browser and a terminal.
+
+**Access and use:** Download from eigent.ai/download. Local deployment is docker compose in server/ plus npm run dev with VITE_USE_LOCAL_PROXY=true pointing at localhost:3001. Needs Node 18 to 22. Quick start git clone then npm install && npm run dev uses Eigent cloud and needs an account. Built-in browser and terminal toolkits can operate the desktop and signed-in sites. Cloud model providers receive the text you send them. Developer uvicorn --host 0.0.0.0 binds every interface. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/eigent-ai/eigent).
 
 ## MCP and integrations
 
@@ -1098,6 +1108,16 @@ A plugin of skills that runs a brainstorm, plan, build, review and capture-what-
 **Access and use:** Claude Code: /plugin marketplace add EveryInc/compound-engineering-plugin then /plugin install compound-engineering. Cursor: /add-plugin compound-engineering. Codex CLI: codex plugin marketplace add EveryInc/compound-engineering-plugin then codex plugin add compound-engineering@compound-engineering-plugin. Existing installs must refresh the marketplace before /plugin update. /lfg can push, open a PR and watch CI; it merges only if you grant that. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/EveryInc/compound-engineering-plugin).
+
+### [/watch](https://github.com/bradautomates/claude-video)
+
+An agent skill that turns a video URL or local file into timestamped frames and a transcript.
+
+**For:** People who want a coding agent to inspect a video as evidence.
+
+**Access and use:** Claude Code: /plugin marketplace add bradautomates/claude-video then /plugin install watch@claude-video. Also npx skills add bradautomates/claude-video -g --skill watch. Needs Python 3.10 or later, ffmpeg and yt-dlp. Default Gemini engine uploads videos to Google; --engine local keeps extraction on the machine. Cookie files and --cookies-from-browser are opt-in. Claude Chat and Cowork are unsupported. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/bradautomates/claude-video).
 
 ## Looking for more?
 
