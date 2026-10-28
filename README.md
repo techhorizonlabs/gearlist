@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 136 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 138 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,7 +19,7 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (54)
+- [Agent tools](#agent-tools) (56)
 - [MCP and integrations](#mcp-and-integrations) (14)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (23)
@@ -568,6 +568,26 @@ A local creator workspace around Codex CLI for video, images, voice, translation
 **Access and use:** Download the desktop installer from GitHub Releases (macOS Apple Silicon, macOS Intel, Windows x64). First launch can reuse a local Codex ChatGPT sign-in or API key. Web from source is pnpm web:dev at http://127.0.0.1:19861/. The daemon listens on loopback only. Video downloads from some platforms need cookies. Follow each site's terms. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/krillinai/OpenCreator).
+
+### [claude-devtools](https://github.com/matt1398/claude-devtools)
+
+A desktop app that reads Claude Code session logs already on the machine and reconstructs tool calls, thinking, tokens and subagent trees.
+
+**For:** People who want to inspect Claude Code sessions stored in ~/.claude/.
+
+**Access and use:** brew install --cask claude-devtools, or a GitHub Release for macOS, Linux or Windows. Docker compose up serves http://localhost:3456 with ~/.claude mounted read-only. The standalone server defaults HOST to 0.0.0.0 and has no outbound network calls. SSH remote sessions read ~/.ssh/config. File reads stay in the project root and ~/.claude. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/matt1398/claude-devtools).
+
+### [phone-harness](https://github.com/ShawnPana/phone-harness)
+
+A CLI and skill that lets a coding agent tap, type and read a real iPhone or Android, or a Phone Harness Cloud device.
+
+**For:** People who want an agent to operate a physical phone they already have, or a hosted cloud phone.
+
+**Access and use:** uv tool install --python 3.12 --upgrade --force phone-harness, then phone-harness skill. iPhone: macOS 15+, iPhone Mirroring paired to an iOS 18+ iPhone, Accessibility and Screen Recording. Android: adb with USB or wireless debugging. Cloud: phone-harness cloud login, then cloud start. A cloud Android bills by the minute. A cloud iPhone has no per-minute charge. The harness never types a PIN, a password or a 2FA code. PHONE_HARNESS_NO_UPDATE_CHECK=1 skips the daily PyPI check. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/ShawnPana/phone-harness).
 
 ## MCP and integrations
 

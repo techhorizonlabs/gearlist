@@ -381,6 +381,20 @@ For: People who want Codex-backed creative tools on the machine, with data and a
 Access: Download the desktop installer from GitHub Releases (macOS Apple Silicon, macOS Intel, Windows x64). First launch can reuse a local Codex ChatGPT sign-in or API key. Web from source is pnpm web:dev at http://127.0.0.1:19861/. The daemon listens on loopback only. Video downloads from some platforms need cookies. Follow each site's terms. Apache-2.0.
 Source checked: 2026-10-28
 
+claude-devtools | Agent tools
+https://github.com/matt1398/claude-devtools
+A desktop app that reads Claude Code session logs already on the machine and reconstructs tool calls, thinking, tokens and subagent trees.
+For: People who want to inspect Claude Code sessions stored in ~/.claude/.
+Access: brew install --cask claude-devtools, or a GitHub Release for macOS, Linux or Windows. Docker compose up serves http://localhost:3456 with ~/.claude mounted read-only. The standalone server defaults HOST to 0.0.0.0 and has no outbound network calls. SSH remote sessions read ~/.ssh/config. File reads stay in the project root and ~/.claude. MIT.
+Source checked: 2026-10-28
+
+phone-harness | Agent tools
+https://github.com/ShawnPana/phone-harness
+A CLI and skill that lets a coding agent tap, type and read a real iPhone or Android, or a Phone Harness Cloud device.
+For: People who want an agent to operate a physical phone they already have, or a hosted cloud phone.
+Access: uv tool install --python 3.12 --upgrade --force phone-harness, then phone-harness skill. iPhone: macOS 15+, iPhone Mirroring paired to an iOS 18+ iPhone, Accessibility and Screen Recording. Android: adb with USB or wireless debugging. Cloud: phone-harness cloud login, then cloud start. A cloud Android bills by the minute. A cloud iPhone has no per-minute charge. The harness never types a PIN, a password or a 2FA code. PHONE_HARNESS_NO_UPDATE_CHECK=1 skips the daily PyPI check. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.

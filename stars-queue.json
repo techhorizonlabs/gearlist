@@ -1603,8 +1603,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "beenuar/AiSOC",
@@ -4167,8 +4167,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "Jakubantalik/thinking-orbs",
