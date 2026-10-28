@@ -3,8 +3,8 @@
   "starred_total": 313,
   "updated": "2026-10-28",
   "counts": {
-    "already_published": 28,
-    "queued": 12,
+    "already_published": 32,
+    "queued": 8,
     "stored": 272,
     "excluded": 1
   },
@@ -399,8 +399,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to the catalog after documentation review. A star is not an endorsement."
     },
     {
       "full_name": "0xranx/OpenContext",
@@ -437,8 +437,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to the catalog after documentation review. A star is not an endorsement."
     },
     {
       "full_name": "SirAllap/agentglass",
@@ -494,8 +494,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to the catalog after documentation review. A star is not an endorsement."
     },
     {
       "full_name": "wchao6891/PromptDirector",
@@ -570,8 +570,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Promoted to the catalog after documentation review. A star is not an endorsement."
     },
     {
       "full_name": "Battam1111/omniseek",

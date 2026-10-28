@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 47 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 51 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (19)
-- [MCP and integrations](#mcp-and-integrations) (10)
+- [Agent tools](#agent-tools) (21)
+- [MCP and integrations](#mcp-and-integrations) (11)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (3)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (10)
+- [Skills and learning](#skills-and-learning) (11)
 
 
 ## Agent tools
@@ -215,9 +215,29 @@ A local desktop workspace that gathers coding-agent terminals, diffs, pull reque
 
 **For:** People running Claude Code, Codex, Gemini CLI or OpenCode on their own machine, often several at once.
 
-**Access and use:** Download from GitHub releases. macOS builds are unsigned. Opening it is the person's own decision. Data stays in local SQLite. Agents run with your permissions. It controls what they can approve, but it doesn't sandbox them. MIT.
+**Access and use:** Download from GitHub releases. macOS builds are unsigned. Opening it is your call. Data stays in local SQLite. Agents run with your permissions. It controls what they can approve, but it doesn't sandbox them. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/SirAllap/agentglass).
+
+### [Oya Browser](https://oyabrowser.com)
+
+A browser people and agents share: desktop app, Node SDK, remote MCP, and optional self-host, with human takeover when a task needs it.
+
+**For:** People whose agents need a signed-in browser they can watch and take over.
+
+**Access and use:** Desktop app from oyabrowser.com. SDK is npm install @oya-ai/browser with OYA_API_KEY. Remote MCP is https://oyabrowser.com/mcp/pool with that key. Self-host installer is curl -fsSL https://raw.githubusercontent.com/OyadotAI/oya-browser/main/install.sh | sh. Read the script before running it. Can reuse logins imported from Chrome, Arc, Brave, Edge or Firefox. SDK and CLI are MIT. The rest of the project is under the Sustainable Use License.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/OyadotAI/oya-browser).
+
+### [apra-fleet](https://github.com/Apra-Labs/apra-fleet)
+
+A local control plane that registers real machines as fleet members and runs durable multi-agent workflows across Claude, Codex, Copilot and other providers.
+
+**For:** People coordinating coding agents on more than one machine they already own.
+
+**Access and use:** Requires Node.js 22.16 or later. npm install -g @apralabs/apra-fleet, then apra-fleet install and apra-fleet start. MCP is http://localhost:7523/mcp by default. Secrets are entered out of band and never shown to the model. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Apra-Labs/apra-fleet).
 
 ## MCP and integrations
 
@@ -320,6 +340,16 @@ An MCP server and hooks layer that sandboxes large tool output, keeps a local se
 **Access and use:** In Claude Code: /plugin marketplace add mksglu/context-mode then /plugin install context-mode@context-mode. MCP-only: claude mcp add context-mode -- npx -y context-mode. ctx_execute can run code on your machine. Elastic License 2.0: you may not offer it as a hosted service that exposes its features.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/mksglu/context-mode).
+
+### [jCodeMunch MCP](https://github.com/jgravelle/jcodemunch-mcp)
+
+A local MCP server that indexes a codebase with tree-sitter and returns the function or class an agent asked for, instead of whole files.
+
+**For:** People whose coding agents spend context reading large files in Claude Code, Cursor, Codex or other MCP clients.
+
+**Access and use:** Install with uv tool install jcodemunch-mcp, then jcodemunch-mcp init. Indexes live at ~/.code-index/. Free for personal use. Commercial use needs a paid licence. Default install sends an anonymous savings counter; set share_savings false to opt out.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/jgravelle/jcodemunch-mcp).
 
 ## Security and governance
 
@@ -508,6 +538,16 @@ An independent community library of 818 cybersecurity skills in the agentskills.
 **Access and use:** Install with npx skills add mukul975/Anthropic-Cybersecurity-Skills. Apache-2.0. Includes offensive and dual-use techniques. Use only on systems you own or have written permission to test. A listed skill is not a security audit of your environment.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/mukul975/Anthropic-Cybersecurity-Skills).
+
+### [OrchestKit](https://orchestkit.dev)
+
+A free Claude Code plugin of skills, agents and hooks for review, testing, security and memory, with a smaller pack for Cursor and Codex.
+
+**For:** People who want those playbooks and quality gates on Claude Code or a compatible host.
+
+**Access and use:** Claude Code: claude plugin marketplace add yonatangross/orchestkit && claude plugin install ork@orchestkit, then /ork:setup. Hooks read tool events and write local metrics under ~/.local/state/orchestkit/. Prompt text is not recorded. Network telemetry is off unless you set a destination. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/yonatangross/orchestkit).
 
 ## Looking for more?
 
