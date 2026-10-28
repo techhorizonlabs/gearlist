@@ -1475,13 +1475,13 @@ An Apache-licensed zero-trust mesh of HTTP/2 tunnels, with a hub, agents, TLS ce
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/flomesh-io/ztm).
 
-### [CodeVibes](https://codevibes.akadanish.dev)
+### [CodeVibes](https://github.com/danish296/codevibes)
 
 An MIT GitHub-repo auditor that scores security, bugs and quality with DeepSeek and a 0 to 100 Vibe Score.
 
 **For:** Developers who want an AI pass over a GitHub repo for secrets, injection and quality.
 
-**Access and use:** Hosted: https://codevibes.akadanish.dev. Self-host: git clone https://github.com/danish296/codevibes.git, npm install, then cd codevibes-backend && npm install, copy .env.example to .env, set DEEPSEEK_API_KEY, JWT_SECRET and a 32-character ENCRYPTION_KEY. Backend: npm run dev at http://localhost:3001. Frontend: npm run dev at http://localhost:8080. History is SQLite at codevibes-backend/data/codevibes.db. Repo files go to DeepSeek. Private repos need a GitHub token or GitHub OAuth (GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET). MIT.
+**Access and use:** Self-host: git clone https://github.com/danish296/codevibes.git, npm install, then cd codevibes-backend && npm install, copy .env.example to .env, set DEEPSEEK_API_KEY, JWT_SECRET and a 32-character ENCRYPTION_KEY. Backend: npm run dev at http://localhost:3001. Frontend: npm run dev at http://localhost:8080. History is SQLite at codevibes-backend/data/codevibes.db. Repo files go to DeepSeek. Private repos need a GitHub token or GitHub OAuth (GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET). MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/danish296/codevibes).
 
