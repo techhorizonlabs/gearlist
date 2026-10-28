@@ -555,7 +555,7 @@ A local LLM router that picks a model per request and can pay the gateway with a
 
 **For:** People running agents that need a local OpenAI-compatible proxy with per-call billing.
 
-**Access and use:** npx @blockrun/clawrouter listens on localhost:8402. First run generates a wallet locally. Paid models spend USDC from that wallet per call, or sign up at user.blockrun.ai and run clawrouter login with a brk_live_ key. Free models need no wallet. The OpenClaw plugin path is curl -fsSL https://blockrun.ai/ClawRouter-update | bash; read the script before running it. Outbound voice and phone tools bill the wallet automatically. MIT.
+**Access and use:** npx @blockrun/clawrouter listens on localhost:8402. It picks the model locally, then sends each request through BlockRun's gateway, which bills it. First run generates a wallet locally. Paid models spend USDC from that wallet per call, or sign up at user.blockrun.ai and run clawrouter login with a brk_live_ key. Free models need no wallet. The OpenClaw plugin path is curl -fsSL https://blockrun.ai/ClawRouter-update | bash; read the script before running it. Outbound voice and phone tools bill the wallet automatically. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/BlockRunAI/ClawRouter).
 
