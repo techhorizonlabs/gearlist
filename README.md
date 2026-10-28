@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 96 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 98 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (35)
+- [Agent tools](#agent-tools) (36)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (14)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (30)
+- [Skills and learning](#skills-and-learning) (31)
 
 
 ## Agent tools
@@ -378,6 +378,16 @@ A small Go assistant that runs on a laptop or a cheap Linux board, with a local 
 **Access and use:** Download from picoclaw.io or GitHub Releases. picoclaw-launcher opens http://localhost:18800. The -public flag listens on every interface. Needs an LLM API key or a local model such as Ollama. Tools can read files and run commands on the host. Treat inbound messages as untrusted. Do not deploy to production before v1.0. PicoClaw has issued no official token; listings on token sites are scams. Official site is picoclaw.io. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/sipeed/picoclaw).
+
+### [changedetection.io](https://changedetection.io)
+
+A self-hosted watcher that checks web pages and notifies you when the content changes.
+
+**For:** People who want price, restock or page-content alerts from sites they choose to monitor.
+
+**Access and use:** Self-host: docker run -d -p 127.0.0.1:5000:5000 -v datastore-volume:/datastore --name changedetection.io dgtlmoon/changedetection.io then open http://127.0.0.1:5000. Also pip3 install changedetection.io. Hosted cloud is a paid product. Optional AI rules send page diffs to the LLM provider you configure. Follow each site's terms and robots.txt. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/dgtlmoon/changedetection.io).
 
 ## MCP and integrations
 
@@ -998,6 +1008,16 @@ A converter that turns a book, folder or set of documents you already have into 
 **Access and use:** npx skills add virgiliojr94/book-to-skill. Then /book-to-skill ./my-book.pdf. Extraction runs on your machine and the tool uploads nothing, but if your agent uses a cloud model, the text goes to that provider like any prompt. The MIT licence covers the converter. Books you process keep their own copyright. Keep generated skills of copyrighted books private. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/virgiliojr94/book-to-skill).
+
+### [video-use](https://github.com/browser-use/video-use)
+
+A coding-agent skill that transcribes a folder of takes and cuts a video from them.
+
+**For:** People who want Claude Code or Codex to edit talking-head or launch videos from local files.
+
+**Access and use:** git clone https://github.com/browser-use/video-use then symlink the repo into your agent's skills directory. Needs ffmpeg and an ElevenLabs API key for transcription. uv sync or pip install -e . Hosted product is on a waitlist at video-use.com. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/browser-use/video-use).
 
 ## Looking for more?
 

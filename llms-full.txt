@@ -248,6 +248,13 @@ For: People who want a local assistant on modest hardware, using their own model
 Access: Download from picoclaw.io or GitHub Releases. picoclaw-launcher opens http://localhost:18800. The -public flag listens on every interface. Needs an LLM API key or a local model such as Ollama. Tools can read files and run commands on the host. Treat inbound messages as untrusted. Do not deploy to production before v1.0. PicoClaw has issued no official token; listings on token sites are scams. Official site is picoclaw.io. MIT.
 Source checked: 2026-10-28
 
+changedetection.io | Agent tools
+https://changedetection.io
+A self-hosted watcher that checks web pages and notifies you when the content changes.
+For: People who want price, restock or page-content alerts from sites they choose to monitor.
+Access: Self-host: docker run -d -p 127.0.0.1:5000:5000 -v datastore-volume:/datastore --name changedetection.io dgtlmoon/changedetection.io then open http://127.0.0.1:5000. Also pip3 install changedetection.io. Hosted cloud is a paid product. Optional AI rules send page diffs to the LLM provider you configure. Follow each site's terms and robots.txt. Apache-2.0.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -673,4 +680,11 @@ https://github.com/virgiliojr94/book-to-skill
 A converter that turns a book, folder or set of documents you already have into a structured agent skill with on-demand chapters.
 For: People who want a coding agent to answer from a book or internal docs they own.
 Access: npx skills add virgiliojr94/book-to-skill. Then /book-to-skill ./my-book.pdf. Extraction runs on your machine and the tool uploads nothing, but if your agent uses a cloud model, the text goes to that provider like any prompt. The MIT licence covers the converter. Books you process keep their own copyright. Keep generated skills of copyrighted books private. MIT.
+Source checked: 2026-10-28
+
+video-use | Skills and learning
+https://github.com/browser-use/video-use
+A coding-agent skill that transcribes a folder of takes and cuts a video from them.
+For: People who want Claude Code or Codex to edit talking-head or launch videos from local files.
+Access: git clone https://github.com/browser-use/video-use then symlink the repo into your agent's skills directory. Needs ffmpeg and an ElevenLabs API key for transcription. uv sync or pip install -e . Hosted product is on a waitlist at video-use.com. MIT.
 Source checked: 2026-10-28

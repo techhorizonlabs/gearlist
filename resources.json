@@ -1249,6 +1249,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "changedetection",
+      "name": "changedetection.io",
+      "category": "Agent tools",
+      "url": "https://changedetection.io",
+      "description": "A self-hosted watcher that checks web pages and notifies you when the content changes.",
+      "for_whom": "People who want price, restock or page-content alerts from sites they choose to monitor.",
+      "access_notes": "Self-host: docker run -d -p 127.0.0.1:5000:5000 -v datastore-volume:/datastore --name changedetection.io dgtlmoon/changedetection.io then open http://127.0.0.1:5000. Also pip3 install changedetection.io. Hosted cloud is a paid product. Optional AI rules send page diffs to the LLM provider you configure. Follow each site's terms and robots.txt. Apache-2.0.",
+      "source_url": "https://github.com/dgtlmoon/changedetection.io",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "video-use",
+      "name": "video-use",
+      "category": "Skills and learning",
+      "url": "https://github.com/browser-use/video-use",
+      "description": "A coding-agent skill that transcribes a folder of takes and cuts a video from them.",
+      "for_whom": "People who want Claude Code or Codex to edit talking-head or launch videos from local files.",
+      "access_notes": "git clone https://github.com/browser-use/video-use then symlink the repo into your agent's skills directory. Needs ffmpeg and an ElevenLabs API key for transcription. uv sync or pip install -e . Hosted product is on a waitlist at video-use.com. MIT.",
+      "source_url": "https://github.com/browser-use/video-use",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
