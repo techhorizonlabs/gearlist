@@ -725,7 +725,7 @@ An MIT VS Code extension that graphs LLM calls and agent frameworks in a checkou
 
 **For:** Engineers who want a map of which files call which models, beside the source.
 
-**Access and use:** VS Code: install Codag from the Marketplace. Self-host: git clone https://github.com/michaelzixizhou/codag.git, copy backend/.env.example to backend/.env, set GEMINI_API_KEY, then make setup and docker compose up -d. Backend is http://localhost:52104. Selected files go to Gemini 2.5 Flash for workflow labels. Live edits stay on the machine (tree-sitter). MIT.
+**Access and use:** Run the backend first: git clone https://github.com/michaelzixizhou/codag.git, copy backend/.env.example to backend/.env, set GEMINI_API_KEY, then make setup and docker compose up -d. Backend is http://localhost:52104. Then install Codag from the VS Code Marketplace. On activation it writes .mcp.json (or .cursor/mcp.json) into the workspace. Selected files go to Gemini 2.5 Flash for workflow labels. Live edits stay on the machine (tree-sitter). MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/michaelzixizhou/codag).
 
