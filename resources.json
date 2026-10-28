@@ -1899,6 +1899,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "maestro",
+      "name": "Maestro",
+      "category": "Skills and learning",
+      "url": "https://maestroskills.dev",
+      "description": "A workflow skill pack with 25 commands, seven domain references, a memory layer and an MCP server for coding agents.",
+      "for_whom": "People who want Cursor, Claude Code, Codex, OpenCode or similar tools to follow a shared workflow skill.",
+      "access_notes": "npx skills add sharpdeveye/maestro copies skills into the provider folders in the project. For a live MCP server, add npx -y maestro-workflow-mcp to the client config (stdio). npx maestro-workflow-mcp --http --port 3001 serves /mcp on that port on every interface. /capture writes .maestro/ with context.md, decisions.jsonl, audit.jsonl and session files; session data is gitignored by default. MIT.",
+      "source_url": "https://github.com/sharpdeveye/maestro",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "chums",
+      "name": "Chums",
+      "category": "Agent tools",
+      "url": "https://chums.club",
+      "description": "Watch and iPhone apps that talk to Claude Code and Codex sessions running on your Mac, with a local hub.",
+      "for_whom": "People who want Claude Code or Codex on an Apple silicon Mac to take voice and approvals from an Apple Watch and iPhone.",
+      "access_notes": "git clone https://github.com/lcoutodemos/chums then bin/chums-setup, bin/chums-hub, bin/chums-tunnel, bin/chums-install and bin/chums-agents install. Needs macOS 15.6, watchOS 26, iOS 26, Xcode 26, Node.js 20.11, Tailscale Funnel and Claude Code or Codex. The hub listens on 127.0.0.1:7717 and 127.0.0.1:7718. Funnel publishes the watch API at a public https://chums-hub.<tailnet>.ts.net URL; treat the watch token in ~/.chums/config.json as a secret, keep the file mode 0600, and do not share a built app. Funnel hostnames appear in certificate transparency logs. Default agents can use the home folder. Optional openai TTS in config sends reply text to OpenAI. Apache-2.0.",
+      "source_url": "https://github.com/lcoutodemos/chums",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

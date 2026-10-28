@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 146 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 148 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (60)
+- [Agent tools](#agent-tools) (61)
 - [MCP and integrations](#mcp-and-integrations) (16)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (24)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (38)
+- [Skills and learning](#skills-and-learning) (39)
 
 
 ## Agent tools
@@ -628,6 +628,16 @@ Messaging, MCP and workflow infrastructure so coding agents on one machine, or a
 **Access and use:** npm install -g agent-relay, or curl -fsSL https://raw.githubusercontent.com/AgentWorkforce/relay/main/install.sh | bash; read the script before running it. Needs Node.js 22 or 24. relay init defaults to this machine at http://127.0.0.1:8787. Hosted mode creates a workspace on Agent Relay Cloud so agents on other machines can join; treat the workspace key as a secret. It adds an MCP server to Claude Code, Codex, OpenCode, Grok CLI, Pi or Devin (project files or global configs). Local data lives under ~/.agentworkforce/relay/local. The project workspace key is kept out of git via .git/info/exclude. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/AgentWorkforce/relay).
+
+### [Chums](https://chums.club)
+
+Watch and iPhone apps that talk to Claude Code and Codex sessions running on your Mac, with a local hub.
+
+**For:** People who want Claude Code or Codex on an Apple silicon Mac to take voice and approvals from an Apple Watch and iPhone.
+
+**Access and use:** git clone https://github.com/lcoutodemos/chums then bin/chums-setup, bin/chums-hub, bin/chums-tunnel, bin/chums-install and bin/chums-agents install. Needs macOS 15.6, watchOS 26, iOS 26, Xcode 26, Node.js 20.11, Tailscale Funnel and Claude Code or Codex. The hub listens on 127.0.0.1:7717 and 127.0.0.1:7718. Funnel publishes the watch API at a public https://chums-hub.<tailnet>.ts.net URL; treat the watch token in ~/.chums/config.json as a secret, keep the file mode 0600, and do not share a built app. Funnel hostnames appear in certificate transparency logs. Default agents can use the home folder. Optional openai TTS in config sends reply text to OpenAI. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/lcoutodemos/chums).
 
 ## MCP and integrations
 
@@ -1498,6 +1508,16 @@ A Claude Code skill pack that audits a URL for AI-search citability, crawler acc
 **Access and use:** curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/geo-seo-claude/main/install.sh | bash; read the script before running it. Needs Python 3.10+ and Claude Code. Dependencies go into ~/.claude/skills/geo/.venv/. /geo audit fetches the target URL. Optional Playwright takes screenshots. Prospect files live in ~/.geo-prospects/ and stay after uninstall. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/zubair-trabzada/geo-seo-claude).
+
+### [Maestro](https://maestroskills.dev)
+
+A workflow skill pack with 25 commands, seven domain references, a memory layer and an MCP server for coding agents.
+
+**For:** People who want Cursor, Claude Code, Codex, OpenCode or similar tools to follow a shared workflow skill.
+
+**Access and use:** npx skills add sharpdeveye/maestro copies skills into the provider folders in the project. For a live MCP server, add npx -y maestro-workflow-mcp to the client config (stdio). npx maestro-workflow-mcp --http --port 3001 serves /mcp on that port on every interface. /capture writes .maestro/ with context.md, decisions.jsonl, audit.jsonl and session files; session data is gitignored by default. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/sharpdeveye/maestro).
 
 ## Looking for more?
 
