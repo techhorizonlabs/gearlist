@@ -1281,7 +1281,7 @@ An AGPL business workspace for invoicing, time tracking, inbox matching, file va
 
 **For:** Freelancers and contractors who want invoices, time and bank feeds in one product they can host or run on Midday Cloud.
 
-**Access and use:** Cloud is https://app.midday.ai. Bank connections go through GoCardless (EU), Plaid (Canada and US) or Teller (US). Hosted analytics use OpenPanel. Local: git clone https://github.com/midday-ai/midday.git then bun i; you need a Supabase account and an Upstash account (https://docs.midday.ai/local-development). AGPL-3.0 for non-commercial use. For commercial use, Midday Labs AB asks for a commercial licence at engineer@midday.ai.
+**Access and use:** Cloud is https://app.midday.ai, run by Midday Labs AB; your invoices, transactions and files are then processed in Sweden. Bank connections go through GoCardless (EU), Plaid (Canada and US) or Teller (US). Hosted analytics use OpenPanel. Local: git clone https://github.com/midday-ai/midday.git then bun i; you need a Supabase account, which holds the database, files and sign-in, and an Upstash account for its key-value store (https://docs.midday.ai/local-development). AGPL-3.0 for non-commercial use. For commercial use, Midday Labs AB asks for a commercial licence at engineer@midday.ai.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/midday-ai/midday).
 
