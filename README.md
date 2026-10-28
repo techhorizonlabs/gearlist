@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 110 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 112 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,11 +19,11 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (40)
+- [Agent tools](#agent-tools) (41)
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (16)
-- [Protocols](#protocols) (3)
+- [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (34)
 
 
@@ -429,6 +429,16 @@ An open-source desktop app that runs a single agent or a multi-agent workforce w
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/eigent-ai/eigent).
 
+### [OpenDataLoader PDF](https://opendataloader.org)
+
+A local PDF parser that turns documents into Markdown, JSON with bounding boxes, HTML or a Tagged PDF.
+
+**For:** People feeding PDFs to an agent or auto-tagging untagged files for accessibility.
+
+**Access and use:** pip install -U opendataloader-pdf. Needs Java 11 or later and Python 3.11 or later. Also npm @opendataloader/pdf and Java Maven. Default conversion runs locally. Hybrid mode (pip install "opendataloader-pdf[hybrid]") starts a backend on port 5002 and sends complex pages to that AI backend. Auto-tagging to Tagged PDF is Apache-2.0. PDF/UA export is an enterprise add-on. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/opendataloader-project/opendataloader-pdf).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -796,6 +806,16 @@ An open protocol for independent agents to discover each other and collaborate o
 **Access and use:** pip install a2a-sdk. Also official Go, JavaScript, Java, .NET and Rust SDKs. Spec v1.0 at a2a-protocol.org. Linux Foundation project, donated by Google. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/a2aproject/A2A).
+
+### [Agent Client Protocol](https://agentclientprotocol.com)
+
+An open protocol that connects a code editor to a coding agent so they can share files, tools and a session.
+
+**For:** People wiring an editor such as Zed or JetBrains to a coding agent, or shipping either side of that pair.
+
+**Access and use:** Spec at agentclientprotocol.com. Current stable protocol version is 1. TypeScript: npm install @agentclientprotocol/sdk. Rust: cargo add agent-client-protocol. Also official Python, Java and Kotlin SDKs. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/agentclientprotocol/agent-client-protocol).
 
 ## Skills and learning
 

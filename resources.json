@@ -1431,6 +1431,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "agent-client-protocol",
+      "name": "Agent Client Protocol",
+      "category": "Protocols",
+      "url": "https://agentclientprotocol.com",
+      "description": "An open protocol that connects a code editor to a coding agent so they can share files, tools and a session.",
+      "for_whom": "People wiring an editor such as Zed or JetBrains to a coding agent, or shipping either side of that pair.",
+      "access_notes": "Spec at agentclientprotocol.com. Current stable protocol version is 1. TypeScript: npm install @agentclientprotocol/sdk. Rust: cargo add agent-client-protocol. Also official Python, Java and Kotlin SDKs. Apache-2.0.",
+      "source_url": "https://github.com/agentclientprotocol/agent-client-protocol",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "opendataloader-pdf",
+      "name": "OpenDataLoader PDF",
+      "category": "Agent tools",
+      "url": "https://opendataloader.org",
+      "description": "A local PDF parser that turns documents into Markdown, JSON with bounding boxes, HTML or a Tagged PDF.",
+      "for_whom": "People feeding PDFs to an agent or auto-tagging untagged files for accessibility.",
+      "access_notes": "pip install -U opendataloader-pdf. Needs Java 11 or later and Python 3.11 or later. Also npm @opendataloader/pdf and Java Maven. Default conversion runs locally. Hybrid mode (pip install \"opendataloader-pdf[hybrid]\") starts a backend on port 5002 and sends complex pages to that AI backend. Auto-tagging to Tagged PDF is Apache-2.0. PDF/UA export is an enterprise add-on. Apache-2.0.",
+      "source_url": "https://github.com/opendataloader-project/opendataloader-pdf",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
