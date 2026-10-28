@@ -465,6 +465,13 @@ For: Teams that want a self-hosted or hosted agent workspace with MCP access fro
 Access: Cloud at sim.ai. Self-host: npx sim-setup. Read the script before running it. Then open http://localhost:3000. Needs Node 20 or later and Docker. Chat on a self-hosted install uses a Chat API key from sim.ai. Cloud MCP is https://mcp.sim.ai/mcp. Apache-2.0.
 Source checked: 2026-10-28
 
+ArchiveBox | Platforms
+https://archivebox.io
+A self-hosted archiver that saves pages you give it as HTML, PDF, PNG, WARC and other ordinary files.
+For: People who want a local copy of bookmarks, research pages or public web content they choose to keep.
+Access: Installer is curl -fsSL https://get.archivebox.io | bash. Read the script before running it. Also docker compose from docker-compose.archivebox.io, or uv tool install archivebox. Docker -p 5797:5797 and archivebox server 0.0.0.0:5797 bind every interface. Pages are submitted to archive.org by default. MIT.
+Source checked: 2026-10-28
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.
@@ -687,4 +694,11 @@ https://github.com/browser-use/video-use
 A coding-agent skill that transcribes a folder of takes and cuts a video from them.
 For: People who want Claude Code or Codex to edit talking-head or launch videos from local files.
 Access: git clone https://github.com/browser-use/video-use then symlink the repo into your agent's skills directory. Needs ffmpeg and an ElevenLabs API key for transcription. uv sync or pip install -e . Hosted product is on a waitlist at video-use.com. MIT.
+Source checked: 2026-10-28
+
+/brag | Skills and learning
+https://github.com/latent-spaces/brag
+An agent skill that turns the project you just built into a short launch video with music and share copy.
+For: Builders who want a coding agent to produce a shareable launch clip from the current repo.
+Access: npx skills add https://github.com/latent-spaces/brag --skill brag. Claude Code: /plugin marketplace add latent-spaces/brag then /plugin install brag@brag. Needs Node 22 or later and ffmpeg. Hyperframes via npx hyperframes. Hosted shortcut is letsbrag.app. Bundled music is CC BY 4.0 from ende.app. MIT.
 Source checked: 2026-10-28

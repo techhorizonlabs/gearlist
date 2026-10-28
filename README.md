@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 98 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 100 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,9 +22,9 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (36)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (14)
+- [Platforms](#platforms) (15)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (31)
+- [Skills and learning](#skills-and-learning) (32)
 
 
 ## Agent tools
@@ -695,6 +695,16 @@ A workspace to build, deploy and monitor agents and workflows, with a visual bui
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/simstudioai/sim).
 
+### [ArchiveBox](https://archivebox.io)
+
+A self-hosted archiver that saves pages you give it as HTML, PDF, PNG, WARC and other ordinary files.
+
+**For:** People who want a local copy of bookmarks, research pages or public web content they choose to keep.
+
+**Access and use:** Installer is curl -fsSL https://get.archivebox.io | bash. Read the script before running it. Also docker compose from docker-compose.archivebox.io, or uv tool install archivebox. Docker -p 5797:5797 and archivebox server 0.0.0.0:5797 bind every interface. Pages are submitted to archive.org by default. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/ArchiveBox/ArchiveBox).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -1018,6 +1028,16 @@ A coding-agent skill that transcribes a folder of takes and cuts a video from th
 **Access and use:** git clone https://github.com/browser-use/video-use then symlink the repo into your agent's skills directory. Needs ffmpeg and an ElevenLabs API key for transcription. uv sync or pip install -e . Hosted product is on a waitlist at video-use.com. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/browser-use/video-use).
+
+### [/brag](https://github.com/latent-spaces/brag)
+
+An agent skill that turns the project you just built into a short launch video with music and share copy.
+
+**For:** Builders who want a coding agent to produce a shareable launch clip from the current repo.
+
+**Access and use:** npx skills add https://github.com/latent-spaces/brag --skill brag. Claude Code: /plugin marketplace add latent-spaces/brag then /plugin install brag@brag. Needs Node 22 or later and ffmpeg. Hyperframes via npx hyperframes. Hosted shortcut is letsbrag.app. Bundled music is CC BY 4.0 from ende.app. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/latent-spaces/brag).
 
 ## Looking for more?
 
