@@ -963,6 +963,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "crawl4ai",
+      "name": "Crawl4AI",
+      "category": "Agent tools",
+      "url": "https://docs.crawl4ai.com",
+      "description": "An open-source crawler that turns a page into LLM-ready Markdown, with a CLI, Python library and a Docker server.",
+      "for_whom": "People who want to scrape pages into Markdown on their own machine.",
+      "access_notes": "pip install -U crawl4ai, then crawl4ai-setup to install the browser. CLI is crwl URL -o markdown. Docker server listens on port 11235 and needs CRAWL4AI_API_TOKEN; without a token it answers only inside the container. Optional hosted cloud at crawl4ai.com is a paid product with its own key. Apache-2.0.",
+      "source_url": "https://github.com/unclecode/crawl4ai",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "serviette",
+      "name": "serviette",
+      "category": "Platforms",
+      "url": "https://github.com/pathwaycom/serviette",
+      "description": "A RAG server that watches a folder of documents, keeps a vector index live, and serves a chat UI plus REST API with cited answers.",
+      "for_whom": "People who want answers from their own files that stay current as those files change, on a machine they control.",
+      "access_notes": "pip 23.1 or later. pip install serviette. Needs a free Pathway licence in PATHWAY_LICENSE_KEY from pathway.com/framework/get-license (GitHub or LinkedIn sign-in). Default server binds localhost:8989 with no built-in auth. Local embeddings extra is serviette[local]. MIT.",
+      "source_url": "https://github.com/pathwaycom/serviette",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

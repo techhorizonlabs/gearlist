@@ -206,6 +206,13 @@ For: People who want a local coding agent they can switch between full-access bu
 Access: Installer is curl -fsSL https://opencode.ai/v2/install | bash. Read the script before running it. Also npm i -g @opencode/cli@latest or brew install anomalyco/tap/opencode-v2. The script installs to $HOME/.opencode/bin. OpenCode 1 and OpenCode 2 both use the opencode command and cannot sit side by side under that name. Needs API keys for the models you use. MIT.
 Source checked: 2026-10-28
 
+Crawl4AI | Agent tools
+https://docs.crawl4ai.com
+An open-source crawler that turns a page into LLM-ready Markdown, with a CLI, Python library and a Docker server.
+For: People who want to scrape pages into Markdown on their own machine.
+Access: pip install -U crawl4ai, then crawl4ai-setup to install the browser. CLI is crwl URL -o markdown. Docker server listens on port 11235 and needs CRAWL4AI_API_TOKEN; without a token it answers only inside the container. Optional hosted cloud at crawl4ai.com is a paid product with its own key. Apache-2.0.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -358,6 +365,13 @@ https://onorca.dev
 A desktop app that runs coding agents side by side, each in its own git worktree, with a phone companion to watch and steer them.
 For: People who want several CLI coding agents working in parallel on one machine, with a phone app to follow them.
 Access: Download from https://onorca.dev/download or GitHub Releases. macOS Homebrew is brew install --cask stablyai/orca/orca; a bare brew install --cask orca is a different Plotly app. Mobile companion is on the App Store and as an Android APK. The README points to privacy and telemetry docs for usage data and how to opt out. MIT.
+Source checked: 2026-10-28
+
+serviette | Platforms
+https://github.com/pathwaycom/serviette
+A RAG server that watches a folder of documents, keeps a vector index live, and serves a chat UI plus REST API with cited answers.
+For: People who want answers from their own files that stay current as those files change, on a machine they control.
+Access: pip 23.1 or later. pip install serviette. Needs a free Pathway licence in PATHWAY_LICENSE_KEY from pathway.com/framework/get-license (GitHub or LinkedIn sign-in). Default server binds localhost:8989 with no built-in auth. Local embeddings extra is serviette[local]. MIT.
 Source checked: 2026-10-28
 
 x402 | Protocols

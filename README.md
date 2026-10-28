@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 74 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 76 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (29)
+- [Agent tools](#agent-tools) (30)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (6)
+- [Platforms](#platforms) (7)
 - [Protocols](#protocols) (1)
 - [Skills and learning](#skills-and-learning) (22)
 
@@ -319,6 +319,16 @@ An open source coding agent you run in a terminal, with a desktop app and a read
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/anomalyco/opencode).
 
+### [Crawl4AI](https://docs.crawl4ai.com)
+
+An open-source crawler that turns a page into LLM-ready Markdown, with a CLI, Python library and a Docker server.
+
+**For:** People who want to scrape pages into Markdown on their own machine.
+
+**Access and use:** pip install -U crawl4ai, then crawl4ai-setup to install the browser. CLI is crwl URL -o markdown. Docker server listens on port 11235 and needs CRAWL4AI_API_TOKEN; without a token it answers only inside the container. Optional hosted cloud at crawl4ai.com is a paid product with its own key. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/unclecode/crawl4ai).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -544,6 +554,16 @@ A desktop app that runs coding agents side by side, each in its own git worktree
 **Access and use:** Download from https://onorca.dev/download or GitHub Releases. macOS Homebrew is brew install --cask stablyai/orca/orca; a bare brew install --cask orca is a different Plotly app. Mobile companion is on the App Store and as an Android APK. The README points to privacy and telemetry docs for usage data and how to opt out. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/stablyai/orca).
+
+### [serviette](https://github.com/pathwaycom/serviette)
+
+A RAG server that watches a folder of documents, keeps a vector index live, and serves a chat UI plus REST API with cited answers.
+
+**For:** People who want answers from their own files that stay current as those files change, on a machine they control.
+
+**Access and use:** pip 23.1 or later. pip install serviette. Needs a free Pathway licence in PATHWAY_LICENSE_KEY from pathway.com/framework/get-license (GitHub or LinkedIn sign-in). Default server binds localhost:8989 with no built-in auth. Local embeddings extra is serviette[local]. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/pathwaycom/serviette).
 
 ## Protocols
 
