@@ -1951,6 +1951,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "openbrowser",
+      "name": "OpenBrowser",
+      "category": "Agent tools",
+      "url": "https://docs.openbrowser.me",
+      "description": "A CodeAgent and MCP server that drives a Chromium browser over CDP, with a CLI daemon and an optional hosted dashboard.",
+      "for_whom": "People who want Claude Code, Codex or another MCP client to browse, scrape and fill forms on their machine.",
+      "access_notes": "pip install openbrowser-ai, brew install openbrowser-ai, or curl -fsSL https://raw.githubusercontent.com/billy-enrizky/openbrowser-ai/main/install.sh | sh; read the script before running it. Needs Python 3.12+. uvx openbrowser-ai --mcp is the stdio MCP server. Default MCP profiles live under ~/.config/openbrowser/profiles/. The CLI daemon uses a Unix socket and ~/.config/openbrowser/profiles/daemon. Agent mode needs an LLM API key. The hosted dashboard at openbrowser.me stores cookies and scheduled tasks. MIT.",
+      "source_url": "https://github.com/billy-enrizky/openbrowser-ai",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "hybridclaw",
+      "name": "HybridClaw",
+      "category": "Platforms",
+      "url": "https://hybridclaw.io",
+      "description": "A self-hosted assistant runtime with a local gateway, sandbox, web chat and TUI, plus HybridAI Cloud as a hosted path.",
+      "for_whom": "People who want a local assistant on Node 22 with their own model keys, or the HybridAI Cloud workspace.",
+      "access_notes": "npm install -g @hybridaione/hybridclaw, or curl -fsSL https://raw.githubusercontent.com/HybridAIOne/hybridclaw/main/scripts/install.sh | bash; read the script before running it. Needs Node.js 22.23.4 or later, below 23. hybridclaw onboarding then hybridclaw gateway. Default bind is 127.0.0.1:9090; web chat is http://127.0.0.1:9090/chat. Config is ~/.hybridclaw/config.json. Provider keys live in the encrypted store under ~/.hybridclaw/credentials.json. Docker is the default sandbox. Hosted path is hybridclaw.io. Set ops.webApiToken before exposing the gateway beyond loopback. Treat inbound channel messages as untrusted. MIT.",
+      "source_url": "https://github.com/HybridAIOne/hybridclaw",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

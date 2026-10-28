@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 150 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 152 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (61)
+- [Agent tools](#agent-tools) (62)
 - [MCP and integrations](#mcp-and-integrations) (17)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (24)
+- [Platforms](#platforms) (25)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (40)
 
@@ -639,6 +639,16 @@ Watch and iPhone apps that talk to Claude Code and Codex sessions running on you
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/lcoutodemos/chums).
 
+### [OpenBrowser](https://docs.openbrowser.me)
+
+A CodeAgent and MCP server that drives a Chromium browser over CDP, with a CLI daemon and an optional hosted dashboard.
+
+**For:** People who want Claude Code, Codex or another MCP client to browse, scrape and fill forms on their machine.
+
+**Access and use:** pip install openbrowser-ai, brew install openbrowser-ai, or curl -fsSL https://raw.githubusercontent.com/billy-enrizky/openbrowser-ai/main/install.sh | sh; read the script before running it. Needs Python 3.12+. uvx openbrowser-ai --mcp is the stdio MCP server. Default MCP profiles live under ~/.config/openbrowser/profiles/. The CLI daemon uses a Unix socket and ~/.config/openbrowser/profiles/daemon. Agent mode needs an LLM API key. The hosted dashboard at openbrowser.me stores cookies and scheduled tasks. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/billy-enrizky/openbrowser-ai).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -1094,6 +1104,16 @@ A local-first workspace where humans and coding agents share channels, tasks, te
 **Access and use:** git clone then make dev. Needs Go 1.25+, Node.js 20+, Docker and at least one supported agent CLI on PATH. make dev starts PostgreSQL in Docker on port 5432, a Go API on 8080, a daemon on 8081 and the UI on 3000. Register at http://localhost:3000. Signup stays on until you set ALLOW_SIGNUP=false. LLM_PROVIDER defaults to local, so agents are your installed CLIs. Workspace data lives in PostgreSQL. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/solo-agent/solo).
+
+### [HybridClaw](https://hybridclaw.io)
+
+A self-hosted assistant runtime with a local gateway, sandbox, web chat and TUI, plus HybridAI Cloud as a hosted path.
+
+**For:** People who want a local assistant on Node 22 with their own model keys, or the HybridAI Cloud workspace.
+
+**Access and use:** npm install -g @hybridaione/hybridclaw, or curl -fsSL https://raw.githubusercontent.com/HybridAIOne/hybridclaw/main/scripts/install.sh | bash; read the script before running it. Needs Node.js 22.23.4 or later, below 23. hybridclaw onboarding then hybridclaw gateway. Default bind is 127.0.0.1:9090; web chat is http://127.0.0.1:9090/chat. Config is ~/.hybridclaw/config.json. Provider keys live in the encrypted store under ~/.hybridclaw/credentials.json. Docker is the default sandbox. Hosted path is hybridclaw.io. Set ops.webApiToken before exposing the gateway beyond loopback. Treat inbound channel messages as untrusted. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/HybridAIOne/hybridclaw).
 
 ## Protocols
 
