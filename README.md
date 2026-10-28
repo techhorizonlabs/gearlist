@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 148 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 150 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -20,11 +20,11 @@ npx skills add techhorizonlabs/gearlist
 ## Contents
 
 - [Agent tools](#agent-tools) (61)
-- [MCP and integrations](#mcp-and-integrations) (16)
+- [MCP and integrations](#mcp-and-integrations) (17)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (24)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (39)
+- [Skills and learning](#skills-and-learning) (40)
 
 
 ## Agent tools
@@ -801,6 +801,16 @@ Local-first shared memory for coding agents, stored as plain YAML engrams under 
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/plur-ai/plur).
 
+### [Plausible MCP](https://plausible-mcp.sentry.dev)
+
+An MCP server that queries Plausible Analytics for traffic, conversions and period comparisons.
+
+**For:** People who want a coding agent to read Plausible stats with a Plausible API key.
+
+**Access and use:** Hosted: claude mcp add --transport http plausible https://plausible-mcp.sentry.dev/mcp --header "Authorization: Bearer YOUR_PLAUSIBLE_API_KEY". Queries go to that Sentry-hosted server with your key. Tools are read-only. Local: Node.js 20+, git clone, pnpm install and pnpm build, then node dist/index.js with PLAUSIBLE_API_KEY. PLAUSIBLE_BASE_URL points at a self-hosted Plausible. The hosted /internal path is for Sentry staff. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/getsentry/plausible-mcp).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -1518,6 +1528,16 @@ A workflow skill pack with 25 commands, seven domain references, a memory layer 
 **Access and use:** npx skills add sharpdeveye/maestro copies skills into the provider folders in the project. For a live MCP server, add npx -y maestro-workflow-mcp to the client config (stdio). npx maestro-workflow-mcp --http --port 3001 serves /mcp on that port on every interface. /capture writes .maestro/ with context.md, decisions.jsonl, audit.jsonl and session files; session data is gitignored by default. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/sharpdeveye/maestro).
+
+### [ClosedLoop Claude Plugins](https://www.closedloop.ai/docs)
+
+Open-source Claude Code plugins for plan-first coding, review and self-learning, grounded in the repo.
+
+**For:** People who want Claude Code or Codex plugins for planning, implementation and pull-request review.
+
+**Access and use:** curl -fsSL https://raw.githubusercontent.com/closedloop-ai/claude-plugins/main/install.sh | bash; read the script before running it. Needs Claude Code, Python 3.11+ and jq. It registers the closedloop-ai marketplace and installs code, code-review, platform and self-learning at user scope under ~/.claude/plugins, with auto-update on. claude /plugin marketplace install closedloop is the interactive path. Codex: codex plugin marketplace add https://github.com/closedloop-ai/claude-plugins then add closedloop-core@closedloop-ai. /code-review:start writes inline GitHub pull-request comments. self-learning writes under .learnings/; org share uses CLAUDE_ORG_ID. bootstrap writes .claude/agents and .closedloop-ai/. The README calls this an engineering preview for trusted environments. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/closedloop-ai/claude-plugins).
 
 ## Looking for more?
 

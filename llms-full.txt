@@ -542,6 +542,13 @@ For: People who want corrections and conventions to persist across Claude Code, 
 Access: npm install -g @plur-ai/cli@latest @plur-ai/mcp@latest, then plur init and plur doctor. Needs Node.js 20+. For Claude Code, init writes the MCP server into ~/.claude.json and hooks into ~/.claude/settings.json. plur doctor downloads a local search model when downloads are allowed; without it, search uses keywords. An optional openai-3-large embedder sends text to OpenAI. plur dashboard is loopback-only. plur sync to a personal git remote pushes private engrams; use a private repo. Apache-2.0.
 Source checked: 2026-10-28
 
+Plausible MCP | MCP and integrations
+https://plausible-mcp.sentry.dev
+An MCP server that queries Plausible Analytics for traffic, conversions and period comparisons.
+For: People who want a coding agent to read Plausible stats with a Plausible API key.
+Access: Hosted: claude mcp add --transport http plausible https://plausible-mcp.sentry.dev/mcp --header "Authorization: Bearer YOUR_PLAUSIBLE_API_KEY". Queries go to that Sentry-hosted server with your key. Tools are read-only. Local: Node.js 20+, git clone, pnpm install and pnpm build, then node dist/index.js with PLAUSIBLE_API_KEY. PLAUSIBLE_BASE_URL points at a self-hosted Plausible. The hosted /internal path is for Sentry staff. MIT.
+Source checked: 2026-10-28
+
 CISO AI | Security and governance
 https://cisoai.au/
 Security briefings, analysis and governance resources.
@@ -1037,4 +1044,11 @@ https://maestroskills.dev
 A workflow skill pack with 25 commands, seven domain references, a memory layer and an MCP server for coding agents.
 For: People who want Cursor, Claude Code, Codex, OpenCode or similar tools to follow a shared workflow skill.
 Access: npx skills add sharpdeveye/maestro copies skills into the provider folders in the project. For a live MCP server, add npx -y maestro-workflow-mcp to the client config (stdio). npx maestro-workflow-mcp --http --port 3001 serves /mcp on that port on every interface. /capture writes .maestro/ with context.md, decisions.jsonl, audit.jsonl and session files; session data is gitignored by default. MIT.
+Source checked: 2026-10-28
+
+ClosedLoop Claude Plugins | Skills and learning
+https://www.closedloop.ai/docs
+Open-source Claude Code plugins for plan-first coding, review and self-learning, grounded in the repo.
+For: People who want Claude Code or Codex plugins for planning, implementation and pull-request review.
+Access: curl -fsSL https://raw.githubusercontent.com/closedloop-ai/claude-plugins/main/install.sh | bash; read the script before running it. Needs Claude Code, Python 3.11+ and jq. It registers the closedloop-ai marketplace and installs code, code-review, platform and self-learning at user scope under ~/.claude/plugins, with auto-update on. claude /plugin marketplace install closedloop is the interactive path. Codex: codex plugin marketplace add https://github.com/closedloop-ai/claude-plugins then add closedloop-core@closedloop-ai. /code-review:start writes inline GitHub pull-request comments. self-learning writes under .learnings/; org share uses CLAUDE_ORG_ID. bootstrap writes .claude/agents and .closedloop-ai/. The README calls this an engineering preview for trusted environments. Apache-2.0.
 Source checked: 2026-10-28

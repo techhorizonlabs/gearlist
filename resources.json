@@ -1925,6 +1925,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "closedloop-claude-plugins",
+      "name": "ClosedLoop Claude Plugins",
+      "category": "Skills and learning",
+      "url": "https://www.closedloop.ai/docs",
+      "description": "Open-source Claude Code plugins for plan-first coding, review and self-learning, grounded in the repo.",
+      "for_whom": "People who want Claude Code or Codex plugins for planning, implementation and pull-request review.",
+      "access_notes": "curl -fsSL https://raw.githubusercontent.com/closedloop-ai/claude-plugins/main/install.sh | bash; read the script before running it. Needs Claude Code, Python 3.11+ and jq. It registers the closedloop-ai marketplace and installs code, code-review, platform and self-learning at user scope under ~/.claude/plugins, with auto-update on. claude /plugin marketplace install closedloop is the interactive path. Codex: codex plugin marketplace add https://github.com/closedloop-ai/claude-plugins then add closedloop-core@closedloop-ai. /code-review:start writes inline GitHub pull-request comments. self-learning writes under .learnings/; org share uses CLAUDE_ORG_ID. bootstrap writes .claude/agents and .closedloop-ai/. The README calls this an engineering preview for trusted environments. Apache-2.0.",
+      "source_url": "https://github.com/closedloop-ai/claude-plugins",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "plausible-mcp",
+      "name": "Plausible MCP",
+      "category": "MCP and integrations",
+      "url": "https://plausible-mcp.sentry.dev",
+      "description": "An MCP server that queries Plausible Analytics for traffic, conversions and period comparisons.",
+      "for_whom": "People who want a coding agent to read Plausible stats with a Plausible API key.",
+      "access_notes": "Hosted: claude mcp add --transport http plausible https://plausible-mcp.sentry.dev/mcp --header \"Authorization: Bearer YOUR_PLAUSIBLE_API_KEY\". Queries go to that Sentry-hosted server with your key. Tools are read-only. Local: Node.js 20+, git clone, pnpm install and pnpm build, then node dist/index.js with PLAUSIBLE_API_KEY. PLAUSIBLE_BASE_URL points at a self-hosted Plausible. The hosted /internal path is for Sentry staff. MIT.",
+      "source_url": "https://github.com/getsentry/plausible-mcp",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
