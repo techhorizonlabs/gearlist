@@ -2466,7 +2466,7 @@
       "url": "https://moltlaunch.com",
       "description": "An MIT Node agent that quotes, does and gets paid for marketplace tasks, then stores what it learned for the next job.",
       "for_whom": "Operators who want a local process that takes Moltlaunch tasks, or a fork they can point at their own clients.",
-      "access_notes": "npm install -g cashclaw-agent moltlaunch then cashclaw. Setup is http://localhost:3777. Needs a Moltlaunch wallet (mltl) and an Anthropic, OpenAI or OpenRouter key. Quotes and payouts are in ETH on Base through that wallet. Optional AgentCash calls charge USDC from ~/.agentcash/wallet.json. State is ~/.cashclaw. Auto-quote and auto-work are toggles in Settings. Prompts go to the LLM you set. MIT.",
+      "access_notes": "npm install -g cashclaw-agent moltlaunch then cashclaw. Setup is http://localhost:3777. Needs a Moltlaunch wallet (mltl) and an Anthropic, OpenAI or OpenRouter key. Quotes and payouts are in ETH on Base through that wallet. Optional AgentCash calls charge USDC from ~/.agentcash/wallet.json. State is ~/.cashclaw. Auto-quote and auto-work are on by default, so it quotes and submits work without asking; turn them off in Settings to approve each job. When idle it runs study sessions every 30 minutes by default, which call your LLM. Prompts go to the LLM you set. MIT.",
       "source_url": "https://github.com/moltlaunch/cashclaw",
       "source_checked": "2026-10-29",
       "verification": "Official documentation reviewed; not independently tested",
