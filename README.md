@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 41 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 47 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (15)
-- [MCP and integrations](#mcp-and-integrations) (9)
+- [Agent tools](#agent-tools) (19)
+- [MCP and integrations](#mcp-and-integrations) (10)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (3)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (9)
+- [Skills and learning](#skills-and-learning) (10)
 
 
 ## Agent tools
@@ -179,6 +179,46 @@ A free local-first Chrome extension that saves images, prompts and references fr
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/wchao6891/PromptDirector).
 
+### [ECC](https://ecc.tools)
+
+An agent harness that adds planning, review, memory, skills and AgentShield scanning to Claude Code and other coding agents.
+
+**For:** People running Claude Code, Codex or similar who want that workflow installed once rather than restated every session.
+
+**Access and use:** Guided setup is npx ecc-universal@2.2.3 setup (Node.js 18 or later). Claude Code plugin is ecc@ecc from github.com/affaan-m/ECC. Install only from those official sources. Hooks run with the agent's permissions. OSS is MIT. ECC Pro GitHub App is a separate paid product for private repos.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/affaan-m/ECC).
+
+### [Agent Reach](https://github.com/Panniantong/Agent-Reach)
+
+A CLI that gives coding agents read access to platforms generic web search misses, including GitHub, YouTube, Bilibili, V2EX and login-walled social sites.
+
+**For:** People whose agents need those sources, including Chinese platforms and logged-in feeds.
+
+**Access and use:** Point the agent at https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/docs/install.md. The PyPI package named agent-reach is a different project. Login channels copy that site's Chrome session into a dedicated local browser; they do not read the password store. Prefer a secondary account. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Panniantong/Agent-Reach).
+
+### [Ruflo](https://github.com/ruvnet/ruflo)
+
+An agent harness around Claude Code and Codex: plugins, a console, optional MCP, and coordinated multi-agent workflows.
+
+**For:** People who want swarm, memory and policy tools on top of an existing coding agent.
+
+**Access and use:** Prefer npx ruflo@latest init wizard, or in Claude Code /plugin marketplace add ruvnet/ruflo. There is also curl -fsSL https://cdn.jsdelivr.net/gh/ruvnet/ruflo@main/scripts/install.sh | bash. Read the script before running it. Mods run with your account's permissions; review them before installing. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/ruvnet/ruflo).
+
+### [agentglass](https://sirallap.github.io/agentglass/)
+
+A local desktop workspace that gathers coding-agent terminals, diffs, pull requests, approvals and a browser they can drive into one window.
+
+**For:** People running Claude Code, Codex, Gemini CLI or OpenCode on their own machine, often several at once.
+
+**Access and use:** Download from GitHub releases. macOS builds are unsigned: xattr -dr com.apple.quarantine /Applications/agentglass.app. Data stays in local SQLite. Agents run as you; it is a permission lock, not a sandbox. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/SirAllap/agentglass).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -270,6 +310,16 @@ A local MCP add-on that searches places web search often misses, including Bilib
 **Access and use:** Install with uv tool install omniseek, then claude mcp add omniseek -- omniseek. Runs on your computer. Apache-2.0. Python 3.11 or later.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/Battam1111/omniseek).
+
+### [Context Mode](https://github.com/mksglu/context-mode)
+
+An MCP server and hooks layer that sandboxes large tool output, keeps a local session index, and can run analysis scripts so agents do not dump whole files into context.
+
+**For:** People running Claude Code or other supported clients whose context windows fill with tool output.
+
+**Access and use:** In Claude Code: /plugin marketplace add mksglu/context-mode then /plugin install context-mode@context-mode. MCP-only: claude mcp add context-mode -- npx -y context-mode. ctx_execute can run code on your machine. Elastic License 2.0: you may not offer it as a hosted service that exposes its features.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/mksglu/context-mode).
 
 ## Security and governance
 
@@ -448,6 +498,16 @@ A community index of Agent Skills scraped from GitHub. Not run by Anthropic.
 **Access and use:** Unvetted. Individual skills keep their upstream licences. Anonymous API is rate limited. Treat a listed skill as untrusted code until you have read it. Optional paid API plans.
 
 **Source checked:** 2026-10-27. [Official source](https://skillsmp.com/).
+
+### [Anthropic Cybersecurity Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)
+
+An independent community library of 818 cybersecurity skills in the agentskills.io format, mapped to MITRE ATT&CK, NIST CSF 2.0 and related frameworks. Not affiliated with Anthropic.
+
+**For:** Security practitioners whose agents need structured playbooks for authorised testing, defence and education.
+
+**Access and use:** Install with npx skills add mukul975/Anthropic-Cybersecurity-Skills. Apache-2.0. Includes offensive and dual-use techniques. Use only on systems you own or have written permission to test. A listed skill is not a security audit of your environment.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/mukul975/Anthropic-Cybersecurity-Skills).
 
 ## Looking for more?
 

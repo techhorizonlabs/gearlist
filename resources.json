@@ -534,6 +534,84 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "ecc",
+      "name": "ECC",
+      "category": "Agent tools",
+      "url": "https://ecc.tools",
+      "description": "An agent harness that adds planning, review, memory, skills and AgentShield scanning to Claude Code and other coding agents.",
+      "for_whom": "People running Claude Code, Codex or similar who want that workflow installed once rather than restated every session.",
+      "access_notes": "Guided setup is npx ecc-universal@2.2.3 setup (Node.js 18 or later). Claude Code plugin is ecc@ecc from github.com/affaan-m/ECC. Install only from those official sources. Hooks run with the agent's permissions. OSS is MIT. ECC Pro GitHub App is a separate paid product for private repos.",
+      "source_url": "https://github.com/affaan-m/ECC",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "agent-reach",
+      "name": "Agent Reach",
+      "category": "Agent tools",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "description": "A CLI that gives coding agents read access to platforms generic web search misses, including GitHub, YouTube, Bilibili, V2EX and login-walled social sites.",
+      "for_whom": "People whose agents need those sources, including Chinese platforms and logged-in feeds.",
+      "access_notes": "Point the agent at https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/docs/install.md. The PyPI package named agent-reach is a different project. Login channels copy that site's Chrome session into a dedicated local browser; they do not read the password store. Prefer a secondary account. MIT.",
+      "source_url": "https://github.com/Panniantong/Agent-Reach",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "ruflo",
+      "name": "Ruflo",
+      "category": "Agent tools",
+      "url": "https://github.com/ruvnet/ruflo",
+      "description": "An agent harness around Claude Code and Codex: plugins, a console, optional MCP, and coordinated multi-agent workflows.",
+      "for_whom": "People who want swarm, memory and policy tools on top of an existing coding agent.",
+      "access_notes": "Prefer npx ruflo@latest init wizard, or in Claude Code /plugin marketplace add ruvnet/ruflo. There is also curl -fsSL https://cdn.jsdelivr.net/gh/ruvnet/ruflo@main/scripts/install.sh | bash. Read the script before running it. Mods run with your account's permissions; review them before installing. MIT.",
+      "source_url": "https://github.com/ruvnet/ruflo",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "anthropic-cybersecurity-skills",
+      "name": "Anthropic Cybersecurity Skills",
+      "category": "Skills and learning",
+      "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
+      "description": "An independent community library of 818 cybersecurity skills in the agentskills.io format, mapped to MITRE ATT&CK, NIST CSF 2.0 and related frameworks. Not affiliated with Anthropic.",
+      "for_whom": "Security practitioners whose agents need structured playbooks for authorised testing, defence and education.",
+      "access_notes": "Install with npx skills add mukul975/Anthropic-Cybersecurity-Skills. Apache-2.0. Includes offensive and dual-use techniques. Use only on systems you own or have written permission to test. A listed skill is not a security audit of your environment.",
+      "source_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "context-mode",
+      "name": "Context Mode",
+      "category": "MCP and integrations",
+      "url": "https://github.com/mksglu/context-mode",
+      "description": "An MCP server and hooks layer that sandboxes large tool output, keeps a local session index, and can run analysis scripts so agents do not dump whole files into context.",
+      "for_whom": "People running Claude Code or other supported clients whose context windows fill with tool output.",
+      "access_notes": "In Claude Code: /plugin marketplace add mksglu/context-mode then /plugin install context-mode@context-mode. MCP-only: claude mcp add context-mode -- npx -y context-mode. ctx_execute can run code on your machine. Elastic License 2.0: you may not offer it as a hosted service that exposes its features.",
+      "source_url": "https://github.com/mksglu/context-mode",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "agentglass",
+      "name": "agentglass",
+      "category": "Agent tools",
+      "url": "https://sirallap.github.io/agentglass/",
+      "description": "A local desktop workspace that gathers coding-agent terminals, diffs, pull requests, approvals and a browser they can drive into one window.",
+      "for_whom": "People running Claude Code, Codex, Gemini CLI or OpenCode on their own machine, often several at once.",
+      "access_notes": "Download from GitHub releases. macOS builds are unsigned: xattr -dr com.apple.quarantine /Applications/agentglass.app. Data stays in local SQLite. Agents run as you; it is a permission lock, not a sandbox. MIT.",
+      "source_url": "https://github.com/SirAllap/agentglass",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
