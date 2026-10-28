@@ -955,7 +955,7 @@ A catalog of Claude Code agents, commands, hooks, settings and MCP installs you 
 
 **For:** People who want a ready-made Claude Code stack of agents, commands and MCP installs.
 
-**Access and use:** npx claude-code-templates@latest, then pick components, or pass --agent, --command, --mcp, --hook or --setting with --yes. Analytics, chats and health-check are extra flags on the same CLI. Bundled third-party skills keep their original licences. MIT.
+**Access and use:** npx claude-code-templates@latest, then pick components, or pass --agent, --command, --mcp, --hook or --setting with --yes. The CLI sends anonymous usage tracking to aitmpl.com by default; set CCT_NO_TRACKING=true to turn it off. Analytics, chats and health-check are extra flags on the same CLI. Bundled third-party skills keep their original licences. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/davila7/claude-code-templates).
 
