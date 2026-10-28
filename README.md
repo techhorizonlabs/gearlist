@@ -1655,7 +1655,7 @@ An MIT agent skill that plans user research, synthesises interview transcripts, 
 
 **For:** Product and research people who want an agent to plan studies or launch them on Cookiy.
 
-**Access and use:** Claude Code: /plugin marketplace add cookiy-ai/user-research-skill then /plugin install user-research@cookiy-ai then /reload-plugins. Invoke /user-research-cookiy. Cowork and Claude Desktop need network egress; allow s-api.cookiy.ai. Other agents: npx cookiy-ai or npm install -g @cookiyai/cookiy-cli (Node.js 18+). Planning and local transcript synthesis run in the agent. Running interviews or surveys needs a Cookiy login: the CLI prints a login URL, the human pastes an access token into cookiy save-token. Recruited sessions spend money on cookiy.ai; run cookiy user info for limits. MIT for the skill.
+**Access and use:** Claude Code: /plugin marketplace add cookiy-ai/user-research-skill then /plugin install user-research@cookiy-ai then /reload-plugins. Invoke /user-research-cookiy. Cowork and Claude Desktop need network egress; allow s-api.cookiy.ai. Other agents: npx cookiy-ai or npm install -g @cookiyai/cookiy-cli (Node.js 18+). Planning and local transcript synthesis run in the agent. Running interviews or surveys needs a Cookiy login: the CLI prints a login URL, the human pastes an access token into cookiy save-token. On Cookiy, recruiting, synthetic interviews, report generation and discussion guide generation cost money from a wallet that charges your saved card when the balance is short; run cookiy user info for limits. MIT for the skill.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/cookiy-ai/user-research-skill).
 
