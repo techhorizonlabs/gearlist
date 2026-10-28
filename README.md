@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 144 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 146 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,8 +19,8 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (59)
-- [MCP and integrations](#mcp-and-integrations) (15)
+- [Agent tools](#agent-tools) (60)
+- [MCP and integrations](#mcp-and-integrations) (16)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (24)
 - [Protocols](#protocols) (4)
@@ -619,6 +619,16 @@ A second browser for coding agents. It can import Chrome logins and run each age
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/browseros-ai/BrowserOS).
 
+### [Agent Relay](https://agentrelay.com)
+
+Messaging, MCP and workflow infrastructure so coding agents on one machine, or across machines, can share channels and history.
+
+**For:** People who want Claude Code, Codex or other local agents to talk through shared channels.
+
+**Access and use:** npm install -g agent-relay, or curl -fsSL https://raw.githubusercontent.com/AgentWorkforce/relay/main/install.sh | bash; read the script before running it. Needs Node.js 22 or 24. relay init defaults to this machine at http://127.0.0.1:8787. Hosted mode creates a workspace on Agent Relay Cloud so agents on other machines can join; treat the workspace key as a secret. It adds an MCP server to Claude Code, Codex, OpenCode, Grok CLI, Pi or Devin (project files or global configs). Local data lives under ~/.agentworkforce/relay/local. The project workspace key is kept out of git via .git/info/exclude. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/AgentWorkforce/relay).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -770,6 +780,16 @@ A local proxy that sits in front of many MCP servers, holds new tools until you 
 **Access and use:** brew install --cask smart-mcp-proxy/mcpproxy/mcpproxy, or brew install smart-mcp-proxy/mcpproxy/mcpproxy for the CLI, or a GitHub Release for macOS, Windows or Linux. mcpproxy serve listens on 127.0.0.1:8080. Config and data live under ~/.mcpproxy/. New servers stay quarantined until you review and approve them. Update checks query GitHub Releases on startup and every 4 hours until you set update_check.enabled to false or MCPPROXY_DISABLE_AUTO_UPDATE=true. JavaScript code execution is on by default. The tray Unix socket is trusted without the API key until you set enable_socket to false. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/smart-mcp-proxy/mcpproxy-go).
+
+### [PLUR](https://plur.ai)
+
+Local-first shared memory for coding agents, stored as plain YAML engrams under ~/.plur/.
+
+**For:** People who want corrections and conventions to persist across Claude Code, Codex, Cursor, OpenCode and similar tools.
+
+**Access and use:** npm install -g @plur-ai/cli@latest @plur-ai/mcp@latest, then plur init and plur doctor. Needs Node.js 20+. For Claude Code, init writes the MCP server into ~/.claude.json and hooks into ~/.claude/settings.json. plur doctor downloads a local search model when downloads are allowed; without it, search uses keywords. An optional openai-3-large embedder sends text to OpenAI. plur dashboard is loopback-only. plur sync to a personal git remote pushes private engrams; use a private repo. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/plur-ai/plur).
 
 ## Security and governance
 

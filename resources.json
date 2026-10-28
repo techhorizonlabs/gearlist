@@ -1873,6 +1873,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "agent-relay",
+      "name": "Agent Relay",
+      "category": "Agent tools",
+      "url": "https://agentrelay.com",
+      "description": "Messaging, MCP and workflow infrastructure so coding agents on one machine, or across machines, can share channels and history.",
+      "for_whom": "People who want Claude Code, Codex or other local agents to talk through shared channels.",
+      "access_notes": "npm install -g agent-relay, or curl -fsSL https://raw.githubusercontent.com/AgentWorkforce/relay/main/install.sh | bash; read the script before running it. Needs Node.js 22 or 24. relay init defaults to this machine at http://127.0.0.1:8787. Hosted mode creates a workspace on Agent Relay Cloud so agents on other machines can join; treat the workspace key as a secret. It adds an MCP server to Claude Code, Codex, OpenCode, Grok CLI, Pi or Devin (project files or global configs). Local data lives under ~/.agentworkforce/relay/local. The project workspace key is kept out of git via .git/info/exclude. Apache-2.0.",
+      "source_url": "https://github.com/AgentWorkforce/relay",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "plur",
+      "name": "PLUR",
+      "category": "MCP and integrations",
+      "url": "https://plur.ai",
+      "description": "Local-first shared memory for coding agents, stored as plain YAML engrams under ~/.plur/.",
+      "for_whom": "People who want corrections and conventions to persist across Claude Code, Codex, Cursor, OpenCode and similar tools.",
+      "access_notes": "npm install -g @plur-ai/cli@latest @plur-ai/mcp@latest, then plur init and plur doctor. Needs Node.js 20+. For Claude Code, init writes the MCP server into ~/.claude.json and hooks into ~/.claude/settings.json. plur doctor downloads a local search model when downloads are allowed; without it, search uses keywords. An optional openai-3-large embedder sends text to OpenAI. plur dashboard is loopback-only. plur sync to a personal git remote pushes private engrams; use a private repo. Apache-2.0.",
+      "source_url": "https://github.com/plur-ai/plur",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
