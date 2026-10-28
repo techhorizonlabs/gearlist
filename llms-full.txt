@@ -110,7 +110,7 @@ Source checked: 2026-10-28
 
 ECC | Agent tools
 https://ecc.tools
-An agent harness that adds planning, review, memory, skills and AgentShield scanning to Claude Code and other coding agents.
+An agent harness that adds planning, review, memory, skills and AgentShield security scanning to Claude Code and other coding agents.
 For: People running Claude Code, Codex or similar who want that workflow installed once rather than restated every session.
 Access: Guided setup is npx ecc-universal@2.2.3 setup (Node.js 18 or later). Claude Code plugin is ecc@ecc from github.com/affaan-m/ECC. Install only from those official sources. Hooks run with the agent's permissions. OSS is MIT. ECC Pro GitHub App is a separate paid product for private repos.
 Source checked: 2026-10-28
@@ -133,7 +133,7 @@ agentglass | Agent tools
 https://sirallap.github.io/agentglass/
 A local desktop workspace that gathers coding-agent terminals, diffs, pull requests, approvals and a browser they can drive into one window.
 For: People running Claude Code, Codex, Gemini CLI or OpenCode on their own machine, often several at once.
-Access: Download from GitHub releases. macOS builds are unsigned: xattr -dr com.apple.quarantine /Applications/agentglass.app. Data stays in local SQLite. Agents run as you; it is a permission lock, not a sandbox. MIT.
+Access: Download from GitHub releases. macOS builds are unsigned. Data stays in local SQLite. Agents run with your permissions. It controls what they can approve, but it doesn't sandbox them. MIT.
 Source checked: 2026-10-28
 
 Are you found by AI? MCP server | MCP and integrations

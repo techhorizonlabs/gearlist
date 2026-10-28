@@ -181,7 +181,7 @@ A free local-first Chrome extension that saves images, prompts and references fr
 
 ### [ECC](https://ecc.tools)
 
-An agent harness that adds planning, review, memory, skills and AgentShield scanning to Claude Code and other coding agents.
+An agent harness that adds planning, review, memory, skills and AgentShield security scanning to Claude Code and other coding agents.
 
 **For:** People running Claude Code, Codex or similar who want that workflow installed once rather than restated every session.
 
@@ -215,7 +215,7 @@ A local desktop workspace that gathers coding-agent terminals, diffs, pull reque
 
 **For:** People running Claude Code, Codex, Gemini CLI or OpenCode on their own machine, often several at once.
 
-**Access and use:** Download from GitHub releases. macOS builds are unsigned: xattr -dr com.apple.quarantine /Applications/agentglass.app. Data stays in local SQLite. Agents run as you; it is a permission lock, not a sandbox. MIT.
+**Access and use:** Download from GitHub releases. macOS builds are unsigned. Data stays in local SQLite. Agents run with your permissions. It controls what they can approve, but it doesn't sandbox them. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/SirAllap/agentglass).
 
