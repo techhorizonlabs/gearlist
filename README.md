@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 118 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 120 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (44)
+- [Agent tools](#agent-tools) (45)
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (18)
+- [Platforms](#platforms) (19)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (35)
 
@@ -469,6 +469,16 @@ A local workspace where an agent explores data, branches questions and draws cha
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/data-formulator).
 
+### [Rowboat](https://www.rowboatlabs.com)
+
+A local desktop assistant that indexes email, meetings and notes into a Markdown knowledge graph, with optional shared Spaces.
+
+**For:** People who want an assistant that keeps its vault on the machine and can still join a team room.
+
+**Access and use:** Download from rowboatlabs.com/downloads or GitHub Releases. Indexes email, meetings, Slack and assistant chats into a local Markdown vault. Meeting notes tap the mic and speaker. The built-in browser is isolated from your main browser. Optional keys live in ~/.rowboat/config. Hosted Spaces sign in with Google or Microsoft. Self-host Harbor with pnpm in apps/harbor; default port 4272. Without AUTH_ISSUER Harbor uses dev tokens that must stay off the public internet. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/rowboatlabs/rowboat).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -824,6 +834,16 @@ A sandbox runtime that gives agents isolated Docker or Kubernetes environments f
 **Access and use:** uvx opensandbox-server init-config ~/.sandbox.toml --example docker then uvx opensandbox-server. Needs Docker and Python 3.10 or later. SDK: pip install opensandbox. CLI: pip install opensandbox-cli. MCP: pip install opensandbox-mcp then opensandbox-mcp --domain localhost:8080 --protocol http. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/opensandbox-group/OpenSandbox).
+
+### [Experiential](https://platform.experientiallabs.ai)
+
+An OpenAI-compatible gateway that routes hosted, BYOK and local models, with spend limits and traffic-based routing.
+
+**For:** Teams who want one API in front of several model providers, with a budget per identity.
+
+**Access and use:** pip install experiential then exp. Local gateway is http://127.0.0.1:8000/v1. Hosted API is api.experientiallabs.ai. Anonymous PostHog product telemetry is on by default; exp config telemetry disable turns it off. exp capture on macOS is experimental and needs a certificate. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/experientiallabs/experiential).
 
 ## Protocols
 

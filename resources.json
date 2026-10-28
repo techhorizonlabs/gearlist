@@ -1535,6 +1535,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "rowboat",
+      "name": "Rowboat",
+      "category": "Agent tools",
+      "url": "https://www.rowboatlabs.com",
+      "description": "A local desktop assistant that indexes email, meetings and notes into a Markdown knowledge graph, with optional shared Spaces.",
+      "for_whom": "People who want an assistant that keeps its vault on the machine and can still join a team room.",
+      "access_notes": "Download from rowboatlabs.com/downloads or GitHub Releases. Indexes email, meetings, Slack and assistant chats into a local Markdown vault. Meeting notes tap the mic and speaker. The built-in browser is isolated from your main browser. Optional keys live in ~/.rowboat/config. Hosted Spaces sign in with Google or Microsoft. Self-host Harbor with pnpm in apps/harbor; default port 4272. Without AUTH_ISSUER Harbor uses dev tokens that must stay off the public internet. Apache-2.0.",
+      "source_url": "https://github.com/rowboatlabs/rowboat",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "experiential",
+      "name": "Experiential",
+      "category": "Platforms",
+      "url": "https://platform.experientiallabs.ai",
+      "description": "An OpenAI-compatible gateway that routes hosted, BYOK and local models, with spend limits and traffic-based routing.",
+      "for_whom": "Teams who want one API in front of several model providers, with a budget per identity.",
+      "access_notes": "pip install experiential then exp. Local gateway is http://127.0.0.1:8000/v1. Hosted API is api.experientiallabs.ai. Anonymous PostHog product telemetry is on by default; exp config telemetry disable turns it off. exp capture on macOS is experimental and needs a certificate. Apache-2.0.",
+      "source_url": "https://github.com/experientiallabs/experiential",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
