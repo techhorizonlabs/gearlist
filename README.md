@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 116 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 118 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (43)
+- [Agent tools](#agent-tools) (44)
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (18)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (34)
+- [Skills and learning](#skills-and-learning) (35)
 
 
 ## Agent tools
@@ -458,6 +458,16 @@ A tool that runs a virtual iPhone on an Apple Silicon Mac for research, reverse 
 **Access and use:** Needs a physical Apple Silicon Mac on macOS 15 or later. Download the notarized vphone-launchpad zip from GitHub Releases. Host setup uses Recovery commands csrutil enable --without debug and csrutil allow-research-guests enable. Optional API is --api-listen 127.0.0.1:8765 with a printed token. The project issues no token; listings on token sites are scams. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/Lakr233/vphone-cli).
+
+### [Data Formulator](https://data-formulator.ai)
+
+A local workspace where an agent explores data, branches questions and draws charts from files, databases and warehouses you connect.
+
+**For:** Analysts who want an agent to load data, keep a visual thread of questions and share a report.
+
+**Access and use:** uvx data_formulator, or pip install data_formulator then python -m data_formulator. Opens http://localhost:5567. Needs an LLM API key or a local model via LiteLLM. Desktop preview builds from GitHub Actions are unsigned. Connectors can reach files, databases and warehouses you configure. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/data-formulator).
 
 ## MCP and integrations
 
@@ -1198,6 +1208,16 @@ An agent skill that turns a video URL or local file into timestamped frames and 
 **Access and use:** Claude Code: /plugin marketplace add bradautomates/claude-video then /plugin install watch@claude-video. Also npx skills add bradautomates/claude-video -g --skill watch. Needs Python 3.10 or later, ffmpeg and yt-dlp. Default Gemini engine uploads videos to Google; --engine local keeps extraction on the machine. Cookie files and --cookies-from-browser are opt-in. Claude Chat and Cowork are unsupported. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/bradautomates/claude-video).
+
+### [OpenWiki](https://github.com/langchain-ai/openwiki)
+
+A CLI that turns a repository into a linked Markdown wiki your coding agent can search, with facts tracked back to source lines.
+
+**For:** Teams who want agents to search a living wiki of the code.
+
+**Access and use:** npm install -g openwiki. Needs Node 22.22.0 or later. Then openwiki integrations install claude (or codex, cursor, opencode). Uses the coding agent's existing model session. openwiki visualize serves 127.0.0.1 only; the graph page still loads libraries from a public CDN. Native CLI init writes provider keys to ~/.openwiki/.env. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/langchain-ai/openwiki).
 
 ## Looking for more?
 

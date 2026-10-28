@@ -304,6 +304,13 @@ For: People who need a local iOS guest on a Mac they already have.
 Access: Needs a physical Apple Silicon Mac on macOS 15 or later. Download the notarized vphone-launchpad zip from GitHub Releases. Host setup uses Recovery commands csrutil enable --without debug and csrutil allow-research-guests enable. Optional API is --api-listen 127.0.0.1:8765 with a printed token. The project issues no token; listings on token sites are scams. MIT.
 Source checked: 2026-10-28
 
+Data Formulator | Agent tools
+https://data-formulator.ai
+A local workspace where an agent explores data, branches questions and draws charts from files, databases and warehouses you connect.
+For: Analysts who want an agent to load data, keep a visual thread of questions and share a report.
+Access: uvx data_formulator, or pip install data_formulator then python -m data_formulator. Opens http://localhost:5567. Needs an LLM API key or a local model via LiteLLM. Desktop preview builds from GitHub Actions are unsigned. Connectors can reach files, databases and warehouses you configure. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -813,4 +820,11 @@ https://github.com/bradautomates/claude-video
 An agent skill that turns a video URL or local file into timestamped frames and a transcript.
 For: People who want a coding agent to inspect a video as evidence.
 Access: Claude Code: /plugin marketplace add bradautomates/claude-video then /plugin install watch@claude-video. Also npx skills add bradautomates/claude-video -g --skill watch. Needs Python 3.10 or later, ffmpeg and yt-dlp. Default Gemini engine uploads videos to Google; --engine local keeps extraction on the machine. Cookie files and --cookies-from-browser are opt-in. Claude Chat and Cowork are unsupported. MIT.
+Source checked: 2026-10-28
+
+OpenWiki | Skills and learning
+https://github.com/langchain-ai/openwiki
+A CLI that turns a repository into a linked Markdown wiki your coding agent can search, with facts tracked back to source lines.
+For: Teams who want agents to search a living wiki of the code.
+Access: npm install -g openwiki. Needs Node 22.22.0 or later. Then openwiki integrations install claude (or codex, cursor, opencode). Uses the coding agent's existing model session. openwiki visualize serves 127.0.0.1 only; the graph page still loads libraries from a public CDN. Native CLI init writes provider keys to ~/.openwiki/.env. MIT.
 Source checked: 2026-10-28

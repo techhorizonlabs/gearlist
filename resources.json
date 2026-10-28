@@ -1509,6 +1509,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "data-formulator",
+      "name": "Data Formulator",
+      "category": "Agent tools",
+      "url": "https://data-formulator.ai",
+      "description": "A local workspace where an agent explores data, branches questions and draws charts from files, databases and warehouses you connect.",
+      "for_whom": "Analysts who want an agent to load data, keep a visual thread of questions and share a report.",
+      "access_notes": "uvx data_formulator, or pip install data_formulator then python -m data_formulator. Opens http://localhost:5567. Needs an LLM API key or a local model via LiteLLM. Desktop preview builds from GitHub Actions are unsigned. Connectors can reach files, databases and warehouses you configure. MIT.",
+      "source_url": "https://github.com/microsoft/data-formulator",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "openwiki",
+      "name": "OpenWiki",
+      "category": "Skills and learning",
+      "url": "https://github.com/langchain-ai/openwiki",
+      "description": "A CLI that turns a repository into a linked Markdown wiki your coding agent can search, with facts tracked back to source lines.",
+      "for_whom": "Teams who want agents to search a living wiki of the code.",
+      "access_notes": "npm install -g openwiki. Needs Node 22.22.0 or later. Then openwiki integrations install claude (or codex, cursor, opencode). Uses the coding agent's existing model session. openwiki visualize serves 127.0.0.1 only; the graph page still loads libraries from a public CDN. Native CLI init writes provider keys to ~/.openwiki/.env. MIT.",
+      "source_url": "https://github.com/langchain-ai/openwiki",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
