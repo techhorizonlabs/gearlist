@@ -215,7 +215,7 @@ A local desktop workspace that gathers coding-agent terminals, diffs, pull reque
 
 **For:** People running Claude Code, Codex, Gemini CLI or OpenCode on their own machine, often several at once.
 
-**Access and use:** Download from GitHub releases. macOS builds are unsigned. Data stays in local SQLite. Agents run with your permissions. It controls what they can approve, but it doesn't sandbox them. MIT.
+**Access and use:** Download from GitHub releases. macOS builds are unsigned. Opening it is the person's own decision. Data stays in local SQLite. Agents run with your permissions. It controls what they can approve, but it doesn't sandbox them. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/SirAllap/agentglass).
 
