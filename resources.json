@@ -911,6 +911,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "opencode",
+      "name": "OpenCode",
+      "category": "Agent tools",
+      "url": "https://opencode.ai",
+      "description": "An open source coding agent you run in a terminal, with a desktop app and a read-only plan mode.",
+      "for_whom": "People who want a local coding agent they can switch between full-access build and read-only plan.",
+      "access_notes": "Installer is curl -fsSL https://opencode.ai/v2/install | bash. Read the script before running it. Also npm i -g @opencode/cli@latest or brew install anomalyco/tap/opencode-v2. The script installs to $HOME/.opencode/bin. OpenCode 1 and OpenCode 2 both use the opencode command and cannot sit side by side under that name. Needs API keys for the models you use. MIT.",
+      "source_url": "https://github.com/anomalyco/opencode",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "orca",
+      "name": "Orca",
+      "category": "Platforms",
+      "url": "https://onorca.dev",
+      "description": "A desktop app that runs coding agents side by side, each in its own git worktree, with a phone companion to watch and steer them.",
+      "for_whom": "People who want several CLI coding agents working in parallel on one machine, with a phone app to follow them.",
+      "access_notes": "Download from https://onorca.dev/download or GitHub Releases. macOS Homebrew is brew install --cask stablyai/orca/orca; a bare brew install --cask orca is a different Plotly app. Mobile companion is on the App Store and as an Android APK. The README points to privacy and telemetry docs for usage data and how to opt out. MIT.",
+      "source_url": "https://github.com/stablyai/orca",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

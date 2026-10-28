@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 70 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 72 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (28)
+- [Agent tools](#agent-tools) (29)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
-- [Platforms](#platforms) (5)
+- [Platforms](#platforms) (6)
 - [Protocols](#protocols) (1)
 - [Skills and learning](#skills-and-learning) (20)
 
@@ -309,6 +309,16 @@ A single-binary CLI that creates, reads and edits Word, Excel and PowerPoint fil
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/iOfficeAI/OfficeCLI).
 
+### [OpenCode](https://opencode.ai)
+
+An open source coding agent you run in a terminal, with a desktop app and a read-only plan mode.
+
+**For:** People who want a local coding agent they can switch between full-access build and read-only plan.
+
+**Access and use:** Installer is curl -fsSL https://opencode.ai/v2/install | bash. Read the script before running it. Also npm i -g @opencode/cli@latest or brew install anomalyco/tap/opencode-v2. The script installs to $HOME/.opencode/bin. OpenCode 1 and OpenCode 2 both use the opencode command and cannot sit side by side under that name. Needs API keys for the models you use. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/anomalyco/opencode).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -524,6 +534,16 @@ A self-hosted AG-UI coworker app. Each bot gets its own computer, browser logins
 **Access and use:** Clone https://github.com/CopilotKit/OpenBot. Needs Docker, Bun 1.3 or later, a CopilotKit Intelligence project, and a model key. Default OPENBOT_SINGLE_USER admits every request as one administrator until you turn sign-in on. Credentials are encrypted at rest. Published image ghcr.io/copilotkit/openbot. MIT. Marked beta.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/CopilotKit/OpenBot).
+
+### [Orca](https://onorca.dev)
+
+A desktop app that runs coding agents side by side, each in its own git worktree, with a phone companion to watch and steer them.
+
+**For:** People who want several CLI coding agents working in parallel on one machine, with a phone app to follow them.
+
+**Access and use:** Download from https://onorca.dev/download or GitHub Releases. macOS Homebrew is brew install --cask stablyai/orca/orca; a bare brew install --cask orca is a different Plotly app. Mobile companion is on the App Store and as an Android APK. The README points to privacy and telemetry docs for usage data and how to opt out. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/stablyai/orca).
 
 ## Protocols
 
