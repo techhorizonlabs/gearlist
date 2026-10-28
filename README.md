@@ -841,7 +841,7 @@ An OpenAI-compatible gateway that routes hosted, BYOK and local models, with spe
 
 **For:** Teams who want one API in front of several model providers, with a budget per identity.
 
-**Access and use:** pip install experiential then exp. Local gateway is http://127.0.0.1:8000/v1. Hosted API is api.experientiallabs.ai. Anonymous PostHog product telemetry is on by default; exp config telemetry disable turns it off. exp capture on macOS is experimental and needs a certificate. Apache-2.0.
+**Access and use:** pip install experiential then exp. Local gateway is http://127.0.0.1:8000/v1. Hosted API is api.experientiallabs.ai. Anonymous PostHog product telemetry is on by default; exp config telemetry disable turns it off. exp capture (experimental, macOS) installs an extension and certificate to read your Codex and Claude Code desktop traffic, and sends those traces to your Experiential account. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/experientiallabs/experiential).
 
