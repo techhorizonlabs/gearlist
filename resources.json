@@ -776,7 +776,7 @@
       "url": "https://github.com/AbubakrChan/product-launch-motion",
       "description": "A Claude Code skill that reads a website URL and renders a local launch film with Playwright, FFmpeg and music-timed springs.",
       "for_whom": "People who want a product launch video directed from their site inside Claude Code.",
-      "access_notes": "npx skills add AbubakrChan/product-launch-motion. Needs Claude Code, Node 20 or later, Playwright, FFmpeg, and Python with numpy. Renders on the local machine. MIT on the skill and references. Sample films stay with Cheerful.",
+      "access_notes": "npx skills add AbubakrChan/product-launch-motion. Needs Claude Code, Node 20 or later, Playwright, FFmpeg, and Python with numpy. Renders on the local machine. MIT on the skill and references. The sample films belong to Cheerful, and the MIT licence doesn't cover them.",
       "source_url": "https://github.com/AbubakrChan/product-launch-motion",
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",

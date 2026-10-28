@@ -635,7 +635,7 @@ A Claude Code skill that reads a website URL and renders a local launch film wit
 
 **For:** People who want a product launch video directed from their site inside Claude Code.
 
-**Access and use:** npx skills add AbubakrChan/product-launch-motion. Needs Claude Code, Node 20 or later, Playwright, FFmpeg, and Python with numpy. Renders on the local machine. MIT on the skill and references. Sample films stay with Cheerful.
+**Access and use:** npx skills add AbubakrChan/product-launch-motion. Needs Claude Code, Node 20 or later, Playwright, FFmpeg, and Python with numpy. Renders on the local machine. MIT on the skill and references. The sample films belong to Cheerful, and the MIT licence doesn't cover them.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/AbubakrChan/product-launch-motion).
 
