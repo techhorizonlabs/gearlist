@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 102 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 104 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (37)
+- [Agent tools](#agent-tools) (38)
 - [MCP and integrations](#mcp-and-integrations) (13)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (15)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (32)
+- [Skills and learning](#skills-and-learning) (33)
 
 
 ## Agent tools
@@ -398,6 +398,16 @@ A macOS menu bar app, Linux desktop app and CLI that shows remaining usage windo
 **Access and use:** macOS 14 or later: brew install --cask codexbar, or download from GitHub Releases. Linux: Qt desktop plus CLI via brew install steipete/tap/codexbar. Reuses existing provider sessions, cookies and API keys, and stores no passwords. Full Disk Access is optional for Safari cookies. Optional CLI serve defaults to 127.0.0.1:8080; a non-loopback bind needs a dashboard token and --allow-plain-http. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/steipete/CodexBar).
+
+### [ScrapeGraphAI](https://github.com/ScrapeGraphAI/Scrapegraph-ai)
+
+A Python library that uses an LLM and graph pipelines to extract structured data from pages and local documents.
+
+**For:** People who want a self-hosted scraper driven by a prompt.
+
+**Access and use:** pip install scrapegraphai then playwright install. Needs an LLM API key or a local model such as Ollama. The library sends anonymous usage metrics by default; set SCRAPEGRAPHAI_TELEMETRY_ENABLED=false to turn it off. This entry covers the MIT Python library. The managed cloud API is a paid product with a separate SDK. Follow each site's terms and robots.txt. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/ScrapeGraphAI/Scrapegraph-ai).
 
 ## MCP and integrations
 
@@ -1058,6 +1068,16 @@ An agent skill that turns the project you just built into a short launch video w
 **Access and use:** npx skills add https://github.com/latent-spaces/brag --skill brag. Claude Code: /plugin marketplace add latent-spaces/brag then /plugin install brag@brag. Needs Node 22 or later and ffmpeg. Hyperframes via npx hyperframes. Hosted shortcut is letsbrag.app. Bundled music is CC BY 4.0 from ende.app. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/latent-spaces/brag).
+
+### [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin)
+
+A plugin of skills that runs a brainstorm, plan, build, review and capture-what-you-learned loop on a coding agent.
+
+**For:** Teams who want each change to leave notes the next agent can read.
+
+**Access and use:** Claude Code: /plugin marketplace add EveryInc/compound-engineering-plugin then /plugin install compound-engineering. Cursor: /add-plugin compound-engineering. Codex CLI: codex plugin marketplace add EveryInc/compound-engineering-plugin then codex plugin add compound-engineering@compound-engineering-plugin. Existing installs must refresh the marketplace before /plugin update. /lfg can push, open a PR and watch CI; it merges only if you grant that. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/EveryInc/compound-engineering-plugin).
 
 ## Looking for more?
 

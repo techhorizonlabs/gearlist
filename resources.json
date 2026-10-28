@@ -1327,6 +1327,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "scrapegraph-ai",
+      "name": "ScrapeGraphAI",
+      "category": "Agent tools",
+      "url": "https://github.com/ScrapeGraphAI/Scrapegraph-ai",
+      "description": "A Python library that uses an LLM and graph pipelines to extract structured data from pages and local documents.",
+      "for_whom": "People who want a self-hosted scraper driven by a prompt.",
+      "access_notes": "pip install scrapegraphai then playwright install. Needs an LLM API key or a local model such as Ollama. The library sends anonymous usage metrics by default; set SCRAPEGRAPHAI_TELEMETRY_ENABLED=false to turn it off. This entry covers the MIT Python library. The managed cloud API is a paid product with a separate SDK. Follow each site's terms and robots.txt. MIT.",
+      "source_url": "https://github.com/ScrapeGraphAI/Scrapegraph-ai",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "compound-engineering",
+      "name": "Compound Engineering",
+      "category": "Skills and learning",
+      "url": "https://github.com/EveryInc/compound-engineering-plugin",
+      "description": "A plugin of skills that runs a brainstorm, plan, build, review and capture-what-you-learned loop on a coding agent.",
+      "for_whom": "Teams who want each change to leave notes the next agent can read.",
+      "access_notes": "Claude Code: /plugin marketplace add EveryInc/compound-engineering-plugin then /plugin install compound-engineering. Cursor: /add-plugin compound-engineering. Codex CLI: codex plugin marketplace add EveryInc/compound-engineering-plugin then codex plugin add compound-engineering@compound-engineering-plugin. Existing installs must refresh the marketplace before /plugin update. /lfg can push, open a PR and watch CI; it merges only if you grant that. MIT.",
+      "source_url": "https://github.com/EveryInc/compound-engineering-plugin",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
