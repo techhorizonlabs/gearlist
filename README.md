@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 62 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 64 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (25)
+- [Agent tools](#agent-tools) (26)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (4)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (16)
+- [Skills and learning](#skills-and-learning) (17)
 
 
 ## Agent tools
@@ -278,6 +278,16 @@ A local decision model that answers typed choice, score and yes/no questions ove
 **Access and use:** Python 3.10 or later. python -m pip install laya. The first predict downloads a Hugging Face checkpoint. Optional MCP: pip install "laya[mcp]" then laya-mcp-server. Optional HTTP playground: pip install "laya[serve]". Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/NandhaKishorM/laya).
+
+### [BrowserSkill](https://github.com/Tencent/BrowserSkill)
+
+A CLI, Chromium extension and agent skill that drives Chrome or Edge through the profile you are already signed into, in a separate Agent Window.
+
+**For:** People whose agents need to read, click and fill sites they already use, without a separate browser account.
+
+**Access and use:** Installer is curl -fsSL https://raw.githubusercontent.com/Tencent/BrowserSkill/main/install.sh | sh. Read the script before running it. Then install the Chrome or Edge extension, enable the local connection, and run bsk install-skill. The Agent Window shares that profile's website logins. Optional remote pairing uses authenticated WSS from the browser. MIT.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/Tencent/BrowserSkill).
 
 ## MCP and integrations
 
@@ -658,6 +668,16 @@ A local Python CLI and Claude Code skill that crawls a site, scores technical ru
 **Access and use:** Python 3.10 or later. git clone, then python3 -m venv and pip install -r requirements.txt. WeasyPrint needs Pango. Set TYPESAFE_API_KEY in .env for Jev judgments; without it the audit still runs as a partial audit. Optional PAGESPEED_API_KEY, and for --full DATAFORSEO_USERNAME and DATAFORSEO_PASSWORD. Optional Playwright Chromium for JavaScript-only pages. Reports land under jev-seo-reports/. Claude Code: ln -s the clone into ~/.claude/skills/jev-seo. MIT. Bundled fonts are SIL. Jev citability answers are model judgments of a page.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/AgriciDaniel/jev-seo).
+
+### [SEOmator SEO Audit](https://github.com/seo-skills/seo-audit-skill)
+
+A local CLI, Electron app and Claude Code skill that crawls a site, scores technical, content and AI-crawler checks, and writes console, JSON, HTML, Markdown or LLM XML reports.
+
+**For:** People who want a local site audit they can run from a terminal, a desktop window or Claude Code.
+
+**Access and use:** Node.js 20.3 or later. npm install -g @seomator/seo-audit, then seomator audit URL. For Core Web Vitals, npx playwright install chromium. Audits land in ~/.seomator by default; seomator serve binds loopback with a per-launch token. Claude Code: npx skills add seo-skills/seo-audit-skill. MIT. This row is the open-source audit engine.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/seo-skills/seo-audit-skill).
 
 ## Looking for more?
 

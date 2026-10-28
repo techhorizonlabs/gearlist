@@ -807,6 +807,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "browserskill",
+      "name": "BrowserSkill",
+      "category": "Agent tools",
+      "url": "https://github.com/Tencent/BrowserSkill",
+      "description": "A CLI, Chromium extension and agent skill that drives Chrome or Edge through the profile you are already signed into, in a separate Agent Window.",
+      "for_whom": "People whose agents need to read, click and fill sites they already use, without a separate browser account.",
+      "access_notes": "Installer is curl -fsSL https://raw.githubusercontent.com/Tencent/BrowserSkill/main/install.sh | sh. Read the script before running it. Then install the Chrome or Edge extension, enable the local connection, and run bsk install-skill. The Agent Window shares that profile's website logins. Optional remote pairing uses authenticated WSS from the browser. MIT.",
+      "source_url": "https://github.com/Tencent/BrowserSkill",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "seomator-seo-audit",
+      "name": "SEOmator SEO Audit",
+      "category": "Skills and learning",
+      "url": "https://github.com/seo-skills/seo-audit-skill",
+      "description": "A local CLI, Electron app and Claude Code skill that crawls a site, scores technical, content and AI-crawler checks, and writes console, JSON, HTML, Markdown or LLM XML reports.",
+      "for_whom": "People who want a local site audit they can run from a terminal, a desktop window or Claude Code.",
+      "access_notes": "Node.js 20.3 or later. npm install -g @seomator/seo-audit, then seomator audit URL. For Core Web Vitals, npx playwright install chromium. Audits land in ~/.seomator by default; seomator serve binds loopback with a per-launch token. Claude Code: npx skills add seo-skills/seo-audit-skill. MIT. This row is the open-source audit engine.",
+      "source_url": "https://github.com/seo-skills/seo-audit-skill",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

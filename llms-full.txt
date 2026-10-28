@@ -178,6 +178,13 @@ For: People whose agents need typed choice, score or yes/no answers over text.
 Access: Python 3.10 or later. python -m pip install laya. The first predict downloads a Hugging Face checkpoint. Optional MCP: pip install "laya[mcp]" then laya-mcp-server. Optional HTTP playground: pip install "laya[serve]". Apache-2.0.
 Source checked: 2026-10-28
 
+BrowserSkill | Agent tools
+https://github.com/Tencent/BrowserSkill
+A CLI, Chromium extension and agent skill that drives Chrome or Edge through the profile you are already signed into, in a separate Agent Window.
+For: People whose agents need to read, click and fill sites they already use, without a separate browser account.
+Access: Installer is curl -fsSL https://raw.githubusercontent.com/Tencent/BrowserSkill/main/install.sh | sh. Read the script before running it. Then install the Chrome or Edge extension, enable the local connection, and run bsk install-skill. The Agent Window shares that profile's website logins. Optional remote pairing uses authenticated WSS from the browser. MIT.
+Source checked: 2026-10-28
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -435,4 +442,11 @@ https://github.com/AgriciDaniel/jev-seo
 A local Python CLI and Claude Code skill that crawls a site, scores technical rules, optionally has the Jev model from TypeSafe judge each page, and writes a PDF, Excel tracker and Markdown from one audit record.
 For: People who want a live site audit with ranked, evidence-linked fixes from a homepage URL.
 Access: Python 3.10 or later. git clone, then python3 -m venv and pip install -r requirements.txt. WeasyPrint needs Pango. Set TYPESAFE_API_KEY in .env for Jev judgments; without it the audit still runs as a partial audit. Optional PAGESPEED_API_KEY, and for --full DATAFORSEO_USERNAME and DATAFORSEO_PASSWORD. Optional Playwright Chromium for JavaScript-only pages. Reports land under jev-seo-reports/. Claude Code: ln -s the clone into ~/.claude/skills/jev-seo. MIT. Bundled fonts are SIL. Jev citability answers are model judgments of a page.
+Source checked: 2026-10-28
+
+SEOmator SEO Audit | Skills and learning
+https://github.com/seo-skills/seo-audit-skill
+A local CLI, Electron app and Claude Code skill that crawls a site, scores technical, content and AI-crawler checks, and writes console, JSON, HTML, Markdown or LLM XML reports.
+For: People who want a local site audit they can run from a terminal, a desktop window or Claude Code.
+Access: Node.js 20.3 or later. npm install -g @seomator/seo-audit, then seomator audit URL. For Core Web Vitals, npx playwright install chromium. Audits land in ~/.seomator by default; seomator serve binds loopback with a per-launch token. Claude Code: npx skills add seo-skills/seo-audit-skill. MIT. This row is the open-source audit engine.
 Source checked: 2026-10-28
