@@ -1145,6 +1145,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "unsloth",
+      "name": "Unsloth",
+      "category": "Agent tools",
+      "url": "https://unsloth.ai/docs",
+      "description": "A local app to run and train models, and to point coding agents at those models with one command.",
+      "for_whom": "People who want Claude Code, Codex or OpenCode to use a model on their own machine.",
+      "access_notes": "Desktop builds are on GitHub Releases. Studio installer is curl -fsSL https://unsloth.ai/install.sh | sh. Read the script before running it. Also brew install --cask unsloth. Point an agent with unsloth start claude (or codex, opencode, dsh, openclaw). Default studio is local; --secure or a non-loopback bind asks for an admin password. Core package is Apache-2.0; Unsloth Studio UI is AGPL-3.0.",
+      "source_url": "https://github.com/unslothai/unsloth",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "claude-for-financial-services",
+      "name": "Claude for Financial Services",
+      "category": "Skills and learning",
+      "url": "https://github.com/anthropics/financial-services",
+      "description": "Reference agents and skills for investment banking, equity research, private equity and fund ops, drafted for a human to sign off.",
+      "for_whom": "Firms that want Claude to draft models, memos and reconciliations under a qualified reviewer's control.",
+      "access_notes": "Claude Code: claude plugin marketplace add anthropics/financial-services, then claude plugin install financial-analysis@claude-for-financial-services and the named agents you need. Cowork: Settings, Plugins, Add plugin, paste the repo URL. The README says nothing here is investment, legal, tax or accounting advice, and agents do not execute trades or post to a ledger. MCP data connectors may need a provider subscription. Apache-2.0.",
+      "source_url": "https://github.com/anthropics/financial-services",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

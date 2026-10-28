@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 88 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 90 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,12 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (31)
+- [Agent tools](#agent-tools) (32)
 - [MCP and integrations](#mcp-and-integrations) (12)
 - [Security and governance](#security-and-governance) (4)
 - [Platforms](#platforms) (13)
 - [Protocols](#protocols) (1)
-- [Skills and learning](#skills-and-learning) (27)
+- [Skills and learning](#skills-and-learning) (28)
 
 
 ## Agent tools
@@ -338,6 +338,16 @@ An agent memory server that retains, recalls and reflects, so an agent can learn
 **Access and use:** Docker image ghcr.io/vectorize-io/hindsight:latest publishes API on localhost:8888 and UI on localhost:9999, and needs an LLM provider: an API key, a local model such as Ollama, or an existing Claude, ChatGPT, Cursor or Copilot subscription. Also pip install hindsight-api. MCP is http://localhost:8888/mcp/{bank_id}/. Coding agents: npx @vectorize-io/hindsight-coding-agents install all. CLI installer is curl -fsSL https://hindsight.vectorize.io/get-cli | bash. Read the script before running it. Optional hosted cloud is a paid product. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/vectorize-io/hindsight).
+
+### [Unsloth](https://unsloth.ai/docs)
+
+A local app to run and train models, and to point coding agents at those models with one command.
+
+**For:** People who want Claude Code, Codex or OpenCode to use a model on their own machine.
+
+**Access and use:** Desktop builds are on GitHub Releases. Studio installer is curl -fsSL https://unsloth.ai/install.sh | sh. Read the script before running it. Also brew install --cask unsloth. Point an agent with unsloth start claude (or codex, opencode, dsh, openclaw). Default studio is local; --secure or a non-loopback bind asks for an admin password. Core package is Apache-2.0; Unsloth Studio UI is AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/unslothai/unsloth).
 
 ## MCP and integrations
 
@@ -918,6 +928,16 @@ A large roster of specialist agent files for coding tools, covering engineering,
 **Access and use:** Native app at https://agencyagents.app, or brew install --cask msitarzewski/agency-agents/agency-agents. From a clone: ./scripts/install.sh --tool claude-code, or --tool with another listed host. Install a subset with --division or --agent. OpenCode currently registers about 119 agents and drops the rest. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/msitarzewski/agency-agents).
+
+### [Claude for Financial Services](https://github.com/anthropics/financial-services)
+
+Reference agents and skills for investment banking, equity research, private equity and fund ops, drafted for a human to sign off.
+
+**For:** Firms that want Claude to draft models, memos and reconciliations under a qualified reviewer's control.
+
+**Access and use:** Claude Code: claude plugin marketplace add anthropics/financial-services, then claude plugin install financial-analysis@claude-for-financial-services and the named agents you need. Cowork: Settings, Plugins, Add plugin, paste the repo URL. The README says nothing here is investment, legal, tax or accounting advice, and agents do not execute trades or post to a ledger. MCP data connectors may need a provider subscription. Apache-2.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/anthropics/financial-services).
 
 ## Looking for more?
 
