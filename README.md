@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 166 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 168 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,7 +22,7 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (64)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (30)
+- [Platforms](#platforms) (32)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (44)
 
@@ -1214,6 +1214,26 @@ An AGPL project-management app for work items, cycles, modules, views, pages and
 **Access and use:** Cloud sign-up is https://app.plane.so. Community self-host: mkdir plane-selfhost && cd plane-selfhost, curl -fsSL -o setup.sh https://github.com/makeplane/plane/releases/latest/download/setup.sh, chmod +x setup.sh, then ./setup.sh action 1. Edit plane.env WEB_URL and CORS_ALLOWED_ORIGINS (defaults http://localhost on ports 80 and 443), then ./setup.sh action 2 to start. Commercial installer: curl -fsSL https://prime.plane.so/install/ | sh - (read the script before running it); that edition starts on a free plan with 12 seats. Needs 2 CPU cores and 4 GB RAM. Instance admins configure the host in God mode. Self-hosted Plane sends telemetry to Plane by default: the admin's name and email, the instance ID, anonymised usage counts and performance data including stack traces. Turn it off in God mode under General Settings, Telemetry. AGPL-3.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/makeplane/plane).
+
+### [SearXNG](https://docs.searxng.org/)
+
+A self-hosted metasearch engine that queries the search services you enable and returns aggregated results without a SearXNG user account.
+
+**For:** People who want a private search front-end they can host, or who will use a public instance they trust.
+
+**Access and use:** Self-host with Docker or Podman: mkdir -p ./searxng/core-config && cd ./searxng, curl -fsSL -O https://raw.githubusercontent.com/searxng/searxng/master/container/docker-compose.yml -O https://raw.githubusercontent.com/searxng/searxng/master/container/.env.example, cp .env.example .env, then docker compose up -d. Compose publishes 0.0.0.0:8080. Edit core-config/settings.yml. Manual run: docker run --name searxng -d -p 8888:8080 -v ./config/:/etc/searxng/ -v ./data/:/var/cache/searxng/ docker.io/searxng/searxng:latest then http://localhost:8888. Each query is sent to the engines you enable. A public instance operator sees the queries you type. AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/searxng/searxng).
+
+### [Invidious](https://invidious.io/)
+
+An AGPL YouTube front-end for videos, subscriptions and comments, as a self-hosted instance or a public one.
+
+**For:** People who want a lighter YouTube player they can host, or who will pick a public instance they trust.
+
+**Access and use:** Public instances are listed at https://instances.invidious.io; that operator holds your subscriptions, history and watch requests, and the instance fetches video from YouTube. Self-host: git clone https://github.com/iv-org/invidious.git && cd invidious. Generate two 16-character keys with pwgen 16 1, put them in docker-compose.yml as hmac_key and invidious_companion_key (companion SERVER_SECRET_KEY must match). Default compose binds 127.0.0.1:3000. Needs about 20 GB disk and 2 GB RAM; restart at least daily. Playback needs Invidious companion. AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/iv-org/invidious).
 
 ## Protocols
 

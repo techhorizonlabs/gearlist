@@ -2159,6 +2159,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "searxng",
+      "name": "SearXNG",
+      "category": "Platforms",
+      "url": "https://docs.searxng.org/",
+      "description": "A self-hosted metasearch engine that queries the search services you enable and returns aggregated results without a SearXNG user account.",
+      "for_whom": "People who want a private search front-end they can host, or who will use a public instance they trust.",
+      "access_notes": "Self-host with Docker or Podman: mkdir -p ./searxng/core-config && cd ./searxng, curl -fsSL -O https://raw.githubusercontent.com/searxng/searxng/master/container/docker-compose.yml -O https://raw.githubusercontent.com/searxng/searxng/master/container/.env.example, cp .env.example .env, then docker compose up -d. Compose publishes 0.0.0.0:8080. Edit core-config/settings.yml. Manual run: docker run --name searxng -d -p 8888:8080 -v ./config/:/etc/searxng/ -v ./data/:/var/cache/searxng/ docker.io/searxng/searxng:latest then http://localhost:8888. Each query is sent to the engines you enable. A public instance operator sees the queries you type. AGPL-3.0.",
+      "source_url": "https://github.com/searxng/searxng",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "invidious",
+      "name": "Invidious",
+      "category": "Platforms",
+      "url": "https://invidious.io/",
+      "description": "An AGPL YouTube front-end for videos, subscriptions and comments, as a self-hosted instance or a public one.",
+      "for_whom": "People who want a lighter YouTube player they can host, or who will pick a public instance they trust.",
+      "access_notes": "Public instances are listed at https://instances.invidious.io; that operator holds your subscriptions, history and watch requests, and the instance fetches video from YouTube. Self-host: git clone https://github.com/iv-org/invidious.git && cd invidious. Generate two 16-character keys with pwgen 16 1, put them in docker-compose.yml as hmac_key and invidious_companion_key (companion SERVER_SECRET_KEY must match). Default compose binds 127.0.0.1:3000. Needs about 20 GB disk and 2 GB RAM; restart at least daily. Playback needs Invidious companion. AGPL-3.0.",
+      "source_url": "https://github.com/iv-org/invidious",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

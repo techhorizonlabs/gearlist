@@ -3,9 +3,9 @@
   "starred_total": 313,
   "updated": "2026-10-28",
   "counts": {
-    "already_published": 140,
+    "already_published": 142,
     "queued": 8,
-    "stored": 164,
+    "stored": 162,
     "excluded": 1
   },
   "rule": "A star is not an entry. Promote a queued row only after a documentation review, access notes and a source_checked date in resources.json. Status queued means score 4+ on MCP, skills, awesome-list, licence or first-party signals. Status stored keeps the rest of the 313 stars for later review. Status excluded is not eligible.",
@@ -3028,8 +3028,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "CopilotKit/CopilotKit",
@@ -3283,8 +3283,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Already in resources.json."
     },
     {
       "full_name": "EveryInc/compound-engineering-plugin",
