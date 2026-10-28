@@ -2211,6 +2211,32 @@
       "source_checked": "2026-10-28",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "convertx",
+      "name": "ConvertX",
+      "category": "Platforms",
+      "url": "https://github.com/C4illin/ConvertX",
+      "description": "A self-hosted file converter that wraps Inkscape, Calibre, LibreOffice, FFmpeg, ImageMagick and other engines behind a web UI.",
+      "for_whom": "People converting documents, images, e-books or video on a machine they control.",
+      "access_notes": "Docker: map port 3000 and volume ./data:/app/data, set PUID to your host user id, then open http://localhost:3000 and create the first account. Anyone who can reach that URL can register that first account. Set JWT_SECRET. HTTP_ALLOWED=true only on a non-HTTPS local connection. Files land in ./data on the host; AUTO_DELETE_EVERY_N_HOURS defaults to 24. ALLOW_UNAUTHENTICATED and ACCOUNT_REGISTRATION stay off on a public host. AGPL-3.0.",
+      "source_url": "https://github.com/C4illin/ConvertX",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "docuseal",
+      "name": "DocuSeal",
+      "category": "Platforms",
+      "url": "https://www.docuseal.com/",
+      "description": "An AGPL platform for building PDF forms, collecting signatures and storing completed documents, self-hosted or on DocuSeal Cloud.",
+      "for_whom": "Teams who want fill-and-sign workflows on a host they run, or on DocuSeal's cloud.",
+      "access_notes": "Cloud sign-up is https://docuseal.com/sign_up; completed documents then live on DocuSeal LLC servers. Self-host: docker run --name docuseal -p 3000:3000 -v.:/data docuseal/docuseal then http://localhost:3000. Compose: curl https://raw.githubusercontent.com/docusealco/docuseal/master/docker-compose.yml > docker-compose.yml then sudo HOST=your-domain-name.com docker compose up. SQLite is the default; set DATABASE_URL for PostgreSQL or MySQL. Disk or S3/GCS/Azure for files. AGPL-3.0 with Section 7(b) additional terms: keep DocuSeal attribution in interactive UIs.",
+      "source_url": "https://github.com/docusealco/docuseal",
+      "source_checked": "2026-10-28",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }

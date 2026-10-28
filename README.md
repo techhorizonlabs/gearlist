@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 170 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 172 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,7 +22,7 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (65)
 - [MCP and integrations](#mcp-and-integrations) (19)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (33)
+- [Platforms](#platforms) (35)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (44)
 
@@ -1254,6 +1254,26 @@ An AGPL messenger that connects people with one-off invitation links or QR codes
 **Access and use:** Mobile: App Store, Google Play, F-Droid (https://app.simplex.chat) or the APK from GitHub Releases. Terminal: curl -o- https://raw.githubusercontent.com/simplex-chat/simplex-chat/stable/install.sh | bash (read the script before running it). Connect by scanning a QR code or opening an smp invitation link. Encrypted messages travel through the SMP relays you choose; the default public relays are operated by SimpleX Chat Ltd. AGPL-3.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/simplex-chat/simplex-chat).
+
+### [ConvertX](https://github.com/C4illin/ConvertX)
+
+A self-hosted file converter that wraps Inkscape, Calibre, LibreOffice, FFmpeg, ImageMagick and other engines behind a web UI.
+
+**For:** People converting documents, images, e-books or video on a machine they control.
+
+**Access and use:** Docker: map port 3000 and volume ./data:/app/data, set PUID to your host user id, then open http://localhost:3000 and create the first account. Anyone who can reach that URL can register that first account. Set JWT_SECRET. HTTP_ALLOWED=true only on a non-HTTPS local connection. Files land in ./data on the host; AUTO_DELETE_EVERY_N_HOURS defaults to 24. ALLOW_UNAUTHENTICATED and ACCOUNT_REGISTRATION stay off on a public host. AGPL-3.0.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/C4illin/ConvertX).
+
+### [DocuSeal](https://www.docuseal.com/)
+
+An AGPL platform for building PDF forms, collecting signatures and storing completed documents, self-hosted or on DocuSeal Cloud.
+
+**For:** Teams who want fill-and-sign workflows on a host they run, or on DocuSeal's cloud.
+
+**Access and use:** Cloud sign-up is https://docuseal.com/sign_up; completed documents then live on DocuSeal LLC servers. Self-host: docker run --name docuseal -p 3000:3000 -v.:/data docuseal/docuseal then http://localhost:3000. Compose: curl https://raw.githubusercontent.com/docusealco/docuseal/master/docker-compose.yml > docker-compose.yml then sudo HOST=your-domain-name.com docker compose up. SQLite is the default; set DATABASE_URL for PostgreSQL or MySQL. Disk or S3/GCS/Azure for files. AGPL-3.0 with Section 7(b) additional terms: keep DocuSeal attribution in interactive UIs.
+
+**Source checked:** 2026-10-28. [Official source](https://github.com/docusealco/docuseal).
 
 ## Protocols
 
