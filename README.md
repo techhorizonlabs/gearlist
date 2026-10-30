@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 202 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 209 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -22,9 +22,9 @@ npx skills add techhorizonlabs/gearlist
 - [Agent tools](#agent-tools) (74)
 - [MCP and integrations](#mcp-and-integrations) (20)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (52)
+- [Platforms](#platforms) (58)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (47)
+- [Skills and learning](#skills-and-learning) (48)
 
 
 ## Agent tools
@@ -1545,6 +1545,66 @@ A self-hosted mail server and email campaign platform with contact groups, templ
 
 **Source checked:** 2026-10-30. [Official source](https://github.com/Billionmail/BillionMail/blob/fc36c76c050c3775c5e899faf7403cf0262d2744/README.md).
 
+### [n8n](https://github.com/n8n-io/n8n)
+
+A visual workflow platform that combines integrations, AI models, code and approval steps.
+
+**For:** Teams who want to connect existing services in workflows they can host or run in n8n Cloud.
+
+**Access and use:** Self-host with Docker using docker.n8n.io/n8nio/n8n; the editor runs on port 5678 and the n8n_data volume persists data under /home/node/.n8n. Workflows use the credentials and data access of the connected services; model and service charges still apply. n8n Cloud has its own account and plan. Source-available under the Sustainable Use License for internal business, personal or non-commercial use, with separate enterprise terms for designated code. Check the licence before embedding it in a customer product or offering hosted access.
+
+**Source checked:** 2026-10-30. [Official source](https://github.com/n8n-io/n8n/blob/21e9955261c5a97b3620f6ecabecc53944b70318/README.md).
+
+### [Dify](https://github.com/langgenius/dify)
+
+A visual platform for AI applications, agents, document retrieval and model workflows, with APIs for applications.
+
+**For:** Teams building AI applications with a visual workflow and document knowledge base.
+
+**Access and use:** Self-host with Docker Compose 2.24 or later. The README specifies at least 2 CPU cores and 4 GiB RAM. From the docker directory, configure .env and start Compose; initialise through /install. Dify Cloud needs an account and has its own plan. Documents and conversation data are processed by the deployment and whichever models, tools or observability services you configure. Model-provider charges still apply. The modified Apache-2.0 licence restricts operating a multi-tenant environment without written authorisation or a commercial licence, and removing frontend logos or copyright notices. A workspace is a tenant under these terms.
+
+**Source checked:** 2026-10-30. [Official source](https://github.com/langgenius/dify/blob/7e15fac03242a9e6a3a1e5010b06956c7aa101a2/README.md).
+
+### [Langflow](https://github.com/langflow-ai/langflow)
+
+A visual builder for AI agents and workflows that can expose flows through APIs and MCP.
+
+**For:** Developers who want to design and serve AI workflows visually.
+
+**Access and use:** The README supports a desktop app for Windows and macOS, a Python package, or Docker. Python 3.10 to 3.14; install with uv pip install langflow -U, then uv run langflow run. Local UI is http://127.0.0.1:7860. Set LANGFLOW_SUPERUSER_PASSWORD before startup. Official release packages and Docker images require authentication by default; development branches retain automatic login. Flow components can use connected files, models, databases and service credentials, with provider charges where applicable. MIT.
+
+**Source checked:** 2026-10-30. [Official source](https://github.com/langflow-ai/langflow/blob/b5c54a64e685b7e50fd3bc76e965ad718fc2dea3/README.md).
+
+### [CrewAI](https://github.com/crewAIInc/crewAI)
+
+A Python framework for composing agent teams and controlled workflows with tools, memory and model integrations.
+
+**For:** Python developers building agent workflows in their own application.
+
+**Access and use:** Requires Python 3.10 to 3.13 and uv. Install the CLI with uv tool install crewai. Models and tool integrations need their own configuration, credentials and any provider fees. The framework can run tools with the access the host gives them. Its README describes usage telemetry, disabled with OTEL_SDK_DISABLED=true. Enabling share_crew additionally shares detailed agent and task execution data. MIT.
+
+**Source checked:** 2026-10-30. [Official source](https://github.com/crewAIInc/crewAI/blob/97bbfb64811775a965304bda45c8ec0e8e4ef3a2/README.md).
+
+### [RAGFlow](https://github.com/infiniflow/ragflow)
+
+A document retrieval and agent platform that parses documents and supplies retrieved context to language models.
+
+**For:** Teams evaluating searchable document collections and retrieval workflows they operate.
+
+**Access and use:** Self-host through Docker and Docker Compose; the reviewed README quickstart selects release candidate v1.0.0-rc2. Recommended starting host: 4 CPU cores, 16 GB RAM and 50 GB disk, with more resources for local models or higher load. Docker 24 or later and Compose 2.26.1 or later. Configure an LLM, embedding model and reranker, including endpoint and API key as needed. Uploaded documents are processed and stored by the deployment, and configured model services may receive document or query content. Provider and hosting costs apply. Apache-2.0.
+
+**Source checked:** 2026-10-30. [Official source](https://github.com/infiniflow/ragflow/blob/6f571fda64cb4eb712aa6c06b3209a4b0553a27c/README.md).
+
+### [Open WebUI](https://github.com/open-webui/open-webui)
+
+A self-hosted chat interface for local and remote models, including Ollama and OpenAI-compatible services.
+
+**For:** Teams who want a web interface for model access and document chat on infrastructure they operate.
+
+**Access and use:** Use the official Docker image ghcr.io/open-webui/open-webui, or install the Python package with Python 3.12. The Docker quickstart serves the UI on localhost:3000 and persists the database and uploads in the open-webui volume at /app/backend/data. Local or remote model endpoints determine where prompts and documents go and whether provider charges apply. Offline use needs local models and assets prepared first. The current Open WebUI License includes branding-preservation requirements, with exceptions including deployments of at most 50 end users in a rolling 30-day period or written permission. Earlier components retain their original terms. Check the licence before rebranding.
+
+**Source checked:** 2026-10-30. [Official source](https://github.com/open-webui/open-webui/blob/f7ac7ee10962ddec0017f5c29b6740d9b9c5faca/README.md).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -2058,6 +2118,16 @@ An MIT React mascot that tracks the pointer, with a skill that draws the two spr
 **Access and use:** npm i page-mascot. Put two sprite sheets on the page and pass them as directions and reactions. Skill: npx skills add nilbuild/page-mascot --skill page-mascot --global --yes, then /page-mascot. Drawing a new character needs an image tool; Claude Code uses OPENAI_API_KEY for the OpenAI images API, and a photo you attach is sent there. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/nilbuild/page-mascot).
+
+### [fun-isometric](https://github.com/kelvinkn17/skills)
+
+An agent skill and canvas kit for drawing animated isometric stickers, with a React component and video export.
+
+**For:** Designers and developers who want animated icons they can adapt to a project palette.
+
+**Access and use:** Install with npx skills add kelvinkn17/skills@fun-isometric, then start a new agent session. Needs Node.js 22 or later. Rendering and checks use Bun and Playwright Chromium, which downloads on first use into ~/.cache/fun-isometric. Video export also needs ffmpeg. The output is a canvas icon module or alpha video with a still poster. The skill adds instructions and runnable rendering tools to the agents you select. MIT.
+
+**Source checked:** 2026-10-30. [Official source](https://github.com/kelvinkn17/skills/blob/7c8a7526306e09855c0d4f66130cbaa87422cb8d/README.md).
 
 ## Looking for more?
 

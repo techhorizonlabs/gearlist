@@ -2627,6 +2627,97 @@
       "source_checked": "2026-10-30",
       "verification": "Official documentation and selected source reviewed; not installed, independently run or delivery-tested",
       "thl_project": false
+    },
+    {
+      "id": "fun-isometric",
+      "name": "fun-isometric",
+      "category": "Skills and learning",
+      "url": "https://github.com/kelvinkn17/skills",
+      "description": "An agent skill and canvas kit for drawing animated isometric stickers, with a React component and video export.",
+      "for_whom": "Designers and developers who want animated icons they can adapt to a project palette.",
+      "access_notes": "Install with npx skills add kelvinkn17/skills@fun-isometric, then start a new agent session. Needs Node.js 22 or later. Rendering and checks use Bun and Playwright Chromium, which downloads on first use into ~/.cache/fun-isometric. Video export also needs ffmpeg. The output is a canvas icon module or alpha video with a still poster. The skill adds instructions and runnable rendering tools to the agents you select. MIT.",
+      "source_url": "https://github.com/kelvinkn17/skills/blob/7c8a7526306e09855c0d4f66130cbaa87422cb8d/README.md",
+      "source_checked": "2026-10-30",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "category": "Platforms",
+      "url": "https://github.com/n8n-io/n8n",
+      "description": "A visual workflow platform that combines integrations, AI models, code and approval steps.",
+      "for_whom": "Teams who want to connect existing services in workflows they can host or run in n8n Cloud.",
+      "access_notes": "Self-host with Docker using docker.n8n.io/n8nio/n8n; the editor runs on port 5678 and the n8n_data volume persists data under /home/node/.n8n. Workflows use the credentials and data access of the connected services; model and service charges still apply. n8n Cloud has its own account and plan. Source-available under the Sustainable Use License for internal business, personal or non-commercial use, with separate enterprise terms for designated code. Check the licence before embedding it in a customer product or offering hosted access.",
+      "source_url": "https://github.com/n8n-io/n8n/blob/21e9955261c5a97b3620f6ecabecc53944b70318/README.md",
+      "source_checked": "2026-10-30",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "dify",
+      "name": "Dify",
+      "category": "Platforms",
+      "url": "https://github.com/langgenius/dify",
+      "description": "A visual platform for AI applications, agents, document retrieval and model workflows, with APIs for applications.",
+      "for_whom": "Teams building AI applications with a visual workflow and document knowledge base.",
+      "access_notes": "Self-host with Docker Compose 2.24 or later. The README specifies at least 2 CPU cores and 4 GiB RAM. From the docker directory, configure .env and start Compose; initialise through /install. Dify Cloud needs an account and has its own plan. Documents and conversation data are processed by the deployment and whichever models, tools or observability services you configure. Model-provider charges still apply. The modified Apache-2.0 licence restricts operating a multi-tenant environment without written authorisation or a commercial licence, and removing frontend logos or copyright notices. A workspace is a tenant under these terms.",
+      "source_url": "https://github.com/langgenius/dify/blob/7e15fac03242a9e6a3a1e5010b06956c7aa101a2/README.md",
+      "source_checked": "2026-10-30",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "langflow",
+      "name": "Langflow",
+      "category": "Platforms",
+      "url": "https://github.com/langflow-ai/langflow",
+      "description": "A visual builder for AI agents and workflows that can expose flows through APIs and MCP.",
+      "for_whom": "Developers who want to design and serve AI workflows visually.",
+      "access_notes": "The README supports a desktop app for Windows and macOS, a Python package, or Docker. Python 3.10 to 3.14; install with uv pip install langflow -U, then uv run langflow run. Local UI is http://127.0.0.1:7860. Set LANGFLOW_SUPERUSER_PASSWORD before startup. Official release packages and Docker images require authentication by default; development branches retain automatic login. Flow components can use connected files, models, databases and service credentials, with provider charges where applicable. MIT.",
+      "source_url": "https://github.com/langflow-ai/langflow/blob/b5c54a64e685b7e50fd3bc76e965ad718fc2dea3/README.md",
+      "source_checked": "2026-10-30",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "crewai",
+      "name": "CrewAI",
+      "category": "Platforms",
+      "url": "https://github.com/crewAIInc/crewAI",
+      "description": "A Python framework for composing agent teams and controlled workflows with tools, memory and model integrations.",
+      "for_whom": "Python developers building agent workflows in their own application.",
+      "access_notes": "Requires Python 3.10 to 3.13 and uv. Install the CLI with uv tool install crewai. Models and tool integrations need their own configuration, credentials and any provider fees. The framework can run tools with the access the host gives them. Its README describes usage telemetry, disabled with OTEL_SDK_DISABLED=true. Enabling share_crew additionally shares detailed agent and task execution data. MIT.",
+      "source_url": "https://github.com/crewAIInc/crewAI/blob/97bbfb64811775a965304bda45c8ec0e8e4ef3a2/README.md",
+      "source_checked": "2026-10-30",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "ragflow",
+      "name": "RAGFlow",
+      "category": "Platforms",
+      "url": "https://github.com/infiniflow/ragflow",
+      "description": "A document retrieval and agent platform that parses documents and supplies retrieved context to language models.",
+      "for_whom": "Teams evaluating searchable document collections and retrieval workflows they operate.",
+      "access_notes": "Self-host through Docker and Docker Compose; the reviewed README quickstart selects release candidate v1.0.0-rc2. Recommended starting host: 4 CPU cores, 16 GB RAM and 50 GB disk, with more resources for local models or higher load. Docker 24 or later and Compose 2.26.1 or later. Configure an LLM, embedding model and reranker, including endpoint and API key as needed. Uploaded documents are processed and stored by the deployment, and configured model services may receive document or query content. Provider and hosting costs apply. Apache-2.0.",
+      "source_url": "https://github.com/infiniflow/ragflow/blob/6f571fda64cb4eb712aa6c06b3209a4b0553a27c/README.md",
+      "source_checked": "2026-10-30",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "open-webui",
+      "name": "Open WebUI",
+      "category": "Platforms",
+      "url": "https://github.com/open-webui/open-webui",
+      "description": "A self-hosted chat interface for local and remote models, including Ollama and OpenAI-compatible services.",
+      "for_whom": "Teams who want a web interface for model access and document chat on infrastructure they operate.",
+      "access_notes": "Use the official Docker image ghcr.io/open-webui/open-webui, or install the Python package with Python 3.12. The Docker quickstart serves the UI on localhost:3000 and persists the database and uploads in the open-webui volume at /app/backend/data. Local or remote model endpoints determine where prompts and documents go and whether provider charges apply. Offline use needs local models and assets prepared first. The current Open WebUI License includes branding-preservation requirements, with exceptions including deployments of at most 50 end users in a rolling 30-day period or written permission. Earlier components retain their original terms. Check the licence before rebranding.",
+      "source_url": "https://github.com/open-webui/open-webui/blob/f7ac7ee10962ddec0017f5c29b6740d9b9c5faca/README.md",
+      "source_checked": "2026-10-30",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
     }
   ]
 }
