@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 200 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 202 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (73)
+- [Agent tools](#agent-tools) (74)
 - [MCP and integrations](#mcp-and-integrations) (20)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (51)
+- [Platforms](#platforms) (52)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (47)
 
@@ -758,6 +758,16 @@ An MIT repo map: paste a GitHub URL and get file-dependency and function-call gr
 **Access and use:** Hosted: https://code-map-ai-mu.vercel.app, the GitHub homepage of Ayansh0209/CodeMap-Ai (LICENSE Copyright 2026 Aayansh Singh). Paste a GitHub repo URL; that host downloads the tarball. Self-host: Node.js 20+, Redis and a GitHub token. cd backend && npm install, copy backend/.env.example to backend/.env, set REDIS_URL, GITHUB_TOKEN and PORT=5000. cd frontend && npm install. Terminal 1: cd backend && npm run dev at http://localhost:5000. Terminal 2: cd backend && npm run worker. Terminal 3: cd frontend && npm run dev at http://localhost:3000. The backend downloads the GitHub tarball and extracts it locally. BullMQ plus Redis runs the parse. ts-morph covers JS, TS, JSX and TSX; web-tree-sitter WASM covers Python, Go, C and C++. Graph artifacts go to S3-compatible storage (Backblaze B2, Cloudflare R2, Supabase) when R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET_NAME and R2_ENDPOINT or R2_ACCOUNT_ID are set; otherwise gzipped Redis. GEMINI_API_KEY enables issue mapping and chat on the parsed graph; selected file content goes to Gemini or Vertex AI. Without FIREBASE_SERVICE_ACCOUNT_BASE64 every request is anonymous trial; set it, or drop backend/firebase.json for local, for GitHub sign-in. README says the project is evolving and issue mapping can be wrong. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/Ayansh0209/CodeMap-Ai).
+
+### [ai-phone](https://github.com/oxnw/ai-phone)
+
+A local SIP phone daemon that lets an agent receive and place calls through a CLI on an Apple Silicon Mac.
+
+**For:** Developers evaluating local voice agents and a phone interface for an existing agent.
+
+**Access and use:** macOS on Apple Silicon, Python 3.11 to 3.13, Homebrew and uv. Source install builds a native PJSIP binding and setup downloads several GB of model files. The README recommends 16 GB RAM for the default 4B model, with a 2B option for 8 GB. English and one call at a time. Local SIP testing needs no paid carrier; telephone numbers and calls need a SIP trunk or carrier account and incur charges. Local speech stays on the Mac, but audio travels over SIP/RTP; remote language models and external cloud agents receive any call text passed to them. AGPL-3.0-or-later; bundled PJSIP interface files are GPLv2-or-later. The README says local call tests have run, and live carrier and end-to-end agent tests are still pending.
+
+**Source checked:** 2026-10-30. [Official source](https://github.com/oxnw/ai-phone/blob/dfa54f4744658740054e823008a3be0a7f904f8a/README.md).
 
 ## MCP and integrations
 
@@ -1524,6 +1534,16 @@ An Apache-2.0 Cloudflare-native multi-tenant runtime for autonomous agents, with
 **Access and use:** Hosted UI https://antiproton.ai and admin https://admin.antiproton.ai, run by botiverse on Cloudflare Workers, Durable Objects, D1 and R2. Custom domain antiproton.botiverse.dev sits behind Cloudflare Access. GitHub sign-in; UI_ALLOW_ANONYMOUS is 0; GITHUB_OPEN_SIGNUP is 1 so a GitHub account registers on first sign-in. Self-host: git clone https://github.com/botiverse/antiproton.git, npm install, Node.js 24+. cd cf && npx wrangler dev. npx wrangler secret put ANTHROPIC_API_KEY, or OPENROUTER_API_KEY or DEEPSEEK_API_KEY. Production deploy: cf/scripts/deploy-pinned.sh from origin/master. Default HARNESS_MODEL is deepseek-flash. USER_MODELS are deepseek-flash and gpt-5.6-luna through Cloudflare AI Gateway once AI_GATEWAY_TOKEN is set. Credentials stay behind the tool gateway and never enter model context prompts, tool outputs or execution logs. Three tiers: Durable Object plus SQLite per tenant and agent; V8 Dynamic Worker with globalOutbound null; Run9 containers with a 30 minute idle lease and a 5 minute warning. TRACE_INGEST_URL and TRACE_INGEST_TOKEN are unset so trace forwarding is off. Cloudflare observability is enabled. Raft provision APIs can create hosted agents. Daily spend limits apply on the operator model accounts. Docs: docs/agents-api.md, docs/agent-surface.md, docs/plugins.md, docs/runbook.md. Default branch is master. Apache-2.0.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/botiverse/antiproton).
+
+### [BillionMail](https://github.com/Billionmail/BillionMail)
+
+A self-hosted mail server and email campaign platform with contact groups, templates, tracking and a sending API.
+
+**For:** Teams evaluating a Linux mail and newsletter stack they operate themselves.
+
+**Access and use:** Linux amd64 or arm64 with Docker and Docker Compose. The stack includes PostgreSQL, Redis, Postfix, Dovecot, Rspamd and Roundcube; the management container has a Docker socket mount and network capabilities. Requires domain and DNS configuration. Self-hosting, maintenance and any external SMTP relay or AI provider have their own costs. SMTP relay is configurable per sending domain. AI features can call configured model providers, and an image-upload path uses the BillionMail CDN. AGPL-3.0. CVE-2026-111367 affects releases through 4.9; the reviewed dev source still has deterministic fallback generation for subscription signing secrets. A fixed deployment image has not been verified. Separate contact groups or domains do not by themselves keep one client's data apart from another's. We list it for its documentation and source only.
+
+**Source checked:** 2026-10-30. [Official source](https://github.com/Billionmail/BillionMail/blob/fc36c76c050c3775c5e899faf7403cf0262d2744/README.md).
 
 ## Protocols
 
