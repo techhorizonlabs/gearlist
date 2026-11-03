@@ -1,12 +1,12 @@
 {
   "title": "Huxley starred repositories for Gearlist",
   "starred_total": 313,
-  "updated": "2026-10-29",
+  "updated": "2026-11-03",
   "counts": {
-    "already_published": 174,
-    "queued": 8,
-    "stored": 130,
-    "excluded": 1
+    "already_published": 193,
+    "queued": 0,
+    "stored": 112,
+    "excluded": 8
   },
   "rule": "A star is not an entry. Promote a queued row only after a documentation review, access notes and a source_checked date in resources.json. Status queued means score 4+ on MCP, skills, awesome-list, licence or first-party signals. Status stored keeps the rest of the 313 stars for later review. Status excluded is not eligible.",
   "repos": [
@@ -285,8 +285,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "xerj-org/xerj",
@@ -608,8 +608,8 @@
         "skill",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "gl0di/clawseccheck",
@@ -646,8 +646,8 @@
         "awesome",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "excluded",
+      "note": "Reviewed 3 Nov 2026: WiFi sensing research, not an agent tool."
     },
     {
       "full_name": "hesamsheikh/awesome-openclaw-usecases",
@@ -665,8 +665,8 @@
         "awesome",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "Arindam200/awesome-ai-apps",
@@ -684,8 +684,8 @@
         "awesome",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "video-db/call.md",
@@ -702,8 +702,8 @@
         "mcp",
         "skill"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "excluded",
+      "note": "Reviewed 3 Nov 2026: no licence in the repository."
     },
     {
       "full_name": "nowork-studio/awesome-ai-startups",
@@ -721,8 +721,8 @@
         "awesome",
         "licence"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "excluded",
+      "note": "Reviewed 3 Nov 2026: a list of startups, not tools."
     },
     {
       "full_name": "shreyvaughn/claude-skills-pack",
@@ -739,8 +739,8 @@
         "mcp",
         "skill"
       ],
-      "status": "queued",
-      "note": "Starred by Huxley. Queued for documentation review. Not an endorsement."
+      "status": "excluded",
+      "note": "Reviewed 3 Nov 2026: no licence in the repository, and very little use yet."
     },
     {
       "full_name": "obra/superpowers",
@@ -919,8 +919,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "shanraisshan/claude-code-best-practice",
@@ -937,8 +937,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "mvanhorn/last30days-skill",
@@ -973,8 +973,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "excluded",
+      "note": "Reviewed 3 Nov 2026: archived; the README says development moved to open-gsd/gsd-core, which was not reviewed here."
     },
     {
       "full_name": "coreyhaines31/marketingskills",
@@ -1027,8 +1027,8 @@
         "mcp",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "bytedance/UI-TARS-desktop",
@@ -1585,8 +1585,8 @@
         "mcp",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "matt1398/claude-devtools",
@@ -1729,8 +1729,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "cisco-ai-defense/skill-scanner",
@@ -1873,8 +1873,8 @@
         "mcp",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "AgentWorkforce/relay",
@@ -1909,8 +1909,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "HelpCode-ai/anythingmcp",
@@ -2089,8 +2089,8 @@
         "mcp",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "jaechang-hits/SciAgent-Skills",
@@ -2125,8 +2125,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "plur-ai/plur",
@@ -2412,8 +2412,8 @@
         "awesome",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "agucova/awesome-esp",
@@ -2535,8 +2535,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "openclaw/openclaw",
@@ -2671,8 +2671,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "OpenCut-app/OpenCut",
@@ -2977,8 +2977,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "excluded",
+      "note": "Reviewed 3 Nov 2026: stacks free tiers from many LLM providers behind one endpoint; its README says personal experimentation only, not production."
     },
     {
       "full_name": "anthropics/financial-services",
@@ -3436,8 +3436,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "docusealco/docuseal",
@@ -3997,8 +3997,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "Live-Charts/LiveCharts2",
@@ -4133,8 +4133,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "excluded",
+      "note": "Reviewed 3 Nov 2026: archived and unmaintained; the README points to abhi1693/wardn-ai, which was not reviewed here."
     },
     {
       "full_name": "evyatarmeged/Raccoon",
@@ -4422,8 +4422,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 3 Nov 2026 after a documentation review."
     },
     {
       "full_name": "Friedrich-M/UniMate",

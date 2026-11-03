@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 209 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 233 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,12 +19,13 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (74)
-- [MCP and integrations](#mcp-and-integrations) (20)
+- [Agent tools](#agent-tools) (79)
+- [MCP and integrations](#mcp-and-integrations) (23)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (58)
+- [Platforms](#platforms) (62)
 - [Protocols](#protocols) (4)
-- [Skills and learning](#skills-and-learning) (48)
+- [Skills and learning](#skills-and-learning) (54)
+- [APIs and data](#apis-and-data) (6)
 
 
 ## Agent tools
@@ -769,6 +770,56 @@ A local SIP phone daemon that lets an agent receive and place calls through a CL
 
 **Source checked:** 2026-10-30. [Official source](https://github.com/oxnw/ai-phone/blob/dfa54f4744658740054e823008a3be0a7f904f8a/README.md).
 
+### [Beacon](https://github.com/Asymptote-Labs/agent-beacon)
+
+A local-first memory layer that captures session history from Claude Code, Cursor, Codex, OpenCode and other harnesses, then turns reviewed workflows and corrections into knowledge later agents retrieve through MCP or Agent Skills.
+
+**For:** Developers who switch between coding agents and want what one session learned to carry into the next.
+
+**Access and use:** Install with Homebrew (asymptote-labs/tap), a Linux .deb or .rpm installer script, or a Windows MSI; read the script or verify the package checksum first. Beacon records prompts, responses, tool calls, commands, file activity, approvals, MCP activity and token usage to ~/.beacon/endpoint/logs/runtime.jsonl. Interactive setup signs in through beacon.sh and preselects Beacon Cloud; confirming it forwards session history to Asymptote Labs, so choose Local to keep it on the machine. Unless turned off, the wizard installs Beacon Skills into ~/.agents/skills and ~/.claude/skills, and the Cloud option registers an MCP server in your harnesses. Optional forwarding to Splunk, Datadog, S3 and other destinations. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/Asymptote-Labs/agent-beacon).
+
+### [MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)
+
+A Python app with a WebUI, API, CLI and agent skill that turns a topic or keyword into a short video, writing the script and adding stock or generated footage, voiceover, subtitles and music.
+
+**For:** People producing short portrait, landscape or square videos from a topic on their own machine.
+
+**Access and use:** Install with pip, the Windows one-click package, uv from source, or Docker (ghcr.io/harry0703/moneyprinterturbo:latest). The WebUI serves 127.0.0.1:8501 and API docs 127.0.0.1:8080/docs. Python 3.11 or later; a GPU is optional. API keys for the chosen LLM, footage, voice and video services are saved in config.toml; Edge TTS needs no key. An optional ChatGPT sign-in uses OpenAI's Sign in with ChatGPT flow. Publishing to TikTok, Instagram and YouTube Shorts goes through an Upload-Post API key. The README's agent quick start has a coding agent fetch a remote SKILL.md and install everything, so read it first. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/harry0703/MoneyPrinterTurbo/blob/main/README-en.md).
+
+### [OpenMontage](https://github.com/calesthio/OpenMontage)
+
+A video production system your coding assistant runs through pipelines, stage skills and tools for research, scripting, asset generation, editing and rendering with Remotion, HyperFrames and FFmpeg.
+
+**For:** People who want a coding agent to plan and render explainers, documentaries or promos from a prompt or a reference video.
+
+**Access and use:** Needs Python 3.10+, FFmpeg, Node.js 18+ and a coding assistant such as Claude Code, Cursor, Copilot, Windsurf or Codex; run make setup after cloning. With no keys it uses Piper TTS, open archives and free stock sources. Optional keys for fal.ai, Kling, ElevenLabs, OpenAI, Google, xAI, Runway, HeyGen, Suno and others go in .env and incur provider charges. Budget controls default to a $10 total cap, with per-action approval above $0.50. Local video generation needs a GPU. AGPL-3.0, which requires offering source for modified versions run as a network service.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/calesthio/OpenMontage).
+
+### [OpenSEO](https://github.com/every-app/open-seo)
+
+An open-source SEO tool for keyword research, rank tracking, backlinks and site audits that people and agents such as Claude Code can use, positioned as a pay-as-you-go alternative to Semrush and Ahrefs.
+
+**For:** Marketers and agencies who want SEO data inside their own agent workflows.
+
+**Access and use:** Self-host with Docker or EveryApp, bringing your own DataForSEO API key and paying for what you use, or use the hosted version, free to try, with plans from US$10 a month that include usage credit. MCP clients connect with an account on your instance. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/every-app/open-seo).
+
+### [DispatchSEO](https://github.com/NeoZi12/dispatchseo)
+
+Turns a coding agent into an SEO manager that mines keywords from Search Console, proposes topics for approval and ships content as pull requests, with daily rank checks.
+
+**For:** Teams who run their site from a repository and already use Claude Code, Codex or Cursor.
+
+**Access and use:** Connects to Google Search Console and your repository. The README says no extra API keys are needed and self-hosting has no feature limits; a hosted version also exists. AGPL-3.0, so changes to a hosted copy must be published.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/NeoZi12/dispatchseo).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -970,6 +1021,36 @@ An MIT AI test harness over Appium, Maestro, Playwright or Selenium, as a librar
 **Access and use:** MCP: curl -LsSf https://alumnium.ai/install.sh | sh (read the script before running it), then claude mcp add alumnium --env OPENAI_API_KEY=... -- alumnium mcp. Libraries: pip install alumnium, npm install alumnium, or the Java artifact. Agentic mode (default) sends page text, accessibility trees and screenshots to the model you set. Direct mode skips the model and lets your coding agent call driver actions. Browser profiles live in ~/.alumnium/profiles. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/alumnium-hq/alumnium).
+
+### [ACI.dev](https://github.com/aipotheosis-labs/aci)
+
+An open-source tool-calling platform that gives agents over 600 pre-built app integrations, with managed OAuth and secrets, natural-language permission boundaries and tool discovery, through a unified MCP server or Python and TypeScript SDKs.
+
+**For:** Developers giving an agent or agentic IDE authenticated access to many SaaS tools, for themselves or for their own end users.
+
+**Access and use:** Use the managed service at aci.dev with an account and API key, or run the platform locally: Python 3.12+, Docker Compose, PostgreSQL with pgvector and an OpenAI API key, with PropelAuth for the dev portal. Each linked app needs OAuth consent or API credentials from the account the agent will act on, held in ACI's secrets management. The unified MCP server is a separate repository, aipotheosis-labs/aci-mcp. Apache-2.0.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/aipotheosis-labs/aci).
+
+### [Xero MCP Server](https://github.com/XeroAPI/xero-mcp-server)
+
+Xero's MCP server for reading and writing accounting and payroll data, including contacts, invoices, quotes, payments, bank transactions, manual journals, reports and timesheets.
+
+**For:** Businesses and bookkeepers who want an agent to query or update a Xero organisation.
+
+**Access and use:** Runs locally with Node.js 18 or later through npx -y @xeroapi/xero-mcp-server@latest. Authenticate with a Xero Custom Connection (XERO_CLIENT_ID and XERO_CLIENT_SECRET) or a bearer token from your own OAuth flow (XERO_CLIENT_BEARER_TOKEN). Xero's developer docs say Custom Connections are only for organisations in Australia, New Zealand, the UK and the US and need an additional monthly subscription, but connect to the Demo Company free for development. The tools can create invoices, payments, bank transactions and manual journals and approve timesheets, so narrow XERO_SCOPES and start on the Demo Company. Payroll queries need an NZ or UK organisation. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/XeroAPI/xero-mcp-server).
+
+### [World Intelligence MCP Server](https://github.com/marc-shade/world-intel-mcp)
+
+A Python MCP server, CLI and local dashboard that pulls markets, SEC filings, economic data, conflict, disaster, aviation, cyber and news feeds from public APIs, keeps a dated history, and can index results in Qdrant for semantic search.
+
+**For:** Analysts and research agents that need a broad, cited view of world events and markets.
+
+**Access and use:** Clone, pip install -e ., then run world-intel-mcp over stdio and add it to ~/.claude.json. The dashboard serves http://localhost:8501 and binds 127.0.0.1 by default. Most sources need no key; ACLED, UCDP, NASA FIRMS, EIA, FRED, Cloudflare, OpenSky, TomTom and Windy tools use optional credentials. The optional collector daemon fetches every source on a 5-minute default interval and stores history in ~/.cache/world-intel-mcp/cache.db. Qdrant runs separately in Docker, and AI briefs use a local Ollama. Each upstream source keeps its own terms of use, so check them before business use. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/marc-shade/world-intel-mcp).
 
 ## Security and governance
 
@@ -1605,6 +1686,46 @@ A self-hosted chat interface for local and remote models, including Ollama and O
 
 **Source checked:** 2026-10-30. [Official source](https://github.com/open-webui/open-webui/blob/f7ac7ee10962ddec0017f5c29b6740d9b9c5faca/README.md).
 
+### [ToolJet](https://github.com/ToolJet/ToolJet)
+
+A visual builder for internal tools, admin panels and dashboards that run on existing databases, APIs and SaaS systems, with an MCP server that lets coding agents build and edit ToolJet apps.
+
+**For:** Teams building internal apps over their own data who want people and coding agents working in the same app builder.
+
+**Access and use:** Use ToolJet Cloud with an account, or self-host on Docker, Kubernetes, AWS, GCP, Azure and the other documented targets. The README's quick-try image is tooljet/try:ee-lts-latest on port 80. Each data source needs its own credentials, which apps use to run queries. The MCP server is marked beta and runs agent operations on your own model subscription. AI app generation, workflows and the agent builder are listed under the Enterprise edition, whose code sits in non-public submodules (frontend/ee, server/ee). The repository is AGPL-3.0, which requires offering source for modified versions run as a network service.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/ToolJet/ToolJet).
+
+### [Future AGI](https://github.com/future-agi/future-agi)
+
+A self-hostable platform for tracing, evaluating, simulating and guarding LLM and agent applications, with an OpenAI-compatible gateway and prompt optimisation.
+
+**For:** Teams running agents in production who want traces, evals and guardrails in one system they can host themselves.
+
+**Access and use:** Future AGI Cloud needs an account. Self-host clones the repository and runs ./bin/install, which writes secrets to .env and pulls about 800 MB of images. The default Standalone setup needs Docker Compose v2.24 or newer with 2 vCPUs and 4 GB of memory; a Helm chart is also published. Apps send traces with an API key and secret key; add LLM provider keys when you need them. Self-hosted installs send telemetry by default, including the email addresses of owner, admin and staff accounts. Opting out with --no-telemetry or FUTURE_AGI_TELEMETRY_DISABLED=true still sends one registration without email addresses; block api.futureagi.com to send nothing. The core is Apache-2.0, but code in ee/ directories is under the Future AGI Enterprise License and needs a paid subscription for production use.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/future-agi/future-agi).
+
+### [OpenMuse](https://github.com/CopilotKit/openmuse)
+
+An alpha personal agent app for iOS, Android and web, built on CopilotKit and AG-UI, with a persistent Chromium browser, an optional Linux workspace, task plans with approvals, and Gmail and Calendar adapters.
+
+**For:** Developers who want a self-hosted personal agent template to fork and extend.
+
+**Access and use:** Needs Node 24, pnpm 11.19.0 and a CopilotKit Intelligence project key in every mode; Intelligence is a separate service outside the MIT licence. A model needs an OpenAI, Anthropic or Google key. Gmail and Calendar need your own Google OAuth client plus live mode with an access key and token encryption key, and each send or calendar change waits for review. Web search is on by default and sends model-generated queries and context to Parallel's Search MCP; set WEB_SEARCH_ENABLED=false to turn it off. The CopilotKit SDK sends runtime telemetry to PostHog. The optional Linux computer needs Docker. The Render blueprint runs the API and browser on Standard instances. One owner behind a shared access key; not multi-tenant. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/CopilotKit/openmuse).
+
+### [Agent Lightning](https://github.com/microsoft/agent-lightning)
+
+Microsoft's reinforcement learning framework for training the model behind an agent while the agent keeps running in its real harness, through a gateway that captures interactions as training data.
+
+**For:** Machine learning teams who want to train an open-weight model on their own agent's tasks.
+
+**Access and use:** Needs a CUDA GPU machine. The README example runs uv sync and a verl setup script for CUDA 13.0, and the trainer uses verl and vLLM. Agents run locally or as Kubernetes Jobs. The Calc-X example needs one GPU. Releases before v1.0 live on the v0.x branch. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/microsoft/agent-lightning).
+
 ## Protocols
 
 ### [x402](https://x402.org/)
@@ -2128,6 +2249,128 @@ An agent skill and canvas kit for drawing animated isometric stickers, with a Re
 **Access and use:** Install with npx skills add kelvinkn17/skills@fun-isometric, then start a new agent session. Needs Node.js 22 or later. Rendering and checks use Bun and Playwright Chromium, which downloads on first use into ~/.cache/fun-isometric. Video export also needs ffmpeg. The output is a canvas icon module or alpha video with a still poster. The skill adds instructions and runnable rendering tools to the agents you select. MIT.
 
 **Source checked:** 2026-10-30. [Official source](https://github.com/kelvinkn17/skills/blob/7c8a7526306e09855c0d4f66130cbaa87422cb8d/README.md).
+
+### [Awesome AI Apps](https://github.com/Arindam200/awesome-ai-apps)
+
+A collection of 138 runnable LLM apps and agents, from framework starters to multi-agent systems, with tutorials.
+
+**For:** Builders who want working examples of agents, RAG apps and MCP tools.
+
+**Access and use:** Each project brings its own dependencies and model provider keys; review a project before running it.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/Arindam200/awesome-ai-apps).
+
+### [Awesome OpenClaw Use Cases](https://github.com/hesamsheikh/awesome-openclaw-usecases)
+
+A community collection of real-life OpenClaw use cases, grouped by area such as social media and productivity.
+
+**For:** OpenClaw users looking for ideas on what to automate.
+
+**Access and use:** The list links to community skills and plugins; its own README warns some may have security vulnerabilities, so review each before installing.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/hesamsheikh/awesome-openclaw-usecases).
+
+### [Claude Code Best Practice](https://github.com/shanraisshan/claude-code-best-practice)
+
+A reference repository that maps Claude Code features such as subagents, commands, skills, hooks, MCP, settings and memory to written practice notes and working examples, with a list of 83 tips from the Claude Code team and community.
+
+**For:** Claude Code users who want worked examples of agents, commands, skills and hooks to adapt for their own setup.
+
+**Access and use:** Reading needs nothing beyond a public clone. Running the /weather-orchestrator example needs Claude Code and a Claude account. The clone's .claude/settings.json allows Bash(*), Edit(*), Write(*) and WebFetch for any domain, and its .mcp.json declares Playwright, Context7 and DeepWiki servers run through npx. Review both before opening the folder in Claude Code. The README carries sponsor links. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/shanraisshan/claude-code-best-practice).
+
+### [awesome-seo](https://github.com/i365dev/awesome-seo)
+
+A curated reading list of SEO guides and tools, with a section on AI search, crawler controls and agent accessibility that points to Google, OpenAI, Anthropic and Cloudflare documentation.
+
+**For:** People who run websites and want sourced starting points for search and AI crawler questions.
+
+**Access and use:** Reading needs nothing. Linked tools and services carry their own accounts and terms. The list says it is not an advertising channel and does not accept unsolicited vendor or self-promotional listings. Maintained by i365, a digital product studio. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/i365dev/awesome-seo).
+
+### [Claude Code Training](https://github.com/kousen/claude-code-training)
+
+Ken Kousen's Claude Code course: a Slidev deck, progressive hands-on labs, an instructor guide, copyable skills and hook examples, and sample projects in Python, TypeScript and Java.
+
+**For:** Developers and trainers learning or teaching Claude Code workflows.
+
+**Access and use:** Slides are published at https://kousen.github.io/claude-code-training/ with a PDF on GitHub Releases; running the deck locally needs pnpm. The labs need Claude Code signed in with a Claude subscription or an ANTHROPIC_API_KEY, plus Python, JavaScript or TypeScript, and Java toolchains. Docker is optional. The clone's .claude/settings.json runs bun hook scripts on agent events and a status line command, so review it before opening the folder in Claude Code. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/kousen/claude-code-training).
+
+### [Oz Skills](https://github.com/warpdotdev/oz-skills)
+
+Warp's set of 15 Agent Skills for Warp agents and Oz, covering CI fixes, pull requests, docs updates, GitHub issue triage, MCP server building, Terraform style, web accessibility and performance audits, Playwright testing and BigQuery analysis.
+
+**For:** Warp users, or anyone running agents that read SKILL.md folders, who want ready-made engineering skills.
+
+**Access and use:** Copy a skill folder from .agents/skills/ into a project's .agents/skills/ or into ~/.agents/skills/. Skills act through tools you already have: the gh CLI for pull requests and CI fixes, BigQuery and dbt for the data skills, Chrome DevTools MCP for performance audits and Playwright for web app tests. The ci-fix skill pushes to a fix branch. Most skills are MIT; mcp-builder and webapp-testing carry their own Apache-2.0 LICENSE.txt.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/warpdotdev/oz-skills).
+
+## APIs and data
+
+### [ABN Lookup web services](https://abr.business.gov.au/Tools/WebServices)
+
+The Australian Business Register's free API for searching ABNs and business names and validating ABN details.
+
+**For:** Agents and apps that verify or pre-fill Australian business details.
+
+**Access and use:** Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. JSON support is limited to ABN and name searches.
+
+**Source checked:** 2026-11-03. [Official source](https://abr.business.gov.au/Tools/WebServices).
+
+### [data.gov.au API](https://data.gov.au/data/api/3/action/status_show)
+
+The CKAN API behind data.gov.au, for searching and downloading Australian government datasets, including ASIC's business names dataset.
+
+**For:** Agents and analysts working with Australian public data.
+
+**Access and use:** No key needed to search and read public datasets. Each dataset carries its own licence; check it before reuse.
+
+**Source checked:** 2026-11-03. [Official source](https://data.gov.au/data/dataset/asic-business-names).
+
+### [ABS Data API](https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide)
+
+The Australian Bureau of Statistics API for population, economic and industry statistics in SDMX formats.
+
+**For:** Agents and apps that need Australian statistics by region or industry.
+
+**Access and use:** Free and open without an API key since 29 November 2024; responses are SDMX, so set the Accept header for JSON or CSV.
+
+**Source checked:** 2026-11-03. [Official source](https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide).
+
+### [Domain API](https://developer.domain.com.au/)
+
+Domain Group's API packages for Australian property data: address suggestions, agents and listings, listing management, price and rental estimates, auction results, suburb statistics and schools.
+
+**For:** Agencies, property apps, brokers and fintechs building on Australian real estate data.
+
+**Access and use:** Sign up with a corporate email, build in the sandbox, then go live per package. Pricing and limits depend on the package, so check the plan before building. Listing Management can create and update live listings.
+
+**Source checked:** 2026-11-03. [Official source](https://developer.domain.com.au/).
+
+### [NSW bulk property sales information](https://www.valuergeneral.nsw.gov.au/design/bulk_psi_content/bulk_psi)
+
+The NSW Valuer General's free download of property sales records from 1990 onwards, updated weekly by local government area.
+
+**For:** Analysts and agents who need NSW sales history.
+
+**Access and use:** Free download in .DAT files. Licensed under Creative Commons BY-NC-ND 4.0, which rules out commercial use and modified versions without permission.
+
+**Source checked:** 2026-11-03. [Official source](https://www.valuergeneral.nsw.gov.au/design/bulk_psi_content/bulk_psi).
+
+### [Public APIs](https://github.com/public-apis/public-apis)
+
+A large community list of free APIs grouped by topic, most marked with their auth type, HTTPS and CORS support.
+
+**For:** Builders looking for a free API for a specific job.
+
+**Access and use:** A list only; each API has its own terms, keys and limits, so check the provider before relying on one. MIT.
+
+**Source checked:** 2026-11-03. [Official source](https://github.com/public-apis/public-apis).
 
 ## Looking for more?
 
