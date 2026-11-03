@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 233 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 249 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -25,7 +25,7 @@ npx skills add techhorizonlabs/gearlist
 - [Platforms](#platforms) (62)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (54)
-- [APIs and data](#apis-and-data) (6)
+- [APIs and data](#apis-and-data) (22)
 
 
 ## Agent tools
@@ -2371,6 +2371,166 @@ A large community list of free APIs grouped by topic, most marked with their aut
 **Access and use:** A list only; each API has its own terms, keys and limits, so check the provider before relying on one. MIT.
 
 **Source checked:** 2026-11-03. [Official source](https://github.com/public-apis/public-apis).
+
+### [Cloudflare API](https://developers.cloudflare.com/fundamentals/api/get-started/)
+
+Cloudflare's API for managing accounts, DNS, zones, Workers and the rest of its products.
+
+**For:** Agents and scripts that deploy or manage sites and Workers on Cloudflare.
+
+**Access and use:** Use a permission-scoped API token rather than the legacy global key, and give it only the zones and products the job needs. The published limit is 1,200 requests per five minutes per user or account token, and 200 per second per IP, with extra limits on some endpoints. Free plans exist, but metered products bill separately. Permission to manage an account is not permission to share its customers' data.
+
+**Source checked:** 2026-11-04. [Official source](https://developers.cloudflare.com/fundamentals/api/reference/limits/).
+
+### [Claude API](https://platform.claude.com/docs/en/api/overview)
+
+Anthropic's API for Claude models, with batches, token counting and managed agents.
+
+**For:** Teams building agents or apps on Claude.
+
+**Access and use:** Authenticate with a Console API key or workload identity federation. Billing is per token, and some Max, Ultra and Team subscriptions include monthly API credits that have to be claimed. Rate limits depend on the organisation's usage tier and the model class. Commercial API inputs and outputs aren't used for training by default, with opt-in and feedback exceptions.
+
+**Source checked:** 2026-11-04. [Official source](https://platform.claude.com/docs/en/api/rate-limits).
+
+### [OpenAI API](https://developers.openai.com/api/reference/overview)
+
+OpenAI's API for model inference, realtime audio, images, tools and organisation administration.
+
+**For:** Teams building agents or apps on OpenAI models.
+
+**Access and use:** Authenticate with an API key or a short-lived workload identity token; admin keys cover a separate administrative surface. Billing is per use, and API billing is separate from a ChatGPT plan. Limits are set per organisation and project and vary by model. API data isn't used for training by default, but abuse-monitoring logs can be kept for up to 30 days unless approved retention controls apply.
+
+**Source checked:** 2026-11-04. [Official source](https://developers.openai.com/api/docs/guides/your-data).
+
+### [Gemini Developer API](https://ai.google.dev/gemini-api/docs/api-key)
+
+Google's API for Gemini models, with grounding, multimodal input and tool use.
+
+**For:** Teams building agents or apps on Gemini models.
+
+**Access and use:** Keys belong to a Google Cloud project, and limits (requests per minute, tokens per minute and requests per day) apply per project, with daily limits resetting on Pacific time. There is an unpaid tier for eligible models. Under the unpaid terms, Google may use what you send to improve its products and people may review it, so don't send confidential or client data on that tier. Paid use has different terms.
+
+**Source checked:** 2026-11-04. [Official source](https://ai.google.dev/gemini-api/terms).
+
+### [Google Search Console API](https://developers.google.com/webmaster-tools)
+
+Google's API for search performance data, verified sites and sitemaps, with URL inspection as a separate service.
+
+**For:** Agents and dashboards that report on a site's Google search traffic.
+
+**Access and use:** Private site data needs OAuth from a user with access to that property; request the read-only scope when you only read. Search Analytics allows 1,200 queries per minute per site and user, and URL inspection allows 2,000 a day per site. The data belongs to the property, so access follows whoever the owner has granted.
+
+**Source checked:** 2026-11-04. [Official source](https://developers.google.com/webmaster-tools/limits).
+
+### [Google Places API](https://developers.google.com/maps/documentation/places/web-service/get-api-key)
+
+Google's API for searching places and reading business and location details.
+
+**For:** Agents and apps that look up local businesses, addresses or opening hours.
+
+**Access and use:** Needs a Google Cloud project with billing and a restricted API key. Pricing is per SKU, and the fields you request can move a call to a dearer SKU, so ask only for the fields you need. Storing or caching results is restricted, except place IDs, and results come with display and attribution rules.
+
+**Source checked:** 2026-11-04. [Official source](https://developers.google.com/maps/documentation/places/web-service/policies).
+
+### [Microsoft Graph](https://learn.microsoft.com/en-us/graph/auth/auth-concepts)
+
+Microsoft's API for Microsoft 365 and identity data, including mail, files, calendars and users.
+
+**For:** Agents that work inside a business's Microsoft 365 tenant.
+
+**Access and use:** Uses Microsoft identity platform tokens with delegated or application permissions, and some permissions need an admin to consent for the tenant. Many calls come with the user's licence, but some APIs are metered. Throttling varies by service, so honour 429 responses and their Retry-After header. A token reaches only the tenant and data its permissions allow.
+
+**Source checked:** 2026-11-04. [Official source](https://learn.microsoft.com/en-us/graph/throttling).
+
+### [OpenRouter](https://openrouter.ai/docs/api/reference/authentication)
+
+One API for many model providers, with routing between them.
+
+**For:** Teams that want to try or switch between models from several providers through one key.
+
+**Access and use:** Authenticate with an API key, or use the documented OAuth flow for users. Some models have free variants, limited to 20 requests a minute with a daily ceiling that depends on credits bought; paid models use credits. Each provider has its own data policy. OpenRouter offers privacy settings and zero-retention routing, but legal and safety exceptions still apply.
+
+**Source checked:** 2026-11-04. [Official source](https://openrouter.ai/docs/api-reference/limits).
+
+### [DataForSEO](https://docs.dataforseo.com/v3/auth/)
+
+APIs for search results, keywords, backlinks, market data and AI visibility, priced per call.
+
+**For:** Agents and SEO tools that need search and keyword data on demand.
+
+**Access and use:** Uses HTTP Basic authentication with your API login and a generated API password, which differs from the dashboard password. Pay as you go, with trial credit for new accounts and a sandbox of sample responses. The default limit rose to 10,000 requests a minute, though some endpoints have their own limits. Label which data is measured and which is modelled, and check the terms before passing data on.
+
+**Source checked:** 2026-11-04. [Official source](https://dataforseo.com/update/api-rate-limit-10000-requests-per-minute).
+
+### [Stripe API](https://docs.stripe.com/api/authentication)
+
+Stripe's API for payments, subscriptions, invoices and the events behind them.
+
+**For:** Agents and apps that read or manage billing.
+
+**Access and use:** Use a restricted API key with only the permissions the job needs, and test in a sandbox before using live keys. The published limits are 100 requests a second in live mode and 25 in a sandbox, with a 25-a-second limit on most endpoints and further exceptions. A key that can read invoices shouldn't be able to refund or pay out, so scope it accordingly.
+
+**Source checked:** 2026-11-04. [Official source](https://docs.stripe.com/rate-limits).
+
+### [Resend API](https://resend.com/docs/api-reference/introduction)
+
+An email API for transactional and marketing email, with inbound handling.
+
+**For:** Agents and apps that send email from a verified domain.
+
+**Access and use:** Authenticate with an API key that can be limited by permission and domain. The free plan covers 3,000 emails a month, up to 100 a day. The default API limit is 10 requests a second per team, separate from sending quotas. Recipients' details and email content are customer data, and API access doesn't give consent to email anyone.
+
+**Source checked:** 2026-11-04. [Official source](https://resend.com/docs/api-reference/rate-limit).
+
+### [Notion API](https://developers.notion.com/docs/authorization)
+
+Notion's API for pages, databases, comments and files in a workspace.
+
+**For:** Agents that read or update a team's Notion workspace.
+
+**Access and use:** Connect with an internal connection token, a personal access token or OAuth; each reaches only the pages shared with it. A personal token acts as its user. Limits are 600 requests a minute per connection on Business and Enterprise plans and 180 on other plans, plus workspace limits, so honour Retry-After.
+
+**Source checked:** 2026-11-04. [Official source](https://developers.notion.com/reference/request-limits).
+
+### [HeyGen API](https://docs.heygen.com/docs/quick-start)
+
+HeyGen's API for avatar video, images, voice and translation.
+
+**For:** Teams producing video with AI avatars or translated voice.
+
+**Access and use:** The API uses an API key with scopes and bills against an API plan. The MCP server and CLI sign in as your web account and use its subscription credits instead, so a web plan isn't API credit. Limits vary by endpoint and plan. Using a person's likeness or voice needs their consent.
+
+**Source checked:** 2026-11-04. [Official source](https://developers.heygen.com/docs/api-key).
+
+### [NVIDIA NIM API catalog](https://docs.api.nvidia.com/nim/docs/api-quickstart)
+
+Hosted model endpoints from NVIDIA for prototyping, with some models also available to run yourself.
+
+**For:** Developers trying open models before choosing where to run them.
+
+**Access and use:** Needs an NVIDIA developer account and API key. The Developer Program covers prototyping; production use needs separate licensing, such as NVIDIA AI Enterprise. Limits show per model in your account. Each model's licence and terms apply separately.
+
+**Source checked:** 2026-11-04. [Official source](https://docs.api.nvidia.com/nim/docs/product).
+
+### [GitHub REST API](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api)
+
+GitHub's API for repositories, issues, pull requests, releases and users.
+
+**For:** Agents that read or manage code and project work on GitHub.
+
+**Access and use:** Use a fine-grained personal access token, a GitHub App or OAuth; workflows get a built-in token. Unauthenticated calls to public endpoints allow 60 an hour, and an authenticated user gets 5,000 an hour, with separate limits for search and apps. A public repository still has its own licence, so check it before reusing code.
+
+**Source checked:** 2026-11-04. [Official source](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api).
+
+### [Supabase APIs](https://supabase.com/docs/reference/api/introduction)
+
+The Supabase Management API for projects, alongside each project's own database, auth and storage APIs.
+
+**For:** Agents that set up or manage Supabase projects.
+
+**Access and use:** The Management API uses a scoped personal access token or OAuth. Each project's data APIs use their own keys and row-level security, which is a separate layer. The free plan covers two active projects, and inactive ones pause. Never expose a management or service key in a client app.
+
+**Source checked:** 2026-11-04. [Official source](https://supabase.com/pricing).
 
 ## Looking for more?
 
