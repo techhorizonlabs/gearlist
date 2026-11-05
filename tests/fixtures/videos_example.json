@@ -1,0 +1,632 @@
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "fake-etag-videos",
+  "pageInfo": {
+    "totalResults": 24,
+    "resultsPerPage": 24
+  },
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv001",
+      "snippet": {
+        "publishedAt": "2026-11-04T09:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Live: desk setup questions",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "upcoming",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "P0D",
+        "dimension": "2d",
+        "definition": "sd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "0",
+        "likeCount": "0",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv002",
+      "snippet": {
+        "publishedAt": "2026-11-03T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Budget home office build",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT12M34S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "12000",
+        "favoriteCount": "0",
+        "likeCount": "480",
+        "commentCount": "24"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv003",
+      "snippet": {
+        "publishedAt": "2026-10-31T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Standing desk review #shorts",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT3M",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "45000",
+        "favoriteCount": "0",
+        "likeCount": "2250",
+        "commentCount": "45"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv004",
+      "snippet": {
+        "publishedAt": "2026-10-28T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Cable management in ten minutes",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT1H2M3S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "30000",
+        "favoriteCount": "0",
+        "likeCount": "1200",
+        "commentCount": "60"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv005",
+      "snippet": {
+        "publishedAt": "2026-10-25T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Best budget microphone",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT3M1S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "22000",
+        "favoriteCount": "0",
+        "likeCount": "880",
+        "commentCount": "44"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv006",
+      "snippet": {
+        "publishedAt": "2026-10-22T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Home office lighting",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT24M10S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "18000",
+        "favoriteCount": "0",
+        "likeCount": "720",
+        "commentCount": "36"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv007",
+      "snippet": {
+        "publishedAt": "2026-10-19T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Monitor arm install #shorts",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT45S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "90000",
+        "favoriteCount": "0",
+        "likeCount": "4500",
+        "commentCount": "90"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv008",
+      "snippet": {
+        "publishedAt": "2026-10-16T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Desk setup tour",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT12M34S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "25000",
+        "favoriteCount": "0",
+        "commentCount": "50"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv009",
+      "snippet": {
+        "publishedAt": "2026-10-13T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Budget home office build",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT18M2S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "16000",
+        "favoriteCount": "0",
+        "likeCount": "640",
+        "commentCount": "32"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv010",
+      "snippet": {
+        "publishedAt": "2026-10-10T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Standing desk review #shorts",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT59S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "60000",
+        "favoriteCount": "0",
+        "likeCount": "3000",
+        "commentCount": "60"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv011",
+      "snippet": {
+        "publishedAt": "2026-10-07T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Cable management in ten minutes",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT9M41S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "20000",
+        "favoriteCount": "0",
+        "likeCount": "800"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv012",
+      "snippet": {
+        "publishedAt": "2026-10-04T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Best budget microphone",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT24M10S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "35000",
+        "favoriteCount": "0",
+        "likeCount": "1400",
+        "commentCount": "70"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv013",
+      "snippet": {
+        "publishedAt": "2026-10-01T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Home office lighting #shorts",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT1M30S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "120000",
+        "favoriteCount": "0",
+        "likeCount": "6000",
+        "commentCount": "120"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv014",
+      "snippet": {
+        "publishedAt": "2026-09-28T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Monitor arm install",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT12M34S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "28000",
+        "favoriteCount": "0",
+        "likeCount": "1120",
+        "commentCount": "56"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv015",
+      "snippet": {
+        "publishedAt": "2026-09-25T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Desk setup tour",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT18M2S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "33000",
+        "favoriteCount": "0",
+        "likeCount": "1320",
+        "commentCount": "66"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv016",
+      "snippet": {
+        "publishedAt": "2026-09-22T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Budget home office build #shorts",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT2M",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "70000",
+        "favoriteCount": "0",
+        "likeCount": "3500",
+        "commentCount": "70"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv017",
+      "snippet": {
+        "publishedAt": "2026-09-19T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Standing desk review",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT9M41S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "26000",
+        "favoriteCount": "0",
+        "likeCount": "1040",
+        "commentCount": "52"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv018",
+      "snippet": {
+        "publishedAt": "2026-09-16T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Cable management in ten minutes",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT24M10S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "31000",
+        "favoriteCount": "0",
+        "likeCount": "1240",
+        "commentCount": "62"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv019",
+      "snippet": {
+        "publishedAt": "2026-09-13T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Best budget microphone #shorts",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT58S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "50000",
+        "favoriteCount": "0",
+        "likeCount": "2500",
+        "commentCount": "50"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv020",
+      "snippet": {
+        "publishedAt": "2026-09-10T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Home office lighting",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT12M34S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "29000",
+        "favoriteCount": "0",
+        "likeCount": "1160",
+        "commentCount": "58"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv021",
+      "snippet": {
+        "publishedAt": "2026-09-07T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Monitor arm install",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT18M2S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "27000",
+        "favoriteCount": "0",
+        "likeCount": "1080",
+        "commentCount": "54"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv022",
+      "snippet": {
+        "publishedAt": "2026-09-04T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Desk setup tour",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT1H2M3S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "40000",
+        "favoriteCount": "0",
+        "likeCount": "1600",
+        "commentCount": "80"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv023",
+      "snippet": {
+        "publishedAt": "2026-09-01T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Budget home office build",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT9M41S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "24000",
+        "favoriteCount": "0",
+        "likeCount": "960",
+        "commentCount": "48"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "fake",
+      "id": "EXAMPLEv024",
+      "snippet": {
+        "publishedAt": "2026-08-29T08:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Standing desk review",
+        "description": "",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none",
+        "categoryId": "28"
+      },
+      "contentDetails": {
+        "duration": "PT24M10S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false"
+      },
+      "statistics": {
+        "viewCount": "38000",
+        "favoriteCount": "0",
+        "likeCount": "1520",
+        "commentCount": "76"
+      }
+    }
+  ]
+}

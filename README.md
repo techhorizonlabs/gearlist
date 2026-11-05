@@ -4,28 +4,42 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 255 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 281 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
 - Human: scan the groups below. The heading is the product. **For** is the audience. **Access and use** is the permission note.
 - Agent: load [llms.txt](llms.txt) first, then [llms-full.txt](llms-full.txt) or [resources.json](resources.json). [AGENTS.md](AGENTS.md) is the house rules. Do not install from a row until a human authorises it.
 
-Install the catalog skill with:
+Install the repository's skills with the command below. It asks which ones you want.
 
 ```bash
 npx skills add techhorizonlabs/gearlist
 ```
 
+The skills are:
+- `add-entry`: add or correct a Gearlist entry.
+- `api-skill`: turn a REST API into an agent skill.
+- `youtube-creator-research`: research a YouTube creator and write one brief, with the three skills below.
+- `youtube-channel-profile`: a channel's public stats, upload rhythm, engagement and an estimated earnings range from the official YouTube Data API.
+- `youtube-video-themes`: recurring topics and opening hooks from a channel's video transcripts.
+- `creator-audience`: how to get audience demographics with the owner's consent or a paid estimate.
+
+To install the YouTube creator pack on its own:
+
+```bash
+npx skills add techhorizonlabs/gearlist --skill youtube-creator-research --skill youtube-channel-profile --skill youtube-video-themes --skill creator-audience
+```
+
 ## Contents
 
-- [Agent tools](#agent-tools) (81)
-- [MCP and integrations](#mcp-and-integrations) (26)
+- [Agent tools](#agent-tools) (90)
+- [MCP and integrations](#mcp-and-integrations) (32)
 - [Security and governance](#security-and-governance) (5)
 - [Platforms](#platforms) (63)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (54)
-- [APIs and data](#apis-and-data) (22)
+- [APIs and data](#apis-and-data) (33)
 
 
 ## Agent tools
@@ -840,6 +854,96 @@ A Python library that fetches a YouTube video's transcript or subtitles, includi
 
 **Source checked:** 2026-11-05. [Official source](https://github.com/jdepoix/youtube-transcript-api).
 
+### [youtube-comment-downloader](https://github.com/egbertbouman/youtube-comment-downloader)
+
+A Python command line tool and library that downloads a YouTube video's comments to JSON or CSV without the YouTube API.
+
+**For:** Analysts reading audience reaction on specific videos.
+
+**Access and use:** Runs locally with no account or API key and writes comments, including commenter names, to a local file. It reads YouTube's web pages rather than the official API, and YouTube's Terms of Service bar automated access without YouTube's written permission. MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/egbertbouman/youtube-comment-downloader).
+
+### [NewPipe Extractor](https://github.com/TeamNewPipe/NewPipeExtractor)
+
+The Java library behind the NewPipe app that reads YouTube videos, channels, comments, playlists, search and trending lists, and also supports SoundCloud, PeerTube and Bandcamp.
+
+**For:** Java and Android developers who want YouTube data without the official API.
+
+**Access and use:** Runs inside your app with no account or API key, added as a dependency from JitPack or Maven Central. It scrapes YouTube's pages, which YouTube's Terms of Service bar without permission, and changes on YouTube's side can break it. GPL-3.0 licence, so software that ships it must meet the GPL's terms.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/TeamNewPipe/NewPipeExtractor).
+
+### [pytubefix](https://github.com/JuanBindez/pytubefix)
+
+A Python library that reads YouTube video details, captions, channels, playlists and search results, and downloads streams.
+
+**For:** Python developers who need captions or a channel's video list without an API key.
+
+**Access and use:** Runs locally with no API key; an optional OAuth sign-in caches a Google token on the machine, and downloads are written to disk. It reads YouTube's web player rather than the official API, YouTube's Terms of Service bar automated access and downloads without permission, and changes on YouTube's side can break it. MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/JuanBindez/pytubefix).
+
+### [YouTube.js](https://github.com/LuanRT/YouTube.js)
+
+A JavaScript client for YouTube's internal InnerTube API that reads video details, channels, comments, playlists and search results.
+
+**For:** Node.js, Deno and browser developers building YouTube research into agents.
+
+**Access and use:** Runs locally with no API key; it caches session data by default and can use your account cookies for signed-in requests, which gives it that account's access. InnerTube is undocumented and YouTube's Terms of Service bar automated access without permission, so expect breakage and check your use. MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://ytjs.dev/guide/getting-started.html).
+
+### [Whisper](https://github.com/openai/whisper)
+
+OpenAI's open speech recognition model and command line tool, which transcribes audio in many languages and can translate it into English.
+
+**For:** People who need a transcript for a video that has no captions.
+
+**Access and use:** Runs locally with no account; it needs Python, PyTorch and ffmpeg, downloads model weights on first use, and models need from about 1 GB to about 10 GB of GPU memory. You need the right to download and transcribe the audio you give it. MIT licence for the code and model weights.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/openai/whisper).
+
+### [faster-whisper](https://github.com/SYSTRAN/faster-whisper)
+
+A reimplementation of Whisper on the CTranslate2 inference engine, with 8-bit quantisation on CPU and GPU.
+
+**For:** Developers running Whisper transcription in their own pipelines.
+
+**Access and use:** Runs locally with no account and downloads converted models from the Hugging Face Hub on first use. It decodes audio with PyAV, so a system ffmpeg is not needed, while GPU use needs NVIDIA's CUDA libraries. MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/SYSTRAN/faster-whisper).
+
+### [whisper.cpp](https://github.com/ggml-org/whisper.cpp)
+
+A C and C++ port of Whisper that runs on CPUs, Apple Silicon and a range of GPUs, with a command line tool and bindings for other languages.
+
+**For:** People transcribing on a Mac or on a machine without a large GPU.
+
+**Access and use:** Runs locally with no account; you build it from source and download ggml model files with the included script. The command line tool reads only 16-bit WAV files, so convert other audio with ffmpeg first. MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/ggml-org/whisper.cpp).
+
+### [WhisperX](https://github.com/m-bain/whisperX)
+
+A transcription tool built on faster-whisper that adds word-level timestamps and speaker labels.
+
+**For:** Analysts transcribing interviews, podcasts or panel videos where who said what matters.
+
+**Access and use:** Runs locally with no account for transcription, and GPU use needs NVIDIA's CUDA toolkit. Speaker labels need a Hugging Face read token and acceptance of the user agreement for the pyannote speaker-diarization-community-1 model, and alignment models are downloaded per language. BSD-2-Clause licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/m-bain/whisperX).
+
+### [ThoughtLeaders CLI](https://github.com/ThoughtLeaders-io/thoughtleaders-cli)
+
+A command line client for ThoughtLeaders' YouTube sponsorship data, covering which brands sponsor which channels, lookalike channels, transcripts, view curves and audience profiles.
+
+**For:** Brand and agency teams using an agent to research sponsorship history before a pitch.
+
+**Access and use:** Needs a ThoughtLeaders account, signed in by browser OAuth, device code or API key, and every query spends credits, with recommender tools on the Intelligence plan at 25 credits a call. It can add comments to records, signing out ends every session, and tl setup writes skill files into your agent's folders. Needs Python 3.12 or later with jq, ripgrep, duckdb and yt-dlp; MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/ThoughtLeaders-io/thoughtleaders-cli).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -1101,6 +1205,66 @@ Google's official API for public channel, video and playlist data, such as subsc
 **Access and use:** Needs a Google Cloud project and an API key. The default quota is 10,000 units a day, and most reads cost 1 unit. Changes to a channel need its owner's OAuth consent.
 
 **Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/v3/getting-started).
+
+### [yutu](https://github.com/eat-pray-ai/yutu)
+
+A CLI, MCP server and agent mode that work through the official YouTube Data API, with optional Analytics and Reporting API access.
+
+**For:** Channel teams who want an agent to read and manage their own YouTube channel.
+
+**Access and use:** Needs your own Google Cloud project and OAuth client, and it saves client_secret.json and youtube.token.json in the working folder unless you set its environment variables. The OAuth grant lets it create, update and delete videos, playlists and comments on that channel, and agent mode sends prompts to the Gemini or OpenAI key you supply. Data API quota applies; Apache 2.0 licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/eat-pray-ai/yutu).
+
+### [YouTube MCP Server (ZubeidHendricks)](https://github.com/ZubeidHendricks/youtube-mcp-server)
+
+An MCP server with read-only tools for YouTube video, channel, playlist and transcript lookups, plus creator search filtered by subscriber count and recent uploads.
+
+**For:** Marketers using an MCP client to shortlist creators by size and activity.
+
+**Access and use:** Needs a YouTube Data API key in the environment, and each search spends that key's daily quota. It can fall back to a second and third key when one runs out, but the YouTube API Services Terms forbid getting round quota limits, so configure one key. Channel results can include emails found in public metadata, which are personal information; MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/ZubeidHendricks/youtube-mcp-server).
+
+### [YouTube Transcript MCP server](https://github.com/kimtaeyoon83/mcp-server-youtube-transcript)
+
+An MCP server that fetches a YouTube video's captions, with optional timestamps, and by default strips sponsor and promotional sections marked by chapters.
+
+**For:** People who want an agent to read or summarise what a video says.
+
+**Access and use:** Runs through npx with no account or key for transcripts. It reads YouTube's caption data outside the official API, which YouTube's Terms of Service restrict, and the optional video analysis tool sends a direct video URL to TwelveLabs under your own TwelveLabs key. MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/kimtaeyoon83/mcp-server-youtube-transcript).
+
+### [HypeAuditor MCP server](https://mcp.hypeauditor.com/)
+
+HypeAuditor's hosted MCP server for YouTube, Instagram and TikTok creator analytics, including subscriber demographics, authenticity scores, growth and price estimates.
+
+**For:** Brands and agencies vetting creators before paying for a campaign.
+
+**Access and use:** Sign in with a HypeAuditor Pro or higher account; creator analytics spend AI credits at US$0.005 each, about 10 for a search and 100 for an analysed account, and the assistant asks before any paid unlock. It can also create media plans and move creators between campaigns in your account. HypeAuditor's terms bar bots and scraping outside its API, which is a separate product sold through its sales team.
+
+**Source checked:** 2026-11-05. [Official source](https://mcp.hypeauditor.com/).
+
+### [Arcmira](https://arcmira.com/)
+
+A hosted transcript search service and MCP server for YouTube and podcasts that finds quotes, mentions, media appearances, ad reads and recurring channel sponsors.
+
+**For:** Researchers tracking what is said about a brand and which brands sponsor which channels.
+
+**Access and use:** Sign in through your MCP client or use an arc_sk_ account key; the free plan has 1,000 credits a month and withholds the newest 30 days, and sponsor and ad-read data needs the Pro+ plan. Reads cost credits per row, and the write tool can create and pause monitors but not delete them. Speaker and sponsor labels can be incomplete, and the plugin repository is under a proprietary licence that only permits running it.
+
+**Source checked:** 2026-11-05. [Official source](https://arcmira.com/docs/mcp-server).
+
+### [1of10 MCP](https://1of10.com/mcp)
+
+Connects Claude or ChatGPT to 1of10's database of YouTube outlier videos, which beat their channel's usual views, and to its title and thumbnail tracking.
+
+**For:** Creators and strategists looking for video ideas that already work in a niche.
+
+**Access and use:** Needs a 1of10 Pro (US$89 a month) or Ultra plan, and you connect by signing in from its Claude and ChatGPT page; the server link for other clients appears only after sign-in. Research does not use credits but generating titles, ideas or thumbnails does, and it can save videos, create trackers and link your channel without deleting anything. There is no public API reference beyond the product page.
+
+**Source checked:** 2026-11-05. [Official source](https://1of10.com/mcp).
 
 ## Security and governance
 
@@ -2591,6 +2755,116 @@ The Supabase Management API for projects, alongside each project's own database,
 **Access and use:** The Management API uses a scoped personal access token or OAuth. Each project's data APIs use their own keys and row-level security, which is a separate layer. The free plan covers two active projects, and inactive ones pause. Never expose a management or service key in a client app.
 
 **Source checked:** 2026-11-04. [Official source](https://supabase.com/pricing).
+
+### [YouTube Analytics API](https://developers.google.com/youtube/analytics)
+
+Google's official API for targeted queries on a channel's own analytics, such as views, ratings, audience age, gender and country, and estimated revenue.
+
+**For:** Channel owners, agencies and the agents they authorise to report on a channel's performance.
+
+**Access and use:** Needs OAuth consent from the channel or content owner, so it cannot read another creator's private analytics unless they grant access. The yt-analytics.readonly scope covers activity metrics, revenue needs the separate yt-analytics-monetary.readonly scope, and Google sets a quota cost for each query. The YouTube API Services Terms and Developer Policies apply, including limits on storing data and on combining data from different content owners.
+
+**Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/analytics/reference/reports/query).
+
+### [YouTube Reporting API](https://developers.google.com/youtube/reporting)
+
+Google's official API for scheduled bulk reports of a channel's or content owner's analytics, delivered as daily CSV files.
+
+**For:** Analysts who want a channel's full daily history in their own database.
+
+**Access and use:** Needs OAuth consent from the channel or content owner, with the same read-only and monetary scopes as the Analytics API. A new reporting job backfills 30 days, the first files can take 48 hours, and reports stay downloadable for 60 days, or 30 days for backfilled history. The YouTube API Services Terms and Developer Policies limit how long stored data can be kept without a refresh.
+
+**Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/reporting/v1/reports).
+
+### [Supadata](https://supadata.ai/)
+
+An API and MCP server for transcripts and metadata from YouTube and other video platforms, with AI-generated transcripts billed by the minute.
+
+**For:** Developers who want transcripts through a paid API instead of running their own scraper.
+
+**Access and use:** Needs a Supadata account and API key, or OAuth sign-in for the hosted MCP server at api.supadata.ai/mcp; the local server reads SUPADATA_API_KEY. The free plan gives 100 credits a month at one request a second, a transcript costs 1 credit, and a generated transcript costs 2 credits a minute. The MCP server code is MIT licensed.
+
+**Source checked:** 2026-11-05. [Official source](https://docs.supadata.ai/integrations/mcp).
+
+### [SponsorBlock API](https://wiki.sponsor.ajay.app/w/API_Docs)
+
+The public API and database behind SponsorBlock, with crowdsourced timestamps for sponsor reads, self-promotion, intros and other segments in YouTube videos.
+
+**For:** Analysts measuring how often and how long channels run sponsor segments.
+
+**Access and use:** Reading segments needs no account or key, and the full database can be downloaded. The API and database are under CC BY-NC-SA 4.0 unless the maintainer gives permission, so commercial use needs that permission and reuse needs attribution. Automated submissions are not allowed, and segments are community votes rather than verified facts.
+
+**Source checked:** 2026-11-05. [Official source](https://wiki.sponsor.ajay.app/w/API_Docs).
+
+### [Return YouTube Dislike API](https://returnyoutubedislike.com/docs)
+
+A public API that returns like counts and estimated dislike counts for YouTube videos, built from archived dislike data and estimates extrapolated from its extension's users.
+
+**For:** Analysts who want a rough measure of negative reaction to a video.
+
+**Access and use:** No account or key is needed, and each client is limited to 100 requests a minute and 10,000 a day. Third-party use must credit the project with a link to its repository or returnyoutubedislike.com. Dislike figures for the period since YouTube hid them are estimates, so label them as such.
+
+**Source checked:** 2026-11-05. [Official source](https://returnyoutubedislike.com/docs/usage-rights).
+
+### [SerpApi YouTube Search API](https://serpapi.com/youtube-search-api)
+
+A paid API that returns YouTube search results as JSON, including videos, channels, Shorts, view counts and subscriber counts.
+
+**For:** Agents that need to see what ranks in YouTube search for a keyword.
+
+**Access and use:** Needs a SerpApi account and private API key; the free plan covers 250 searches a month at 50 an hour, and the Starter plan is US$25 a month for 1,000. Cached searches are free, and an output option returns Markdown for agents. SerpApi's U.S. Legal Shield, its cover for scraping and parsing search data, starts on the Production plan.
+
+**Source checked:** 2026-11-05. [Official source](https://serpapi.com/pricing.md).
+
+### [NoxInfluencer API](https://www.noxinfluencer.com/api-service)
+
+NoxInfluencer's API for YouTube, TikTok and Instagram creator profiles, videos, comments, search and contact details.
+
+**For:** Agencies building creator search or vetting into their own tools.
+
+**Access and use:** A free trial gives 80 one-time credits, and ongoing access uses a Nox Key set up through an account manager with quoted pricing; each key is limited to 60 requests a minute. The site's terms forbid crawling NoxInfluencer data, so use the API rather than automating the web app. Contact details it returns are personal information.
+
+**Source checked:** 2026-11-05. [Official source](https://www.noxinfluencer.com/api-docs/docs/rest/api).
+
+### [Modash API](https://www.modash.io/influencer-marketing-api)
+
+Modash's Discovery and Raw APIs for searching and analysing YouTube, Instagram and TikTok creators, with audience demographics, lookalikes, audience overlap and recent posts.
+
+**For:** Platforms and agencies building creator discovery into their own products.
+
+**Access and use:** Needs an access token under a Modash API agreement; each call spends credits, published pricing starts at US$16,200 a year for Discovery and US$10,000 a year for Raw, and trial credits are offered after a call with the team. Modash also offers an MCP server for the same data. The API terms bar standalone resale of raw results and require a lawful basis for processing creator data.
+
+**Source checked:** 2026-11-05. [Official source](https://www.modash.io/influencer-marketing-api).
+
+### [Phyllo](https://www.getphyllo.com/)
+
+A social data API that returns creators' public data and, with each creator's sign-in and consent, private data such as audience demographics and income from supported platforms, including YouTube.
+
+**For:** Agencies and creator platforms that need data a creator has agreed to share.
+
+**Access and use:** Sign up for a free sandbox, then talk to sales for production access and pricing. Consented data needs each creator to connect their account through Phyllo and approve the fields shared. Its developer documentation is published under the InsightIQ name at docs.insightiq.ai.
+
+**Source checked:** 2026-11-05. [Official source](https://www.getphyllo.com/).
+
+### [ChannelCrawler](https://channelcrawler.com/api)
+
+A YouTube channel database whose API searches over 35 million channels by niche, location, size and engagement and returns video lists and subscriber history, with sponsorship tracking in the web app.
+
+**For:** Brands and agencies finding channels to sponsor and checking which creators competitors sponsor.
+
+**Access and use:** The API uses a bearer key and prepaid credits, from 100 credits for US$24, charged per result, with free search previews and email lookups billed only when an email is found. Sponsorship tracking is part of the web app's Power and Enterprise plans, not the API. Business emails it returns are personal information, so outreach must follow spam and privacy law.
+
+**Source checked:** 2026-11-05. [Official source](https://channelcrawler.com/api).
+
+### [Apify YouTube Scraper](https://apify.com/streamers/youtube-scraper)
+
+An Apify actor that collects public YouTube video and channel data, such as titles, views, likes, subscriber counts and upload dates, with optional subtitles.
+
+**For:** Analysts who need bulk YouTube data without writing a scraper.
+
+**Access and use:** Needs an Apify account and API token; it bills per video, about US$2.40 to US$4 per 1,000 depending on plan, and results are stored in your Apify datasets. The free plan's US$5 monthly credit covers a small run. It scrapes YouTube outside the official API, which YouTube's Terms of Service bar without permission, and Apify says not to collect personal data without a legitimate reason.
+
+**Source checked:** 2026-11-05. [Official source](https://apify.com/streamers/youtube-scraper).
 
 ## Looking for more?
 

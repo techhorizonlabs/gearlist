@@ -1,0 +1,14 @@
+// Gearlist public site. An assets-only Cloudflare Worker: no Worker script.
+// Build dist first with `python3 site/build_site.py`, then run `wrangler deploy` from this folder.
+// Security headers come from dist/_headers, which the build writes.
+// No routes or custom domain yet. Add gearlist.build after review.
+{
+  "name": "gearlist-site",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "workers_dev": true
+}

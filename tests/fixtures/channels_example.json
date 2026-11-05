@@ -1,0 +1,41 @@
+{
+  "kind": "youtube#channelListResponse",
+  "etag": "fake-etag-list",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "fake-etag-channel",
+      "id": "UCEXAMPLEchannel00000001",
+      "snippet": {
+        "title": "Example Channel",
+        "description": "A made-up channel used only in tests.",
+        "customUrl": "@examplechannel",
+        "publishedAt": "2020-11-05T00:00:00Z",
+        "country": "AU",
+        "thumbnails": {
+          "default": {
+            "url": "https://example.com/thumb.jpg",
+            "width": 88,
+            "height": 88
+          }
+        }
+      },
+      "contentDetails": {
+        "relatedPlaylists": {
+          "likes": "",
+          "uploads": "UUEXAMPLEchannel00000001"
+        }
+      },
+      "statistics": {
+        "viewCount": "48700000",
+        "subscriberCount": "412000",
+        "hiddenSubscriberCount": false,
+        "videoCount": "318"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "fake-etag-search",
+  "regionCode": "AU",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "fake",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCEXAMPLEchannel00000001"
+      },
+      "snippet": {
+        "publishedAt": "2020-11-05T00:00:00Z",
+        "channelId": "UCEXAMPLEchannel00000001",
+        "title": "Example Channel",
+        "description": "A made-up channel used only in tests.",
+        "channelTitle": "Example Channel",
+        "liveBroadcastContent": "none"
+      }
+    }
+  ]
+}

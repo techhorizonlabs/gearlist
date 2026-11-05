@@ -45,10 +45,24 @@ By Tech Horizon Labs. This edition contains {n} entries. Documentation checked m
 - Human: scan the groups below. The heading is the product. **For** is the audience. **Access and use** is the permission note.
 - Agent: load [llms.txt](llms.txt) first, then [llms-full.txt](llms-full.txt) or [resources.json](resources.json). [AGENTS.md](AGENTS.md) is the house rules. Do not install from a row until a human authorises it.
 
-Install the catalog skill with:
+Install the repository's skills with the command below. It asks which ones you want.
 
 ```bash
 npx skills add techhorizonlabs/gearlist
+```
+
+The skills are:
+- `add-entry`: add or correct a Gearlist entry.
+- `api-skill`: turn a REST API into an agent skill.
+- `youtube-creator-research`: research a YouTube creator and write one brief, with the three skills below.
+- `youtube-channel-profile`: a channel's public stats, upload rhythm, engagement and an estimated earnings range from the official YouTube Data API.
+- `youtube-video-themes`: recurring topics and opening hooks from a channel's video transcripts.
+- `creator-audience`: how to get audience demographics with the owner's consent or a paid estimate.
+
+To install the YouTube creator pack on its own:
+
+```bash
+npx skills add techhorizonlabs/gearlist --skill youtube-creator-research --skill youtube-channel-profile --skill youtube-video-themes --skill creator-audience
 ```
 
 ## Contents
