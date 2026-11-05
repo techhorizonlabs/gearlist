@@ -1,15 +1,31 @@
-// Gearlist public site. An assets-only Cloudflare Worker: no Worker script.
+// Gearlist public site. Static assets plus a small Worker script (worker/index.mjs).
 // Build dist first with `python3 site/build_site.py`, then run `wrangler deploy` from this folder.
-// Security headers come from dist/_headers, which the build writes.
+// Static files are served directly and get their headers from dist/_headers, which the build writes.
+// Only the run_worker_first paths reach the Worker: the home page (for Markdown negotiation),
+// the MCP server, its server card, the JSON API and its OpenAPI file. The Worker reads the
+// catalog from these same assets through the ASSETS binding and makes no other fetches.
 // Served on gearlist.build and www.gearlist.build as Worker custom domains.
 {
   "name": "gearlist-site",
+  "main": "./worker/index.mjs",
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/", "/mcp", "/mcp/*", "/api/*", "/openapi.json"]
   },
+  // One per-IP budget for /mcp and /api/search. Counts are per Cloudflare location
+  // and approximate. namespace_id must not be used by another Worker on the account.
+  "ratelimits": [
+    {
+      "name": "RATE_LIMITER",
+      "namespace_id": "4271",
+      "simple": { "limit": 120, "period": 60 }
+    }
+  ],
+  "observability": { "enabled": true },
   "workers_dev": true,
   "routes": [
     { "pattern": "gearlist.build", "custom_domain": true },

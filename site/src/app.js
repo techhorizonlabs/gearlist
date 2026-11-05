@@ -2,40 +2,41 @@
   "use strict";
   var doc = document;
 
-  /* Copy the install command */
-  var copyBtn = doc.getElementById("copy");
-  var cmd = doc.getElementById("cmd");
+  /* Copy buttons: data-copy names the element whose text is copied */
   var copyStatus = doc.getElementById("copy-status");
-  var copyTimer = 0;
-  function copied(message, label) {
-    copyStatus.textContent = message;
-    copyBtn.textContent = label;
-    clearTimeout(copyTimer);
-    copyTimer = setTimeout(function () {
-      copyBtn.textContent = "Copy";
-      copyStatus.textContent = "";
-    }, 2400);
-  }
-  function selectCommand() {
-    var range = doc.createRange();
-    range.selectNodeContents(cmd);
-    var sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    copied("Command selected. Press Control C or Command C to copy it.", "Selected");
-  }
-  if (copyBtn && cmd) {
-    copyBtn.addEventListener("click", function () {
-      var text = cmd.textContent.trim();
+  [].forEach.call(doc.querySelectorAll("button[data-copy]"), function (btn) {
+    var target = doc.getElementById(btn.getAttribute("data-copy"));
+    if (!target || !copyStatus) return;
+    var label = btn.textContent;
+    var timer = 0;
+    function copied(message, text) {
+      copyStatus.textContent = message;
+      btn.textContent = text;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        btn.textContent = label;
+        copyStatus.textContent = "";
+      }, 2400);
+    }
+    function selectText() {
+      var range = doc.createRange();
+      range.selectNodeContents(target);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      copied("Text selected. Press Control C or Command C to copy it.", "Selected");
+    }
+    btn.addEventListener("click", function () {
+      var text = target.textContent.trim();
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(function () {
-          copied("Command copied.", "Copied");
-        }, selectCommand);
+          copied("Copied.", "Copied");
+        }, selectText);
       } else {
-        selectCommand();
+        selectText();
       }
     });
-  }
+  });
 
   /* Search and group filter */
   var q = doc.getElementById("q");
