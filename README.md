@@ -2,7 +2,7 @@
 
 ![Gearlist](social-preview.png)
 
-A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
+A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
 By Tech Horizon Labs. This edition contains 281 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
@@ -24,6 +24,7 @@ The website has these for agents, as well as the files in this repository:
 - [Search API](https://gearlist.build/api/search?q=browser): the same search as JSON, described in [openapi.json](https://gearlist.build/openapi.json).
 - [agent-prompt.txt](https://gearlist.build/agent-prompt.txt): the prompt to give your agent.
 - A Markdown copy of the catalog page, sent when a request for `https://gearlist.build/` asks for `text/markdown`. It is also at [index.md](https://gearlist.build/index.md).
+- A page for every entry at `https://gearlist.build/tools/<id>/`, for example [Firecrawl](https://gearlist.build/tools/firecrawl/), and a page for every group at `https://gearlist.build/category/<group>/`. Each has a Markdown copy beside it, such as [tools/firecrawl.md](https://gearlist.build/tools/firecrawl.md).
 - Discovery files: [ai-catalog.json](https://gearlist.build/.well-known/ai-catalog.json) names the MCP server and the skills, [api-catalog](https://gearlist.build/.well-known/api-catalog) lists the APIs, and [agent-skills/index.json](https://gearlist.build/.well-known/agent-skills/index.json) lists the skills with their checksums.
 
 ## Skills
@@ -69,7 +70,7 @@ A Mac interface for coding agent sessions, project context and skills.
 
 **Access and use:** Sessions may run tools with access to local files and connected services.
 
-**Source checked:** 2026-10-25. [Official source](https://agentdeck.site/).
+**Source checked:** 2026-10-25. [Official source](https://agentdeck.site/). [Gearlist page](https://gearlist.build/tools/agent-deck/).
 
 ### [Hunk](https://hunk.dev/)
 
@@ -79,7 +80,7 @@ A terminal interface for reviewing code changes with agent notes beside the diff
 
 **Access and use:** Review changes before applying them; installation and repository access are separate decisions.
 
-**Source checked:** 2026-10-25. [Official source](https://hunk.dev/).
+**Source checked:** 2026-10-25. [Official source](https://hunk.dev/). [Gearlist page](https://gearlist.build/tools/hunk/).
 
 ### [Jevgrep](https://github.com/dzhng/jevgrep)
 
@@ -89,7 +90,7 @@ Search a codebase with a question and receive relevant files and source excerpts
 
 **Access and use:** Requires an AI provider connection; check what repository content is sent to that provider.
 
-**Source checked:** 2026-10-25. [Official source](https://github.com/dzhng/jevgrep).
+**Source checked:** 2026-10-25. [Official source](https://github.com/dzhng/jevgrep). [Gearlist page](https://gearlist.build/tools/jevgrep/).
 
 ### [Needle](https://github.com/cactus-compute/needle)
 
@@ -99,7 +100,7 @@ Models and runtimes for local tool calling, structured extraction and embeddings
 
 **Access and use:** Your application defines and executes the tools; constrain their permissions.
 
-**Source checked:** 2026-10-25. [Official source](https://github.com/cactus-compute/needle).
+**Source checked:** 2026-10-25. [Official source](https://github.com/cactus-compute/needle). [Gearlist page](https://gearlist.build/tools/needle/).
 
 ### [Firecrawl](https://github.com/firecrawl/firecrawl)
 
@@ -109,7 +110,7 @@ Crawl and scrape sites into markdown and structured data for agents.
 
 **Access and use:** The hosted API needs a key and spends credits. AGPL-3.0 on the open repository. Do not scrape sites that forbid it. LinkedIn and similar sites may be blocked.
 
-**Source checked:** 2026-10-26. [Official source](https://github.com/firecrawl/firecrawl).
+**Source checked:** 2026-10-26. [Official source](https://github.com/firecrawl/firecrawl). [Gearlist page](https://gearlist.build/tools/firecrawl/).
 
 ### [REA](https://github.com/morluto/rea)
 
@@ -119,7 +120,7 @@ A local MCP and CLI for investigating application behaviour, from JavaScript bun
 
 **Access and use:** Install with npx rea-agents@latest setup. Setup shows a plan and asks before writing agent config or installing Hopper. Native and runtime workflows can execute or attach to programs. DISCLAIMER.md forbids DRM circumvention and copying proprietary software. MIT. npm package rea-agents. MCP registry name io.github.morluto/rea.
 
-**Source checked:** 2026-10-26. [Official source](https://github.com/morluto/rea).
+**Source checked:** 2026-10-26. [Official source](https://github.com/morluto/rea). [Gearlist page](https://gearlist.build/tools/rea/).
 
 ### [OpenCLI](https://opencli.info/)
 
@@ -129,7 +130,7 @@ A CLI and Chrome Browser Bridge that lets agents navigate, click, fill forms and
 
 **Access and use:** Install npm package @jackwener/opencli (Node.js 20.18.1 or later) or the desktop app, plus the OpenCLI Chrome extension. Browser commands act through the signed-in Chrome profile, including cookies for the target site. Treat that as the same access the person has in the browser. Apache-2.0. Skills install with npx skills add jackwener/opencli.
 
-**Source checked:** 2026-10-27. [Official source](https://github.com/jackwener/OpenCLI).
+**Source checked:** 2026-10-27. [Official source](https://github.com/jackwener/OpenCLI). [Gearlist page](https://gearlist.build/tools/opencli/).
 
 ### [Graphify](https://www.graphify.com)
 
@@ -139,7 +140,7 @@ Turns a codebase, docs, SQL schemas, configs and PDFs into a local queryable kno
 
 **Access and use:** Install the CLI with uv tool install graphifyy, then graphify install. It reads local project files and writes graphify-out. Apache-2.0.
 
-**Source checked:** 2026-10-27. [Official source](https://github.com/Graphify-Labs/graphify).
+**Source checked:** 2026-10-27. [Official source](https://github.com/Graphify-Labs/graphify). [Gearlist page](https://gearlist.build/tools/graphify/).
 
 ### [OpenContext](https://0xranx.github.io/OpenContext/en/)
 
@@ -149,7 +150,7 @@ A local GUI and CLI that stores project context, skills and notes so a coding ag
 
 **Access and use:** Install with npm install -g @aicontextlab/cli, then oc init in a project. Desktop app from GitHub releases. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/0xranx/OpenContext).
+**Source checked:** 2026-10-28. [Official source](https://github.com/0xranx/OpenContext). [Gearlist page](https://gearlist.build/tools/opencontext/).
 
 ### [Stash](https://joinstash.ai)
 
@@ -159,7 +160,7 @@ Captures agent runs and human corrections, then serves that history back as know
 
 **Access and use:** Python client is pip install stash-sdk. It reads STASH_API_KEY and optional STASH_URL. The GitHub repo is MIT. Hosted and self-hosted paths are separate accounts.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Fergana-Labs/stash).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Fergana-Labs/stash). [Gearlist page](https://gearlist.build/tools/stash/).
 
 ### [Browsentic](https://browsentic.com)
 
@@ -169,7 +170,7 @@ An agentic browser harness: a desktop app, npm CLI and Chrome or Firefox extensi
 
 **Access and use:** Installer is curl -fsSL https://browsentic.com/install.sh | sh. Read the script before running it. Or npx browsentic@latest setup. The extension acts through the signed-in browser. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/imshaikot/browsentic).
+**Source checked:** 2026-10-28. [Official source](https://github.com/imshaikot/browsentic). [Gearlist page](https://gearlist.build/tools/browsentic/).
 
 ### [Trail-code](https://github.com/trailhq/Trail-Code)
 
@@ -179,7 +180,7 @@ A local map of a codebase plus team learnings, so coding agents go to the right 
 
 **Access and use:** Install with npm install -g @trailhq/trail-code && trail init. It reads the repo on the machine and writes .trail/. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/trailhq/Trail-Code).
+**Source checked:** 2026-10-28. [Official source](https://github.com/trailhq/Trail-Code). [Gearlist page](https://gearlist.build/tools/trail-code/).
 
 ### [obsidian-wiki](https://github.com/Ar9av/obsidian-wiki)
 
@@ -189,7 +190,7 @@ A local markdown vault an agent can grow, lint and query as a digital brain.
 
 **Access and use:** Install with pip install obsidian-wiki, then obsidian-wiki setup --vault ~/brain. MIT. The vault is local files.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Ar9av/obsidian-wiki).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Ar9av/obsidian-wiki). [Gearlist page](https://gearlist.build/tools/obsidian-wiki/).
 
 ### [earshot](https://github.com/Leonxlnx/earshot)
 
@@ -199,7 +200,7 @@ A local CLI, Python API and MCP server that lets coding agents describe, score a
 
 **Access and use:** Python 3.10 or later and ffmpeg on PATH. Clone the repo, venv, CPU torch, then pip install -e ".[mcp,llm,dev]". First model use downloads about 1.1 GB into a local cache. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Leonxlnx/earshot).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Leonxlnx/earshot). [Gearlist page](https://gearlist.build/tools/earshot/).
 
 ### [PromptDirector](https://github.com/wchao6891/PromptDirector)
 
@@ -209,7 +210,7 @@ A free local-first Chrome extension that saves images, prompts and references fr
 
 **Access and use:** Chrome Web Store listing iahakaahijddcjjldidbclicedibgpjm. Optional local video component. Apache-2.0. Treat saved pages as the same access the signed-in browser has.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/wchao6891/PromptDirector).
+**Source checked:** 2026-10-28. [Official source](https://github.com/wchao6891/PromptDirector). [Gearlist page](https://gearlist.build/tools/prompt-director/).
 
 ### [ECC](https://ecc.tools)
 
@@ -219,7 +220,7 @@ An agent harness that adds planning, review, memory, skills and AgentShield secu
 
 **Access and use:** Guided setup is npx ecc-universal@2.2.3 setup (Node.js 18 or later). Claude Code plugin is ecc@ecc from github.com/affaan-m/ECC. Install only from those official sources. Hooks run with the agent's permissions. OSS is MIT. ECC Pro GitHub App is a separate paid product for private repos.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/affaan-m/ECC).
+**Source checked:** 2026-10-28. [Official source](https://github.com/affaan-m/ECC). [Gearlist page](https://gearlist.build/tools/ecc/).
 
 ### [Agent Reach](https://github.com/Panniantong/Agent-Reach)
 
@@ -229,7 +230,7 @@ A CLI that gives coding agents read access to platforms generic web search misse
 
 **Access and use:** Point the agent at https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/docs/install.md. The PyPI package named agent-reach is a different project. Login channels copy that site's Chrome session into a dedicated local browser; they do not read the password store. Prefer a secondary account. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Panniantong/Agent-Reach).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Panniantong/Agent-Reach). [Gearlist page](https://gearlist.build/tools/agent-reach/).
 
 ### [Ruflo](https://github.com/ruvnet/ruflo)
 
@@ -239,7 +240,7 @@ An agent harness around Claude Code and Codex: plugins, a console, optional MCP,
 
 **Access and use:** Prefer npx ruflo@latest init wizard, or in Claude Code /plugin marketplace add ruvnet/ruflo. There is also curl -fsSL https://cdn.jsdelivr.net/gh/ruvnet/ruflo@main/scripts/install.sh | bash. Read the script before running it. Mods run with your account's permissions; review them before installing. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/ruvnet/ruflo).
+**Source checked:** 2026-10-28. [Official source](https://github.com/ruvnet/ruflo). [Gearlist page](https://gearlist.build/tools/ruflo/).
 
 ### [agentglass](https://sirallap.github.io/agentglass/)
 
@@ -249,7 +250,7 @@ A local desktop workspace that gathers coding-agent terminals, diffs, pull reque
 
 **Access and use:** Download from GitHub releases. macOS builds are unsigned. Opening it is your call. Data stays in local SQLite. Agents run with your permissions. It controls what they can approve, but it doesn't sandbox them. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/SirAllap/agentglass).
+**Source checked:** 2026-10-28. [Official source](https://github.com/SirAllap/agentglass). [Gearlist page](https://gearlist.build/tools/agentglass/).
 
 ### [Oya Browser](https://oyabrowser.com)
 
@@ -259,7 +260,7 @@ A browser people and agents share: desktop app, Node SDK, remote MCP, and option
 
 **Access and use:** Desktop app from oyabrowser.com. SDK is npm install @oya-ai/browser with OYA_API_KEY. Remote MCP is https://oyabrowser.com/mcp/pool with that key. Self-host installer is curl -fsSL https://raw.githubusercontent.com/OyadotAI/oya-browser/main/install.sh | sh. Read the script before running it. Can reuse logins imported from Chrome, Arc, Brave, Edge or Firefox. SDK and CLI are MIT. The rest of the project is under the Sustainable Use License.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/OyadotAI/oya-browser).
+**Source checked:** 2026-10-28. [Official source](https://github.com/OyadotAI/oya-browser). [Gearlist page](https://gearlist.build/tools/oya-browser/).
 
 ### [apra-fleet](https://github.com/Apra-Labs/apra-fleet)
 
@@ -269,7 +270,7 @@ A local control plane that registers real machines as fleet members and runs dur
 
 **Access and use:** Requires Node.js 22.16 or later. npm install -g @apralabs/apra-fleet, then apra-fleet install and apra-fleet start. MCP is http://localhost:7523/mcp by default. Secrets are entered out of band and never shown to the model. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Apra-Labs/apra-fleet).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Apra-Labs/apra-fleet). [Gearlist page](https://gearlist.build/tools/apra-fleet/).
 
 ### [CodeGraph](https://colbymchenry.github.io/codegraph/)
 
@@ -279,7 +280,7 @@ A local code knowledge graph that answers with symbols, call paths and blast rad
 
 **Access and use:** Install with npm i -g @colbymchenry/codegraph, then codegraph install and, in each project, codegraph init. The README also offers curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh. Read the script before running it. Indexes live in .codegraph/ as local SQLite. The installer asks about anonymous usage telemetry; turn it off with codegraph telemetry off. Hosted product waitlist is getcodegraph.com. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/colbymchenry/codegraph).
+**Source checked:** 2026-10-28. [Official source](https://github.com/colbymchenry/codegraph). [Gearlist page](https://gearlist.build/tools/codegraph/).
 
 ### [Jev Ultrafast](https://github.com/browser-use/jev-ultrafast)
 
@@ -289,7 +290,7 @@ A local Chrome agent from Browser Use. One model chooses each click or field, an
 
 **Access and use:** Clone the repo, uv sync, then set TYPESAFE_API_KEY and TEXT_MODEL_API_KEY in .env. TEXT_MODEL_API_KEY is an OpenRouter key in the example. Chrome connects through Browser Harness; allow remote debugging when prompted. Owned tabs share your existing Chrome profile. Local inspector is http://127.0.0.1:8766. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/browser-use/jev-ultrafast).
+**Source checked:** 2026-10-28. [Official source](https://github.com/browser-use/jev-ultrafast). [Gearlist page](https://gearlist.build/tools/jev-ultrafast/).
 
 ### [Boop](https://github.com/chrisgreg/boop)
 
@@ -299,7 +300,7 @@ A self-hosted notification inbox: apps POST events, they land in local SQLite, a
 
 **Access and use:** Clone then docker compose up, or run a GitHub release binary. Data lives in a local SQLite file. APNs credentials are optional. Set BOOP_ADMIN_USER and BOOP_ADMIN_PASSWORD for the web UI, or put the server behind your own proxy. Read-only MCP is POST /mcp with BOOP_MCP_TOKEN; Settings can turn that endpoint off. You build and sign the iOS app. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/chrisgreg/boop).
+**Source checked:** 2026-10-28. [Official source](https://github.com/chrisgreg/boop). [Gearlist page](https://gearlist.build/tools/boop/).
 
 ### [Laya](https://nandhakishorm.github.io/laya/)
 
@@ -309,7 +310,7 @@ A local decision model that answers typed choice, score and yes/no questions ove
 
 **Access and use:** Python 3.10 or later. python -m pip install laya. The first predict downloads a Hugging Face checkpoint. Optional MCP: pip install "laya[mcp]" then laya-mcp-server. Optional HTTP playground: pip install "laya[serve]". Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/NandhaKishorM/laya).
+**Source checked:** 2026-10-28. [Official source](https://github.com/NandhaKishorM/laya). [Gearlist page](https://gearlist.build/tools/laya/).
 
 ### [BrowserSkill](https://github.com/Tencent/BrowserSkill)
 
@@ -319,7 +320,7 @@ A CLI, Chromium extension and agent skill that drives Chrome or Edge through the
 
 **Access and use:** Installer is curl -fsSL https://raw.githubusercontent.com/Tencent/BrowserSkill/main/install.sh | sh. Read the script before running it. Then install the Chrome or Edge extension, enable the local connection, and run bsk install-skill. The Agent Window shares that profile's website logins. Optional remote pairing uses authenticated WSS from the browser. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Tencent/BrowserSkill).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Tencent/BrowserSkill). [Gearlist page](https://gearlist.build/tools/browserskill/).
 
 ### [Page Agent](https://alibaba.github.io/page-agent/)
 
@@ -329,7 +330,7 @@ An in-page JavaScript library that lets an LLM read the DOM as text and act on t
 
 **Access and use:** npm install page-agent, then construct PageAgent with a model, baseURL and apiKey. The demo CDN script uses a free testing LLM API for evaluation only; that path processes data in Mainland China and is not for production. Bring your own key for real use. Optional Chrome extension sends task text and cleaned HTML to the configured LLM. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/alibaba/page-agent).
+**Source checked:** 2026-10-28. [Official source](https://github.com/alibaba/page-agent). [Gearlist page](https://gearlist.build/tools/page-agent/).
 
 ### [OfficeCLI](https://officecli.ai)
 
@@ -339,7 +340,7 @@ A single-binary CLI that creates, reads and edits Word, Excel and PowerPoint fil
 
 **Access and use:** Installer is curl -fsSL https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.sh | bash. Read the script before running it. Also brew install officecli, npm install -g @officecli/officecli, or GitHub Releases. officecli install puts the binary on PATH and writes a skill into coding agents it finds. Auto-update is on by default; officecli config autoUpdate false or OFFICECLI_SKIP_UPDATE=1 turns it off. Config lives in ~/.officecli. Built-in MCP: officecli mcp claude. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/iOfficeAI/OfficeCLI).
+**Source checked:** 2026-10-28. [Official source](https://github.com/iOfficeAI/OfficeCLI). [Gearlist page](https://gearlist.build/tools/officecli/).
 
 ### [OpenCode](https://opencode.ai)
 
@@ -349,7 +350,7 @@ An open source coding agent you run in a terminal, with a desktop app and a read
 
 **Access and use:** Installer is curl -fsSL https://opencode.ai/v2/install | bash. Read the script before running it. Also npm i -g @opencode/cli@latest or brew install anomalyco/tap/opencode-v2. The script installs to $HOME/.opencode/bin. OpenCode 1 and OpenCode 2 both use the opencode command and cannot sit side by side under that name. Needs API keys for the models you use. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/anomalyco/opencode).
+**Source checked:** 2026-10-28. [Official source](https://github.com/anomalyco/opencode). [Gearlist page](https://gearlist.build/tools/opencode/).
 
 ### [Crawl4AI](https://docs.crawl4ai.com)
 
@@ -359,7 +360,7 @@ An open-source crawler that turns a page into LLM-ready Markdown, with a CLI, Py
 
 **Access and use:** pip install -U crawl4ai, then crawl4ai-setup to install the browser. CLI is crwl URL -o markdown. Docker server listens on port 11235 and needs CRAWL4AI_API_TOKEN; without a token it answers only inside the container. Optional hosted cloud at crawl4ai.com uses its own key and has a free plan alongside paid ones. Apache-2.0, plus a clause that any public use must credit the project in a README, About page or acknowledgments.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/unclecode/crawl4ai).
+**Source checked:** 2026-10-28. [Official source](https://github.com/unclecode/crawl4ai). [Gearlist page](https://gearlist.build/tools/crawl4ai/).
 
 ### [Hindsight](https://hindsight.vectorize.io)
 
@@ -369,7 +370,7 @@ An agent memory server that retains, recalls and reflects, so an agent can learn
 
 **Access and use:** Docker image ghcr.io/vectorize-io/hindsight:latest publishes API on localhost:8888 and UI on localhost:9999, and needs an LLM provider: an API key, a local model such as Ollama, or an existing Claude, ChatGPT, Cursor or Copilot subscription. Also pip install hindsight-api. MCP is http://localhost:8888/mcp/{bank_id}/. Coding agents: npx @vectorize-io/hindsight-coding-agents install all. CLI installer is curl -fsSL https://hindsight.vectorize.io/get-cli | bash. Read the script before running it. Optional hosted cloud is a paid product. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/vectorize-io/hindsight).
+**Source checked:** 2026-10-28. [Official source](https://github.com/vectorize-io/hindsight). [Gearlist page](https://gearlist.build/tools/hindsight/).
 
 ### [Unsloth](https://unsloth.ai/docs)
 
@@ -379,7 +380,7 @@ A local app to run and train models, and to point coding agents at those models 
 
 **Access and use:** Desktop builds are on GitHub Releases. Studio installer is curl -fsSL https://unsloth.ai/install.sh | sh. Read the script before running it. Also brew install --cask unsloth. Point an agent with unsloth start claude (or codex, opencode, dsh, openclaw). Default studio is local; --secure or a non-loopback bind asks for an admin password. Core package is Apache-2.0; Unsloth Studio UI is AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/unslothai/unsloth).
+**Source checked:** 2026-10-28. [Official source](https://github.com/unslothai/unsloth). [Gearlist page](https://gearlist.build/tools/unsloth/).
 
 ### [llmfit](https://github.com/AlexsJones/llmfit)
 
@@ -389,7 +390,7 @@ A terminal tool that scores which local LLMs will fit your RAM, CPU and GPU, wit
 
 **Access and use:** Installer is curl -fsSL https://llmfit.axjns.dev/install.sh | sh. Read the script before running it. Also brew install AlexsJones/llmfit/llmfit, winget install --exact --id AlexsJones.llmfit, or uvx llmfit. Default llmfit opens the TUI. llmfit serve --host 0.0.0.0 --port 8787 binds the API on every interface. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/AlexsJones/llmfit).
+**Source checked:** 2026-10-28. [Official source](https://github.com/AlexsJones/llmfit). [Gearlist page](https://gearlist.build/tools/llmfit/).
 
 ### [Beads](https://beads.gascity.com/)
 
@@ -399,7 +400,7 @@ A graph issue tracker for coding agents, with a CLI that stores tasks in a Dolt 
 
 **Access and use:** Installer is curl -fsSL https://raw.githubusercontent.com/gastownhall/beads/main/scripts/install.sh | bash. Read the script before running it. Also brew install beads or npm install -g @beads/bd. Then bd init in your project, which writes AGENTS.md and installs Claude Code, Codex and Cursor integrations unless you pass --skip-agents or --stealth. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/gastownhall/beads).
+**Source checked:** 2026-10-28. [Official source](https://github.com/gastownhall/beads). [Gearlist page](https://gearlist.build/tools/beads/).
 
 ### [PicoClaw](https://picoclaw.io)
 
@@ -409,7 +410,7 @@ A small Go assistant that runs on a laptop or a cheap Linux board, with a local 
 
 **Access and use:** Download from picoclaw.io or GitHub Releases. picoclaw-launcher opens http://localhost:18800. The -public flag listens on every interface. Needs an LLM API key or a local model such as Ollama. Tools can read files and run commands on the host. Treat inbound messages as untrusted. Do not deploy to production before v1.0. PicoClaw has issued no official token; listings on token sites are scams. Official site is picoclaw.io. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/sipeed/picoclaw).
+**Source checked:** 2026-10-28. [Official source](https://github.com/sipeed/picoclaw). [Gearlist page](https://gearlist.build/tools/picoclaw/).
 
 ### [changedetection.io](https://changedetection.io)
 
@@ -419,7 +420,7 @@ A self-hosted watcher that checks web pages and notifies you when the content ch
 
 **Access and use:** Self-host: docker run -d -p 127.0.0.1:5000:5000 -v datastore-volume:/datastore --name changedetection.io dgtlmoon/changedetection.io then open http://127.0.0.1:5000. Also pip3 install changedetection.io. Hosted cloud is a paid product. Optional AI rules send page diffs to the LLM provider you configure. Follow each site's terms and robots.txt. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/dgtlmoon/changedetection.io).
+**Source checked:** 2026-10-28. [Official source](https://github.com/dgtlmoon/changedetection.io). [Gearlist page](https://gearlist.build/tools/changedetection/).
 
 ### [CodexBar](https://codexbar.app)
 
@@ -429,7 +430,7 @@ A macOS menu bar app, Linux desktop app and CLI that shows remaining usage windo
 
 **Access and use:** macOS 14 or later: brew install --cask codexbar, or download from GitHub Releases. Linux: Qt desktop plus CLI via brew install steipete/tap/codexbar. Reuses existing provider sessions, cookies and API keys, and stores no passwords. Full Disk Access is optional for Safari cookies. Optional CLI serve defaults to 127.0.0.1:8080; a non-loopback bind needs a dashboard token and --allow-plain-http. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/steipete/CodexBar).
+**Source checked:** 2026-10-28. [Official source](https://github.com/steipete/CodexBar). [Gearlist page](https://gearlist.build/tools/codexbar/).
 
 ### [ScrapeGraphAI](https://github.com/ScrapeGraphAI/Scrapegraph-ai)
 
@@ -439,7 +440,7 @@ A Python library that uses an LLM and graph pipelines to extract structured data
 
 **Access and use:** pip install scrapegraphai then playwright install. Needs an LLM API key or a local model such as Ollama. The library sends anonymous usage metrics by default; set SCRAPEGRAPHAI_TELEMETRY_ENABLED=false to turn it off. This entry covers the MIT Python library. The managed cloud API is a paid product with a separate SDK. Follow each site's terms and robots.txt. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/ScrapeGraphAI/Scrapegraph-ai).
+**Source checked:** 2026-10-28. [Official source](https://github.com/ScrapeGraphAI/Scrapegraph-ai). [Gearlist page](https://gearlist.build/tools/scrapegraph-ai/).
 
 ### [ego lite](https://lite.ego.app)
 
@@ -449,7 +450,7 @@ A desktop browser that gives coding agents their own Spaces while they share you
 
 **Access and use:** macOS and Windows. npx skills add citrolabs/ego-lite, or download the app from lite.ego.app. On first launch it can migrate Chrome logins, cookies, extensions and bookmarks, and agents then use those sessions. Browsing data stays on the device. The app collects simple product signals such as whether it is the default browser. This entry covers the MIT skill repo. The browser is a separate free download. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/citrolabs/ego-lite).
+**Source checked:** 2026-10-28. [Official source](https://github.com/citrolabs/ego-lite). [Gearlist page](https://gearlist.build/tools/ego-lite/).
 
 ### [Eigent](https://www.eigent.ai)
 
@@ -459,7 +460,7 @@ An open-source desktop app that runs a single agent or a multi-agent workforce w
 
 **Access and use:** Download from eigent.ai/download. Local deployment is docker compose in server/ plus npm run dev with VITE_USE_LOCAL_PROXY=true pointing at localhost:3001. Needs Node 18 to 22. Quick start git clone then npm install && npm run dev uses Eigent cloud and needs an account. Built-in browser and terminal toolkits can operate the desktop and signed-in sites. Cloud model providers receive the text you send them. Developer uvicorn --host 0.0.0.0 binds every interface. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/eigent-ai/eigent).
+**Source checked:** 2026-10-28. [Official source](https://github.com/eigent-ai/eigent). [Gearlist page](https://gearlist.build/tools/eigent/).
 
 ### [OpenDataLoader PDF](https://opendataloader.org)
 
@@ -469,7 +470,7 @@ A local PDF parser that turns documents into Markdown, JSON with bounding boxes,
 
 **Access and use:** pip install -U opendataloader-pdf. Needs Java 11 or later and Python 3.11 or later. Also npm @opendataloader/pdf and Java Maven. Default conversion runs locally. Hybrid mode (pip install "opendataloader-pdf[hybrid]") starts a backend on port 5002 and sends complex pages to that AI backend. Auto-tagging to Tagged PDF is Apache-2.0. PDF/UA export is an enterprise add-on. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/opendataloader-project/opendataloader-pdf).
+**Source checked:** 2026-10-28. [Official source](https://github.com/opendataloader-project/opendataloader-pdf). [Gearlist page](https://gearlist.build/tools/opendataloader-pdf/).
 
 ### [Scrapling](https://github.com/D4Vinci/Scrapling)
 
@@ -479,7 +480,7 @@ A Python scraping library with HTTP fetchers, stealth browsers, spiders and an M
 
 **Access and use:** pip install scrapling. Browser fetchers need pip install "scrapling[fetchers]" then scrapling install. MCP extra is pip install "scrapling[ai]". StealthyFetcher can drive a browser, keep login sessions and solve Cloudflare challenges. robots_txt_obey is optional on spiders. Follow each site's terms and robots.txt. BSD-3-Clause.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/D4Vinci/Scrapling).
+**Source checked:** 2026-10-28. [Official source](https://github.com/D4Vinci/Scrapling). [Gearlist page](https://gearlist.build/tools/scrapling/).
 
 ### [vphone-cli](https://github.com/Lakr233/vphone-cli)
 
@@ -489,7 +490,7 @@ A tool that runs a virtual iPhone on an Apple Silicon Mac for research, reverse 
 
 **Access and use:** Needs a physical Apple Silicon Mac on macOS 15 or later. Download the notarized vphone-launchpad zip from GitHub Releases. Host setup uses Recovery commands csrutil enable --without debug and csrutil allow-research-guests enable. Optional API is --api-listen 127.0.0.1:8765 with a printed token. The project issues no token; listings on token sites are scams. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Lakr233/vphone-cli).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Lakr233/vphone-cli). [Gearlist page](https://gearlist.build/tools/vphone-cli/).
 
 ### [Data Formulator](https://data-formulator.ai)
 
@@ -499,7 +500,7 @@ A local workspace where an agent explores data, branches questions and draws cha
 
 **Access and use:** uvx data_formulator, or pip install data_formulator then python -m data_formulator. Opens http://localhost:5567. Needs an LLM API key or a local model via LiteLLM. Desktop preview builds from GitHub Actions are unsigned. Connectors can reach files, databases and warehouses you configure. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/data-formulator).
+**Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/data-formulator). [Gearlist page](https://gearlist.build/tools/data-formulator/).
 
 ### [Rowboat](https://www.rowboatlabs.com)
 
@@ -509,7 +510,7 @@ A local desktop assistant that indexes email, meetings and notes into a Markdown
 
 **Access and use:** Download from rowboatlabs.com/downloads or GitHub Releases. Indexes email, meetings, Slack and assistant chats into a local Markdown vault. Meeting notes tap the mic and speaker. The built-in browser is isolated from your main browser. Optional keys live in ~/.rowboat/config. Hosted Spaces sign in with Google or Microsoft. Self-host Harbor with pnpm in apps/harbor; default port 4272. Without AUTH_ISSUER Harbor uses dev tokens that must stay off the public internet. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/rowboatlabs/rowboat).
+**Source checked:** 2026-10-28. [Official source](https://github.com/rowboatlabs/rowboat). [Gearlist page](https://gearlist.build/tools/rowboat/).
 
 ### [Orchestrator.inc](https://orchestrator.inc)
 
@@ -519,7 +520,7 @@ A local desktop workspace that runs a fleet of coding agents, each on its own br
 
 **Access and use:** Download from orchestrator.inc/download or GitHub Releases. Local workers keep code on your machine. Clone to the cloud runs workers in hosted GitHub workspaces. Pair a phone from Settings, Connect Mobile. Product telemetry records an installation ID and GitHub username (and AO Cloud email if you sign in); turn it off in Settings, General, Privacy, Share usage analytics. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/OrchestratorInc/agent-orchestrator).
+**Source checked:** 2026-10-28. [Official source](https://github.com/OrchestratorInc/agent-orchestrator). [Gearlist page](https://gearlist.build/tools/orchestrator/).
 
 ### [OpenWhispr](https://openwhispr.com)
 
@@ -529,7 +530,7 @@ A desktop dictation app with local or cloud speech-to-text, a voice assistant, m
 
 **Access and use:** Download from GitHub Releases, or brew install --cask openwhispr. macOS, Windows and Linux. Dictation, note recording and audio upload each pick their own engine. Local keeps audio on the device. OpenWhispr Cloud sends audio to their servers, keeps the transcript text and discards the recording. Bring-your-own-key sends audio to the provider you configured. Microphone is required. Accessibility pastes at the cursor. Screen Recording is needed for meeting system audio, and for Share screen context, which is off unless you turn it on and then sends one screenshot of the display under your cursor with that voice-agent request. Cloud backup is off by default. Shared notes and team-space notes always sync to the cloud. Usage analytics is off by default. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/OpenWhispr/openwhispr).
+**Source checked:** 2026-10-28. [Official source](https://github.com/OpenWhispr/openwhispr). [Gearlist page](https://gearlist.build/tools/openwhispr/).
 
 ### [Skill Recorder](https://github.com/microsoft/skill-recorder)
 
@@ -539,7 +540,7 @@ A desktop app that records a work session on your screen and turns it into a reu
 
 **Access and use:** Copy the commit-pinned install command from the latest GitHub Release. It pipes a script; read the script before running it. macOS is the primary target; Windows 11 x64 and ARM64 are supported. Needs Screen Recording. Recording stays on the machine. Analyze sends the event timeline, screen images, narration text and requested terminal excerpts to GitHub Copilot in the cloud. Needs a GitHub account with Copilot access. Keep secrets out of recordings. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/skill-recorder).
+**Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/skill-recorder). [Gearlist page](https://gearlist.build/tools/skill-recorder/).
 
 ### [Cloudflare Agents](https://developers.cloudflare.com/agents/)
 
@@ -549,7 +550,7 @@ An SDK for persistent, stateful agents on Cloudflare Durable Objects, with MCP, 
 
 **Access and use:** npm install agents, or npm create cloudflare@latest -- --template cloudflare/agents-starter. Needs a Durable Object binding and a SQLite migration in wrangler.jsonc. Agents hibernate when idle. MCP can act as a server or a client. Sandboxed execution runs generated code in an isolated Worker. x402 pay-per-call is optional. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/agents).
+**Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/agents). [Gearlist page](https://gearlist.build/tools/cloudflare-agents/).
 
 ### [pxpipe](https://github.com/teamchong/pxpipe)
 
@@ -559,7 +560,7 @@ A local proxy that rewrites bulky coding-agent request context into PNG pages so
 
 **Access and use:** npx pxpipe-proxy listens on 127.0.0.1:47821. pxpipe warp wraps a client such as claude, agy or opencode. The dashboard is http://127.0.0.1:47821/. Requests still go to the provider after imaging. Events log to ~/.pxpipe/events.jsonl. Exact strings in imaged history can be misread; keep recent turns as text. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/teamchong/pxpipe).
+**Source checked:** 2026-10-28. [Official source](https://github.com/teamchong/pxpipe). [Gearlist page](https://gearlist.build/tools/pxpipe/).
 
 ### [Codex ChatGPT Web](https://github.com/miuuyy/codex-chatgpt-web)
 
@@ -569,7 +570,7 @@ A local launcher that signs into ChatGPT in an embedded browser so Codex can pic
 
 **Access and use:** Download from GitHub Releases, or pipe the published install-launcher.sh or install-launcher.ps1. Read the script before running it. Unofficial browser automation. Sign in to ChatGPT in the embedded browser. Browser state is a login artifact; the loopback listener is reachable by other processes as the same local user. Builds are unsigned, so Gatekeeper or SmartScreen may warn. Full harness uses an outbound OpenAI tunnel-client and ChatGPT Developer Mode with a connector named Codex Native2, Authentication None and Allow all actions. --auto-approve-tool-calls clicks Allow once. Conversations stay in ChatGPT history. Follow OpenAI's terms. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/miuuyy/codex-chatgpt-web).
+**Source checked:** 2026-10-28. [Official source](https://github.com/miuuyy/codex-chatgpt-web). [Gearlist page](https://gearlist.build/tools/codex-chatgpt-web/).
 
 ### [PortKiller](https://github.com/productdevbook/port-killer)
 
@@ -579,7 +580,7 @@ A menu-bar and system-tray app that lists listening TCP ports and can terminate 
 
 **Access and use:** macOS 15+: brew install --cask productdevbook/tap/portkiller, or a .dmg from GitHub Releases. Windows 10+: extract the zip from Releases. Killing a process is immediate. Kubernetes port-forwards use your kubectl context. Cloudflare Tunnels lists active tunnels. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/productdevbook/port-killer).
+**Source checked:** 2026-10-28. [Official source](https://github.com/productdevbook/port-killer). [Gearlist page](https://gearlist.build/tools/portkiller/).
 
 ### [ClawRouter](https://github.com/BlockRunAI/ClawRouter)
 
@@ -589,7 +590,7 @@ A local LLM router that picks a model per request and can pay the gateway with a
 
 **Access and use:** npx @blockrun/clawrouter listens on localhost:8402. It picks the model locally, then sends each request through BlockRun's gateway, which bills it. First run generates a wallet locally. Paid models spend USDC from that wallet per call, or sign up at user.blockrun.ai and run clawrouter login with a brk_live_ key. Free models need no wallet. The OpenClaw plugin path is curl -fsSL https://blockrun.ai/ClawRouter-update | bash; read the script before running it. Outbound voice and phone tools bill the wallet automatically. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/BlockRunAI/ClawRouter).
+**Source checked:** 2026-10-28. [Official source](https://github.com/BlockRunAI/ClawRouter). [Gearlist page](https://gearlist.build/tools/clawrouter/).
 
 ### [OpenCreator](https://github.com/krillinai/OpenCreator)
 
@@ -599,7 +600,7 @@ A local creator workspace around Codex CLI for video, images, voice, translation
 
 **Access and use:** Download the desktop installer from GitHub Releases (macOS Apple Silicon, macOS Intel, Windows x64). First launch can reuse a local Codex ChatGPT sign-in or API key. Web from source is pnpm web:dev at http://127.0.0.1:19861/. The daemon listens on loopback only. Video downloads from some platforms need cookies. Follow each site's terms. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/krillinai/OpenCreator).
+**Source checked:** 2026-10-28. [Official source](https://github.com/krillinai/OpenCreator). [Gearlist page](https://gearlist.build/tools/opencreator/).
 
 ### [claude-devtools](https://github.com/matt1398/claude-devtools)
 
@@ -609,7 +610,7 @@ A desktop app that reads Claude Code session logs already on the machine and rec
 
 **Access and use:** brew install --cask claude-devtools, or a GitHub Release for macOS, Linux or Windows. Docker compose up serves http://localhost:3456 with ~/.claude mounted read-only. The standalone server defaults HOST to 0.0.0.0 and has no outbound network calls. SSH remote sessions read ~/.ssh/config. File reads stay in the project root and ~/.claude. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/matt1398/claude-devtools).
+**Source checked:** 2026-10-28. [Official source](https://github.com/matt1398/claude-devtools). [Gearlist page](https://gearlist.build/tools/claude-devtools/).
 
 ### [phone-harness](https://github.com/ShawnPana/phone-harness)
 
@@ -619,7 +620,7 @@ A CLI and skill that lets a coding agent tap, type and read a real iPhone or And
 
 **Access and use:** uv tool install --python 3.12 --upgrade --force phone-harness, then phone-harness skill. iPhone: macOS 15+, iPhone Mirroring paired to an iOS 18+ iPhone, Accessibility and Screen Recording. Android: adb with USB or wireless debugging. Cloud: phone-harness cloud login, then cloud start. A cloud Android bills by the minute. A cloud iPhone has no per-minute charge. The harness never types a PIN. PHONE_HARNESS_NO_UPDATE_CHECK=1 skips the daily PyPI check. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/ShawnPana/phone-harness).
+**Source checked:** 2026-10-28. [Official source](https://github.com/ShawnPana/phone-harness). [Gearlist page](https://gearlist.build/tools/phone-harness/).
 
 ### [OpenHuman](https://github.com/tinyhumansai/openhuman)
 
@@ -629,7 +630,7 @@ A desktop app, terminal app and Rust library for running agent fleets with MCP, 
 
 **Access and use:** Download the desktop app from GitHub Releases (macOS dmg, Windows msi or exe, Linux deb or AppImage), or brew install --cask openhuman. The curl install script is curl -fsSL https://raw.githubusercontent.com/tinyhumansai/openhuman/main/scripts/install.sh | bash; read the script before running it. The agent can drive a Chrome browser and desktop apps, and it asks before actions it cannot undo. Memory items go to CortexDB: TinyHumans hosted memory needs sign-in, or you point it at your own endpoint; with neither, memory is off. The OpenHuman backend brokers LLM calls, OAuth tokens and some search. Privacy Mode keeps a run local. GPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/tinyhumansai/openhuman).
+**Source checked:** 2026-10-28. [Official source](https://github.com/tinyhumansai/openhuman). [Gearlist page](https://gearlist.build/tools/openhuman/).
 
 ### [Pixel Agents](https://github.com/pixel-agents-hq/pixel-agents)
 
@@ -639,7 +640,7 @@ A VS Code extension and CLI that shows Claude Code sessions as pixel characters 
 
 **Access and use:** Install the VS Code extension from the Marketplace or Open VSX, or run npx pixel-agents. The CLI defaults to 127.0.0.1. Binding 0.0.0.0 exposes the UI and WebSocket on the local network. The printed URL carries a token that can install hooks and launch agents; treat it as a secret. Hooks write into ~/.claude/settings.json. Settings, Skip Permissions turns on Claude Code --dangerously-skip-permissions for every agent from that host. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/pixel-agents-hq/pixel-agents).
+**Source checked:** 2026-10-28. [Official source](https://github.com/pixel-agents-hq/pixel-agents). [Gearlist page](https://gearlist.build/tools/pixel-agents/).
 
 ### [BrowserOS neo](https://github.com/browseros-ai/BrowserOS)
 
@@ -649,7 +650,7 @@ A second browser for coding agents. It can import Chrome logins and run each age
 
 **Access and use:** brew tap browseros-ai/tap then brew install --cask browseros-neo, or a download from cdn.browseros.com for macOS, Windows or Linux. One click imports Chrome logins, bookmarks and extensions. Agents then use those accounts. Sessions and screenshots live under ~/.browserclaw/. It runs on 127.0.0.1. Anonymous product events (connect, disconnect, version, OS) go to PostHog until you turn them off in Settings. Prompts go to the AI vendor you already use. AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/browseros-ai/BrowserOS).
+**Source checked:** 2026-10-28. [Official source](https://github.com/browseros-ai/BrowserOS). [Gearlist page](https://gearlist.build/tools/browseros-neo/).
 
 ### [Agent Relay](https://agentrelay.com)
 
@@ -659,7 +660,7 @@ Messaging, MCP and workflow infrastructure so coding agents on one machine, or a
 
 **Access and use:** npm install -g agent-relay, or curl -fsSL https://raw.githubusercontent.com/AgentWorkforce/relay/main/install.sh | bash; read the script before running it. Needs Node.js 22 or 24. relay init defaults to this machine at http://127.0.0.1:8787. Hosted mode creates a workspace on Agent Relay Cloud so agents on other machines can join; treat the workspace key as a secret. It adds an MCP server to Claude Code, Codex, OpenCode, Grok CLI, Pi or Devin (project files or global configs). Local data lives under ~/.agentworkforce/relay/local. The project workspace key is kept out of git via .git/info/exclude. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/AgentWorkforce/relay).
+**Source checked:** 2026-10-28. [Official source](https://github.com/AgentWorkforce/relay). [Gearlist page](https://gearlist.build/tools/agent-relay/).
 
 ### [Chums](https://chums.club)
 
@@ -669,7 +670,7 @@ Watch and iPhone apps that talk to Claude Code and Codex sessions running on you
 
 **Access and use:** git clone https://github.com/lcoutodemos/chums then bin/chums-setup, bin/chums-hub, bin/chums-tunnel, bin/chums-install and bin/chums-agents install. Needs macOS 15.6, watchOS 26, iOS 26, Xcode 26, Node.js 20.11, Tailscale Funnel and Claude Code or Codex. The hub listens on 127.0.0.1:7717 and 127.0.0.1:7718. Funnel publishes the watch API at a public https://chums-hub.<tailnet>.ts.net URL; treat the watch token in ~/.chums/config.json as a secret, keep the file mode 0600, and do not share a built app. Funnel hostnames appear in certificate transparency logs. Default agents can use the home folder. Optional openai TTS in config sends reply text to OpenAI. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/lcoutodemos/chums).
+**Source checked:** 2026-10-28. [Official source](https://github.com/lcoutodemos/chums). [Gearlist page](https://gearlist.build/tools/chums/).
 
 ### [OpenBrowser](https://docs.openbrowser.me)
 
@@ -679,7 +680,7 @@ A CodeAgent and MCP server that drives a Chromium browser over CDP, with a CLI d
 
 **Access and use:** pip install openbrowser-ai, brew install openbrowser-ai, or curl -fsSL https://raw.githubusercontent.com/billy-enrizky/openbrowser-ai/main/install.sh | sh; read the script before running it. Needs Python 3.12+. uvx openbrowser-ai --mcp is the stdio MCP server. Default MCP profiles live under ~/.config/openbrowser/profiles/. The CLI daemon uses a Unix socket and ~/.config/openbrowser/profiles/daemon. Agent mode needs an LLM API key. The hosted dashboard at openbrowser.me stores cookies and scheduled tasks. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/billy-enrizky/openbrowser-ai).
+**Source checked:** 2026-10-28. [Official source](https://github.com/billy-enrizky/openbrowser-ai). [Gearlist page](https://gearlist.build/tools/openbrowser/).
 
 ### [Clui CC](https://github.com/lcoutodemos/clui-cc)
 
@@ -689,7 +690,7 @@ A macOS overlay for Claude Code with multi-tab sessions, a permission UI, voice 
 
 **Access and use:** git clone https://github.com/lcoutodemos/clui-cc.git then double-click install-app.command; read the script before running it. Needs macOS 13+, Node 18+ (20 or 22 recommended), Xcode Command Line Tools, Python setuptools, and an authenticated Claude Code CLI. The packaged app is unsigned. Opening it is your call (System Settings, Privacy and Security, Open Anyway). Whisper is required and the installer installs it. Permission hooks listen on 127.0.0.1:19836. Marketplace catalog fetches anthropics GitHub repos; skill auto-install writes ~/.claude/skills/. Prompts go through your local Claude Code CLI. The README says there is no telemetry. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/lcoutodemos/clui-cc).
+**Source checked:** 2026-10-28. [Official source](https://github.com/lcoutodemos/clui-cc). [Gearlist page](https://gearlist.build/tools/clui-cc/).
 
 ### [Autonomous Company](https://github.com/MaxMiksa/Autonomous-Company)
 
@@ -699,7 +700,7 @@ A local loop of 14 expert-persona agents that research, decide and write code on
 
 **Access and use:** git clone then make start (Claude Code default) or ENGINE=codex make start. Needs Python 3.10+, Git, make, and an authenticated Claude Code or Codex CLI. Product Center is http://127.0.0.1:8810/center (make center). Daemon mode uses launchd on macOS and systemd --user on WSL. CLAUDE_PERMISSION_MODE=bypassPermissions is the documented way to stop permission prompts; the README says prompt rules are not a sandbox and each cycle spends model quota. Optional Cursor and OpenAI-compatible adapters need explicit config. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/MaxMiksa/Autonomous-Company).
+**Source checked:** 2026-10-28. [Official source](https://github.com/MaxMiksa/Autonomous-Company). [Gearlist page](https://gearlist.build/tools/autonomous-company/).
 
 ### [gallery-dl](https://github.com/mikf/gallery-dl)
 
@@ -709,7 +710,7 @@ A command-line downloader for image galleries and collections from hundreds of h
 
 **Access and use:** Needs Python 3.8+ and Requests. python -m pip install -U gallery-dl. macOS: brew install gallery-dl. Run gallery-dl URL. Config is ~/.config/gallery-dl/config.json (Linux/macOS) or %APPDATA%\gallery-dl\config.json (Windows). Login cookies, passwords and OAuth tokens are sent to the host you download from. Active development is on Codeberg: https://codeberg.org/mikf/gallery-dl. GPL-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/mikf/gallery-dl).
+**Source checked:** 2026-10-28. [Official source](https://github.com/mikf/gallery-dl). [Gearlist page](https://gearlist.build/tools/gallery-dl/).
 
 ### [OpenAlice](https://openalice.ai)
 
@@ -719,7 +720,7 @@ A local AI trading workspace that connects Claude Code, Codex, OpenCode and simi
 
 **Access and use:** Desktop app for macOS and Windows from GitHub Releases; a broker account is optional for research. Source: git clone https://github.com/TraderAlice/OpenAlice.git && pnpm install && pnpm dev. State is ~/.openalice; workspaces are local Git directories. Broker credentials are sealed at rest. Agents and market-data providers still send prompts and quotes to their own services. Trading execution is beta: start with simulator, paper, demo or testnet; you review and approve live orders. AGPL-3.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/TraderAlice/OpenAlice).
+**Source checked:** 2026-10-29. [Official source](https://github.com/TraderAlice/OpenAlice). [Gearlist page](https://gearlist.build/tools/openalice/).
 
 ### [thinking-orbs](https://libraries.dev/orbs)
 
@@ -729,7 +730,7 @@ A React canvas library of nine dotted thought-orb animations for agent status, i
 
 **Access and use:** npm install thinking-orbs. Needs React 18 or newer. Import ThinkingOrb and set a state such as searching, working or solving, with size 64 or 20. The package is a canvas component; it does not call a model. Demo is https://libraries.dev/orbs. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/Jakubantalik/thinking-orbs).
+**Source checked:** 2026-10-29. [Official source](https://github.com/Jakubantalik/thinking-orbs). [Gearlist page](https://gearlist.build/tools/thinking-orbs/).
 
 ### [seekdb](https://www.seekdb.ai)
 
@@ -739,7 +740,7 @@ An Apache-licensed OceanBase search database that unifies vector, text and struc
 
 **Access and use:** pip install -U pyseekdb. Needs Python 3.11 or later. Embedded mode on Linux and macOS: import pyseekdb then client = pyseekdb.Client() writes a local database (for example ./seekdb.db). Windows uses server mode only. AI_EMBED, AI_COMPLETE and similar SQL functions send text to the embedding or LLM service you register. Data stays in that local file or on the seekdb or OceanBase server you connect to. Apache-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/oceanbase/seekdb).
+**Source checked:** 2026-10-29. [Official source](https://github.com/oceanbase/seekdb). [Gearlist page](https://gearlist.build/tools/seekdb/).
 
 ### [CashClaw](https://moltlaunch.com)
 
@@ -749,7 +750,7 @@ An MIT Node agent that quotes, does and gets paid for marketplace tasks, then st
 
 **Access and use:** npm install -g cashclaw-agent moltlaunch then cashclaw. Setup is http://localhost:3777. Needs a Moltlaunch wallet (mltl) and an Anthropic, OpenAI or OpenRouter key. Quotes and payouts are in ETH on Base through that wallet. Optional AgentCash calls charge USDC from ~/.agentcash/wallet.json. State is ~/.cashclaw. Auto-quote and auto-work are on by default, so it quotes and submits work without asking; turn them off in Settings to approve each job. When idle it runs study sessions every 30 minutes by default, which call your LLM. Prompts go to the LLM you set. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/moltlaunch/cashclaw).
+**Source checked:** 2026-10-29. [Official source](https://github.com/moltlaunch/cashclaw). [Gearlist page](https://gearlist.build/tools/cashclaw/).
 
 ### [Codag](https://codag.ai)
 
@@ -759,7 +760,7 @@ An MIT VS Code extension that graphs LLM calls and agent frameworks in a checkou
 
 **Access and use:** Run the backend first: git clone https://github.com/michaelzixizhou/codag.git, copy backend/.env.example to backend/.env, set GEMINI_API_KEY, then make setup and docker compose up -d. Backend is http://localhost:52104. Then install Codag from the VS Code Marketplace. On activation it writes .mcp.json (or .cursor/mcp.json) into the workspace. Selected files go to Gemini 2.5 Flash for workflow labels. Live edits stay on the machine (tree-sitter). MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/michaelzixizhou/codag).
+**Source checked:** 2026-10-29. [Official source](https://github.com/michaelzixizhou/codag). [Gearlist page](https://gearlist.build/tools/codag/).
 
 ### [DeepInnovator](https://huggingface.co/T1anyu/DeepInnovator)
 
@@ -769,7 +770,7 @@ An MIT training recipe and Apache-2.0 14B Qwen2.5-Instruct model that proposes r
 
 **Access and use:** Inference: pip install transformers torch, then load T1anyu/DeepInnovator with AutoModelForCausalLM.from_pretrained. The weights are about 15 billion parameters in BF16; Hugging Face documents GPU load. Training: git clone https://github.com/HKUDS/DeepInnovator.git, pip install openai omegaconf python-dotenv feedparser requests PyPDF2 tqdm python-dateutil datasets numpy torch transformers, set OPENAI_API_KEY and OPENAI_API_BASE in .env, then cd recipe/DeepInnovator/data_preparation and bash run.sh 100 ./data/arxiv_data. train_rl.sh needs a CUDA GPU. Data preparation sends paper text to the OpenAI-compatible API you set. GitHub recipe MIT. Hugging Face weights Apache-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/HKUDS/DeepInnovator).
+**Source checked:** 2026-10-29. [Official source](https://github.com/HKUDS/DeepInnovator). [Gearlist page](https://gearlist.build/tools/deepinnovator/).
 
 ### [Chatpack](https://docs.chatpack.dev)
 
@@ -779,7 +780,7 @@ An MIT chat backend you mount in your app for 1:1 and group messages, permission
 
 **Access and use:** npm install @chatpack/core @chatpack/adapter-memory. Create chatpack({ storage, auth }) where auth returns { id } from your session cookie or null. Mount chat.handler() on a catch-all under /api/chat (Next.js app/api/chat/[...chatpack]/route.ts). Live events are GET /api/chat/stream as EventSource; cookie sessions work for SSE. Production: @chatpack/adapter-drizzle with DATABASE_URL Postgres, or @chatpack/adapter-prisma on PostgreSQL 16. Messages live in the database you attach. Optional npm install @chatpack/client react with credentials include. Agent skill: npx skills add chddaniel/chatpack. Docs MCP: npx -y @chatpack/mcp (stdio, bundled docs, no network). Docs https://docs.chatpack.dev. API is 0.x. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/chddaniel/chatpack).
+**Source checked:** 2026-10-29. [Official source](https://github.com/chddaniel/chatpack). [Gearlist page](https://gearlist.build/tools/chatpack/).
 
 ### [CodeMap AI](https://code-map-ai-mu.vercel.app)
 
@@ -789,7 +790,7 @@ An MIT repo map: paste a GitHub URL and get file-dependency and function-call gr
 
 **Access and use:** Hosted: https://code-map-ai-mu.vercel.app, the GitHub homepage of Ayansh0209/CodeMap-Ai (LICENSE Copyright 2026 Aayansh Singh). Paste a GitHub repo URL; that host downloads the tarball. Self-host: Node.js 20+, Redis and a GitHub token. cd backend && npm install, copy backend/.env.example to backend/.env, set REDIS_URL, GITHUB_TOKEN and PORT=5000. cd frontend && npm install. Terminal 1: cd backend && npm run dev at http://localhost:5000. Terminal 2: cd backend && npm run worker. Terminal 3: cd frontend && npm run dev at http://localhost:3000. The backend downloads the GitHub tarball and extracts it locally. BullMQ plus Redis runs the parse. ts-morph covers JS, TS, JSX and TSX; web-tree-sitter WASM covers Python, Go, C and C++. Graph artifacts go to S3-compatible storage (Backblaze B2, Cloudflare R2, Supabase) when R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET_NAME and R2_ENDPOINT or R2_ACCOUNT_ID are set; otherwise gzipped Redis. GEMINI_API_KEY enables issue mapping and chat on the parsed graph; selected file content goes to Gemini or Vertex AI. Without FIREBASE_SERVICE_ACCOUNT_BASE64 every request is anonymous trial; set it, or drop backend/firebase.json for local, for GitHub sign-in. README says the project is evolving and issue mapping can be wrong. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/Ayansh0209/CodeMap-Ai).
+**Source checked:** 2026-10-29. [Official source](https://github.com/Ayansh0209/CodeMap-Ai). [Gearlist page](https://gearlist.build/tools/codemap-ai/).
 
 ### [ai-phone](https://github.com/oxnw/ai-phone)
 
@@ -799,7 +800,7 @@ A local SIP phone daemon that lets an agent receive and place calls through a CL
 
 **Access and use:** macOS on Apple Silicon, Python 3.11 to 3.13, Homebrew and uv. Source install builds a native PJSIP binding and setup downloads several GB of model files. The README recommends 16 GB RAM for the default 4B model, with a 2B option for 8 GB. English and one call at a time. Local SIP testing needs no paid carrier; telephone numbers and calls need a SIP trunk or carrier account and incur charges. Local speech stays on the Mac, but audio travels over SIP/RTP; remote language models and external cloud agents receive any call text passed to them. AGPL-3.0-or-later; bundled PJSIP interface files are GPLv2-or-later. The README says local call tests have run, and live carrier and end-to-end agent tests are still pending.
 
-**Source checked:** 2026-10-30. [Official source](https://github.com/oxnw/ai-phone/blob/dfa54f4744658740054e823008a3be0a7f904f8a/README.md).
+**Source checked:** 2026-10-30. [Official source](https://github.com/oxnw/ai-phone/blob/dfa54f4744658740054e823008a3be0a7f904f8a/README.md). [Gearlist page](https://gearlist.build/tools/ai-phone/).
 
 ### [Beacon](https://github.com/Asymptote-Labs/agent-beacon)
 
@@ -809,7 +810,7 @@ A local-first memory layer that captures session history from Claude Code, Curso
 
 **Access and use:** Install with Homebrew (asymptote-labs/tap), a Linux .deb or .rpm installer script, or a Windows MSI; read the script or verify the package checksum first. Beacon records prompts, responses, tool calls, commands, file activity, approvals, MCP activity and token usage to ~/.beacon/endpoint/logs/runtime.jsonl. Interactive setup signs in through beacon.sh and preselects Beacon Cloud; confirming it forwards session history to Asymptote Labs, so choose Local to keep it on the machine. Unless turned off, the wizard installs Beacon Skills into ~/.agents/skills and ~/.claude/skills, and the Cloud option registers an MCP server in your harnesses. Optional forwarding to Splunk, Datadog, S3 and other destinations. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/Asymptote-Labs/agent-beacon).
+**Source checked:** 2026-11-03. [Official source](https://github.com/Asymptote-Labs/agent-beacon). [Gearlist page](https://gearlist.build/tools/agent-beacon/).
 
 ### [MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)
 
@@ -819,7 +820,7 @@ A Python app with a WebUI, API, CLI and agent skill that turns a topic or keywor
 
 **Access and use:** Install with pip, the Windows one-click package, uv from source, or Docker (ghcr.io/harry0703/moneyprinterturbo:latest). The WebUI serves 127.0.0.1:8501 and API docs 127.0.0.1:8080/docs. Python 3.11 or later; a GPU is optional. API keys for the chosen LLM, footage, voice and video services are saved in config.toml; Edge TTS needs no key. An optional ChatGPT sign-in uses OpenAI's Sign in with ChatGPT flow. Publishing to TikTok, Instagram and YouTube Shorts goes through an Upload-Post API key. The README's agent quick start has a coding agent fetch a remote SKILL.md and install everything, so read it first. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/harry0703/MoneyPrinterTurbo/blob/main/README-en.md).
+**Source checked:** 2026-11-03. [Official source](https://github.com/harry0703/MoneyPrinterTurbo/blob/main/README-en.md). [Gearlist page](https://gearlist.build/tools/moneyprinterturbo/).
 
 ### [OpenMontage](https://github.com/calesthio/OpenMontage)
 
@@ -829,7 +830,7 @@ A video production system your coding assistant runs through pipelines, stage sk
 
 **Access and use:** Needs Python 3.10+, FFmpeg, Node.js 18+ and a coding assistant such as Claude Code, Cursor, Copilot, Windsurf or Codex; run make setup after cloning. With no keys it uses Piper TTS, open archives and free stock sources. Optional keys for fal.ai, Kling, ElevenLabs, OpenAI, Google, xAI, Runway, HeyGen, Suno and others go in .env and incur provider charges. Budget controls default to a $10 total cap, with per-action approval above $0.50. Local video generation needs a GPU. AGPL-3.0, which requires offering source for modified versions run as a network service.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/calesthio/OpenMontage).
+**Source checked:** 2026-11-03. [Official source](https://github.com/calesthio/OpenMontage). [Gearlist page](https://gearlist.build/tools/openmontage/).
 
 ### [OpenSEO](https://github.com/every-app/open-seo)
 
@@ -839,7 +840,7 @@ An open-source SEO tool for keyword research, rank tracking, backlinks and site 
 
 **Access and use:** Self-host with Docker or EveryApp, bringing your own DataForSEO API key and paying for what you use, or use the hosted version, free to try, with plans from US$10 a month that include usage credit. MCP clients connect with an account on your instance. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/every-app/open-seo).
+**Source checked:** 2026-11-03. [Official source](https://github.com/every-app/open-seo). [Gearlist page](https://gearlist.build/tools/openseo/).
 
 ### [DispatchSEO](https://github.com/NeoZi12/dispatchseo)
 
@@ -849,7 +850,7 @@ Turns a coding agent into an SEO manager that mines keywords from Search Console
 
 **Access and use:** Connects to Google Search Console and your repository. The README says no extra API keys are needed and self-hosting has no feature limits; a hosted version also exists. AGPL-3.0, so changes to a hosted copy must be published.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/NeoZi12/dispatchseo).
+**Source checked:** 2026-11-03. [Official source](https://github.com/NeoZi12/dispatchseo). [Gearlist page](https://gearlist.build/tools/dispatchseo/).
 
 ### [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 
@@ -859,7 +860,7 @@ A command line tool that downloads video, audio, subtitles and metadata from You
 
 **Access and use:** Runs locally with no account. Downloads must respect each site's terms and copyright. Unlicense.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/yt-dlp/yt-dlp).
+**Source checked:** 2026-11-05. [Official source](https://github.com/yt-dlp/yt-dlp). [Gearlist page](https://gearlist.build/tools/yt-dlp/).
 
 ### [youtube-transcript-api](https://github.com/jdepoix/youtube-transcript-api)
 
@@ -869,7 +870,7 @@ A Python library that fetches a YouTube video's transcript or subtitles, includi
 
 **Access and use:** Runs locally with no account or key. It reads YouTube's caption data, which can change or be rate limited. MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/jdepoix/youtube-transcript-api).
+**Source checked:** 2026-11-05. [Official source](https://github.com/jdepoix/youtube-transcript-api). [Gearlist page](https://gearlist.build/tools/youtube-transcript-api/).
 
 ### [youtube-comment-downloader](https://github.com/egbertbouman/youtube-comment-downloader)
 
@@ -879,7 +880,7 @@ A Python command line tool and library that downloads a YouTube video's comments
 
 **Access and use:** Runs locally with no account or API key and writes comments, including commenter names, to a local file. It reads YouTube's web pages rather than the official API, and YouTube's Terms of Service bar automated access without YouTube's written permission. MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/egbertbouman/youtube-comment-downloader).
+**Source checked:** 2026-11-05. [Official source](https://github.com/egbertbouman/youtube-comment-downloader). [Gearlist page](https://gearlist.build/tools/youtube-comment-downloader/).
 
 ### [NewPipe Extractor](https://github.com/TeamNewPipe/NewPipeExtractor)
 
@@ -889,7 +890,7 @@ The Java library behind the NewPipe app that reads YouTube videos, channels, com
 
 **Access and use:** Runs inside your app with no account or API key, added as a dependency from JitPack or Maven Central. It scrapes YouTube's pages, which YouTube's Terms of Service bar without permission, and changes on YouTube's side can break it. GPL-3.0 licence, so software that ships it must meet the GPL's terms.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/TeamNewPipe/NewPipeExtractor).
+**Source checked:** 2026-11-05. [Official source](https://github.com/TeamNewPipe/NewPipeExtractor). [Gearlist page](https://gearlist.build/tools/newpipe-extractor/).
 
 ### [pytubefix](https://github.com/JuanBindez/pytubefix)
 
@@ -899,7 +900,7 @@ A Python library that reads YouTube video details, captions, channels, playlists
 
 **Access and use:** Runs locally with no API key; an optional OAuth sign-in caches a Google token on the machine, and downloads are written to disk. It reads YouTube's web player rather than the official API, YouTube's Terms of Service bar automated access and downloads without permission, and changes on YouTube's side can break it. MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/JuanBindez/pytubefix).
+**Source checked:** 2026-11-05. [Official source](https://github.com/JuanBindez/pytubefix). [Gearlist page](https://gearlist.build/tools/pytubefix/).
 
 ### [YouTube.js](https://github.com/LuanRT/YouTube.js)
 
@@ -909,7 +910,7 @@ A JavaScript client for YouTube's internal InnerTube API that reads video detail
 
 **Access and use:** Runs locally with no API key; it caches session data by default and can use your account cookies for signed-in requests, which gives it that account's access. InnerTube is undocumented and YouTube's Terms of Service bar automated access without permission, so expect breakage and check your use. MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://ytjs.dev/guide/getting-started.html).
+**Source checked:** 2026-11-05. [Official source](https://ytjs.dev/guide/getting-started.html). [Gearlist page](https://gearlist.build/tools/youtube-js/).
 
 ### [Whisper](https://github.com/openai/whisper)
 
@@ -919,7 +920,7 @@ OpenAI's open speech recognition model and command line tool, which transcribes 
 
 **Access and use:** Runs locally with no account; it needs Python, PyTorch and ffmpeg, downloads model weights on first use, and models need from about 1 GB to about 10 GB of GPU memory. You need the right to download and transcribe the audio you give it. MIT licence for the code and model weights.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/openai/whisper).
+**Source checked:** 2026-11-05. [Official source](https://github.com/openai/whisper). [Gearlist page](https://gearlist.build/tools/whisper/).
 
 ### [faster-whisper](https://github.com/SYSTRAN/faster-whisper)
 
@@ -929,7 +930,7 @@ A reimplementation of Whisper on the CTranslate2 inference engine, with 8-bit qu
 
 **Access and use:** Runs locally with no account and downloads converted models from the Hugging Face Hub on first use. It decodes audio with PyAV, so a system ffmpeg is not needed, while GPU use needs NVIDIA's CUDA libraries. MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/SYSTRAN/faster-whisper).
+**Source checked:** 2026-11-05. [Official source](https://github.com/SYSTRAN/faster-whisper). [Gearlist page](https://gearlist.build/tools/faster-whisper/).
 
 ### [whisper.cpp](https://github.com/ggml-org/whisper.cpp)
 
@@ -939,7 +940,7 @@ A C and C++ port of Whisper that runs on CPUs, Apple Silicon and a range of GPUs
 
 **Access and use:** Runs locally with no account; you build it from source and download ggml model files with the included script. The command line tool reads only 16-bit WAV files, so convert other audio with ffmpeg first. MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/ggml-org/whisper.cpp).
+**Source checked:** 2026-11-05. [Official source](https://github.com/ggml-org/whisper.cpp). [Gearlist page](https://gearlist.build/tools/whisper-cpp/).
 
 ### [WhisperX](https://github.com/m-bain/whisperX)
 
@@ -949,7 +950,7 @@ A transcription tool built on faster-whisper that adds word-level timestamps and
 
 **Access and use:** Runs locally with no account for transcription, and GPU use needs NVIDIA's CUDA toolkit. Speaker labels need a Hugging Face read token and acceptance of the user agreement for the pyannote speaker-diarization-community-1 model, and alignment models are downloaded per language. BSD-2-Clause licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/m-bain/whisperX).
+**Source checked:** 2026-11-05. [Official source](https://github.com/m-bain/whisperX). [Gearlist page](https://gearlist.build/tools/whisperx/).
 
 ### [ThoughtLeaders CLI](https://github.com/ThoughtLeaders-io/thoughtleaders-cli)
 
@@ -959,7 +960,7 @@ A command line client for ThoughtLeaders' YouTube sponsorship data, covering whi
 
 **Access and use:** Needs a ThoughtLeaders account, signed in by browser OAuth, device code or API key, and every query spends credits, with recommender tools on the Intelligence plan at 25 credits a call. It can add comments to records, signing out ends every session, and tl setup writes skill files into your agent's folders. Needs Python 3.12 or later with jq, ripgrep, duckdb and yt-dlp; MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/ThoughtLeaders-io/thoughtleaders-cli).
+**Source checked:** 2026-11-05. [Official source](https://github.com/ThoughtLeaders-io/thoughtleaders-cli). [Gearlist page](https://gearlist.build/tools/thoughtleaders-cli/).
 
 ## MCP and integrations
 
@@ -971,7 +972,7 @@ Connect an MCP client to saved AI visibility measurements and evidence. Tech Hor
 
 **Access and use:** Account access is scoped by the connection. Review the rescan action separately from read tools.
 
-**Source checked:** 2026-10-25. [Official source](https://github.com/techhorizonlabs/foundbyai-mcp).
+**Source checked:** 2026-10-25. [Official source](https://github.com/techhorizonlabs/foundbyai-mcp). [Gearlist page](https://gearlist.build/tools/found-by-ai-mcp/).
 
 ### [gogcli](https://gogcli.sh/)
 
@@ -981,7 +982,7 @@ A command line interface for Google Workspace services with structured output.
 
 **Access and use:** OAuth scopes can allow reads and writes. Choose the account and access needed for the task.
 
-**Source checked:** 2026-10-25. [Official source](https://gogcli.sh/).
+**Source checked:** 2026-10-25. [Official source](https://gogcli.sh/). [Gearlist page](https://gearlist.build/tools/gogcli/).
 
 ### [GitHub MCP Server](https://github.com/github/github-mcp-server)
 
@@ -991,7 +992,7 @@ GitHub's official MCP server for repositories, issues, pull requests and Actions
 
 **Access and use:** Needs a GitHub OAuth login or personal access token. Scopes can read and write repositories. Use a read-only token unless a write is required.
 
-**Source checked:** 2026-10-26. [Official source](https://github.com/github/github-mcp-server).
+**Source checked:** 2026-10-26. [Official source](https://github.com/github/github-mcp-server). [Gearlist page](https://gearlist.build/tools/github-mcp-server/).
 
 ### [GitMCP](https://gitmcp.io/)
 
@@ -1001,7 +1002,7 @@ A remote MCP server that turns a public GitHub project into documentation an age
 
 **Access and use:** Works on public GitHub content. Last upstream push observed 2026-05-08. Confirm the target repo is public before connecting.
 
-**Source checked:** 2026-10-26. [Official source](https://github.com/idosal/git-mcp).
+**Source checked:** 2026-10-26. [Official source](https://github.com/idosal/git-mcp). [Gearlist page](https://gearlist.build/tools/gitmcp/).
 
 ### [XERJ](https://xerj.org)
 
@@ -1011,7 +1012,7 @@ A local-first search engine and MCP server that indexes code, docs, logs and PDF
 
 **Access and use:** Installer is curl -fsSL https://xerj.org/get | sh. Read the script before running it. The binary indexes local paths and can serve an Elasticsearch-compatible API on localhost. Apache-2.0.
 
-**Source checked:** 2026-10-27. [Official source](https://github.com/xerj-org/xerj).
+**Source checked:** 2026-10-27. [Official source](https://github.com/xerj-org/xerj). [Gearlist page](https://gearlist.build/tools/xerj/).
 
 ### [Supabase MCP](https://supabase.com/docs/guides/ai-tools/mcp)
 
@@ -1021,7 +1022,7 @@ Supabase's official remote MCP server for docs, account, database, functions and
 
 **Access and use:** Remote URL https://mcp.supabase.com/mcp with OAuth. Can list, query and change project data. Read Supabase's MCP security notes and restrict feature groups before connecting production.
 
-**Source checked:** 2026-10-27. [Official source](https://supabase.com/docs/guides/ai-tools/mcp).
+**Source checked:** 2026-10-27. [Official source](https://supabase.com/docs/guides/ai-tools/mcp). [Gearlist page](https://gearlist.build/tools/supabase-mcp/).
 
 ### [Notion MCP](https://developers.notion.com/guides/mcp/overview)
 
@@ -1031,7 +1032,7 @@ Notion's hosted MCP server for searching, reading, creating and updating pages a
 
 **Access and use:** Remote URL https://mcp.notion.com/mcp with OAuth. Can read and write workspace content. Workspace owners can manage which clients connect. Prefer the hosted server over the unmaintained self-hosted repo.
 
-**Source checked:** 2026-10-27. [Official source](https://developers.notion.com/guides/mcp/get-started-with-mcp).
+**Source checked:** 2026-10-27. [Official source](https://developers.notion.com/guides/mcp/get-started-with-mcp). [Gearlist page](https://gearlist.build/tools/notion-mcp/).
 
 ### [Cloudflare MCP](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/)
 
@@ -1041,7 +1042,7 @@ Cloudflare's hosted API MCP server covering DNS, Workers, R2, Zero Trust and the
 
 **Access and use:** Remote URL https://mcp.cloudflare.com/mcp with OAuth, or a scoped API token as a bearer. Can change account configuration. Grant the smallest permission set. Other product-specific Cloudflare MCP URLs exist; this is the main API server.
 
-**Source checked:** 2026-10-27. [Official source](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/).
+**Source checked:** 2026-10-27. [Official source](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/). [Gearlist page](https://gearlist.build/tools/cloudflare-mcp/).
 
 ### [OmniSeek](https://github.com/Battam1111/omniseek)
 
@@ -1051,7 +1052,7 @@ A local MCP add-on that searches places web search often misses, including Bilib
 
 **Access and use:** Install with uv tool install omniseek, then claude mcp add omniseek -- omniseek. Runs on your computer. Apache-2.0. Python 3.11 or later.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Battam1111/omniseek).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Battam1111/omniseek). [Gearlist page](https://gearlist.build/tools/omniseek/).
 
 ### [Context Mode](https://github.com/mksglu/context-mode)
 
@@ -1061,7 +1062,7 @@ An MCP server and hooks layer that sandboxes large tool output, keeps a local se
 
 **Access and use:** In Claude Code: /plugin marketplace add mksglu/context-mode then /plugin install context-mode@context-mode. MCP-only: claude mcp add context-mode -- npx -y context-mode. ctx_execute can run code on your machine. Elastic License 2.0: you may not offer it as a hosted service that exposes its features.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/mksglu/context-mode).
+**Source checked:** 2026-10-28. [Official source](https://github.com/mksglu/context-mode). [Gearlist page](https://gearlist.build/tools/context-mode/).
 
 ### [jCodeMunch MCP](https://github.com/jgravelle/jcodemunch-mcp)
 
@@ -1071,7 +1072,7 @@ A local MCP server that indexes a codebase with tree-sitter and returns the func
 
 **Access and use:** Install with uv tool install jcodemunch-mcp, then jcodemunch-mcp init. Indexes live at ~/.code-index/. Free for personal use. Commercial use needs a paid licence. Default install sends an anonymous savings counter; set share_savings false to opt out.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/jgravelle/jcodemunch-mcp).
+**Source checked:** 2026-10-28. [Official source](https://github.com/jgravelle/jcodemunch-mcp). [Gearlist page](https://gearlist.build/tools/jcodemunch-mcp/).
 
 ### [Monid](https://monid.ai/)
 
@@ -1081,7 +1082,7 @@ A hosted MCP, CLI and skill for discovering, inspecting and running third-party 
 
 **Access and use:** Hosted MCP is https://mcp.monid.ai/v1 and signs in with a Monid account. Skill setup is the public file https://monid.ai/SKILL.md plus an API key from app.monid.ai. CLI is npm install -g @monid-ai/cli, then monid keys add. Hosted runs spend a prepaid balance or x402 USDC (a stablecoin payment), priced per call or per result on each endpoint. Local clone needs Deno 2.x; deno task check and deno task test run offline, and engine:run needs that provider's vendor key. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/monid-ai/monid).
+**Source checked:** 2026-10-28. [Official source](https://github.com/monid-ai/monid). [Gearlist page](https://gearlist.build/tools/monid/).
 
 ### [anymd](https://sylphxai.github.io/anymd/)
 
@@ -1091,7 +1092,7 @@ A local Rust MCP server and CLI that turns PDFs, Office files, HTML, images, aud
 
 **Access and use:** npx -y @sylphx/anymd setup. Needs Node 18 or later. Also brew install sylphxai/tap/anymd, pip, Docker or cargo. Local MIT binary needs no API key. OCR and ASR model downloads need explicit opt-in. Confine the MCP server with --allow-dir. Hosted Sylphx AI parse is a paid metered service that uses the same crates. anymd Pro is an optional one-time purchase for cite-check and video timelines. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/SylphxAI/anymd).
+**Source checked:** 2026-10-28. [Official source](https://github.com/SylphxAI/anymd). [Gearlist page](https://gearlist.build/tools/anymd/).
 
 ### [OpenAI MCP Extensions](https://github.com/openai/mcp-extensions)
 
@@ -1101,7 +1102,7 @@ An SDK and spec that add ChatGPT-specific MCP capabilities so plugins can open f
 
 **Access and use:** npm install @openai/mcp-extensions, or pip install openai-mcp-extensions. For ChatGPT plugin developers. Try Bits & Bolts Remote from ChatGPT's plugin list. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/openai/mcp-extensions).
+**Source checked:** 2026-10-28. [Official source](https://github.com/openai/mcp-extensions). [Gearlist page](https://gearlist.build/tools/openai-mcp-extensions/).
 
 ### [MCPProxy](https://mcpproxy.app)
 
@@ -1111,7 +1112,7 @@ A local proxy that sits in front of many MCP servers, holds new tools until you 
 
 **Access and use:** brew install --cask smart-mcp-proxy/mcpproxy/mcpproxy, or brew install smart-mcp-proxy/mcpproxy/mcpproxy for the CLI, or a GitHub Release for macOS, Windows or Linux. mcpproxy serve listens on 127.0.0.1:8080. Config and data live under ~/.mcpproxy/. New servers stay quarantined until you review and approve them. Update checks query GitHub Releases on startup and every 4 hours until you set update_check.enabled to false or MCPPROXY_DISABLE_AUTO_UPDATE=true. JavaScript code execution is on by default. The tray Unix socket is trusted without the API key until you set enable_socket to false. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/smart-mcp-proxy/mcpproxy-go).
+**Source checked:** 2026-10-28. [Official source](https://github.com/smart-mcp-proxy/mcpproxy-go). [Gearlist page](https://gearlist.build/tools/mcpproxy/).
 
 ### [PLUR](https://plur.ai)
 
@@ -1121,7 +1122,7 @@ Local-first shared memory for coding agents, stored as plain YAML engrams under 
 
 **Access and use:** npm install -g @plur-ai/cli@latest @plur-ai/mcp@latest, then plur init and plur doctor. Needs Node.js 20+. For Claude Code, init writes the MCP server into ~/.claude.json and hooks into ~/.claude/settings.json. plur doctor downloads a local search model when downloads are allowed; without it, search uses keywords. An optional openai-3-large embedder sends text to OpenAI. plur dashboard is loopback-only. plur sync to a personal git remote pushes private engrams; use a private repo. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/plur-ai/plur).
+**Source checked:** 2026-10-28. [Official source](https://github.com/plur-ai/plur). [Gearlist page](https://gearlist.build/tools/plur/).
 
 ### [Plausible MCP](https://plausible-mcp.sentry.dev)
 
@@ -1131,7 +1132,7 @@ An MCP server that queries Plausible Analytics for traffic, conversions and peri
 
 **Access and use:** Hosted: claude mcp add --transport http plausible https://plausible-mcp.sentry.dev/mcp --header "Authorization: Bearer YOUR_PLAUSIBLE_API_KEY". Queries go to that Sentry-hosted server with your key. Tools are read-only. Local: Node.js 20+, git clone, pnpm install and pnpm build, then node dist/index.js with PLAUSIBLE_API_KEY. PLAUSIBLE_BASE_URL points at a self-hosted Plausible. The hosted /internal path is for Sentry staff. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/getsentry/plausible-mcp).
+**Source checked:** 2026-10-28. [Official source](https://github.com/getsentry/plausible-mcp). [Gearlist page](https://gearlist.build/tools/plausible-mcp/).
 
 ### [Short Video Maker](https://github.com/gyoridavid/short-video-maker)
 
@@ -1141,7 +1142,7 @@ A local MCP and REST server that turns English narration scenes into captioned s
 
 **Access and use:** Needs a free Pexels API key, about 4 GB RAM, 2 vCPU and 5 GB disk. Docker tiny image: docker run -it --rm --name short-video-maker -p 3123:3123 -e PEXELS_API_KEY= gyoridavid/short-video-maker:latest-tiny. Web UI and REST at http://localhost:3123. MCP SSE at /mcp/sse. Videos land in ~/.ai-agents-az-video-generator with npm, or /app/data in Docker. English voiceover only. Windows is unsupported. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/gyoridavid/short-video-maker).
+**Source checked:** 2026-10-28. [Official source](https://github.com/gyoridavid/short-video-maker). [Gearlist page](https://gearlist.build/tools/short-video-maker/).
 
 ### [AnythingMCP](https://github.com/HelpCode-ai/anythingmcp)
 
@@ -1151,7 +1152,7 @@ A self-hosted MCP gateway that turns REST, OpenAPI, SOAP, GraphQL, OData or SQL 
 
 **Access and use:** Needs Docker 24+ and openssl. mkdir anythingmcp && cd anythingmcp, then curl the official docker-compose.quickstart.yml, write JWT_SECRET and ENCRYPTION_KEY with openssl rand -hex 32, then docker compose up -d. UI is http://localhost:3000; the first registered account is admin. MCP is http://localhost:4000/mcp. Keep the generated .env: ENCRYPTION_KEY decrypts stored connector credentials. Quickstart binds 127.0.0.1. Connector keys are stored encrypted and forwarded to the APIs you attach (SAP, shops, databases). SQL tools are read-only by default. The optional hosted trial at https://cloud.anythingmcp.com runs on the maintainers' servers in Frankfurt, Germany, and holds your connector credentials there. AGPL-3.0 for the open tree; ee/ directories use a separate commercial licence.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/HelpCode-ai/anythingmcp).
+**Source checked:** 2026-10-28. [Official source](https://github.com/HelpCode-ai/anythingmcp). [Gearlist page](https://gearlist.build/tools/anythingmcp/).
 
 ### [Alumnium](https://alumnium.ai)
 
@@ -1161,7 +1162,7 @@ An MIT AI test harness over Appium, Maestro, Playwright or Selenium, as a librar
 
 **Access and use:** MCP: curl -LsSf https://alumnium.ai/install.sh | sh (read the script before running it), then claude mcp add alumnium --env OPENAI_API_KEY=... -- alumnium mcp. Libraries: pip install alumnium, npm install alumnium, or the Java artifact. Agentic mode (default) sends page text, accessibility trees and screenshots to the model you set. Direct mode skips the model and lets your coding agent call driver actions. Browser profiles live in ~/.alumnium/profiles. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/alumnium-hq/alumnium).
+**Source checked:** 2026-10-29. [Official source](https://github.com/alumnium-hq/alumnium). [Gearlist page](https://gearlist.build/tools/alumnium/).
 
 ### [ACI.dev](https://github.com/aipotheosis-labs/aci)
 
@@ -1171,7 +1172,7 @@ An open-source tool-calling platform that gives agents over 600 pre-built app in
 
 **Access and use:** Use the managed service at aci.dev with an account and API key, or run the platform locally: Python 3.12+, Docker Compose, PostgreSQL with pgvector and an OpenAI API key, with PropelAuth for the dev portal. Each linked app needs OAuth consent or API credentials from the account the agent will act on, held in ACI's secrets management. The unified MCP server is a separate repository, aipotheosis-labs/aci-mcp. Apache-2.0.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/aipotheosis-labs/aci).
+**Source checked:** 2026-11-03. [Official source](https://github.com/aipotheosis-labs/aci). [Gearlist page](https://gearlist.build/tools/aci-dev/).
 
 ### [Xero MCP Server](https://github.com/XeroAPI/xero-mcp-server)
 
@@ -1181,7 +1182,7 @@ Xero's MCP server for reading and writing accounting and payroll data, including
 
 **Access and use:** Runs locally with Node.js 18 or later through npx -y @xeroapi/xero-mcp-server@latest. Authenticate with a Xero Custom Connection (XERO_CLIENT_ID and XERO_CLIENT_SECRET) or a bearer token from your own OAuth flow (XERO_CLIENT_BEARER_TOKEN). Xero's developer docs say Custom Connections are only for organisations in Australia, New Zealand, the UK and the US and need an additional monthly subscription, but connect to the Demo Company free for development. The tools can create invoices, payments, bank transactions and manual journals and approve timesheets, so narrow XERO_SCOPES and start on the Demo Company. Payroll queries need an NZ or UK organisation. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/XeroAPI/xero-mcp-server).
+**Source checked:** 2026-11-03. [Official source](https://github.com/XeroAPI/xero-mcp-server). [Gearlist page](https://gearlist.build/tools/xero-mcp-server/).
 
 ### [World Intelligence MCP Server](https://github.com/marc-shade/world-intel-mcp)
 
@@ -1191,7 +1192,7 @@ A Python MCP server, CLI and local dashboard that pulls markets, SEC filings, ec
 
 **Access and use:** Clone, pip install -e ., then run world-intel-mcp over stdio and add it to ~/.claude.json. The dashboard serves http://localhost:8501 and binds 127.0.0.1 by default. Most sources need no key; ACLED, UCDP, NASA FIRMS, EIA, FRED, Cloudflare, OpenSky, TomTom and Windy tools use optional credentials. The optional collector daemon fetches every source on a 5-minute default interval and stores history in ~/.cache/world-intel-mcp/cache.db. Qdrant runs separately in Docker, and AI briefs use a local Ollama. Each upstream source keeps its own terms of use, so check them before business use. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/marc-shade/world-intel-mcp).
+**Source checked:** 2026-11-03. [Official source](https://github.com/marc-shade/world-intel-mcp). [Gearlist page](https://gearlist.build/tools/world-intel-mcp/).
 
 ### [Influencers Club MCP server](https://github.com/Influencers-Club/influencers-club-mcp)
 
@@ -1201,7 +1202,7 @@ Search creators on Instagram, TikTok, YouTube and other platforms from an MCP cl
 
 **Access and use:** Needs an Influencers Club account with API credits, and each call spends them. A local install reads an API key from the environment, and its batch tools read and write local files. MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://docs.influencers.club/guides/mcp-server).
+**Source checked:** 2026-11-05. [Official source](https://docs.influencers.club/guides/mcp-server). [Gearlist page](https://gearlist.build/tools/influencers-club-mcp/).
 
 ### [vidIQ MCP server](https://github.com/vid-io/vidiq-mcp)
 
@@ -1211,7 +1212,7 @@ Gives an AI client vidIQ's YouTube data: video and channel stats, outlier videos
 
 **Access and use:** Needs a vidIQ account, and hosted tools may use credits. It reads data for the channels you authorise, and some tools can make approved edits to videos you own. Apache 2.0 licence for the plugin.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/vid-io/vidiq-mcp).
+**Source checked:** 2026-11-05. [Official source](https://github.com/vid-io/vidiq-mcp). [Gearlist page](https://gearlist.build/tools/vidiq-mcp/).
 
 ### [YouTube Data API](https://developers.google.com/youtube/v3)
 
@@ -1221,7 +1222,7 @@ Google's official API for public channel, video and playlist data, such as subsc
 
 **Access and use:** Needs a Google Cloud project and an API key. The default quota is 10,000 units a day, and most reads cost 1 unit. Changes to a channel need its owner's OAuth consent.
 
-**Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/v3/getting-started).
+**Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/v3/getting-started). [Gearlist page](https://gearlist.build/tools/youtube-data-api/).
 
 ### [yutu](https://github.com/eat-pray-ai/yutu)
 
@@ -1231,7 +1232,7 @@ A CLI, MCP server and agent mode that work through the official YouTube Data API
 
 **Access and use:** Needs your own Google Cloud project and OAuth client, and it saves client_secret.json and youtube.token.json in the working folder unless you set its environment variables. The OAuth grant lets it create, update and delete videos, playlists and comments on that channel, and agent mode sends prompts to the Gemini or OpenAI key you supply. Data API quota applies; Apache 2.0 licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/eat-pray-ai/yutu).
+**Source checked:** 2026-11-05. [Official source](https://github.com/eat-pray-ai/yutu). [Gearlist page](https://gearlist.build/tools/yutu/).
 
 ### [YouTube MCP Server (ZubeidHendricks)](https://github.com/ZubeidHendricks/youtube-mcp-server)
 
@@ -1241,7 +1242,7 @@ An MCP server with read-only tools for YouTube video, channel, playlist and tran
 
 **Access and use:** Needs a YouTube Data API key in the environment, and each search spends that key's daily quota. It can fall back to a second and third key when one runs out, but the YouTube API Services Terms forbid getting round quota limits, so configure one key. Channel results can include emails found in public metadata, which are personal information; MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/ZubeidHendricks/youtube-mcp-server).
+**Source checked:** 2026-11-05. [Official source](https://github.com/ZubeidHendricks/youtube-mcp-server). [Gearlist page](https://gearlist.build/tools/youtube-mcp-server-zubeid/).
 
 ### [YouTube Transcript MCP server](https://github.com/kimtaeyoon83/mcp-server-youtube-transcript)
 
@@ -1251,7 +1252,7 @@ An MCP server that fetches a YouTube video's captions, with optional timestamps,
 
 **Access and use:** Runs through npx with no account or key for transcripts. It reads YouTube's caption data outside the official API, which YouTube's Terms of Service restrict, and the optional video analysis tool sends a direct video URL to TwelveLabs under your own TwelveLabs key. MIT licence.
 
-**Source checked:** 2026-11-05. [Official source](https://github.com/kimtaeyoon83/mcp-server-youtube-transcript).
+**Source checked:** 2026-11-05. [Official source](https://github.com/kimtaeyoon83/mcp-server-youtube-transcript). [Gearlist page](https://gearlist.build/tools/youtube-transcript-mcp/).
 
 ### [HypeAuditor MCP server](https://mcp.hypeauditor.com/)
 
@@ -1261,7 +1262,7 @@ HypeAuditor's hosted MCP server for YouTube, Instagram and TikTok creator analyt
 
 **Access and use:** Sign in with a HypeAuditor Pro or higher account; creator analytics spend AI credits at US$0.005 each, about 10 for a search and 100 for an analysed account, and the assistant asks before any paid unlock. It can also create media plans and move creators between campaigns in your account. HypeAuditor's terms bar bots and scraping outside its API, which is a separate product sold through its sales team.
 
-**Source checked:** 2026-11-05. [Official source](https://mcp.hypeauditor.com/).
+**Source checked:** 2026-11-05. [Official source](https://mcp.hypeauditor.com/). [Gearlist page](https://gearlist.build/tools/hypeauditor-mcp/).
 
 ### [Arcmira](https://arcmira.com/)
 
@@ -1271,7 +1272,7 @@ A hosted transcript search service and MCP server for YouTube and podcasts that 
 
 **Access and use:** Sign in through your MCP client or use an arc_sk_ account key; the free plan has 1,000 credits a month and withholds the newest 30 days, and sponsor and ad-read data needs the Pro+ plan. Reads cost credits per row, and the write tool can create and pause monitors but not delete them. Speaker and sponsor labels can be incomplete, and the plugin repository is under a proprietary licence that only permits running it.
 
-**Source checked:** 2026-11-05. [Official source](https://arcmira.com/docs/mcp-server).
+**Source checked:** 2026-11-05. [Official source](https://arcmira.com/docs/mcp-server). [Gearlist page](https://gearlist.build/tools/arcmira/).
 
 ### [1of10 MCP](https://1of10.com/mcp)
 
@@ -1281,7 +1282,7 @@ Connects Claude or ChatGPT to 1of10's database of YouTube outlier videos, which 
 
 **Access and use:** Needs a 1of10 Pro (US$89 a month) or Ultra plan, and you connect by signing in from its Claude and ChatGPT page; the server link for other clients appears only after sign-in. Research does not use credits but generating titles, ideas or thumbnails does, and it can save videos, create trackers and link your channel without deleting anything. There is no public API reference beyond the product page.
 
-**Source checked:** 2026-11-05. [Official source](https://1of10.com/mcp).
+**Source checked:** 2026-11-05. [Official source](https://1of10.com/mcp). [Gearlist page](https://gearlist.build/tools/1of10-mcp/).
 
 ## Security and governance
 
@@ -1293,7 +1294,7 @@ Security briefings, analysis and governance resources.
 
 **Access and use:** Read the linked primary sources and check dates before using advice in an operational decision.
 
-**Source checked:** 2026-10-25. [Official source](https://cisoai.au/).
+**Source checked:** 2026-10-25. [Official source](https://cisoai.au/). [Gearlist page](https://gearlist.build/tools/ciso-ai/).
 
 ### [node9](https://node9.ai/)
 
@@ -1303,7 +1304,7 @@ Access control for AI agents. It decides what Claude Code, Codex, Gemini, Cursor
 
 **Access and use:** Install with brew tap node9-ai/node9 && brew install node9, or npm install -g node9-ai. Needs Node.js 22 or later. Local protection needs no account. Optional dashboard login. Apache-2.0.
 
-**Source checked:** 2026-10-27. [Official source](https://github.com/node9-ai/node9-proxy).
+**Source checked:** 2026-10-27. [Official source](https://github.com/node9-ai/node9-proxy). [Gearlist page](https://gearlist.build/tools/node9/).
 
 ### [ClawSecCheck](https://github.com/gl0di/clawseccheck)
 
@@ -1313,7 +1314,7 @@ A local, read-only security audit for an OpenClaw agent. It looks for config, pr
 
 **Access and use:** Python 3.10 or later. Install with pipx from the GitHub repo. The scanner reports and does not change OpenClaw config. Official docs say the scanner makes no network calls. MIT.
 
-**Source checked:** 2026-10-27. [Official source](https://github.com/gl0di/clawseccheck).
+**Source checked:** 2026-10-27. [Official source](https://github.com/gl0di/clawseccheck). [Gearlist page](https://gearlist.build/tools/clawseccheck/).
 
 ### [GuardStein](https://guardstein.com/)
 
@@ -1323,7 +1324,7 @@ A document and deal room service that describes browser encryption and controlle
 
 **Access and use:** Encryption claims are the provider's. Review its security model and recovery process before uploading sensitive documents.
 
-**Source checked:** 2026-10-25. [Official source](https://guardstein.com/).
+**Source checked:** 2026-10-25. [Official source](https://guardstein.com/). [Gearlist page](https://gearlist.build/tools/guardstein/).
 
 ### [Quicksand](https://microsoft.github.io/quicksand/)
 
@@ -1333,7 +1334,7 @@ An async Python API that boots QEMU Linux VMs so agents can run commands, mounts
 
 **Access and use:** pip install 'quick-sandbox[qemu,alpine]', or pip install quick-sandbox then quicksand install qemu alpine. Desktop images: quicksand install ubuntu-desktop or alpine-desktop. Sandboxes are network-isolated by default; NetworkMode.FULL gives internet. Host directories can be mounted into the guest. Bidirectional port forwards map host and guest TCP ports. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/quicksand).
+**Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/quicksand). [Gearlist page](https://gearlist.build/tools/quicksand/).
 
 ## Platforms
 
@@ -1345,7 +1346,7 @@ A shared workspace where people and persistent AI agents collaborate in messages
 
 **Access and use:** Source available under FSL, not an unrestricted open source licence. Agents need explicit access to their tools and data.
 
-**Source checked:** 2026-10-25. [Official source](https://github.com/botiverse/raft-source).
+**Source checked:** 2026-10-25. [Official source](https://github.com/botiverse/raft-source). [Gearlist page](https://gearlist.build/tools/raft/).
 
 ### [Official MCP Registry](https://registry.modelcontextprotocol.io)
 
@@ -1355,7 +1356,7 @@ The official hosted registry of publicly available Model Context Protocol server
 
 **Access and use:** The registry is in preview. Breaking changes or data resets may occur before general availability. Listing a server is not a security audit. Installing a listed server still needs its own credentials and terms.
 
-**Source checked:** 2026-10-26. [Official source](https://modelcontextprotocol.io/registry/about).
+**Source checked:** 2026-10-26. [Official source](https://modelcontextprotocol.io/registry/about). [Gearlist page](https://gearlist.build/tools/mcp-registry/).
 
 ### [OmniRoute](https://github.com/cheaper-inference/OmniRoute)
 
@@ -1365,7 +1366,7 @@ A local AI gateway that routes coding tools to many provider accounts through on
 
 **Access and use:** Install with npm install -g omniroute. It runs locally (default http://localhost:20128). Bring your own provider credentials. OmniRoute does not grant tokens. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/cheaper-inference/OmniRoute).
+**Source checked:** 2026-10-28. [Official source](https://github.com/cheaper-inference/OmniRoute). [Gearlist page](https://gearlist.build/tools/omniroute/).
 
 ### [Overmind](https://www.overmindlab.ai/)
 
@@ -1375,7 +1376,7 @@ A hosted or self-hosted platform that turns production traces into evals, prompt
 
 **Access and use:** SDK and CLI: pip install overmind, then overmind init and overmind sync. Hosted console is console.overmindlab.ai with a project API key. MCP is https://api.overmindlab.ai/api/mcp/ with X-Api-Key. Self-host is docker compose; the API needs OpenRouter, Modal, AWS and Hugging Face keys before it boots. SDK and CLI are MIT. The platform is AGPL-3.0. SDK and CLI send anonymous usage to PostHog; opt out with OVERMIND_ANALYTICS_ENABLED=false or DO_NOT_TRACK=1.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/overmind-core/overmind).
+**Source checked:** 2026-10-28. [Official source](https://github.com/overmind-core/overmind). [Gearlist page](https://gearlist.build/tools/overmind/).
 
 ### [OpenBot](https://www.copilotkit.ai/openbot)
 
@@ -1385,7 +1386,7 @@ A self-hosted AG-UI coworker app. Each bot gets its own computer, browser logins
 
 **Access and use:** Clone https://github.com/CopilotKit/OpenBot. Needs Docker, Bun 1.3 or later, a CopilotKit Intelligence project, and a model key. Default OPENBOT_SINGLE_USER admits every request as one administrator until you turn sign-in on. Credentials are encrypted at rest. Published image ghcr.io/copilotkit/openbot. MIT. Marked beta.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/CopilotKit/OpenBot).
+**Source checked:** 2026-10-28. [Official source](https://github.com/CopilotKit/OpenBot). [Gearlist page](https://gearlist.build/tools/openbot/).
 
 ### [Orca](https://onorca.dev)
 
@@ -1395,7 +1396,7 @@ A desktop app that runs coding agents side by side, each in its own git worktree
 
 **Access and use:** Download from https://onorca.dev/download or GitHub Releases. macOS Homebrew is brew install --cask stablyai/orca/orca; a bare brew install --cask orca is a different Plotly app. Mobile companion is on the App Store and as an Android APK. The README points to privacy and telemetry docs for usage data and how to opt out. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/stablyai/orca).
+**Source checked:** 2026-10-28. [Official source](https://github.com/stablyai/orca). [Gearlist page](https://gearlist.build/tools/orca/).
 
 ### [serviette](https://github.com/pathwaycom/serviette)
 
@@ -1405,7 +1406,7 @@ A RAG server that watches a folder of documents, keeps a vector index live, and 
 
 **Access and use:** pip 23.1 or later. pip install serviette. Needs a free Pathway licence in PATHWAY_LICENSE_KEY from pathway.com/framework/get-license (GitHub or LinkedIn sign-in). Default server binds localhost:8989 with no built-in auth. Local embeddings extra is serviette[local]. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/pathwaycom/serviette).
+**Source checked:** 2026-10-28. [Official source](https://github.com/pathwaycom/serviette). [Gearlist page](https://gearlist.build/tools/serviette/).
 
 ### [DeerFlow](https://deerflow.tech)
 
@@ -1415,7 +1416,7 @@ A self-hosted agent harness that runs sub-agents, skills, memory and sandboxes f
 
 **Access and use:** Clone https://github.com/bytedance/deer-flow then make setup. Docker is make docker-init and make docker-start. Python 3.12 or later and Node 22 or later for a local run. The Docker stack and local start bind to 127.0.0.1. Treat Gateway admin as code execution on the host. Set BIND_HOST only after you have put auth in place. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/bytedance/deer-flow).
+**Source checked:** 2026-10-28. [Official source](https://github.com/bytedance/deer-flow). [Gearlist page](https://gearlist.build/tools/deerflow/).
 
 ### [OpenClaw](https://openclaw.ai)
 
@@ -1425,7 +1426,7 @@ A self-hosted assistant gateway that meets you in the chat apps you already use,
 
 **Access and use:** Installer is curl -fsSL https://openclaw.ai/install.sh | bash. Read the script before running it. Also npm install -g openclaw@latest --allow-scripts=openclaw. Needs Node 24.22.1 or later, or Node 26.12.1 or later. After npm, run openclaw onboard --install-daemon. Daily version check is on by default; anonymous feature statistics are opt-in; update.checkOnStart: false turns both off. Tools run on the host unless you configure sandboxing. Treat inbound messages as untrusted. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/openclaw/openclaw).
+**Source checked:** 2026-10-28. [Official source](https://github.com/openclaw/openclaw). [Gearlist page](https://gearlist.build/tools/openclaw/).
 
 ### [DeepSeek Harness](https://deepseek-harness.github.io/deepseek-harness/)
 
@@ -1435,7 +1436,7 @@ An open-source agent harness from DeepSeek where every capability is a plugin, w
 
 **Access and use:** npx @deepseek-ai/dsh web. Default web UI is http://127.0.0.1:3080. Marked developer preview with expected breaking changes. The SAFETY notice says it can execute model-generated code, load plugins, and has not been security audited. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/deepseek-ai/deepseek-harness).
+**Source checked:** 2026-10-28. [Official source](https://github.com/deepseek-ai/deepseek-harness). [Gearlist page](https://gearlist.build/tools/deepseek-harness/).
 
 ### [Huginn](https://github.com/huginn/huginn)
 
@@ -1445,7 +1446,7 @@ A self-hosted agent system that watches the web, mail and feeds, then takes acti
 
 **Access and use:** Quick try: docker run -it -p 3000:3000 ghcr.io/huginn/huginn then open http://localhost:3000 and log in as admin with the password printed once in the container log. Production needs MySQL or PostgreSQL and a web process plus a worker. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/huginn/huginn).
+**Source checked:** 2026-10-28. [Official source](https://github.com/huginn/huginn). [Gearlist page](https://gearlist.build/tools/huginn/).
 
 ### [Agent TARS](https://agent-tars.com)
 
@@ -1455,7 +1456,7 @@ A multimodal agent stack with a CLI and web UI, plus a desktop GUI agent that ca
 
 **Access and use:** Needs Node 22 or later. npx @agent-tars/cli@latest, or npm install @agent-tars/cli@latest -g, then agent-tars --provider anthropic --model MODEL --apiKey KEY. The same repository ships UI-TARS Desktop. Treat computer and browser operators as full desktop control. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/bytedance/UI-TARS-desktop).
+**Source checked:** 2026-10-28. [Official source](https://github.com/bytedance/UI-TARS-desktop). [Gearlist page](https://gearlist.build/tools/agent-tars/).
 
 ### [CopilotKit](https://docs.copilotkit.ai)
 
@@ -1465,7 +1466,7 @@ An SDK that puts an agent into a web, mobile or chat UI, with shared state, gene
 
 **Access and use:** From the app root: npx --yes copilotkit@latest onboard start. New project: npx copilotkit@latest create. Optional skills: npx copilotkit@latest skills install. CopilotKit Intelligence is a separate hosted or self-hosted product. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/CopilotKit/CopilotKit).
+**Source checked:** 2026-10-28. [Official source](https://github.com/CopilotKit/CopilotKit). [Gearlist page](https://gearlist.build/tools/copilotkit/).
 
 ### [Sim](https://www.sim.ai)
 
@@ -1475,7 +1476,7 @@ A workspace to build, deploy and monitor agents and workflows, with a visual bui
 
 **Access and use:** Cloud at sim.ai. Self-host: npx sim-setup. Read the script before running it. Then open http://localhost:3000. Needs Node 20 or later and Docker. Chat on a self-hosted install uses a Chat API key from sim.ai. Cloud MCP is https://mcp.sim.ai/mcp. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/simstudioai/sim).
+**Source checked:** 2026-10-28. [Official source](https://github.com/simstudioai/sim). [Gearlist page](https://gearlist.build/tools/sim/).
 
 ### [ArchiveBox](https://archivebox.io)
 
@@ -1485,7 +1486,7 @@ A self-hosted archiver that saves pages you give it as HTML, PDF, PNG, WARC and 
 
 **Access and use:** Installer is curl -fsSL https://get.archivebox.io | bash. Read the script before running it. Also docker compose from docker-compose.archivebox.io, or uv tool install archivebox. Docker -p 5797:5797 and archivebox server 0.0.0.0:5797 bind every interface. Pages are submitted to archive.org by default. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/ArchiveBox/ArchiveBox).
+**Source checked:** 2026-10-28. [Official source](https://github.com/ArchiveBox/ArchiveBox). [Gearlist page](https://gearlist.build/tools/archivebox/).
 
 ### [oMLX](https://omlx.ai)
 
@@ -1495,7 +1496,7 @@ A local LLM inference server for Apple Silicon, with a menu bar app, OpenAI-comp
 
 **Access and use:** Needs macOS 15 or later and Apple Silicon. Download the .dmg from GitHub Releases, or brew tap jundot/omlx then brew install jundot/omlx/omlx. Default server is http://localhost:8000/v1. A non-loopback bind (--host 0.0.0.0) needs a main API key. Optional MCP via pip install mcp then omlx restart. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/jundot/omlx).
+**Source checked:** 2026-10-28. [Official source](https://github.com/jundot/omlx). [Gearlist page](https://gearlist.build/tools/omlx/).
 
 ### [Buzz](https://github.com/block/buzz)
 
@@ -1505,7 +1506,7 @@ A self-hosted workspace where humans and agents share signed events on a relay y
 
 **Access and use:** Download the desktop app from GitHub Releases, or git clone then just setup && just dev. Needs Docker. Default relay is ws://localhost:3000. Agents use buzz-cli with BUZZ_PRIVATE_KEY; they can open repos, send patches and run workflows on that relay. The Windows installer is unsigned. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/block/buzz).
+**Source checked:** 2026-10-28. [Official source](https://github.com/block/buzz). [Gearlist page](https://gearlist.build/tools/buzz/).
 
 ### [OpenSandbox](https://open-sandbox.ai)
 
@@ -1515,7 +1516,7 @@ A sandbox runtime that gives agents isolated Docker or Kubernetes environments f
 
 **Access and use:** uvx opensandbox-server init-config ~/.sandbox.toml --example docker then uvx opensandbox-server. Needs Docker and Python 3.10 or later. SDK: pip install opensandbox. CLI: pip install opensandbox-cli. MCP: pip install opensandbox-mcp then opensandbox-mcp --domain localhost:8080 --protocol http. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/opensandbox-group/OpenSandbox).
+**Source checked:** 2026-10-28. [Official source](https://github.com/opensandbox-group/OpenSandbox). [Gearlist page](https://gearlist.build/tools/opensandbox/).
 
 ### [Experiential](https://platform.experientiallabs.ai)
 
@@ -1525,7 +1526,7 @@ An OpenAI-compatible gateway that routes hosted, BYOK and local models, with spe
 
 **Access and use:** pip install experiential then exp. Local gateway is http://127.0.0.1:8000/v1. Hosted API is api.experientiallabs.ai. Anonymous PostHog product telemetry is on by default; exp config telemetry disable turns it off. exp capture (experimental, macOS) installs an extension and certificate to read your Codex and Claude Code desktop traffic, and sends those traces to your Experiential account. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/experientiallabs/experiential).
+**Source checked:** 2026-10-28. [Official source](https://github.com/experientiallabs/experiential). [Gearlist page](https://gearlist.build/tools/experiential/).
 
 ### [QM](https://github.com/yc-software/qm)
 
@@ -1535,7 +1536,7 @@ A multiplayer agent harness for Slack and the web, with a personal sandbox per p
 
 **Access and use:** npm exec --yes --package=@yc-software/qm@latest -- qm init . --org <slug> --target <fly-or-aws>. Needs Node 24.15 or later. The agent acts with that person's credentials. Default security posture is Auto, which blocks private-network access. Strict pauses every harness tool call. Dangerous drops those gates. Sessions need DATABASE_URL and SESSION_STORE=postgres to survive restart. A third-party hosted version runs at agent37.com/qm. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/yc-software/qm).
+**Source checked:** 2026-10-28. [Official source](https://github.com/yc-software/qm). [Gearlist page](https://gearlist.build/tools/qm/).
 
 ### [Cloudflare OS](https://os.cloudflare.app)
 
@@ -1545,7 +1546,7 @@ An early-access workspace where agents build sandboxed apps (Gadgets) behind Gat
 
 **Access and use:** pnpm run-local then visit http://localhost:8787. Needs pnpm. Early-access v2. Deploy to a Cloudflare account at os.cloudflare.app/deploy. Gadgets are sandboxed. Gatekeepers log actions and can queue side-effect approvals. Agents get only the resources you introduce. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/cloudflare-os).
+**Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/cloudflare-os). [Gearlist page](https://gearlist.build/tools/cloudflare-os/).
 
 ### [moltworker](https://github.com/cloudflare/moltworker)
 
@@ -1555,7 +1556,7 @@ An experimental Cloudflare Worker that runs OpenClaw inside a Cloudflare Sandbox
 
 **Access and use:** Experimental proof of concept. Needs a Workers Paid plan for Sandbox containers. npm install, then npx wrangler secret put ANTHROPIC_API_KEY (or the AI Gateway secrets) and MOLTBOT_GATEWAY_TOKEN, then npm run deploy. Open the Control UI with ?token=YOUR_GATEWAY_TOKEN. Cloudflare Access plus device pairing at /_admin/ are required before the Control UI works. Optional R2 keeps pairing and history across container restarts. SANDBOX_SLEEP_AFTER defaults to never; a timeout such as 10m sleeps the container to cut cost. DEV_MODE=true is local only and skips Access and pairing. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/moltworker).
+**Source checked:** 2026-10-28. [Official source](https://github.com/cloudflare/moltworker). [Gearlist page](https://gearlist.build/tools/moltworker/).
 
 ### [agentOS](https://rivet.dev/agentos)
 
@@ -1565,7 +1566,7 @@ A WebAssembly sandbox that gives each agent files, processes, a shell and networ
 
 **Access and use:** Library: npm install @rivet-dev/agentos-core, then AgentOs.create() in your backend. The sidecar is a separate Rust process. Guest code reaches host files, environment or the network only through mounts, host functions or network allow rules you add. Hosted: npm install @rivet-dev/agentos, set RIVET_NAMESPACE and RIVET_TOKEN from the Rivet dashboard, and keep the token on the backend. Browser clients need a JWT scoped to that VM. Preview URLs expire. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/rivet-dev/agentos).
+**Source checked:** 2026-10-28. [Official source](https://github.com/rivet-dev/agentos). [Gearlist page](https://gearlist.build/tools/agentos/).
 
 ### [Solo Agent](https://soloagent.team)
 
@@ -1575,7 +1576,7 @@ A local-first workspace where humans and coding agents share channels, tasks, te
 
 **Access and use:** git clone then make dev. Needs Go 1.25+, Node.js 20+, Docker and at least one supported agent CLI on PATH. make dev starts PostgreSQL in Docker on port 5432, a Go API on 8080, a daemon on 8081 and the UI on 3000. Register at http://localhost:3000. Signup stays on until you set ALLOW_SIGNUP=false. LLM_PROVIDER defaults to local, so agents are your installed CLIs. Workspace data lives in PostgreSQL. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/solo-agent/solo).
+**Source checked:** 2026-10-28. [Official source](https://github.com/solo-agent/solo). [Gearlist page](https://gearlist.build/tools/solo-agent/).
 
 ### [HybridClaw](https://hybridclaw.io)
 
@@ -1585,7 +1586,7 @@ A self-hosted assistant runtime with a local gateway, sandbox, web chat and TUI,
 
 **Access and use:** npm install -g @hybridaione/hybridclaw, or curl -fsSL https://raw.githubusercontent.com/HybridAIOne/hybridclaw/main/scripts/install.sh | bash; read the script before running it. Needs Node.js 22.23.4 or later, below 23. hybridclaw onboarding then hybridclaw gateway. Default bind is 127.0.0.1:9090; web chat is http://127.0.0.1:9090/chat. Config is ~/.hybridclaw/config.json. Provider keys live in the encrypted store under ~/.hybridclaw/credentials.json. Docker is the default sandbox. Hosted path is hybridclaw.io. Set ops.webApiToken before exposing the gateway beyond loopback. Treat inbound channel messages as untrusted. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/HybridAIOne/hybridclaw).
+**Source checked:** 2026-10-28. [Official source](https://github.com/HybridAIOne/hybridclaw). [Gearlist page](https://gearlist.build/tools/hybridclaw/).
 
 ### [HarnessRouter](https://harnessrouter.ai)
 
@@ -1595,7 +1596,7 @@ A self-hosted gateway that runs Codex, Claude Code and other harnesses through o
 
 **Access and use:** docker run -d --name harnessrouter -p 127.0.0.1:3000:3000 -v harnessrouter:/data harnessrouter/harnessrouter. Needs Docker and about 4 GB of disk. Console is http://127.0.0.1:3000. Default Console login is harnessrouter / harnessrouter; change it before exposing the instance. First launch installs harness CLIs into the volume. Provider keys go under Bring your own key. Product API keys are created in the Console and belong in a backend, not a browser. Gateway :8080 and Runner :8081 stay on loopback inside the container. Hosted path is harnessrouter.ai. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/HarnessRouter/harnessrouter).
+**Source checked:** 2026-10-28. [Official source](https://github.com/HarnessRouter/harnessrouter). [Gearlist page](https://gearlist.build/tools/harnessrouter/).
 
 ### [GOD](https://xiaoluolyg.github.io/GOD/)
 
@@ -1605,7 +1606,7 @@ A local control room for language-agent societies: pause a run, ask a resident, 
 
 **Access and use:** git clone https://github.com/XiaoLuoLYG/GOD.git then ./scripts/god.sh start (Windows: .\scripts\god.cmd start). The first run installs dependencies and opens a browser wizard. Paste an OpenAI-compatible API key, base URL and model name. The control room prints a URL such as http://127.0.0.1:5174/pixel-replay/god_town/1. .env stores local model and port settings. The model endpoint is the external service. Curated browser replays on the public site need no install or API key. Apache-2.0. Bundled AgentSociety and JiuwenClaw checkouts keep their own licences.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/XiaoLuoLYG/GOD).
+**Source checked:** 2026-10-28. [Official source](https://github.com/XiaoLuoLYG/GOD). [Gearlist page](https://gearlist.build/tools/god/).
 
 ### [EdgeEver](https://edgeever.org)
 
@@ -1615,7 +1616,7 @@ An open-source notes and knowledge workspace with three-pane editing, multi-devi
 
 **Access and use:** Cloudflare: fork the repo, create D1 edgeever and R2 edgeever-resources, then a Worker from main. Set the runtime Secret EDGE_EVER_AUTH_PASSWORD; upstream recommends 32 characters or longer. Username defaults to admin via EDGE_EVER_AUTH_USERNAME. Notes and attachments then live in that Cloudflare account. Docker: curl -fsSL https://edgeever.org/install.sh | bash (read the script before running it). The installer writes ~/edgeever, pulls ghcr.io/tianma-if/edgeever, generates an administrator password, and serves http://localhost:8787. Daily auto-update is crontab 04:17 unless EDGE_EVER_AUTO_UPDATE=false. Profile -> API / MCP issues a token with full CRUD on notes, notebooks, tags, attachments, history, templates and AI instructions. BYOK sends note text to the model endpoint you configure. The public demo at https://demo.edgeever.org resets daily; keep private notes off it. AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/tianma-if/edgeever).
+**Source checked:** 2026-10-28. [Official source](https://github.com/tianma-if/edgeever). [Gearlist page](https://gearlist.build/tools/edgeever/).
 
 ### [MiroFish](https://github.com/666ghj/MiroFish)
 
@@ -1625,7 +1626,7 @@ A multi-agent simulation engine that builds a digital world from seed documents 
 
 **Access and use:** Needs Node.js 18+, Python 3.11 or 3.12, and uv. Copy .env.example to .env. Set LLM_API_KEY, LLM_BASE_URL and LLM_MODEL_NAME for any OpenAI-compatible endpoint, plus ZEP_API_KEY from https://app.getzep.com/. Your seed documents and agent memory are sent to Zep Cloud, and prompts go to the LLM endpoint you set. npm run setup:all then npm run dev. Frontend is http://localhost:3000; backend is http://localhost:5001. Docker: docker compose up -d with the same .env. Upstream says LLM use is high; try fewer than 40 rounds first. AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/666ghj/MiroFish).
+**Source checked:** 2026-10-28. [Official source](https://github.com/666ghj/MiroFish). [Gearlist page](https://gearlist.build/tools/mirofish/).
 
 ### [Plane](https://github.com/makeplane/plane)
 
@@ -1635,7 +1636,7 @@ An AGPL project-management app for work items, cycles, modules, views, pages and
 
 **Access and use:** Cloud sign-up is https://app.plane.so. Community self-host: mkdir plane-selfhost && cd plane-selfhost, curl -fsSL -o setup.sh https://github.com/makeplane/plane/releases/latest/download/setup.sh, chmod +x setup.sh, then ./setup.sh action 1. Edit plane.env WEB_URL and CORS_ALLOWED_ORIGINS (defaults http://localhost on ports 80 and 443), then ./setup.sh action 2 to start. Commercial installer: curl -fsSL https://prime.plane.so/install/ | sh - (read the script before running it); that edition starts on a free plan with 12 seats. Needs 2 CPU cores and 4 GB RAM. Instance admins configure the host in God mode. Self-hosted Plane sends telemetry to Plane by default: the admin's name and email, the instance ID, anonymised usage counts and performance data including stack traces. Turn it off in God mode under General Settings, Telemetry. AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/makeplane/plane).
+**Source checked:** 2026-10-28. [Official source](https://github.com/makeplane/plane). [Gearlist page](https://gearlist.build/tools/plane/).
 
 ### [SearXNG](https://docs.searxng.org/)
 
@@ -1645,7 +1646,7 @@ A self-hosted metasearch engine that queries the search services you enable and 
 
 **Access and use:** Self-host with Docker or Podman: mkdir -p ./searxng/core-config && cd ./searxng, curl -fsSL -O https://raw.githubusercontent.com/searxng/searxng/master/container/docker-compose.yml -O https://raw.githubusercontent.com/searxng/searxng/master/container/.env.example, cp .env.example .env, then docker compose up -d. Compose publishes 0.0.0.0:8080. Edit core-config/settings.yml. Manual run: docker run --name searxng -d -p 8888:8080 -v ./config/:/etc/searxng/ -v ./data/:/var/cache/searxng/ docker.io/searxng/searxng:latest then http://localhost:8888. Each query is sent to the engines you enable. A public instance operator sees the queries you type. AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/searxng/searxng).
+**Source checked:** 2026-10-28. [Official source](https://github.com/searxng/searxng). [Gearlist page](https://gearlist.build/tools/searxng/).
 
 ### [Invidious](https://invidious.io/)
 
@@ -1655,7 +1656,7 @@ An AGPL YouTube front-end for videos, subscriptions and comments, as a self-host
 
 **Access and use:** Public instances are listed at https://instances.invidious.io; that operator holds your subscriptions, history and watch requests, and the instance fetches video from YouTube. Self-host: git clone https://github.com/iv-org/invidious.git && cd invidious. Generate two 16-character keys with pwgen 16 1, put them in docker-compose.yml as hmac_key and invidious_companion_key (companion SERVER_SECRET_KEY must match). Default compose binds 127.0.0.1:3000. Needs about 20 GB disk and 2 GB RAM; restart at least daily. Playback needs Invidious companion. AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/iv-org/invidious).
+**Source checked:** 2026-10-28. [Official source](https://github.com/iv-org/invidious). [Gearlist page](https://gearlist.build/tools/invidious/).
 
 ### [SimpleX Chat](https://simplex.chat/)
 
@@ -1665,7 +1666,7 @@ An AGPL messenger that connects people with one-off invitation links or QR codes
 
 **Access and use:** Mobile: App Store, Google Play, F-Droid (https://app.simplex.chat) or the APK from GitHub Releases. Terminal: curl -o- https://raw.githubusercontent.com/simplex-chat/simplex-chat/stable/install.sh | bash (read the script before running it). Connect by scanning a QR code or opening an smp invitation link. Encrypted messages travel through the SMP relays you choose; the default public relays are operated by SimpleX Chat Ltd. AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/simplex-chat/simplex-chat).
+**Source checked:** 2026-10-28. [Official source](https://github.com/simplex-chat/simplex-chat). [Gearlist page](https://gearlist.build/tools/simplex-chat/).
 
 ### [ConvertX](https://github.com/C4illin/ConvertX)
 
@@ -1675,7 +1676,7 @@ A self-hosted file converter that wraps Inkscape, Calibre, LibreOffice, FFmpeg, 
 
 **Access and use:** Docker: map port 3000 and volume ./data:/app/data, set PUID to your host user id, then open http://localhost:3000 and create the first account. Anyone who can reach that URL can register that first account. Set JWT_SECRET. HTTP_ALLOWED=true only on a non-HTTPS local connection. Files land in ./data on the host; AUTO_DELETE_EVERY_N_HOURS defaults to 24. ALLOW_UNAUTHENTICATED and ACCOUNT_REGISTRATION stay off on a public host. AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/C4illin/ConvertX).
+**Source checked:** 2026-10-28. [Official source](https://github.com/C4illin/ConvertX). [Gearlist page](https://gearlist.build/tools/convertx/).
 
 ### [DocuSeal](https://www.docuseal.com/)
 
@@ -1685,7 +1686,7 @@ An AGPL platform for building PDF forms, collecting signatures and storing compl
 
 **Access and use:** Cloud sign-up is https://docuseal.com/sign_up; completed documents then live on DocuSeal LLC servers. Self-host: docker run --name docuseal -p 3000:3000 -v.:/data docuseal/docuseal then http://localhost:3000. Compose: curl https://raw.githubusercontent.com/docusealco/docuseal/master/docker-compose.yml > docker-compose.yml then sudo HOST=your-domain-name.com docker compose up. SQLite is the default; set DATABASE_URL for PostgreSQL or MySQL. Disk or S3/GCS/Azure for files. AGPL-3.0 with Section 7(b) additional terms: keep DocuSeal attribution in interactive UIs.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/docusealco/docuseal).
+**Source checked:** 2026-10-28. [Official source](https://github.com/docusealco/docuseal). [Gearlist page](https://gearlist.build/tools/docuseal/).
 
 ### [Midday](https://midday.ai)
 
@@ -1695,7 +1696,7 @@ An AGPL business workspace for invoicing, time tracking, inbox matching, file va
 
 **Access and use:** Cloud is https://app.midday.ai, run by Midday Labs AB; your invoices, transactions and files are then processed in Sweden. Bank connections go through GoCardless (EU), Plaid (Canada and US) or Teller (US). Hosted analytics use OpenPanel. Local: git clone https://github.com/midday-ai/midday.git then bun i; you need a Supabase account, which holds the database, files and sign-in, and an Upstash account for its key-value store (https://docs.midday.ai/local-development). AGPL-3.0 for non-commercial use. For commercial use, Midday Labs AB asks for a commercial licence at engineer@midday.ai.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/midday-ai/midday).
+**Source checked:** 2026-10-28. [Official source](https://github.com/midday-ai/midday). [Gearlist page](https://gearlist.build/tools/midday/).
 
 ### [Logto](https://logto.io/)
 
@@ -1705,7 +1706,7 @@ Open-source OIDC and OAuth 2.1 identity infrastructure with multi-tenancy, SSO, 
 
 **Access and use:** Cloud is https://cloud.logto.io; identity data then lives on Logto Cloud. Local Docker Compose: curl -fsSL https://raw.githubusercontent.com/logto-io/logto/HEAD/docker-compose.yml | docker compose -p logto -f - up. That compose bundles Postgres and drops data if you run it again. npm init @logto@latest needs Node.js 26+ and PostgreSQL 14+. Core is http://localhost:3001; Admin Console is http://localhost:3002. The welcome page creates one admin account with username and password. Recommended host: 2 vCPU, 8 GiB RAM, 256 GiB disk. MPL-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/logto-io/logto).
+**Source checked:** 2026-10-28. [Official source](https://github.com/logto-io/logto). [Gearlist page](https://gearlist.build/tools/logto/).
 
 ### [Leantime](https://leantime.io)
 
@@ -1715,7 +1716,7 @@ An AGPL project-management system for goals, tasks, timesheets, wikis and canvas
 
 **Access and use:** Cloud is https://leantime.io; project data then lives on Leantime's hosted service. Self-host needs PHP 8.2+ and MySQL 8.0+ or MariaDB 10.6+. Docker: docker run -d --restart unless-stopped -p 8080:8080 with LEAN_DB_HOST, LEAN_DB_USER, LEAN_DB_PASSWORD, LEAN_DB_DATABASE and LEAN_EMAIL_RETURN, then open http://localhost:8080/install. Files can go to local disk or S3. Plugins need the plugins volume mounted and writable by www-data. Self-hosted Leantime sends a daily anonymous usage summary (counts and versions) to telemetry.leantime.io by default; set LEAN_ALLOW_TELEMETRY=false to stop it. AGPL-3.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Leantime/leantime).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Leantime/leantime). [Gearlist page](https://gearlist.build/tools/leantime/).
 
 ### [Fluxer](https://fluxer.app)
 
@@ -1725,7 +1726,7 @@ An AGPL instant-messaging and VoIP app for friends, groups and communities, with
 
 **Access and use:** Hosted: https://web.fluxer.app or the desktop and mobile apps; messages then live on Fluxer's servers. Self-host: curl -fsSL https://fluxer.dev/install.sh | sh (read the script before running it). Windows: irm https://fluxer.dev/install.ps1 | iex (read the script before running it). Needs 2 CPU cores, 4 GB RAM, 20 GB disk, a domain A record, TCP 80, 443 and 7881, and UDP 443 and 7882. rexctl creates one admin account in the terminal or with a setup token. AGPL-3.0-or-later for the source; artwork is CC BY-SA 4.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/fluxerapp/fluxer).
+**Source checked:** 2026-10-28. [Official source](https://github.com/fluxerapp/fluxer). [Gearlist page](https://gearlist.build/tools/fluxer/).
 
 ### [Suwayomi Server](https://github.com/Suwayomi/Suwayomi-Server)
 
@@ -1735,7 +1736,7 @@ A Java manga reader server that runs Mihon (Tachiyomi) extensions, with a bundle
 
 **Access and use:** OS bundles (Windows, macOS, Linux) ship JRE, Electron and a launcher from GitHub Releases. Docker: ghcr.io/suwayomi/tachidesk, default http://localhost:4567. Jar needs JRE 21+: java -jar Suwayomi-Server-vX.Y.Z-rxxxx.jar. Library, backups and downloads live on the host. Installed extensions fetch chapters from the manga sites you enable; optional FlareSolverr and trackers (MyAnimeList, AniList, MangaUpdates) send data to those services. MPL-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/Suwayomi/Suwayomi-Server).
+**Source checked:** 2026-10-29. [Official source](https://github.com/Suwayomi/Suwayomi-Server). [Gearlist page](https://gearlist.build/tools/suwayomi-server/).
 
 ### [Open Executive](https://github.com/SenteLabsAI/OpenExecutive)
 
@@ -1745,7 +1746,7 @@ An Apache-licensed FastAPI and Next.js executive persona backed by nine speciali
 
 **Access and use:** git clone https://github.com/SenteLabsAI/OpenExecutive.git && make install, copy .env.example to .env, set ANTHROPIC_API_KEY, then make dev. UI is http://localhost:3000; API is http://localhost:8000. Needs Python 3.11+ and Node 22.6+. First boot downloads an embedding model of about 90 MB. Local make dev with blank AUTH_GOOGLE_ID accepts connections from this computer only. Company documents and memory are stored on the host (ChromaDB and SQLite); prompts, retrieved document chunks and memory go to the Anthropic API. Slack, mail, Telegram, Google Chat and similar connectors send messages through those services when you set their tokens. Apache-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/SenteLabsAI/OpenExecutive).
+**Source checked:** 2026-10-29. [Official source](https://github.com/SenteLabsAI/OpenExecutive). [Gearlist page](https://gearlist.build/tools/openexecutive/).
 
 ### [Mailflare](https://mailflare.co)
 
@@ -1755,7 +1756,7 @@ An AGPL custom-domain inbox with calendar, booking, Drive and an MCP mail assist
 
 **Access and use:** Cloudflare: Deploy to Cloudflare with Worker name mailflare, then open /setup to create the first admin account. CF_TOKEN is a scoped API token that can edit DNS and Email Routing on the zones you connect, and Email Sending if you send through Cloudflare. Docker: git clone https://github.com/hieunc229/mailflare.git && cd mailflare && cp .env.docker.example .env.docker && docker compose up -d --build. Setup is http://localhost:3000/setup. On Cloudflare, mailbox records live in D1 and files live in R2 (or B2 or S3) in that account. Docker stores SQLite, mail and backups in the mailflare-data volume. Send and receive through Cloudflare Email, Resend, Amazon SES or SMTP. The assistant sends mailbox content to the AI provider you set under Admin, Agent. MCP is Streamable HTTP at /mcp on your origin with a Bearer key; request_send still needs confirmation in Mailflare. Optional Pro and Team licence keys are checked with Paymug. AGPL-3.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/hieunc229/mailflare).
+**Source checked:** 2026-10-29. [Official source](https://github.com/hieunc229/mailflare). [Gearlist page](https://gearlist.build/tools/mailflare/).
 
 ### [OpenScience](https://openscience.sh)
 
@@ -1765,7 +1766,7 @@ An Apache-licensed research workbench that plans, searches literature, runs code
 
 **Access and use:** Desktop app for macOS, Windows and Linux from https://openscience.sh/download. CLI: npm install -g @synsci/openscience then openscience. Or npx synsci. Or curl -fsSL https://openscience.sh/install | bash (read the script before running it). First launch of the GUI asks you to sign in to a Synthetic Sciences account. Project files stay in the connected folder. Prompts go to the model provider you connect, a local endpoint, or Ace Wallet pay as you go. Ace auto reload is a separate opt-in that charges a saved card. Search, database connectors and remote compute send queries and selected files to those services. While signed in, session traces are shared by default, including sessions that use your own keys or a local model; turn that off under Customize, Permissions, Data and privacy. Apache-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/synthetic-sciences/openscience).
+**Source checked:** 2026-10-29. [Official source](https://github.com/synthetic-sciences/openscience). [Gearlist page](https://gearlist.build/tools/openscience/).
 
 ### [Piik](https://piik.tv)
 
@@ -1775,7 +1776,7 @@ An MIT screen-sharing app for one host and up to 20 viewers, with browser watch,
 
 **Access and use:** Hosted demo is https://demo.piik.tv, P2P only; video and audio travel between participants. App: download Piik App from https://piik.tv, then choose Public invite or Local room. Self-host: extract the Server archive from GitHub Releases and run ./piik-server (Linux) or ./piik-server.exe (Windows). Local UI is http://localhost:8787. Room records stay in SQLite. Docker: download compose.yaml and .env.example from the repo, set your domain, then docker compose up -d. Default is P2P with STUN on UDP 3478; optional SFU on UDP 7882 forwards video and audio through the server. Remote control, once you approve it, lets viewers use the host keyboard, mouse or a supported gamepad. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/TNTcraftHIM/Piik).
+**Source checked:** 2026-10-29. [Official source](https://github.com/TNTcraftHIM/Piik). [Gearlist page](https://gearlist.build/tools/piik/).
 
 ### [Whiteboard](https://dev.fast)
 
@@ -1785,7 +1786,7 @@ An MIT desktop canvas where humans and coding agents draw software maps, traces 
 
 **Access and use:** macOS, Windows and Linux installers from https://dev.fast/install. On macOS: brew install --cask devdotfast/tap/whiteboard. Connect Claude Code, Codex or another coding agent from the welcome screen. Whiteboards stay in ~/.dev/review-api.db. Anonymous telemetry is on by default and goes to PostHog as feature counts, durations and versions under a random installation ID; it omits source code, diffs, paths, prompts and model output. Turn it off in Settings under Share anonymous usage data, or set DO_NOT_TRACK=1. After a crash, the next launch uploads the dump to bug.dev.fast, and it can contain process memory including open source text; with telemetry off, dumps are deleted without upload. whiteboard share uploads a copy of that whiteboard, traces and referenced source to the /dev/fast share service. Trace capture is off until you allow a repository. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/devdotfast/whiteboard).
+**Source checked:** 2026-10-29. [Official source](https://github.com/devdotfast/whiteboard). [Gearlist page](https://gearlist.build/tools/whiteboard/).
 
 ### [It's a Plan](https://itsaplan.dev)
 
@@ -1795,7 +1796,7 @@ An AGPL self-hosted issue tracker where people and agents share the same board, 
 
 **Access and use:** git clone https://github.com/croffasia/itsaplan.git && bun install && bun run setup, then answer Try it. UI is http://localhost:3001; API is http://localhost:3000. Production: copy .env.example to .env, set the secrets and public URLs, then docker compose up -d behind TLS. The first account is instance admin. Issues live in Postgres; files live in RustFS. Agent prompts go to the model or CLI you configure. A daily telemetry snapshot goes to https://telemetry.itsaplan.dev by default (counts as ranges, plus which features and integrations are on); set TELEMETRY_DISABLED=1 or DO_NOT_TRACK=1 to stop it. MCP is on the API origin. AGPL-3.0; the runner package is Apache-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/croffasia/itsaplan).
+**Source checked:** 2026-10-29. [Official source](https://github.com/croffasia/itsaplan). [Gearlist page](https://gearlist.build/tools/itsaplan/).
 
 ### [openwork](https://github.com/langchain-ai/openwork)
 
@@ -1805,7 +1806,7 @@ A LangChain desktop UI for deepagentsjs, with filesystem tools, planning and sub
 
 **Access and use:** npx openwork, or npm install -g openwork then openwork. Needs Node.js 18 or later. From source: git clone https://github.com/langchain-ai/openwork.git && npm install && npm run dev. Set Anthropic, OpenAI or Google keys in the settings panel. Agents can read the filesystem and run shell commands; review each tool call and only open workspaces you trust. Prompts go to the model provider you choose. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/langchain-ai/openwork).
+**Source checked:** 2026-10-29. [Official source](https://github.com/langchain-ai/openwork). [Gearlist page](https://gearlist.build/tools/openwork/).
 
 ### [ZTM](https://github.com/flomesh-io/ztm)
 
@@ -1815,7 +1816,7 @@ An Apache-licensed zero-trust mesh of HTTP/2 tunnels, with a hub, agents, TLS ce
 
 **Access and use:** Download the CLI or desktop app from GitHub Releases. Hub: ztm start hub --listen 0.0.0.0:8888 --names YOUR_PUBLIC_IP:8888 --permit root.json. Agent: ztm start agent, then ztm join MESH --as NAME --permit root.json. GUI is http://localhost:7777 after the agent starts. Hub state is ~/.ztm/ztm-hub.db; agent state is ~/.ztm/ztm.db. Traffic is TLS. The permit file is the join key. Apache-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/flomesh-io/ztm).
+**Source checked:** 2026-10-29. [Official source](https://github.com/flomesh-io/ztm). [Gearlist page](https://gearlist.build/tools/ztm/).
 
 ### [CodeVibes](https://github.com/danish296/codevibes)
 
@@ -1825,7 +1826,7 @@ An MIT GitHub-repo auditor that scores security, bugs and quality with DeepSeek 
 
 **Access and use:** Self-host: git clone https://github.com/danish296/codevibes.git, npm install, then cd codevibes-backend && npm install, copy .env.example to .env, set DEEPSEEK_API_KEY, JWT_SECRET and a 32-character ENCRYPTION_KEY. Backend: npm run dev at http://localhost:3001. Frontend: npm run dev at http://localhost:8080. History is SQLite at codevibes-backend/data/codevibes.db. Repo files go to DeepSeek. Private repos need a GitHub token or GitHub OAuth (GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET). MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/danish296/codevibes).
+**Source checked:** 2026-10-29. [Official source](https://github.com/danish296/codevibes). [Gearlist page](https://gearlist.build/tools/codevibes/).
 
 ### [Hands](https://hands.build)
 
@@ -1835,7 +1836,7 @@ An MIT Cloudflare-native release platform for draft-first app builds, staged rol
 
 **Access and use:** Hosted dashboard https://app.hands.build and API https://hands.build, run by Oranix on Cloudflare Workers, D1 and R2. Login with Raft. CLI: npm install -g @botiverse/hands-cli, then hands login (browser JWT saved at $XDG_CONFIG_HOME/quiver/auth.json) or CI HANDS_API=https://hands.build with HANDS_AUTH_TOKEN or HANDS_BEARER_TOKEN. Builds, crash reports, feedback and installable artifacts go to that Cloudflare account. Self-host: git clone https://github.com/botiverse/hands.git, pnpm install, pnpm --filter @botiverse/hands-worker dev at http://127.0.0.1:8787, pnpm --filter @botiverse/hands-admin dev at http://localhost:5173 (proxies /api to 8787). Docker is needed for the APK parser container. Set RAFT_CLIENT_ID in worker config and wrangler secret put RAFT_CLIENT_SECRET. The production Worker config turns Cloudflare observability traces on (5 percent head sample, persist). MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/botiverse/hands).
+**Source checked:** 2026-10-29. [Official source](https://github.com/botiverse/hands). [Gearlist page](https://gearlist.build/tools/hands/).
 
 ### [Antiproton](https://antiproton.ai)
 
@@ -1845,7 +1846,7 @@ An Apache-2.0 Cloudflare-native multi-tenant runtime for autonomous agents, with
 
 **Access and use:** Hosted UI https://antiproton.ai and admin https://admin.antiproton.ai, run by botiverse on Cloudflare Workers, Durable Objects, D1 and R2. Custom domain antiproton.botiverse.dev sits behind Cloudflare Access. GitHub sign-in; UI_ALLOW_ANONYMOUS is 0; GITHUB_OPEN_SIGNUP is 1 so a GitHub account registers on first sign-in. Self-host: git clone https://github.com/botiverse/antiproton.git, npm install, Node.js 24+. cd cf && npx wrangler dev. npx wrangler secret put ANTHROPIC_API_KEY, or OPENROUTER_API_KEY or DEEPSEEK_API_KEY. Production deploy: cf/scripts/deploy-pinned.sh from origin/master. Default HARNESS_MODEL is deepseek-flash. USER_MODELS are deepseek-flash and gpt-5.6-luna through Cloudflare AI Gateway once AI_GATEWAY_TOKEN is set. Credentials stay behind the tool gateway and never enter model context prompts, tool outputs or execution logs. Three tiers: Durable Object plus SQLite per tenant and agent; V8 Dynamic Worker with globalOutbound null; Run9 containers with a 30 minute idle lease and a 5 minute warning. TRACE_INGEST_URL and TRACE_INGEST_TOKEN are unset so trace forwarding is off. Cloudflare observability is enabled. Raft provision APIs can create hosted agents. Daily spend limits apply on the operator model accounts. Docs: docs/agents-api.md, docs/agent-surface.md, docs/plugins.md, docs/runbook.md. Default branch is master. Apache-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/botiverse/antiproton).
+**Source checked:** 2026-10-29. [Official source](https://github.com/botiverse/antiproton). [Gearlist page](https://gearlist.build/tools/antiproton/).
 
 ### [BillionMail](https://github.com/Billionmail/BillionMail)
 
@@ -1855,7 +1856,7 @@ A self-hosted mail server and email campaign platform with contact groups, templ
 
 **Access and use:** Linux amd64 or arm64 with Docker and Docker Compose. The stack includes PostgreSQL, Redis, Postfix, Dovecot, Rspamd and Roundcube; the management container has a Docker socket mount and network capabilities. Requires domain and DNS configuration. Self-hosting, maintenance and any external SMTP relay or AI provider have their own costs. SMTP relay is configurable per sending domain. AI features can call configured model providers, and an image-upload path uses the BillionMail CDN. AGPL-3.0. CVE-2026-111367 affects releases through 4.9; the reviewed dev source still has deterministic fallback generation for subscription signing secrets. A fixed deployment image has not been verified. Separate contact groups or domains do not by themselves keep one client's data apart from another's. We list it for its documentation and source only.
 
-**Source checked:** 2026-10-30. [Official source](https://github.com/Billionmail/BillionMail/blob/fc36c76c050c3775c5e899faf7403cf0262d2744/README.md).
+**Source checked:** 2026-10-30. [Official source](https://github.com/Billionmail/BillionMail/blob/fc36c76c050c3775c5e899faf7403cf0262d2744/README.md). [Gearlist page](https://gearlist.build/tools/billionmail/).
 
 ### [n8n](https://github.com/n8n-io/n8n)
 
@@ -1865,7 +1866,7 @@ A visual workflow platform that combines integrations, AI models, code and appro
 
 **Access and use:** Self-host with Docker using docker.n8n.io/n8nio/n8n; the editor runs on port 5678 and the n8n_data volume persists data under /home/node/.n8n. Workflows use the credentials and data access of the connected services; model and service charges still apply. n8n Cloud has its own account and plan. Source-available under the Sustainable Use License for internal business, personal or non-commercial use, with separate enterprise terms for designated code. Check the licence before embedding it in a customer product or offering hosted access.
 
-**Source checked:** 2026-10-30. [Official source](https://github.com/n8n-io/n8n/blob/21e9955261c5a97b3620f6ecabecc53944b70318/README.md).
+**Source checked:** 2026-10-30. [Official source](https://github.com/n8n-io/n8n/blob/21e9955261c5a97b3620f6ecabecc53944b70318/README.md). [Gearlist page](https://gearlist.build/tools/n8n/).
 
 ### [Dify](https://github.com/langgenius/dify)
 
@@ -1875,7 +1876,7 @@ A visual platform for AI applications, agents, document retrieval and model work
 
 **Access and use:** Self-host with Docker Compose 2.24 or later. The README specifies at least 2 CPU cores and 4 GiB RAM. From the docker directory, configure .env and start Compose; initialise through /install. Dify Cloud needs an account and has its own plan. Documents and conversation data are processed by the deployment and whichever models, tools or observability services you configure. Model-provider charges still apply. The modified Apache-2.0 licence restricts operating a multi-tenant environment without written authorisation or a commercial licence, and removing frontend logos or copyright notices. A workspace is a tenant under these terms.
 
-**Source checked:** 2026-10-30. [Official source](https://github.com/langgenius/dify/blob/7e15fac03242a9e6a3a1e5010b06956c7aa101a2/README.md).
+**Source checked:** 2026-10-30. [Official source](https://github.com/langgenius/dify/blob/7e15fac03242a9e6a3a1e5010b06956c7aa101a2/README.md). [Gearlist page](https://gearlist.build/tools/dify/).
 
 ### [Langflow](https://github.com/langflow-ai/langflow)
 
@@ -1885,7 +1886,7 @@ A visual builder for AI agents and workflows that can expose flows through APIs 
 
 **Access and use:** The README supports a desktop app for Windows and macOS, a Python package, or Docker. Python 3.10 to 3.14; install with uv pip install langflow -U, then uv run langflow run. Local UI is http://127.0.0.1:7860. Set LANGFLOW_SUPERUSER_PASSWORD before startup. Official release packages and Docker images require authentication by default; development branches retain automatic login. Flow components can use connected files, models, databases and service credentials, with provider charges where applicable. MIT.
 
-**Source checked:** 2026-10-30. [Official source](https://github.com/langflow-ai/langflow/blob/b5c54a64e685b7e50fd3bc76e965ad718fc2dea3/README.md).
+**Source checked:** 2026-10-30. [Official source](https://github.com/langflow-ai/langflow/blob/b5c54a64e685b7e50fd3bc76e965ad718fc2dea3/README.md). [Gearlist page](https://gearlist.build/tools/langflow/).
 
 ### [CrewAI](https://github.com/crewAIInc/crewAI)
 
@@ -1895,7 +1896,7 @@ A Python framework for composing agent teams and controlled workflows with tools
 
 **Access and use:** Requires Python 3.10 to 3.13 and uv. Install the CLI with uv tool install crewai. Models and tool integrations need their own configuration, credentials and any provider fees. The framework can run tools with the access the host gives them. Its README describes usage telemetry, disabled with OTEL_SDK_DISABLED=true. Enabling share_crew additionally shares detailed agent and task execution data. MIT.
 
-**Source checked:** 2026-10-30. [Official source](https://github.com/crewAIInc/crewAI/blob/97bbfb64811775a965304bda45c8ec0e8e4ef3a2/README.md).
+**Source checked:** 2026-10-30. [Official source](https://github.com/crewAIInc/crewAI/blob/97bbfb64811775a965304bda45c8ec0e8e4ef3a2/README.md). [Gearlist page](https://gearlist.build/tools/crewai/).
 
 ### [RAGFlow](https://github.com/infiniflow/ragflow)
 
@@ -1905,7 +1906,7 @@ A document retrieval and agent platform that parses documents and supplies retri
 
 **Access and use:** Self-host through Docker and Docker Compose; the reviewed README quickstart selects release candidate v1.0.0-rc2. Recommended starting host: 4 CPU cores, 16 GB RAM and 50 GB disk, with more resources for local models or higher load. Docker 24 or later and Compose 2.26.1 or later. Configure an LLM, embedding model and reranker, including endpoint and API key as needed. Uploaded documents are processed and stored by the deployment, and configured model services may receive document or query content. Provider and hosting costs apply. Apache-2.0.
 
-**Source checked:** 2026-10-30. [Official source](https://github.com/infiniflow/ragflow/blob/6f571fda64cb4eb712aa6c06b3209a4b0553a27c/README.md).
+**Source checked:** 2026-10-30. [Official source](https://github.com/infiniflow/ragflow/blob/6f571fda64cb4eb712aa6c06b3209a4b0553a27c/README.md). [Gearlist page](https://gearlist.build/tools/ragflow/).
 
 ### [Open WebUI](https://github.com/open-webui/open-webui)
 
@@ -1915,7 +1916,7 @@ A self-hosted chat interface for local and remote models, including Ollama and O
 
 **Access and use:** Use the official Docker image ghcr.io/open-webui/open-webui, or install the Python package with Python 3.12. The Docker quickstart serves the UI on localhost:3000 and persists the database and uploads in the open-webui volume at /app/backend/data. Local or remote model endpoints determine where prompts and documents go and whether provider charges apply. Offline use needs local models and assets prepared first. The current Open WebUI License includes branding-preservation requirements, with exceptions including deployments of at most 50 end users in a rolling 30-day period or written permission. Earlier components retain their original terms. Check the licence before rebranding.
 
-**Source checked:** 2026-10-30. [Official source](https://github.com/open-webui/open-webui/blob/f7ac7ee10962ddec0017f5c29b6740d9b9c5faca/README.md).
+**Source checked:** 2026-10-30. [Official source](https://github.com/open-webui/open-webui/blob/f7ac7ee10962ddec0017f5c29b6740d9b9c5faca/README.md). [Gearlist page](https://gearlist.build/tools/open-webui/).
 
 ### [ToolJet](https://github.com/ToolJet/ToolJet)
 
@@ -1925,7 +1926,7 @@ A visual builder for internal tools, admin panels and dashboards that run on exi
 
 **Access and use:** Use ToolJet Cloud with an account, or self-host on Docker, Kubernetes, AWS, GCP, Azure and the other documented targets. The README's quick-try image is tooljet/try:ee-lts-latest on port 80. Each data source needs its own credentials, which apps use to run queries. The MCP server is marked beta and runs agent operations on your own model subscription. AI app generation, workflows and the agent builder are listed under the Enterprise edition, whose code sits in non-public submodules (frontend/ee, server/ee). The repository is AGPL-3.0, which requires offering source for modified versions run as a network service.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/ToolJet/ToolJet).
+**Source checked:** 2026-11-03. [Official source](https://github.com/ToolJet/ToolJet). [Gearlist page](https://gearlist.build/tools/tooljet/).
 
 ### [Future AGI](https://github.com/future-agi/future-agi)
 
@@ -1935,7 +1936,7 @@ A self-hostable platform for tracing, evaluating, simulating and guarding LLM an
 
 **Access and use:** Future AGI Cloud needs an account. Self-host clones the repository and runs ./bin/install, which writes secrets to .env and pulls about 800 MB of images. The default Standalone setup needs Docker Compose v2.24 or newer with 2 vCPUs and 4 GB of memory; a Helm chart is also published. Apps send traces with an API key and secret key; add LLM provider keys when you need them. Self-hosted installs send telemetry by default, including the email addresses of owner, admin and staff accounts. Opting out with --no-telemetry or FUTURE_AGI_TELEMETRY_DISABLED=true still sends one registration without email addresses; block api.futureagi.com to send nothing. The core is Apache-2.0, but code in ee/ directories is under the Future AGI Enterprise License and needs a paid subscription for production use.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/future-agi/future-agi).
+**Source checked:** 2026-11-03. [Official source](https://github.com/future-agi/future-agi). [Gearlist page](https://gearlist.build/tools/future-agi/).
 
 ### [OpenMuse](https://github.com/CopilotKit/openmuse)
 
@@ -1945,7 +1946,7 @@ An alpha personal agent app for iOS, Android and web, built on CopilotKit and AG
 
 **Access and use:** Needs Node 24, pnpm 11.19.0 and a CopilotKit Intelligence project key in every mode; Intelligence is a separate service outside the MIT licence. A model needs an OpenAI, Anthropic or Google key. Gmail and Calendar need your own Google OAuth client plus live mode with an access key and token encryption key, and each send or calendar change waits for review. Web search is on by default and sends model-generated queries and context to Parallel's Search MCP; set WEB_SEARCH_ENABLED=false to turn it off. The CopilotKit SDK sends runtime telemetry to PostHog. The optional Linux computer needs Docker. The Render blueprint runs the API and browser on Standard instances. One owner behind a shared access key; not multi-tenant. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/CopilotKit/openmuse).
+**Source checked:** 2026-11-03. [Official source](https://github.com/CopilotKit/openmuse). [Gearlist page](https://gearlist.build/tools/openmuse/).
 
 ### [Agent Lightning](https://github.com/microsoft/agent-lightning)
 
@@ -1955,7 +1956,7 @@ Microsoft's reinforcement learning framework for training the model behind an ag
 
 **Access and use:** Needs a CUDA GPU machine. The README example runs uv sync and a verl setup script for CUDA 13.0, and the trainer uses verl and vLLM. Agents run locally or as Kubernetes Jobs. The Calc-X example needs one GPU. Releases before v1.0 live on the v0.x branch. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/microsoft/agent-lightning).
+**Source checked:** 2026-11-03. [Official source](https://github.com/microsoft/agent-lightning). [Gearlist page](https://gearlist.build/tools/agent-lightning/).
 
 ### [Social Blade](https://socialblade.com/)
 
@@ -1965,7 +1966,7 @@ Public statistics, growth history and estimated earnings for YouTube, Instagram,
 
 **Access and use:** Public pages are free to read. Reports and an API are for business customers. Earnings figures are estimates from public view counts.
 
-**Source checked:** 2026-11-05. [Official source](https://socialblade.com/info).
+**Source checked:** 2026-11-05. [Official source](https://socialblade.com/info). [Gearlist page](https://gearlist.build/tools/social-blade/).
 
 ## Protocols
 
@@ -1977,7 +1978,7 @@ An open protocol for payments over HTTP using the 402 response.
 
 **Access and use:** Connecting a payment client can spend funds. Set explicit transaction limits.
 
-**Source checked:** 2026-10-25. [Official source](https://x402.org/).
+**Source checked:** 2026-10-25. [Official source](https://x402.org/). [Gearlist page](https://gearlist.build/tools/x402/).
 
 ### [Model Context Protocol](https://modelcontextprotocol.io)
 
@@ -1987,7 +1988,7 @@ An open protocol that connects LLM applications to tools, resources and data sou
 
 **Access and use:** Spec and docs at modelcontextprotocol.io. Official org is github.com/modelcontextprotocol. Python SDK (MIT): uv add "mcp[cli]" or pip install "mcp[cli]", Python 3.11 or later. TypeScript SDK at github.com/modelcontextprotocol/typescript-sdk. Public servers are listed in the Official MCP Registry already in this catalog. The servers repo keeps only steering-group reference servers. New spec and code contributions are Apache-2.0; some older MIT remains; docs excluding the spec are CC BY 4.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/modelcontextprotocol/modelcontextprotocol).
+**Source checked:** 2026-10-28. [Official source](https://github.com/modelcontextprotocol/modelcontextprotocol). [Gearlist page](https://gearlist.build/tools/mcp/).
 
 ### [Agent2Agent (A2A)](https://a2a-protocol.org)
 
@@ -1997,7 +1998,7 @@ An open protocol for independent agents to discover each other and collaborate o
 
 **Access and use:** pip install a2a-sdk. Also official Go, JavaScript, Java, .NET and Rust SDKs. Spec v1.0 at a2a-protocol.org. Linux Foundation project, donated by Google. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/a2aproject/A2A).
+**Source checked:** 2026-10-28. [Official source](https://github.com/a2aproject/A2A). [Gearlist page](https://gearlist.build/tools/a2a/).
 
 ### [Agent Client Protocol](https://agentclientprotocol.com)
 
@@ -2007,7 +2008,7 @@ An open protocol that connects a code editor to a coding agent so they can share
 
 **Access and use:** Spec at agentclientprotocol.com. Current stable protocol version is 1. TypeScript: npm install @agentclientprotocol/sdk. Rust: cargo add agent-client-protocol. Also official Python, Java and Kotlin SDKs. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/agentclientprotocol/agent-client-protocol).
+**Source checked:** 2026-10-28. [Official source](https://github.com/agentclientprotocol/agent-client-protocol). [Gearlist page](https://gearlist.build/tools/agent-client-protocol/).
 
 ## Skills and learning
 
@@ -2019,7 +2020,7 @@ Agent skills and reporting tools for AI readiness audits and fix plans. Tech Hor
 
 **Access and use:** Skills may use external services or scan a site. Obtain target permission and review dependencies before running them.
 
-**Source checked:** 2026-10-25. [Official source](https://github.com/techhorizonlabs/thl-open).
+**Source checked:** 2026-10-25. [Official source](https://github.com/techhorizonlabs/thl-open). [Gearlist page](https://gearlist.build/tools/thl-open/).
 
 ### [AGENTS.md](https://agents.md)
 
@@ -2029,7 +2030,7 @@ An open markdown format at the root of a repository that tells coding agents how
 
 **Access and use:** A file in a clone. It does not grant credentials. Agents that read it will follow those instructions, so keep secrets out of it.
 
-**Source checked:** 2026-10-26. [Official source](https://github.com/agentsmd/agents.md).
+**Source checked:** 2026-10-26. [Official source](https://github.com/agentsmd/agents.md). [Gearlist page](https://gearlist.build/tools/agents-md/).
 
 ### [npx skills](https://github.com/vercel-labs/skills)
 
@@ -2039,7 +2040,7 @@ A command line installer that copies Agent Skills (SKILL.md folders) into the sk
 
 **Access and use:** Writes files onto the machine. Treat a skill as untrusted code and instructions until you have read it. Example: npx skills add techhorizonlabs/thl-open.
 
-**Source checked:** 2026-10-26. [Official source](https://github.com/vercel-labs/skills).
+**Source checked:** 2026-10-26. [Official source](https://github.com/vercel-labs/skills). [Gearlist page](https://gearlist.build/tools/npx-skills/).
 
 ### [Anthropic skills](https://github.com/anthropics/skills)
 
@@ -2049,7 +2050,7 @@ Public Agent Skills from Anthropic for coding agents that read SKILL.md.
 
 **Access and use:** Public git clone or npx skills add. GitHub licence field was empty on 26 October 2026. Read the repository licence files before reuse.
 
-**Source checked:** 2026-10-26. [Official source](https://github.com/anthropics/skills).
+**Source checked:** 2026-10-26. [Official source](https://github.com/anthropics/skills). [Gearlist page](https://gearlist.build/tools/anthropic-skills/).
 
 ### [Hyperresearch](https://github.com/jordan-gibbs/hyperresearch)
 
@@ -2059,7 +2060,7 @@ A deep research skill and CLI that collects web and scholarly sources into a per
 
 **Access and use:** pip install writes skills, hooks and project files. Runs need network and write access. Hosted product at hyperresearch.ai is a separate account. MIT. Check what the vault stores before pointing it at private material.
 
-**Source checked:** 2026-10-27. [Official source](https://github.com/jordan-gibbs/hyperresearch).
+**Source checked:** 2026-10-27. [Official source](https://github.com/jordan-gibbs/hyperresearch). [Gearlist page](https://gearlist.build/tools/hyperresearch/).
 
 ### [Tech Horizon Academy](https://academy.techhorizonlabs.com/)
 
@@ -2069,7 +2070,7 @@ A free academy of Claude skills, prompts and AI tools for Australian small busin
 
 **Access and use:** Public site. Skills and prompts are instructions; tools in the directory may need their own accounts. Indexes on 27 Oct 2026: 67 skills, 206 tools, 1217 prompt titles. Indexes are names and notes, not skill bodies or prompt text. Some academy tool pages carry partner flags; Gearlist omits referral parameters.
 
-**Source checked:** 2026-10-27. [Official source](https://academy.techhorizonlabs.com/skills).
+**Source checked:** 2026-10-27. [Official source](https://academy.techhorizonlabs.com/skills). [Gearlist page](https://gearlist.build/tools/tech-horizon-academy/).
 
 ### [Claude Academy](https://academy.claude.com/)
 
@@ -2079,7 +2080,7 @@ Anthropic's official courses on Claude, Claude Code, MCP, skills and the Claude 
 
 **Access and use:** Free courses at academy.claude.com. Some lessons need a Claude account.
 
-**Source checked:** 2026-10-27. [Official source](https://academy.claude.com/courses).
+**Source checked:** 2026-10-27. [Official source](https://academy.claude.com/courses). [Gearlist page](https://gearlist.build/tools/claude-academy/).
 
 ### [Claude plugins official](https://github.com/anthropics/claude-plugins-official)
 
@@ -2089,7 +2090,7 @@ Anthropic's official Claude Code plugin marketplace. 315 plugins counted on 27 O
 
 **Access and use:** Claude Code adds this marketplace on first interactive session. A plugin can install MCP servers and write config. Review a plugin before enabling it. Names and homepages are in indexes/claude-plugins-official.json. Not a security audit of each plugin.
 
-**Source checked:** 2026-10-27. [Official source](https://code.claude.com/docs/en/plugins/anthropic-marketplaces).
+**Source checked:** 2026-10-27. [Official source](https://code.claude.com/docs/en/plugins/anthropic-marketplaces). [Gearlist page](https://gearlist.build/tools/claude-plugins-official/).
 
 ### [SkillsMP](https://skillsmp.com/)
 
@@ -2099,7 +2100,7 @@ A community index of Agent Skills scraped from GitHub. Not run by Anthropic.
 
 **Access and use:** Unvetted. Individual skills keep their upstream licences. Anonymous API is rate limited. Treat a listed skill as untrusted code until you have read it. Optional paid API plans.
 
-**Source checked:** 2026-10-27. [Official source](https://skillsmp.com/).
+**Source checked:** 2026-10-27. [Official source](https://skillsmp.com/). [Gearlist page](https://gearlist.build/tools/skillsmp/).
 
 ### [Anthropic Cybersecurity Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)
 
@@ -2109,7 +2110,7 @@ An independent community library of 818 cybersecurity skills in the agentskills.
 
 **Access and use:** Install with npx skills add mukul975/Anthropic-Cybersecurity-Skills. Apache-2.0. Includes offensive and dual-use techniques. Use only on systems you own or have written permission to test. A listed skill is not a security audit of your environment.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/mukul975/Anthropic-Cybersecurity-Skills).
+**Source checked:** 2026-10-28. [Official source](https://github.com/mukul975/Anthropic-Cybersecurity-Skills). [Gearlist page](https://gearlist.build/tools/anthropic-cybersecurity-skills/).
 
 ### [OrchestKit](https://orchestkit.dev)
 
@@ -2119,7 +2120,7 @@ A free Claude Code plugin of skills, agents and hooks for review, testing, secur
 
 **Access and use:** Claude Code: claude plugin marketplace add yonatangross/orchestkit && claude plugin install ork@orchestkit, then /ork:setup. Hooks read tool events and write local metrics under ~/.local/state/orchestkit/. Prompt text is not recorded. Network telemetry is off unless you set a destination. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/yonatangross/orchestkit).
+**Source checked:** 2026-10-28. [Official source](https://github.com/yonatangross/orchestkit). [Gearlist page](https://gearlist.build/tools/orchestkit/).
 
 ### [UX/UI Agent Skills](https://plugin87.github.io/ux-ui-agent-skills/)
 
@@ -2129,7 +2130,7 @@ A design-system kit for coding agents (also called XIAS): tokens, 26 skills, 52 
 
 **Access and use:** Claude Code: /plugin marketplace add plugin87/ux-ui-agent-skills then /plugin install ux-ui-agent-skills@ux-ui-agent-skills. Other hosts: npx ux-ui-agent-skills init, or Homebrew plugin87/tap/ux-ui-agent-skills. MCP is claude mcp add ux-ui-gates -- npx -y --package=ux-ui-agent-skills ux-ui-mcp. 34 of the 52 gates open a real browser using Chrome on the machine or npx playwright install chrome. Live demo needs no install. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/plugin87/ux-ui-agent-skills).
+**Source checked:** 2026-10-28. [Official source](https://github.com/plugin87/ux-ui-agent-skills). [Gearlist page](https://gearlist.build/tools/ux-ui-agent-skills/).
 
 ### [AI Marketing Skills](https://github.com/ericosiu/ai-marketing-skills)
 
@@ -2139,7 +2140,7 @@ Open-source Claude Code skills for growth experiments, sales pipeline, content o
 
 **Access and use:** Clone the repo, then copy each skill directory (SKILL.md plus any scripts, references or agents) into your agent's skills folder. Categories also ship Python scripts; pip install -r requirements.txt and fill .env with the API keys that category needs. Local usage logs live at ~/.ai-marketing-skills/analytics/. Remote telemetry stays off until you opt in. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/ericosiu/ai-marketing-skills).
+**Source checked:** 2026-10-28. [Official source](https://github.com/ericosiu/ai-marketing-skills). [Gearlist page](https://gearlist.build/tools/ai-marketing-skills/).
 
 ### [Solid Glass](https://deeplethe.github.io/solid-glass)
 
@@ -2149,7 +2150,7 @@ A shadcn/ui stylesheet and component registry for agent workspaces: status, comp
 
 **Access and use:** Start from a shadcn/ui project, then npx shadcn@latest add deeplethe/solid-glass/solid-glass and import the stylesheet after Tailwind and shadcn. Extra components such as status-glyph install the same way. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/deeplethe/solid-glass).
+**Source checked:** 2026-10-28. [Official source](https://github.com/deeplethe/solid-glass). [Gearlist page](https://gearlist.build/tools/solid-glass/).
 
 ### [Product Launch Motion](https://github.com/AbubakrChan/product-launch-motion)
 
@@ -2159,7 +2160,7 @@ A Claude Code skill that reads a website URL and renders a local launch film wit
 
 **Access and use:** npx skills add AbubakrChan/product-launch-motion. Needs Claude Code, Node 20 or later, Playwright, FFmpeg, and Python with numpy. Renders on the local machine. MIT on the skill and references. The sample films belong to Cheerful, and the MIT licence doesn't cover them.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/AbubakrChan/product-launch-motion).
+**Source checked:** 2026-10-28. [Official source](https://github.com/AbubakrChan/product-launch-motion). [Gearlist page](https://gearlist.build/tools/product-launch-motion/).
 
 ### [jev-seo](https://github.com/AgriciDaniel/jev-seo)
 
@@ -2169,7 +2170,7 @@ A local Python CLI and Claude Code skill that crawls a site, scores technical ru
 
 **Access and use:** Python 3.10 or later. git clone, then python3 -m venv and pip install -r requirements.txt. WeasyPrint needs Pango. Set TYPESAFE_API_KEY in .env for Jev judgments; without it the audit still runs as a partial audit. Optional PAGESPEED_API_KEY, and for --full DATAFORSEO_USERNAME and DATAFORSEO_PASSWORD. Optional Playwright Chromium for JavaScript-only pages. Reports land under jev-seo-reports/. Claude Code: ln -s the clone into ~/.claude/skills/jev-seo. MIT. Bundled fonts are SIL. Jev citability answers are model judgments of a page.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/AgriciDaniel/jev-seo).
+**Source checked:** 2026-10-28. [Official source](https://github.com/AgriciDaniel/jev-seo). [Gearlist page](https://gearlist.build/tools/jev-seo/).
 
 ### [SEOmator SEO Audit](https://github.com/seo-skills/seo-audit-skill)
 
@@ -2179,7 +2180,7 @@ A local CLI, Electron app and Claude Code skill that crawls a site, scores techn
 
 **Access and use:** Node.js 20.3 or later. npm install -g @seomator/seo-audit, then seomator audit URL. For Core Web Vitals, npx playwright install chromium. Audits land in ~/.seomator by default; seomator serve binds loopback with a per-launch token. Claude Code: npx skills add seo-skills/seo-audit-skill. MIT. This entry covers the open-source audit engine only.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/seo-skills/seo-audit-skill).
+**Source checked:** 2026-10-28. [Official source](https://github.com/seo-skills/seo-audit-skill). [Gearlist page](https://gearlist.build/tools/seomator-seo-audit/).
 
 ### [Hallmark](https://www.usehallmark.com/)
 
@@ -2189,7 +2190,7 @@ A design skill that picks a theme, builds a self-contained HTML page from your b
 
 **Access and use:** npx skills add nutlope/hallmark -g. Needs Node 18 or later. Browser checks need puppeteer-core and Chrome; static checks still run without them. MIT. Bundled photo index points at Wikimedia Commons; each photograph keeps its own licence and is credited on the page.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/Nutlope/hallmark).
+**Source checked:** 2026-10-28. [Official source](https://github.com/Nutlope/hallmark). [Gearlist page](https://gearlist.build/tools/hallmark/).
 
 ### [Superpowers](https://github.com/obra/superpowers)
 
@@ -2199,7 +2200,7 @@ A skills pack that makes a coding agent specify, plan, test and review before it
 
 **Access and use:** Claude Code: /plugin install superpowers@claude-plugins-official. Other harnesses have their own plugin install in the README. Optional visual companion loads a logo from primeradiant.com with the Superpowers version; set SUPERPOWERS_DISABLE_TELEMETRY to turn that off. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/obra/superpowers).
+**Source checked:** 2026-10-28. [Official source](https://github.com/obra/superpowers). [Gearlist page](https://gearlist.build/tools/superpowers/).
 
 ### [Spec Kit](https://github.github.io/spec-kit/)
 
@@ -2209,7 +2210,7 @@ A GitHub toolkit that gives a coding agent spec-driven build, bug-fix and idea-a
 
 **Access and use:** Python 3.11 or later and uv. uv tool install specify-cli, then specify init my-project --integration copilot (or another listed agent). Bug-fix and assessment extensions are specify extension add bug and specify extension add assess. Community catalog listings are unvetted. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/github/spec-kit).
+**Source checked:** 2026-10-28. [Official source](https://github.com/github/spec-kit). [Gearlist page](https://gearlist.build/tools/spec-kit/).
 
 ### [Marketing Skills](https://marketing-skills.com)
 
@@ -2219,7 +2220,7 @@ A pack of marketing skills for coding agents covering conversion, copy, SEO, ads
 
 **Access and use:** npx skills add coreyhaines31/marketingskills. From inside Claude Code, pass -a claude-code so it lands in .claude/skills. Claude Code plugin: /plugin marketplace add coreyhaines31/marketingskills then /plugin install marketing-skills. MIT. Verified partners fund the library and sit beside the integrations; the README says they do not change what the core skills recommend.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/coreyhaines31/marketingskills).
+**Source checked:** 2026-10-28. [Official source](https://github.com/coreyhaines31/marketingskills). [Gearlist page](https://gearlist.build/tools/marketing-skills/).
 
 ### [Archify](https://archify.si)
 
@@ -2229,7 +2230,7 @@ A skill that turns a description or a repository into a self-contained interacti
 
 **Access and use:** npx skills add tt-a1i/archify -g. Optional preview binds a random port on 127.0.0.1. Archify may GET a stable-release manifest to show an update reminder; set ARCHIFY_UPDATE_CHECK_DISABLED=1 to turn that off. Third-party paid services listed in the README are run by those providers. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/tt-a1i/archify).
+**Source checked:** 2026-10-28. [Official source](https://github.com/tt-a1i/archify). [Gearlist page](https://gearlist.build/tools/archify/).
 
 ### [last30days](https://github.com/mvanhorn/last30days-skill)
 
@@ -2239,7 +2240,7 @@ A research skill that searches Reddit, Hacker News, GitHub, Polymarket and optio
 
 **Access and use:** Claude Code: /plugin marketplace add mvanhorn/last30days-skill then /plugin install last30days. Other hosts: npx skills add mvanhorn/last30days-skill -g. Reddit, HN, Polymarket and GitHub work with no keys. Extra sources need API keys or a logged-in browser. Needs Python 3.12 or later. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/mvanhorn/last30days-skill).
+**Source checked:** 2026-10-28. [Official source](https://github.com/mvanhorn/last30days-skill). [Gearlist page](https://gearlist.build/tools/last30days/).
 
 ### [Matt Pocock Skills](https://github.com/mattpocock/skills)
 
@@ -2249,7 +2250,7 @@ A pack of engineering skills for coding agents covering grilling, specs, TDD, ar
 
 **Access and use:** Claude Code: claude plugin install mattpocock-skills@claude-plugins-official. Other hosts: npx skills@latest add mattpocock/skills. Pick the plugin or the copied files for each agent; installing both puts every skill in twice. Run /setup-matt-pocock-skills once per repo. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/mattpocock/skills).
+**Source checked:** 2026-10-28. [Official source](https://github.com/mattpocock/skills). [Gearlist page](https://gearlist.build/tools/mattpocock-skills/).
 
 ### [career-ops](https://career-ops.org)
 
@@ -2259,7 +2260,7 @@ A local job-search skill that scores a listing against your CV, drafts the appli
 
 **Access and use:** npx @santifer/career-ops init, then open your coding agent in that folder. Claude Code plugin: /plugin marketplace add career-ops-hq/career-ops then /plugin install career-ops@career-ops. Data stays in the workspace (plugin installs use ~/career-ops-data). It drafts CVs, cover letters and emails; it never POSTs an application or sends mail. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/career-ops-hq/career-ops).
+**Source checked:** 2026-10-28. [Official source](https://github.com/career-ops-hq/career-ops). [Gearlist page](https://gearlist.build/tools/career-ops/).
 
 ### [gstack](https://github.com/garrytan/gstack)
 
@@ -2269,7 +2270,7 @@ A skills pack that turns a coding agent into a sprint team: office hours, archit
 
 **Access and use:** Needs Git, Bun 1.4.2 or later, and Node on Windows. git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup. Other hosts: ./setup --host auto. Team mode runs a silent hourly update check. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/garrytan/gstack).
+**Source checked:** 2026-10-28. [Official source](https://github.com/garrytan/gstack). [Gearlist page](https://gearlist.build/tools/gstack/).
 
 ### [The Agency](https://github.com/msitarzewski/agency-agents)
 
@@ -2279,7 +2280,7 @@ A large roster of specialist agent files for coding tools, covering engineering,
 
 **Access and use:** Native app at https://agencyagents.app, or brew install --cask msitarzewski/agency-agents/agency-agents. From a clone: ./scripts/install.sh --tool claude-code, or --tool with another listed host. Install a subset with --division or --agent. OpenCode currently registers about 119 agents and drops the rest. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/msitarzewski/agency-agents).
+**Source checked:** 2026-10-28. [Official source](https://github.com/msitarzewski/agency-agents). [Gearlist page](https://gearlist.build/tools/agency-agents/).
 
 ### [Claude for Financial Services](https://github.com/anthropics/financial-services)
 
@@ -2289,7 +2290,7 @@ Reference agents and skills for investment banking, equity research, private equ
 
 **Access and use:** Claude Code: claude plugin marketplace add anthropics/financial-services, then claude plugin install financial-analysis@claude-for-financial-services and the named agents you need. Cowork: Settings, Plugins, Add plugin, paste the repo URL. The README says nothing here is investment, legal, tax or accounting advice, and agents do not execute trades or post to a ledger. MCP data connectors may need a provider subscription. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/anthropics/financial-services).
+**Source checked:** 2026-10-28. [Official source](https://github.com/anthropics/financial-services). [Gearlist page](https://gearlist.build/tools/claude-for-financial-services/).
 
 ### [Claude Code Templates](https://aitmpl.com)
 
@@ -2299,7 +2300,7 @@ A catalog of Claude Code agents, commands, hooks, settings and MCP installs you 
 
 **Access and use:** npx claude-code-templates@latest, then pick components, or pass --agent, --command, --mcp, --hook or --setting with --yes. The CLI sends anonymous usage tracking to aitmpl.com by default; set CCT_NO_TRACKING=true to turn it off. Analytics, chats and health-check are extra flags on the same CLI. Bundled third-party skills keep their original licences. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/davila7/claude-code-templates).
+**Source checked:** 2026-10-28. [Official source](https://github.com/davila7/claude-code-templates). [Gearlist page](https://gearlist.build/tools/claude-code-templates/).
 
 ### [book-to-skill](https://github.com/virgiliojr94/book-to-skill)
 
@@ -2309,7 +2310,7 @@ A converter that turns a book, folder or set of documents you already have into 
 
 **Access and use:** npx skills add virgiliojr94/book-to-skill. Then /book-to-skill ./my-book.pdf. Extraction runs on your machine and the tool uploads nothing, but if your agent uses a cloud model, the text goes to that provider like any prompt. The MIT licence covers the converter. Books you process keep their own copyright. Keep generated skills of copyrighted books private. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/virgiliojr94/book-to-skill).
+**Source checked:** 2026-10-28. [Official source](https://github.com/virgiliojr94/book-to-skill). [Gearlist page](https://gearlist.build/tools/book-to-skill/).
 
 ### [video-use](https://github.com/browser-use/video-use)
 
@@ -2319,7 +2320,7 @@ A coding-agent skill that transcribes a folder of takes and cuts a video from th
 
 **Access and use:** git clone https://github.com/browser-use/video-use then symlink the repo into your agent's skills directory. Needs ffmpeg and an ElevenLabs API key for transcription. uv sync or pip install -e . Hosted product is on a waitlist at video-use.com. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/browser-use/video-use).
+**Source checked:** 2026-10-28. [Official source](https://github.com/browser-use/video-use). [Gearlist page](https://gearlist.build/tools/video-use/).
 
 ### [/brag](https://github.com/latent-spaces/brag)
 
@@ -2329,7 +2330,7 @@ An agent skill that turns the project you just built into a short launch video w
 
 **Access and use:** npx skills add https://github.com/latent-spaces/brag --skill brag. Claude Code: /plugin marketplace add latent-spaces/brag then /plugin install brag@brag. Needs Node 22 or later and ffmpeg. Hyperframes via npx hyperframes. Hosted shortcut is letsbrag.app. Bundled music is CC BY 4.0 from ende.app. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/latent-spaces/brag).
+**Source checked:** 2026-10-28. [Official source](https://github.com/latent-spaces/brag). [Gearlist page](https://gearlist.build/tools/brag/).
 
 ### [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin)
 
@@ -2339,7 +2340,7 @@ A plugin of skills that runs a brainstorm, plan, build, review and capture-what-
 
 **Access and use:** Claude Code: /plugin marketplace add EveryInc/compound-engineering-plugin then /plugin install compound-engineering. Cursor: /add-plugin compound-engineering. Codex CLI: codex plugin marketplace add EveryInc/compound-engineering-plugin then codex plugin add compound-engineering@compound-engineering-plugin. Existing installs must refresh the marketplace before /plugin update. /lfg can push, open a PR and watch CI; it merges only if you grant that. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/EveryInc/compound-engineering-plugin).
+**Source checked:** 2026-10-28. [Official source](https://github.com/EveryInc/compound-engineering-plugin). [Gearlist page](https://gearlist.build/tools/compound-engineering/).
 
 ### [/watch](https://github.com/bradautomates/claude-video)
 
@@ -2349,7 +2350,7 @@ An agent skill that turns a video URL or local file into timestamped frames and 
 
 **Access and use:** Claude Code: /plugin marketplace add bradautomates/claude-video then /plugin install watch@claude-video. Also npx skills add bradautomates/claude-video -g --skill watch. Needs Python 3.10 or later, ffmpeg and yt-dlp. Default Gemini engine uploads videos to Google; --engine local keeps extraction on the machine. Cookie files and --cookies-from-browser are opt-in. Claude Chat and Cowork are unsupported. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/bradautomates/claude-video).
+**Source checked:** 2026-10-28. [Official source](https://github.com/bradautomates/claude-video). [Gearlist page](https://gearlist.build/tools/watch/).
 
 ### [OpenWiki](https://github.com/langchain-ai/openwiki)
 
@@ -2359,7 +2360,7 @@ A CLI that turns a repository into a linked Markdown wiki your coding agent can 
 
 **Access and use:** npm install -g openwiki. Needs Node 22.22.0 or later. Then openwiki integrations install claude (or codex, cursor, opencode). Uses the coding agent's existing model session. openwiki visualize serves 127.0.0.1 only; the graph page still loads libraries from a public CDN. Native CLI init writes provider keys to ~/.openwiki/.env. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/langchain-ai/openwiki).
+**Source checked:** 2026-10-28. [Official source](https://github.com/langchain-ai/openwiki). [Gearlist page](https://gearlist.build/tools/openwiki/).
 
 ### [claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian)
 
@@ -2369,7 +2370,7 @@ A Claude Code plugin and Agent Skills pack that turns inbox sources into a linke
 
 **Access and use:** claude plugin marketplace add AgriciDaniel/claude-obsidian then claude plugin install claude-obsidian@agricidaniel-claude-obsidian. Needs Python 3.11 or later. Notes Claude reads are sent to Claude like any other prompt. Web research and remote models stay off until you allow them for a task. The vault stays as local Markdown. The plugin has no telemetry. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/AgriciDaniel/claude-obsidian).
+**Source checked:** 2026-10-28. [Official source](https://github.com/AgriciDaniel/claude-obsidian). [Gearlist page](https://gearlist.build/tools/claude-obsidian/).
 
 ### [antislop](https://github.com/miqdadbadjuber/anti-slop)
 
@@ -2379,7 +2380,7 @@ Agent skills that filter generic AI UI, copy and comments, with a delivery gate 
 
 **Access and use:** npx antislop-ai. The npm name antislop is a different package. Also npx skills add miqdadbadjuber/anti-slop. Optional mode preference is ~/.config/antislop/settings.json. There is no antislop coin, token or fundraise. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/miqdadbadjuber/anti-slop).
+**Source checked:** 2026-10-28. [Official source](https://github.com/miqdadbadjuber/anti-slop). [Gearlist page](https://gearlist.build/tools/anti-slop/).
 
 ### [GEO-SEO Claude](https://github.com/zubair-trabzada/geo-seo-claude)
 
@@ -2389,7 +2390,7 @@ A Claude Code skill pack that audits a URL for AI-search citability, crawler acc
 
 **Access and use:** curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/geo-seo-claude/main/install.sh | bash; read the script before running it. Needs Python 3.10+ and Claude Code. Dependencies go into ~/.claude/skills/geo/.venv/. /geo audit fetches the target URL. Optional Playwright takes screenshots. Prospect files live in ~/.geo-prospects/ and stay after uninstall. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/zubair-trabzada/geo-seo-claude).
+**Source checked:** 2026-10-28. [Official source](https://github.com/zubair-trabzada/geo-seo-claude). [Gearlist page](https://gearlist.build/tools/geo-seo-claude/).
 
 ### [Maestro](https://maestroskills.dev)
 
@@ -2399,7 +2400,7 @@ A workflow skill pack with 25 commands, seven domain references, a memory layer 
 
 **Access and use:** npx skills add sharpdeveye/maestro copies skills into the provider folders in the project. For a live MCP server, add npx -y maestro-workflow-mcp to the client config (stdio). npx maestro-workflow-mcp --http --port 3001 serves /mcp on that port on every interface. /capture writes .maestro/ with context.md, decisions.jsonl, audit.jsonl and session files; session data is gitignored by default. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/sharpdeveye/maestro).
+**Source checked:** 2026-10-28. [Official source](https://github.com/sharpdeveye/maestro). [Gearlist page](https://gearlist.build/tools/maestro/).
 
 ### [ClosedLoop Claude Plugins](https://www.closedloop.ai/docs)
 
@@ -2409,7 +2410,7 @@ Open-source Claude Code plugins for plan-first coding, review and self-learning,
 
 **Access and use:** curl -fsSL https://raw.githubusercontent.com/closedloop-ai/claude-plugins/main/install.sh | bash; read the script before running it. Needs Claude Code, Python 3.11+ and jq. It registers the closedloop-ai marketplace and installs code, code-review, platform and self-learning at user scope under ~/.claude/plugins, with auto-update on. claude /plugin marketplace install closedloop is the interactive path. Codex: codex plugin marketplace add https://github.com/closedloop-ai/claude-plugins then add closedloop-core@closedloop-ai. /code-review:start writes inline GitHub pull-request comments. self-learning writes under .learnings/; org share uses CLAUDE_ORG_ID. bootstrap writes .claude/agents and .closedloop-ai/. The README calls this an engineering preview for trusted environments. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/closedloop-ai/claude-plugins).
+**Source checked:** 2026-10-28. [Official source](https://github.com/closedloop-ai/claude-plugins). [Gearlist page](https://gearlist.build/tools/closedloop-claude-plugins/).
 
 ### [Skills Manager](https://github.com/yibie/skills-manager)
 
@@ -2419,7 +2420,7 @@ A native macOS app that discovers, installs and mounts agent skills across Claud
 
 **Access and use:** macOS 14 or later. Download Skills Manager 2.0.0 from GitHub Releases and drag it to Applications. The zip is Developer ID signed and Apple-notarized; SHA-256 8da1f38838119864e593e9e591355dd53b5d407e4a7383aac68f095efdac1ad5. There is no Skills Manager backend. Discover refreshes from skills.sh and caches under ~/.skills-manager/. Installing from Discover downloads the GitHub skill package into the Library and links it into agents. Try sends the skill to your own Claude, OpenAI, OpenRouter, Ollama or LM Studio endpoint. Local Ollama and LM Studio endpoints are rewritten to 127.0.0.1. The TUI is npm exec skills-manager from tui/. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/yibie/skills-manager).
+**Source checked:** 2026-10-28. [Official source](https://github.com/yibie/skills-manager). [Gearlist page](https://gearlist.build/tools/skills-manager/).
 
 ### [Screenwriting Skills](https://github.com/jtydhr88/screenwriting-skills)
 
@@ -2429,7 +2430,7 @@ Twenty-six agent skills for screenwriting, television writing and dramaturgy, fo
 
 **Access and use:** Claude Code: /plugin marketplace add jtydhr88/screenwriting-skills then /plugin install screenwriting@screenwriting-skills. Skills run as /screenwriting:<skill>. Codex: codex plugin marketplace add jtydhr88/screenwriting-skills then install Screenwriting Skills from Plugins. Manual copy writes plugins/screenwriting/skills/* into ~/.claude/skills/ or ~/.agents/skills/ (or the project .claude/skills / .agents/skills). Skill bodies are Chinese; the agent answers in the language you asked. sw-workflow keeps project state in story-bible.md. MIT covers the skill architecture; quotations from the listed books and scripts stay with their rights holders (NOTICE).
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/jtydhr88/screenwriting-skills).
+**Source checked:** 2026-10-28. [Official source](https://github.com/jtydhr88/screenwriting-skills). [Gearlist page](https://gearlist.build/tools/screenwriting-skills/).
 
 ### [Cookiy User Research](https://github.com/cookiy-ai/user-research-skill)
 
@@ -2439,7 +2440,7 @@ An MIT agent skill that plans user research, synthesises interview transcripts, 
 
 **Access and use:** Claude Code: /plugin marketplace add cookiy-ai/user-research-skill then /plugin install user-research@cookiy-ai then /reload-plugins. Invoke /user-research-cookiy. Cowork and Claude Desktop need network egress; allow s-api.cookiy.ai. Other agents: npx cookiy-ai or npm install -g @cookiyai/cookiy-cli (Node.js 18+). Planning and local transcript synthesis run in the agent. Running interviews or surveys needs a Cookiy login: the CLI prints a login URL, the human pastes an access token into cookiy save-token. On Cookiy, recruiting, synthetic interviews, report generation and discussion guide generation cost money from a wallet that charges your saved card when the balance is short; run cookiy user info for limits. MIT for the skill.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/cookiy-ai/user-research-skill).
+**Source checked:** 2026-10-28. [Official source](https://github.com/cookiy-ai/user-research-skill). [Gearlist page](https://gearlist.build/tools/cookiy-user-research/).
 
 ### [Shader Skills](https://github.com/gokayfem/shader-skills)
 
@@ -2449,7 +2450,7 @@ An agent skill plus a 186-function GLSL library, bundler and checker for Shadert
 
 **Access and use:** Claude Code: claude plugin marketplace add gokayfem/shader-skills then claude plugin install shader-skills@shader-skills. Other agents: npx skills add gokayfem/shader-skills (Node.js 22.20 or later; -g for a global install). Manual copy writes skills/shader-art-coding into ~/.claude/skills/ or ~/.agents/skills/. Python 3 glsl_tools.py search, bundle and check use the standard library; check compiles when glslangValidator is installed. Local harness: python3 tests/build_harness.py && python3 tests/serve.py then http://127.0.0.1:8765/build/harness.html. Targets Shadertoy, WebGL2 and GLSL ES 3.00. MIT.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/gokayfem/shader-skills).
+**Source checked:** 2026-10-28. [Official source](https://github.com/gokayfem/shader-skills). [Gearlist page](https://gearlist.build/tools/shader-skills/).
 
 ### [SEO Machine](https://github.com/TheCraigHewitt/seomachine)
 
@@ -2459,7 +2460,7 @@ A Claude Code workspace of slash commands, agents and 26 marketing skills for re
 
 **Access and use:** git clone https://github.com/TheCraigHewitt/seomachine.git && cd seomachine && pip install -r data_sources/requirements.txt then claude. Needs Claude Code (Claude Pro, Max, Team, Enterprise, or Anthropic Console API billing) and a DataForSEO account. Optional Google Analytics 4 and Search Console credentials. Keyword and SERP calls go to DataForSEO. Fill context/brand-voice.md and the other context templates before writing. Docker: docker-compose build && docker-compose run seomachine bash. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/TheCraigHewitt/seomachine).
+**Source checked:** 2026-10-29. [Official source](https://github.com/TheCraigHewitt/seomachine). [Gearlist page](https://gearlist.build/tools/seo-machine/).
 
 ### [Legal Templates](https://github.com/General-Legal/legal-templates)
 
@@ -2469,7 +2470,7 @@ CC0 attorney-drafted startup templates in LLM-oriented markdown and original Wor
 
 **Access and use:** git clone https://github.com/General-Legal/legal-templates.git and open the markdown under templates/ or the files in docx-originals/. Fill the marked fields before you use a document. General Legal says the templates are for general reference only, are not legal advice, and that it does not review your changes. The templates are CC0 1.0; the authors ask you to keep the General Legal footnote. CC0-1.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/General-Legal/legal-templates).
+**Source checked:** 2026-10-29. [Official source](https://github.com/General-Legal/legal-templates). [Gearlist page](https://gearlist.build/tools/legal-templates/).
 
 ### [page-mascot](https://koboyo.com/page-mascot)
 
@@ -2479,7 +2480,7 @@ An MIT React mascot that tracks the pointer, with a skill that draws the two spr
 
 **Access and use:** npm i page-mascot. Put two sprite sheets on the page and pass them as directions and reactions. Skill: npx skills add nilbuild/page-mascot --skill page-mascot --global --yes, then /page-mascot. Drawing a new character needs an image tool; Claude Code uses OPENAI_API_KEY for the OpenAI images API, and a photo you attach is sent there. MIT.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/nilbuild/page-mascot).
+**Source checked:** 2026-10-29. [Official source](https://github.com/nilbuild/page-mascot). [Gearlist page](https://gearlist.build/tools/page-mascot/).
 
 ### [fun-isometric](https://github.com/kelvinkn17/skills)
 
@@ -2489,7 +2490,7 @@ An agent skill and canvas kit for drawing animated isometric stickers, with a Re
 
 **Access and use:** Install with npx skills add kelvinkn17/skills@fun-isometric, then start a new agent session. Needs Node.js 22 or later. Rendering and checks use Bun and Playwright Chromium, which downloads on first use into ~/.cache/fun-isometric. Video export also needs ffmpeg. The output is a canvas icon module or alpha video with a still poster. The skill adds instructions and runnable rendering tools to the agents you select. MIT.
 
-**Source checked:** 2026-10-30. [Official source](https://github.com/kelvinkn17/skills/blob/7c8a7526306e09855c0d4f66130cbaa87422cb8d/README.md).
+**Source checked:** 2026-10-30. [Official source](https://github.com/kelvinkn17/skills/blob/7c8a7526306e09855c0d4f66130cbaa87422cb8d/README.md). [Gearlist page](https://gearlist.build/tools/fun-isometric/).
 
 ### [Awesome AI Apps](https://github.com/Arindam200/awesome-ai-apps)
 
@@ -2499,7 +2500,7 @@ A collection of 138 runnable LLM apps and agents, from framework starters to mul
 
 **Access and use:** Each project brings its own dependencies and model provider keys; review a project before running it.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/Arindam200/awesome-ai-apps).
+**Source checked:** 2026-11-03. [Official source](https://github.com/Arindam200/awesome-ai-apps). [Gearlist page](https://gearlist.build/tools/awesome-ai-apps/).
 
 ### [Awesome OpenClaw Use Cases](https://github.com/hesamsheikh/awesome-openclaw-usecases)
 
@@ -2509,7 +2510,7 @@ A community collection of real-life OpenClaw use cases, grouped by area such as 
 
 **Access and use:** The list links to community skills and plugins; its own README warns some may have security vulnerabilities, so review each before installing.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/hesamsheikh/awesome-openclaw-usecases).
+**Source checked:** 2026-11-03. [Official source](https://github.com/hesamsheikh/awesome-openclaw-usecases). [Gearlist page](https://gearlist.build/tools/awesome-openclaw-usecases/).
 
 ### [Claude Code Best Practice](https://github.com/shanraisshan/claude-code-best-practice)
 
@@ -2519,7 +2520,7 @@ A reference repository that maps Claude Code features such as subagents, command
 
 **Access and use:** Reading needs nothing beyond a public clone. Running the /weather-orchestrator example needs Claude Code and a Claude account. The clone's .claude/settings.json allows Bash(*), Edit(*), Write(*) and WebFetch for any domain, and its .mcp.json declares Playwright, Context7 and DeepWiki servers run through npx. Review both before opening the folder in Claude Code. The README carries sponsor links. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/shanraisshan/claude-code-best-practice).
+**Source checked:** 2026-11-03. [Official source](https://github.com/shanraisshan/claude-code-best-practice). [Gearlist page](https://gearlist.build/tools/claude-code-best-practice/).
 
 ### [awesome-seo](https://github.com/i365dev/awesome-seo)
 
@@ -2529,7 +2530,7 @@ A curated reading list of SEO guides and tools, with a section on AI search, cra
 
 **Access and use:** Reading needs nothing. Linked tools and services carry their own accounts and terms. The list says it is not an advertising channel and does not accept unsolicited vendor or self-promotional listings. Maintained by i365, a digital product studio. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/i365dev/awesome-seo).
+**Source checked:** 2026-11-03. [Official source](https://github.com/i365dev/awesome-seo). [Gearlist page](https://gearlist.build/tools/awesome-seo/).
 
 ### [Claude Code Training](https://github.com/kousen/claude-code-training)
 
@@ -2539,7 +2540,7 @@ Ken Kousen's Claude Code course: a Slidev deck, progressive hands-on labs, an in
 
 **Access and use:** Slides are published at https://kousen.github.io/claude-code-training/ with a PDF on GitHub Releases; running the deck locally needs pnpm. The labs need Claude Code signed in with a Claude subscription or an ANTHROPIC_API_KEY, plus Python, JavaScript or TypeScript, and Java toolchains. Docker is optional. The clone's .claude/settings.json runs bun hook scripts on agent events and a status line command, so review it before opening the folder in Claude Code. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/kousen/claude-code-training).
+**Source checked:** 2026-11-03. [Official source](https://github.com/kousen/claude-code-training). [Gearlist page](https://gearlist.build/tools/claude-code-training/).
 
 ### [Oz Skills](https://github.com/warpdotdev/oz-skills)
 
@@ -2549,7 +2550,7 @@ Warp's set of 15 Agent Skills for Warp agents and Oz, covering CI fixes, pull re
 
 **Access and use:** Copy a skill folder from .agents/skills/ into a project's .agents/skills/ or into ~/.agents/skills/. Skills act through tools you already have: the gh CLI for pull requests and CI fixes, BigQuery and dbt for the data skills, Chrome DevTools MCP for performance audits and Playwright for web app tests. The ci-fix skill pushes to a fix branch. Most skills are MIT; mcp-builder and webapp-testing carry their own Apache-2.0 LICENSE.txt.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/warpdotdev/oz-skills).
+**Source checked:** 2026-11-03. [Official source](https://github.com/warpdotdev/oz-skills). [Gearlist page](https://gearlist.build/tools/oz-skills/).
 
 ## APIs and data
 
@@ -2561,7 +2562,7 @@ The Australian Business Register's free API for searching ABNs and business name
 
 **Access and use:** Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. JSON support is limited to ABN and name searches.
 
-**Source checked:** 2026-11-03. [Official source](https://abr.business.gov.au/Tools/WebServices).
+**Source checked:** 2026-11-03. [Official source](https://abr.business.gov.au/Tools/WebServices). [Gearlist page](https://gearlist.build/tools/abn-lookup-web-services/).
 
 ### [data.gov.au API](https://data.gov.au/data/api/3/action/status_show)
 
@@ -2571,7 +2572,7 @@ The CKAN API behind data.gov.au, for searching and downloading Australian govern
 
 **Access and use:** No key needed to search and read public datasets. Each dataset carries its own licence; check it before reuse.
 
-**Source checked:** 2026-11-03. [Official source](https://data.gov.au/data/dataset/asic-business-names).
+**Source checked:** 2026-11-03. [Official source](https://data.gov.au/data/dataset/asic-business-names). [Gearlist page](https://gearlist.build/tools/data-gov-au-api/).
 
 ### [ABS Data API](https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide)
 
@@ -2581,7 +2582,7 @@ The Australian Bureau of Statistics API for population, economic and industry st
 
 **Access and use:** Free and open without an API key since 29 November 2024; responses are SDMX, so set the Accept header for JSON or CSV.
 
-**Source checked:** 2026-11-03. [Official source](https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide).
+**Source checked:** 2026-11-03. [Official source](https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide). [Gearlist page](https://gearlist.build/tools/abs-data-api/).
 
 ### [Domain API](https://developer.domain.com.au/)
 
@@ -2591,7 +2592,7 @@ Domain Group's API packages for Australian property data: address suggestions, a
 
 **Access and use:** Sign up with a corporate email, build in the sandbox, then go live per package. Pricing and limits depend on the package, so check the plan before building. Listing Management can create and update live listings.
 
-**Source checked:** 2026-11-03. [Official source](https://developer.domain.com.au/).
+**Source checked:** 2026-11-03. [Official source](https://developer.domain.com.au/). [Gearlist page](https://gearlist.build/tools/domain-api/).
 
 ### [NSW bulk property sales information](https://www.valuergeneral.nsw.gov.au/design/bulk_psi_content/bulk_psi)
 
@@ -2601,7 +2602,7 @@ The NSW Valuer General's free download of property sales records from 1990 onwar
 
 **Access and use:** Free download in .DAT files. Licensed under Creative Commons BY-NC-ND 4.0, which rules out commercial use and modified versions without permission.
 
-**Source checked:** 2026-11-03. [Official source](https://www.valuergeneral.nsw.gov.au/design/bulk_psi_content/bulk_psi).
+**Source checked:** 2026-11-03. [Official source](https://www.valuergeneral.nsw.gov.au/design/bulk_psi_content/bulk_psi). [Gearlist page](https://gearlist.build/tools/nsw-property-sales-information/).
 
 ### [Public APIs](https://github.com/public-apis/public-apis)
 
@@ -2611,7 +2612,7 @@ A large community list of free APIs grouped by topic, most marked with their aut
 
 **Access and use:** A list only; each API has its own terms, keys and limits, so check the provider before relying on one. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/public-apis/public-apis).
+**Source checked:** 2026-11-03. [Official source](https://github.com/public-apis/public-apis). [Gearlist page](https://gearlist.build/tools/public-apis/).
 
 ### [Cloudflare API](https://developers.cloudflare.com/fundamentals/api/get-started/)
 
@@ -2621,7 +2622,7 @@ Cloudflare's API for managing accounts, DNS, zones, Workers and the rest of its 
 
 **Access and use:** Use a permission-scoped API token rather than the legacy global key, and give it only the zones and products the job needs. The published limit is 1,200 requests per five minutes per user or account token, and 200 per second per IP, with extra limits on some endpoints. Free plans exist, but metered products bill separately. Permission to manage an account is not permission to share its customers' data.
 
-**Source checked:** 2026-11-04. [Official source](https://developers.cloudflare.com/fundamentals/api/reference/limits/).
+**Source checked:** 2026-11-04. [Official source](https://developers.cloudflare.com/fundamentals/api/reference/limits/). [Gearlist page](https://gearlist.build/tools/cloudflare-api/).
 
 ### [Claude API](https://platform.claude.com/docs/en/api/overview)
 
@@ -2631,7 +2632,7 @@ Anthropic's API for Claude models, with batches, token counting and managed agen
 
 **Access and use:** Authenticate with a Console API key or workload identity federation. Billing is per token, and some Max, Ultra and Team subscriptions include monthly API credits that have to be claimed. Rate limits depend on the organisation's usage tier and the model class. Commercial API inputs and outputs aren't used for training by default, with opt-in and feedback exceptions.
 
-**Source checked:** 2026-11-04. [Official source](https://platform.claude.com/docs/en/api/rate-limits).
+**Source checked:** 2026-11-04. [Official source](https://platform.claude.com/docs/en/api/rate-limits). [Gearlist page](https://gearlist.build/tools/claude-api/).
 
 ### [OpenAI API](https://developers.openai.com/api/reference/overview)
 
@@ -2641,7 +2642,7 @@ OpenAI's API for model inference, realtime audio, images, tools and organisation
 
 **Access and use:** Authenticate with an API key or a short-lived workload identity token; admin keys cover a separate administrative surface. Billing is per use, and API billing is separate from a ChatGPT plan. Limits are set per organisation and project and vary by model. API data isn't used for training by default, but abuse-monitoring logs can be kept for up to 30 days unless approved retention controls apply.
 
-**Source checked:** 2026-11-04. [Official source](https://developers.openai.com/api/docs/guides/your-data).
+**Source checked:** 2026-11-04. [Official source](https://developers.openai.com/api/docs/guides/your-data). [Gearlist page](https://gearlist.build/tools/openai-api/).
 
 ### [Gemini Developer API](https://ai.google.dev/gemini-api/docs/api-key)
 
@@ -2651,7 +2652,7 @@ Google's API for Gemini models, with grounding, multimodal input and tool use.
 
 **Access and use:** Keys belong to a Google Cloud project, and limits (requests per minute, tokens per minute and requests per day) apply per project, with daily limits resetting on Pacific time. There is an unpaid tier for eligible models. Under the unpaid terms, Google may use what you send to improve its products and people may review it, so don't send confidential or client data on that tier. Paid use has different terms.
 
-**Source checked:** 2026-11-04. [Official source](https://ai.google.dev/gemini-api/terms).
+**Source checked:** 2026-11-04. [Official source](https://ai.google.dev/gemini-api/terms). [Gearlist page](https://gearlist.build/tools/gemini-api/).
 
 ### [Google Search Console API](https://developers.google.com/webmaster-tools)
 
@@ -2661,7 +2662,7 @@ Google's API for search performance data, verified sites and sitemaps, with URL 
 
 **Access and use:** Private site data needs OAuth from a user with access to that property; request the read-only scope when you only read. Search Analytics allows 1,200 queries per minute per site and user, and URL inspection allows 2,000 a day per site. The data belongs to the property, so access follows whoever the owner has granted.
 
-**Source checked:** 2026-11-04. [Official source](https://developers.google.com/webmaster-tools/limits).
+**Source checked:** 2026-11-04. [Official source](https://developers.google.com/webmaster-tools/limits). [Gearlist page](https://gearlist.build/tools/search-console-api/).
 
 ### [Google Places API](https://developers.google.com/maps/documentation/places/web-service/get-api-key)
 
@@ -2671,7 +2672,7 @@ Google's API for searching places and reading business and location details.
 
 **Access and use:** Needs a Google Cloud project with billing and a restricted API key. Pricing is per SKU, and the fields you request can move a call to a dearer SKU, so ask only for the fields you need. Storing or caching results is restricted, except place IDs, and results come with display and attribution rules.
 
-**Source checked:** 2026-11-04. [Official source](https://developers.google.com/maps/documentation/places/web-service/policies).
+**Source checked:** 2026-11-04. [Official source](https://developers.google.com/maps/documentation/places/web-service/policies). [Gearlist page](https://gearlist.build/tools/google-places-api/).
 
 ### [Microsoft Graph](https://learn.microsoft.com/en-us/graph/auth/auth-concepts)
 
@@ -2681,7 +2682,7 @@ Microsoft's API for Microsoft 365 and identity data, including mail, files, cale
 
 **Access and use:** Uses Microsoft identity platform tokens with delegated or application permissions, and some permissions need an admin to consent for the tenant. Many calls come with the user's licence, but some APIs are metered. Throttling varies by service, so honour 429 responses and their Retry-After header. A token reaches only the tenant and data its permissions allow.
 
-**Source checked:** 2026-11-04. [Official source](https://learn.microsoft.com/en-us/graph/throttling).
+**Source checked:** 2026-11-04. [Official source](https://learn.microsoft.com/en-us/graph/throttling). [Gearlist page](https://gearlist.build/tools/microsoft-graph/).
 
 ### [OpenRouter](https://openrouter.ai/docs/api/reference/authentication)
 
@@ -2691,7 +2692,7 @@ One API for many model providers, with routing between them.
 
 **Access and use:** Authenticate with an API key, or use the documented OAuth flow for users. Some models have free variants, limited to 20 requests a minute with a daily ceiling that depends on credits bought; paid models use credits. Each provider has its own data policy. OpenRouter offers privacy settings and zero-retention routing, but legal and safety exceptions still apply.
 
-**Source checked:** 2026-11-04. [Official source](https://openrouter.ai/docs/api-reference/limits).
+**Source checked:** 2026-11-04. [Official source](https://openrouter.ai/docs/api-reference/limits). [Gearlist page](https://gearlist.build/tools/openrouter/).
 
 ### [DataForSEO](https://docs.dataforseo.com/v3/auth/)
 
@@ -2701,7 +2702,7 @@ APIs for search results, keywords, backlinks, market data and AI visibility, pri
 
 **Access and use:** Uses HTTP Basic authentication with your API login and a generated API password, which differs from the dashboard password. Pay as you go, with trial credit for new accounts and a sandbox of sample responses. The default limit rose to 10,000 requests a minute, though some endpoints have their own limits. Label which data is measured and which is modelled, and check the terms before passing data on.
 
-**Source checked:** 2026-11-04. [Official source](https://dataforseo.com/update/api-rate-limit-10000-requests-per-minute).
+**Source checked:** 2026-11-04. [Official source](https://dataforseo.com/update/api-rate-limit-10000-requests-per-minute). [Gearlist page](https://gearlist.build/tools/dataforseo/).
 
 ### [Stripe API](https://docs.stripe.com/api/authentication)
 
@@ -2711,7 +2712,7 @@ Stripe's API for payments, subscriptions, invoices and the events behind them.
 
 **Access and use:** Use a restricted API key with only the permissions the job needs, and test in a sandbox before using live keys. The published limits are 100 requests a second in live mode and 25 in a sandbox, with a 25-a-second limit on most endpoints and further exceptions. A key that can read invoices shouldn't be able to refund or pay out, so scope it accordingly.
 
-**Source checked:** 2026-11-04. [Official source](https://docs.stripe.com/rate-limits).
+**Source checked:** 2026-11-04. [Official source](https://docs.stripe.com/rate-limits). [Gearlist page](https://gearlist.build/tools/stripe-api/).
 
 ### [Resend API](https://resend.com/docs/api-reference/introduction)
 
@@ -2721,7 +2722,7 @@ An email API for transactional and marketing email, with inbound handling.
 
 **Access and use:** Authenticate with an API key that can be limited by permission and domain. The free plan covers 3,000 emails a month, up to 100 a day. The default API limit is 10 requests a second per team, separate from sending quotas. Recipients' details and email content are customer data, and API access doesn't give consent to email anyone.
 
-**Source checked:** 2026-11-04. [Official source](https://resend.com/docs/api-reference/rate-limit).
+**Source checked:** 2026-11-04. [Official source](https://resend.com/docs/api-reference/rate-limit). [Gearlist page](https://gearlist.build/tools/resend-api/).
 
 ### [Notion API](https://developers.notion.com/docs/authorization)
 
@@ -2731,7 +2732,7 @@ Notion's API for pages, databases, comments and files in a workspace.
 
 **Access and use:** Connect with an internal connection token, a personal access token or OAuth; each reaches only the pages shared with it. A personal token acts as its user. Limits are 600 requests a minute per connection on Business and Enterprise plans and 180 on other plans, plus workspace limits, so honour Retry-After.
 
-**Source checked:** 2026-11-04. [Official source](https://developers.notion.com/reference/request-limits).
+**Source checked:** 2026-11-04. [Official source](https://developers.notion.com/reference/request-limits). [Gearlist page](https://gearlist.build/tools/notion-api/).
 
 ### [HeyGen API](https://docs.heygen.com/docs/quick-start)
 
@@ -2741,7 +2742,7 @@ HeyGen's API for avatar video, images, voice and translation.
 
 **Access and use:** The API uses an API key with scopes and bills against an API plan. The MCP server and CLI sign in as your web account and use its subscription credits instead, so a web plan isn't API credit. Limits vary by endpoint and plan. Using a person's likeness or voice needs their consent.
 
-**Source checked:** 2026-11-04. [Official source](https://developers.heygen.com/docs/api-key).
+**Source checked:** 2026-11-04. [Official source](https://developers.heygen.com/docs/api-key). [Gearlist page](https://gearlist.build/tools/heygen-api/).
 
 ### [NVIDIA NIM API catalog](https://docs.api.nvidia.com/nim/docs/api-quickstart)
 
@@ -2751,7 +2752,7 @@ Hosted model endpoints from NVIDIA for prototyping, with some models also availa
 
 **Access and use:** Needs an NVIDIA developer account and API key. The Developer Program covers prototyping; production use needs separate licensing, such as NVIDIA AI Enterprise. Limits show per model in your account. Each model's licence and terms apply separately.
 
-**Source checked:** 2026-11-04. [Official source](https://docs.api.nvidia.com/nim/docs/product).
+**Source checked:** 2026-11-04. [Official source](https://docs.api.nvidia.com/nim/docs/product). [Gearlist page](https://gearlist.build/tools/nvidia-nim-api/).
 
 ### [GitHub REST API](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api)
 
@@ -2761,7 +2762,7 @@ GitHub's API for repositories, issues, pull requests, releases and users.
 
 **Access and use:** Use a fine-grained personal access token, a GitHub App or OAuth; workflows get a built-in token. Unauthenticated calls to public endpoints allow 60 an hour, and an authenticated user gets 5,000 an hour, with separate limits for search and apps. A public repository still has its own licence, so check it before reusing code.
 
-**Source checked:** 2026-11-04. [Official source](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api).
+**Source checked:** 2026-11-04. [Official source](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api). [Gearlist page](https://gearlist.build/tools/github-rest-api/).
 
 ### [Supabase APIs](https://supabase.com/docs/reference/api/introduction)
 
@@ -2771,7 +2772,7 @@ The Supabase Management API for projects, alongside each project's own database,
 
 **Access and use:** The Management API uses a scoped personal access token or OAuth. Each project's data APIs use their own keys and row-level security, which is a separate layer. The free plan covers two active projects, and inactive ones pause. Never expose a management or service key in a client app.
 
-**Source checked:** 2026-11-04. [Official source](https://supabase.com/pricing).
+**Source checked:** 2026-11-04. [Official source](https://supabase.com/pricing). [Gearlist page](https://gearlist.build/tools/supabase-api/).
 
 ### [YouTube Analytics API](https://developers.google.com/youtube/analytics)
 
@@ -2781,7 +2782,7 @@ Google's official API for targeted queries on a channel's own analytics, such as
 
 **Access and use:** Needs OAuth consent from the channel or content owner, so it cannot read another creator's private analytics unless they grant access. The yt-analytics.readonly scope covers activity metrics, revenue needs the separate yt-analytics-monetary.readonly scope, and Google sets a quota cost for each query. The YouTube API Services Terms and Developer Policies apply, including limits on storing data and on combining data from different content owners.
 
-**Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/analytics/reference/reports/query).
+**Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/analytics/reference/reports/query). [Gearlist page](https://gearlist.build/tools/youtube-analytics-api/).
 
 ### [YouTube Reporting API](https://developers.google.com/youtube/reporting)
 
@@ -2791,7 +2792,7 @@ Google's official API for scheduled bulk reports of a channel's or content owner
 
 **Access and use:** Needs OAuth consent from the channel or content owner, with the same read-only and monetary scopes as the Analytics API. A new reporting job backfills 30 days, the first files can take 48 hours, and reports stay downloadable for 60 days, or 30 days for backfilled history. The YouTube API Services Terms and Developer Policies limit how long stored data can be kept without a refresh.
 
-**Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/reporting/v1/reports).
+**Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/reporting/v1/reports). [Gearlist page](https://gearlist.build/tools/youtube-reporting-api/).
 
 ### [Supadata](https://supadata.ai/)
 
@@ -2801,7 +2802,7 @@ An API and MCP server for transcripts and metadata from YouTube and other video 
 
 **Access and use:** Needs a Supadata account and API key, or OAuth sign-in for the hosted MCP server at api.supadata.ai/mcp; the local server reads SUPADATA_API_KEY. The free plan gives 100 credits a month at one request a second, a transcript costs 1 credit, and a generated transcript costs 2 credits a minute. The MCP server code is MIT licensed.
 
-**Source checked:** 2026-11-05. [Official source](https://docs.supadata.ai/integrations/mcp).
+**Source checked:** 2026-11-05. [Official source](https://docs.supadata.ai/integrations/mcp). [Gearlist page](https://gearlist.build/tools/supadata/).
 
 ### [SponsorBlock API](https://wiki.sponsor.ajay.app/w/API_Docs)
 
@@ -2811,7 +2812,7 @@ The public API and database behind SponsorBlock, with crowdsourced timestamps fo
 
 **Access and use:** Reading segments needs no account or key, and the full database can be downloaded. The API and database are under CC BY-NC-SA 4.0 unless the maintainer gives permission, so commercial use needs that permission and reuse needs attribution. Automated submissions are not allowed, and segments are community votes rather than verified facts.
 
-**Source checked:** 2026-11-05. [Official source](https://wiki.sponsor.ajay.app/w/API_Docs).
+**Source checked:** 2026-11-05. [Official source](https://wiki.sponsor.ajay.app/w/API_Docs). [Gearlist page](https://gearlist.build/tools/sponsorblock-api/).
 
 ### [Return YouTube Dislike API](https://returnyoutubedislike.com/docs)
 
@@ -2821,7 +2822,7 @@ A public API that returns like counts and estimated dislike counts for YouTube v
 
 **Access and use:** No account or key is needed, and each client is limited to 100 requests a minute and 10,000 a day. Third-party use must credit the project with a link to its repository or returnyoutubedislike.com. Dislike figures for the period since YouTube hid them are estimates, so label them as such.
 
-**Source checked:** 2026-11-05. [Official source](https://returnyoutubedislike.com/docs/usage-rights).
+**Source checked:** 2026-11-05. [Official source](https://returnyoutubedislike.com/docs/usage-rights). [Gearlist page](https://gearlist.build/tools/return-youtube-dislike-api/).
 
 ### [SerpApi YouTube Search API](https://serpapi.com/youtube-search-api)
 
@@ -2831,7 +2832,7 @@ A paid API that returns YouTube search results as JSON, including videos, channe
 
 **Access and use:** Needs a SerpApi account and private API key; the free plan covers 250 searches a month at 50 an hour, and the Starter plan is US$25 a month for 1,000. Cached searches are free, and an output option returns Markdown for agents. SerpApi's U.S. Legal Shield, its cover for scraping and parsing search data, starts on the Production plan.
 
-**Source checked:** 2026-11-05. [Official source](https://serpapi.com/pricing.md).
+**Source checked:** 2026-11-05. [Official source](https://serpapi.com/pricing.md). [Gearlist page](https://gearlist.build/tools/serpapi-youtube-search/).
 
 ### [NoxInfluencer API](https://www.noxinfluencer.com/api-service)
 
@@ -2841,7 +2842,7 @@ NoxInfluencer's API for YouTube, TikTok and Instagram creator profiles, videos, 
 
 **Access and use:** A free trial gives 80 one-time credits, and ongoing access uses a Nox Key set up through an account manager with quoted pricing; each key is limited to 60 requests a minute. The site's terms forbid crawling NoxInfluencer data, so use the API rather than automating the web app. Contact details it returns are personal information.
 
-**Source checked:** 2026-11-05. [Official source](https://www.noxinfluencer.com/api-docs/docs/rest/api).
+**Source checked:** 2026-11-05. [Official source](https://www.noxinfluencer.com/api-docs/docs/rest/api). [Gearlist page](https://gearlist.build/tools/noxinfluencer-api/).
 
 ### [Modash API](https://www.modash.io/influencer-marketing-api)
 
@@ -2851,7 +2852,7 @@ Modash's Discovery and Raw APIs for searching and analysing YouTube, Instagram a
 
 **Access and use:** Needs an access token under a Modash API agreement; each call spends credits, published pricing starts at US$16,200 a year for Discovery and US$10,000 a year for Raw, and trial credits are offered after a call with the team. Modash also offers an MCP server for the same data. The API terms bar standalone resale of raw results and require a lawful basis for processing creator data.
 
-**Source checked:** 2026-11-05. [Official source](https://www.modash.io/influencer-marketing-api).
+**Source checked:** 2026-11-05. [Official source](https://www.modash.io/influencer-marketing-api). [Gearlist page](https://gearlist.build/tools/modash-api/).
 
 ### [Phyllo](https://www.getphyllo.com/)
 
@@ -2861,7 +2862,7 @@ A social data API that returns creators' public data and, with each creator's si
 
 **Access and use:** Sign up for a free sandbox, then talk to sales for production access and pricing. Consented data needs each creator to connect their account through Phyllo and approve the fields shared. Its developer documentation is published under the InsightIQ name at docs.insightiq.ai.
 
-**Source checked:** 2026-11-05. [Official source](https://www.getphyllo.com/).
+**Source checked:** 2026-11-05. [Official source](https://www.getphyllo.com/). [Gearlist page](https://gearlist.build/tools/phyllo/).
 
 ### [ChannelCrawler](https://channelcrawler.com/api)
 
@@ -2871,7 +2872,7 @@ A YouTube channel database whose API searches over 35 million channels by niche,
 
 **Access and use:** The API uses a bearer key and prepaid credits, from 100 credits for US$24, charged per result, with free search previews and email lookups billed only when an email is found. Sponsorship tracking is part of the web app's Power and Enterprise plans, not the API. Business emails it returns are personal information, so outreach must follow spam and privacy law.
 
-**Source checked:** 2026-11-05. [Official source](https://channelcrawler.com/api).
+**Source checked:** 2026-11-05. [Official source](https://channelcrawler.com/api). [Gearlist page](https://gearlist.build/tools/channelcrawler/).
 
 ### [Apify YouTube Scraper](https://apify.com/streamers/youtube-scraper)
 
@@ -2881,7 +2882,7 @@ An Apify actor that collects public YouTube video and channel data, such as titl
 
 **Access and use:** Needs an Apify account and API token; it bills per video, about US$2.40 to US$4 per 1,000 depending on plan, and results are stored in your Apify datasets. The free plan's US$5 monthly credit covers a small run. It scrapes YouTube outside the official API, which YouTube's Terms of Service bar without permission, and Apify says not to collect personal data without a legitimate reason.
 
-**Source checked:** 2026-11-05. [Official source](https://apify.com/streamers/youtube-scraper).
+**Source checked:** 2026-11-05. [Official source](https://apify.com/streamers/youtube-scraper). [Gearlist page](https://gearlist.build/tools/apify-youtube-scraper/).
 
 ## Looking for more?
 

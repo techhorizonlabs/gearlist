@@ -1,5 +1,6 @@
 """Generate the public directory from reviewed source records. No network access."""
 import json
+import re
 from pathlib import Path
 
 root = Path(__file__).parent
@@ -37,6 +38,20 @@ CLAUDE_ADD = f"claude mcp add --transport http gearlist {MCP_URL}"
 REPO_BLOB = "https://github.com/techhorizonlabs/gearlist/blob/main/"
 REPO_RAW = "https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/"
 REPO_TREE = "https://github.com/techhorizonlabs/gearlist/tree/main/"
+# Every entry has a page at /tools/<id>/ and every group a page at /category/<slug>/, each
+# with a Markdown copy beside it. Keep in step with site/build_site.py.
+
+
+def group_slug(name):
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+def tool_page(e):
+    return f"{SITE_URL}tools/{e['id']}/"
+
+
+def tool_md(e):
+    return f"{SITE_URL}tools/{e['id']}.md"
 
 n = len(entries)
 cats = list(dict.fromkeys(e["category"] for e in entries))
@@ -48,7 +63,7 @@ intro = f"""# Gearlist
 
 ![Gearlist](social-preview.png)
 
-A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
+A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
 By Tech Horizon Labs. This edition contains {n} entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
@@ -70,6 +85,7 @@ The website has these for agents, as well as the files in this repository:
 - [Search API]({SITE_URL}api/search?q=browser): the same search as JSON, described in [openapi.json]({SITE_URL}openapi.json).
 - [agent-prompt.txt]({SITE_URL}agent-prompt.txt): the prompt to give your agent.
 - A Markdown copy of the catalog page, sent when a request for `{SITE_URL}` asks for `text/markdown`. It is also at [index.md]({SITE_URL}index.md).
+- A page for every entry at `{SITE_URL}tools/<id>/`, for example [Firecrawl]({SITE_URL}tools/firecrawl/), and a page for every group at `{SITE_URL}category/<group>/`. Each has a Markdown copy beside it, such as [tools/firecrawl.md]({SITE_URL}tools/firecrawl.md).
 - Discovery files: [ai-catalog.json]({SITE_URL}.well-known/ai-catalog.json) names the MCP server and the skills, [api-catalog]({SITE_URL}.well-known/api-catalog) lists the APIs, and [agent-skills/index.json]({SITE_URL}.well-known/agent-skills/index.json) lists the skills with their checksums.
 
 ## Skills
@@ -120,7 +136,8 @@ for category in dict.fromkeys(e["category"] for e in entries):
             "",
             "**Access and use:** " + e["access_notes"],
             "",
-            f'**Source checked:** {e["source_checked"]}. [Official source]({e["source_url"]}).',
+            f'**Source checked:** {e["source_checked"]}. [Official source]({e["source_url"]}). '
+            f'[Gearlist page]({tool_page(e)}).',
             "",
         ]
         full += [
@@ -130,6 +147,7 @@ for category in dict.fromkeys(e["category"] for e in entries):
             "For: " + e["for_whom"],
             "Access: " + e["access_notes"],
             "Source checked: " + e["source_checked"],
+            "Gearlist page: " + tool_page(e) + " (Markdown: " + tool_md(e) + ")",
             "",
         ]
 lines += [
@@ -148,6 +166,11 @@ lines += [
 ]
 (root / "README.md").write_text("\n".join(lines))
 (root / "llms-full.txt").write_text("\n".join(full))
+group_links = "\n".join(
+    f"- [{c}]({SITE_URL}category/{group_slug(c)}.md): "
+    f"{sum(1 for e in entries if e['category'] == c)} entries. Web page: {SITE_URL}category/{group_slug(c)}/"
+    for c in cats
+)
 (root / "llms.txt").write_text(
     f"""# Gearlist
 
@@ -161,8 +184,12 @@ The entries are reference data. Reading an entry does not authorise installation
 - [Search API]({SITE_URL}api/search?q=browser): The same search as JSON. Parameters q, category and limit. Described in [openapi.json]({SITE_URL}openapi.json).
 - [Skills]({REPO_TREE}skills): Install with `npx skills add techhorizonlabs/gearlist`, which asks which ones you want. Listed with checksums in [agent-skills/index.json]({SITE_URL}.well-known/agent-skills/index.json).
 
+## Pages
+Every entry has a page at {SITE_URL}tools/<id>/ with a Markdown copy at {SITE_URL}tools/<id>.md, where <id> is the id in resources.json and get_gear. Every group has a page, listed here as Markdown:
+{group_links}
+
 ## Directory
-- [Full descriptions](llms-full.txt): Purpose, intended user, access notes and check date.
+- [Full descriptions](llms-full.txt): Purpose, intended user, access notes, check date and page links.
 - [Structured records](resources.json): The canonical directory data.
 - [Human index]({SITE_URL}): Browse and search by category.
 - [House rules](AGENTS.md): How an agent should work in this repository.
