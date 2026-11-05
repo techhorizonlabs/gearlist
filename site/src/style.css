@@ -318,6 +318,40 @@ h1 {
 .agents h2 { margin: 0 0 .75rem; color: var(--cream); font: 700 clamp(1.5rem, 3vw, 2rem)/1.1 var(--sans); }
 .agents > p { margin: 0 0 2rem; max-width: 40em; }
 .agents code { color: var(--cream); font: 400 .9em var(--mono); }
+.agents h3 { margin: 3rem 0 .75rem; color: var(--cream); font: 700 1.25rem/1.2 var(--sans); }
+.agents .also { margin: 0 0 1rem; max-width: 46em; font-size: .9375rem; }
+.agents > p + .files { margin-top: 1.5rem; }
+.prompt {
+  max-width: 62rem;
+  margin: 0 7px 1.5rem 0;
+  background: var(--panel);
+  border: 3px solid var(--cream);
+  box-shadow: 7px 7px 0 var(--pink);
+}
+.prompt-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: .4rem .4rem .4rem 1rem;
+  border-bottom: 3px solid var(--cream);
+  color: var(--muted);
+  font: 400 .8125rem/1.4 var(--mono);
+}
+.prompt-bar button {
+  padding: .55rem .9rem;
+  border: 0; border-radius: 0;
+  background: var(--cream); color: var(--ink);
+  font: 700 .8125rem/1 var(--mono);
+  cursor: pointer;
+}
+.prompt-bar button:hover { background: var(--gold); }
+.prompt pre {
+  margin: 0; padding: 1rem 1.1rem 1.2rem;
+  max-height: 28rem; overflow: auto;
+  color: var(--cream);
+  font: 400 .8125rem/1.65 var(--mono);
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.install .alt { margin-top: 1.4rem; }
+.install .alt code { color: var(--cream); }
 .files {
   display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr);
   margin: 0; padding: 0 7px 7px 0; list-style: none;

@@ -8,16 +8,19 @@ Python 3 standard library only. No network access. Run from anywhere:
 import base64
 import hashlib
 import html
+import io
 import json
 import re
 import shutil
 import sys
+import zipfile
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
 SRC = SITE / "src"
 DIST = SITE / "dist"
+SKILLS = ROOT / "skills"
 
 BASE_URL = "https://gearlist.build/"
 REPO_URL = "https://github.com/techhorizonlabs/gearlist"
@@ -25,6 +28,17 @@ REPO_LABEL = "github.com/techhorizonlabs/gearlist"
 CONTRIBUTING_URL = REPO_URL + "/blob/main/CONTRIBUTING.md"
 INSTALL = "npx skills add techhorizonlabs/gearlist"
 COPIED = ["llms.txt", "llms-full.txt", "resources.json", "AGENTS.md", "social-preview.png"]
+
+# The MCP server and JSON API run in the Worker (site/worker). Keep in step with
+# site/worker/mcp.mjs and site/src/agent-prompt.txt.
+MCP_URL = BASE_URL + "mcp"
+CLAUDE_ADD = f"claude mcp add --transport http gearlist {MCP_URL}"
+SKILLS_SCHEMA = "https://schemas.agentskills.io/discovery/0.2.0/schema.json"
+
+# robots.txt Content-Signal (https://contentsignals.org/). The catalog is public,
+# MIT-licensed reference data that is meant to be found and recommended, so all
+# three uses are allowed. Change ai-train to "no" here to opt out of training.
+CONTENT_SIGNAL = "search=yes, ai-input=yes, ai-train=yes"
 
 # Wording from README.md. Keep these in step with build.py.
 SUMMARY = (
@@ -201,12 +215,13 @@ def render_entry(e, anchor):
     )
 
 
-def render_index(data, groups, css, head_js, app_js, sizes):
+def render_index(data, groups, css, head_js, app_js, sizes, prompt):
     entries = [e for g in groups for e in g["entries"]]
     total = len(entries)
     reserved = {g["slug"] for g in groups} | {
         "top", "main", "catalog", "agents", "q", "status", "empty", "clear",
-        "copy", "cmd", "copy-status", "checks", "kit",
+        "copy", "cmd", "copy-status", "checks", "kit", "agent-prompt", "prompt-text",
+        "h-agents", "h-files",
     }
     anchors = entry_ids(entries, reserved)
     updated = data.get("updated", max(e["source_checked"] for e in entries))
@@ -252,15 +267,27 @@ def render_index(data, groups, css, head_js, app_js, sizes):
         )
 
     files = [
-        ("llms.txt", "Start here. A short index with links to the other files.", "gold"),
-        ("llms-full.txt", "Every entry as plain text: purpose, audience, access and check date.", "pink"),
-        ("resources.json", "The canonical records as JSON. The other files are built from it.", "teal"),
-        ("AGENTS.md", "House rules for an agent reading or changing the list.", "gold"),
+        ("/llms.txt", "llms.txt", "Start here. A short index with links to the other files.", "gold",
+         file_size(sizes["llms.txt"])),
+        ("/llms-full.txt", "llms-full.txt", "Every entry as plain text: purpose, audience, access and check date.",
+         "pink", file_size(sizes["llms-full.txt"])),
+        ("/resources.json", "resources.json", "The canonical records as JSON. The other files are built from it.",
+         "teal", file_size(sizes["resources.json"])),
+        ("/AGENTS.md", "AGENTS.md", "House rules for an agent reading or changing the list.", "gold",
+         file_size(sizes["AGENTS.md"])),
+        ("/mcp", "MCP server", "Search the list from your agent. Read-only, no sign-in, Streamable HTTP.", "pink",
+         "4 tools"),
+        ("/agent-prompt.txt", "agent-prompt.txt", "The prompt above as plain text, with setup for each client.",
+         "teal", file_size(len(prompt.encode("utf-8")))),
+        ("/openapi.json", "openapi.json", "The same search as JSON at /api/search, described for tools.", "gold",
+         "OpenAPI 3.1"),
+        ("/.well-known/ai-catalog.json", "ai-catalog.json", "A discovery file naming the MCP server and the skills.",
+         "pink", "AI Catalog"),
     ]
     file_cards = "".join(
-        f'<li><a class="file c-{colour}" href="/{name}"><b>{name}</b><span>{esc(text)}</span>'
-        f"<small>{file_size(sizes[name])}</small></a></li>"
-        for name, text, colour in files
+        f'<li><a class="file c-{colour}" href="{href}"><b>{esc(title)}</b><span>{esc(text)}</span>'
+        f"<small>{esc(small)}</small></a></li>"
+        for href, title, text, colour, small in files
     )
 
     jsonld = {
@@ -310,6 +337,9 @@ def render_index(data, groups, css, head_js, app_js, sizes):
 <link rel="canonical" href="{BASE_URL}">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
 <link rel="alternate" type="application/json" href="/resources.json" title="Gearlist records">
+<link rel="alternate" type="text/markdown" href="/index.md" title="This page as Markdown">
+<link rel="api-catalog" href="/.well-known/api-catalog">
+<link rel="ai-catalog" href="/.well-known/ai-catalog.json">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#14161a">
 <meta name="color-scheme" content="dark">
@@ -352,8 +382,9 @@ def render_index(data, groups, css, head_js, app_js, sizes):
 <p class="facts">{total} entries in {group_count} groups. Updated {long_date(updated)}.</p>
 <div class="install">
 <p>Install the Gearlist skills, including the YouTube creator pack:</p>
-<div class="cmd"><code id="cmd">{esc(INSTALL)}</code><button type="button" id="copy" class="js-only">Copy</button></div>
+<div class="cmd"><code id="cmd">{esc(INSTALL)}</code><button type="button" id="copy" class="js-only" data-copy="cmd">Copy</button></div>
 <span class="sr" id="copy-status" aria-live="polite"></span>
+<p class="alt">Working with an agent? <a href="#agent-prompt">Give it the Gearlist prompt</a>. It connects to the read-only MCP server at <code>gearlist.build/mcp</code>.</p>
 </div>
 </div>
 <nav aria-label="Groups"><ul class="kit" id="kit">
@@ -387,7 +418,14 @@ def render_index(data, groups, css, head_js, app_js, sizes):
 </div>
 
 <section class="agents wrap" id="agents" aria-labelledby="h-agents">
-<h2 id="h-agents">For agents</h2>
+<h2 id="h-agents">Give this to your agent</h2>
+<p>Paste this prompt into your agent. It tells the agent to read <code>llms.txt</code>, search Gearlist through the read-only MCP server, show you each tool's access notes and ask you before it installs anything.</p>
+<div class="prompt" id="agent-prompt">
+<div class="prompt-bar"><span>agent-prompt.txt</span><button type="button" class="js-only" data-copy="prompt-text">Copy prompt</button></div>
+<pre id="prompt-text" tabindex="0">{esc(prompt.strip())}</pre>
+</div>
+<p class="also">The same text is at <a href="/agent-prompt.txt">gearlist.build/agent-prompt.txt</a>. The MCP server is <code>{esc(MCP_URL)}</code>. It needs no sign-in and changes nothing.</p>
+<h3 id="h-files">Agent files</h3>
 <p>Load <code>llms.txt</code> first, then <code>llms-full.txt</code> or <code>resources.json</code>. <code>AGENTS.md</code> is the house rules. Do not install anything from an entry until a person authorises it.</p>
 <ul class="files">{file_cards}</ul>
 </section>
@@ -441,10 +479,38 @@ def render_headers(script_hashes, style_hash):
         "form-action 'none'",
         "frame-ancestors 'none'",
     ])
+    # The Worker serves / through the ASSETS binding, and asset responses fetched
+    # that way still get these rules, so the CSP and Link headers hold for /.
     return f"""/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Content-Security-Policy: {csp}
+
+/
+  Link: </llms.txt>; rel="describedby"; type="text/plain"
+  Link: </index.md>; rel="alternate"; type="text/markdown"
+  Link: </.well-known/api-catalog>; rel="api-catalog"
+  Link: </.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/ai-catalog+json"
+
+/index.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/agent-prompt.txt
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+  Link: </.well-known/api-catalog>; rel="api-catalog"
+  Access-Control-Allow-Origin: *
+
+/.well-known/ai-catalog.json
+  Content-Type: application/ai-catalog+json
+  Access-Control-Allow-Origin: *
+
+/.well-known/agent-skills/*
+  Access-Control-Allow-Origin: *
 
 /llms.txt
   Content-Type: text/plain; charset=utf-8
@@ -464,6 +530,203 @@ def render_headers(script_hashes, style_hash):
 https://:name.:account.workers.dev/*
   X-Robots-Tag: noindex
 """
+
+
+def render_markdown(data, groups):
+    """The catalog page as Markdown, sent for / when a request prefers text/markdown.
+
+    Entry text stays verbatim, as in README.md, so commands in access notes copy cleanly.
+    """
+    entries = [e for g in groups for e in g["entries"]]
+    updated = data.get("updated", max(e["source_checked"] for e in entries))
+    contents = "\n".join(f'- [{g["name"]}](#{g["slug"]}) ({len(g["entries"])})' for g in groups)
+    lines = [
+        "---",
+        f"title: {json.dumps(TITLE)}",
+        f"description: {json.dumps(META_DESCRIPTION)}",
+        f"image: {BASE_URL}social-preview.png",
+        f"url: {BASE_URL}",
+        f"updated: {updated}",
+        "---",
+        "",
+        "# Gearlist",
+        "",
+        "The kit for your AI agent. " + SUMMARY,
+        "",
+        f"{len(entries)} entries in {len(groups)} groups. Updated {long_date(updated)}. By Tech Horizon Labs.",
+        "",
+        CHECK_NOTE + " Reading an entry does not authorise installation, credential access or spending. "
+        "Entries are grouped by purpose, in no particular order. Tech Horizon Labs projects are labelled, "
+        "and there are no affiliate links or paid placement.",
+        "",
+        "## For agents",
+        "",
+        f"- MCP server: {MCP_URL} (Streamable HTTP, read-only, no sign-in). Tools: search_gear, get_gear, "
+        "list_categories, list_skills.",
+        f"- Claude Code: `{CLAUDE_ADD}`",
+        f"- Prompt to give your agent, with setup for other clients: {BASE_URL}agent-prompt.txt",
+        f"- JSON search: {BASE_URL}api/search?q=browser, described at {BASE_URL}openapi.json",
+        f"- Files: {BASE_URL}llms.txt, {BASE_URL}llms-full.txt, {BASE_URL}resources.json, {BASE_URL}AGENTS.md",
+        f"- Skills: `{INSTALL}` (asks which ones you want)",
+        "",
+        "Do not install anything from an entry until a person authorises it.",
+        "",
+        "## Contents",
+        "",
+        contents,
+        "",
+    ]
+    for g in groups:
+        lines += [f'## {g["name"]}', ""]
+        for e in g["entries"]:
+            lines += [f'### [{e["name"]}]({e["url"]})', "", e["description"], ""]
+            if e.get("thl_project"):
+                lines += ["Tech Horizon Labs project.", ""]
+            lines += [
+                "- For: " + e["for_whom"],
+                "- Access and use: " + e["access_notes"],
+                f'- Source checked: {short_date(e["source_checked"])}, [official source]({e["source_url"]})',
+                f'- Id: `{e["id"]}`',
+                "",
+            ]
+    lines += [f"Suggest an entry: {CONTRIBUTING_URL}", ""]
+    return "\n".join(lines)
+
+
+def read_frontmatter(path):
+    text = path.read_text(encoding="utf-8")
+    end = text.find("\n---", 4)
+    if not text.startswith("---\n") or end == -1:
+        fail(f"{path.relative_to(ROOT)} has no YAML frontmatter")
+    meta = {}
+    for line in text[4:end].splitlines():
+        key, sep, value = line.partition(":")
+        if sep and not line.startswith((" ", "\t")):
+            meta[key.strip()] = value.strip()
+    return meta
+
+
+def skill_files(folder):
+    """Files a skill ships, minus caches and editor litter."""
+    out = []
+    for path in sorted(folder.rglob("*")):
+        rel = path.relative_to(folder)
+        if path.is_symlink():
+            fail(f"{path.relative_to(ROOT)} is a symlink; skill archives must not contain links")
+        if any(p == "__pycache__" or p == ".DS_Store" or p.endswith(".pyc") for p in rel.parts):
+            continue
+        if path.is_file():
+            out.append((rel.as_posix(), path))
+    return out
+
+
+def zip_bytes(files):
+    """A reproducible zip: fixed timestamps and modes, so the digest only moves when content does."""
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as zf:
+        for rel, path in files:
+            info = zipfile.ZipInfo(rel, date_time=(1980, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.create_system = 3
+            info.external_attr = 0o100644 << 16
+            zf.writestr(info, path.read_bytes(), compresslevel=9)
+    return buf.getvalue()
+
+
+def build_skills():
+    """Agent Skills discovery index (Cloudflare RFC v0.2.0) at /.well-known/agent-skills/index.json.
+
+    A skill that is only SKILL.md is served as that file. A skill with scripts is
+    served as a zip with SKILL.md at the root. SKILL.md is also published on its own
+    so it can be read before anything is downloaded.
+    """
+    out = DIST / ".well-known" / "agent-skills"
+    skills = []
+    for folder in sorted(p for p in SKILLS.iterdir() if p.is_dir() and (p / "SKILL.md").exists()):
+        meta = read_frontmatter(folder / "SKILL.md")
+        name, description = meta.get("name", ""), meta.get("description", "")
+        if name != folder.name or len(name) > 64 or not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", name):
+            fail(f"skills/{folder.name}/SKILL.md needs a name that matches its folder")
+        if not description or len(description) > 1024:
+            fail(f"skills/{folder.name}/SKILL.md needs a description of 1 to 1024 characters")
+        files = skill_files(folder)
+        (out / name).mkdir(parents=True)
+        shutil.copyfile(folder / "SKILL.md", out / name / "SKILL.md")
+        if [rel for rel, _ in files] == ["SKILL.md"]:
+            kind, url, blob = "skill-md", f"/.well-known/agent-skills/{name}/SKILL.md", (folder / "SKILL.md").read_bytes()
+        else:
+            kind, url, blob = "archive", f"/.well-known/agent-skills/{name}.zip", zip_bytes(files)
+            (out / f"{name}.zip").write_bytes(blob)
+        skills.append({
+            "name": name,
+            "type": kind,
+            "description": description,
+            "url": url,
+            "digest": "sha256:" + hashlib.sha256(blob).hexdigest(),
+        })
+    if not skills:
+        fail("no skills found in skills/")
+    index = {"$schema": SKILLS_SCHEMA, "skills": skills}
+    (out / "index.json").write_text(json.dumps(index, indent=2) + "\n", encoding="utf-8")
+    return skills
+
+
+def ai_catalog(skills):
+    """AI Catalog at /.well-known/ai-catalog.json. The MCP Server Card extension (SEP-2127)
+    uses it for domain-level discovery of the card at /mcp/server-card."""
+    entries = [{
+        "identifier": "urn:air:gearlist.build:mcp:gearlist",
+        "displayName": "Gearlist MCP server",
+        "type": "application/mcp-server-card+json",
+        "url": MCP_URL + "/server-card",
+        "description": "Read-only search over the Gearlist catalog of source-checked AI agent tools, MCP servers and skills.",
+        "tags": ["mcp", "catalog", "agent-tools"],
+    }]
+    for s in skills:
+        entries.append({
+            "identifier": f"urn:air:gearlist.build:skill:{s['name']}",
+            "displayName": s["name"],
+            "type": "application/agent-skills+md" if s["type"] == "skill-md" else "application/agent-skills+zip",
+            "url": BASE_URL.rstrip("/") + s["url"],
+            "description": s["description"],
+        })
+    return {
+        "specVersion": "1.0",
+        "host": {
+            "displayName": "Tech Horizon Labs",
+            "identifier": "gearlist.build",
+            "documentationUrl": BASE_URL + "llms.txt",
+        },
+        "entries": entries,
+    }
+
+
+def api_catalog():
+    """RFC 9727 API catalog, in the RFC 9264 linkset format."""
+    return {
+        "linkset": [
+            {
+                "anchor": BASE_URL + "api/search",
+                "service-desc": [{"href": BASE_URL + "openapi.json", "type": "application/json"}],
+                "service-doc": [{"href": BASE_URL + "agent-prompt.txt", "type": "text/plain"}],
+            },
+            {
+                "anchor": MCP_URL,
+                "service-doc": [{"href": MCP_URL, "type": "text/plain"}],
+                "service-meta": [{"href": MCP_URL + "/server-card", "type": "application/mcp-server-card+json"}],
+            },
+        ]
+    }
+
+
+def read_prompt():
+    prompt = (SRC / "agent-prompt.txt").read_text(encoding="utf-8")
+    for needed in (BASE_URL + "llms.txt", MCP_URL, CLAUDE_ADD, INSTALL):
+        if needed not in prompt:
+            fail(f"site/src/agent-prompt.txt must include {needed}")
+    if re.search("[\u2013\u2014]", prompt):
+        fail("site/src/agent-prompt.txt contains an en or em dash")
+    return prompt
 
 
 def main():
@@ -492,14 +755,30 @@ def main():
         if re.search(r"</(style|script)", block, re.I):
             fail(f"{label} contains a closing tag")
 
-    index = render_index(data, groups, css, head_js, app_js, sizes)
+    prompt = read_prompt()
+    index = render_index(data, groups, css, head_js, app_js, sizes, prompt)
     (DIST / "index.html").write_text(index, encoding="utf-8")
+    (DIST / "index.md").write_text(render_markdown(data, groups), encoding="utf-8")
+    (DIST / "agent-prompt.txt").write_text(prompt, encoding="utf-8")
     (DIST / "404.html").write_text(render_404(css), encoding="utf-8")
     (DIST / "_headers").write_text(render_headers([csp_hash(head_js), csp_hash(app_js)], csp_hash(css)), encoding="utf-8")
 
+    skills = build_skills()
+    well_known = DIST / ".well-known"
+    (well_known / "ai-catalog.json").write_text(json.dumps(ai_catalog(skills), indent=2) + "\n", encoding="utf-8")
+    (well_known / "api-catalog").write_text(json.dumps(api_catalog(), indent=2) + "\n", encoding="utf-8")
+
     updated = data.get("updated", max(e["source_checked"] for e in entries))
-    (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE_URL}sitemap.xml\n", encoding="utf-8")
-    urls = [BASE_URL] + [BASE_URL + name for name in ("llms.txt", "llms-full.txt", "resources.json", "AGENTS.md")]
+    (DIST / "robots.txt").write_text(
+        "# Content signals, see https://contentsignals.org/\n"
+        "# search: building a search index. ai-input: using pages as input to AI answers.\n"
+        "# ai-train: training or fine-tuning AI models.\n"
+        f"User-agent: *\nContent-Signal: {CONTENT_SIGNAL}\nAllow: /\n\nSitemap: {BASE_URL}sitemap.xml\n",
+        encoding="utf-8",
+    )
+    urls = [BASE_URL] + [
+        BASE_URL + name for name in ("llms.txt", "llms-full.txt", "resources.json", "AGENTS.md", "agent-prompt.txt")
+    ]
     sitemap = "".join(f"  <url><loc>{esc(u)}</loc><lastmod>{updated}</lastmod></url>\n" for u in urls)
     (DIST / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
