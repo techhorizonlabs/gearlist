@@ -521,6 +521,20 @@ For: Developers evaluating local voice agents and a phone interface for an exist
 Access: macOS on Apple Silicon, Python 3.11 to 3.13, Homebrew and uv. Source install builds a native PJSIP binding and setup downloads several GB of model files. The README recommends 16 GB RAM for the default 4B model, with a 2B option for 8 GB. English and one call at a time. Local SIP testing needs no paid carrier; telephone numbers and calls need a SIP trunk or carrier account and incur charges. Local speech stays on the Mac, but audio travels over SIP/RTP; remote language models and external cloud agents receive any call text passed to them. AGPL-3.0-or-later; bundled PJSIP interface files are GPLv2-or-later. The README says local call tests have run, and live carrier and end-to-end agent tests are still pending.
 Source checked: 2026-10-30
 
+yt-dlp | Agent tools
+https://github.com/yt-dlp/yt-dlp
+A command line tool that downloads video, audio, subtitles and metadata from YouTube and many other sites.
+For: Agents and people who need a video's files or metadata on their own machine.
+Access: Runs locally with no account. Downloads must respect each site's terms and copyright. Unlicense.
+Source checked: 2026-11-05
+
+youtube-transcript-api | Agent tools
+https://github.com/jdepoix/youtube-transcript-api
+A Python library that fetches a YouTube video's transcript or subtitles, including auto-generated ones, without an API key.
+For: Developers who need video text for analysis or summaries.
+Access: Runs locally with no account or key. It reads YouTube's caption data, which can change or be rate limited. MIT licence.
+Source checked: 2026-11-05
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -666,6 +680,20 @@ https://github.com/Influencers-Club/influencers-club-mcp
 Search creators on Instagram, TikTok, YouTube and other platforms from an MCP client, with profile, audience and lookalike data.
 For: Marketers looking for creators whose audience matches their buyers.
 Access: Needs an Influencers Club account with API credits, and each call spends them. A local install reads an API key from the environment, and its batch tools read and write local files. MIT licence.
+Source checked: 2026-11-05
+
+vidIQ MCP server | MCP and integrations
+https://github.com/vid-io/vidiq-mcp
+Gives an AI client vidIQ's YouTube data: video and channel stats, outlier videos, keyword research, comments, transcripts and earnings estimates.
+For: Marketers and creators researching YouTube channels and content.
+Access: Needs a vidIQ account, and hosted tools may use credits. It reads data for the channels you authorise, and some tools can make approved edits to videos you own. Apache 2.0 licence for the plugin.
+Source checked: 2026-11-05
+
+YouTube Data API | MCP and integrations
+https://developers.google.com/youtube/v3
+Google's official API for public channel, video and playlist data, such as subscriber, view and comment counts.
+For: Developers building channel analysis into agents.
+Access: Needs a Google Cloud project and an API key. The default quota is 10,000 units a day, and most reads cost 1 unit. Changes to a channel need its owner's OAuth consent.
 Source checked: 2026-11-05
 
 CISO AI | Security and governance
@@ -1108,6 +1136,13 @@ A self-hosted chat interface for local and remote models, including Ollama and O
 For: Teams who want a web interface for model access and document chat on infrastructure they operate.
 Access: Use the official Docker image ghcr.io/open-webui/open-webui, or install the Python package with Python 3.12. The Docker quickstart serves the UI on localhost:3000 and persists the database and uploads in the open-webui volume at /app/backend/data. Local or remote model endpoints determine where prompts and documents go and whether provider charges apply. Offline use needs local models and assets prepared first. The current Open WebUI License includes branding-preservation requirements, with exceptions including deployments of at most 50 end users in a rolling 30-day period or written permission. Earlier components retain their original terms. Check the licence before rebranding.
 Source checked: 2026-10-30
+
+Social Blade | Platforms
+https://socialblade.com/
+Public statistics, growth history and estimated earnings for YouTube, Instagram, TikTok and Twitch accounts.
+For: Anyone sizing a creator's reach and growth from public data.
+Access: Public pages are free to read. Reports and an API are for business customers. Earnings figures are estimates from public view counts.
+Source checked: 2026-11-05
 
 x402 | Protocols
 https://x402.org/

@@ -2731,6 +2731,71 @@
       "source_checked": "2026-11-05",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
+    },
+    {
+      "id": "vidiq-mcp",
+      "name": "vidIQ MCP server",
+      "category": "MCP and integrations",
+      "url": "https://github.com/vid-io/vidiq-mcp",
+      "description": "Gives an AI client vidIQ's YouTube data: video and channel stats, outlier videos, keyword research, comments, transcripts and earnings estimates.",
+      "for_whom": "Marketers and creators researching YouTube channels and content.",
+      "access_notes": "Needs a vidIQ account, and hosted tools may use credits. It reads data for the channels you authorise, and some tools can make approved edits to videos you own. Apache 2.0 licence for the plugin.",
+      "source_url": "https://github.com/vid-io/vidiq-mcp",
+      "source_checked": "2026-11-05",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "youtube-data-api",
+      "name": "YouTube Data API",
+      "category": "MCP and integrations",
+      "url": "https://developers.google.com/youtube/v3",
+      "description": "Google's official API for public channel, video and playlist data, such as subscriber, view and comment counts.",
+      "for_whom": "Developers building channel analysis into agents.",
+      "access_notes": "Needs a Google Cloud project and an API key. The default quota is 10,000 units a day, and most reads cost 1 unit. Changes to a channel need its owner's OAuth consent.",
+      "source_url": "https://developers.google.com/youtube/v3/getting-started",
+      "source_checked": "2026-11-05",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "yt-dlp",
+      "name": "yt-dlp",
+      "category": "Agent tools",
+      "url": "https://github.com/yt-dlp/yt-dlp",
+      "description": "A command line tool that downloads video, audio, subtitles and metadata from YouTube and many other sites.",
+      "for_whom": "Agents and people who need a video's files or metadata on their own machine.",
+      "access_notes": "Runs locally with no account. Downloads must respect each site's terms and copyright. Unlicense.",
+      "source_url": "https://github.com/yt-dlp/yt-dlp",
+      "source_checked": "2026-11-05",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "youtube-transcript-api",
+      "name": "youtube-transcript-api",
+      "category": "Agent tools",
+      "url": "https://github.com/jdepoix/youtube-transcript-api",
+      "description": "A Python library that fetches a YouTube video's transcript or subtitles, including auto-generated ones, without an API key.",
+      "for_whom": "Developers who need video text for analysis or summaries.",
+      "access_notes": "Runs locally with no account or key. It reads YouTube's caption data, which can change or be rate limited. MIT licence.",
+      "source_url": "https://github.com/jdepoix/youtube-transcript-api",
+      "source_checked": "2026-11-05",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "social-blade",
+      "name": "Social Blade",
+      "category": "Platforms",
+      "url": "https://socialblade.com/",
+      "description": "Public statistics, growth history and estimated earnings for YouTube, Instagram, TikTok and Twitch accounts.",
+      "for_whom": "Anyone sizing a creator's reach and growth from public data.",
+      "access_notes": "Public pages are free to read. Reports and an API are for business customers. Earnings figures are estimates from public view counts.",
+      "source_url": "https://socialblade.com/info",
+      "source_checked": "2026-11-05",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
