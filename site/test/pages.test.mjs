@@ -137,6 +137,35 @@ describe("Entry and group pages", () => {
     }
   });
 
+  test("titles that the cutter stopped mid-phrase now read as whole phrases", () => {
+    // PR #9 review, 6 Nov 2026: the cutter stopped these on a word that needs its object.
+    const expected = {
+      opensandbox: "OpenSandbox: Isolated Docker or Kubernetes sandboxes for agents",
+      "public-apis": "Public APIs: Community list of free APIs, grouped by topic",
+      brag: "/brag: Agent skill that turns your project into a launch video",
+      whisperx: "WhisperX: Transcription with word timestamps and speaker labels",
+      agentos: "agentOS: WebAssembly sandbox with files, a shell and networking",
+      "ai-phone": "ai-phone: SIP phone daemon that lets an agent receive and place calls",
+      "claude-devtools": "claude-devtools: Desktop app that reconstructs Claude Code session logs",
+      "claude-plugins-official": "Claude plugins official: Anthropic's Claude Code plugin marketplace",
+      cashclaw: "CashClaw: Node agent that quotes and does paid marketplace tasks",
+      "agent-reach": "Agent Reach: CLI that lets coding agents read sites web search misses",
+      "compound-engineering": "Compound Engineering: Skills that run a plan, build and review loop",
+    };
+    for (const [id, lead] of Object.entries(expected)) {
+      const html = pages.get(`/tools/${id}/`);
+      assert.ok(html, `/tools/${id}/ exists`);
+      const title = unescape(/<title>([^<]+)<\/title>/.exec(html)[1]);
+      assert.equal(title, `${lead} | Gearlist`);
+    }
+    // The cut-off endings themselves must not come back on any page.
+    for (const e of records) {
+      const lead = unescape(/<title>([^<]+)<\/title>/.exec(pages.get(`/tools/${e.id}/`))[1]).slice(0, -" | Gearlist".length);
+      const last = lead.split(" ").at(-1).toLowerCase();
+      assert.ok(!["gives", "built", "grouped", "turns", "isolated", "receive", "already", "access", "does"].includes(last), `${e.id} title ends on "${last}"`);
+    }
+  });
+
   test("canonical and og:url are the page's own address", () => {
     for (const [p, html] of pages) {
       assert.equal(canonical(html), ORIGIN + p, `${p} canonical`);

@@ -384,10 +384,31 @@ def short_description(text, budget, stretch=16):
     return tidy(s[:space]) if space > 0 else s
 
 
+# Hand-written titles for entries whose description has no clean clause break near the title
+# budget, so the cutter would stop on a word that needs its object. Each comes from the entry's
+# own description (BOSUN review of PR #9, 6 Nov 2026).
+TITLE_OVERRIDES = {
+    "opensandbox": "OpenSandbox: Isolated Docker or Kubernetes sandboxes for agents",
+    "public-apis": "Public APIs: Community list of free APIs, grouped by topic",
+    "brag": "/brag: Agent skill that turns your project into a launch video",
+    "whisperx": "WhisperX: Transcription with word timestamps and speaker labels",
+    "agentos": "agentOS: WebAssembly sandbox with files, a shell and networking",
+    # Same defect, found in a sweep of the remaining titles after that review.
+    "ai-phone": "ai-phone: SIP phone daemon that lets an agent receive and place calls",
+    "claude-devtools": "claude-devtools: Desktop app that reconstructs Claude Code session logs",
+    "claude-plugins-official": "Claude plugins official: Anthropic's Claude Code plugin marketplace",
+    "cashclaw": "CashClaw: Node agent that quotes and does paid marketplace tasks",
+    "agent-reach": "Agent Reach: CLI that lets coding agents read sites web search misses",
+    "compound-engineering": "Compound Engineering: Skills that run a plan, build and review loop",
+}
+
+
 def tool_title(e):
     """'<Name> (<owner/repo>): <short description>', without the site name.
 
     The repository name is added for GitHub entries when the description still has room."""
+    if e.get("id") in TITLE_OVERRIDES:
+        return TITLE_OVERRIDES[e["id"]]
     name = e["name"]
     repo = github_repo(e["url"])
 
