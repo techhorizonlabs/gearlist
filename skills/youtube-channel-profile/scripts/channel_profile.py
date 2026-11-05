@@ -633,8 +633,13 @@ def _n(value):
     return "n/a" if value is None else f"{value:,.0f}"
 
 
+_MD_SPECIAL = set("\\`*_[]<>#|")
+
+
 def _cell(text):
-    return str(text).replace("|", "\\|").replace("\n", " ")
+    """Make third-party text (titles, handles) safe inline in Markdown: one line, markup escaped."""
+    text = " ".join(str(text if text is not None else "").split())
+    return "".join("\\" + ch if ch in _MD_SPECIAL else ch for ch in text)
 
 
 def _duration(seconds):
@@ -652,11 +657,11 @@ def render_markdown(p):
     subs = "Hidden by the channel owner" if c["subscribers_hidden"] else (
         f"{_n(c['subscribers'])} (YouTube rounds this down to three significant figures)")
     lines = [
-        f"# YouTube channel profile: {c['title']}",
+        f"# YouTube channel profile: {_cell(c['title'])}",
         "",
         f"Source: YouTube Data API v3, fetched {p['generated_at']}. {p['disclosure']}",
         "",
-        f"- Channel: {c['title']} ({c['custom_url'] or 'no handle'}), ID `{c['id']}`, {c['url']}",
+        f"- Channel: {_cell(c['title'])} ({_cell(c['custom_url']) if c['custom_url'] else 'no handle'}), ID `{c['id']}`, {c['url']}",
         f"- Found by: {p['resolved_by']}",
         f"- Country on profile: {c['country'] or 'not set'}. Created: {(c['created_at'] or 'n/a')[:10]}",
         "",
