@@ -130,7 +130,7 @@ TITLE_BREAKS = re.compile(
 )
 TITLE_WEAK_BREAKS = re.compile(r", | and | or ")
 RELATIVE = re.compile(r" (?:that|which|who|whose|where) ")
-# A whole clause may run this far past the budget rather than be cut.
+# A whole clause is kept when it runs no more than this far past the budget.
 TITLE_SLACK = 12
 # The repository name goes in the title only when it leaves this much room for the description.
 TITLE_MIN_DESCRIPTION = 24
@@ -138,8 +138,8 @@ TITLE_MIN_DESCRIPTION = 24
 TITLE_SHORT = 18
 TITLE_LONGEST = 72
 TRAILING_WORDS = {
-    "a", "an", "and", "as", "by", "for", "from", "in", "into", "its", "of", "on", "or", "the", "their",
-    "to", "via", "with", "your",
+    "a", "an", "and", "as", "by", "each", "for", "from", "in", "into", "its", "of", "on", "or", "the",
+    "their", "to", "via", "with", "your",
 }
 # Words too common to make two entries related.
 COMMON_WORDS = set(
@@ -352,6 +352,9 @@ def short_description(text, budget, stretch=16):
         # "a fleet of agents" and "a folder or set of documents" stay whole.
         quantity = len(before) >= 2 and before[-2].lower() in ("a", "an", "the", "or", "and", "one", "each")
         if m.group() == " of " and quantity:
+            continue
+        # "for one host and up to eight viewers" stays whole.
+        if m.group() == " to " and before and before[-1].lower() == "up":
             continue
         strong.append(m.start())
     cuts = [p for p in strong if p >= 10]
@@ -1274,6 +1277,9 @@ def render_headers(script_hashes, style_hash):
     ])
     # The Worker serves / through the ASSETS binding, and asset responses fetched
     # that way still get these rules, so the CSP and Link headers hold for /.
+    # The :id and :slug rules also match addresses that do not exist, whose 404 then
+    # carries the canonical Link. Search engines ignore it on a 404. They set no
+    # Content-Type, so a 404 stays text/html; .md files are served as text/markdown.
     return f"""/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
@@ -1290,19 +1296,11 @@ def render_headers(script_hashes, style_hash):
   Access-Control-Allow-Origin: *
   Link: <{BASE_URL}>; rel="canonical"
 
-/{TOOLS}/:id/
-  Link: </{TOOLS}/:id.md>; rel="alternate"; type="text/markdown"
-
 /{TOOLS}/:id.md
-  Content-Type: text/markdown; charset=utf-8
   Access-Control-Allow-Origin: *
   Link: <{BASE_URL}{TOOLS}/:id/>; rel="canonical"
 
-/{CATEGORY}/:slug/
-  Link: </{CATEGORY}/:slug.md>; rel="alternate"; type="text/markdown"
-
 /{CATEGORY}/:slug.md
-  Content-Type: text/markdown; charset=utf-8
   Access-Control-Allow-Origin: *
   Link: <{BASE_URL}{CATEGORY}/:slug/>; rel="canonical"
 

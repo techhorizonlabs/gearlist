@@ -10,7 +10,7 @@ Run `python3 build.py`, then `python3 site/build_site.py`, from the repository r
 
 - `index.html`, a 404 page, `robots.txt` (with a Content-Signal line), and a `_headers` file with the security headers and the Link headers.
 - A page for every entry at `/tools/<id>/`, where `<id>` is the entry's id in `resources.json` (the same id `get_gear` takes), and a page for every group at `/category/<slug>/`. Each page has its own title, description, canonical link, breadcrumb, JSON-LD and social image, and the documentation-checked caveat. Entry pages also carry a prompt for that one tool and links to up to six related entries from the same group.
-- A Markdown copy beside each of those pages, at `/tools/<id>.md` and `/category/<slug>.md`. Each HTML page links its copy with `<link rel="alternate" type="text/markdown">` and a `Link` header, and each copy sends a `Link: rel="canonical"` header back to its HTML page.
+- A Markdown copy beside each of those pages, at `/tools/<id>.md` and `/category/<slug>.md`. Each HTML page links its copy with `<link rel="alternate" type="text/markdown">`, and each copy sends a `Link: rel="canonical"` header back to its HTML page.
 - `og/tools/<id>.png` and `og/category/<slug>.png`: a 1200 by 630 social image per page, drawn by `site/og_image.py` in the style of `social-preview.png`.
 - `sitemap.xml`, a sitemap index pointing at `sitemap-pages.xml` (the home page and agent files), `sitemap-categories.xml` and `sitemap-tools.xml`. An entry's `lastmod` is its `source_checked` date; a group's is the latest date among its entries.
 - `<key>.txt`, the IndexNow key file. The key lives in `site/src/indexnow-key.txt`, which is committed so the key stays the same. If the file is missing, the build writes a new random key; commit it.
@@ -78,7 +78,7 @@ The first command must show the page CSP, the Link header and `Vary: Accept`. Th
 Also check one entry page and its Markdown copy:
 
 ```bash
-curl -sI https://gearlist.build/tools/firecrawl/ | grep -i -E "^link|content-security"
+curl -sI https://gearlist.build/tools/firecrawl/ | grep -i -E "content-security"
 curl -sI https://gearlist.build/tools/firecrawl.md | grep -i -E "^link|content-type"
 curl -s https://gearlist.build/sitemap.xml
 ```

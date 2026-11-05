@@ -50,7 +50,7 @@ Every entry page has one JSON-LD graph: `ItemPage` (with `lastReviewed` set to t
 - Each entry carries only fields from `resources.json`: name, description, official link, audience (`for_whom`) and, for Tech Horizon Labs projects, the creator. The tests fail if any page has a rating, review, offer, price, version or download link.
 - Google's software app rich result requires `offers.price` and a rating or review. The data has neither, so these pages will not get that rich result, and Search Console may list the `SoftwareApplication` items as not eligible. That is expected. The markup still names the entity, its link and its audience for search engines and AI answer engines.
 - Group pages use `CollectionPage` with an `ItemList` whose items are position, URL and name, pointing at the entry pages on this site, which is Google's summary page pattern. Software is not one of the carousel types, so no carousel is expected.
-- The home page `ItemList` now points at the entry pages instead of the official links, for the same reason.
+- The home page `ItemList` now points at the entry pages, for the same reason. It used to point at the official links.
 
 ## Sitemaps, robots.txt and IndexNow
 
@@ -62,12 +62,12 @@ After deploy, someone with access should submit `https://gearlist.build/sitemap.
 
 ## Agents and AI answer engines
 
-- Each entry page links a Markdown copy (`<link rel="alternate" type="text/markdown">` and a `Link` header), and each copy sends `Link: rel="canonical"` back to the HTML page, so search engines treat the HTML page as the one to show.
+- Each entry page links a Markdown copy with `<link rel="alternate" type="text/markdown">`, and each copy sends `Link: rel="canonical"` back to the HTML page, so search engines treat the HTML page as the one to show. The header rule uses a placeholder (`/tools/:id.md`), since Cloudflare allows 100 header rules, so a mistyped `.md` address also gets the header on its 404. Search engines ignore a canonical on a 404.
 - `llms.txt` lists the group pages as Markdown and gives the `/tools/<id>/` pattern. `llms-full.txt` and `index.md` give every entry's page and Markdown address.
 - Each entry page has a "Give this to your agent" prompt for that one tool. It names the page, the official link, the `get_gear` id and the source check date, and asks the agent to quote the access notes and ask before installing anything.
 - The Worker is unchanged. Two optional follow ups that would need a Worker change: return each entry's page address from `search_gear` and `get_gear`, so agents can cite the page; and Markdown negotiation on `/tools/*`, which would make every entry page view a Worker request.
 
-## GitHub search (proposal, not applied)
+## GitHub search: a proposal to apply by hand
 
 GitHub's repository search matches the name, the description and the topics by default. The README is only searched with `in:readme`. So the description and topics matter most there; the README matters for Google, which indexes the GitHub page.
 
@@ -112,4 +112,4 @@ Left out on purpose: `awesome-list` and `awesome`, which carry the community "aw
 
 ### README
 
-One change, applied through `build.py`: the opening sentence now says "AI agent tools" instead of "agent tools", the phrase people search. The home page summary, title and meta description use the same wording. Every README entry now also links its Gearlist page. BOSUN should read the README wording before a public push, as AGENTS.md asks.
+One change, applied through `build.py`: the opening sentence now says "AI agent tools", the phrase people search, where it said "agent tools". The home page summary, title and meta description use the same wording. Every README entry now also links its Gearlist page. BOSUN should read the README wording before a public push, as AGENTS.md asks.

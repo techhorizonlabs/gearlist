@@ -128,6 +128,10 @@ describe("Entry and group pages", () => {
       assert.ok(title.startsWith(e.name), `${e.id} title starts with its name`);
       assert.ok(title.endsWith(" | Gearlist"), `${e.id} title ends with the site name`);
       assert.ok(title.length <= 72 + " | Gearlist".length, `${e.id} title is ${title.length} characters`);
+      const lead = title.slice(0, -" | Gearlist".length);
+      assert.doesNotMatch(lead, /[,;:(]$/, `${e.id} title ends on punctuation`);
+      const last = lead.split(" ").at(-1).toLowerCase();
+      assert.ok(!["a", "an", "and", "or", "of", "the", "to", "for", "with", "that", "which", "each", "up", "by", "in", "on"].includes(last), `${e.id} title ends on "${last}"`);
       assert.ok(html.includes(`<h1>${escHtml(e.name)}</h1>`), `${e.id} h1 is the name`);
       assert.ok(meta(html, "name", "description").startsWith(e.description.slice(0, 40)), `${e.id} description leads with the entry`);
     }
@@ -327,9 +331,10 @@ describe("Links, images and headers", () => {
     const e = records[0];
     const md = headersFor(`/tools/${e.id}.md`);
     assert.deepEqual(md.find(([k]) => k === "Link"), ["Link", `<${ORIGIN}/tools/${e.id}/>; rel="canonical"`]);
-    assert.deepEqual(md.find(([k]) => k === "Content-Type"), ["Content-Type", "text/markdown; charset=utf-8"]);
-    const page = headersFor(`/tools/${e.id}/`);
-    assert.deepEqual(page.find(([k]) => k === "Link"), ["Link", `</tools/${e.id}.md>; rel="alternate"; type="text/markdown"`]);
+    // The placeholder rules also match missing files. Setting Content-Type there would serve
+    // the 404 page as Markdown, so it is left to the asset server, which sends .md as text/markdown.
+    assert.equal(md.find(([k]) => k === "Content-Type"), undefined);
+    assert.equal(headersFor(`/tools/${e.id}/`).find(([k]) => k === "Link"), undefined);
     const g = groups[0];
     assert.deepEqual(headersFor(`/category/${g.slug}.md`).find(([k]) => k === "Link"), ["Link", `<${ORIGIN}/category/${g.slug}/>; rel="canonical"`]);
   });
