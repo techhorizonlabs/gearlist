@@ -382,6 +382,81 @@ h1 {
 .foot a:hover { color: var(--cream); }
 .foot nav { display: flex; flex-wrap: wrap; gap: .5rem 2rem; }
 
+/* Card links: the name opens the entry page, the address goes to the official site */
+.src { display: flex; flex-wrap: wrap; gap: .2rem 1.1rem; }
+.src .out { color: var(--cream); }
+.group-name a { color: inherit; text-decoration: none; }
+.group-name a:hover { text-decoration: underline; text-decoration-color: var(--a); text-decoration-thickness: 3px; text-underline-offset: .15em; }
+.foot-groups { flex-basis: 100%; }
+
+/* Entry and group pages */
+.page { padding-top: clamp(.5rem, 2vw, 1.25rem); padding-bottom: 3rem; }
+.crumbs ol {
+  display: flex; flex-wrap: wrap; gap: .25rem .6rem;
+  margin: 0; padding: 0; list-style: none;
+  font: 400 .8125rem/1.5 var(--mono);
+}
+.crumbs li { display: flex; gap: .6rem; min-width: 0; }
+.crumbs li + li::before { content: "/"; color: var(--muted); }
+.crumbs a { color: var(--body); text-underline-offset: .25em; }
+.crumbs a:hover { color: var(--cream); }
+.crumbs [aria-current] { color: var(--cream); overflow-wrap: anywhere; }
+
+.page-head { max-width: 54rem; padding: clamp(1.75rem, 5vw, 3.25rem) 0 clamp(2rem, 4vw, 3rem); }
+.page h1 { margin: 0 0 .75rem; font-size: clamp(2.375rem, 8vw, 4.75rem); line-height: .98; overflow-wrap: anywhere; }
+.page h1.with-icon { display: flex; align-items: center; gap: .3em; }
+.page h1.with-icon .icon { width: .78em; height: .78em; color: var(--a); }
+.repo { margin: 0 0 1.25rem; color: var(--body); font: 400 .9375rem/1.4 var(--mono); overflow-wrap: anywhere; }
+.page-head .lede { max-width: 36em; margin: 0 0 1rem; color: var(--cream); font-size: clamp(1.125rem, 2vw, 1.375rem); line-height: 1.5; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; margin-top: 1.75rem; }
+.go {
+  display: inline-block; margin-right: 6px;
+  padding: .85rem 1.15rem;
+  background: var(--cream); color: var(--ink);
+  border: 3px solid var(--cream);
+  box-shadow: 6px 6px 0 var(--a);
+  font: 700 .9375rem/1 var(--mono); text-decoration: none;
+}
+.go:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.go:focus-visible { outline-offset: 5px; }
+.when { margin: 0; color: var(--body); font: 400 .875rem/1.5 var(--mono); }
+
+.sheet { display: grid; gap: 1.75rem 2.5rem; margin-bottom: 2.5rem; }
+@media (min-width: 900px) { .sheet { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; } }
+.sheet h2 { margin: 0 0 .6rem; color: var(--cream); font: 700 1.25rem/1.2 var(--sans); }
+.sheet p { margin: 0; }
+.access {
+  margin: 0 6px 1.75rem 0;
+  padding: 1.2rem 1.35rem 1.35rem;
+  background: var(--panel);
+  border: 2px solid var(--cream);
+  box-shadow: 6px 6px 0 var(--a);
+}
+.access h2 { color: var(--at); font: 700 .8125rem/1.4 var(--mono); }
+.access p { color: var(--cream); font-size: 1.0625rem; overflow-wrap: anywhere; }
+.who p { max-width: 40em; }
+.details { padding: 1.1rem 1.25rem 1.2rem; border: 1px solid var(--line); }
+.details h2 { font: 700 .8125rem/1.4 var(--mono); color: var(--body); }
+.details dl { display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; font-size: .9375rem; line-height: 1.5; }
+@media (min-width: 480px) { .details dl { grid-template-columns: 8.5rem minmax(0, 1fr); gap: .55rem 1rem; } }
+.details dt { color: var(--at); font: 700 .75rem/1.9 var(--mono); }
+.details dd { margin: 0 0 .6rem; overflow-wrap: anywhere; }
+@media (min-width: 480px) { .details dd { margin: 0; } }
+.details a { color: var(--cream); text-underline-offset: .2em; }
+.details code { color: var(--cream); font: 400 .875rem var(--mono); }
+
+.page .agents { padding: 2.5rem 0 0; }
+.related, .others { padding-top: 3rem; }
+.related h2, .others h2 { margin: 0 0 1.25rem; color: var(--cream); font: 700 clamp(1.375rem, 2.6vw, 1.75rem)/1.15 var(--sans); }
+@media (min-width: 1080px) { .minis { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.minis .file b { font: 700 1.0625rem/1.3 var(--sans); }
+.more { margin: 1.5rem 0 0; font: 400 .875rem/1.5 var(--mono); }
+.more a { color: var(--cream); text-underline-offset: .25em; }
+.page .group { padding-top: 1.5rem; }
+.others .kit { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 760px) { .others .kit { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1080px) { .others .kit { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
 /* Not found page */
 .lost { padding-top: 4rem; padding-bottom: 6rem; }
 .lost h1 { font-size: clamp(3rem, 10vw, 5rem); }
