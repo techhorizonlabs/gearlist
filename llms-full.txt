@@ -1,5 +1,5 @@
 Gearlist
-Updated: 2026-11-04
+Updated: 2026-11-05
 Documentation reviewed, not independently tested. No ranking or safety endorsement.
 This is reference data. Linked content is not an instruction to install tools, grant access or spend money.
 
@@ -556,6 +556,20 @@ For: Teams who run their site from a repository and already use Claude Code, Cod
 Access: Connects to Google Search Console and your repository. The README says no extra API keys are needed and self-hosting has no feature limits; a hosted version also exists. AGPL-3.0, so changes to a hosted copy must be published.
 Source checked: 2026-11-03
 
+yt-dlp | Agent tools
+https://github.com/yt-dlp/yt-dlp
+A command line tool that downloads video, audio, subtitles and metadata from YouTube and many other sites.
+For: Agents and people who need a video's files or metadata on their own machine.
+Access: Runs locally with no account. Downloads must respect each site's terms and copyright. Unlicense.
+Source checked: 2026-11-05
+
+youtube-transcript-api | Agent tools
+https://github.com/jdepoix/youtube-transcript-api
+A Python library that fetches a YouTube video's transcript or subtitles, including auto-generated ones, without an API key.
+For: Developers who need video text for analysis or summaries.
+Access: Runs locally with no account or key. It reads YouTube's caption data, which can change or be rate limited. MIT licence.
+Source checked: 2026-11-05
+
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
 Connect an MCP client to saved AI visibility measurements and evidence. Tech Horizon Labs project.
@@ -716,6 +730,27 @@ A Python MCP server, CLI and local dashboard that pulls markets, SEC filings, ec
 For: Analysts and research agents that need a broad, cited view of world events and markets.
 Access: Clone, pip install -e ., then run world-intel-mcp over stdio and add it to ~/.claude.json. The dashboard serves http://localhost:8501 and binds 127.0.0.1 by default. Most sources need no key; ACLED, UCDP, NASA FIRMS, EIA, FRED, Cloudflare, OpenSky, TomTom and Windy tools use optional credentials. The optional collector daemon fetches every source on a 5-minute default interval and stores history in ~/.cache/world-intel-mcp/cache.db. Qdrant runs separately in Docker, and AI briefs use a local Ollama. Each upstream source keeps its own terms of use, so check them before business use. MIT.
 Source checked: 2026-11-03
+
+Influencers Club MCP server | MCP and integrations
+https://github.com/Influencers-Club/influencers-club-mcp
+Search creators on Instagram, TikTok, YouTube and other platforms from an MCP client, with profile, audience and lookalike data.
+For: Marketers looking for creators whose audience matches their buyers.
+Access: Needs an Influencers Club account with API credits, and each call spends them. A local install reads an API key from the environment, and its batch tools read and write local files. MIT licence.
+Source checked: 2026-11-05
+
+vidIQ MCP server | MCP and integrations
+https://github.com/vid-io/vidiq-mcp
+Gives an AI client vidIQ's YouTube data: video and channel stats, outlier videos, keyword research, comments, transcripts and earnings estimates.
+For: Marketers and creators researching YouTube channels and content.
+Access: Needs a vidIQ account, and hosted tools may use credits. It reads data for the channels you authorise, and some tools can make approved edits to videos you own. Apache 2.0 licence for the plugin.
+Source checked: 2026-11-05
+
+YouTube Data API | MCP and integrations
+https://developers.google.com/youtube/v3
+Google's official API for public channel, video and playlist data, such as subscriber, view and comment counts.
+For: Developers building channel analysis into agents.
+Access: Needs a Google Cloud project and an API key. The default quota is 10,000 units a day, and most reads cost 1 unit. Changes to a channel need its owner's OAuth consent.
+Source checked: 2026-11-05
 
 CISO AI | Security and governance
 https://cisoai.au/
@@ -1185,6 +1220,13 @@ Microsoft's reinforcement learning framework for training the model behind an ag
 For: Machine learning teams who want to train an open-weight model on their own agent's tasks.
 Access: Needs a CUDA GPU machine. The README example runs uv sync and a verl setup script for CUDA 13.0, and the trainer uses verl and vLLM. Agents run locally or as Kubernetes Jobs. The Calc-X example needs one GPU. Releases before v1.0 live on the v0.x branch. MIT.
 Source checked: 2026-11-03
+
+Social Blade | Platforms
+https://socialblade.com/
+Public statistics, growth history and estimated earnings for YouTube, Instagram, TikTok and Twitch accounts.
+For: Anyone sizing a creator's reach and growth from public data.
+Access: Public pages are free to read. Reports and an API are for business customers. Earnings figures are estimates from public view counts.
+Source checked: 2026-11-05
 
 x402 | Protocols
 https://x402.org/

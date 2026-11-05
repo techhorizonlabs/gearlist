@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 249 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 255 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -19,10 +19,10 @@ npx skills add techhorizonlabs/gearlist
 
 ## Contents
 
-- [Agent tools](#agent-tools) (79)
-- [MCP and integrations](#mcp-and-integrations) (23)
+- [Agent tools](#agent-tools) (81)
+- [MCP and integrations](#mcp-and-integrations) (26)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (62)
+- [Platforms](#platforms) (63)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (54)
 - [APIs and data](#apis-and-data) (22)
@@ -820,6 +820,26 @@ Turns a coding agent into an SEO manager that mines keywords from Search Console
 
 **Source checked:** 2026-11-03. [Official source](https://github.com/NeoZi12/dispatchseo).
 
+### [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+
+A command line tool that downloads video, audio, subtitles and metadata from YouTube and many other sites.
+
+**For:** Agents and people who need a video's files or metadata on their own machine.
+
+**Access and use:** Runs locally with no account. Downloads must respect each site's terms and copyright. Unlicense.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/yt-dlp/yt-dlp).
+
+### [youtube-transcript-api](https://github.com/jdepoix/youtube-transcript-api)
+
+A Python library that fetches a YouTube video's transcript or subtitles, including auto-generated ones, without an API key.
+
+**For:** Developers who need video text for analysis or summaries.
+
+**Access and use:** Runs locally with no account or key. It reads YouTube's caption data, which can change or be rate limited. MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/jdepoix/youtube-transcript-api).
+
 ## MCP and integrations
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
@@ -1051,6 +1071,36 @@ A Python MCP server, CLI and local dashboard that pulls markets, SEC filings, ec
 **Access and use:** Clone, pip install -e ., then run world-intel-mcp over stdio and add it to ~/.claude.json. The dashboard serves http://localhost:8501 and binds 127.0.0.1 by default. Most sources need no key; ACLED, UCDP, NASA FIRMS, EIA, FRED, Cloudflare, OpenSky, TomTom and Windy tools use optional credentials. The optional collector daemon fetches every source on a 5-minute default interval and stores history in ~/.cache/world-intel-mcp/cache.db. Qdrant runs separately in Docker, and AI briefs use a local Ollama. Each upstream source keeps its own terms of use, so check them before business use. MIT.
 
 **Source checked:** 2026-11-03. [Official source](https://github.com/marc-shade/world-intel-mcp).
+
+### [Influencers Club MCP server](https://github.com/Influencers-Club/influencers-club-mcp)
+
+Search creators on Instagram, TikTok, YouTube and other platforms from an MCP client, with profile, audience and lookalike data.
+
+**For:** Marketers looking for creators whose audience matches their buyers.
+
+**Access and use:** Needs an Influencers Club account with API credits, and each call spends them. A local install reads an API key from the environment, and its batch tools read and write local files. MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://docs.influencers.club/guides/mcp-server).
+
+### [vidIQ MCP server](https://github.com/vid-io/vidiq-mcp)
+
+Gives an AI client vidIQ's YouTube data: video and channel stats, outlier videos, keyword research, comments, transcripts and earnings estimates.
+
+**For:** Marketers and creators researching YouTube channels and content.
+
+**Access and use:** Needs a vidIQ account, and hosted tools may use credits. It reads data for the channels you authorise, and some tools can make approved edits to videos you own. Apache 2.0 licence for the plugin.
+
+**Source checked:** 2026-11-05. [Official source](https://github.com/vid-io/vidiq-mcp).
+
+### [YouTube Data API](https://developers.google.com/youtube/v3)
+
+Google's official API for public channel, video and playlist data, such as subscriber, view and comment counts.
+
+**For:** Developers building channel analysis into agents.
+
+**Access and use:** Needs a Google Cloud project and an API key. The default quota is 10,000 units a day, and most reads cost 1 unit. Changes to a channel need its owner's OAuth consent.
+
+**Source checked:** 2026-11-05. [Official source](https://developers.google.com/youtube/v3/getting-started).
 
 ## Security and governance
 
@@ -1725,6 +1775,16 @@ Microsoft's reinforcement learning framework for training the model behind an ag
 **Access and use:** Needs a CUDA GPU machine. The README example runs uv sync and a verl setup script for CUDA 13.0, and the trainer uses verl and vLLM. Agents run locally or as Kubernetes Jobs. The Calc-X example needs one GPU. Releases before v1.0 live on the v0.x branch. MIT.
 
 **Source checked:** 2026-11-03. [Official source](https://github.com/microsoft/agent-lightning).
+
+### [Social Blade](https://socialblade.com/)
+
+Public statistics, growth history and estimated earnings for YouTube, Instagram, TikTok and Twitch accounts.
+
+**For:** Anyone sizing a creator's reach and growth from public data.
+
+**Access and use:** Public pages are free to read. Reports and an API are for business customers. Earnings figures are estimates from public view counts.
+
+**Source checked:** 2026-11-05. [Official source](https://socialblade.com/info).
 
 ## Protocols
 
