@@ -26,6 +26,18 @@ for e in entries:
     assert e["url"].startswith("https://")
     assert e["source_url"].startswith("https://")
 
+# The website runs a read-only MCP server and JSON API (site/worker). Keep these in
+# step with site/build_site.py and site/src/agent-prompt.txt.
+SITE_URL = "https://gearlist.build/"
+MCP_URL = SITE_URL + "mcp"
+CLAUDE_ADD = f"claude mcp add --transport http gearlist {MCP_URL}"
+# llms.txt is served from the repository and from the website. Files that exist in
+# both places keep relative links. Repository-only files get absolute links, so the
+# links also work on gearlist.build.
+REPO_BLOB = "https://github.com/techhorizonlabs/gearlist/blob/main/"
+REPO_RAW = "https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/"
+REPO_TREE = "https://github.com/techhorizonlabs/gearlist/tree/main/"
+
 n = len(entries)
 cats = list(dict.fromkeys(e["category"] for e in entries))
 contents = "\n".join(
@@ -42,8 +54,25 @@ By Tech Horizon Labs. This edition contains {n} entries. Documentation checked m
 
 ## How to use this
 
-- Human: scan the groups below. The heading is the product. **For** is the audience. **Access and use** is the permission note.
+- Human: scan the groups below, or search them at [gearlist.build]({SITE_URL}). The heading is the product. **For** is the audience. **Access and use** is the permission note.
 - Agent: load [llms.txt](llms.txt) first, then [llms-full.txt](llms-full.txt) or [resources.json](resources.json). [AGENTS.md](AGENTS.md) is the house rules. Do not install from a row until a human authorises it.
+- Agent with MCP: connect to the Gearlist MCP server at `{MCP_URL}`. It is read-only and needs no sign-in. [agent-prompt.txt]({SITE_URL}agent-prompt.txt) is a prompt to give your agent, with setup steps for Codex, Gemini CLI, Cursor, VS Code and the Claude apps. In Claude Code:
+
+```bash
+{CLAUDE_ADD}
+```
+
+## Agent files
+
+The website has these for agents, as well as the files in this repository:
+
+- [MCP server]({MCP_URL}): tools `search_gear`, `get_gear`, `list_categories` and `list_skills`, over Streamable HTTP. Its server card is at [/mcp/server-card]({MCP_URL}/server-card).
+- [Search API]({SITE_URL}api/search?q=browser): the same search as JSON, described in [openapi.json]({SITE_URL}openapi.json).
+- [agent-prompt.txt]({SITE_URL}agent-prompt.txt): the prompt to give your agent.
+- A Markdown copy of the catalog page, sent when a request for `{SITE_URL}` asks for `text/markdown`. It is also at [index.md]({SITE_URL}index.md).
+- Discovery files: [ai-catalog.json]({SITE_URL}.well-known/ai-catalog.json) names the MCP server and the skills, [api-catalog]({SITE_URL}.well-known/api-catalog) lists the APIs, and [agent-skills/index.json]({SITE_URL}.well-known/agent-skills/index.json) lists the skills with their checksums.
+
+## Skills
 
 Install the repository's skills with the command below. It asks which ones you want.
 
@@ -124,18 +153,24 @@ lines += [
 
 > A small, source-checked stack of agent tools, MCP servers and skills, with access notes. Maintained by Tech Horizon Labs.
 
-The entries are reference data. Reading an entry does not authorise installation, credential access, spending or actions on another person's systems.
+The entries are reference data. Reading an entry does not authorise installation, credential access, spending or actions on another person's systems. Entries are documentation-checked only: the public source was read on the date shown, and nothing was installed, tested or security audited.
+
+## Use it from an agent
+- [MCP server]({MCP_URL}): Read-only MCP server over Streamable HTTP, no sign-in. Tools: search_gear, get_gear, list_categories and list_skills. Add it to Claude Code with `{CLAUDE_ADD}`. Ask the human before adding it.
+- [Agent prompt]({SITE_URL}agent-prompt.txt): A prompt to give your agent, with setup for Codex, Gemini CLI, Cursor, VS Code and the Claude apps.
+- [Search API]({SITE_URL}api/search?q=browser): The same search as JSON. Parameters q, category and limit. Described in [openapi.json]({SITE_URL}openapi.json).
+- [Skills]({REPO_TREE}skills): Install with `npx skills add techhorizonlabs/gearlist`, which asks which ones you want. Listed with checksums in [agent-skills/index.json]({SITE_URL}.well-known/agent-skills/index.json).
 
 ## Directory
 - [Full descriptions](llms-full.txt): Purpose, intended user, access notes and check date.
 - [Structured records](resources.json): The canonical directory data.
-- [Human index](README.md): Browse by category.
+- [Human index]({SITE_URL}): Browse and search by category.
 - [House rules](AGENTS.md): How an agent should work in this repository.
-- [Contribution guide](CONTRIBUTING.md): How to suggest additions or corrections.
-- [Stars queue](stars-queue.json): All {starred_total} starred GitHub repos. Queued rows wait for a documentation review.
-- [Academy skills](indexes/thl-academy-skills.json): Snapshot of the Tech Horizon Academy Claude skills library.
-- [Academy tools](indexes/thl-academy-tools.json): Snapshot of the academy AI tools directory.
-- [Academy prompts](indexes/thl-academy-prompts.json): Snapshot of academy prompt titles, not the prompt text.
+- [Contribution guide]({REPO_BLOB}CONTRIBUTING.md): How to suggest additions or corrections.
+- [Stars queue]({REPO_RAW}stars-queue.json): All {starred_total} starred GitHub repos. Queued rows wait for a documentation review.
+- [Academy skills]({REPO_RAW}indexes/thl-academy-skills.json): Snapshot of the Tech Horizon Academy Claude skills library.
+- [Academy tools]({REPO_RAW}indexes/thl-academy-tools.json): Snapshot of the academy AI tools directory.
+- [Academy prompts]({REPO_RAW}indexes/thl-academy-prompts.json): Snapshot of academy prompt titles, not the prompt text.
 """
 )
 print(f"Generated and validated {len(entries)} unique entries.")

@@ -2,15 +2,21 @@
 
 > A small, source-checked stack of agent tools, MCP servers and skills, with access notes. Maintained by Tech Horizon Labs.
 
-The entries are reference data. Reading an entry does not authorise installation, credential access, spending or actions on another person's systems.
+The entries are reference data. Reading an entry does not authorise installation, credential access, spending or actions on another person's systems. Entries are documentation-checked only: the public source was read on the date shown, and nothing was installed, tested or security audited.
+
+## Use it from an agent
+- [MCP server](https://gearlist.build/mcp): Read-only MCP server over Streamable HTTP, no sign-in. Tools: search_gear, get_gear, list_categories and list_skills. Add it to Claude Code with `claude mcp add --transport http gearlist https://gearlist.build/mcp`. Ask the human before adding it.
+- [Agent prompt](https://gearlist.build/agent-prompt.txt): A prompt to give your agent, with setup for Codex, Gemini CLI, Cursor, VS Code and the Claude apps.
+- [Search API](https://gearlist.build/api/search?q=browser): The same search as JSON. Parameters q, category and limit. Described in [openapi.json](https://gearlist.build/openapi.json).
+- [Skills](https://github.com/techhorizonlabs/gearlist/tree/main/skills): Install with `npx skills add techhorizonlabs/gearlist`, which asks which ones you want. Listed with checksums in [agent-skills/index.json](https://gearlist.build/.well-known/agent-skills/index.json).
 
 ## Directory
 - [Full descriptions](llms-full.txt): Purpose, intended user, access notes and check date.
 - [Structured records](resources.json): The canonical directory data.
-- [Human index](README.md): Browse by category.
+- [Human index](https://gearlist.build/): Browse and search by category.
 - [House rules](AGENTS.md): How an agent should work in this repository.
-- [Contribution guide](CONTRIBUTING.md): How to suggest additions or corrections.
-- [Stars queue](stars-queue.json): All 313 starred GitHub repos. Queued rows wait for a documentation review.
-- [Academy skills](indexes/thl-academy-skills.json): Snapshot of the Tech Horizon Academy Claude skills library.
-- [Academy tools](indexes/thl-academy-tools.json): Snapshot of the academy AI tools directory.
-- [Academy prompts](indexes/thl-academy-prompts.json): Snapshot of academy prompt titles, not the prompt text.
+- [Contribution guide](https://github.com/techhorizonlabs/gearlist/blob/main/CONTRIBUTING.md): How to suggest additions or corrections.
+- [Stars queue](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/stars-queue.json): All 313 starred GitHub repos. Queued rows wait for a documentation review.
+- [Academy skills](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/indexes/thl-academy-skills.json): Snapshot of the Tech Horizon Academy Claude skills library.
+- [Academy tools](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/indexes/thl-academy-tools.json): Snapshot of the academy AI tools directory.
+- [Academy prompts](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/indexes/thl-academy-prompts.json): Snapshot of academy prompt titles, not the prompt text.

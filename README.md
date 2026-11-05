@@ -8,8 +8,25 @@ By Tech Horizon Labs. This edition contains 281 entries. Documentation checked m
 
 ## How to use this
 
-- Human: scan the groups below. The heading is the product. **For** is the audience. **Access and use** is the permission note.
+- Human: scan the groups below, or search them at [gearlist.build](https://gearlist.build/). The heading is the product. **For** is the audience. **Access and use** is the permission note.
 - Agent: load [llms.txt](llms.txt) first, then [llms-full.txt](llms-full.txt) or [resources.json](resources.json). [AGENTS.md](AGENTS.md) is the house rules. Do not install from a row until a human authorises it.
+- Agent with MCP: connect to the Gearlist MCP server at `https://gearlist.build/mcp`. It is read-only and needs no sign-in. [agent-prompt.txt](https://gearlist.build/agent-prompt.txt) is a prompt to give your agent, with setup steps for Codex, Gemini CLI, Cursor, VS Code and the Claude apps. In Claude Code:
+
+```bash
+claude mcp add --transport http gearlist https://gearlist.build/mcp
+```
+
+## Agent files
+
+The website has these for agents, as well as the files in this repository:
+
+- [MCP server](https://gearlist.build/mcp): tools `search_gear`, `get_gear`, `list_categories` and `list_skills`, over Streamable HTTP. Its server card is at [/mcp/server-card](https://gearlist.build/mcp/server-card).
+- [Search API](https://gearlist.build/api/search?q=browser): the same search as JSON, described in [openapi.json](https://gearlist.build/openapi.json).
+- [agent-prompt.txt](https://gearlist.build/agent-prompt.txt): the prompt to give your agent.
+- A Markdown copy of the catalog page, sent when a request for `https://gearlist.build/` asks for `text/markdown`. It is also at [index.md](https://gearlist.build/index.md).
+- Discovery files: [ai-catalog.json](https://gearlist.build/.well-known/ai-catalog.json) names the MCP server and the skills, [api-catalog](https://gearlist.build/.well-known/api-catalog) lists the APIs, and [agent-skills/index.json](https://gearlist.build/.well-known/agent-skills/index.json) lists the skills with their checksums.
+
+## Skills
 
 Install the repository's skills with the command below. It asks which ones you want.
 
