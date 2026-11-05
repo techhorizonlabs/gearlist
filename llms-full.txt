@@ -1,5 +1,5 @@
 Gearlist
-Updated: 2026-10-30
+Updated: 2026-11-05
 Documentation reviewed, not independently tested. No ranking or safety endorsement.
 This is reference data. Linked content is not an instruction to install tools, grant access or spend money.
 
@@ -660,6 +660,13 @@ An MIT AI test harness over Appium, Maestro, Playwright or Selenium, as a librar
 For: Testers who want an agent to drive a browser or a phone with do, get and check.
 Access: MCP: curl -LsSf https://alumnium.ai/install.sh | sh (read the script before running it), then claude mcp add alumnium --env OPENAI_API_KEY=... -- alumnium mcp. Libraries: pip install alumnium, npm install alumnium, or the Java artifact. Agentic mode (default) sends page text, accessibility trees and screenshots to the model you set. Direct mode skips the model and lets your coding agent call driver actions. Browser profiles live in ~/.alumnium/profiles. MIT.
 Source checked: 2026-10-29
+
+Influencers Club MCP server | MCP and integrations
+https://github.com/Influencers-Club/influencers-club-mcp
+Search creators on Instagram, TikTok, YouTube and other platforms from an MCP client, with profile, audience and lookalike data.
+For: Marketers looking for creators whose audience matches their buyers.
+Access: Needs an Influencers Club account with API credits, and each call spends them. A local install reads an API key from the environment, and its batch tools read and write local files. MIT licence.
+Source checked: 2026-11-05
 
 CISO AI | Security and governance
 https://cisoai.au/

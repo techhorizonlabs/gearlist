@@ -4,7 +4,7 @@
 
 A source-checked stack of agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 209 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 210 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -20,7 +20,7 @@ npx skills add techhorizonlabs/gearlist
 ## Contents
 
 - [Agent tools](#agent-tools) (74)
-- [MCP and integrations](#mcp-and-integrations) (20)
+- [MCP and integrations](#mcp-and-integrations) (21)
 - [Security and governance](#security-and-governance) (5)
 - [Platforms](#platforms) (58)
 - [Protocols](#protocols) (4)
@@ -970,6 +970,16 @@ An MIT AI test harness over Appium, Maestro, Playwright or Selenium, as a librar
 **Access and use:** MCP: curl -LsSf https://alumnium.ai/install.sh | sh (read the script before running it), then claude mcp add alumnium --env OPENAI_API_KEY=... -- alumnium mcp. Libraries: pip install alumnium, npm install alumnium, or the Java artifact. Agentic mode (default) sends page text, accessibility trees and screenshots to the model you set. Direct mode skips the model and lets your coding agent call driver actions. Browser profiles live in ~/.alumnium/profiles. MIT.
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/alumnium-hq/alumnium).
+
+### [Influencers Club MCP server](https://github.com/Influencers-Club/influencers-club-mcp)
+
+Search creators on Instagram, TikTok, YouTube and other platforms from an MCP client, with profile, audience and lookalike data.
+
+**For:** Marketers looking for creators whose audience matches their buyers.
+
+**Access and use:** Needs an Influencers Club account with API credits, and each call spends them. A local install reads an API key from the environment, and its batch tools read and write local files. MIT licence.
+
+**Source checked:** 2026-11-05. [Official source](https://docs.influencers.club/guides/mcp-server).
 
 ## Security and governance
 

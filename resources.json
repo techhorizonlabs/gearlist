@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-10-30",
+  "updated": "2026-11-05",
   "resources": [
     {
       "id": "agent-deck",
@@ -2717,6 +2717,19 @@
       "source_url": "https://github.com/open-webui/open-webui/blob/f7ac7ee10962ddec0017f5c29b6740d9b9c5faca/README.md",
       "source_checked": "2026-10-30",
       "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "influencers-club-mcp",
+      "name": "Influencers Club MCP server",
+      "category": "MCP and integrations",
+      "url": "https://github.com/Influencers-Club/influencers-club-mcp",
+      "description": "Search creators on Instagram, TikTok, YouTube and other platforms from an MCP client, with profile, audience and lookalike data.",
+      "for_whom": "Marketers looking for creators whose audience matches their buyers.",
+      "access_notes": "Needs an Influencers Club account with API credits, and each call spends them. A local install reads an API key from the environment, and its batch tools read and write local files. MIT licence.",
+      "source_url": "https://docs.influencers.club/guides/mcp-server",
+      "source_checked": "2026-11-05",
+      "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     }
   ]
