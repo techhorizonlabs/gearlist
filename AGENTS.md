@@ -28,7 +28,7 @@ Every entry needs a unique `id` and `url`, a `source_url`, a `source_checked` da
 - Do not promote a starred repo from `stars-queue.json` until its public documentation has been read and an access note written. Add it with a pull request, not an issue.
 - Do not add affiliate parameters or paid placement.
 - Do not call this list a security audit.
-- Keep the Worker in `site/worker` read-only. It must not write, hold secrets or fetch anything except the site's own files through the `ASSETS` binding. Run `node --test "site/test/*.test.mjs"` after any change to it.
+- Keep the Worker in `site/worker` read-only. It must not store data, hold secrets or fetch anything except the site's own files through the `ASSETS` binding. Its only state is the per-IP rate limit counter. Run `node --test "site/test/*.test.mjs"` after any change to it.
 
 ## Voice
 

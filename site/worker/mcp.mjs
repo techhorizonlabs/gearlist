@@ -392,8 +392,27 @@ export async function handleMcp(request, env) {
       : "Invalid request: method must be a string.";
     return rpcError(null, INVALID_REQUEST, why, 400);
   }
-  // Notifications (no id) need no answer. This server acts on none of them.
-  if (!("id" in message)) return respond(null, 202, null, RPC_HEADERS);
+  // Notifications (no id) need no answer, and this server acts on none of them. The
+  // 2026-07-28 revision defines no header rules for notifications, so only the
+  // protocol version is checked: it must be supported and agree with _meta.
+  if (!("id" in message)) {
+    const header = request.headers.get("MCP-Protocol-Version");
+    const p = message.params;
+    const meta = p !== null && typeof p === "object" && p._meta !== null && typeof p._meta === "object" ? p._meta : {};
+    const version = meta[META_VERSION];
+    if (header !== null && version !== undefined && header !== version) {
+      return rpcError(null, HEADER_MISMATCH,
+        `Header mismatch: MCP-Protocol-Version header '${header}' does not match body value '${version}'.`, 400);
+    }
+    const requested = header !== null ? header : version;
+    if (requested !== undefined && !SUPPORTED_VERSIONS.includes(requested)) {
+      return rpcError(null, UNSUPPORTED_VERSION, "Unsupported protocol version", 400, {
+        supported: SUPPORTED_VERSIONS,
+        requested,
+      });
+    }
+    return respond(null, 202, null, RPC_HEADERS);
+  }
   const id = message.id;
   if (!(typeof id === "string" || Number.isInteger(id))) {
     return rpcError(null, INVALID_REQUEST, "Invalid request: id must be a string or an integer.", 400);

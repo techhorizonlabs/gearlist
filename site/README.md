@@ -25,7 +25,7 @@ Styles and the page script live in `site/src` and are inlined at build time. The
 - `/mcp/server-card`: the MCP Server Card.
 - `/api/search?q=`: the same search as JSON. `/openapi.json` describes it.
 
-The Worker reads `resources.json` and `.well-known/agent-skills/index.json` from the deployed files through the `ASSETS` binding, so the MCP server, the API and the page always describe the same deploy. It makes no other fetches, stores nothing and needs no secrets.
+The Worker reads `resources.json` and `.well-known/agent-skills/index.json` from the deployed files through the `ASSETS` binding, so the MCP server, the API and the page always describe the same deploy. It makes no other fetches, keeps no data and needs no secrets. The only state is the rate limit counter below, which Cloudflare keeps per IP address.
 
 Responses that the Worker passes through from `ASSETS` keep their `_headers` rules, including the page CSP. Responses that the Worker builds itself set their own security headers in `site/worker/http.mjs`.
 

@@ -5,7 +5,8 @@
 //   /mcp/server-card    the MCP Server Card
 //   /api/*              a small JSON search API
 //   /openapi.json       the OpenAPI description of that API
-// Read-only: no writes, no secrets, and no fetches beyond the ASSETS binding.
+// Read-only: no stored data, no secrets, and no fetches beyond the ASSETS binding.
+// The only state is the per-IP counter kept by the RATE_LIMITER binding.
 
 import { NOTICE, SITE, REPO, loadCatalog, parseSearchArgs, searchPayload, schemas } from "./catalog.mjs";
 import { SERVER_INFO, handleMcp, handleServerCard } from "./mcp.mjs";

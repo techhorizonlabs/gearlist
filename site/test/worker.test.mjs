@@ -210,6 +210,26 @@ describe("MCP lifecycle (legacy handshake)", () => {
     assert.equal(await res.text(), "");
   });
 
+  test("a notification with a mismatched or unsupported version is refused", async () => {
+    const send = (version, meta) =>
+      call("/mcp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "MCP-Protocol-Version": version },
+        body: JSON.stringify({
+          jsonrpc: "2.0",
+          method: "notifications/cancelled",
+          params: { _meta: { "io.modelcontextprotocol/protocolVersion": meta } },
+        }),
+      });
+    const mismatch = await send("2025-11-25", MODERN_VERSION);
+    assert.equal(mismatch.status, 400);
+    assert.equal((await mismatch.json()).error.code, -32020);
+    const unknown = await send("2099-01-01", "2099-01-01");
+    assert.equal(unknown.status, 400);
+    assert.equal((await unknown.json()).error.code, -32022);
+    assert.equal((await send(MODERN_VERSION, MODERN_VERSION)).status, 202);
+  });
+
   test("ping returns an empty result", async () => {
     const { json } = await legacy("ping");
     assert.deepEqual(json.result, {});
