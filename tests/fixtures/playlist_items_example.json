@@ -1,0 +1,226 @@
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "fake-etag-playlist",
+  "pageInfo": {
+    "totalResults": 24,
+    "resultsPerPage": 50
+  },
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv001",
+      "contentDetails": {
+        "videoId": "EXAMPLEv001",
+        "videoPublishedAt": "2026-11-04T09:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv002",
+      "contentDetails": {
+        "videoId": "EXAMPLEv002",
+        "videoPublishedAt": "2026-11-03T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv003",
+      "contentDetails": {
+        "videoId": "EXAMPLEv003",
+        "videoPublishedAt": "2026-10-31T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv004",
+      "contentDetails": {
+        "videoId": "EXAMPLEv004",
+        "videoPublishedAt": "2026-10-28T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv005",
+      "contentDetails": {
+        "videoId": "EXAMPLEv005",
+        "videoPublishedAt": "2026-10-25T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv006",
+      "contentDetails": {
+        "videoId": "EXAMPLEv006",
+        "videoPublishedAt": "2026-10-22T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv007",
+      "contentDetails": {
+        "videoId": "EXAMPLEv007",
+        "videoPublishedAt": "2026-10-19T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv008",
+      "contentDetails": {
+        "videoId": "EXAMPLEv008",
+        "videoPublishedAt": "2026-10-16T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv009",
+      "contentDetails": {
+        "videoId": "EXAMPLEv009",
+        "videoPublishedAt": "2026-10-13T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv010",
+      "contentDetails": {
+        "videoId": "EXAMPLEv010",
+        "videoPublishedAt": "2026-10-10T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv011",
+      "contentDetails": {
+        "videoId": "EXAMPLEv011",
+        "videoPublishedAt": "2026-10-07T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv012",
+      "contentDetails": {
+        "videoId": "EXAMPLEv012",
+        "videoPublishedAt": "2026-10-04T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv013",
+      "contentDetails": {
+        "videoId": "EXAMPLEv013",
+        "videoPublishedAt": "2026-10-01T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv014",
+      "contentDetails": {
+        "videoId": "EXAMPLEv014",
+        "videoPublishedAt": "2026-09-28T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv015",
+      "contentDetails": {
+        "videoId": "EXAMPLEv015",
+        "videoPublishedAt": "2026-09-25T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv016",
+      "contentDetails": {
+        "videoId": "EXAMPLEv016",
+        "videoPublishedAt": "2026-09-22T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv017",
+      "contentDetails": {
+        "videoId": "EXAMPLEv017",
+        "videoPublishedAt": "2026-09-19T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv018",
+      "contentDetails": {
+        "videoId": "EXAMPLEv018",
+        "videoPublishedAt": "2026-09-16T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv019",
+      "contentDetails": {
+        "videoId": "EXAMPLEv019",
+        "videoPublishedAt": "2026-09-13T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv020",
+      "contentDetails": {
+        "videoId": "EXAMPLEv020",
+        "videoPublishedAt": "2026-09-10T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv021",
+      "contentDetails": {
+        "videoId": "EXAMPLEv021",
+        "videoPublishedAt": "2026-09-07T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv022",
+      "contentDetails": {
+        "videoId": "EXAMPLEv022",
+        "videoPublishedAt": "2026-09-04T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv023",
+      "contentDetails": {
+        "videoId": "EXAMPLEv023",
+        "videoPublishedAt": "2026-09-01T08:00:00Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fake",
+      "id": "fake-item-EXAMPLEv024",
+      "contentDetails": {
+        "videoId": "EXAMPLEv024",
+        "videoPublishedAt": "2026-08-29T08:00:00Z"
+      }
+    }
+  ]
+}

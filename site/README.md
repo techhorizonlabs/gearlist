@@ -1,0 +1,5 @@
+# Gearlist website
+
+Build with `python3 site/build_site.py` from the repository root, after `python3 build.py`, so the site and the README list the same entries. The script uses the Python 3 standard library only. It reads `resources.json` and writes `site/dist`: `index.html`, a 404 page, `robots.txt`, `sitemap.xml`, a `_headers` file with the security headers, and copies of `llms.txt`, `llms-full.txt`, `resources.json`, `AGENTS.md` and `social-preview.png`. Styles and the search script live in `site/src` and are inlined at build time. The build hashes them into the Content-Security-Policy, so rebuild after any change.
+
+Deploy with `wrangler deploy` from the `site` folder. It publishes `dist` as static assets on the `gearlist-site` Worker, with no Worker script. No route or custom domain is set yet; add `gearlist.build` after review. To preview locally, run `wrangler dev` in the same folder. If your Wrangler does not support the 2026-11-01 compatibility date yet, update it or pass an earlier `--compatibility-date` to `wrangler dev`.
