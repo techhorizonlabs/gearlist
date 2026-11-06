@@ -146,7 +146,7 @@ describe("Entry and group pages", () => {
       whisperx: "WhisperX: Transcription with word timestamps and speaker labels",
       agentos: "agentOS: WebAssembly sandbox with files, a shell and networking",
       "ai-phone": "ai-phone: SIP phone daemon that lets an agent receive and place calls",
-      "claude-devtools": "claude-devtools: Desktop app that reconstructs Claude Code session logs",
+      "claude-devtools": "claude-devtools: App that rebuilds Claude Code sessions from local logs",
       "claude-plugins-official": "Claude plugins official: Anthropic's Claude Code plugin marketplace",
       cashclaw: "CashClaw: Node agent that quotes and does paid marketplace tasks",
       "agent-reach": "Agent Reach: CLI that lets coding agents read sites web search misses",
