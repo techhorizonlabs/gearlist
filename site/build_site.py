@@ -400,6 +400,9 @@ TITLE_OVERRIDES = {
     "cashclaw": "CashClaw: Node agent that quotes and does paid marketplace tasks",
     "agent-reach": "Agent Reach: CLI that lets coding agents read sites web search misses",
     "compound-engineering": "Compound Engineering: Skills that run a plan, build and review loop",
+    # Entries added 6 Nov 2026 whose cut titles stopped mid-list or on "built".
+    "claude-squad": "Claude Squad: Terminal app that manages several agent sessions at once",
+    "audio-cpp": "audio.cpp: C++ inference engine on ggml that runs local audio models",
 }
 
 

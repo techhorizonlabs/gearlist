@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "resources": [
     {
       "id": "agent-deck",
@@ -3653,6 +3653,71 @@
       "source_url": "https://github.com/ThoughtLeaders-io/thoughtleaders-cli",
       "source_checked": "2026-11-05",
       "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "paseo",
+      "name": "Paseo",
+      "category": "Agent tools",
+      "url": "https://paseo.sh",
+      "description": "A desktop, mobile, web and CLI app that runs Claude Code, Codex, Copilot, OpenCode and other coding agents side by side, each in its own worktree.",
+      "for_whom": "People who want to run and steer several coding agent CLIs from one desktop app and their phone.",
+      "access_notes": "Download the desktop app from paseo.sh/download or GitHub Releases, or on a server run npm install -g @getpaseo/cli then paseo. Needs at least one agent CLI already signed in; Paseo uses that login and stores no provider keys. The daemon listens on 127.0.0.1:6767 with no password by default, so anything that can reach that port can control your agents. Set one with paseo daemon set-password before exposing it, or pair a phone through the end-to-end encrypted relay. New Claude agents default to Auto mode, where a model classifier answers permission prompts (Always Ask on Bedrock or Vertex). Plugins run with access to the daemon machine. The README says there is no telemetry. The LICENSE file grants Apache-2.0 for Paseo and leaves third-party components under their own licences; GitHub shows NOASSERTION.",
+      "source_url": "https://github.com/getpaseo/paseo",
+      "source_checked": "2026-11-06",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "happy",
+      "name": "Happy",
+      "category": "Agent tools",
+      "url": "https://happy.engineering/",
+      "description": "A desktop and phone app that runs Claude, Codex, Grok and other coding agents on your own machine, with end-to-end encrypted sync and sessions you can share.",
+      "for_whom": "People who want to use the Claude, Codex or Grok subscriptions they already pay for and follow or steer the agent from a phone or with a colleague.",
+      "access_notes": "Desktop app from happy.engineering; phone apps on the App Store and Google Play. The original CLI is npm install -g happy, then happy claude or happy codex, which shows a QR code to pair a phone. Agents sign in with your own Claude, Codex and Grok subscriptions. Sessions sync end-to-end encrypted through Happy's server (api.cluster-fluster.com by default); message IDs, timestamps and device IDs are not encrypted. npm install -g happy-server-self-host then happy server runs your own sync server. The app sends PostHog usage analytics until you turn them off in Settings. Optional voice sends microphone audio and session context to ElevenLabs outside the encryption. Anyone you invite into a session can steer its agent. MIT.",
+      "source_url": "https://github.com/slopus/happy",
+      "source_checked": "2026-11-06",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "claude-squad",
+      "name": "Claude Squad",
+      "category": "Agent tools",
+      "url": "https://smtg-ai.github.io/claude-squad/",
+      "description": "A terminal app that manages several Claude Code, Codex, Gemini or Aider sessions at once, each in its own tmux session and git worktree.",
+      "for_whom": "Developers who want parallel coding agents on one repository from a single terminal window.",
+      "access_notes": "brew install claude-squad, or curl -fsSL https://raw.githubusercontent.com/smtg-ai/claude-squad/main/install.sh | bash, which puts cs in ~/.local/bin. Read the script before running it. Needs tmux and the GitHub CLI (gh). The default program is claude; start others with cs -p \"codex\", and the README sets OPENAI_API_KEY for Codex. The s key commits and pushes the session's branch to GitHub. The experimental -y (--autoyes) flag accepts every prompt for Claude Code and Aider without asking. Config is in ~/.claude-squad/config.json. AGPL-3.0.",
+      "source_url": "https://github.com/smtg-ai/claude-squad",
+      "source_checked": "2026-11-06",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "audio-cpp",
+      "name": "audio.cpp",
+      "category": "Agent tools",
+      "url": "https://github.com/0xShug0/audio.cpp",
+      "description": "A C++ inference engine built on ggml that runs local audio models for speech synthesis and recognition, voice cloning and conversion, voice activity detection and music.",
+      "for_whom": "Developers running speech, voice or music models on their own Windows, Linux or Mac machine from a CLI, server or web UI.",
+      "access_notes": "Prebuilt binaries for Windows, Ubuntu and macOS are on GitHub Releases. On macOS, brew tap 0xShug0/audio-cpp, brew trust 0xShug0/audio-cpp, then brew install audio-cpp. Or build from source with CMake. Runs locally with no account. Model packages download from Hugging Face or ModelScope, and Hugging Face requests can carry your HF_TOKEN. audiocpp_server --ui --ui-management serves a web UI at http://127.0.0.1:8080 that can download models and take uploads. Model weights keep their own licences and some bar commercial use; docs/model_licenses.md lists them. The LICENSE file is Apache-2.0 (copyright ShugoAI LLC); GitHub shows NOASSERTION.",
+      "source_url": "https://github.com/0xShug0/audio.cpp",
+      "source_checked": "2026-11-06",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "floci",
+      "name": "Floci",
+      "category": "Platforms",
+      "url": "https://floci.io/floci/",
+      "description": "A local AWS emulator for development, tests and CI that serves AWS-shaped services at localhost:4566 and can replace LocalStack Community.",
+      "for_whom": "Developers who test AWS SDK, CLI, Terraform or CDK code on their machine or in CI without an AWS account.",
+      "access_notes": "docker compose up with the floci/floci image on port 4566, or floci start with the Floci CLI; a standalone binary is on GitHub Releases. Needs no AWS account or auth token, and any non-empty credentials work unless you turn on service auth checks. Lambda, RDS, ECS, EC2, EKS and other services run real containers and need the Docker socket mounted, which gives Floci control of Docker on the host. The web console at localhost:4566/_floci/ui starts a sidecar on port 4500, published on every interface unless you set FLOCI_SERVICES_UI_BIND_ADDRESS. Data stays in memory by default. MIT.",
+      "source_url": "https://github.com/floci-io/floci",
+      "source_checked": "2026-11-06",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
       "thl_project": false
     }
   ]

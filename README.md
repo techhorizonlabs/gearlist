@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 281 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 286 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -51,10 +51,10 @@ npx skills add techhorizonlabs/gearlist --skill youtube-creator-research --skill
 
 ## Contents
 
-- [Agent tools](#agent-tools) (90)
+- [Agent tools](#agent-tools) (94)
 - [MCP and integrations](#mcp-and-integrations) (32)
 - [Security and governance](#security-and-governance) (5)
-- [Platforms](#platforms) (63)
+- [Platforms](#platforms) (64)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (54)
 - [APIs and data](#apis-and-data) (33)
@@ -961,6 +961,46 @@ A command line client for ThoughtLeaders' YouTube sponsorship data, covering whi
 **Access and use:** Needs a ThoughtLeaders account, signed in by browser OAuth, device code or API key, and every query spends credits, with recommender tools on the Intelligence plan at 25 credits a call. It can add comments to records, signing out ends every session, and tl setup writes skill files into your agent's folders. Needs Python 3.12 or later with jq, ripgrep, duckdb and yt-dlp; MIT licence.
 
 **Source checked:** 2026-11-05. [Official source](https://github.com/ThoughtLeaders-io/thoughtleaders-cli). [Gearlist page](https://gearlist.build/tools/thoughtleaders-cli/).
+
+### [Paseo](https://paseo.sh)
+
+A desktop, mobile, web and CLI app that runs Claude Code, Codex, Copilot, OpenCode and other coding agents side by side, each in its own worktree.
+
+**For:** People who want to run and steer several coding agent CLIs from one desktop app and their phone.
+
+**Access and use:** Download the desktop app from paseo.sh/download or GitHub Releases, or on a server run npm install -g @getpaseo/cli then paseo. Needs at least one agent CLI already signed in; Paseo uses that login and stores no provider keys. The daemon listens on 127.0.0.1:6767 with no password by default, so anything that can reach that port can control your agents. Set one with paseo daemon set-password before exposing it, or pair a phone through the end-to-end encrypted relay. New Claude agents default to Auto mode, where a model classifier answers permission prompts (Always Ask on Bedrock or Vertex). Plugins run with access to the daemon machine. The README says there is no telemetry. The LICENSE file grants Apache-2.0 for Paseo and leaves third-party components under their own licences; GitHub shows NOASSERTION.
+
+**Source checked:** 2026-11-06. [Official source](https://github.com/getpaseo/paseo). [Gearlist page](https://gearlist.build/tools/paseo/).
+
+### [Happy](https://happy.engineering/)
+
+A desktop and phone app that runs Claude, Codex, Grok and other coding agents on your own machine, with end-to-end encrypted sync and sessions you can share.
+
+**For:** People who want to use the Claude, Codex or Grok subscriptions they already pay for and follow or steer the agent from a phone or with a colleague.
+
+**Access and use:** Desktop app from happy.engineering; phone apps on the App Store and Google Play. The original CLI is npm install -g happy, then happy claude or happy codex, which shows a QR code to pair a phone. Agents sign in with your own Claude, Codex and Grok subscriptions. Sessions sync end-to-end encrypted through Happy's server (api.cluster-fluster.com by default); message IDs, timestamps and device IDs are not encrypted. npm install -g happy-server-self-host then happy server runs your own sync server. The app sends PostHog usage analytics until you turn them off in Settings. Optional voice sends microphone audio and session context to ElevenLabs outside the encryption. Anyone you invite into a session can steer its agent. MIT.
+
+**Source checked:** 2026-11-06. [Official source](https://github.com/slopus/happy). [Gearlist page](https://gearlist.build/tools/happy/).
+
+### [Claude Squad](https://smtg-ai.github.io/claude-squad/)
+
+A terminal app that manages several Claude Code, Codex, Gemini or Aider sessions at once, each in its own tmux session and git worktree.
+
+**For:** Developers who want parallel coding agents on one repository from a single terminal window.
+
+**Access and use:** brew install claude-squad, or curl -fsSL https://raw.githubusercontent.com/smtg-ai/claude-squad/main/install.sh | bash, which puts cs in ~/.local/bin. Read the script before running it. Needs tmux and the GitHub CLI (gh). The default program is claude; start others with cs -p "codex", and the README sets OPENAI_API_KEY for Codex. The s key commits and pushes the session's branch to GitHub. The experimental -y (--autoyes) flag accepts every prompt for Claude Code and Aider without asking. Config is in ~/.claude-squad/config.json. AGPL-3.0.
+
+**Source checked:** 2026-11-06. [Official source](https://github.com/smtg-ai/claude-squad). [Gearlist page](https://gearlist.build/tools/claude-squad/).
+
+### [audio.cpp](https://github.com/0xShug0/audio.cpp)
+
+A C++ inference engine built on ggml that runs local audio models for speech synthesis and recognition, voice cloning and conversion, voice activity detection and music.
+
+**For:** Developers running speech, voice or music models on their own Windows, Linux or Mac machine from a CLI, server or web UI.
+
+**Access and use:** Prebuilt binaries for Windows, Ubuntu and macOS are on GitHub Releases. On macOS, brew tap 0xShug0/audio-cpp, brew trust 0xShug0/audio-cpp, then brew install audio-cpp. Or build from source with CMake. Runs locally with no account. Model packages download from Hugging Face or ModelScope, and Hugging Face requests can carry your HF_TOKEN. audiocpp_server --ui --ui-management serves a web UI at http://127.0.0.1:8080 that can download models and take uploads. Model weights keep their own licences and some bar commercial use; docs/model_licenses.md lists them. The LICENSE file is Apache-2.0 (copyright ShugoAI LLC); GitHub shows NOASSERTION.
+
+**Source checked:** 2026-11-06. [Official source](https://github.com/0xShug0/audio.cpp). [Gearlist page](https://gearlist.build/tools/audio-cpp/).
 
 ## MCP and integrations
 
@@ -1967,6 +2007,16 @@ Public statistics, growth history and estimated earnings for YouTube, Instagram,
 **Access and use:** Public pages are free to read. Reports and an API are for business customers. Earnings figures are estimates from public view counts.
 
 **Source checked:** 2026-11-05. [Official source](https://socialblade.com/info). [Gearlist page](https://gearlist.build/tools/social-blade/).
+
+### [Floci](https://floci.io/floci/)
+
+A local AWS emulator for development, tests and CI that serves AWS-shaped services at localhost:4566 and can replace LocalStack Community.
+
+**For:** Developers who test AWS SDK, CLI, Terraform or CDK code on their machine or in CI without an AWS account.
+
+**Access and use:** docker compose up with the floci/floci image on port 4566, or floci start with the Floci CLI; a standalone binary is on GitHub Releases. Needs no AWS account or auth token, and any non-empty credentials work unless you turn on service auth checks. Lambda, RDS, ECS, EC2, EKS and other services run real containers and need the Docker socket mounted, which gives Floci control of Docker on the host. The web console at localhost:4566/_floci/ui starts a sidecar on port 4500, published on every interface unless you set FLOCI_SERVICES_UI_BIND_ADDRESS. Data stays in memory by default. MIT.
+
+**Source checked:** 2026-11-06. [Official source](https://github.com/floci-io/floci). [Gearlist page](https://gearlist.build/tools/floci/).
 
 ## Protocols
 

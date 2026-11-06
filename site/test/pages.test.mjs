@@ -151,6 +151,8 @@ describe("Entry and group pages", () => {
       cashclaw: "CashClaw: Node agent that quotes and does paid marketplace tasks",
       "agent-reach": "Agent Reach: CLI that lets coding agents read sites web search misses",
       "compound-engineering": "Compound Engineering: Skills that run a plan, build and review loop",
+      "claude-squad": "Claude Squad: Terminal app that manages several agent sessions at once",
+      "audio-cpp": "audio.cpp: C++ inference engine on ggml that runs local audio models",
     };
     for (const [id, lead] of Object.entries(expected)) {
       const html = pages.get(`/tools/${id}/`);
