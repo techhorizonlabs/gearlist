@@ -405,6 +405,8 @@ TITLE_OVERRIDES = {
     "audio-cpp": "audio.cpp: C++ inference engine on ggml that runs local audio models",
     "paseo": "Paseo: Run Claude Code, Codex and other coding agents side by side",
     "happy": "Happy: Run Claude, Codex and Grok agents from desktop and phone",
+    # Added 6 Nov 2026. The cut title stopped on "DNS-AID", before "record".
+    "dns-aid-checker": "Are you found by AI? DNS-AID checker: Check a domain's DNS-AID record",
 }
 
 

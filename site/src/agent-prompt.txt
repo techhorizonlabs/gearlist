@@ -15,6 +15,7 @@ Add the Gearlist MCP server, once I say yes:
 - Claude apps: Customize > Connectors > Add custom connector, then enter https://gearlist.build/mcp
 - VS Code: run "MCP: Add Server" from the Command Palette and give it https://gearlist.build/mcp
 - Cursor, in ~/.cursor/mcp.json: {"mcpServers": {"gearlist": {"url": "https://gearlist.build/mcp"}}}
+- Grok: grok.com/connectors > New Connector > Custom, then enter https://gearlist.build/mcp (on Business or Enterprise, an admin adds it first)
 - Claude Code project file .mcp.json: {"mcpServers": {"gearlist": {"type": "http", "url": "https://gearlist.build/mcp"}}}
 - Gemini CLI settings.json: {"mcpServers": {"gearlist": {"httpUrl": "https://gearlist.build/mcp"}}}
 - Codex ~/.codex/config.toml: a [mcp_servers.gearlist] table with url = "https://gearlist.build/mcp"

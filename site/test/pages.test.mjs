@@ -155,6 +155,7 @@ describe("Entry and group pages", () => {
       "audio-cpp": "audio.cpp: C++ inference engine on ggml that runs local audio models",
       paseo: "Paseo: Run Claude Code, Codex and other coding agents side by side",
       happy: "Happy: Run Claude, Codex and Grok agents from desktop and phone",
+      "dns-aid-checker": "Are you found by AI? DNS-AID checker: Check a domain's DNS-AID record",
     };
     for (const [id, lead] of Object.entries(expected)) {
       const html = pages.get(`/tools/${id}/`);
