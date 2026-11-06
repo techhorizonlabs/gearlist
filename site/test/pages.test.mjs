@@ -156,6 +156,20 @@ describe("Entry and group pages", () => {
       paseo: "Paseo: Run Claude Code, Codex and other coding agents side by side",
       happy: "Happy: Run Claude, Codex and Grok agents from desktop and phone",
       "dns-aid-checker": "Are you found by AI? DNS-AID checker: Check a domain's DNS-AID record",
+      "playwright-mcp": "Playwright MCP: Let an agent drive a real browser",
+      "sentry-mcp": "Sentry MCP: Sentry errors and traces for coding agents",
+      "atlassian-mcp-server": "Atlassian MCP Server: Work in Jira and Confluence from an agent",
+      "stripe-mcp": "Stripe MCP: Read and write Stripe data from an agent",
+      "linear-mcp": "Linear MCP server: Find, create and update Linear issues",
+      "figma-mcp-server": "Figma MCP server: Figma design context for coding agents",
+      "slack-mcp-server": "Slack MCP server: Search, read and send Slack messages",
+      "zapier-mcp": "Zapier MCP: Run actions in your apps through Zapier",
+      "snyk-agent-scan": "Snyk Agent Scan: Check MCP servers and skills for risks",
+      toolhive: "ToolHive: Run each MCP server in an isolated container",
+      "nemo-guardrails": "NeMo Guardrails: Programmable guardrails for LLM apps",
+      "owasp-agentic-top-10": "OWASP Top 10 for Agentic Applications: Agent security risks",
+      "universal-commerce-protocol": "Universal Commerce Protocol (UCP): Checkout standard for agents",
+      "agentic-commerce-protocol": "Agentic Commerce Protocol (ACP): Agent checkout from OpenAI and Stripe",
     };
     for (const [id, lead] of Object.entries(expected)) {
       const html = pages.get(`/tools/${id}/`);

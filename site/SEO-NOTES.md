@@ -8,9 +8,9 @@ Written 6 November 2026. Google guidance below was read on that date at develope
 | --- | --- | --- |
 | Home | `/` | 1 |
 | Group | `/category/<slug>/`, for example `/category/mcp-and-integrations/` | 7 |
-| Entry | `/tools/<id>/`, for example `/tools/firecrawl/` | 287 |
-| Markdown copy | `/tools/<id>.md` and `/category/<slug>.md` | 294 |
-| Social image | `/og/tools/<id>.png` and `/og/category/<slug>.png`, 1200 by 630 | 294 |
+| Entry | `/tools/<id>/`, for example `/tools/firecrawl/` | 302 |
+| Markdown copy | `/tools/<id>.md` and `/category/<slug>.md` | 309 |
+| Social image | `/og/tools/<id>.png` and `/og/category/<slug>.png`, 1200 by 630 | 309 |
 
 The `<id>` is the entry id in `resources.json`, which is also the id the MCP tool `get_gear` takes, so a person, a search engine and an agent all use the same name for an entry. Ids are already lowercase words joined by hyphens; the build now refuses an id that is not, because the id is the address.
 
@@ -34,9 +34,9 @@ Why this pattern:
 3. Google uses the page's main heading as an input to title links. Each entry page's `<h1>` is the name, and the description sits directly under it, so the title and the page agree.
 4. The site name goes at the end after a pipe, as the guidance suggests. Google shows the site name on its own line in results, so it does not matter if the end of a long title is cut off.
 
-Length: the name and short description aim for 60 characters. The description is cut before a word that starts a new clause ("that", "for", "with" and so on) or after the first item of a list, and never just after "that" or "which". When that leaves only a word or two, it runs on to the next clause, up to 72 characters. Median 53, longest 72, before " | Gearlist". Sixty-nine of 287 run past 60; Google cuts those in the visible link and still reads the whole title.
+Length: the name and short description aim for 60 characters. The description is cut before a word that starts a new clause ("that", "for", "with" and so on) or after the first item of a list, and never just after "that" or "which". When that leaves only a word or two, it runs on to the next clause, up to 72 characters. Median 53, longest 72, before " | Gearlist". Seventy-two of 302 run past 60; Google cuts those in the visible link and still reads the whole title.
 
-Group pages use a search phrase from `GROUP_PAGES` in `build_site.py`, for example `MCP servers and integrations: 33 source-checked entries | Gearlist`. The count comes from the data at build time.
+Group pages use a search phrase from `GROUP_PAGES` in `build_site.py`, for example `MCP servers and integrations: 41 source-checked entries | Gearlist`. The count comes from the data at build time.
 
 ## Descriptions
 
@@ -46,7 +46,7 @@ Entry pages: the description, then "For" and the audience, then "Access and use:
 
 Every entry page has one JSON-LD graph: `ItemPage` (with `lastReviewed` set to the source check date), the entry, `BreadcrumbList` (Gearlist, group, entry), `WebSite` and the Tech Horizon Labs `Organization`.
 
-- The entry is `SoftwareSourceCode` with `codeRepository` when its official link is a GitHub repository (132 entries), `CreativeWork` for the four protocols, and `SoftwareApplication` for the rest.
+- The entry is `SoftwareSourceCode` with `codeRepository` when its official link is a GitHub repository (137 entries), `CreativeWork` for the seven protocols, and `SoftwareApplication` for the rest.
 - Each entry carries only fields from `resources.json`: name, description, official link, audience (`for_whom`) and, for Tech Horizon Labs projects, the creator. The tests fail if any page has a rating, review, offer, price, version or download link.
 - Google's software app rich result requires `offers.price` and a rating or review. The data has neither, so these pages will not get that rich result, and Search Console may list the `SoftwareApplication` items as not eligible. That is expected. The markup still names the entity, its link and its audience for search engines and AI answer engines.
 - Group pages use `CollectionPage` with an `ItemList` whose items are position, URL and name, pointing at the entry pages on this site, which is Google's summary page pattern. Software is not one of the carousel types, so no carousel is expected.
@@ -98,10 +98,10 @@ GitHub allows 20. Counts are public repositories with each topic on 6 November 2
 | `agent-tools` | 2,229 | Same phrase without "ai". |
 | `agent-skills` | 39,685 | The Agent Skills format the repo ships. Already set. |
 | `claude-skills` | 14,468 | How Claude users name skills. Already set. |
-| `claude-code` | 111,239 | Named in 69 entries, and the repo's skills target it. Already set. |
+| `claude-code` | 111,239 | Named in 75 entries, and the repo's skills target it. Already set. |
 | `claude-code-skills` | 2,481 | Exact phrase; small topic. |
 | `claude` | 65,868 | Broad Claude searches. |
-| `codex` | 48,092 | Named in 47 entries, second to Claude Code. |
+| `codex` | 48,092 | Named in 51 entries, second to Claude Code. |
 | `coding-agents` | 8,127 | The audience of most entries. |
 | `llm-tools` | 5,870 | Tool lists for LLM work. |
 | `ai-tools` | 17,766 | General "AI tools" searches. |

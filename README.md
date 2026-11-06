@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 287 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 302 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -58,10 +58,10 @@ npx skills add techhorizonlabs/thl-open
 ## Contents
 
 - [Agent tools](#agent-tools) (94)
-- [MCP and integrations](#mcp-and-integrations) (33)
-- [Security and governance](#security-and-governance) (5)
+- [MCP and integrations](#mcp-and-integrations) (41)
+- [Security and governance](#security-and-governance) (9)
 - [Platforms](#platforms) (64)
-- [Protocols](#protocols) (4)
+- [Protocols](#protocols) (7)
 - [Skills and learning](#skills-and-learning) (54)
 - [APIs and data](#apis-and-data) (33)
 
@@ -1340,6 +1340,86 @@ Check a domain's DNS-AID index record against DNS-AID draft-02, an IETF Internet
 
 **Source checked:** 2026-11-06. [Official source](https://areyoufoundbyai.com/tools/dns-aid-checker). [Gearlist page](https://gearlist.build/tools/dns-aid-checker/).
 
+### [Playwright MCP](https://github.com/microsoft/playwright-mcp)
+
+Microsoft's MCP server that lets an agent drive a real browser with Playwright, reading each page as an accessibility snapshot so it needs no screenshots or vision model.
+
+**For:** Developers who want an agent to browse sites, fill in forms or test a web app from Claude Code, Codex, VS Code, Cursor or another MCP client.
+
+**Access and use:** Runs locally with npx @playwright/mcp@latest, for example claude mcp add playwright npx @playwright/mcp@latest. Needs Node.js 18 or later. By default the browser keeps a persistent profile on disk (ms-playwright/mcp-* in your user cache folder), so sites you sign in to stay signed in; --isolated keeps the profile in memory instead. --extension connects to your running Chrome or Edge and its signed-in tabs. The README says the server is not a security boundary, and neither are --allowed-origins and --blocked-origins. --port serves it over HTTP on localhost; --host 0.0.0.0 opens it to the network. The README suggests coding agents may do better with the Playwright CLI and skills, which use fewer tokens. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/microsoft/playwright-mcp). [Gearlist page](https://gearlist.build/tools/playwright-mcp/).
+
+### [Sentry MCP](https://mcp.sentry.dev)
+
+Sentry's hosted MCP server that lets a coding agent look up Sentry issues, errors, traces and logs, and ask Sentry's Seer to analyse an issue, while you debug.
+
+**For:** Developers whose apps report to Sentry and who want Cursor, Claude Code or another coding agent to pull in production errors while they fix them.
+
+**Access and use:** Remote URL https://mcp.sentry.dev/mcp, for example claude mcp add --transport http sentry https://mcp.sentry.dev/mcp, which opens an OAuth sign-in to your Sentry account. Adding an organisation slug, or an organisation and project slug, to the URL path limits the session to that scope. Clients that send custom headers can pass a Sentry user token as Authorization: Sentry-Bearer instead. For self-hosted Sentry, run npx @sentry/mcp-server@latest over stdio with SENTRY_AUTH_TOKEN and SENTRY_HOST; the README's token scopes include project:write, team:write and event:write. When you run it yourself, the natural-language search tools need your own OpenAI, Azure OpenAI, Anthropic or OpenRouter key. The source moved from getsentry/sentry-mcp to getsentry/toolkit. The LICENSE.md file is FSL-1.1-Apache-2.0; GitHub shows NOASSERTION.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/getsentry/toolkit). [Gearlist page](https://gearlist.build/tools/sentry-mcp/).
+
+### [Atlassian MCP Server](https://github.com/atlassian/atlassian-mcp-server)
+
+Atlassian's official hosted MCP server, which lets an agent search, summarise, create and update work in Jira, Confluence, Jira Service Management, Bitbucket, Compass and Loom.
+
+**For:** Teams on Atlassian Cloud who want Claude, ChatGPT, Cursor, VS Code or a coding agent to work with their Jira issues and Confluence pages.
+
+**Access and use:** Remote URL https://mcp.atlassian.com/v2/mcp (v2 is the recommended version), for example claude mcp add --transport http atlassian https://mcp.atlassian.com/v2/mcp, then /mcp to sign in. Needs an Atlassian Cloud site. Sign in with OAuth 2.1 or an API token; actions run with your existing Atlassian permissions. Jira Service Management tools work only with API tokens that an organisation admin has turned on, and the Jira delete and manage tools stay off until an admin enables them. Admins can choose which AI tools and domains may connect, and each tool call is recorded in the organisation's audit log. IP allowlists apply to MCP requests, so a hosted AI client calling from its provider's addresses may be refused. The repository's plugin files and skills are Apache-2.0; the server itself runs on Atlassian Cloud.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/atlassian/atlassian-mcp-server). [Gearlist page](https://gearlist.build/tools/atlassian-mcp-server/).
+
+### [Stripe MCP](https://docs.stripe.com/mcp)
+
+Stripe's hosted MCP server, in public preview, that lets an agent search Stripe's documentation and read or write account data through the Stripe API.
+
+**For:** Developers and Stripe account owners who want an agent to build a Stripe integration, look up Stripe data or analyse subscriptions and billing.
+
+**Access and use:** Remote URL https://mcp.stripe.com. npm install -g @stripe/cli@latest then stripe agent setup configures it, with Stripe's skills, for the agents it detects. Sign in with OAuth, choosing which live accounts or sandboxes the client may use, or pass an agent API key as a bearer token. From December 2026 it stops accepting full-access secret keys and restricted keys without the Agent tag. The stripe_api_write tool can call any Stripe API POST, PATCH, PUT or DELETE method. Some actions, such as refunds, wait for you to approve them in the Dashboard, and Stripe asks you to turn on tool approval in your client as well. Admins can turn MCP access on or off for live mode and for sandboxes. The older @stripe/agent-toolkit and @stripe/mcp packages are deprecated and get no security fixes. Stripe's plugin and skills repository, github.com/stripe/ai, is MIT.
+
+**Source checked:** 2026-11-07. [Official source](https://docs.stripe.com/mcp). [Gearlist page](https://gearlist.build/tools/stripe-mcp/).
+
+### [Linear MCP server](https://linear.app/docs/mcp)
+
+Linear's hosted MCP server, with tools to find, create and update issues, projects and comments in a Linear workspace.
+
+**For:** Teams on Linear who want Claude, Cursor, Codex or another agent to read and update their issues and projects.
+
+**Access and use:** Remote URL https://mcp.linear.app/mcp over Streamable HTTP, for example claude mcp add --transport http linear-server https://mcp.linear.app/mcp, then /mcp to sign in with OAuth 2.1. That endpoint can read and write. For read-only access, connect to https://mcp.linear.app/mcp/readonly or request only the read OAuth scope. A Linear API key or OAuth token can go in an Authorization: Bearer header instead; a key with only the Read permission keeps it read-only. Each workspace needs its own sign-in. Clients without remote MCP support can use npx -y mcp-remote https://mcp.linear.app/mcp. The /sse endpoint is deprecated.
+
+**Source checked:** 2026-11-07. [Official source](https://linear.app/docs/mcp). [Gearlist page](https://gearlist.build/tools/linear-mcp/).
+
+### [Figma MCP server](https://developers.figma.com/docs/figma-mcp-server/)
+
+Figma's MCP server, which gives coding agents the design context in Figma files, such as variables, components and layout, for generating code, and lets agents write native content back to the canvas.
+
+**For:** Designers and developers who turn Figma designs into code with Claude Code, Codex, Cursor, VS Code or another MCP client.
+
+**Access and use:** Remote server at https://mcp.figma.com/mcp, for example claude mcp add --transport http figma https://mcp.figma.com/mcp, or Figma's plugin with claude plugin install figma@claude-plugins-official. You sign in with your Figma account and can reach only files you already have access to. Starter plans and View or Collab seats get up to 20 read tool calls a month; Full and Dev seats on paid plans get 200 to 600 a day. Writing outside your drafts needs a Full seat. Writing to the canvas is free during the beta and will become a usage-based paid feature. generate_image and send_prompt use Figma AI credits. A desktop server that runs through the Figma desktop app needs a Dev or Full seat. Use falls under the Figma Developer Terms.
+
+**Source checked:** 2026-11-07. [Official source](https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/). [Gearlist page](https://gearlist.build/tools/figma-mcp-server/).
+
+### [Slack MCP server](https://docs.slack.dev/ai/slack-mcp-server/)
+
+Slack's hosted MCP server, with tools to search a workspace, read channels and threads, send and schedule messages, and manage canvases, lists and files.
+
+**For:** Slack workspaces that want Claude, Cursor or Perplexity to use their Slack history, and developers building an MCP client on a Slack app.
+
+**Access and use:** Ready to use in Claude.ai, Claude Code, Perplexity and Cursor. A client you build must be backed by a registered Slack app, either internal or published in the Slack Marketplace, and connects to https://mcp.slack.com/mcp over Streamable HTTP with confidential OAuth (the app's client ID and secret, or PKCE for desktop clients). SSE and dynamic client registration are not supported. Workspace admins approve and manage MCP client apps. User token scopes follow the tools, for example search:read.public to search, chat:write to send and channels:history to read. MCP activity appears in Slack's audit logs, the app's IP allowlist applies, and standard Slack API rate limits apply per tool.
+
+**Source checked:** 2026-11-07. [Official source](https://docs.slack.dev/ai/slack-mcp-server/). [Gearlist page](https://gearlist.build/tools/slack-mcp-server/).
+
+### [Zapier MCP](https://docs.zapier.com/mcp/home)
+
+Zapier's hosted MCP server that lets an AI client run actions in the 9,000 or more apps Zapier connects to, such as sending a Slack message or creating a task, through your Zapier account.
+
+**For:** Zapier users who want Claude, ChatGPT, Cursor, VS Code or another MCP client to act in their other apps without an integration for each one.
+
+**Access and use:** Clients connect to https://mcp.zapier.com/api/v1/connect, and most sign in with OAuth. Plugins for Claude Code, Codex, Cursor and Gemini CLI come from github.com/zapier/zapier-mcp (MIT). Actions run through the same app connections as your Zaps, so the agent acts with those accounts. In agentic mode the AI adds the actions it needs during a conversation; managed mode limits it to a fixed set you pick. Each successful tool call uses two tasks from your Zapier plan. Sharing a server needs a Team or Enterprise plan. Clients must support Streamable HTTP; SSE is not supported.
+
+**Source checked:** 2026-11-07. [Official source](https://docs.zapier.com/mcp/home). [Gearlist page](https://gearlist.build/tools/zapier-mcp/).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -1391,6 +1471,46 @@ An async Python API that boots QEMU Linux VMs so agents can run commands, mounts
 **Access and use:** pip install 'quick-sandbox[qemu,alpine]', or pip install quick-sandbox then quicksand install qemu alpine. Desktop images: quicksand install ubuntu-desktop or alpine-desktop. Sandboxes are network-isolated by default; NetworkMode.FULL gives internet. Host directories can be mounted into the guest. Bidirectional port forwards map host and guest TCP ports. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/quicksand). [Gearlist page](https://gearlist.build/tools/quicksand/).
+
+### [Snyk Agent Scan](https://github.com/snyk/agent-scan)
+
+A command line scanner that finds the agents, MCP servers and skills installed on a machine and checks them for prompt injection, tool poisoning, malware hidden in text and other risks.
+
+**For:** Developers and security teams who want to check the MCP servers and skills used by Claude Code, Cursor, Gemini CLI, Windsurf or VS Code before trusting them.
+
+**Access and use:** uvx snyk-agent-scan@latest scans the whole machine; pass a path such as ~/.claude/skills or an mcp.json file to scan one target. Standalone binaries with an SBOM and signed checksums are on GitHub Releases. Needs a Snyk account and a SNYK_TOKEN. To read tool descriptions it starts the stdio MCP servers in your configs and connects to remote ones, so the README advises scanning untrusted configs inside a sandbox; interactive runs ask before contacting each server. It sends component details, tool descriptions and skill content to Snyk's analysis API, with secrets redacted, under Snyk's Agent Scan terms. The README says CLI output is experimental and may change. The repository moved from invariantlabs-ai/mcp-scan. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/snyk/agent-scan). [Gearlist page](https://gearlist.build/tools/snyk-agent-scan/).
+
+### [ToolHive](https://github.com/stacklok/toolhive)
+
+Stacklok's platform that runs each MCP server in an isolated container and adds encrypted secrets, access policy, a server registry and audit logging.
+
+**For:** Developers who want to run MCP servers locally with fewer permissions, and platform teams who run approved MCP servers for an organisation on Kubernetes.
+
+**Access and use:** brew tap stacklok/tap then brew install thv, winget install stacklok.thv, a binary from GitHub Releases, or the ToolHive desktop app. Needs Docker, Podman, Colima or Rancher Desktop. Each server gets a container with a minimal permission file and no local credentials. Secrets are stored encrypted, with the encryption password kept in your OS keyring. Per-request access policy needs an identity provider to be configured. The CLI checks for updates and sends anonymous usage metrics (tool call counts) until you run thv config usage-metrics disable. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/stacklok/toolhive). [Gearlist page](https://gearlist.build/tools/toolhive/).
+
+### [NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails)
+
+NVIDIA's Python library for adding programmable guardrails to LLM apps, with rails that check user input, model output, retrieved chunks and tool calls, including jailbreak and injection detection.
+
+**For:** Developers building chat assistants, RAG apps or agents in Python who want configurable checks between their code and the model.
+
+**Access and use:** pip install nemoguardrails. Needs Python 3.11 to 3.13. Rails are set in a config.yml file and Colang flows, and call the LLM provider set there, such as OpenAI, with your own key. nemoguardrails server runs it as an HTTP API. The library sends anonymous telemetry to NVIDIA (versions, OS, provider names and rail counts; the README says no prompts, completions or keys) until you set NEMO_GUARDRAILS_NO_USAGE_STATS=1 before it starts. The README says NVIDIA Build endpoints are for evaluation only. The LICENSE file is Apache-2.0; GitHub shows NOASSERTION.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/NVIDIA-NeMo/Guardrails). [Gearlist page](https://gearlist.build/tools/nemo-guardrails/).
+
+### [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
+
+The OWASP GenAI Security Project's list of the ten most critical security risks for AI agents, from agent goal hijack and tool misuse to memory poisoning and rogue agents, with attack scenarios and mitigations for each.
+
+**For:** Teams that build, deploy or review AI agents and want a shared list of risks to check designs and controls against.
+
+**Access and use:** A free PDF from the OWASP GenAI Security Project page, downloadable without signing in. The 2026 edition was published on 9 December 2025. Risks are numbered ASI01 to ASI10 and mapped to OWASP's Agentic AI Threats and Mitigations guide. CC BY-SA 4.0.
+
+**Source checked:** 2026-11-07. [Official source](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/). [Gearlist page](https://gearlist.build/tools/owasp-agentic-top-10/).
 
 ## Platforms
 
@@ -2075,6 +2195,36 @@ An open protocol that connects a code editor to a coding agent so they can share
 **Access and use:** Spec at agentclientprotocol.com. Current stable protocol version is 1. TypeScript: npm install @agentclientprotocol/sdk. Rust: cargo add agent-client-protocol. Also official Python, Java and Kotlin SDKs. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/agentclientprotocol/agent-client-protocol). [Gearlist page](https://gearlist.build/tools/agent-client-protocol/).
+
+### [llms.txt](https://llmstxt.org)
+
+A proposed Markdown file at /llms.txt, or at any path on a site, that gives agents a short summary of the site and links to clean Markdown versions of its pages.
+
+**For:** Site owners and documentation teams who want coding agents and assistants to find the right pages, and people writing tools that read those files.
+
+**Access and use:** A plain file you publish. It grants no access, and agents read it on demand while they help a user. Format: an H1 name, an optional blockquote summary, then H2 sections of Markdown link lists, with an Optional section for links an agent can skip. Version 2 also proposes .md copies of pages, linked with rel="alternate" type="text/markdown" and rel="describedby". Written by Jeremy Howard and open for community input at github.com/AnswerDotAI/llms-txt, which is Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://llmstxt.org/). [Gearlist page](https://gearlist.build/tools/llms-txt/).
+
+### [Universal Commerce Protocol (UCP)](https://ucp.dev)
+
+An open standard for AI agents, apps, businesses and payment providers to handle product search, carts, checkout, identity linking and orders without a custom integration for each connection.
+
+**For:** Retailers, commerce platforms, payment providers and AI platforms that want agents to buy from businesses through one interface.
+
+**Access and use:** Spec and docs at ucp.dev; schemas, SDKs, samples and conformance tests at github.com/Universal-Commerce-Protocol. Businesses declare the capabilities they support in a profile and offer them over REST, MCP or A2A. Identity linking uses OAuth 2.0, and payments can use AP2 mandates. Businesses stay the merchant of record. Co-developed by Google, Shopify, Etsy, Wayfair, Target, Walmart and others. The latest dated release is v2026-08-25; the lodging spec is a draft. An agent that completes a checkout can spend money, so set limits. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/Universal-Commerce-Protocol/ucp). [Gearlist page](https://gearlist.build/tools/universal-commerce-protocol/).
+
+### [Agentic Commerce Protocol (ACP)](https://www.agenticcommerce.dev)
+
+An open standard from OpenAI and Stripe for checkout between buyers, their AI agents and businesses, including passing payment credentials through the agent without exposing them.
+
+**For:** Businesses that want their checkout to work with ChatGPT and other agents, AI platforms that add purchasing, and payment providers.
+
+**Access and use:** The spec is in beta, with dated versions; the latest stable one is 2026-04-17, published as RFCs, OpenAPI and JSON Schema files on GitHub. It works over REST or MCP. ChatGPT was the first platform to implement it, and businesses apply to sell there. Stripe was the first compatible payment provider, through its Shared Payment Token. Businesses stay the merchant of record and can accept or decline each agent transaction. An agent that completes a checkout can spend money, so set limits. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/agentic-commerce-protocol/agentic-commerce-protocol). [Gearlist page](https://gearlist.build/tools/agentic-commerce-protocol/).
 
 ## Skills and learning
 

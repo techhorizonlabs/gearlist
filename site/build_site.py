@@ -95,7 +95,8 @@ GROUP_PAGES = {
     ),
     "Security and governance": (
         "AI agent security and governance",
-        "Access control, sandboxing, security checks, document sharing and security briefings.",
+        "Access control, sandboxing, guardrails, security scanners, risk lists, document sharing and security "
+        "briefings.",
     ),
     "Platforms": (
         "Platforms for AI agents",
@@ -104,7 +105,8 @@ GROUP_PAGES = {
     ),
     "Protocols": (
         "AI agent protocols",
-        "Open protocols for how agents connect to tools, code editors, payments and each other.",
+        "Open protocols and proposed formats for how agents connect to tools, code editors, websites, "
+        "payments, checkout and each other.",
     ),
     "Skills and learning": (
         "Agent skills and learning",
@@ -407,6 +409,22 @@ TITLE_OVERRIDES = {
     "happy": "Happy: Run Claude, Codex and Grok agents from desktop and phone",
     # Added 6 Nov 2026. The cut title stopped on "DNS-AID", before "record".
     "dns-aid-checker": "Are you found by AI? DNS-AID checker: Check a domain's DNS-AID record",
+    # Added 7 Nov 2026. The cut titles said only whose server it was ("Sentry's hosted MCP
+    # server"), ended on "with tools", or stopped mid-clause ("finds the agents").
+    "playwright-mcp": "Playwright MCP: Let an agent drive a real browser",
+    "sentry-mcp": "Sentry MCP: Sentry errors and traces for coding agents",
+    "atlassian-mcp-server": "Atlassian MCP Server: Work in Jira and Confluence from an agent",
+    "stripe-mcp": "Stripe MCP: Read and write Stripe data from an agent",
+    "linear-mcp": "Linear MCP server: Find, create and update Linear issues",
+    "figma-mcp-server": "Figma MCP server: Figma design context for coding agents",
+    "slack-mcp-server": "Slack MCP server: Search, read and send Slack messages",
+    "zapier-mcp": "Zapier MCP: Run actions in your apps through Zapier",
+    "snyk-agent-scan": "Snyk Agent Scan: Check MCP servers and skills for risks",
+    "toolhive": "ToolHive: Run each MCP server in an isolated container",
+    "nemo-guardrails": "NeMo Guardrails: Programmable guardrails for LLM apps",
+    "owasp-agentic-top-10": "OWASP Top 10 for Agentic Applications: Agent security risks",
+    "universal-commerce-protocol": "Universal Commerce Protocol (UCP): Checkout standard for agents",
+    "agentic-commerce-protocol": "Agentic Commerce Protocol (ACP): Agent checkout from OpenAI and Stripe",
 }
 
 
