@@ -152,9 +152,10 @@ export function toolList(catalog) {
     ),
     tool(
       "recommend_stack",
-      "Recommend a Gearlist stack",
-      "Suggest a short set of Gearlist entries for a job you describe in plain words, spread across groups, with " +
-        "each entry's own words quoted to show why it fits.",
+      "Find Gearlist entries for a job",
+      "Find a short set of Gearlist entries whose own text shares the most words with a job you describe, spread " +
+        "across groups, quoting where each match appears. Matches are on words, so check each entry suits the job " +
+        "before suggesting it.",
       {
         type: "object",
         properties: {

@@ -281,8 +281,9 @@ const QUOTE_MAX = 200;
 const ENDS = ".!?";
 
 export const STACK_NEXT =
-  "Show the human each item's access notes before anything is installed. Use get_gear for a full entry, " +
-  "or search_gear with other words to look further.";
+  "These entries share words with the job, which doesn't mean each one suits it. Read each quote and check it " +
+  "fits before suggesting it, then show the human its access notes before anything is installed. Use get_gear " +
+  "for a full entry, or search_gear with other words to look further.";
 export const STACK_NONE =
   "Nothing in Gearlist matches this job well. Try search_gear with other words, such as the kind of tool you need.";
 

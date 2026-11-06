@@ -265,7 +265,7 @@ describe("tools/list", () => {
     assert.equal(stack.inputSchema.properties.limit.maximum, 10);
     assert.equal(stack.inputSchema.properties.limit.default, 6);
     assert.equal(stack.inputSchema.additionalProperties, false);
-    assert.equal(stack.description.split(/\.\s/).length, 1, "recommend_stack is described in one sentence");
+    assert.match(stack.description, /Matches are on words, so check each entry suits the job before suggesting it\.$/, "recommend_stack says it matches words, so the agent checks fit");
     assert.equal(json.result.resultType, undefined, "legacy results carry no modern fields");
   });
 
