@@ -8,9 +8,9 @@ Written 6 November 2026. Google guidance below was read on that date at develope
 | --- | --- | --- |
 | Home | `/` | 1 |
 | Group | `/category/<slug>/`, for example `/category/mcp-and-integrations/` | 7 |
-| Entry | `/tools/<id>/`, for example `/tools/firecrawl/` | 286 |
-| Markdown copy | `/tools/<id>.md` and `/category/<slug>.md` | 293 |
-| Social image | `/og/tools/<id>.png` and `/og/category/<slug>.png`, 1200 by 630 | 293 |
+| Entry | `/tools/<id>/`, for example `/tools/firecrawl/` | 287 |
+| Markdown copy | `/tools/<id>.md` and `/category/<slug>.md` | 294 |
+| Social image | `/og/tools/<id>.png` and `/og/category/<slug>.png`, 1200 by 630 | 294 |
 
 The `<id>` is the entry id in `resources.json`, which is also the id the MCP tool `get_gear` takes, so a person, a search engine and an agent all use the same name for an entry. Ids are already lowercase words joined by hyphens; the build now refuses an id that is not, because the id is the address.
 
@@ -34,9 +34,9 @@ Why this pattern:
 3. Google uses the page's main heading as an input to title links. Each entry page's `<h1>` is the name, and the description sits directly under it, so the title and the page agree.
 4. The site name goes at the end after a pipe, as the guidance suggests. Google shows the site name on its own line in results, so it does not matter if the end of a long title is cut off.
 
-Length: the name and short description aim for 60 characters. The description is cut before a word that starts a new clause ("that", "for", "with" and so on) or after the first item of a list, and never just after "that" or "which". When that leaves only a word or two, it runs on to the next clause, up to 72 characters. Median 53, longest 72, before " | Gearlist". Sixty-eight of 286 run past 60; Google cuts those in the visible link and still reads the whole title.
+Length: the name and short description aim for 60 characters. The description is cut before a word that starts a new clause ("that", "for", "with" and so on) or after the first item of a list, and never just after "that" or "which". When that leaves only a word or two, it runs on to the next clause, up to 72 characters. Median 53, longest 72, before " | Gearlist". Sixty-nine of 287 run past 60; Google cuts those in the visible link and still reads the whole title.
 
-Group pages use a search phrase from `GROUP_PAGES` in `build_site.py`, for example `MCP servers and integrations: 32 source-checked entries | Gearlist`. The count comes from the data at build time.
+Group pages use a search phrase from `GROUP_PAGES` in `build_site.py`, for example `MCP servers and integrations: 33 source-checked entries | Gearlist`. The count comes from the data at build time.
 
 ## Descriptions
 

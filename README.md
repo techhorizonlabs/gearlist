@@ -4,13 +4,13 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 286 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 287 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
 - Human: scan the groups below, or search them at [gearlist.build](https://gearlist.build/). The heading is the product. **For** is the audience. **Access and use** is the permission note.
 - Agent: load [llms.txt](llms.txt) first, then [llms-full.txt](llms-full.txt) or [resources.json](resources.json). [AGENTS.md](AGENTS.md) is the house rules. Do not install from a row until a human authorises it.
-- Agent with MCP: connect to the Gearlist MCP server at `https://gearlist.build/mcp`. It is read-only and needs no sign-in. [agent-prompt.txt](https://gearlist.build/agent-prompt.txt) is a prompt to give your agent, with setup steps for Codex, Gemini CLI, Cursor, VS Code and the Claude apps. In Claude Code:
+- Agent with MCP: connect to the Gearlist MCP server at `https://gearlist.build/mcp`. It is read-only and needs no sign-in. [agent-prompt.txt](https://gearlist.build/agent-prompt.txt) is a prompt to give your agent, with setup steps for Codex, Gemini CLI, Cursor, Grok, VS Code and the Claude apps. In Claude Code:
 
 ```bash
 claude mcp add --transport http gearlist https://gearlist.build/mcp
@@ -58,7 +58,7 @@ npx skills add techhorizonlabs/thl-open
 ## Contents
 
 - [Agent tools](#agent-tools) (94)
-- [MCP and integrations](#mcp-and-integrations) (32)
+- [MCP and integrations](#mcp-and-integrations) (33)
 - [Security and governance](#security-and-governance) (5)
 - [Platforms](#platforms) (64)
 - [Protocols](#protocols) (4)
@@ -1329,6 +1329,16 @@ Connects Claude or ChatGPT to 1of10's database of YouTube outlier videos, which 
 **Access and use:** Needs a 1of10 Pro (US$89 a month) or Ultra plan, and you connect by signing in from its Claude and ChatGPT page; the server link for other clients appears only after sign-in. Research does not use credits but generating titles, ideas or thumbnails does, and it can save videos, create trackers and link your channel without deleting anything. There is no public API reference beyond the product page.
 
 **Source checked:** 2026-11-05. [Official source](https://1of10.com/mcp). [Gearlist page](https://gearlist.build/tools/1of10-mcp/).
+
+### [Are you found by AI? DNS-AID checker](https://areyoufoundbyai.com/tools/dns-aid-checker)
+
+Check a domain's DNS-AID index record against DNS-AID draft-02, an IETF Internet-Draft that is a work in progress, not a published standard. It checks DNS only and does not affect any score. It looks for an SVCB record (type 64) at _index._agents.yourdomain.com and does not test the endpoint the record points to, its TLS connection or whether an AI engine uses it. Tech Horizon Labs project.
+
+**For:** People who operate an agent index and want to see whether their domain publishes its DNS-AID record.
+
+**Access and use:** Free web form that asks only for a domain, with no sign-in. The page sends that domain to areyoufoundbyai.com, which looks up the record and shows the queried name, the target and whether the resolver reports an authenticated answer. The page says no DNS-AID setup is needed unless you operate an agent index, and to read its setup requirements at areyoufoundbyai.com/guides/dns-aid before changing DNS.
+
+**Source checked:** 2026-11-06. [Official source](https://areyoufoundbyai.com/tools/dns-aid-checker). [Gearlist page](https://gearlist.build/tools/dns-aid-checker/).
 
 ## Security and governance
 

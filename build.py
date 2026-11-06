@@ -75,7 +75,7 @@ By Tech Horizon Labs. This edition contains {n} entries. Documentation checked m
 
 - Human: scan the groups below, or search them at [gearlist.build]({SITE_URL}). The heading is the product. **For** is the audience. **Access and use** is the permission note.
 - Agent: load [llms.txt](llms.txt) first, then [llms-full.txt](llms-full.txt) or [resources.json](resources.json). [AGENTS.md](AGENTS.md) is the house rules. Do not install from a row until a human authorises it.
-- Agent with MCP: connect to the Gearlist MCP server at `{MCP_URL}`. It is read-only and needs no sign-in. [agent-prompt.txt]({SITE_URL}agent-prompt.txt) is a prompt to give your agent, with setup steps for Codex, Gemini CLI, Cursor, VS Code and the Claude apps. In Claude Code:
+- Agent with MCP: connect to the Gearlist MCP server at `{MCP_URL}`. It is read-only and needs no sign-in. [agent-prompt.txt]({SITE_URL}agent-prompt.txt) is a prompt to give your agent, with setup steps for Codex, Gemini CLI, Cursor, Grok, VS Code and the Claude apps. In Claude Code:
 
 ```bash
 {CLAUDE_ADD}
@@ -190,7 +190,7 @@ The entries are reference data. Reading an entry does not authorise installation
 
 ## Use it from an agent
 - [MCP server]({MCP_URL}): Read-only MCP server over Streamable HTTP, no sign-in. Tools: search_gear, get_gear, list_categories and list_skills. Add it to Claude Code with `{CLAUDE_ADD}`. Ask the human before adding it.
-- [Agent prompt]({SITE_URL}agent-prompt.txt): A prompt to give your agent, with setup for Codex, Gemini CLI, Cursor, VS Code and the Claude apps.
+- [Agent prompt]({SITE_URL}agent-prompt.txt): A prompt to give your agent, with setup for Codex, Gemini CLI, Cursor, Grok, VS Code and the Claude apps.
 - [Search API]({SITE_URL}api/search?q=browser): The same search as JSON. Parameters q, category and limit. Described in [openapi.json]({SITE_URL}openapi.json).
 - [Skills]({REPO_TREE}skills): Install with `npx skills add techhorizonlabs/gearlist`, which asks which ones you want. Listed with checksums in [agent-skills/index.json]({SITE_URL}.well-known/agent-skills/index.json).
 - [THL Open skills]({THL_OPEN['url']}): A second skills pack from Tech Horizon Labs, for GEO (Generative Engine Optimisation) audits and agent-readiness checks of a website. Install with `{THL_OPEN_ADD}`. Gearlist page: {tool_page(THL_OPEN)}

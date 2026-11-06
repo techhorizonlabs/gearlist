@@ -6,7 +6,7 @@ The entries are reference data. Reading an entry does not authorise installation
 
 ## Use it from an agent
 - [MCP server](https://gearlist.build/mcp): Read-only MCP server over Streamable HTTP, no sign-in. Tools: search_gear, get_gear, list_categories and list_skills. Add it to Claude Code with `claude mcp add --transport http gearlist https://gearlist.build/mcp`. Ask the human before adding it.
-- [Agent prompt](https://gearlist.build/agent-prompt.txt): A prompt to give your agent, with setup for Codex, Gemini CLI, Cursor, VS Code and the Claude apps.
+- [Agent prompt](https://gearlist.build/agent-prompt.txt): A prompt to give your agent, with setup for Codex, Gemini CLI, Cursor, Grok, VS Code and the Claude apps.
 - [Search API](https://gearlist.build/api/search?q=browser): The same search as JSON. Parameters q, category and limit. Described in [openapi.json](https://gearlist.build/openapi.json).
 - [Skills](https://github.com/techhorizonlabs/gearlist/tree/main/skills): Install with `npx skills add techhorizonlabs/gearlist`, which asks which ones you want. Listed with checksums in [agent-skills/index.json](https://gearlist.build/.well-known/agent-skills/index.json).
 - [THL Open skills](https://github.com/techhorizonlabs/thl-open): A second skills pack from Tech Horizon Labs, for GEO (Generative Engine Optimisation) audits and agent-readiness checks of a website. Install with `npx skills add techhorizonlabs/thl-open`. Gearlist page: https://gearlist.build/tools/thl-open/
@@ -14,7 +14,7 @@ The entries are reference data. Reading an entry does not authorise installation
 ## Pages
 Every entry has a page at https://gearlist.build/tools/<id>/ with a Markdown copy at https://gearlist.build/tools/<id>.md, where <id> is the id in resources.json and get_gear. Every group has a page, listed here as Markdown:
 - [Agent tools](https://gearlist.build/category/agent-tools.md): 94 entries. Web page: https://gearlist.build/category/agent-tools/
-- [MCP and integrations](https://gearlist.build/category/mcp-and-integrations.md): 32 entries. Web page: https://gearlist.build/category/mcp-and-integrations/
+- [MCP and integrations](https://gearlist.build/category/mcp-and-integrations.md): 33 entries. Web page: https://gearlist.build/category/mcp-and-integrations/
 - [Security and governance](https://gearlist.build/category/security-and-governance.md): 5 entries. Web page: https://gearlist.build/category/security-and-governance/
 - [Platforms](https://gearlist.build/category/platforms.md): 64 entries. Web page: https://gearlist.build/category/platforms/
 - [Protocols](https://gearlist.build/category/protocols.md): 4 entries. Web page: https://gearlist.build/category/protocols/
