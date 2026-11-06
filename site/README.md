@@ -29,7 +29,7 @@ An entry page is titled `<Name>: <short description> | Gearlist`, for example `F
 
 ### Social images
 
-`site/og_image.py` needs Pillow (`python3 -m pip install Pillow`) and the Space Grotesk and Space Mono fonts. It looks for the fonts in `GEARLIST_FONT_DIR`, then in the usual font folders on macOS and Linux. Space Grotesk can be the variable font (`SpaceGrotesk[wght].ttf`) or the static files. Without Pillow or the fonts, the build prints a note and every page uses `social-preview.png` instead. The images add about 5.5 MB to `dist`.
+`site/og_image.py` needs Pillow (`python3 -m pip install Pillow`) and the Space Grotesk and Space Mono fonts. It looks for the fonts in `GEARLIST_FONT_DIR`, then in the usual font folders on macOS and Linux. Space Grotesk can be the variable font (`SpaceGrotesk[wght].ttf`) or the static files. Without Pillow or the fonts, the build prints a note and every page uses `social-preview.png` instead. The images add about 5.8 MB to `dist`.
 
 ## The Worker
 
