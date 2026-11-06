@@ -5,7 +5,7 @@ description: Check a GitHub repository, MCP server, agent skill or prompt before
 
 # Vet before install
 
-Read the thing before it runs. This skill gives a person a short verdict they can act on, with the file and line behind every finding. It is a read of the code and docs, not a security audit. Say so in the report.
+Read the thing before it runs. This skill gives a person a short verdict they can act on, with the file and line behind every finding. It reads the code and docs only, and it doesn't replace a security audit. Say so in the report.
 
 ## Rules
 
@@ -42,14 +42,14 @@ grep -rnE --exclude-dir={.git,node_modules} '"(pre|post)?install"|"prepare"|curl
 grep -rnE --exclude-dir={.git,node_modules} '0\.0\.0\.0|listen\(|createServer|--host' "$DIR"
 grep -rniE --exclude-dir={.git,node_modules} 'posthog|sentry|segment|mixpanel|amplitude|telemetry|analytics' "$DIR"
 grep -rniE --exclude-dir={.git,node_modules} 'ignore (all |any )?(previous|prior)|do not (tell|mention|ask)|without (asking|confirm)|skip (the )?confirm' "$DIR"
-python3 -I -c 'import re,sys,pathlib; r=re.compile("[\u200b-\u200f\u202a-\u202e\u2060-\u2064\ufeff]"); [print(p) for p in pathlib.Path(sys.argv[1]).rglob("*") if p.is_file() and ".git" not in p.parts and r.search(p.read_text(errors="ignore"))]' "$DIR"
+python3 -I -c 'import re,sys,pathlib; r=re.compile("[\u200b-\u200f\u202a-\u202e\u2060-\u2064\u2066-\u2069\ufeff]"); [print(p) for p in pathlib.Path(sys.argv[1]).rglob("*") if p.is_file() and ".git" not in p.parts and r.search(p.read_text(errors="ignore"))]' "$DIR"
 ```
 
-A search hit is a lead, not a finding. Open the file and read the lines around it before you write it up.
+A search hit is only a lead. Open the file and read the lines around it before you write it up.
 
 ## Rank and decide
 
-Rank each finding HIGH, MEDIUM, LOW or INFO by what it would let someone do to the user, not by how unusual it looks. Also record what the project does well, with evidence, so the verdict is fair. Then pick one verdict:
+Rank each finding HIGH, MEDIUM, LOW or INFO by what it would let someone do to the user. Also record what the project does well, with evidence, so the verdict is fair. Then pick one verdict:
 
 - **Use as is:** nothing above LOW, and the licence allows the intended use.
 - **Use with care:** MEDIUM or HIGH findings the user can contain with settings or isolation, such as a password, telemetry off, read-only tokens, or a separate OS user or container. List the steps.
@@ -62,7 +62,7 @@ Keep it short. Use this shape:
 ```markdown
 # OWNER/REPO: check before install
 
-Checked DATE at commit SHA. Read-only: nothing was installed, built or run. This is a read of the code and docs, not a security audit.
+Checked DATE at commit SHA. Read-only: nothing was installed, built or run. This review covers the code and docs and doesn't replace a security audit.
 
 **Verdict: Use with care.** Two or three sentences: what it is, the main risk, and what to do about it.
 
