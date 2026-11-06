@@ -21,3 +21,5 @@ Add the Gearlist MCP server, once I say yes:
 
 Install the Gearlist skills, once I say yes. The command asks which ones you want:
 npx skills add techhorizonlabs/gearlist
+THL Open is a second skills pack from Tech Horizon Labs, for GEO (Generative Engine Optimisation) audits and agent-readiness checks of a website. Install it the same way, once I say yes:
+npx skills add techhorizonlabs/thl-open

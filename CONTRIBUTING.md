@@ -11,7 +11,7 @@ Submit a pull request. Issues are off on this repository, so there is no public 
 
 Keep descriptions factual. Do not copy marketing claims about guaranteed outcomes, security or comparative performance without evidence. A documentation review is different from an installation test or a security audit.
 
-Edit `resources.json`, then run `python3 build.py` to regenerate the indexes. Each entry needs a unique ID and URL, a source URL, the source check date, access notes and licence. Maintainers check the source before merging.
+Edit `resources.json`, then run `python3 build.py` to regenerate the indexes. Each entry needs a unique ID and URL, a source URL, the source check date, access notes and licence. Maintainers check the source before merging. If an agent is preparing the change, point it at `internal/skills/add-entry/SKILL.md`, the maintainer skill for adding or correcting an entry.
 
 Only submit public information. Do not paste group conversations, member names, personal contact details, access tokens or private client material.
 
