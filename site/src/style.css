@@ -435,6 +435,7 @@ h1 {
 .access h2 { color: var(--at); font: 700 .8125rem/1.4 var(--mono); }
 .access p { color: var(--cream); font-size: 1.0625rem; overflow-wrap: anywhere; }
 .who p { max-width: 40em; }
+.sheet-side { display: grid; gap: 1.25rem; }
 .details { padding: 1.1rem 1.25rem 1.2rem; border: 1px solid var(--line); }
 .details h2 { font: 700 .8125rem/1.4 var(--mono); color: var(--body); }
 .details dl { display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; font-size: .9375rem; line-height: 1.5; }

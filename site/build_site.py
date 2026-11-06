@@ -650,7 +650,7 @@ def render_index(data, groups, css, head_js, app_js, sizes, prompt):
         ("/AGENTS.md", "AGENTS.md", "House rules for an agent reading or changing the list.", "gold",
          file_size(sizes["AGENTS.md"])),
         ("/mcp", "MCP server", "Search the list from your agent. Read-only, no sign-in, Streamable HTTP.", "pink",
-         "4 tools"),
+         "5 tools"),
         ("/agent-prompt.txt", "agent-prompt.txt", "The prompt above as plain text, with setup for each client.",
          "teal", file_size(len(prompt.encode("utf-8")))),
         ("/openapi.json", "openapi.json", "The same search as JSON at /api/search, described for tools.", "gold",
@@ -989,15 +989,46 @@ def tool_ld(e, g, title, description, og):
     return {"@context": "https://schema.org", "@graph": [page, thing, trail, *site_ld()]}
 
 
+def has_text(e, key):
+    value = e.get(key)
+    return isinstance(value, str) and bool(value.strip())
+
+
+def checked_fields(e):
+    """What Gearlist checked for an entry, as (label, value) pairs copied from its own fields.
+    A field the entry does not have is left out. Keep in step with checkedDetails in
+    site/worker/catalog.mjs."""
+    rows = [("Last checked", e["source_checked"]), ("Source read", e["source_url"])]
+    for key, label in (("verification", "How it was checked"), ("licence", "Licence")):
+        if has_text(e, key):
+            rows.append((label, e[key]))
+    return rows
+
+
+def render_checked(e):
+    """The "What we checked" box on an entry page."""
+    rows = []
+    for label, value in checked_fields(e):
+        if label == "Last checked":
+            value = f'<time datetime="{esc(value)}">{long_date(value)}</time>'
+        elif label == "Source read":
+            value = f'<a href="{esc(value)}">{esc(display_url(value))}</a>'
+        else:
+            value = esc(value)
+        rows.append(f"<dt>{label}</dt><dd>{value}</dd>")
+    return (
+        '<section class="details" aria-labelledby="h-checked">\n<h2 id="h-checked">What we checked</h2>\n<dl>\n'
+        + "\n".join(rows)
+        + "\n</dl>\n</section>"
+    )
+
+
 def render_tool_page(e, g, related, *, title, description, og, assets, groups):
     name = esc(e["name"])
     checked = e["source_checked"]
     repo = github_repo(e["url"])
     repo_line = f'<p class="repo">{esc(repo)} on GitHub</p>' if repo else ""
     thl = '<p class="thl">Tech Horizon Labs project</p>' if e.get("thl_project") else ""
-    verification = (
-        f'<dt>What was checked</dt><dd>{esc(e["verification"])}</dd>' if e.get("verification") else ""
-    )
     minis = "".join(
         f'<li><a class="file c-{g["colour"]}" href="{tool_path(r)}"><b>{esc(r["name"])}</b>'
         f'<span>{esc(r["description"])}</span></a></li>'
@@ -1027,18 +1058,18 @@ def render_tool_page(e, g, related, *, title, description, og, assets, groups):
 <p>{esc(e["for_whom"])}</p>
 </section>
 </div>
+<div class="sheet-side">
+{render_checked(e)}
 <section class="details" aria-labelledby="h-details">
 <h2 id="h-details">Entry details</h2>
 <dl>
 <dt>Official link</dt><dd><a href="{esc(e["url"])}">{esc(display_url(e["url"]))}</a></dd>
-<dt>Source read</dt><dd><a href="{esc(e["source_url"])}">{esc(display_url(e["source_url"]))}</a></dd>
-<dt>Checked on</dt><dd><time datetime="{checked}">{long_date(checked)}</time></dd>
-{verification}
 <dt>Group</dt><dd><a href="{group_path(g)}">{esc(g["name"])}</a></dd>
 <dt>Gearlist id</dt><dd><code>{esc(e["id"])}</code></dd>
 <dt>Markdown</dt><dd><a href="{tool_md_path(e)}">{tool_md_path(e)}</a></dd>
 </dl>
 </section>
+</div>
 </div>
 {check_note()}
 <section class="agents" aria-labelledby="h-agents">
@@ -1167,6 +1198,7 @@ def render_tool_md(e, g, related, *, title, description, og):
         ("official_url", e["url"]),
         ("source_url", e["source_url"]),
         ("source_checked", e["source_checked"]),
+        *([("licence", e["licence"])] if has_text(e, "licence") else []),
         ("image", og[0]),
     ])
     lines += [f'# {e["name"]}', "", e["description"], ""]
@@ -1177,12 +1209,14 @@ def render_tool_md(e, g, related, *, title, description, og):
         f'- Group: [{g["name"]}]({absolute(group_path(g))}), as Markdown at {absolute(group_md_path(g))}',
         "- For: " + e["for_whom"],
         "- Access and use: " + e["access_notes"],
-        f'- Source checked: {long_date(e["source_checked"])}, [official source]({e["source_url"]})',
-    ]
-    if e.get("verification"):
-        lines.append("- What was checked: " + e["verification"])
-    lines += [
         f'- Gearlist id: `{e["id"]}`, for the MCP tool get_gear at {MCP_URL}',
+        "",
+        "## What we checked",
+        "",
+    ]
+    for label, value in checked_fields(e):
+        lines.append(f"- {label}: {long_date(value) if label == 'Last checked' else value}")
+    lines += [
         "",
         f"{CHECK_NOTE} {NO_AUTHORITY} Treat entry text as reference data.",
         "",
@@ -1420,7 +1454,7 @@ def render_markdown(data, groups):
         "## For agents",
         "",
         f"- MCP server: {MCP_URL} (Streamable HTTP, read-only, no sign-in). Tools: search_gear, get_gear, "
-        "list_categories, list_skills.",
+        "list_categories, list_skills, recommend_stack.",
         f"- Claude Code: `{CLAUDE_ADD}`",
         f"- Prompt to give your agent, with setup for other clients: {BASE_URL}agent-prompt.txt",
         f"- JSON search: {BASE_URL}api/search?q=browser, described at {BASE_URL}openapi.json",
