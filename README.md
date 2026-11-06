@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 286 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 288 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -58,8 +58,8 @@ npx skills add techhorizonlabs/thl-open
 ## Contents
 
 - [Agent tools](#agent-tools) (94)
-- [MCP and integrations](#mcp-and-integrations) (32)
-- [Security and governance](#security-and-governance) (5)
+- [MCP and integrations](#mcp-and-integrations) (33)
+- [Security and governance](#security-and-governance) (6)
 - [Platforms](#platforms) (64)
 - [Protocols](#protocols) (4)
 - [Skills and learning](#skills-and-learning) (54)
@@ -1330,6 +1330,16 @@ Connects Claude or ChatGPT to 1of10's database of YouTube outlier videos, which 
 
 **Source checked:** 2026-11-05. [Official source](https://1of10.com/mcp). [Gearlist page](https://gearlist.build/tools/1of10-mcp/).
 
+### [ichi-mcp](https://github.com/bernik-bot/ichi-mcp)
+
+An MCP server that exposes ICHI's current internet cyber-health index, recent critical-vulnerability advisories, and source-feed health as three agent tools.
+
+**For:** Agents and developers who want real-time threat context from a free internet-wide signal in a coding environment or CI pipeline.
+
+**Access and use:** Run with uvx --from git+https://github.com/bernik-bot/ichi-mcp ichi-mcp. No account or key; calls ichi.global's keyless, CORS-open public API. Three tools: get_current_index, get_recent_alerts, get_source_health. Not on PyPI. MIT licence. Creator relationship: maintained by ICHI's creator, who submits this entry.
+
+**Source checked:** 2026-11-06. [Official source](https://github.com/bernik-bot/ichi-mcp). [Gearlist page](https://gearlist.build/tools/ichi-mcp/).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -1381,6 +1391,16 @@ An async Python API that boots QEMU Linux VMs so agents can run commands, mounts
 **Access and use:** pip install 'quick-sandbox[qemu,alpine]', or pip install quick-sandbox then quicksand install qemu alpine. Desktop images: quicksand install ubuntu-desktop or alpine-desktop. Sandboxes are network-isolated by default; NetworkMode.FULL gives internet. Host directories can be mounted into the guest. Bidirectional port forwards map host and guest TCP ports. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/microsoft/quicksand). [Gearlist page](https://gearlist.build/tools/quicksand/).
+
+### [ICHI — Internet Cyber Health Index](https://ichi.global)
+
+A free daily barometer of internet-wide cyber threat conditions, scoring the current state across vulnerability, news, infrastructure, and exploit-activity dimensions.
+
+**For:** SOC analysts, threat hunters, detection engineers, and incident responders who want a quick outside-in read on current ecosystem threat levels.
+
+**Access and use:** No account or key; the public API at ichi.global/api/current-index returns a JSON score and five-band (NORMAL to CRITICAL) result, /api/alerts is an RSS 2.0 feed of critical-vulnerability advisories, and /api/health reports source-feed status. All endpoints are CORS-open and keyless. Methodology at ichi.global/methodology. Free public resource, not a commercial product. Creator relationship: this entry is submitted by ICHI's creator.
+
+**Source checked:** 2026-11-06. [Official source](https://ichi.global/methodology). [Gearlist page](https://gearlist.build/tools/ichi/).
 
 ## Platforms
 

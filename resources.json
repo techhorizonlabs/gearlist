@@ -3719,6 +3719,32 @@
       "source_checked": "2026-11-06",
       "verification": "Official documentation and licence reviewed; not installed or independently tested",
       "thl_project": false
+    },
+    {
+      "id": "ichi",
+      "name": "ICHI \u2014 Internet Cyber Health Index",
+      "category": "Security and governance",
+      "url": "https://ichi.global",
+      "description": "A free daily barometer of internet-wide cyber threat conditions, scoring the current state across vulnerability, news, infrastructure, and exploit-activity dimensions.",
+      "for_whom": "SOC analysts, threat hunters, detection engineers, and incident responders who want a quick outside-in read on current ecosystem threat levels.",
+      "access_notes": "No account or key; the public API at ichi.global/api/current-index returns a JSON score and five-band (NORMAL to CRITICAL) result, /api/alerts is an RSS 2.0 feed of critical-vulnerability advisories, and /api/health reports source-feed status. All endpoints are CORS-open and keyless. Methodology at ichi.global/methodology. Free public resource, not a commercial product. Creator relationship: this entry is submitted by ICHI's creator.",
+      "source_url": "https://ichi.global/methodology",
+      "source_checked": "2026-11-06",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "ichi-mcp",
+      "name": "ichi-mcp",
+      "category": "MCP and integrations",
+      "url": "https://github.com/bernik-bot/ichi-mcp",
+      "description": "An MCP server that exposes ICHI's current internet cyber-health index, recent critical-vulnerability advisories, and source-feed health as three agent tools.",
+      "for_whom": "Agents and developers who want real-time threat context from a free internet-wide signal in a coding environment or CI pipeline.",
+      "access_notes": "Run with uvx --from git+https://github.com/bernik-bot/ichi-mcp ichi-mcp. No account or key; calls ichi.global's keyless, CORS-open public API. Three tools: get_current_index, get_recent_alerts, get_source_health. Not on PyPI. MIT licence. Creator relationship: maintained by ICHI's creator, who submits this entry.",
+      "source_url": "https://github.com/bernik-bot/ichi-mcp",
+      "source_checked": "2026-11-06",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
