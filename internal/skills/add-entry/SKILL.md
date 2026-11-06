@@ -1,6 +1,8 @@
 ---
 name: add-entry
 description: Add or correct a Gearlist catalog entry. Use when asked to add a tool, MCP server, skill or platform to this repository, or to promote a row from stars-queue.json.
+metadata:
+  internal: true
 ---
 
 # Add a Gearlist entry

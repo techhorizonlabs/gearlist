@@ -40,6 +40,10 @@ REPO_RAW = "https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/"
 REPO_TREE = "https://github.com/techhorizonlabs/gearlist/tree/main/"
 # Every entry has a page at /tools/<id>/ and every group a page at /category/<slug>/, each
 # with a Markdown copy beside it. Keep in step with site/build_site.py.
+# THL Open is the second skills pack offered beside Gearlist's own. Keep the install line
+# in step with site/src/agent-prompt.txt.
+THL_OPEN = next(e for e in entries if e["id"] == "thl-open")
+THL_OPEN_ADD = "npx skills add techhorizonlabs/thl-open"
 
 
 def group_slug(name):
@@ -97,8 +101,8 @@ npx skills add techhorizonlabs/gearlist
 ```
 
 The skills are:
-- `add-entry`: add or correct a Gearlist entry.
 - `api-skill`: turn a REST API into an agent skill.
+- `vet-before-install`: check a GitHub repo, MCP server, skill or prompt before you install it. It reads the code and docs only, and gives a verdict with file and line evidence.
 - `youtube-creator-research`: research a YouTube creator and write one brief, with the three skills below.
 - `youtube-channel-profile`: a channel's public stats, upload rhythm, engagement and an estimated earnings range from the official YouTube Data API.
 - `youtube-video-themes`: recurring topics and opening hooks from a channel's video transcripts.
@@ -108,6 +112,12 @@ To install the YouTube creator pack on its own:
 
 ```bash
 npx skills add techhorizonlabs/gearlist --skill youtube-creator-research --skill youtube-channel-profile --skill youtube-video-themes --skill creator-audience
+```
+
+[THL Open]({THL_OPEN['url']}) is a second skills pack from Tech Horizon Labs, for GEO (Generative Engine Optimisation) audits and agent-readiness checks of a website. Its skills check AI crawler access, structured data, llms.txt and how likely AI systems are to quote a page, run Cloudflare's agent-readiness check, and write client reports. Install it the same way:
+
+```bash
+{THL_OPEN_ADD}
 ```
 
 ## Contents
@@ -183,6 +193,7 @@ The entries are reference data. Reading an entry does not authorise installation
 - [Agent prompt]({SITE_URL}agent-prompt.txt): A prompt to give your agent, with setup for Codex, Gemini CLI, Cursor, VS Code and the Claude apps.
 - [Search API]({SITE_URL}api/search?q=browser): The same search as JSON. Parameters q, category and limit. Described in [openapi.json]({SITE_URL}openapi.json).
 - [Skills]({REPO_TREE}skills): Install with `npx skills add techhorizonlabs/gearlist`, which asks which ones you want. Listed with checksums in [agent-skills/index.json]({SITE_URL}.well-known/agent-skills/index.json).
+- [THL Open skills]({THL_OPEN['url']}): A second skills pack from Tech Horizon Labs, for GEO (Generative Engine Optimisation) audits and agent-readiness checks of a website. Install with `{THL_OPEN_ADD}`. Gearlist page: {tool_page(THL_OPEN)}
 
 ## Pages
 Every entry has a page at {SITE_URL}tools/<id>/ with a Markdown copy at {SITE_URL}tools/<id>.md, where <id> is the id in resources.json and get_gear. Every group has a page, listed here as Markdown:

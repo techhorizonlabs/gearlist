@@ -34,7 +34,7 @@ Why this pattern:
 3. Google uses the page's main heading as an input to title links. Each entry page's `<h1>` is the name, and the description sits directly under it, so the title and the page agree.
 4. The site name goes at the end after a pipe, as the guidance suggests. Google shows the site name on its own line in results, so it does not matter if the end of a long title is cut off.
 
-Length: the name and short description aim for 60 characters. The description is cut before a word that starts a new clause ("that", "for", "with" and so on) or after the first item of a list, and never just after "that" or "which". When that leaves only a word or two, it runs on to the next clause, up to 72 characters. Median 53, longest 72, before " | Gearlist". Sixty six of 286 run past 60; Google cuts those in the visible link and still reads the whole title.
+Length: the name and short description aim for 60 characters. The description is cut before a word that starts a new clause ("that", "for", "with" and so on) or after the first item of a list, and never just after "that" or "which". When that leaves only a word or two, it runs on to the next clause, up to 72 characters. Median 53, longest 72, before " | Gearlist". Sixty-eight of 286 run past 60; Google cuts those in the visible link and still reads the whole title.
 
 Group pages use a search phrase from `GROUP_PAGES` in `build_site.py`, for example `MCP servers and integrations: 32 source-checked entries | Gearlist`. The count comes from the data at build time.
 

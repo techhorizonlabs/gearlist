@@ -19,6 +19,8 @@ https://gearlist.build/mcp is a read-only MCP server over Streamable HTTP. It ne
 
 Edit `resources.json`, then run `python3 build.py` from the repository root. Do not hand-edit `README.md`, `llms.txt` or `llms-full.txt`.
 
+The maintainer skill for this is `internal/skills/add-entry/SKILL.md`. Read it before you add or correct an entry. It lives outside `skills/` so that `npx skills add techhorizonlabs/gearlist` and `/.well-known/agent-skills/index.json` do not offer it to the public. Its `metadata.internal: true` line keeps it out of `npx skills add --full-depth` lists too. Do not move it to `.agents/skills/` or `.claude/skills/`: the installer scans those folders.
+
 Every entry needs a unique `id` and `url`, a `source_url`, a `source_checked` date (YYYY-MM-DD), `access_notes`, and `verification` set to documentation review unless a later authorised test says otherwise.
 
 ## What not to do

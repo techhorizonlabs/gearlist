@@ -22,8 +22,8 @@ These are catalogs of catalogs, skills or agent repos. Each needs a human send a
 | agents.md ecosystem | https://github.com/agentsmd/agents.md | No registry submit. Presence of `AGENTS.md` is the listing. |
 | punkpeye/awesome-mcp-servers | https://github.com/punkpeye/awesome-mcp-servers | Community MCP list. Only if SAGE agrees a directory belongs there. |
 | wong2/awesome-mcp-servers | https://github.com/wong2/awesome-mcp-servers | PRs closed. Submit via https://mcpservers.org/submit if at all. |
-| BehiSecc/awesome-claude-skills | https://github.com/BehiSecc/awesome-claude-skills | Skills list. Gearlist ships one skill (`add-entry`). |
-| Agent Skills Exchange | https://github.com/agentskillexchange/skills | Curated skills catalog. Same caveat: one skill, not 18 products. |
+| BehiSecc/awesome-claude-skills | https://github.com/BehiSecc/awesome-claude-skills | Skills list. List only the public skills in `skills/`. `add-entry` is a maintainer tool in `internal/skills/` and is not offered. |
+| Agent Skills Exchange | https://github.com/agentskillexchange/skills | Curated skills catalog. Same caveat: the skills in `skills/`, not the catalog entries. |
 
 ## What not to submit
 
