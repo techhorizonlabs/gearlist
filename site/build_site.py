@@ -403,6 +403,8 @@ TITLE_OVERRIDES = {
     # Entries added 6 Nov 2026 whose cut titles stopped mid-list or on "built".
     "claude-squad": "Claude Squad: Terminal app that manages several agent sessions at once",
     "audio-cpp": "audio.cpp: C++ inference engine on ggml that runs local audio models",
+    "paseo": "Paseo: Run Claude Code, Codex and other coding agents side by side",
+    "happy": "Happy: Run Claude, Codex and Grok agents from desktop and phone",
 }
 
 
