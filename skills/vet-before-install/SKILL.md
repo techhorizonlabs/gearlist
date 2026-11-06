@@ -42,10 +42,26 @@ grep -rnE --exclude-dir={.git,node_modules} '"(pre|post)?install"|"prepare"|curl
 grep -rnE --exclude-dir={.git,node_modules} '0\.0\.0\.0|listen\(|createServer|--host' "$DIR"
 grep -rniE --exclude-dir={.git,node_modules} 'posthog|sentry|segment|mixpanel|amplitude|telemetry|analytics' "$DIR"
 grep -rniE --exclude-dir={.git,node_modules} 'ignore (all |any )?(previous|prior)|do not (tell|mention|ask)|without (asking|confirm)|skip (the )?confirm' "$DIR"
-python3 -I -c 'import re,sys,pathlib; r=re.compile("[\u200b-\u200f\u202a-\u202e\u2060-\u2064\u2066-\u2069\ufeff]"); [print(p) for p in pathlib.Path(sys.argv[1]).rglob("*") if p.is_file() and ".git" not in p.parts and r.search(p.read_text(errors="ignore"))]' "$DIR"
+python3 -I - "$DIR" <<'PY'
+import os, re, sys
+root = os.path.realpath(sys.argv[1])
+bad = re.compile("[\u200b-\u200f\u202a-\u202e\u2060-\u2064\u2066-\u2069\ufeff]")
+for d, dirs, files in os.walk(root):
+    dirs[:] = [x for x in dirs if x != ".git" and not os.path.islink(os.path.join(d, x))]
+    for name in files:
+        p = os.path.join(d, name)
+        if os.path.islink(p) or not os.path.realpath(p).startswith(root + os.sep):
+            continue
+        if os.path.getsize(p) > 2_000_000:
+            print("skipped, over 2 MB:", p)
+            continue
+        with open(p, encoding="utf-8", errors="ignore") as f:
+            if bad.search(f.read()):
+                print(p)
+PY
 ```
 
-A search hit is only a lead. Open the file and read the lines around it before you write it up.
+These searches do not follow symlinks, so a link cannot pull in files from outside the clone. List any symlinks you find as a finding. A search hit is only a lead. Open the file and read the lines around it before you write it up.
 
 ## Rank and decide
 
