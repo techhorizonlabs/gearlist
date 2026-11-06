@@ -1013,7 +1013,7 @@ Gearlist page: https://gearlist.build/tools/1of10-mcp/ (Markdown: https://gearli
 
 Are you found by AI? DNS-AID checker | MCP and integrations
 https://areyoufoundbyai.com/tools/dns-aid-checker
-Check a domain's DNS-AID index record against DNS-AID draft-02, an IETF Internet-Draft that is a work in progress, not a published standard. It checks DNS only and does not affect any score. It looks for an SVCB record (type 64) at _index._agents.yourdomain.com and does not test the endpoint the record points to, its TLS connection or whether an AI engine uses it. Tech Horizon Labs project.
+Check a domain's DNS-AID index record against DNS-AID draft-02, an IETF Internet-Draft that is still a work in progress. It checks DNS only, and a DNS-AID record does not change your Are you found by AI? score. It looks for an SVCB record (type 64) at _index._agents.yourdomain.com and does not test the endpoint the record points to, its TLS connection or whether an AI engine uses it. Tech Horizon Labs project.
 For: People who operate an agent index and want to see whether their domain publishes its DNS-AID record.
 Access: Free web form that asks only for a domain, with no sign-in. The page sends that domain to areyoufoundbyai.com, which looks up the record and shows the queried name, the target and whether the resolver reports an authenticated answer. The page says no DNS-AID setup is needed unless you operate an agent index, and to read its setup requirements at areyoufoundbyai.com/guides/dns-aid before changing DNS.
 Source checked: 2026-11-06

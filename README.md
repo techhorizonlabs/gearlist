@@ -1332,7 +1332,7 @@ Connects Claude or ChatGPT to 1of10's database of YouTube outlier videos, which 
 
 ### [Are you found by AI? DNS-AID checker](https://areyoufoundbyai.com/tools/dns-aid-checker)
 
-Check a domain's DNS-AID index record against DNS-AID draft-02, an IETF Internet-Draft that is a work in progress, not a published standard. It checks DNS only and does not affect any score. It looks for an SVCB record (type 64) at _index._agents.yourdomain.com and does not test the endpoint the record points to, its TLS connection or whether an AI engine uses it. Tech Horizon Labs project.
+Check a domain's DNS-AID index record against DNS-AID draft-02, an IETF Internet-Draft that is still a work in progress. It checks DNS only, and a DNS-AID record does not change your Are you found by AI? score. It looks for an SVCB record (type 64) at _index._agents.yourdomain.com and does not test the endpoint the record points to, its TLS connection or whether an AI engine uses it. Tech Horizon Labs project.
 
 **For:** People who operate an agent index and want to see whether their domain publishes its DNS-AID record.
 
