@@ -238,15 +238,15 @@ describe("MCP lifecycle (legacy handshake)", () => {
   test("a request without the version header is served as 2025-03-26", async () => {
     const { res, json } = await legacy("tools/list", undefined, null);
     assert.equal(res.status, 200);
-    assert.equal(json.result.tools.length, 4);
+    assert.equal(json.result.tools.length, 5);
   });
 });
 
 describe("tools/list", () => {
-  test("lists four read-only tools in a fixed order", async () => {
+  test("lists five read-only tools in a fixed order", async () => {
     const { json } = await legacy("tools/list");
     const tools = json.result.tools;
-    assert.deepEqual(tools.map((t) => t.name), ["search_gear", "get_gear", "list_categories", "list_skills"]);
+    assert.deepEqual(tools.map((t) => t.name), ["search_gear", "get_gear", "list_categories", "list_skills", "recommend_stack"]);
     for (const t of tools) {
       assert.equal(t.annotations.readOnlyHint, true);
       assert.equal(t.annotations.destructiveHint, false);
@@ -260,6 +260,12 @@ describe("tools/list", () => {
     assert.equal(search.properties.limit.default, 10);
     const categories = [...new Set(records.resources.map((e) => e.category))];
     assert.deepEqual(search.properties.category.enum, categories);
+    const stack = tools[4];
+    assert.deepEqual(stack.inputSchema.required, ["job"]);
+    assert.equal(stack.inputSchema.properties.limit.maximum, 10);
+    assert.equal(stack.inputSchema.properties.limit.default, 6);
+    assert.equal(stack.inputSchema.additionalProperties, false);
+    assert.equal(stack.description.split(/\.\s/).length, 1, "recommend_stack is described in one sentence");
     assert.equal(json.result.resultType, undefined, "legacy results carry no modern fields");
   });
 
@@ -360,6 +366,61 @@ describe("tools/call", () => {
     assert.deepEqual(result.structuredContent.entry, want);
   });
 
+  test("get_gear shows what was checked, copied from the entry's own fields", async () => {
+    const list = (await legacy("tools/list")).json.result.tools;
+    for (const want of records.resources) {
+      const data = (await tool("get_gear", { id: want.id })).structuredContent;
+      conforms(list[1].outputSchema, data, `get_gear ${want.id}`);
+      const expected = {};
+      for (const key of ["source_checked", "source_url", "verification", "access_notes", "licence"]) {
+        if (typeof want[key] === "string" && want[key].trim()) expected[key] = want[key];
+      }
+      assert.deepEqual(data.checked, expected, want.id);
+      assert.deepEqual(Object.keys(data.checked), Object.keys(expected), `${want.id} keeps the field order`);
+    }
+  });
+
+  test("get_gear leaves out checked fields an entry does not have and never says unknown", async () => {
+    // A two-entry catalog served by its own fake ASSETS: one entry has a licence and no
+    // verification, the other has an empty verification.
+    const base = {
+      category: "Agent tools", description: "A test entry.", for_whom: "Tests.", access_notes: "None beyond a clone.",
+      source_checked: "2026-11-07", thl_project: false,
+    };
+    const fixture = {
+      updated: "2026-11-07",
+      resources: [
+        { ...base, id: "with-licence", name: "With licence", url: "https://example.com/a", source_url: "https://example.com/a/docs", licence: "MIT" },
+        { ...base, id: "no-check-scope", name: "No check scope", url: "https://example.com/b", source_url: "https://example.com/b/docs", verification: "" },
+      ],
+    };
+    const assets = {
+      async fetch(input) {
+        const { pathname } = new URL(input instanceof Request ? input.url : input);
+        if (pathname === "/resources.json") return Response.json(fixture);
+        if (pathname === "/.well-known/agent-skills/index.json") return Response.json({ skills: [] });
+        return new Response("not found", { status: 404 });
+      },
+    };
+    const ask = async (id) => {
+      const res = await call("/mcp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "get_gear", arguments: { id } } }),
+      }, { ASSETS: assets });
+      return (await res.json()).result;
+    };
+    const a = await ask("with-licence");
+    assert.deepEqual(a.structuredContent.checked, {
+      source_checked: "2026-11-07", source_url: "https://example.com/a/docs", access_notes: "None beyond a clone.", licence: "MIT",
+    });
+    assert.equal(a.structuredContent.entry.licence, "MIT");
+    const b = await ask("no-check-scope");
+    assert.deepEqual(Object.keys(b.structuredContent.checked), ["source_checked", "source_url", "access_notes"]);
+    assert.equal("licence" in b.structuredContent.entry, false);
+    for (const r of [a, b]) assert.doesNotMatch(r.content[1].text, /unknown/i);
+  });
+
   test("get_gear explains an unknown id and suggests close ones", async () => {
     const result = await tool("get_gear", { id: "playwright" });
     assert.equal(result.isError, true);
@@ -415,6 +476,166 @@ describe("tools/call", () => {
   });
 });
 
+describe("recommend_stack", () => {
+  const stack = async (args) => {
+    const result = await tool("recommend_stack", args);
+    assert.equal(result.isError, false, JSON.stringify(result.content));
+    return result;
+  };
+
+  // Every item must be a real entry, with its fields copied as written and its quotes
+  // taken word for word from the field they name.
+  function checkItems(data) {
+    const ids = new Set();
+    for (const item of data.items) {
+      const e = records.resources.find((r) => r.id === item.id);
+      assert.ok(e, `${item.id} is a Gearlist entry`);
+      assert.ok(!ids.has(item.id), `${item.id} is listed once`);
+      ids.add(item.id);
+      assert.equal(item.name, e.name);
+      assert.equal(item.group, e.category);
+      assert.equal(item.url, e.url);
+      assert.equal(item.access_notes, e.access_notes);
+      assert.equal(item.source_url, e.source_url);
+      assert.equal(item.source_checked, e.source_checked);
+      assert.ok(item.why_it_fits.length >= 1, `${item.id} says why it fits`);
+      for (const why of item.why_it_fits) {
+        const text = String(e[why.field]);
+        assert.ok(text.includes(why.quote), `${item.id} ${why.field} quote is copied from the entry`);
+        assert.ok(why.quote.length <= 200, `${item.id} ${why.field} quote is short`);
+        assert.ok(why.words.length >= 1);
+        for (const word of why.words) assert.ok(text.includes(word), `${item.id} ${why.field} has the word ${word}`);
+        assert.ok(why.words.some((w) => why.quote.includes(w)), `${item.id} ${why.field} quote holds a matched word`);
+      }
+    }
+  }
+
+  for (const [job, expected] of [
+    ["review my code for security risks", ["node9", "ecc", "orchestkit"]],
+    ["research a YouTube creator", ["vidiq-mcp", "youtube-js", "noxinfluencer-api"]],
+    ["test my web app in a real browser", ["agent-tars", "oz-skills"]],
+  ]) {
+    test(`"${job}" returns real entries from at least three groups`, async () => {
+      const list = (await legacy("tools/list")).json.result.tools;
+      const result = await stack({ job });
+      assertNotice(result);
+      const data = result.structuredContent;
+      conforms(list[4].outputSchema, data, "recommend_stack");
+      assert.deepEqual(JSON.parse(result.content[1].text), data, "text block is the serialised structured content");
+      assert.equal(data.job, job);
+      assert.equal(data.match, "found");
+      assert.ok(data.count >= 3 && data.count <= 6, `default limit is 6, got ${data.count}`);
+      assert.equal(data.count, data.items.length);
+      checkItems(data);
+      const ids = data.items.map((i) => i.id);
+      for (const id of expected) assert.ok(ids.includes(id), `${job}: expected ${id}, got ${ids.join(", ")}`);
+      const groups = new Set(data.items.map((i) => i.group));
+      assert.ok(groups.size >= 3, `${job}: ${[...groups].join(", ")}`);
+    });
+  }
+
+  test("a browser test job brings in a browser-testing MCP server", async () => {
+    const ids = (await stack({ job: "test my web app in a real browser" })).structuredContent.items.map((i) => i.id);
+    // alumnium on the catalog of 7 Nov 2026; playwright-mcp if it has been added since.
+    assert.ok(ids.includes("alumnium") || ids.includes("playwright-mcp"), ids.join(", "));
+  });
+
+  test("the best entry of each kind goes in before a kind repeats", async () => {
+    // Every top match for "browser" is an agent tool; the stack still reaches other groups.
+    const data = (await stack({ job: "browser", limit: 6 })).structuredContent;
+    checkItems(data);
+    const groups = data.items.map((i) => i.group);
+    assert.ok(groups.includes("Agent tools"));
+    assert.ok(new Set(groups).size >= 3, groups.join(", "));
+    const search = (await tool("search_gear", { query: "browser", limit: 3 })).structuredContent.results;
+    assert.ok(search.every((e) => e.category === "Agent tools"), "search_gear alone would give only agent tools");
+  });
+
+  test("an unknown job gets an honest no-match and a pointer to search_gear", async () => {
+    for (const job of ["bake sourdough bread", "zzqqxx"]) {
+      const data = (await stack({ job })).structuredContent;
+      assert.equal(data.match, "none");
+      assert.equal(data.count, 0);
+      assert.equal(data.total_matches, 0);
+      assert.deepEqual(data.items, []);
+      assert.match(data.next_step, /^Nothing in Gearlist matches this job well\./);
+      assert.match(data.next_step, /search_gear with other words/);
+    }
+  });
+
+  test("a word found only in setup notes does not make an entry fit", async () => {
+    // "track my brand in AI answers": entries that only mention AI or answers in their
+    // access notes stay out; what is left has two of the job's words in what it does.
+    const data = (await stack({ job: "track my brand in AI answers" })).structuredContent;
+    checkItems(data);
+    for (const item of data.items) {
+      const fields = item.why_it_fits.filter((w) => w.field !== "access_notes");
+      const words = fields.flatMap((w) => w.words.map((x) => x.toLowerCase()));
+      const hit = data.words.filter((t) => words.some((w) => w.startsWith(t)));
+      assert.ok(hit.length >= 2, `${item.id} has ${hit.join(", ")}`);
+    }
+  });
+
+  test("the limit is honoured, from 1 to 10, with 6 by default", async () => {
+    const broad = "browser";
+    for (const limit of [1, 3, 10]) {
+      const data = (await stack({ job: broad, limit })).structuredContent;
+      assert.equal(data.count, limit);
+      assert.ok(data.total_matches > 10, "the job fits more entries than any limit");
+      checkItems(data);
+    }
+    assert.equal((await stack({ job: broad })).structuredContent.count, 6);
+    for (const [label, args, pattern] of [
+      ["a limit above 10", { job: broad, limit: 11 }, /limit must be a whole number from 1 to 10/],
+      ["a zero limit", { job: broad, limit: 0 }, /limit must be/],
+      ["a fractional limit", { job: broad, limit: 2.5 }, /limit must be/],
+      ["a missing job", {}, /job must be a non-empty string/],
+      ["a blank job", { job: "   " }, /job must be a non-empty string/],
+      ["an overlong job", { job: "x".repeat(201) }, /200 characters or fewer/],
+      ["an unknown argument", { job: broad, category: "Agent tools" }, /Unknown argument: category/],
+    ]) {
+      const result = await tool("recommend_stack", args);
+      assert.equal(result.isError, true, label);
+      assert.match(result.content[0].text, pattern, label);
+      assert.match(result.content[0].text, /documentation-checked only/, label);
+    }
+  });
+
+  test("the output is identical across runs and across a fresh catalog", async () => {
+    const job = "test my web app in a real browser";
+    const first = (await stack({ job })).structuredContent;
+    const second = (await stack({ job })).structuredContent;
+    assert.deepEqual(second, first);
+    const rules = parseHeaders(await readFile(path.join(DIST, "_headers"), "utf8"));
+    const res = await call("/mcp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ jsonrpc: "2.0", id: 7, method: "tools/call", params: { name: "recommend_stack", arguments: { job } } }),
+    }, { ASSETS: fakeAssets(rules) });
+    assert.equal(JSON.stringify((await res.json()).result.structuredContent), JSON.stringify(first));
+  });
+
+  test("it reads only the deployed catalog files and makes no network calls", async () => {
+    const rules = parseHeaders(await readFile(path.join(DIST, "_headers"), "utf8"));
+    const fresh = { ASSETS: fakeAssets(rules) };
+    const realFetch = globalThis.fetch;
+    globalThis.fetch = () => {
+      throw new Error("recommend_stack made a network call");
+    };
+    try {
+      const res = await call("/mcp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ jsonrpc: "2.0", id: 8, method: "tools/call", params: { name: "recommend_stack", arguments: { job: "send email" } } }),
+      }, fresh);
+      assert.equal((await res.json()).result.isError, false);
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    assert.deepEqual([...fresh.ASSETS.calls].sort(), ["/.well-known/agent-skills/index.json", "/resources.json"]);
+  });
+});
+
 describe("Modern requests (2026-07-28)", () => {
   test("server/discover lists versions, capabilities and identity", async () => {
     const { res, json } = await modern("server/discover");
@@ -431,7 +652,7 @@ describe("Modern requests (2026-07-28)", () => {
   test("tools/list carries resultType and caching hints", async () => {
     const { json } = await modern("tools/list");
     assert.equal(json.result.resultType, "complete");
-    assert.equal(json.result.tools.length, 4);
+    assert.equal(json.result.tools.length, 5);
     assert.ok(Number.isInteger(json.result.ttlMs) && json.result.ttlMs >= 0);
   });
 

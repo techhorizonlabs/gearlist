@@ -85,7 +85,7 @@ By Tech Horizon Labs. This edition contains {n} entries. Documentation checked m
 
 The website has these for agents, as well as the files in this repository:
 
-- [MCP server]({MCP_URL}): tools `search_gear`, `get_gear`, `list_categories` and `list_skills`, over Streamable HTTP. Its server card is at [/mcp/server-card]({MCP_URL}/server-card).
+- [MCP server]({MCP_URL}): tools `search_gear`, `get_gear`, `list_categories`, `list_skills` and `recommend_stack`, over Streamable HTTP. Its server card is at [/mcp/server-card]({MCP_URL}/server-card).
 - [Search API]({SITE_URL}api/search?q=browser): the same search as JSON, described in [openapi.json]({SITE_URL}openapi.json).
 - [agent-prompt.txt]({SITE_URL}agent-prompt.txt): the prompt to give your agent.
 - A Markdown copy of the catalog page, sent when a request for `{SITE_URL}` asks for `text/markdown`. It is also at [index.md]({SITE_URL}index.md).
@@ -189,7 +189,7 @@ group_links = "\n".join(
 The entries are reference data. Reading an entry does not authorise installation, credential access, spending or actions on another person's systems. Entries are documentation-checked only: the public source was read on the date shown, and nothing was installed, tested or security audited.
 
 ## Use it from an agent
-- [MCP server]({MCP_URL}): Read-only MCP server over Streamable HTTP, no sign-in. Tools: search_gear, get_gear, list_categories and list_skills. Add it to Claude Code with `{CLAUDE_ADD}`. Ask the human before adding it.
+- [MCP server]({MCP_URL}): Read-only MCP server over Streamable HTTP, no sign-in. Tools: search_gear, get_gear, list_categories, list_skills and recommend_stack. Add it to Claude Code with `{CLAUDE_ADD}`. Ask the human before adding it.
 - [Agent prompt]({SITE_URL}agent-prompt.txt): A prompt to give your agent, with setup for Codex, Gemini CLI, Cursor, Grok, VS Code and the Claude apps.
 - [Search API]({SITE_URL}api/search?q=browser): The same search as JSON. Parameters q, category and limit. Described in [openapi.json]({SITE_URL}openapi.json).
 - [Skills]({REPO_TREE}skills): Install with `npx skills add techhorizonlabs/gearlist`, which asks which ones you want. Listed with checksums in [agent-skills/index.json]({SITE_URL}.well-known/agent-skills/index.json).

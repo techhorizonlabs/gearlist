@@ -10,8 +10,8 @@
 // Spec: https://modelcontextprotocol.io/specification/2026-07-28
 
 import {
-  MAX_ID, NOTICE, SITE, REPO, loadCatalog, parseSearchArgs, searchPayload, lookup,
-  categoriesPayload, skillsPayload, schemas,
+  MAX_ID, MAX_QUERY, MAX_STACK, NOTICE, SITE, REPO, STACK_LIMIT, loadCatalog, parseSearchArgs, searchPayload,
+  lookup, gearPayload, parseStackArgs, stackPayload, categoriesPayload, skillsPayload, schemas,
 } from "./catalog.mjs";
 import { json, rateLimited, readBody, respond, sha256Hex } from "./http.mjs";
 
@@ -72,7 +72,8 @@ export function instructions(catalog) {
   return (
     `Gearlist is a read-only catalog of ${catalog.entries.length} source-checked AI agent tools, MCP servers ` +
     "and skills, maintained by Tech Horizon Labs. Use search_gear to find entries, get_gear to read one, " +
-    "list_categories for the groups and list_skills for the skills in the Gearlist repository. " +
+    "list_categories for the groups, list_skills for the skills in the Gearlist repository and recommend_stack " +
+    "for a short set of entries for one job. " +
     NOTICE
   );
 }
@@ -124,8 +125,8 @@ export function toolList(catalog) {
     tool(
       "get_gear",
       "Get a Gearlist entry",
-      "Get one Gearlist entry by its id, as returned by search_gear. Entries are documentation-checked only, " +
-        "not installed or audited.",
+      "Get one Gearlist entry by its id, as returned by search_gear, with what was checked and when. Entries are " +
+        "documentation-checked only. Nothing was installed or audited.",
       {
         type: "object",
         properties: { id: { type: "string", maxLength: MAX_ID, description: "Entry id, for example 'playwright-mcp'." } },
@@ -148,6 +149,34 @@ export function toolList(catalog) {
         "Ask the human before running any install command.",
       NO_ARGS,
       s.skills,
+    ),
+    tool(
+      "recommend_stack",
+      "Recommend a Gearlist stack",
+      "Suggest a short set of Gearlist entries for a job you describe in plain words, spread across groups, with " +
+        "each entry's own words quoted to show why it fits.",
+      {
+        type: "object",
+        properties: {
+          job: {
+            type: "string",
+            maxLength: MAX_QUERY,
+            description:
+              "The job in plain words, for example 'test my web app in a real browser'. Common words such as 'my' " +
+              "or 'the' are ignored.",
+          },
+          limit: {
+            type: "integer",
+            minimum: 1,
+            maximum: MAX_STACK,
+            default: STACK_LIMIT,
+            description: `How many entries to return, from 1 to ${MAX_STACK}. Default ${STACK_LIMIT}.`,
+          },
+        },
+        required: ["job"],
+        additionalProperties: false,
+      },
+      s.stack,
     ),
   ];
 }
@@ -177,7 +206,7 @@ function rejectArgs(args, allowed, tool) {
 async function callTool(params, env) {
   const name = params.name;
   if (typeof name !== "string") throw new RpcError(INVALID_PARAMS, "params.name must be the tool name.");
-  if (!["search_gear", "get_gear", "list_categories", "list_skills"].includes(name)) {
+  if (!["search_gear", "get_gear", "list_categories", "list_skills", "recommend_stack"].includes(name)) {
     throw new RpcError(INVALID_PARAMS, `Unknown tool: ${name}`);
   }
   const args = params.arguments === undefined || params.arguments === null ? {} : params.arguments;
@@ -197,9 +226,14 @@ async function callTool(params, env) {
       return toolError(`id must be a non-empty string of ${MAX_ID} characters or fewer.`);
     }
     const found = lookup(catalog, args.id);
-    if (found.entry) return toolResult({ notice: NOTICE, entry: found.entry });
+    if (found.entry) return toolResult(gearPayload(found.entry));
     const near = found.suggestions.length ? ` Close matches: ${found.suggestions.join(", ")}.` : "";
     return toolError(`No Gearlist entry has the id ${JSON.stringify(args.id)}.${near} Use search_gear to find ids.`);
+  }
+  if (name === "recommend_stack") {
+    const parsed = parseStackArgs(args);
+    if (parsed.error) return toolError(parsed.error);
+    return toolResult(stackPayload(catalog, parsed.value));
   }
   const bad = rejectArgs(args, [], name);
   if (bad) return bad;
@@ -326,7 +360,7 @@ function info() {
 
 This is the read-only MCP endpoint for Gearlist, a source-checked catalog of AI agent tools, MCP servers and skills by Tech Horizon Labs. It speaks MCP over Streamable HTTP, so send JSON-RPC requests here with POST. It needs no sign-in and changes nothing.
 
-Tools: search_gear, get_gear, list_categories, list_skills.
+Tools: search_gear, get_gear, list_categories, list_skills, recommend_stack.
 
 Add it to Claude Code:
   claude mcp add --transport http gearlist ${MCP_URL}

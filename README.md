@@ -20,7 +20,7 @@ claude mcp add --transport http gearlist https://gearlist.build/mcp
 
 The website has these for agents, as well as the files in this repository:
 
-- [MCP server](https://gearlist.build/mcp): tools `search_gear`, `get_gear`, `list_categories` and `list_skills`, over Streamable HTTP. Its server card is at [/mcp/server-card](https://gearlist.build/mcp/server-card).
+- [MCP server](https://gearlist.build/mcp): tools `search_gear`, `get_gear`, `list_categories`, `list_skills` and `recommend_stack`, over Streamable HTTP. Its server card is at [/mcp/server-card](https://gearlist.build/mcp/server-card).
 - [Search API](https://gearlist.build/api/search?q=browser): the same search as JSON, described in [openapi.json](https://gearlist.build/openapi.json).
 - [agent-prompt.txt](https://gearlist.build/agent-prompt.txt): the prompt to give your agent.
 - A Markdown copy of the catalog page, sent when a request for `https://gearlist.build/` asks for `text/markdown`. It is also at [index.md](https://gearlist.build/index.md).

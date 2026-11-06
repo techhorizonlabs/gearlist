@@ -221,6 +221,42 @@ describe("Entry and group pages", () => {
     }
   });
 
+  test("entry pages show what we checked, with only the fields the entry has", async () => {
+    const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const longDate = (iso) => {
+      const [y, m, d] = iso.split("-").map(Number);
+      return `${d} ${MONTHS[m - 1]} ${y}`;
+    };
+    const has = (e, key) => typeof e[key] === "string" && e[key].trim() !== "";
+    for (const e of records) {
+      const html = pages.get(`/tools/${e.id}/`);
+      const block = /<section class="details" aria-labelledby="h-checked">([\s\S]*?)<\/section>/.exec(html);
+      assert.ok(block, `${e.id} has a What we checked box`);
+      assert.match(block[1], /<h2 id="h-checked">What we checked<\/h2>/);
+      const rows = [...block[1].matchAll(/<dt>([^<]+)<\/dt><dd>([\s\S]*?)<\/dd>/g)].map((m) => [m[1], m[2]]);
+      const expected = [
+        ["Last checked", `<time datetime="${e.source_checked}">${longDate(e.source_checked)}</time>`],
+        ["Source read", null],
+      ];
+      if (has(e, "verification")) expected.push(["How it was checked", escHtml(e.verification)]);
+      if (has(e, "licence")) expected.push(["Licence", escHtml(e.licence)]);
+      assert.deepEqual(rows.map(([label]) => label), expected.map(([label]) => label), `${e.id} shows only the fields it has`);
+      for (const [i, [, value]] of expected.entries()) if (value !== null) assert.equal(rows[i][1], value, `${e.id} ${expected[i][0]}`);
+      assert.match(rows[1][1], new RegExp(`^<a href="${escHtml(e.source_url).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}">`), `${e.id} source link`);
+      assert.doesNotMatch(block[1], /\bunknown\b/i, `${e.id} never fills a gap`);
+      for (const [label, value] of rows) assert.doesNotMatch(value, /^\s*(n\/a|none|not recorded|-)?\s*$/i, `${e.id} ${label} has a value`);
+      // The Markdown copy lists the same fields.
+      const md = await readFile(path.join(DIST, "tools", `${e.id}.md`), "utf8");
+      const section = /\n## What we checked\n\n((?:- .*\n)+)/.exec(md);
+      assert.ok(section, `${e.id}.md has a What we checked list`);
+      const lines = section[1].trim().split("\n");
+      const want = [`- Last checked: ${longDate(e.source_checked)}`, `- Source read: ${e.source_url}`];
+      if (has(e, "verification")) want.push(`- How it was checked: ${e.verification}`);
+      if (has(e, "licence")) want.push(`- Licence: ${e.licence}`);
+      assert.deepEqual(lines, want, `${e.id}.md`);
+    }
+  });
+
   test("JSON-LD parses and describes only what the data says", () => {
     for (const [p, html] of pages) {
       const docs = jsonLd(html);
