@@ -1011,6 +1011,14 @@ Access: Needs a 1of10 Pro (US$89 a month) or Ultra plan, and you connect by sign
 Source checked: 2026-11-05
 Gearlist page: https://gearlist.build/tools/1of10-mcp/ (Markdown: https://gearlist.build/tools/1of10-mcp.md)
 
+ichi-mcp | MCP and integrations
+https://github.com/bernik-bot/ichi-mcp
+An MCP server that exposes ICHI's current internet cyber-health index, recent critical-vulnerability advisories, and source-feed health as three agent tools.
+For: Agents and developers who want real-time threat context from a free internet-wide signal in a coding environment or CI pipeline.
+Access: Run with uvx --from git+https://github.com/bernik-bot/ichi-mcp ichi-mcp. No account or key; calls ichi.global's keyless, CORS-open public API. Three tools: get_current_index, get_recent_alerts, get_source_health. Not on PyPI. MIT licence. Creator relationship: maintained by ICHI's creator, who submits this entry.
+Source checked: 2026-11-06
+Gearlist page: https://gearlist.build/tools/ichi-mcp/ (Markdown: https://gearlist.build/tools/ichi-mcp.md)
+
 CISO AI | Security and governance
 https://cisoai.au/
 Security briefings, analysis and governance resources.
@@ -1050,6 +1058,14 @@ For: People who want coding agents to work inside a local virtual machine.
 Access: pip install 'quick-sandbox[qemu,alpine]', or pip install quick-sandbox then quicksand install qemu alpine. Desktop images: quicksand install ubuntu-desktop or alpine-desktop. Sandboxes are network-isolated by default; NetworkMode.FULL gives internet. Host directories can be mounted into the guest. Bidirectional port forwards map host and guest TCP ports. MIT.
 Source checked: 2026-10-28
 Gearlist page: https://gearlist.build/tools/quicksand/ (Markdown: https://gearlist.build/tools/quicksand.md)
+
+ICHI — Internet Cyber Health Index | Security and governance
+https://ichi.global
+A free daily barometer of internet-wide cyber threat conditions, scoring the current state across vulnerability, news, infrastructure, and exploit-activity dimensions.
+For: SOC analysts, threat hunters, detection engineers, and incident responders who want a quick outside-in read on current ecosystem threat levels.
+Access: No account or key; the public API at ichi.global/api/current-index returns a JSON score and five-band (NORMAL to CRITICAL) result, /api/alerts is an RSS 2.0 feed of critical-vulnerability advisories, and /api/health reports source-feed status. All endpoints are CORS-open and keyless. Methodology at ichi.global/methodology. Free public resource, not a commercial product. Creator relationship: this entry is submitted by ICHI's creator.
+Source checked: 2026-11-06
+Gearlist page: https://gearlist.build/tools/ichi/ (Markdown: https://gearlist.build/tools/ichi.md)
 
 Raft | Platforms
 https://github.com/botiverse/raft-source
