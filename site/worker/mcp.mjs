@@ -197,48 +197,59 @@ function toolError(message) {
   return { content: [{ type: "text", text: message + "\n\n" + NOTICE }], isError: true };
 }
 
-function rejectArgs(args, allowed, tool) {
+function unknownArgument(args, allowed, tool) {
   const extra = Object.keys(args).filter((k) => !allowed.includes(k));
   if (!extra.length) return null;
   const takes = allowed.length ? `takes ${allowed.join(", ")}` : "takes no arguments";
-  return toolError(`Unknown argument: ${extra[0]}. ${tool} ${takes}.`);
+  return `Unknown argument: ${extra[0]}. ${tool} ${takes}.`;
+}
+
+export const TOOL_NAMES = ["search_gear", "get_gear", "list_categories", "list_skills", "recommend_stack"];
+
+// What each tool does with its arguments, shared by this MCP server and the Raft App in
+// raft-app/, so both give the same answer for the same input. `args` must already be a
+// plain object and `name` one of TOOL_NAMES. Returns { value } with the structured
+// result, or { error } with a plain message. An unknown get_gear id also sets `missing`.
+export function runTool(catalog, name, args) {
+  if (name === "search_gear") {
+    const parsed = parseSearchArgs(catalog, args, true);
+    return parsed.error ? { error: parsed.error } : { value: searchPayload(catalog, parsed.value) };
+  }
+  if (name === "get_gear") {
+    const bad = unknownArgument(args, ["id"], name);
+    if (bad) return { error: bad };
+    if (typeof args.id !== "string" || !args.id.trim() || args.id.length > MAX_ID) {
+      return { error: `id must be a non-empty string of ${MAX_ID} characters or fewer.` };
+    }
+    const found = lookup(catalog, args.id);
+    if (found.entry) return { value: gearPayload(found.entry) };
+    const near = found.suggestions.length ? ` Close matches: ${found.suggestions.join(", ")}.` : "";
+    return {
+      error: `No Gearlist entry has the id ${JSON.stringify(args.id)}.${near} Use search_gear to find ids.`,
+      missing: true,
+    };
+  }
+  if (name === "recommend_stack") {
+    const parsed = parseStackArgs(args);
+    return parsed.error ? { error: parsed.error } : { value: stackPayload(catalog, parsed.value) };
+  }
+  const bad = unknownArgument(args, [], name);
+  if (bad) return { error: bad };
+  return { value: name === "list_categories" ? categoriesPayload(catalog) : skillsPayload(catalog) };
 }
 
 async function callTool(params, env) {
   const name = params.name;
   if (typeof name !== "string") throw new RpcError(INVALID_PARAMS, "params.name must be the tool name.");
-  if (!["search_gear", "get_gear", "list_categories", "list_skills", "recommend_stack"].includes(name)) {
+  if (!TOOL_NAMES.includes(name)) {
     throw new RpcError(INVALID_PARAMS, `Unknown tool: ${name}`);
   }
   const args = params.arguments === undefined || params.arguments === null ? {} : params.arguments;
   if (typeof args !== "object" || Array.isArray(args)) {
     throw new RpcError(INVALID_PARAMS, "params.arguments must be an object.");
   }
-  const catalog = await loadCatalog(env);
-  if (name === "search_gear") {
-    const parsed = parseSearchArgs(catalog, args, true);
-    if (parsed.error) return toolError(parsed.error);
-    return toolResult(searchPayload(catalog, parsed.value));
-  }
-  if (name === "get_gear") {
-    const bad = rejectArgs(args, ["id"], name);
-    if (bad) return bad;
-    if (typeof args.id !== "string" || !args.id.trim() || args.id.length > MAX_ID) {
-      return toolError(`id must be a non-empty string of ${MAX_ID} characters or fewer.`);
-    }
-    const found = lookup(catalog, args.id);
-    if (found.entry) return toolResult(gearPayload(found.entry));
-    const near = found.suggestions.length ? ` Close matches: ${found.suggestions.join(", ")}.` : "";
-    return toolError(`No Gearlist entry has the id ${JSON.stringify(args.id)}.${near} Use search_gear to find ids.`);
-  }
-  if (name === "recommend_stack") {
-    const parsed = parseStackArgs(args);
-    if (parsed.error) return toolError(parsed.error);
-    return toolResult(stackPayload(catalog, parsed.value));
-  }
-  const bad = rejectArgs(args, [], name);
-  if (bad) return bad;
-  return toolResult(name === "list_categories" ? categoriesPayload(catalog) : skillsPayload(catalog));
+  const out = runTool(await loadCatalog(env), name, args);
+  return out.error === undefined ? toolResult(out.value) : toolError(out.error);
 }
 
 async function listTools(params, env) {

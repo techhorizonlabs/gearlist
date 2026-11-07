@@ -1,0 +1,6 @@
+# Local values for `wrangler dev`. Copy this file to .dev.vars, which git ignores.
+# Never commit real values. In production these are Worker secrets (see README.md).
+APP_ORIGIN=http://localhost:8787
+RAFT_CLIENT_ID=replace-with-the-client-id
+RAFT_CLIENT_SECRET=replace-with-the-client-secret
+SESSION_SECRET=replace-with-at-least-32-random-characters
