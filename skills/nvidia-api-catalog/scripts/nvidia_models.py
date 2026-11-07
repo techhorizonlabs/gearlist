@@ -239,11 +239,6 @@ def default_fetch(url, timeout=TIMEOUT):
 # ---------------------------------------------------------------- API
 
 
-def _one_line(text, limit=300):
-    """Server text on one line, bounded, for error messages."""
-    return " ".join(str(text).split())[:limit]
-
-
 class CatalogClient:
     """Keyless, read-only GET calls to NVIDIA's model list."""
 
@@ -272,7 +267,7 @@ class CatalogClient:
     def models(self):
         status, body = self.get("models")
         if status != 200:
-            raise ApiError(f"{SERVICE} answered the model list with HTTP {status}: {_one_line(body.decode('utf-8', 'replace'))}")
+            raise ApiError(f"{SERVICE} answered the model list with HTTP {status}.")
         data = _json(body, "the model list")
         rows = data.get("data") if isinstance(data, dict) else None
         if not isinstance(rows, list):
@@ -372,7 +367,7 @@ def run_check(client, model_id, now=None):
             close = difflib.get_close_matches(model_id.lower(), list(lowered), n=5, cutoff=0.5)
             report["suggestions"] = [lowered[c] for c in close]
     else:
-        raise ApiError(f"{SERVICE} answered the model check with HTTP {status}: {_one_line(text)}")
+        raise ApiError(f"{SERVICE} answered the model check with HTTP {status}.")
     return report
 
 
@@ -514,11 +509,16 @@ def main(argv=None, fetch=None, now=None, stdout=None, stderr=None):
         else:
             report = run_check(client, check_model_id(args.model), now)
             ok = report["status"] == "live"
+    except NetworkError as exc:
+        # The reason can carry text from the server, such as a status line, so it is fenced.
+        print(f"Error: the call to {SERVICE} failed. Details follow.\n\n{DATA_WARNING}\n\n"
+              + fence("detail", " ".join(str(exc).split())), file=stderr)
+        return exc.exit_code
     except CatalogError as exc:
         print(f"Error: {exc}", file=stderr)
         return exc.exit_code
     except Exception as exc:  # report, do not raise a traceback at the agent
-        print(f"Error: unexpected {type(exc).__name__}: {exc}", file=stderr)
+        print(f"Error: unexpected {type(exc).__name__}.", file=stderr)
         return EXIT_API
     if args.json:
         stdout.write(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
