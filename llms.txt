@@ -16,7 +16,7 @@ Every entry has a page at https://gearlist.build/tools/<id>/ with a Markdown cop
 - [Agent tools](https://gearlist.build/category/agent-tools.md): 100 entries. Web page: https://gearlist.build/category/agent-tools/
 - [MCP and integrations](https://gearlist.build/category/mcp-and-integrations.md): 46 entries. Web page: https://gearlist.build/category/mcp-and-integrations/
 - [Security and governance](https://gearlist.build/category/security-and-governance.md): 12 entries. Web page: https://gearlist.build/category/security-and-governance/
-- [Platforms](https://gearlist.build/category/platforms.md): 64 entries. Web page: https://gearlist.build/category/platforms/
+- [Platforms](https://gearlist.build/category/platforms.md): 65 entries. Web page: https://gearlist.build/category/platforms/
 - [Protocols](https://gearlist.build/category/protocols.md): 7 entries. Web page: https://gearlist.build/category/protocols/
 - [Skills and learning](https://gearlist.build/category/skills-and-learning.md): 67 entries. Web page: https://gearlist.build/category/skills-and-learning/
 - [APIs and data](https://gearlist.build/category/apis-and-data.md): 38 entries. Web page: https://gearlist.build/category/apis-and-data/
