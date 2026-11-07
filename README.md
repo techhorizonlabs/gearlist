@@ -1399,9 +1399,9 @@ A hosted transcript search service and MCP server for YouTube and podcasts that 
 
 **For:** Researchers tracking what is said about a brand and which brands sponsor which channels.
 
-**Access and use:** Sign in through your MCP client or use an arc_sk_ account key; the free plan has 1,000 credits a month and withholds the newest 30 days, and sponsor and ad-read data needs the Pro+ plan. Reads cost credits per row, and the write tool can create and pause monitors but not delete them. Speaker and sponsor labels can be incomplete, and the plugin repository is under a proprietary licence that only permits running it.
+**Access and use:** Sign in through your MCP client or use an arc_sk_ account key; the free plan has 1,000 credits a month and withholds the newest 30 days, and sponsor and ad-read data needs the Pro+ plan. Reads cost credits per row, and the write tool can create and pause monitors but not delete them. Speaker and sponsor labels can be incomplete, and the repository's own licence is proprietary and only permits running the published MCP server; the Claude Code plugin and its skills in plugins/arcmira are Apache-2.0.
 
-**Source checked:** 2026-11-05. [Official source](https://arcmira.com/docs/mcp-server). [Gearlist page](https://gearlist.build/tools/arcmira/).
+**Source checked:** 2026-11-08. [Official source](https://arcmira.com/docs/mcp-server). [Gearlist page](https://gearlist.build/tools/arcmira/).
 
 ### [1of10 MCP](https://1of10.com/mcp)
 

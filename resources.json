@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "resources": [
     {
       "id": "agent-deck",
@@ -3831,9 +3831,9 @@
       "url": "https://arcmira.com/",
       "description": "A hosted transcript search service and MCP server for YouTube and podcasts that finds quotes, mentions, media appearances, ad reads and recurring channel sponsors.",
       "for_whom": "Researchers tracking what is said about a brand and which brands sponsor which channels.",
-      "access_notes": "Sign in through your MCP client or use an arc_sk_ account key; the free plan has 1,000 credits a month and withholds the newest 30 days, and sponsor and ad-read data needs the Pro+ plan. Reads cost credits per row, and the write tool can create and pause monitors but not delete them. Speaker and sponsor labels can be incomplete, and the plugin repository is under a proprietary licence that only permits running it.",
+      "access_notes": "Sign in through your MCP client or use an arc_sk_ account key; the free plan has 1,000 credits a month and withholds the newest 30 days, and sponsor and ad-read data needs the Pro+ plan. Reads cost credits per row, and the write tool can create and pause monitors but not delete them. Speaker and sponsor labels can be incomplete, and the repository's own licence is proprietary and only permits running the published MCP server; the Claude Code plugin and its skills in plugins/arcmira are Apache-2.0.",
       "source_url": "https://arcmira.com/docs/mcp-server",
-      "source_checked": "2026-11-05",
+      "source_checked": "2026-11-08",
       "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
