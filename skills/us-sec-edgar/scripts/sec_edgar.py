@@ -509,6 +509,44 @@ def parse_submissions(data):
     }
 
 
+# ---------------------------------------------------------------- checking an answer
+#
+# An HTTP 200 submissions record is used only once it is a valid answer to the request: it needs
+# its cik and name, and the CIK must be the one asked for. The live records seen on 7 November
+# 2026 give cik as a 10 digit string; a shorter string or a whole number is read with zeros in
+# front. Other fields stay optional. Anything else is an API error (exit 4), never a company and
+# never a missing record.
+
+NOT_USED = "The script did not use the answer. Do not report this as no match."
+
+
+def normal_cik(value):
+    """A CIK as 10 digits with leading zeros, or None if it is not one."""
+    if isinstance(value, int) and not isinstance(value, bool):
+        value = str(value)
+    text = value.strip() if isinstance(value, str) else ""
+    if not re.fullmatch(r"[0-9]{1,10}", text, re.ASCII) or int(text) == 0:
+        return None
+    return text.zfill(10)
+
+
+def check_submissions(data, cik):
+    """Raise ApiError unless data is the submissions record of CIK `cik`."""
+    value = data.get("cik")
+    has_cik = (isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, str) and value.strip())
+    has_name = isinstance(data.get("name"), str) and data["name"].strip()
+    missing = [f for f, ok in (("cik", has_cik), ("name", has_name)) if not ok]
+    if missing:
+        raise ApiError(f"The SEC answered for CIK {cik} with HTTP 200, but not with a filer record: "
+                       + " and ".join(missing) + (" is" if len(missing) == 1 else " are")
+                       + f" missing, empty or not text. {NOT_USED}")
+    if normal_cik(value) != cik:
+        error = ApiError(f"The SEC answered for CIK {cik} with the record of a different CIK. {NOT_USED} "
+                         "The CIK in the answer follows.")
+        error.message = " ".join(str(value).split())[:80]
+        raise error
+
+
 def lookup(client, kind, value, limit=DEFAULT_LIMIT, now=None):
     now = now or datetime.now().astimezone()
     report = {
@@ -533,11 +571,14 @@ def lookup(client, kind, value, limit=DEFAULT_LIMIT, now=None):
         cik = chosen["cik"] if chosen else None
         report["chosen_cik"] = cik
     if cik:
+        # HTTP 404 stays "no record for the CIK", as the SEC answered for a missing CIK on 7 November 2026.
         data = client.get_json(SUBMISSIONS_URL.format(cik=cik), f"CIK {cik}")
+        if data is not None:
+            if not isinstance(data, dict):
+                raise ApiError(f"The SEC's record for CIK {cik} is not a JSON object.")
+            check_submissions(data, cik)
         if data is None:
             report["missing_cik"] = cik
-        elif not isinstance(data, dict):
-            raise ApiError(f"The SEC's record for CIK {cik} is not a JSON object.")
         elif looks_like_person(data):
             report["refused_person"] = cik
             # Leave nothing from a person's record in the output, including their row in the ticker file.
@@ -720,7 +761,11 @@ def main(argv=None, fetch=None, now=None, stdout=None, stderr=None, environ=None
               file=stderr)
         return exc.exit_code
     except EdgarError as exc:
-        print(scrub_out(f"Error: {exc}"), file=stderr)
+        text = f"Error: {exc}"
+        message = getattr(exc, "message", None)
+        if message:
+            text += "\n\n" + fence("message", message)
+        print(scrub_out(text), file=stderr)
         return exc.exit_code
     except Exception as exc:  # report, do not raise a traceback at the agent
         print(scrub_out(f"Error: unexpected {type(exc).__name__}. Details follow.\n\n" + fence("message", " ".join(str(exc).split()))),

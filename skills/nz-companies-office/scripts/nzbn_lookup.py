@@ -442,6 +442,60 @@ def parse_search_item(item):
     }
 
 
+# ---------------------------------------------------------------- checking an answer
+#
+# An HTTP 200 answer is used only once it is a valid answer to the request. A record needs its
+# nzbn and entityName, and the NZBN must be the one asked for. A search needs its items list, and
+# each item its nzbn and entityName. MBIE's API definition gives these fields as strings. Other
+# fields stay optional. Anything else is an API error (exit 4), never a business and never a
+# no-match.
+
+NOT_USED = "The script did not use the answer. Do not report this as no match."
+
+
+def _has_text(data, field):
+    value = data.get(field)
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _missing(fields):
+    return " and ".join(fields) + (" is" if len(fields) == 1 else " are") + " missing, empty or not text"
+
+
+def normal_nzbn(value):
+    """An NZBN as 13 digits with no spaces, or None if it is not one."""
+    text = re.sub(r"\s", "", value) if isinstance(value, str) else ""
+    return text if re.fullmatch(r"[0-9]{13}", text, re.ASCII) else None
+
+
+def check_entity(data, nzbn):
+    """Raise ApiError unless data is the record of NZBN `nzbn`."""
+    missing = [f for f in ("nzbn", "entityName") if not _has_text(data, f)]
+    if missing:
+        raise ApiError(f"The NZBN API answered for NZBN {nzbn} with HTTP 200, but not with a business record: "
+                       f"{_missing(missing)}. {NOT_USED}")
+    if normal_nzbn(data["nzbn"]) != nzbn:
+        error = ApiError(f"The NZBN API answered for NZBN {nzbn} with the record of a different NZBN. {NOT_USED} "
+                         "The NZBN in the answer follows.")
+        error.message = " ".join(data["nzbn"].split())[:80]
+        raise error
+
+
+def check_search(data):
+    """Return the search items, or raise ApiError unless data is a list of businesses."""
+    if data is None:
+        raise ApiError(f"The NZBN API answered the search with HTTP 404, not with a list of results. {NOT_USED}")
+    items = data.get("items")
+    if not isinstance(items, list):
+        raise ApiError(f"The NZBN API answered the search with HTTP 200, but without a list of results (items). "
+                       f"{NOT_USED}")
+    for i, item in enumerate(items, 1):
+        if not (isinstance(item, dict) and _has_text(item, "nzbn") and _has_text(item, "entityName")):
+            raise ApiError(f"The NZBN API answered the search with HTTP 200, but result {i} is not a business "
+                           f"with an nzbn and an entityName. {NOT_USED}")
+    return items
+
+
 def lookup(client, kind, value, limit=DEFAULT_LIMIT, now=None):
     now = now or datetime.now().astimezone()
     report = {
@@ -454,12 +508,15 @@ def lookup(client, kind, value, limit=DEFAULT_LIMIT, now=None):
         "found": False,
     }
     if kind == "nzbn":
+        # HTTP 404 for a record request stays "not found". Only a search treats it as an error.
         data = client.get("/entities/" + value)
-        report["entity"] = parse_entity(data) if data else None
-        report["found"] = bool(data)
+        if data is not None:
+            check_entity(data, value)
+        report["entity"] = parse_entity(data) if data is not None else None
+        report["found"] = data is not None
     else:
-        data = client.get("/entities", **{"search-term": value, "page-size": limit}) or {}
-        items = [parse_search_item(i) for i in _list(data.get("items"))]
+        data = client.get("/entities", **{"search-term": value, "page-size": limit})
+        items = [parse_search_item(i) for i in check_search(data)]
         total = data.get("totalItems")
         report["matches"] = items
         report["total_items"] = total if isinstance(total, int) else len(items)

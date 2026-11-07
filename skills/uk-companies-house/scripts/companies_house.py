@@ -523,6 +523,68 @@ def parse_search_item(item):
     }
 
 
+# ---------------------------------------------------------------- checking an answer
+#
+# An HTTP 200 answer is used only once it is a valid answer to the request. A profile needs its
+# company_number and company_name, and the number must be the one asked for. A search needs its
+# items list, and each item its company_number and title. Companies House's specification marks
+# these fields as strings. Other fields stay optional. Anything else is an API error (exit 4),
+# never a company and never a no-match.
+
+NOT_USED = "The script did not use the answer. Do not report this as no match."
+
+
+def _has_text(data, field):
+    value = data.get(field)
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _missing(fields):
+    return " and ".join(fields) + (" is" if len(fields) == 1 else " are") + " missing, empty or not text"
+
+
+def normal_number(value):
+    """A company number written as parse_query writes it: upper case, no spaces, and the digits
+    padded with zeros to 8 characters, or to 6 after a 2 character prefix. None if it is not one."""
+    text = re.sub(r"\s", "", value) if isinstance(value, str) else ""
+    if not text.isascii():
+        return None
+    match = re.fullmatch(r"([A-Z][A-Z0-9])?([0-9]{1,8})", text.upper())
+    if not match:
+        return None
+    prefix, digits = match.group(1) or "", match.group(2)
+    width = 6 if prefix else 8
+    return prefix + digits.zfill(width) if len(digits) <= width else None
+
+
+def check_profile(data, number):
+    """Raise ApiError unless data is the profile of company number `number`."""
+    missing = [f for f in ("company_number", "company_name") if not _has_text(data, f)]
+    if missing:
+        raise ApiError(f"Companies House answered for company number {number} with HTTP 200, but not with a "
+                       f"company profile: {_missing(missing)}. {NOT_USED}")
+    if normal_number(data["company_number"]) != number:
+        error = ApiError(f"Companies House answered for company number {number} with the profile of a different "
+                         f"company number. {NOT_USED} The number in the answer follows.")
+        error.message = " ".join(data["company_number"].split())[:80]
+        raise error
+
+
+def check_search(data):
+    """Return the search items, or raise ApiError unless data is a list of companies."""
+    if data is None:
+        raise ApiError(f"Companies House answered the name search with HTTP 404, not with a list of results. {NOT_USED}")
+    items = data.get("items")
+    if not isinstance(items, list):
+        raise ApiError(f"Companies House answered the name search with HTTP 200, but without a list of results "
+                       f"(items). {NOT_USED}")
+    for i, item in enumerate(items, 1):
+        if not (isinstance(item, dict) and _has_text(item, "company_number") and _has_text(item, "title")):
+            raise ApiError(f"Companies House answered the name search with HTTP 200, but result {i} is not a "
+                           f"company with a company_number and a title (its name). {NOT_USED}")
+    return items
+
+
 def lookup(client, kind, value, limit=DEFAULT_LIMIT, now=None):
     now = now or datetime.now().astimezone()
     report = {
@@ -534,12 +596,16 @@ def lookup(client, kind, value, limit=DEFAULT_LIMIT, now=None):
         "found": False,
     }
     if kind == "number":
+        # HTTP 404, which the specification lists for a profile, stays "not found". Only a search
+        # treats it as an error: the specification lists 200 and 401 for a search.
         data = client.get("/company/" + urllib.parse.quote(value, safe=""))
-        report["company"] = parse_profile(data) if data else None
-        report["found"] = bool(data)
+        if data is not None:
+            check_profile(data, value)
+        report["company"] = parse_profile(data) if data is not None else None
+        report["found"] = data is not None
     else:
-        data = client.get("/search/companies", q=value, items_per_page=limit) or {}
-        items = [parse_search_item(i) for i in data.get("items") or [] if isinstance(i, dict)]
+        data = client.get("/search/companies", q=value, items_per_page=limit)
+        items = [parse_search_item(i) for i in check_search(data)]
         total = data.get("total_results")
         report["matches"] = items
         report["total_results"] = total if isinstance(total, int) else len(items)

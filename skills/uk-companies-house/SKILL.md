@@ -87,7 +87,7 @@ Then ask for the company number, or search Companies House's own service.
 | 1 | No company with this number, or no matches | Do not say the business does not exist. Read the note |
 | 2 | Bad input, or `COMPANIES_HOUSE_API_KEY` not set | Fix the input, or ask the human to set the key |
 | 3 | Companies House did not accept the key (HTTP 401) | Stop. Ask the human to check it is a live API key. Do not retry with another key |
-| 4 | HTTP 429, another HTTP error, or a response that is not JSON | For 429, wait 5 minutes. Otherwise retry once, then report it |
+| 4 | HTTP 429, another HTTP error, a response that is not JSON, or JSON that is not a valid answer (no company number or name, no list of results, or another company's profile) | For 429, wait 5 minutes. Otherwise retry once, then report it |
 | 5 | Network error or timeout | Retry once, then report it |
 
 Answers seen on 7 November 2026, with no key and with a made-up key:

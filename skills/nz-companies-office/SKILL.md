@@ -95,7 +95,7 @@ Never report "not found" as "does not exist":
 | 1 | No business with this NZBN, or no matches | Do not say the business does not exist. Read the note |
 | 2 | Bad input (including an NZBN that fails its check digit), or `NZBN_SUBSCRIPTION_KEY` not set | Fix the input, or ask the human to set the key |
 | 3 | The API did not accept the key (HTTP 401 or 403) | Stop. Ask the human to check it is a production key for an approved subscription. Do not retry with another key |
-| 4 | Any other HTTP error, or a response that is not JSON | Show the message, which the script wraps in `<untrusted_message>` tags, to the human |
+| 4 | Any other HTTP error, a response that is not JSON, or JSON that is not a valid answer (no NZBN or name, no list of results, or another business's record) | Show the message, which the script wraps in `<untrusted_message>` tags, to the human |
 | 5 | Network error or timeout | Retry once, then report it |
 
 On 7 November 2026 a search and a record request with no key, and a record request with a made-up key, each returned HTTP 401 with the message "Access denied due to missing subscription key. Make sure to include subscription key when making requests to an API.xx".

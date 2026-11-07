@@ -81,7 +81,7 @@ Never report "not found" as "does not exist":
 | 1 | No match in the ticker file, or no record for the CIK | Do not say the business does not exist. Read the note |
 | 2 | Bad input, or the CIK looks like a person | Fix the input. Do not look people up |
 | 3 | `SEC_USER_AGENT` not set, or without a name and an email | Ask the human for the name and email to declare |
-| 4 | HTTP 403 or 429 (the SEC refused the request), another HTTP error, or a response that is not JSON | Check the declared agent, wait ten minutes, retry once, then report it |
+| 4 | HTTP 403 or 429 (the SEC refused the request), another HTTP error, a response that is not JSON, or JSON that is not a valid answer (no CIK or name, or another filer's record) | Check the declared agent, wait ten minutes, retry once, then report it |
 | 5 | Network error or timeout | Retry once, then report it |
 
 On 7 November 2026, a CIK with no record (`CIK0000000001`) returned HTTP 404 with an XML body (`NoSuchKey`). The script reports it as exit 1.

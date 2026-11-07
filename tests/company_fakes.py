@@ -228,3 +228,55 @@ def nz_item(**overrides):
             "previousEntityNames": ["SYNTHETIC OLD NAME LIMITED"], "links": []}
     item.update(overrides)
     return item
+
+
+# ---------------------------------------------------------------- response controls
+#
+# SAGE's response controls for PR 21 (response_controls.py, against head 254b011). Thirteen
+# answers are not a valid answer to the request, and each reader must report them as an API
+# error (exit 4). Eight are healthy: three valid records (exit 0), two valid empty searches and
+# three record requests answered HTTP 404 (exit 1, no match). Every body is synthetic or one of
+# the saved SEC responses above.
+
+class Control:
+    def __init__(self, country, query, case, status, data, exit_code):
+        self.country, self.query, self.case = country, query, case
+        self.status, self.data, self.exit_code = status, data, exit_code
+
+    @property
+    def healthy(self):
+        return self.exit_code != 4
+
+    def answer(self):
+        return self.status, body(self.data)
+
+    def __repr__(self):
+        return f"{self.country} {self.case}"
+
+
+DIRECT = (("UK", "00000006"), ("NZ", "9429000106078"), ("US", "320193"))
+
+
+def response_controls(country=None):
+    apple = fixture_json("sec_submissions_CIK0000320193_trimmed.json")
+    rows = []
+    for code, query in DIRECT:
+        rows.append(Control(code, query, "empty_object", 200, {}, 4))
+        rows.append(Control(code, query, "error_object", 200, {"error": "fixture unavailable"}, 4))
+    rows += [
+        Control("UK", "00000006", "wrong_company_id", 200, json.loads(ch_profile(company_number="99999999")[1]), 4),
+        Control("NZ", "9429000106078", "wrong_nzbn", 200, json.loads(nz_entity(nzbn="9429041234563")[1]), 4),
+        Control("US", "320193", "wrong_cik", 200, dict(apple, cik="9999999999"), 4),
+    ]
+    for code in ("UK", "NZ"):
+        rows.append(Control(code, "Synthetic Trading", "missing_search_items", 200, {}, 4))
+        rows.append(Control(code, "Synthetic Trading", "invalid_search_items", 200, {"items": [{}]}, 4))
+    rows += [
+        Control("UK", "00000006", "valid_profile", 200, json.loads(ch_profile()[1]), 0),
+        Control("NZ", "9429000106078", "valid_profile", 200, json.loads(nz_entity()[1]), 0),
+        Control("US", "320193", "valid_profile", 200, apple, 0),
+        Control("UK", "Synthetic Trading", "valid_empty_search", 200, json.loads(ch_search([])[1]), 1),
+        Control("NZ", "Synthetic Trading", "valid_empty_search", 200, json.loads(nz_search([])[1]), 1),
+    ]
+    rows += [Control(code, query, "actual_404", 404, {}, 1) for code, query in DIRECT]
+    return [r for r in rows if country in (None, r.country)]
