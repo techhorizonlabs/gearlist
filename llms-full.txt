@@ -1779,6 +1779,14 @@ Access: docker compose up with the floci/floci image on port 4566, or floci star
 Source checked: 2026-11-06
 Gearlist page: https://gearlist.build/tools/floci/ (Markdown: https://gearlist.build/tools/floci.md)
 
+Ansvisor | Platforms
+https://github.com/ansvisor/ansvisor
+An open-source AI search visibility platform that tracks how a brand appears in ChatGPT, Gemini, Claude, Google AI Overviews and other engines, and uses agents to draft content fixes, with an MCP server and Claude skills.
+For: Agencies, brands, SaaS companies and developers who want to track and improve how AI answer engines present them, including from Claude, Cursor or another MCP client.
+Access: Self-host: clone the repo, copy the web and server .env example files, run the migration SQL in a Supabase project (the free tier works), then install the web app with Yarn and the server with npm, or run docker compose up --build. Needs Node.js 20 or later, a key for at least one AI provider (OpenAI, Google Gemini or Anthropic) and a Cloro key for collecting answers from AI platforms; Site Audit also needs Scrape.do, and DataForSEO, Tavily, OpenRouter and Composio are optional. Tracked prompts go to the AI providers you configure and to Cloro on a nightly cycle, and each run uses credits at those services. Connect Claude Code, Cursor or another MCP client to /api/mcp with an ans_ API key sent as a bearer header; app.ansvisor.com/api/mcp is the hosted endpoint on Ansvisor's servers. Docker Compose publishes the web app on port 3000 and the API on port 80, and the first user to sign up becomes the admin, so register first and put a firewall in front. Send to CMS sends WordPress pages as drafts for you to publish. Agents that publish on their own are off by default and need server flags, an Admin switch and per-agent permission. Telemetry is off on self-host unless you set a PostHog key. A managed Ansvisor Cloud is also offered. MIT.
+Source checked: 2026-11-07
+Gearlist page: https://gearlist.build/tools/ansvisor/ (Markdown: https://gearlist.build/tools/ansvisor.md)
+
 x402 | Protocols
 https://x402.org/
 An open protocol for payments over HTTP using the 402 response.

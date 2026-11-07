@@ -704,3 +704,16 @@ describe("What's new, the feed and added dates", () => {
     assert.ok(xml.includes(`<url><loc>${ORIGIN}/new/</loc><lastmod>${latest}</lastmod></url>`));
   });
 });
+
+describe("MCP Registry domain proof", () => {
+  test("/.well-known/mcp-registry-auth serves only the committed public key line, as plain text", async () => {
+    const committed = (await readFile(path.join(SITE, "src", "mcp-registry-auth.txt"), "utf8")).trim();
+    const served = await readFile(path.join(DIST, ".well-known", "mcp-registry-auth"), "utf8");
+    assert.match(committed, /^v=MCPv1; k=ed25519; p=[A-Za-z0-9+/]{43}=$/);
+    assert.equal(served, committed + "\n");
+    assert.ok(Buffer.byteLength(served) <= 4096);
+    assert.doesNotMatch(served, /PRIVATE/);
+    const headers = await readFile(path.join(DIST, "_headers"), "utf8");
+    assert.match(headers, /\/\.well-known\/mcp-registry-auth\n  Content-Type: text\/plain; charset=utf-8/);
+  });
+});

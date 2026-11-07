@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 334 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 335 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -81,7 +81,7 @@ npx skills add techhorizonlabs/thl-open
 - [Agent tools](#agent-tools) (100)
 - [MCP and integrations](#mcp-and-integrations) (46)
 - [Security and governance](#security-and-governance) (12)
-- [Platforms](#platforms) (64)
+- [Platforms](#platforms) (65)
 - [Protocols](#protocols) (7)
 - [Skills and learning](#skills-and-learning) (67)
 - [APIs and data](#apis-and-data) (38)
@@ -2314,6 +2314,16 @@ A local AWS emulator for development, tests and CI that serves AWS-shaped servic
 **Access and use:** docker compose up with the floci/floci image on port 4566, or floci start with the Floci CLI; a standalone binary is on GitHub Releases. Needs no AWS account or auth token, and any non-empty credentials work unless you turn on service auth checks. Lambda, RDS, ECS, EC2, EKS and other services run real containers and need the Docker socket mounted, which gives Floci control of Docker on the host. The web console at localhost:4566/_floci/ui starts a sidecar on port 4500, published on every interface unless you set FLOCI_SERVICES_UI_BIND_ADDRESS. Data stays in memory by default. MIT.
 
 **Source checked:** 2026-11-06. [Official source](https://github.com/floci-io/floci). [Gearlist page](https://gearlist.build/tools/floci/).
+
+### [Ansvisor](https://github.com/ansvisor/ansvisor)
+
+An open-source AI search visibility platform that tracks how a brand appears in ChatGPT, Gemini, Claude, Google AI Overviews and other engines, and uses agents to draft content fixes, with an MCP server and Claude skills.
+
+**For:** Agencies, brands, SaaS companies and developers who want to track and improve how AI answer engines present them, including from Claude, Cursor or another MCP client.
+
+**Access and use:** Self-host: clone the repo, copy the web and server .env example files, run the migration SQL in a Supabase project (the free tier works), then install the web app with Yarn and the server with npm, or run docker compose up --build. Needs Node.js 20 or later, a key for at least one AI provider (OpenAI, Google Gemini or Anthropic) and a Cloro key for collecting answers from AI platforms; Site Audit also needs Scrape.do, and DataForSEO, Tavily, OpenRouter and Composio are optional. Tracked prompts go to the AI providers you configure and to Cloro on a nightly cycle, and each run uses credits at those services. Connect Claude Code, Cursor or another MCP client to /api/mcp with an ans_ API key sent as a bearer header; app.ansvisor.com/api/mcp is the hosted endpoint on Ansvisor's servers. Docker Compose publishes the web app on port 3000 and the API on port 80, and the first user to sign up becomes the admin, so register first and put a firewall in front. Send to CMS sends WordPress pages as drafts for you to publish. Agents that publish on their own are off by default and need server flags, an Admin switch and per-agent permission. Telemetry is off on self-host unless you set a PostHog key. A managed Ansvisor Cloud is also offered. MIT.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/ansvisor/ansvisor/blob/main/README.md). [Gearlist page](https://gearlist.build/tools/ansvisor/).
 
 ## Protocols
 

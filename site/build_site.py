@@ -96,6 +96,9 @@ FEED_LINK = f'<link rel="alternate" type="application/atom+xml" title="{FEED_TIT
 EARLIEST_ADDED = added_dates.EARLIEST_ADDED
 # The IndexNow key is generated once and committed, so it stays the same between builds.
 INDEXNOW_KEY_FILE = SRC / "indexnow-key.txt"
+# The official MCP Registry checks that we own gearlist.build by reading this public key from
+# /.well-known/mcp-registry-auth. Only the public key is here; the private key never enters the repository.
+MCP_REGISTRY_AUTH_FILE = SRC / "mcp-registry-auth.txt"
 
 # Search title and short introduction for each group page. Unknown groups fall back to
 # "<name>: <n> source-checked entries" and a generic introduction.
@@ -1678,6 +1681,9 @@ def render_headers(script_hashes, style_hash):
   Content-Type: application/ai-catalog+json
   Access-Control-Allow-Origin: *
 
+/.well-known/mcp-registry-auth
+  Content-Type: text/plain; charset=utf-8
+
 /.well-known/agent-skills/*
   Access-Control-Allow-Origin: *
 
@@ -2070,6 +2076,10 @@ def main():
     well_known = DIST / ".well-known"
     (well_known / "ai-catalog.json").write_text(json.dumps(ai_catalog(skills), indent=2) + "\n", encoding="utf-8")
     (well_known / "api-catalog").write_text(json.dumps(api_catalog(), indent=2) + "\n", encoding="utf-8")
+    auth = MCP_REGISTRY_AUTH_FILE.read_text(encoding="utf-8").strip()
+    if not re.fullmatch(r"v=MCPv1; k=ed25519; p=[A-Za-z0-9+/]{43}=", auth):
+        fail(f"{MCP_REGISTRY_AUTH_FILE.relative_to(ROOT)} must hold one v=MCPv1 ed25519 public key line")
+    (well_known / "mcp-registry-auth").write_text(auth + "\n", encoding="utf-8")
 
     (DIST / "robots.txt").write_text(
         "# Content signals, see https://contentsignals.org/\n"
