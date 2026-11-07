@@ -26,13 +26,14 @@ HOSTILE_ONE_LINE = [
     "www.evil.example",
     "`code` and *stars* and _under_",
     "~~gone~~ # not a heading",
+    "mail test@example.invalid",
 ]
 MULTI_LINE = [
     "fine\n\n# Heading",
     "a\rb",
     "tab\there",
-    "line separator",
-    "para separator",
+    "line\u2028separator",
+    "para\u2029separator",
     "next\x85line",
 ]
 
@@ -93,6 +94,7 @@ class MarkdownCellTest(unittest.TestCase):
             self.assertNotRegex(out, r"(?<!\\)(?:\\\\)*[\[\]`*_~#!]", (text, out))
             self.assertNotIn("://", out)
             self.assertNotRegex(out.lower(), r"(?<!\\)www\.")
+            self.assertNotRegex(out, r"(?<!\\)@")
 
     def test_multi_line_text_is_refused(self):
         for text in MULTI_LINE[:2] + MULTI_LINE[3:]:

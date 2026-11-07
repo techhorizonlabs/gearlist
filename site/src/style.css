@@ -496,3 +496,11 @@ h1 {
 @media (max-width: 640px) { .compare-table { min-width: 600px; font-size: .8125rem; } .compare-table tbody th { min-width: 7.5rem; } }
 .compare-table tbody th a { color: inherit; }
 .compare-note { margin: .6rem 0 0; color: var(--muted); font-size: .8125rem; }
+
+/* Short buying guide at the top of a group page (guides.json). */
+.guide { margin: 1.5rem 0 2.25rem; max-width: 74ch; }
+.guide h2 { margin: 0 0 .5rem; }
+.guide h3 { margin: 1.25rem 0 .4rem; font-size: 1rem; }
+.guide p { margin: 0 0 .6rem; line-height: 1.55; }
+.guide a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.guide-sources { color: var(--muted); font-size: .8125rem; }

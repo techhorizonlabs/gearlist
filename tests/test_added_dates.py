@@ -214,7 +214,7 @@ class BuildValidationTest(unittest.TestCase):
     def run_build(self, mutate=None):
         with tempfile.TemporaryDirectory() as tmp:
             folder = Path(tmp)
-            for name in ("build.py", "added_dates.py", "specs.py", "stars-queue.json"):
+            for name in ("build.py", "added_dates.py", "specs.py", "guides.py", "stars-queue.json"):
                 shutil.copyfile(ROOT / name, folder / name)
             data = real_data()
             if mutate:

@@ -351,6 +351,35 @@ describe("Entry and group pages", () => {
   });
 });
 
+describe("Group guides", () => {
+  test("each guide in guides.json renders on its group page and in its Markdown copy, with working entry links", async () => {
+    const data = JSON.parse(await readFile(path.join(ROOT, "guides.json"), "utf8"));
+    const names = Object.keys(data.groups || {});
+    assert.ok(names.length >= 1, "at least one guide");
+    for (const name of names) {
+      const g = groups.find((x) => x.name === name);
+      assert.ok(g, `${name} is a group`);
+      const html = pages.get(`/category/${g.slug}/`);
+      const guide = data.groups[name];
+      assert.ok(html.includes(`<h2 id="h-guide">${escHtml(guide.title)}</h2>`), `${name} guide title`);
+      const md = await readFile(path.join(DIST, "category", `${g.slug}.md`), "utf8");
+      assert.ok(md.includes(`## ${guide.title}`), `${name} guide in Markdown`);
+      for (const s of guide.sections) {
+        assert.ok(html.includes(`<h3>${escHtml(s.heading)}</h3>`), `${name}: ${s.heading}`);
+        for (const p of s.paragraphs) {
+          for (const [, id] of p.matchAll(/\[\[([a-z0-9-]+)\]\]/g)) {
+            const e = records.find((r) => r.id === id);
+            assert.ok(html.includes(`<a href="/tools/${id}/">${escHtml(e.name)}</a>`), `${name} links ${id}`);
+            assert.ok(md.includes(`](${ORIGIN}/tools/${id}/)`), `${name} Markdown links ${id}`);
+          }
+          assert.ok(!html.includes("[["), `${name} has no raw link markup`);
+        }
+        for (const u of s.sources) assert.ok(html.includes(`href="${escHtml(u)}" rel="noopener"`), `${name} cites ${u}`);
+      }
+    }
+  });
+});
+
 describe("Comparison tables", () => {
   test("a group with two or more entries carrying specs gets one table row per such entry, with every label", () => {
     let tables = 0;
