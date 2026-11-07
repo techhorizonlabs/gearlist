@@ -14,9 +14,9 @@ VALUE_MAX = 120
 # One line of text: no control characters, and no line or paragraph separators.
 NOT_ONE_LINE = re.compile("[\x00-\x1f\x7f\x85\u2028\u2029]")
 DASHES = re.compile("[\u2013\u2014]")
-# Markdown punctuation that can start emphasis, code, a link, an image, a heading, a table cell or
-# strikethrough. Each gets a backslash; backslash itself first, so an escape cannot be undone.
-MD_PUNCTUATION = re.compile(r"([\\`*_\[\]|#!~])")
+# Markdown punctuation that can start emphasis, code, a link, an image, a heading, a table cell,
+# strikethrough or an email autolink. Each gets a backslash; backslash itself first, so an escape cannot be undone.
+MD_PUNCTUATION = re.compile(r"([\\`*_\[\]|#!~@])")
 
 
 def check(entries):

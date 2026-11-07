@@ -19,7 +19,7 @@ NOT_ONE_LINE = re.compile("[\x00-\x1f\x7f\x85\u2028\u2029]")
 DASHES = re.compile("[\u2013\u2014]")
 # Characters with a meaning in Markdown or HTML are not allowed in guide text, so it renders
 # the same everywhere. [[id]] links are the one exception and are removed before this check.
-MARKUP = re.compile(r"[<>`*_\[\]|#~\\]")
+MARKUP = re.compile(r"[<>`*_\[\]|#~@\\]")
 HEADING_MAX = 80
 PARAGRAPH_MAX = 700
 
@@ -52,15 +52,23 @@ def source_ok(url):
 # Markdown that a single line of plain text could start by accident: list items, headings,
 # block quotes, thematic breaks and ordered lists.
 LEADING = re.compile(r"^(?:([-+*>#=])|(\d+)([.)]))")
-MD_ESCAPE = re.compile(r"([\\`*_\[\]|#~!])")
+MD_ESCAPE = re.compile(r"([\\`*_\[\]|#~!@])")
 
 
-def md_text(text):
+def md_text(text, start=True):
+    """start is True when the text begins a Markdown line (a title, heading or the first part of a
+    paragraph). Leading whitespace there is written as character references, so it cannot indent
+    the line into a list, rule or code block."""
     text = str(text)
     if NOT_ONE_LINE.search(text):
         raise ValueError("guide text must be one line")
     text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     text = MD_ESCAPE.sub(r"\\\1", text)
+    if not start:
+        text = text.replace("://", ":\\/\\/")
+        return re.sub(r"(?i)\bwww\.", "www\\.", text)
+    indent = len(text) - len(text.lstrip(" "))
+    text = "&#32;" * indent + text[indent:]
     m = LEADING.match(text)
     if m:
         if m.group(1):
@@ -75,6 +83,8 @@ def _check_text(where, text, limit, ids, problems):
     if not isinstance(text, str) or not text.strip():
         problems.append(f"{where}: text is empty")
         return
+    if text != text.strip():
+        problems.append(f"{where}: has spaces at the start or end")
     if NOT_ONE_LINE.search(text):
         problems.append(f"{where}: must be one line of text")
     if len(text) > limit:
@@ -82,7 +92,7 @@ def _check_text(where, text, limit, ids, problems):
     if DASHES.search(text):
         problems.append(f"{where}: has an en or em dash; use a comma, colon or full stop")
     if MARKUP.search(LINK.sub("", text)):
-        problems.append(f"{where}: has Markdown or HTML characters; only [[entry-id]] links are allowed")
+        problems.append(f"{where}: has Markdown or HTML characters or an email address; only [[entry-id]] links are allowed")
     for kind, value in parts(text):
         if kind == "link" and value not in ids:
             problems.append(f"{where}: links to [[{value}]], which is not an entry id")

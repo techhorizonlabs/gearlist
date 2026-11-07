@@ -1,5 +1,6 @@
 """Group guides (guides.json) stay plain sentences with checked entry links and named sources."""
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -47,6 +48,11 @@ class GuidesTest(unittest.TestCase):
             guide(sources=("http://insecure.example",)),
             guide(sources=("https://a.example/ path",)),
             guide(group="No such group"),
+            guide(paragraph="  1. indented ordered item"),
+            guide(paragraph="    indented code"),
+            guide(paragraph="Trailing space "),
+            guide(heading=" Padded heading"),
+            guide(paragraph="Email test@example.invalid"),
         ]
         for case in cases:
             self.assertTrue(guides.check(case, ENTRIES), case)
@@ -87,6 +93,67 @@ class MarkdownTextTest(unittest.TestCase):
     def test_multi_line_text_is_refused(self):
         with self.assertRaises(ValueError):
             guides.md_text("one\n- two")
+
+
+LITERAL_CASES = ["1. literal text", "---", "Research &amp; Development", "See [[apple-mac-mini]].",
+                 "  1. indented ordered item", "  - indented bullet item", "    indented code", "  ---",
+                 "Email test@example.invalid", "see https://a.example and www.b.example", "> quote", "+ plus",
+                 "# hash", "~~strike~~ and ! bang", "Ends with [[apple-mac-mini]]"]
+BLOCK_START = re.compile(r"^(?: |\t|[-+*>#=_~`|]|\d+[.)])")
+
+
+class ParsedMarkdownTest(unittest.TestCase):
+    """The guide Markdown, read by a GitHub Flavored Markdown parser, holds one plain paragraph per
+    guide paragraph and no links except the generated entry links."""
+
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("build_site_for_parse", ROOT / "site" / "build_site.py")
+        cls.site = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.site)
+        e = {"id": "apple-mac-mini", "category": "Hardware", "name": "Apple Mac mini"}
+        g = {"name": "Hardware", "guide": {"title": "Which set-up?", "sections": [{
+            "heading": "Literal text control", "paragraphs": LITERAL_CASES, "sources": ["https://example.invalid/"]}]}}
+        cls.lines = cls.site.guide_md(g, {"apple-mac-mini": e})
+
+    def test_every_guide_line_starts_as_a_plain_paragraph(self):
+        body = [l for l in self.lines if l and not l.startswith(("## ", "### ", "Sources: "))]
+        self.assertEqual(len(body), len(LITERAL_CASES))
+        for line in body:
+            self.assertNotRegex(line, BLOCK_START, line)
+            self.assertNotRegex(line, r"(?<!\\)@", line)
+            self.assertNotIn("://", line.replace("https://gearlist.build/tools/apple-mac-mini/", ""))
+
+    def test_a_gfm_parser_sees_only_paragraphs_and_entry_links(self):
+        import shutil
+        import subprocess
+        if not shutil.which("pandoc"):
+            self.skipTest("pandoc is not installed; the line checks above still run")
+        md = "\n".join(self.lines)
+        ast = json.loads(subprocess.run(["pandoc", "-f", "gfm", "-t", "json"], input=md, capture_output=True,
+                                        text=True, check=True).stdout)
+        blocks = ast["blocks"]
+        self.assertEqual([b["t"] for b in blocks], ["Header", "Header"] + ["Para"] * (len(LITERAL_CASES) + 1))
+        links = []
+
+        def walk(x):
+            if isinstance(x, dict):
+                if x.get("t") == "Link":
+                    links.append(x["c"][2][0])
+                for v in x.values():
+                    walk(v)
+            elif isinstance(x, list):
+                for v in x:
+                    walk(v)
+
+        walk(blocks[:-1])
+        self.assertEqual(set(links), {"https://gearlist.build/tools/apple-mac-mini/"})
+        plain = subprocess.run(["pandoc", "-f", "gfm", "-t", "plain", "--wrap=none"], input=md, capture_output=True,
+                               text=True, check=True).stdout.splitlines()
+        for case in LITERAL_CASES:
+            want = case.replace("[[apple-mac-mini]]", "Apple Mac mini")
+            self.assertIn(want, plain, case)
 
 
 class SiteBuilderTest(unittest.TestCase):

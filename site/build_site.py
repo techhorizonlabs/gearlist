@@ -1266,12 +1266,12 @@ def guide_html_text(text, by_id):
 
 def guide_md_text(text, by_id):
     out = []
-    for kind, value in guides.parts(text):
+    for i, (kind, value) in enumerate(guides.parts(text)):
         if kind == "link":
             e = by_id[value]
             out.append(f'[{specs.md_cell(e["name"])}]({absolute(tool_path(e))})')
         else:
-            out.append(guides.md_text(value))
+            out.append(guides.md_text(value, start=i == 0))
     return "".join(out)
 
 
