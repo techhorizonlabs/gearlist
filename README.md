@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 318 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 321 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -84,7 +84,7 @@ npx skills add techhorizonlabs/thl-open
 - [Platforms](#platforms) (64)
 - [Protocols](#protocols) (7)
 - [Skills and learning](#skills-and-learning) (64)
-- [APIs and data](#apis-and-data) (33)
+- [APIs and data](#apis-and-data) (36)
 
 
 ## Agent tools
@@ -3000,6 +3000,36 @@ The NSW Valuer General's free download of property sales records from 1990 onwar
 **Access and use:** Free download in .DAT files. Licensed under Creative Commons BY-NC-ND 4.0, which rules out commercial use and modified versions without permission.
 
 **Source checked:** 2026-11-03. [Official source](https://www.valuergeneral.nsw.gov.au/design/bulk_psi_content/bulk_psi). [Gearlist page](https://gearlist.build/tools/nsw-property-sales-information/).
+
+### [Companies House public data API](https://developer.company-information.service.gov.uk/)
+
+The UK Companies House REST API for searching the register and reading company profiles, filing history, officers and charges.
+
+**For:** Agents and apps that check or pre-fill UK company details.
+
+**Access and use:** Free. Needs a Companies House account and an API key sent by HTTP Basic auth; keep the key out of code and chats. Up to 600 requests in 5 minutes. Officer and PSC records are about people.
+
+**Source checked:** 2026-11-07. [Official source](https://developer-specs.company-information.service.gov.uk/guides/rateLimiting). [Gearlist page](https://gearlist.build/tools/companies-house-api/).
+
+### [SEC EDGAR APIs](https://www.sec.gov/search-filings/edgar-application-programming-interfaces)
+
+The US SEC's JSON APIs on data.sec.gov for each filer's submission history and XBRL financial data.
+
+**For:** Agents and analysts researching US public companies and their filings.
+
+**Access and use:** No key. The SEC asks automated requests to declare a name and contact email in the User-Agent header and to stay under 10 requests a second. Covers SEC filers, mostly public companies.
+
+**Source checked:** 2026-11-07. [Official source](https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data). [Gearlist page](https://gearlist.build/tools/sec-edgar-apis/).
+
+### [NZBN API](https://portal.api.business.govt.nz/api/nzbn)
+
+MBIE's API for searching the New Zealand Business Number Register and reading business details, including companies from the Companies Office registers.
+
+**For:** Agents and apps that check or pre-fill New Zealand business details.
+
+**Access and use:** No fee. Needs a signed MBIE API Access Agreement, an approved subscription and a subscription key sent in a header. Passed-on data must carry the search time and "Data sourced from the [Register name]".
+
+**Source checked:** 2026-11-07. [Official source](https://portal.api.business.govt.nz/api/nzbn). [Gearlist page](https://gearlist.build/tools/nzbn-api/).
 
 ### [Public APIs](https://github.com/public-apis/public-apis)
 

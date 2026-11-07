@@ -304,10 +304,18 @@ def secret_forms(secret):
     return sorted((f for f in forms if f), key=len, reverse=True)
 
 
+def _form_pattern(form):
+    """A regex for one form of a secret. Percent escapes match in either case (%2F and %2f)."""
+    parts = re.split(r"(%[0-9A-Fa-f]{2})", form)
+    return "".join(("%(?i:" + p[1:] + ")") if re.fullmatch(r"%[0-9A-Fa-f]{2}", p) else re.escape(p)
+                   for p in parts)
+
+
 def scrub(text, secret):
-    for form in secret_forms(secret):
-        text = text.replace(form, "***")
-    return text
+    forms = secret_forms(secret)
+    if not forms:
+        return text
+    return re.sub("|".join(_form_pattern(f) for f in forms), "***", text)
 
 
 class AbrClient:
