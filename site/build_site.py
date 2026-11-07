@@ -438,7 +438,7 @@ TITLE_OVERRIDES = {
     "claude-opus-5-5": "Claude Opus 5.5: Anthropic model for long-running agent work",
     "claude-sonnet-5-5": "Claude Sonnet 5.5: Anthropic model for everyday coding and agents",
     "claude-haiku-5-5": "Claude Haiku 5.5: Anthropic model for high-volume, low-latency tasks",
-    "claude-fable-5-1": "Claude Fable 5.1: Anthropic model for the hardest reasoning work",
+    "claude-fable-5-1": "Claude Fable 5.1: Anthropic model for demanding reasoning work",
     "gpt-6-astra": "GPT-6 Astra: OpenAI's most capable model for demanding work",
     "gpt-oss-120b": "gpt-oss-120b: OpenAI open-weight reasoning model you can self-host",
     "gemini-4-argon": "Gemini 4 Argon: Google reasoning model with a 1M token context",
