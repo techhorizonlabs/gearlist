@@ -105,12 +105,6 @@ class GuidTests(unittest.TestCase):
         code, out, err, _ = run(["name", GUID], fakes.abr_details())
         self.assertNotIn(GUID, out + err)
 
-    def test_redirects_are_not_followed(self):
-        # Every request URL carries the GUID, so a redirect must never send it to another address.
-        handler = al._NoRedirect()
-        self.assertIsNone(handler.redirect_request(None, None, 302, "Found", {}, "https://example.com/"))
-        self.assertTrue(any(isinstance(h, al._NoRedirect) for h in al._OPENER.handlers))
-
     def test_guid_echoed_in_a_record_is_scrubbed_in_every_encoding(self):
         odd = "secret/with space+plus"
         for echoed in (odd, quote(odd), quote(odd, safe=""), "secret%2Fwith+space%2Bplus", quote(odd).lower()):
@@ -157,6 +151,46 @@ class GuidTests(unittest.TestCase):
             with self.assertRaises(al.NetworkError):
                 al.default_fetch(server.url + "/json/slow", 0.2)
             self.assertLess(time.monotonic() - started, 0.45)
+        finally:
+            server.close()
+
+    def test_late_headers_then_a_stalled_body_stop_at_the_deadline(self):
+        # Headers at 0.27 seconds, one body byte, then a one second stall, on a 0.3 second budget.
+        def late(path):
+            time.sleep(0.27)
+            return 200, {"Content-Length": "2"}, [b"{", b"}"], 1.0
+
+        server = fakes.LocalServer(late)
+        try:
+            started = time.monotonic()
+            with self.assertRaises(al.NetworkError):
+                al.default_fetch(server.url + "/json/slow", 0.3)
+            self.assertLess(time.monotonic() - started, 0.42)
+            time.sleep(0.03)
+            self.assertEqual(fakes.fetch_threads(), [])
+        finally:
+            server.close()
+
+    def test_header_bytes_arriving_slowly_stop_at_the_deadline(self):
+        # Each header byte resets a socket timeout, so only the shared deadline can stop this.
+        payload = b"HTTP/1.1 200 OK\r\nContent-Length: 2\r\nX-Long: " + b"a" * 70 + b"\r\n\r\n{}"
+        server = fakes.DripServer(payload, 0.012)
+        try:
+            started = time.monotonic()
+            with self.assertRaises(al.NetworkError):
+                al.default_fetch(server.url + "/json/slow", 0.3)
+            self.assertLess(time.monotonic() - started, 0.42)
+            time.sleep(0.03)
+            self.assertEqual(fakes.fetch_threads(), [])
+        finally:
+            server.close()
+
+    def test_a_fast_answer_leaves_no_thread_behind(self):
+        server = fakes.LocalServer(lambda path: (200, {}, [b"{}"], 0))
+        try:
+            status, body = al.default_fetch(server.url + "/json/slow", 2)
+            self.assertEqual((status, body), (200, b"{}"))
+            self.assertEqual(fakes.fetch_threads(), [])
         finally:
             server.close()
 

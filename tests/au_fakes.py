@@ -67,6 +67,51 @@ class LocalServer:
         self.server.server_close()
 
 
+class DripServer:
+    """A raw TCP server on 127.0.0.1 that reads the request, then writes `payload` one byte at
+    a time with `delay` seconds between bytes. Used to send header bytes slowly."""
+
+    def __init__(self, payload, delay):
+        import socket
+        import threading
+        import time
+
+        self.sock = socket.socket()
+        self.sock.bind(("127.0.0.1", 0))
+        self.sock.listen(4)
+        self.url = f"http://127.0.0.1:{self.sock.getsockname()[1]}"
+        self._stop = False
+
+        def serve():
+            while not self._stop:
+                try:
+                    conn, _ = self.sock.accept()
+                except OSError:
+                    return
+                try:
+                    conn.recv(65536)
+                    for byte in payload:
+                        conn.sendall(bytes([byte]))
+                        time.sleep(delay)
+                except OSError:
+                    pass
+                finally:
+                    conn.close()
+
+        threading.Thread(target=serve, daemon=True).start()
+
+    def close(self):
+        self._stop = True
+        self.sock.close()
+
+
+def fetch_threads():
+    """Names of the transport's deadline threads still running."""
+    import threading
+
+    return [t.name for t in threading.enumerate() if t.name.endswith(" fetch")]
+
+
 def fixture_bytes(name):
     return (FIXTURES / name).read_bytes()
 

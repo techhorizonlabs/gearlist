@@ -15,14 +15,15 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import http.client
 import json
 import re
+import socket
+import ssl
 import sys
 import threading
 import time
-import urllib.error
 import urllib.parse
-import urllib.request
 from datetime import date, datetime
 
 API = "https://data.gov.au/data/api/3/action/"
@@ -240,14 +241,78 @@ def name_match(name, query):
 # ---------------------------------------------------------------- HTTP
 
 
-class _NoRedirect(urllib.request.HTTPRedirectHandler):
-    """Answers must come from data.gov.au itself, so a redirect is reported, never followed."""
+class _Deadline:
+    """One deadline for a whole request. If it passes while a socket call is blocked, a
+    one-shot timer shuts the socket down at the operating-system level. That ends the
+    blocked call at once without taking any reader lock, and the timer thread then exits."""
 
-    def redirect_request(self, req, fp, code, msg, headers, newurl):
-        return None
+    def __init__(self, timeout):
+        self.timeout = timeout
+        self.at = time.monotonic() + timeout
+        self.sock = None
+        self.fired = False
+        self._lock = threading.Lock()
+        self._timer = threading.Timer(timeout, self._fire)
+        self._timer.name = "data.gov.au fetch"
+        self._timer.daemon = True
+
+    def remaining(self):
+        left = self.at - time.monotonic()
+        if left <= 0:
+            raise self.error()
+        return left
+
+    def error(self):
+        return NetworkError(f"data.gov.au took longer than {self.timeout} seconds to answer. Stopped reading.")
+
+    def own(self, sock):
+        with self._lock:
+            self.sock = sock
+            if self.fired:
+                _shutdown(sock)
+
+    def _fire(self):
+        with self._lock:
+            self.fired = True
+            if self.sock is not None:
+                _shutdown(self.sock)
+
+    def __enter__(self):
+        self._timer.start()
+        return self
+
+    def __exit__(self, *exc):
+        self._timer.cancel()
+        self._timer.join(1)
+        return False
 
 
-_OPENER = urllib.request.build_opener(_NoRedirect)
+def _shutdown(sock):
+    try:
+        # The base socket method acts on the file descriptor, so it works for TLS sockets too.
+        socket.socket.shutdown(sock, socket.SHUT_RDWR)
+    except OSError:
+        pass
+
+
+def _connect(parts, deadline):
+    """Open the connection inside the deadline. The socket is handed to the deadline before
+    any byte is read, so the TLS handshake and every later read can be cut off."""
+    port = parts.port or (443 if parts.scheme == "https" else 80)
+    raw = socket.create_connection((parts.hostname, port), timeout=deadline.remaining())
+    deadline.own(raw)
+    if parts.scheme != "https":
+        conn = http.client.HTTPConnection(parts.hostname, port, timeout=deadline.timeout)
+        conn.sock = raw
+        return conn
+    context = ssl.create_default_context()
+    tls = context.wrap_socket(raw, server_hostname=parts.hostname, do_handshake_on_connect=False)
+    deadline.own(tls)
+    tls.settimeout(deadline.remaining())
+    tls.do_handshake()
+    conn = http.client.HTTPSConnection(parts.hostname, port, timeout=deadline.timeout, context=context)
+    conn.sock = tls
+    return conn
 
 
 def read_capped(response, deadline):
@@ -256,60 +321,47 @@ def read_capped(response, deadline):
     read = getattr(response, "read1", None) or response.read
     chunks, size = [], 0
     while size <= MAX_BYTES:
-        if time.monotonic() > deadline:
-            raise NetworkError("data.gov.au took too long to answer. Stopped reading.")
+        deadline.remaining()
         chunk = read(min(65536, MAX_BYTES + 1 - size))
         if not chunk:
             break
         chunks.append(chunk)
         size += len(chunk)
+    deadline.remaining()
     return b"".join(chunks)
 
 
 def default_fetch(url, timeout=TIMEOUT):
-    """GET a URL. Returns (status, body bytes). Raises NetworkError on transport failure.
-    One deadline covers connecting, the headers and the body. The request runs in a worker
-    thread, and this call returns when the deadline passes even if a server is still
-    sending slowly, closing the connection so the worker stops too.
-    """
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
-    deadline = time.monotonic() + timeout
-    result, held = {}, {}
-
-    def work():
+    """GET a URL. Returns (status, body bytes). Redirects are returned, never followed.
+    One deadline covers connecting, the TLS handshake, the headers and the body, and the
+    call returns within it. Exceptions are raised without the URL."""
+    parts = urllib.parse.urlsplit(url)
+    if parts.scheme not in ("http", "https") or not parts.hostname:
+        raise NetworkError("Could not reach data.gov.au: not a web address.")
+    target = (parts.path or "/") + (("?" + parts.query) if parts.query else "")
+    conn = None
+    with _Deadline(timeout) as deadline:
         try:
-            with _OPENER.open(request, timeout=timeout) as response:
-                held["response"] = response
-                result["value"] = (response.status, read_capped(response, deadline))
-        except urllib.error.HTTPError as exc:
+            conn = _connect(parts, deadline)
+            conn.request("GET", target, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
+            response = conn.getresponse()
+            if 200 <= response.status < 300:
+                return response.status, read_capped(response, deadline)
             try:
-                body = read_capped(exc, deadline)
-            except Exception:
+                body = read_capped(response, deadline)
+            except NetworkError:
                 body = b""
-            finally:
-                exc.close()
-            result["value"] = (exc.code, body)
-        except BaseException as exc:  # handed to the caller below, without the URL
-            result["error"] = exc
-
-    worker = threading.Thread(target=work, name="data.gov.au fetch", daemon=True)
-    worker.start()
-    worker.join(max(0.0, deadline - time.monotonic()))
-    if worker.is_alive():
-        response = held.get("response")
-        if response is not None:
-            try:
-                response.close()
-            except Exception:
-                pass
-        raise NetworkError(f"data.gov.au took longer than {timeout} seconds to answer. Stopped reading.")
-    exc = result.get("error")
-    if exc is None:
-        return result["value"]
-    if isinstance(exc, NetworkError):
-        raise exc
-    reason = getattr(exc, "reason", exc)
-    raise NetworkError(f"Could not reach data.gov.au: {reason}") from None
+            return response.status, body
+        except NetworkError:
+            raise
+        except Exception as exc:  # socket, TLS and HTTP parsing errors
+            if deadline.fired or time.monotonic() >= deadline.at:
+                raise deadline.error() from None
+            reason = getattr(exc, "reason", exc)
+            raise NetworkError(f"Could not reach data.gov.au: {reason}") from None
+        finally:
+            if conn is not None:
+                conn.close()
 
 
 class CkanClient:
