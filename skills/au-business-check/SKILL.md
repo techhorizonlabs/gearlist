@@ -73,4 +73,4 @@ Sources: ASIC company register snapshot (last modified {date}); ASIC business na
 - Never print, log or save `ABR_GUID`. The script does not print it.
 - ASIC data is published under Creative Commons Attribution 3.0 Australia. Credit ASIC when you pass it on.
 
-Checked 7 November 2026: the script was run against the live data.gov.au API for ABN 30 701 463 961, ACN 008 672 179 and the name "Horizon Labs", and with an unregistered GUID to confirm that ABN Lookup's refusal appears in the Sources section. It has not been run with a registered GUID. The tests run offline against data.gov.au and ABN Lookup responses saved the same day.
+Checked 7 November 2026: the script was run against the live data.gov.au API for ABN 30 701 463 961, ACN 008 672 179 and the name "Horizon Labs", and with an unregistered GUID to confirm that ABN Lookup's refusal appears in the Sources section. It was also run with a registered GUID for one real ABN, and ABN Lookup's details appeared in the report with the GUID absent. The tests run offline against data.gov.au and ABN Lookup responses saved the same day.
