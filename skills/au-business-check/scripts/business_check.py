@@ -73,13 +73,13 @@ def run_checks(asic, abr, kind, value, limit, environ, ckan_fetch=None, abr_fetc
     except asic.RegisterError as exc:
         failures.append(exc)
         sources.append({"source": "ASIC registers on data.gov.au", "ran": False,
-                        "detail": "Did not run.", "error": str(exc)})
+                        "detail": "did not run.", "error": str(exc)})
 
     guid = (environ.get(GUID_ENV) or "").strip()
     name = "ABN Lookup (Australian Business Register, live)"
     if not guid:
         sources.append({"source": name, "ran": False, "detail": (
-            f"Did not run: {GUID_ENV} is not set, so GST registration, ABN status and the business "
+            f"did not run. {GUID_ENV} is not set, so GST registration, ABN status and the business "
             "address were not checked.")})
     else:
         try:
@@ -91,10 +91,10 @@ def run_checks(asic, abr, kind, value, limit, environ, ckan_fetch=None, abr_fetc
             failures.append(exc)
             if isinstance(exc, abr.GuidError):
                 source = {"source": name, "ran": False, "detail": (
-                    f"Did not run: ABN Lookup did not accept the GUID in {GUID_ENV}. Ask the human "
+                    f"did not run. ABN Lookup did not accept the GUID in {GUID_ENV}. Ask the human "
                     "to check it. GST registration, ABN status and the business address were not checked.")}
             else:
-                source = {"source": name, "ran": False, "detail": "Did not run.", "error": str(exc)}
+                source = {"source": name, "ran": False, "detail": "did not run.", "error": str(exc)}
             if getattr(exc, "message", None):
                 source["message"] = exc.message
             sources.append(source)

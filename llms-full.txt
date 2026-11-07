@@ -2159,8 +2159,8 @@ ABN Lookup web services | APIs and data
 https://abr.business.gov.au/Tools/WebServices
 The Australian Business Register's free API for searching ABNs and business names and validating ABN details.
 For: Agents and apps that verify or pre-fill Australian business details.
-Access: Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. JSON support is limited to ABN and name searches.
-Source checked: 2026-11-03
+Access: Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. Its JSON service covers ABN, ACN and name searches.
+Source checked: 2026-11-07
 Gearlist page: https://gearlist.build/tools/abn-lookup-web-services/ (Markdown: https://gearlist.build/tools/abn-lookup-web-services.md)
 
 data.gov.au API | APIs and data

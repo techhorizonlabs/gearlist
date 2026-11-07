@@ -45,7 +45,7 @@ class WithoutGuidTests(unittest.TestCase):
         self.assertIn("- State: not checked.", out)
         self.assertIn("- ASIC Company Dataset on data.gov.au: ran. Snapshot last modified 2 November 2026.", out)
         self.assertIn("- ASIC Business Names Dataset on data.gov.au: ran. Snapshot last modified 3 November 2026.", out)
-        self.assertIn("Did not run: ABR_GUID is not set", out)
+        self.assertIn("did not run. ABR_GUID is not set", out)
         self.assertIn("Do not use it to profile people", out)
         self.assertIn("Creative Commons Attribution 3.0 Australia", out)
 
@@ -87,7 +87,7 @@ class WithGuidTests(unittest.TestCase):
         self.assertEqual(code, bc.EXIT_OK, err)
         self.assertEqual(len(abr.urls), 1)
         self.assertIn("guid=", abr.urls[0])
-        self.assertIn("Did not run: ABN Lookup did not accept the GUID in ABR_GUID.", out)
+        self.assertIn("did not run. ABN Lookup did not accept the GUID in ABR_GUID.", out)
         self.assertIn("<untrusted_message>\nThe GUID entered is not recognised as a Registered Party\n"
                       "</untrusted_message>", out)
         self.assertIn("ABN Lookup did not run.", out)
@@ -185,7 +185,7 @@ class FailureTests(unittest.TestCase):
         routes[("companies", "filters", "ABN")] = (302, b"<!DOCTYPE html>")
         code, out, err, _, _ = run(["99000000000"], routes, fakes.abr_details(**fakes.SYNTHETIC_FOUND), guid=GUID)
         self.assertEqual(code, bc.EXIT_OK, err)
-        self.assertIn("- ASIC registers on data.gov.au: Did not run. data.gov.au answered datastore\\_search", out)
+        self.assertIn("- ASIC registers on data.gov.au: did not run. data.gov.au answered datastore\\_search", out)
         self.assertIn("ABN Lookup has a record for this ABN.", out)
 
     def test_missing_sibling_skill(self):

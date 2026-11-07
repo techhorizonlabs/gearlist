@@ -2785,9 +2785,9 @@ The Australian Business Register's free API for searching ABNs and business name
 
 **For:** Agents and apps that verify or pre-fill Australian business details.
 
-**Access and use:** Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. JSON support is limited to ABN and name searches.
+**Access and use:** Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. Its JSON service covers ABN, ACN and name searches.
 
-**Source checked:** 2026-11-03. [Official source](https://abr.business.gov.au/Tools/WebServices). [Gearlist page](https://gearlist.build/tools/abn-lookup-web-services/).
+**Source checked:** 2026-11-07. [Official source](https://abr.business.gov.au/Tools/WebServices). [Gearlist page](https://gearlist.build/tools/abn-lookup-web-services/).
 
 ### [data.gov.au API](https://data.gov.au/data/api/3/action/status_show)
 
