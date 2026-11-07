@@ -107,11 +107,20 @@ The skills are:
 - `youtube-channel-profile`: a channel's public stats, upload rhythm, engagement and an estimated earnings range from the official YouTube Data API.
 - `youtube-video-themes`: recurring topics and opening hooks from a channel's video transcripts.
 - `creator-audience`: how to get audience demographics with the owner's consent or a paid estimate.
+- `au-business-check`: check an Australian business before you deal with it, with the two skills below. It reports whether the business is registered, its status, registration date, ABN and ACN, and the date of each source. With an ABN Lookup GUID it adds GST registration and state.
+- `asic-registers`: search ASIC's company and business names registers by name, ACN or ABN, through data.gov.au. No key needed.
+- `abn-lookup`: ABN details, GST registration and name matches from ABN Lookup, the Australian Business Register's free web service. Needs a free GUID.
 
 To install the YouTube creator pack on its own:
 
 ```bash
 npx skills add techhorizonlabs/gearlist --skill youtube-creator-research --skill youtube-channel-profile --skill youtube-video-themes --skill creator-audience
+```
+
+To install the Australian business data pack on its own:
+
+```bash
+npx skills add techhorizonlabs/gearlist --skill au-business-check --skill asic-registers --skill abn-lookup
 ```
 
 [THL Open]({THL_OPEN['url']}) is a second skills pack from Tech Horizon Labs, for GEO (Generative Engine Optimisation) audits and agent-readiness checks of a website. Its skills check AI crawler access, structured data, llms.txt and how likely AI systems are to quote a page, run Cloudflare's agent-readiness check, and write client reports. Install it the same way:
