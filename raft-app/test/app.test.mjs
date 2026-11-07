@@ -742,6 +742,56 @@ describe("fixes from the security review", () => {
     }
   });
 
+  test("a session that ends while Raft is answering is refused, for context and for catalog actions", async () => {
+    const start = clock;
+    try {
+      for (const action of ["get_session_context", "search_gear"]) {
+        clock = start;
+        const raft = fakeRaft({ token: { status: 200, body: { access_token: ACCESS, expires_in: 120 } } });
+        const cookie = await login(raft);
+        // Past the 60 second cache, so Raft is asked; the session ends while it answers.
+        clock = start + 61 * 1000;
+        raft.state.serverinfo = () => {
+          clock = start + 121 * 1000;
+          return new Response(JSON.stringify({ id: SERVER_ID, slug: "thl" }), {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+          });
+        };
+        const out = await invoke(action, action === "search_gear" ? { query: "browser" } : {}, cookie, raft);
+        assert.equal(out.res.status, 401, `${action}: ${out.text}`);
+        assert.equal(out.json.error.code, "SESSION_REQUIRED");
+        assert.equal(out.json.result, undefined);
+        assert.match(out.res.headers.get("Set-Cookie") || "", /Max-Age=0/);
+      }
+      // The same race on the check just before a tool runs: the body outlasts the cache,
+      // and the session ends while Raft answers the second check.
+      clock = start;
+      const raft = fakeRaft({ token: { status: 200, body: { access_token: ACCESS, expires_in: 120 } } });
+      const cookie = await login(raft);
+      const spec = ACTIONS.find((a) => a.name === "search_gear");
+      const out = await call(spec.path, {
+        method: "POST",
+        headers: { Cookie: cookie, "Content-Type": "application/json" },
+        body: slowBody(() => {
+          clock = start + 61 * 1000;
+          raft.state.serverinfo = () => {
+            clock = start + 121 * 1000;
+            return new Response(JSON.stringify({ id: SERVER_ID, slug: "thl" }), {
+              status: 200,
+              headers: { "Content-Type": "application/json" },
+            });
+          };
+        }),
+        duplex: "half",
+      }, raft);
+      assert.equal(out.res.status, 401, out.text);
+      assert.equal(out.json.result, undefined);
+    } finally {
+      clock = start;
+    }
+  });
+
   test("a whitespace body still needs Content-Type: application/json", async () => {
     const cookie = await login();
     const out = await invoke("search_gear", null, cookie, fakeRaft(), { headers: { "Content-Type": "text/plain" }, body: "  " });

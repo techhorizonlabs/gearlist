@@ -172,17 +172,26 @@ async function authorise(request, cfg, deps) {
   return confirm(session, cfg, deps);
 }
 
+function expired(session, nowMs) {
+  return !Number.isInteger(session.exp) || session.exp * 1000 <= nowMs;
+}
+
+function endSession(session, cfg) {
+  forgetChecked(session.sid);
+  return { response: fail(401, "SESSION_REQUIRED", undefined, { "Set-Cookie": clearCookie(cfg) }) };
+}
+
 // Confirms a session that has already been opened: it has not expired by the clock now,
 // and Raft said the app is available within CHECK_TTL_MS. Called before parameters are
 // read, and again just before a tool runs, so a slow request body cannot outlast either.
 async function confirm(session, cfg, deps) {
   const now = deps.now();
-  if (!Number.isInteger(session.exp) || session.exp * 1000 <= now) {
-    forgetChecked(session.sid);
-    return { response: fail(401, "SESSION_REQUIRED", undefined, { "Set-Cookie": clearCookie(cfg) }) };
-  }
+  if (expired(session, now)) return endSession(session, cfg);
   if (recentlyChecked(session.sid, now)) return { session };
   const result = await checkServer(cfg, deps, session.tok, session.srv);
+  // The session may have ended while Raft was answering. Check the clock again before
+  // trusting or caching the answer. The cache still counts from when the check began.
+  if (expired(session, deps.now())) return endSession(session, cfg);
   if (result === "ok") {
     markChecked(session.sid, now);
     return { session };
