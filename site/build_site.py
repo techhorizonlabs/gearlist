@@ -793,7 +793,7 @@ def render_index(data, groups, css, head_js, app_js, sizes, prompt):
 <p class="lede">{esc(SUMMARY)}</p>
 <p class="facts">{total} entries in {group_count} groups. Updated {long_date(updated)}. <a href="{NEW_PATH}">See what's new</a>.</p>
 <div class="install">
-<p>Install the Gearlist skills, including the YouTube creator pack and the Australian business data pack:</p>
+<p>Install the Gearlist skills, including the YouTube creator pack and the business check pack for Australia, the UK, the US and New Zealand:</p>
 <div class="cmd"><code id="cmd">{esc(INSTALL)}</code><button type="button" id="copy" class="js-only" data-copy="cmd">Copy</button></div>
 <span class="sr" id="copy-status" aria-live="polite"></span>
 <p class="alt">Working with an agent? <a href="#agent-prompt">Give it the Gearlist prompt</a>. It connects to the read-only MCP server at <code>gearlist.build/mcp</code>.</p>

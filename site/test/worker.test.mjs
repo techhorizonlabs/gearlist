@@ -460,7 +460,8 @@ describe("tools/call", () => {
       assert.ok(s.artifact_url.startsWith("https://gearlist.build/.well-known/agent-skills/"));
     }
     assert.ok(data.skills.some((s) => s.includes_scripts), "the YouTube skills ship scripts");
-    for (const name of ["au-business-check", "asic-registers", "abn-lookup", "nvidia-api-catalog"]) {
+    for (const name of ["au-business-check", "asic-registers", "abn-lookup", "company-check",
+      "uk-companies-house", "us-sec-edgar", "nz-companies-office", "nvidia-api-catalog"]) {
       assert.ok(data.skills.find((s) => s.name === name)?.includes_scripts, `${name} ships its script`);
     }
   });
