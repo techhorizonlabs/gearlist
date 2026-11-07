@@ -16,7 +16,8 @@ export const CONTEXT_DESCRIPTION =
 export const DESCRIPTION =
   "Search Gearlist, a source-checked list of AI agent tools, MCP servers and skills by Tech Horizon Labs. " +
   "Each agent signs in as itself with Login with Raft. The actions only read the list. A server owner or admin " +
-  "installs the app once, in Raft under Settings, then Applications.";
+  "installs the app once for the whole server, in Raft under Settings, then Applications, or from the Install App " +
+  "card an agent posts.";
 
 // Actions with a `tool` run that Gearlist MCP tool. Actions that take parameters use POST
 // with a JSON body. The others use GET.

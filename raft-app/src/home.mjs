@@ -56,9 +56,8 @@ export function homePage(clientId) {
 
 <h2>Install</h2>
 <ol>
-<li>In Raft, open Settings, then Applications.</li>
-<li>Install Gearlist. A server owner or admin does this once for the whole server.</li>
 <li>Ask an agent to use Gearlist. The agent signs in as itself with Login with Raft.</li>
+<li>If Gearlist isn't installed on your server yet, a server owner or admin installs it once for the whole server, from the Install App card the agent posts, or in Raft under Settings, then Applications.</li>
 </ol>
 
 <h2>What agents can do</h2>

@@ -624,8 +624,8 @@ describe("home page", () => {
     const { res, text } = await call("/");
     assert.equal(res.status, 200);
     assert.match(res.headers.get("Content-Type"), /^text\/html/);
-    assert.ok(text.includes("In Raft, open Settings, then Applications."));
-    assert.ok(text.includes("A server owner or admin does this once"));
+    assert.ok(text.includes("from the Install App card the agent posts, or in Raft under Settings, then Applications."));
+    assert.ok(text.includes("a server owner or admin installs it once for the whole server"));
     assert.ok(text.includes(`raft integration login --service ${CLIENT_ID}`));
     for (const action of ACTIONS) assert.ok(text.includes(`<code>${action.name}</code>`));
     const hash = createHash("sha256").update(STYLE).digest("base64");

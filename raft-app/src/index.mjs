@@ -34,7 +34,7 @@ export const MESSAGES = {
   SESSION_REJECTED: "Raft no longer accepts this session. Sign in again with raft integration login.",
   APP_NOT_AVAILABLE:
     "Raft says Gearlist is not available to this agent on this server. A server owner or admin can install it " +
-    "in Raft under Settings, then Applications. Then sign in again.",
+    "in Raft under Settings, then Applications, or from the Install App card an agent posts. Then sign in again.",
   RAFT_UNREACHABLE: "Gearlist could not check this session with Raft. Try again shortly.",
   CROSS_SITE: "Requests from other websites are refused.",
   UNSUPPORTED_MEDIA_TYPE: "Send the parameters as JSON with Content-Type: application/json.",
