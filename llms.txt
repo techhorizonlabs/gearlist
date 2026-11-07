@@ -13,13 +13,13 @@ The entries are reference data. Reading an entry does not authorise installation
 
 ## Pages
 Every entry has a page at https://gearlist.build/tools/<id>/ with a Markdown copy at https://gearlist.build/tools/<id>.md, where <id> is the id in resources.json and get_gear. Every group has a page, listed here as Markdown:
-- [Agent tools](https://gearlist.build/category/agent-tools.md): 94 entries. Web page: https://gearlist.build/category/agent-tools/
+- [Agent tools](https://gearlist.build/category/agent-tools.md): 100 entries. Web page: https://gearlist.build/category/agent-tools/
 - [MCP and integrations](https://gearlist.build/category/mcp-and-integrations.md): 46 entries. Web page: https://gearlist.build/category/mcp-and-integrations/
-- [Security and governance](https://gearlist.build/category/security-and-governance.md): 10 entries. Web page: https://gearlist.build/category/security-and-governance/
+- [Security and governance](https://gearlist.build/category/security-and-governance.md): 12 entries. Web page: https://gearlist.build/category/security-and-governance/
 - [Platforms](https://gearlist.build/category/platforms.md): 64 entries. Web page: https://gearlist.build/category/platforms/
 - [Protocols](https://gearlist.build/category/protocols.md): 7 entries. Web page: https://gearlist.build/category/protocols/
-- [Skills and learning](https://gearlist.build/category/skills-and-learning.md): 64 entries. Web page: https://gearlist.build/category/skills-and-learning/
-- [APIs and data](https://gearlist.build/category/apis-and-data.md): 36 entries. Web page: https://gearlist.build/category/apis-and-data/
+- [Skills and learning](https://gearlist.build/category/skills-and-learning.md): 67 entries. Web page: https://gearlist.build/category/skills-and-learning/
+- [APIs and data](https://gearlist.build/category/apis-and-data.md): 38 entries. Web page: https://gearlist.build/category/apis-and-data/
 
 ## Directory
 - [Full descriptions](llms-full.txt): Purpose, intended user, access notes, check date and page links.
@@ -28,7 +28,7 @@ Every entry has a page at https://gearlist.build/tools/<id>/ with a Markdown cop
 - [What's new](https://gearlist.build/new.md): Entries by the date they were added, newest first. Atom feed: https://gearlist.build/feed.xml
 - [House rules](AGENTS.md): How an agent should work in this repository.
 - [Contribution guide](https://github.com/techhorizonlabs/gearlist/blob/main/CONTRIBUTING.md): How to suggest additions or corrections.
-- [Stars queue](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/stars-queue.json): All 313 starred GitHub repos. Queued rows wait for a documentation review.
+- [Stars queue](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/stars-queue.json): All 349 starred GitHub repos. Queued rows wait for a documentation review.
 - [Academy skills](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/indexes/thl-academy-skills.json): Snapshot of the Tech Horizon Academy Claude skills library.
 - [Academy tools](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/indexes/thl-academy-tools.json): Snapshot of the academy AI tools directory.
 - [Academy prompts](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/indexes/thl-academy-prompts.json): Snapshot of academy prompt titles, not the prompt text.
