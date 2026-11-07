@@ -21,7 +21,9 @@ Gearlist is a short, source-checked directory. Reading public docs is required. 
 
 ## Categories
 
-Use an existing category where it fits: Agent tools, MCP and integrations, Security and governance, Platforms, Skills and learning.
+Use an existing category where it fits: Agent tools, MCP and integrations, Security and governance, Platforms, Protocols, Skills and learning, APIs and data, Hardware, Models.
+
+Hardware and Models entries also carry `specs`, a list of `[label, value]` pairs taken from the maker's or provider's own pages. Use the same labels as the other entries in that group, so its page can show one comparison table. Put a date on every price. Leave a value out when the official page does not state it; the table shows "Not stated".
 
 ## Refuse
 

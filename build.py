@@ -29,6 +29,17 @@ for e in entries:
     )
     assert e["url"].startswith("https://")
     assert e["source_url"].startswith("https://")
+    # Optional comparison rows for group pages (Hardware, Models): [[label, value], ...], short plain text.
+    if "specs" in e:
+        specs = e["specs"]
+        assert isinstance(specs, list) and specs, f"{e['id']}: specs must be a non-empty list"
+        labels = [pair[0] for pair in specs]
+        assert len(set(labels)) == len(labels), f"{e['id']}: repeated spec label"
+        for pair in specs:
+            assert isinstance(pair, list) and len(pair) == 2 and all(isinstance(x, str) and x.strip() for x in pair), (
+                f"{e['id']}: each spec is [label, value]")
+            assert len(pair[0]) <= 40 and len(pair[1]) <= 120, f"{e['id']}: spec too long: {pair}"
+            assert not re.search("[\u2013\u2014]", pair[0] + pair[1]), f"{e['id']}: no en or em dashes in specs"
 # Every entry records the date it was added to Gearlist. added_dates.py explains the dates.
 problems = check_added(entries, data.get("updated"))
 if problems:
