@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 357 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 361 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -85,7 +85,7 @@ npx skills add techhorizonlabs/thl-open
 - [Protocols](#protocols) (7)
 - [Skills and learning](#skills-and-learning) (67)
 - [APIs and data](#apis-and-data) (38)
-- [Hardware](#hardware) (8)
+- [Hardware](#hardware) (12)
 - [Models](#models) (14)
 
 
@@ -361,7 +361,7 @@ An in-page JavaScript library that lets an LLM read the DOM as text and act on t
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/alibaba/page-agent). [Gearlist page](https://gearlist.build/tools/page-agent/).
 
-### [OfficeCLI](https://officecli.ai)
+### [OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)
 
 A single-binary CLI that creates, reads and edits Word, Excel and PowerPoint files without installing Microsoft Office.
 
@@ -1787,7 +1787,7 @@ A self-hosted agent system that watches the web, mail and feeds, then takes acti
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/huginn/huginn). [Gearlist page](https://gearlist.build/tools/huginn/).
 
-### [Agent TARS](https://agent-tars.com)
+### [Agent TARS](https://github.com/bytedance/UI-TARS-desktop)
 
 A multimodal agent stack with a CLI and web UI, plus a desktop GUI agent that can operate a local or remote computer and browser.
 
@@ -2057,7 +2057,7 @@ An AGPL project-management system for goals, tasks, timesheets, wikis and canvas
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/Leantime/leantime). [Gearlist page](https://gearlist.build/tools/leantime/).
 
-### [Fluxer](https://fluxer.app)
+### [Fluxer](https://fluxer.com/)
 
 An AGPL instant-messaging and VoIP app for friends, groups and communities, with desktop, mobile and a browser client.
 
@@ -3283,7 +3283,7 @@ Notion's API for pages, databases, comments and files in a workspace.
 
 **Source checked:** 2026-11-07. [Official source](https://developers.notion.com/reference/request-limits). [Gearlist page](https://gearlist.build/tools/notion-api/).
 
-### [HeyGen API](https://docs.heygen.com/docs/quick-start)
+### [HeyGen API](https://developers.heygen.com/docs/quick-start)
 
 HeyGen's API for avatar video, images, voice and translation.
 
@@ -3534,6 +3534,46 @@ A four-bay network storage box (NAS) from UGREEN with an Intel Pentium Gold 8505
 **Access and use:** For local backups, file storage and light container work. It has a 5-core, 6-thread Intel Pentium Gold 8505, 8 GB of DDR5 memory expandable to 64 GB, four SATA bays, two M.2 NVMe slots for an SSD cache or SSD storage pool, a 128 GB system SSD, and one 10GbE and one 2.5GbE port. It runs UGREEN's UGOS, which provides a dedicated Time Machine destination over SMB and Bonjour (UGREEN advises a separate folder and quota for each Mac), a Sync & Backup app with a desktop client for backing up Windows or Mac folders, and Docker and virtual machines. It is sold without drives and accepts third-party drives from makers including Western Digital, Seagate and Toshiba; check UGREEN's compatibility list for the exact drive and memory models first. UGREEN rates it at 42.36 W during drive access and 18.12 W in drive hibernation, measured with a Seagate 2 TB hard drive. Reaching 10GbE speeds needs every part of the transfer path to support 10GbE. Caveats: RAID is not a backup, so keep a separate copy; UGOS backup packages use the .ubk format and must be restored through Sync & Backup on a compatible UGREEN NAS. 2 year warranty.
 
 **Source checked:** 2026-11-07. [Official source](https://nas.ugreen.com/products/ugreen-nasync-dxp4800-plus-nas-storage). [Gearlist page](https://gearlist.build/tools/ugreen-nasync-dxp4800-plus/).
+
+### [Beelink EQi12 Pro (OpenClaw pre-installed)](https://www.bee-link.com/products/beelink-eqi12-intel-core-1235u-openclaw-pre-installed)
+
+A small mini PC from Beelink with an Intel Core i5-1235U processor that ships with Ubuntu and the OpenClaw agent pre-installed, set up to use cloud models.
+
+**For:** People who want a low-power box that runs an agent, its memory and tools around the clock while the models come from cloud APIs.
+
+**Access and use:** For hosting an always-on agent that calls cloud models. Beelink sells it as an OpenClaw with cloud model access option and names GPT-4o, Claude and Gemini as models reached through their APIs; treat whichever provider you connect as receiving the agent's prompts and context. It has an Intel Core i5-1235U with 10 cores and 12 threads, up to 4.4 GHz; Intel lists 15 W processor base power and 55 W maximum turbo power, and launched the chip in the first quarter of 2022. Memory is 32 GB of DDR4 at 3200 MHz, listed as 16 GB x 2; Beelink does not say whether it is soldered. Storage is a 500 GB SSD, with two M.2 2280 PCIe 4.0 x4 slots for up to 4 TB each. It has two 1 Gb Ethernet ports (Realtek RTL8111H), Wi-Fi 6 and Bluetooth 5.2. Power comes from a built-in 85 W supply, and auto power-on and Wake-on-LAN are listed. The only operating system option listed is Ubuntu, with OpenClaw pre-installed; review the pre-installed OpenClaw set-up before connecting accounts. Beelink offers one-on-one setup help from its AI support team. Beelink's global store listed it at US$589 (32 GB, 500 GB) on 7 November 2026, shipping from its US, EU and UK warehouses to those addresses. Beelink states a three-year warranty, but its warranty policy says it applies only to personal use and not to products used for commercial purposes.
+
+**Source checked:** 2026-11-07. [Official source](https://www.bee-link.com/products/beelink-eqi12-intel-core-1235u-openclaw-pre-installed). [Gearlist page](https://gearlist.build/tools/beelink-eqi12-pro-openclaw/).
+
+### [Beelink GTR9 Pro](https://www.bee-link.com/products/beelink-gtr9-pro-amd-ryzen-ai-max-395)
+
+A desktop mini PC from Beelink with an AMD Ryzen AI Max+ 395 processor, 128 GB of soldered memory and two 10 Gb Ethernet ports, sold for local AI models and agents.
+
+**For:** People who want to run large local models and agents on one box, or link several boxes over fast Ethernet, on Windows or Ubuntu.
+
+**Access and use:** For running local models and agents, alone or as part of a small cluster. It has an AMD Ryzen AI Max+ 395 with 16 cores and 32 threads, up to 5.1 GHz, and Radeon 8060S graphics with 40 compute units. Memory is 128 GB of LPDDR5X at 8000 MT/s, soldered. Storage is two M.2 2280 PCIe 4.0 x4 slots for up to 16 TB (8 TB each), and the retail unit includes a 2 TB SSD. It has two 10 Gb Ethernet ports and two USB4 ports at 40 Gb/s, which Beelink says suit AI server clustering. Power comes from a built-in 230 W supply; Beelink lists a 120 W default TDP and 140 W peak, and auto power-on. The standard model ships with Windows 11 Pro. The OpenClaw edition ships with Ubuntu, or Ubuntu and Windows chosen at startup, with OpenClaw and a local Qwen model pre-installed. AMD lists Windows 11 and Ubuntu support for the processor. Beelink says it supports local deployment of 70B-parameter models and quotes about 52 tokens per second on GPT-OSS 120B. Orders are pre-orders with shipping in about 35 days. Beelink's US store listed it at US$4,319 (128 GB, 2 TB) on 7 November 2026; the OpenClaw edition was US$4,349 on Beelink's global store. Beelink states a three-year warranty, but its warranty policy says it applies only to personal use and not to products used for commercial purposes.
+
+**Source checked:** 2026-11-07. [Official source](https://us.bee-link.com/products/beelink-gtr9-pro-amd-ryzen-ai-max-395). [Gearlist page](https://gearlist.build/tools/beelink-gtr9-pro/).
+
+### [GMKtec EVO-X3](https://www.gmktec.com/products/gmktec-evo-x3-ai-mini-pc-amd-ryzen-ai-max-395)
+
+A desktop mini PC from GMKtec with an AMD Ryzen AI Max+ 395 processor and 128 GB of onboard memory, sold for running local AI models and agents.
+
+**For:** People who want 128 GB of memory for local models alongside their agents, on Windows or Linux rather than macOS.
+
+**Access and use:** For running local models and agents on one box that stays on. It has an AMD Ryzen AI Max+ 395 with 16 cores and 32 threads, up to 5.1 GHz, and Radeon 8060S graphics with 40 compute units. Memory is 128 GB of onboard LPDDR5X at 8000 MT/s that cannot be upgraded, with up to 96 GB usable as graphics memory. Storage is a 2 TB or 4 TB PCIe 4.0 SSD, with two M.2 2280 PCIe 4.0 x4 slots for up to 16 TB in total. It has one 2.5 Gb Ethernet port, Wi-Fi 7, one USB4 port at 40 Gb/s and an OCuLink (PCIe Gen4 x4) port for an external graphics card; GMKtec says OCuLink is not hot-pluggable, so power off before connecting or disconnecting. GMKtec lists processor power modes of 54 W (silent), 85 W (balanced) and 140 W peak (performance). It ships with Windows 11 Pro, and GMKtec says it supports Ubuntu and Linux; AMD lists Windows 11 and Ubuntu support for the processor. GMKtec pre-installs its GMKtec Claw software for deploying local AI agents, says it can switch between cloud and local models; if you point it at a cloud model, treat that provider as receiving your prompts. GMKtec claims support for models up to 235B parameters. GMKtec's US store listed it at US$3,799.99 (128 GB, 2 TB) on 7 November 2026. The product page states a 1+2 year warranty: GMKtec's warranty page says orders from 1 October 2026 get one year on the whole unit plus two years' replacement cover for RAM, SSD and power adapter, and it excludes commercial use.
+
+**Source checked:** 2026-11-07. [Official source](https://www.gmktec.com/products/gmktec-evo-x3-ai-mini-pc-amd-ryzen-ai-max-395). [Gearlist page](https://gearlist.build/tools/gmktec-evo-x3/).
+
+### [GMKtec NucBox K13](https://www.gmktec.com/products/gmktec-k13-mini-pc-intel-core-ultra-7-256v)
+
+A small mini PC from GMKtec with an Intel Core Ultra 7 256V processor that the maker positions as an always-on host for the OpenClaw agent.
+
+**For:** People who want a quiet, low-power box that runs agents around the clock while the models come from cloud APIs.
+
+**Access and use:** For running an agent such as OpenClaw around the clock, with models from cloud services or small local ones. It has an Intel Core Ultra 7 256V with 8 cores and 8 threads, up to 4.8 GHz; Intel lists 17 W processor base power and 37 W maximum turbo power. Memory is 16 GB of on-package LPDDR5X at up to 8533 MT/s and cannot be upgraded. The spec table lists one 5 Gb Ethernet port, Wi-Fi 6E, Bluetooth 5.2 and two USB4 ports at 40 Gb/s (a feature panel on the same page says dual 2.5G LAN, so confirm before buying). It runs from a 20 V, 5 A (100 W) adapter. It ships with Windows 11 Pro; GMKtec's OpenClaw article says it is compatible with Linux and Windows 11 Pro, calls it a host for a 24/7 AI employee and says it stays cool and silent under 24/7 heavy loads. That article's setup guide starts by disabling the Windows firewall and installs Node.js and OpenClaw by piping remote scripts to bash: keep the firewall on and read any script before running it. GMKtec's US store listed it from US$589.99 (16 GB, 512 GB) on 7 November 2026. GMKtec markets its AI mini PCs as stable for 24/7 workloads, but its warranty excludes commercial use: the K13 page lists a one-year limited warranty, and GMKtec's warranty page says orders from 1 October 2026 get one year on the whole unit plus two years' replacement cover for RAM, SSD and power adapter.
+
+**Source checked:** 2026-11-07. [Official source](https://www.gmktec.com/products/gmktec-k13-mini-pc-intel-core-ultra-7-256v). [Gearlist page](https://gearlist.build/tools/gmktec-nucbox-k13/).
 
 ## Models
 

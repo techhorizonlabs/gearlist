@@ -31,8 +31,8 @@ MULTI_LINE = [
     "fine\n\n# Heading",
     "a\rb",
     "tab\there",
-    "line separator",
-    "para separator",
+    "line\u2028separator",
+    "para\u2029separator",
     "next\x85line",
 ]
 

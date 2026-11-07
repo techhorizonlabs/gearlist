@@ -1,0 +1,111 @@
+{
+  "updated": "2026-11-07",
+  "groups": {
+    "Hardware": {
+      "title": "Which set-up do you need?",
+      "sections": [
+        {
+          "heading": "Host the agents, rent the models",
+          "paragraphs": [
+            "If your agents use Claude, ChatGPT, Grok or Gemini through a subscription or an API key, the box only runs the agents, their memory, files and tools, so it can be small and stay on all day. [[apple-mac-mini]] starts at US$899 with a 155 W maximum and runs macOS. [[gmktec-nucbox-k13]] (from US$589.99) and [[beelink-eqi12-pro-openclaw]] (US$589) are x86 mini PCs that their makers sell for running the OpenClaw agent around the clock, and Intel rates their processors at 17 W and 15 W base power. Prices are from each maker's US or global store on 7 November 2026.",
+            "Two cautions. GMKtec's and Beelink's warranties exclude commercial use, so read them before you run a business agent on one. And check where your subscription may be used before you plan around it: the Models group sets out each provider's rules."
+          ],
+          "sources": [
+            "https://www.apple.com/shop/buy-mac/mac-mini",
+            "https://www.apple.com/mac-mini/specs/",
+            "https://www.gmktec.com/products/gmktec-k13-mini-pc-intel-core-ultra-7-256v",
+            "https://www.bee-link.com/products/beelink-eqi12-intel-core-1235u-openclaw-pre-installed",
+            "https://www.intel.com/content/www/us/en/products/sku/240957/intel-core-ultra-7-processor-256v-12m-cache-up-to-4-80-ghz/specifications.html",
+            "https://www.intel.com/content/www/us/en/products/sku/226261/intel-core-i51235u-processor-12m-cache-up-to-4-40-ghz/specifications.html",
+            "https://www.gmktec.com/pages/warranty-returns-refund",
+            "https://www.bee-link.com/pages/warranty-policy"
+          ]
+        },
+        {
+          "heading": "Run open models on your own box",
+          "paragraphs": [
+            "Hosting models yourself comes down to memory. [[nvidia-dgx-spark]] has 128 GB of unified memory, and NVIDIA says it supports models up to 200 billion parameters. [[apple-mac-studio]] goes up to 512 GB. Mini PCs built on AMD's Ryzen AI Max+ 395, such as [[framework-desktop]], [[gmktec-evo-x3]] and [[beelink-gtr9-pro]], have up to 128 GB of memory that cannot be upgraded. A desktop with a 32 GB graphics card, [[amd-radeon-ai-pro-r9700]] or [[nvidia-geforce-rtx-5090]], suits models that fit in 32 GB.",
+            "For scale, Google puts Gemma 4 31B at about 17.5 GB in 4-bit for the weights alone, and OpenAI says gpt-oss-120b fits a single 80 GB GPU. These boxes can run the agents too, but they cost more: GMKtec listed the EVO-X3 at US$3,799.99 and Beelink the GTR9 Pro at US$4,319 on their US stores on 7 November 2026."
+          ],
+          "sources": [
+            "https://docs.nvidia.com/dgx/dgx-spark/hardware.html",
+            "https://www.apple.com/mac-studio/specs/",
+            "https://frame.work/products/desktop-diy-amd-aimax300",
+            "https://www.gmktec.com/products/gmktec-evo-x3-ai-mini-pc-amd-ryzen-ai-max-395",
+            "https://us.bee-link.com/products/beelink-gtr9-pro-amd-ryzen-ai-max-395",
+            "https://ai.google.dev/gemma/docs/core",
+            "https://huggingface.co/openai/gpt-oss-20b"
+          ]
+        },
+        {
+          "heading": "Back up what the agents keep",
+          "paragraphs": [
+            "Agents keep their memory and their work on disk. [[synology-ds925-plus]] and [[ugreen-nasync-dxp4800-plus]] can each be a Time Machine destination for Macs and back up PCs. UGREEN points out that RAID is not a backup, so keep a second copy somewhere else."
+          ],
+          "sources": [
+            "https://kb.synology.com/en-global/DSM/tutorial/How_to_back_up_files_from_Mac_to_Synology_NAS_with_Time_Machine",
+            "https://www.synology.com/en-global/products/DS925+",
+            "https://ai.ugreen.com/blogs/buying-guide/backup-data-with-nas",
+            "https://nas.ugreen.com/products/ugreen-nasync-dxp4800-plus-nas-storage"
+          ]
+        }
+      ]
+    },
+    "Models": {
+      "title": "Subscription, API key or your own model?",
+      "sections": [
+        {
+          "heading": "A subscription: one monthly price for a coding agent",
+          "paragraphs": [
+            "Claude Pro costs US$20 a month and includes Claude Code; Max is US$100 and Ultra US$200. ChatGPT Plus is US$20 a month, and every ChatGPT plan includes Codex. xAI's X Subscription runs from US$8 to US$200 a month, and even its US$8 Plus plan includes Grok Build, xAI's terminal coding agent. Google AI Pro is US$19.99 a month and allows 1,500 Gemini CLI requests a day. These are US prices, read on 7 November 2026.",
+            "Check where a plan may be used before you build on it. Anthropic allows its plans only in Claude Code and its own apps, and says anything built on the Agent SDK should use an API key. Google says signing in to Gemini CLI from a third-party tool can get the account suspended. OpenAI's Sign in with ChatGPT lets open-source and locally hosted apps use your plan, and xAI supports SuperGrok and X Premium plans inside OpenCode, including on a remote server. Anthropic, OpenAI and xAI all forbid sharing an account."
+          ],
+          "sources": [
+            "https://claude.com/pricing",
+            "https://code.claude.com/docs/en/legal-and-compliance",
+            "https://chatgpt.com/pricing/",
+            "https://developers.openai.com/siwc/token-sharing-open-source",
+            "https://docs.x.ai/x-subscription/pricing",
+            "https://x.ai/news/grok-opencode",
+            "https://gemini.google/subscriptions/",
+            "https://geminicli.com/docs/resources/tos-privacy/"
+          ]
+        },
+        {
+          "heading": "An API key: pay per token, made for automation",
+          "paragraphs": [
+            "Agents that run on their own, on a server or inside a workflow, are what API keys are for, and the providers say so for their own tools: Anthropic for the Agent SDK, OpenAI for Codex in CI/CD jobs, and xAI for Grok Build where there is no browser. The table below gives each model's price per million tokens.",
+            "Anthropic, OpenAI and xAI say they do not train on API data without your permission. Google's paid tier does not either, but its free tier and AI Studio use what you send to improve Google products, and people may read it. Claude Max and Ultra include US$100 and US$200 of API credit a month, and ChatGPT Pro tiers include monthly API credit matching their price."
+          ],
+          "sources": [
+            "https://code.claude.com/docs/en/legal-and-compliance",
+            "https://learn.chatgpt.com/docs/auth",
+            "https://docs.x.ai/build/overview",
+            "https://support.claude.com/en/articles/17154008",
+            "https://chatgpt.com/pricing/",
+            "https://ai.google.dev/gemini-api/terms",
+            "https://docs.x.ai/developers/faq/security",
+            "https://developers.openai.com/api/docs/guides/your-data"
+          ]
+        },
+        {
+          "heading": "Your own model: no token bill, but it must fit in memory",
+          "paragraphs": [
+            "Open-weight models such as [[gemma-4]], [[gpt-oss-120b]] and Qwen run on your own machine through Ollama, which is MIT licensed and runs on macOS, Windows and Linux, or LM Studio, which is free for running models but is not open source. Nothing you send leaves the machine, and there is no per-token bill.",
+            "Memory decides what fits. Google puts Gemma 4 31B at about 17.5 GB in 4-bit for the weights alone, with more needed for long conversations. OpenAI says gpt-oss-20b runs within 16 GB and gpt-oss-120b fits a single 80 GB GPU. Qwen's own model cards give no memory figure; Ollama's download of Qwen3.8 27B is 18 GB. Qwen's largest open model, [[qwen3-8-2-4t-a95b]], has 2.4 trillion parameters, and Qwen also offers it hosted as Qwen3.8-Max."
+          ],
+          "sources": [
+            "https://github.com/ollama/ollama",
+            "https://ollama.com/download",
+            "https://lmstudio.ai/app-terms",
+            "https://lmstudio.ai/pricing",
+            "https://ai.google.dev/gemma/docs/core",
+            "https://huggingface.co/openai/gpt-oss-20b",
+            "https://ollama.com/library/qwen3.8",
+            "https://huggingface.co/Qwen/Qwen3.8-27B"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -6,6 +6,7 @@ from pathlib import Path
 
 from added_dates import check as check_added
 import specs
+import guides
 
 root = Path(__file__).parent
 data = json.loads((root / "resources.json").read_text())
@@ -31,7 +32,8 @@ for e in entries:
     assert e["url"].startswith("https://")
     assert e["source_url"].startswith("https://")
 # Every entry records the date it was added to Gearlist. added_dates.py explains the dates.
-problems = check_added(entries, data.get("updated")) + specs.check(entries)
+GUIDES = json.loads((root / "guides.json").read_text()) if (root / "guides.json").exists() else {}
+problems = check_added(entries, data.get("updated")) + specs.check(entries) + guides.check(GUIDES, entries)
 if problems:
     more = f"\n...and {len(problems) - 20} more." if len(problems) > 20 else ""
     sys.exit("build.py: " + "\n".join(problems[:20]) + more)

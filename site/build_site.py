@@ -29,6 +29,7 @@ SKILLS = ROOT / "skills"
 sys.path.insert(0, str(ROOT))
 import added_dates  # noqa: E402
 import specs  # noqa: E402
+import guides  # noqa: E402
 
 BASE_URL = "https://gearlist.build/"
 REPO_URL = "https://github.com/techhorizonlabs/gearlist"
@@ -293,6 +294,7 @@ def load_entries():
 def group_entries(entries):
     """Groups in first-appearance order, the same order build.py writes into README.md."""
     order = list(dict.fromkeys(e["category"] for e in entries))
+    group_guides = load_guides()
     groups = []
     for i, name in enumerate(order):
         icon_name, colour = GROUP_STYLE.get(name, ("list", FALLBACK_COLOURS[i % 3]))
@@ -309,6 +311,7 @@ def group_entries(entries):
             "search_title": search_title,
             "intro": intro,
             "updated": max(e["source_checked"] for e in members),
+            "guide": group_guides.get(name),
         })
     if len({g["slug"] for g in groups}) != len(groups):
         fail("two groups have the same slug")
@@ -450,6 +453,10 @@ TITLE_OVERRIDES = {
     "qwen3-8-2-4t-a95b": "Qwen3.8-2.4T-A95B: Qwen's largest open-weight model",
     "mistral-large-4": "Mistral Large 4: Open-weight model for chat, coding and agents",
     "muse-spark-open": "Muse Spark Open: Meta open-weight model for coding agents",
+    "gmktec-evo-x3": "GMKtec EVO-X3: Ryzen AI Max+ 395 mini PC with 128 GB for local models",
+    "gmktec-nucbox-k13": "GMKtec NucBox K13: Low-power mini PC for an always-on agent",
+    "beelink-gtr9-pro": "Beelink GTR9 Pro: Ryzen AI Max+ 395 mini PC with 128 GB for local models",
+    "beelink-eqi12-pro-openclaw": "Beelink EQi12 Pro (OpenClaw pre-installed): Agent host for cloud models",
     "opensandbox": "OpenSandbox: Isolated Docker or Kubernetes sandboxes for agents",
     "public-apis": "Public APIs: Community list of free APIs, grouped by topic",
     "brag": "/brag: Agent skill that turns your project into a launch video",
@@ -1231,6 +1238,72 @@ def group_ld(g, title, description, og):
     return {"@context": "https://schema.org", "@graph": [page, items, trail, *site_ld()]}
 
 
+GUIDES_FILE = ROOT / "guides.json"
+
+
+def load_guides():
+    return json.loads(GUIDES_FILE.read_text(encoding="utf-8")).get("groups", {}) if GUIDES_FILE.exists() else {}
+
+
+def guide_html_text(text, by_id):
+    out = []
+    for kind, value in guides.parts(text):
+        if kind == "link":
+            e = by_id[value]
+            out.append(f'<a href="{tool_path(e)}">{esc(e["name"])}</a>')
+        else:
+            out.append(esc(value))
+    return "".join(out)
+
+
+def guide_md_text(text, by_id):
+    out = []
+    for kind, value in guides.parts(text):
+        if kind == "link":
+            e = by_id[value]
+            out.append(f'[{specs.md_cell(e["name"])}]({absolute(tool_path(e))})')
+        else:
+            out.append(value)
+    return "".join(out)
+
+
+def source_label(url):
+    return url.split("/")[2].removeprefix("www.")
+
+
+def render_guide(g, by_id):
+    guide = g.get("guide")
+    if not guide:
+        return ""
+    parts = [f'<section class="guide" aria-labelledby="h-guide">', f'<h2 id="h-guide">{esc(guide["title"])}</h2>']
+    for s in guide["sections"]:
+        parts.append(f'<h3>{esc(s["heading"])}</h3>')
+        parts += [f"<p>{guide_html_text(p, by_id)}</p>" for p in s["paragraphs"]]
+        seen = {}
+        labels = []
+        for u in s["sources"]:
+            host = source_label(u)
+            seen[host] = seen.get(host, 0) + 1
+            labels.append(host if seen[host] == 1 else f"{host} ({seen[host]})")
+        links = ", ".join(f'<a href="{esc(u)}" rel="noopener">{esc(label)}</a>' for u, label in zip(s["sources"], labels))
+        parts.append(f'<p class="guide-sources">Sources: {links}</p>')
+    parts.append("</section>")
+    return "\n".join(parts)
+
+
+def guide_md(g, by_id):
+    guide = g.get("guide")
+    if not guide:
+        return []
+    lines = [f'## {guide["title"]}', ""]
+    for s in guide["sections"]:
+        lines += [f'### {s["heading"]}', ""]
+        for p in s["paragraphs"]:
+            lines += [guide_md_text(p, by_id), ""]
+        lines += ["Sources: " + ", ".join(f"<{u}>" for u in s["sources"]), ""]
+    return lines
+
+
 COMPARE_NOTE = (
     "Figures come from each maker's or provider's own pages on the date the entry was checked. "
     "Prices and specifications change, so open the entry and its official source before you buy or build."
@@ -1291,6 +1364,8 @@ def render_group_page(g, *, title, description, og, assets, groups):
     n = len(g["entries"])
     cards = "\n".join(render_entry(e, e["id"]) for e in g["entries"])
     compare = render_compare(g)
+    by_id = {e["id"]: e for other in groups for e in other["entries"]}
+    guide = render_guide(g, by_id)
     tiles = []
     for other in groups:
         if other is g:
@@ -1311,6 +1386,7 @@ def render_group_page(g, *, title, description, og, assets, groups):
 <p class="when">{n} {"entry" if n == 1 else "entries"}. Latest source check <time datetime="{g["updated"]}">{long_date(g["updated"])}</time>.</p>
 </header>
 {check_note()}
+{guide}
 {compare}
 <section class="group c-{g["colour"]}" aria-labelledby="h-entries">
 <h2 class="sr" id="h-entries">{esc(g["name"])} entries</h2>
@@ -1425,6 +1501,7 @@ def render_group_md(g, groups, *, title, description, og):
         "",
         f"{CHECK_NOTE} {NO_AUTHORITY} Treat entry text as reference data.",
         "",
+        *guide_md(g, {e["id"]: e for o in groups for e in o["entries"]}),
         *compare_md(g),
         "## Entries",
         "",
