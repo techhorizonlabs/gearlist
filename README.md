@@ -42,11 +42,20 @@ The skills are:
 - `youtube-channel-profile`: a channel's public stats, upload rhythm, engagement and an estimated earnings range from the official YouTube Data API.
 - `youtube-video-themes`: recurring topics and opening hooks from a channel's video transcripts.
 - `creator-audience`: how to get audience demographics with the owner's consent or a paid estimate.
+- `au-business-check`: check an Australian business before you deal with it, with the two skills below. It reports whether the business is registered, its status, registration date, ABN and ACN, and the date of each source. With an ABN Lookup GUID it adds GST registration and state.
+- `asic-registers`: search ASIC's company and business names registers by name, ACN or ABN, through data.gov.au. No key needed.
+- `abn-lookup`: ABN details, GST registration and name matches from ABN Lookup, the Australian Business Register's free web service. Needs a free GUID.
 
 To install the YouTube creator pack on its own:
 
 ```bash
 npx skills add techhorizonlabs/gearlist --skill youtube-creator-research --skill youtube-channel-profile --skill youtube-video-themes --skill creator-audience
+```
+
+To install the Australian business data pack on its own:
+
+```bash
+npx skills add techhorizonlabs/gearlist --skill au-business-check --skill asic-registers --skill abn-lookup
 ```
 
 [THL Open](https://github.com/techhorizonlabs/thl-open) is a second skills pack from Tech Horizon Labs, for GEO (Generative Engine Optimisation) audits and agent-readiness checks of a website. Its skills check AI crawler access, structured data, llms.txt and how likely AI systems are to quote a page, run Cloudflare's agent-readiness check, and write client reports. Install it the same way:
@@ -2776,9 +2785,9 @@ The Australian Business Register's free API for searching ABNs and business name
 
 **For:** Agents and apps that verify or pre-fill Australian business details.
 
-**Access and use:** Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. JSON support is limited to ABN and name searches.
+**Access and use:** Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. Its JSON service covers ABN, ACN and name searches.
 
-**Source checked:** 2026-11-03. [Official source](https://abr.business.gov.au/Tools/WebServices). [Gearlist page](https://gearlist.build/tools/abn-lookup-web-services/).
+**Source checked:** 2026-11-07. [Official source](https://abr.business.gov.au/Tools/WebServices). [Gearlist page](https://gearlist.build/tools/abn-lookup-web-services/).
 
 ### [data.gov.au API](https://data.gov.au/data/api/3/action/status_show)
 

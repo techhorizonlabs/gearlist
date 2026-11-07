@@ -2752,9 +2752,9 @@
       "url": "https://abr.business.gov.au/Tools/WebServices",
       "description": "The Australian Business Register's free API for searching ABNs and business names and validating ABN details.",
       "for_whom": "Agents and apps that verify or pre-fill Australian business details.",
-      "access_notes": "Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. JSON support is limited to ABN and name searches.",
+      "access_notes": "Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. Its JSON service covers ABN, ACN and name searches.",
       "source_url": "https://abr.business.gov.au/Tools/WebServices",
-      "source_checked": "2026-11-03",
+      "source_checked": "2026-11-07",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
