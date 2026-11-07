@@ -341,6 +341,10 @@ def scrub(text, agent):
     return re.sub(pattern, "***", text, flags=re.IGNORECASE)
 
 
+# What get_json returns for HTTP 404. A body of JSON null decodes to None, so 404 needs its own marker.
+NOT_FOUND = object()
+
+
 class EdgarClient:
     """Read-only calls to www.sec.gov and data.sec.gov with the declared user agent."""
 
@@ -352,6 +356,8 @@ class EdgarClient:
         self.calls = 0
 
     def get_json(self, url, what):
+        """The decoded JSON, or NOT_FOUND for HTTP 404. A body of JSON null decodes to None, which
+        is kept apart from NOT_FOUND so it can never read as a missing record."""
         if self.calls:
             self.sleep(CALL_GAP)
         self.calls += 1
@@ -363,7 +369,7 @@ class EdgarClient:
         except Exception as exc:
             raise NetworkError(scrub(f"Could not reach the SEC: {exc}", self._agent)) from None
         if status == 404:
-            return None
+            return NOT_FOUND
         if status in (403, 429):
             raise ApiError(
                 f"The SEC refused the request for {what} with HTTP {status}. It refuses undeclared or "
@@ -562,7 +568,10 @@ def lookup(client, kind, value, limit=DEFAULT_LIMIT, now=None):
     }
     cik = value if kind == "cik" else None
     if kind == "search":
-        companies = parse_tickers(client.get_json(TICKERS_URL, "the ticker file"))
+        tickers = client.get_json(TICKERS_URL, "the ticker file")
+        if tickers is NOT_FOUND:
+            raise ApiError(f"The SEC answered the request for the ticker file with HTTP 404. {NOT_USED}")
+        companies = parse_tickers(tickers)
         matches, total = search_tickers(companies, value, limit)
         report["matches"] = [{"cik": m["cik"], "title": m["title"], "tickers": m["tickers"],
                               "ticker_match": m["ticker_match"], "name_match": m["name_match"]} for m in matches]
@@ -573,11 +582,11 @@ def lookup(client, kind, value, limit=DEFAULT_LIMIT, now=None):
     if cik:
         # HTTP 404 stays "no record for the CIK", as the SEC answered for a missing CIK on 7 November 2026.
         data = client.get_json(SUBMISSIONS_URL.format(cik=cik), f"CIK {cik}")
-        if data is not None:
+        if data is not NOT_FOUND:
             if not isinstance(data, dict):
-                raise ApiError(f"The SEC's record for CIK {cik} is not a JSON object.")
+                raise ApiError(f"The SEC's record for CIK {cik} is not a JSON object. {NOT_USED}")
             check_submissions(data, cik)
-        if data is None:
+        if data is NOT_FOUND:
             report["missing_cik"] = cik
         elif looks_like_person(data):
             report["refused_person"] = cik

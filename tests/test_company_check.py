@@ -198,6 +198,20 @@ class UnitedStatesTests(unittest.TestCase):
         self.assertNotIn("did not run", out)
 
 
+class SecNullTests(unittest.TestCase):
+    def test_a_null_record_stops_us_sec_edgar(self):
+        for query in ("0000320193", "AAPL"):
+            sec = fakes.sec_routes({"0000320193": (200, b"null")})
+            code, out, _, _ = run([query, "--country", "US", "--json"], {"SEC_USER_AGENT": fakes.FAKE_AGENT}, sec=sec)
+            self.assertEqual(code, cc.EXIT_API, query)
+            data = json.loads(out)
+            self.assertEqual(data["skill"], "us-sec-edgar")
+            self.assertFalse(data["ran"])
+            self.assertEqual(data["skill_exit_code"], 4)
+            self.assertIsNone(data["result"])
+            self.assertIn("stopped: the register answered with an error", data["outcome"])
+
+
 class NewZealandTests(unittest.TestCase):
     def test_without_a_key_nothing_runs(self):
         code, out, _, fetchers = run(["9429000106078", "--country", "NZ"])

@@ -268,6 +268,20 @@ class ResponseCheckTests(unittest.TestCase):
             self.assertNotIn("ops@example.com", err)
         return err
 
+    def test_json_null_is_an_error_and_a_404_is_still_not_found(self):
+        # HTTP 200 with the JSON value null must not read as a missing CIK (SAGE, PR 21 at 0ab9a97).
+        null = fakes.sec_routes({"0000320193": (200, b"null")})
+        self.assert_rejected(["320193"], null, "is not a JSON object", calls=1)
+        self.assert_rejected(["AAPL"], null, "is not a JSON object", calls=2)
+        code, out, err, _, _ = run(["320193", "--json"], fakes.sec_routes({"0000320193": (404, b"")}))
+        self.assertEqual(code, se.EXIT_NOT_FOUND, err)
+        self.assertEqual(json.loads(out)["missing_cik"], "0000320193")
+
+    def test_a_404_for_the_ticker_file_is_an_error(self):
+        routes = fakes.sec_routes()
+        tickers_404 = lambda url: (404, b"") if url.endswith("company_tickers.json") else routes(url)
+        self.assert_rejected(["AAPL"], tickers_404, "ticker file with HTTP 404", calls=1)
+
     def test_sage_controls(self):
         controls = fakes.response_controls("US")
         self.assertEqual(len(controls), 5)
