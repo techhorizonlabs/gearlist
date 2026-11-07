@@ -2938,7 +2938,7 @@
       "access_notes": "Each project brings its own dependencies and model provider keys; review a project before running it.",
       "source_url": "https://github.com/Arindam200/awesome-ai-apps",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; projects not run",
       "thl_project": false
     },
@@ -2952,7 +2952,7 @@
       "access_notes": "The list links to community skills and plugins; its own README warns some may have security vulnerabilities, so review each before installing.",
       "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; linked skills not installed",
       "thl_project": false
     },
@@ -2966,7 +2966,7 @@
       "access_notes": "Free. Requires registering and accepting the web services agreement to receive an authentication GUID by email; keep the GUID out of code and chats. Its JSON service covers ABN, ACN and name searches.",
       "source_url": "https://abr.business.gov.au/Tools/WebServices",
       "source_checked": "2026-11-07",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -2980,7 +2980,7 @@
       "access_notes": "No key needed to search and read public datasets. Each dataset carries its own licence; check it before reuse.",
       "source_url": "https://data.gov.au/data/dataset/asic-business-names",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; public search endpoint queried",
       "thl_project": false
     },
@@ -2994,7 +2994,7 @@
       "access_notes": "Free and open without an API key since 29 November 2024; responses are SDMX, so set the Accept header for JSON or CSV.",
       "source_url": "https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; dataflow endpoint queried",
       "thl_project": false
     },
@@ -3008,7 +3008,7 @@
       "access_notes": "Reading needs nothing beyond a public clone. Running the /weather-orchestrator example needs Claude Code and a Claude account. The clone's .claude/settings.json allows Bash(*), Edit(*), Write(*) and WebFetch for any domain, and its .mcp.json declares Playwright, Context7 and DeepWiki servers run through npx. Review both before opening the folder in Claude Code. The README carries sponsor links. MIT.",
       "source_url": "https://github.com/shanraisshan/claude-code-best-practice",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README, .claude/settings.json and .mcp.json reviewed; not installed",
       "thl_project": false
     },
@@ -3022,7 +3022,7 @@
       "access_notes": "Use ToolJet Cloud with an account, or self-host on Docker, Kubernetes, AWS, GCP, Azure and the other documented targets. The README's quick-try image is tooljet/try:ee-lts-latest on port 80. Each data source needs its own credentials, which apps use to run queries. The MCP server is marked beta and runs agent operations on your own model subscription. AI app generation, workflows and the agent builder are listed under the Enterprise edition, whose code sits in non-public submodules (frontend/ee, server/ee). The repository is AGPL-3.0, which requires offering source for modified versions run as a network service.",
       "source_url": "https://github.com/ToolJet/ToolJet",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README, licence and submodule list reviewed; not installed",
       "thl_project": false
     },
@@ -3036,7 +3036,7 @@
       "access_notes": "Use the managed service at aci.dev with an account and API key, or run the platform locally: Python 3.12+, Docker Compose, PostgreSQL with pgvector and an OpenAI API key, with PropelAuth for the dev portal. Each linked app needs OAuth consent or API credentials from the account the agent will act on, held in ACI's secrets management. The unified MCP server is a separate repository, aipotheosis-labs/aci-mcp. Apache-2.0.",
       "source_url": "https://github.com/aipotheosis-labs/aci",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README and backend README reviewed; not installed",
       "thl_project": false
     },
@@ -3050,7 +3050,7 @@
       "access_notes": "Future AGI Cloud needs an account. Self-host clones the repository and runs ./bin/install, which writes secrets to .env and pulls about 800 MB of images. The default Standalone setup needs Docker Compose v2.24 or newer with 2 vCPUs and 4 GB of memory; a Helm chart is also published. Apps send traces with an API key and secret key; add LLM provider keys when you need them. Self-hosted installs send telemetry by default, including the email addresses of owner, admin and staff accounts. Opting out with --no-telemetry or FUTURE_AGI_TELEMETRY_DISABLED=true still sends one registration without email addresses; block api.futureagi.com to send nothing. The core is Apache-2.0, but code in ee/ directories is under the Future AGI Enterprise License and needs a paid subscription for production use.",
       "source_url": "https://github.com/future-agi/future-agi",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README, LICENSE-EE and NOTICE reviewed; not installed",
       "thl_project": false
     },
@@ -3064,7 +3064,7 @@
       "access_notes": "Runs locally with Node.js 18 or later through npx -y @xeroapi/xero-mcp-server@latest. Authenticate with a Xero Custom Connection (XERO_CLIENT_ID and XERO_CLIENT_SECRET) or a bearer token from your own OAuth flow (XERO_CLIENT_BEARER_TOKEN). Xero's developer docs say Custom Connections are only for organisations in Australia, New Zealand, the UK and the US and need an additional monthly subscription, but connect to the Demo Company free for development. The tools can create invoices, payments, bank transactions and manual journals and approve timesheets, so narrow XERO_SCOPES and start on the Demo Company. Payroll queries need an NZ or UK organisation. MIT.",
       "source_url": "https://github.com/XeroAPI/xero-mcp-server",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README and Xero Custom Connections documentation reviewed; not installed",
       "thl_project": false
     },
@@ -3078,7 +3078,7 @@
       "access_notes": "Reading needs nothing. Linked tools and services carry their own accounts and terms. The list says it is not an advertising channel and does not accept unsolicited vendor or self-promotional listings. Maintained by i365, a digital product studio. MIT.",
       "source_url": "https://github.com/i365dev/awesome-seo",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; not installed",
       "thl_project": false
     },
@@ -3092,7 +3092,7 @@
       "access_notes": "Slides are published at https://kousen.github.io/claude-code-training/ with a PDF on GitHub Releases; running the deck locally needs pnpm. The labs need Claude Code signed in with a Claude subscription or an ANTHROPIC_API_KEY, plus Python, JavaScript or TypeScript, and Java toolchains. Docker is optional. The clone's .claude/settings.json runs bun hook scripts on agent events and a status line command, so review it before opening the folder in Claude Code. MIT.",
       "source_url": "https://github.com/kousen/claude-code-training",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README and .claude/settings.json reviewed; not installed",
       "thl_project": false
     },
@@ -3106,7 +3106,7 @@
       "access_notes": "Copy a skill folder from .agents/skills/ into a project's .agents/skills/ or into ~/.agents/skills/. Skills act through tools you already have: the gh CLI for pull requests and CI fixes, BigQuery and dbt for the data skills, Chrome DevTools MCP for performance audits and Playwright for web app tests. The ci-fix skill pushes to a fix branch. Most skills are MIT; mcp-builder and webapp-testing carry their own Apache-2.0 LICENSE.txt.",
       "source_url": "https://github.com/warpdotdev/oz-skills",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README and each SKILL.md header reviewed; not installed",
       "thl_project": false
     },
@@ -3120,7 +3120,7 @@
       "access_notes": "Install with Homebrew (asymptote-labs/tap), a Linux .deb or .rpm installer script, or a Windows MSI; read the script or verify the package checksum first. Beacon records prompts, responses, tool calls, commands, file activity, approvals, MCP activity and token usage to ~/.beacon/endpoint/logs/runtime.jsonl. Interactive setup signs in through beacon.sh and preselects Beacon Cloud; confirming it forwards session history to Asymptote Labs, so choose Local to keep it on the machine. Unless turned off, the wizard installs Beacon Skills into ~/.agents/skills and ~/.claude/skills, and the Cloud option registers an MCP server in your harnesses. Optional forwarding to Splunk, Datadog, S3 and other destinations. MIT.",
       "source_url": "https://github.com/Asymptote-Labs/agent-beacon",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; not installed",
       "thl_project": false
     },
@@ -3134,7 +3134,7 @@
       "access_notes": "Needs Node 24, pnpm 11.19.0 and a CopilotKit Intelligence project key in every mode; Intelligence is a separate service outside the MIT licence. A model needs an OpenAI, Anthropic or Google key. Gmail and Calendar need your own Google OAuth client plus live mode with an access key and token encryption key, and each send or calendar change waits for review. Web search is on by default and sends model-generated queries and context to Parallel's Search MCP; set WEB_SEARCH_ENABLED=false to turn it off. The CopilotKit SDK sends runtime telemetry to PostHog. The optional Linux computer needs Docker. The Render blueprint runs the API and browser on Standard instances. One owner behind a shared access key; not multi-tenant. MIT.",
       "source_url": "https://github.com/CopilotKit/openmuse",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; not installed",
       "thl_project": false
     },
@@ -3148,7 +3148,7 @@
       "access_notes": "Needs a CUDA GPU machine. The README example runs uv sync and a verl setup script for CUDA 13.0, and the trainer uses verl and vLLM. Agents run locally or as Kubernetes Jobs. The Calc-X example needs one GPU. Releases before v1.0 live on the v0.x branch. MIT.",
       "source_url": "https://github.com/microsoft/agent-lightning",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; not installed",
       "thl_project": false
     },
@@ -3162,7 +3162,7 @@
       "access_notes": "Install with pip, the Windows one-click package, uv from source, or Docker (ghcr.io/harry0703/moneyprinterturbo:latest). The WebUI serves 127.0.0.1:8501 and API docs 127.0.0.1:8080/docs. Python 3.11 or later; a GPU is optional. API keys for the chosen LLM, footage, voice and video services are saved in config.toml; Edge TTS needs no key. An optional ChatGPT sign-in uses OpenAI's Sign in with ChatGPT flow. Publishing to TikTok, Instagram and YouTube Shorts goes through an Upload-Post API key. The README's agent quick start has a coding agent fetch a remote SKILL.md and install everything, so read it first. MIT.",
       "source_url": "https://github.com/harry0703/MoneyPrinterTurbo/blob/main/README-en.md",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README, English README and publishing module reviewed; not installed",
       "thl_project": false
     },
@@ -3176,7 +3176,7 @@
       "access_notes": "Needs Python 3.10+, FFmpeg, Node.js 18+ and a coding assistant such as Claude Code, Cursor, Copilot, Windsurf or Codex; run make setup after cloning. With no keys it uses Piper TTS, open archives and free stock sources. Optional keys for fal.ai, Kling, ElevenLabs, OpenAI, Google, xAI, Runway, HeyGen, Suno and others go in .env and incur provider charges. Budget controls default to a $10 total cap, with per-action approval above $0.50. Local video generation needs a GPU. AGPL-3.0, which requires offering source for modified versions run as a network service.",
       "source_url": "https://github.com/calesthio/OpenMontage",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; not installed",
       "thl_project": false
     },
@@ -3190,7 +3190,7 @@
       "access_notes": "Clone, pip install -e ., then run world-intel-mcp over stdio and add it to ~/.claude.json. The dashboard serves http://localhost:8501 and binds 127.0.0.1 by default. Most sources need no key; ACLED, UCDP, NASA FIRMS, EIA, FRED, Cloudflare, OpenSky, TomTom and Windy tools use optional credentials. The optional collector daemon fetches every source on a 5-minute default interval and stores history in ~/.cache/world-intel-mcp/cache.db. Qdrant runs separately in Docker, and AI briefs use a local Ollama. Each upstream source keeps its own terms of use, so check them before business use. MIT.",
       "source_url": "https://github.com/marc-shade/world-intel-mcp",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; not installed",
       "thl_project": false
     },
@@ -3204,7 +3204,7 @@
       "access_notes": "Self-host with Docker or EveryApp, bringing your own DataForSEO API key and paying for what you use, or use the hosted version, free to try, with plans from US$10 a month that include usage credit. MCP clients connect with an account on your instance. MIT.",
       "source_url": "https://github.com/every-app/open-seo",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; not installed",
       "thl_project": false
     },
@@ -3218,7 +3218,7 @@
       "access_notes": "Connects to Google Search Console and your repository. The README says no extra API keys are needed and self-hosting has no feature limits; a hosted version also exists. AGPL-3.0, so changes to a hosted copy must be published.",
       "source_url": "https://github.com/NeoZi12/dispatchseo",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed; not installed",
       "thl_project": false
     },
@@ -3232,7 +3232,7 @@
       "access_notes": "Sign up with a corporate email, build in the sandbox, then go live per package. Pricing and limits depend on the package, so check the plan before building. Listing Management can create and update live listings.",
       "source_url": "https://developer.domain.com.au/",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official developer portal reviewed; not independently tested",
       "thl_project": false
     },
@@ -3246,7 +3246,7 @@
       "access_notes": "Free download in .DAT files. Licensed under Creative Commons BY-NC-ND 4.0, which rules out commercial use and modified versions without permission.",
       "source_url": "https://www.valuergeneral.nsw.gov.au/design/bulk_psi_content/bulk_psi",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not downloaded",
       "thl_project": false
     },
@@ -3260,7 +3260,7 @@
       "access_notes": "A list only; each API has its own terms, keys and limits, so check the provider before relying on one. MIT.",
       "source_url": "https://github.com/public-apis/public-apis",
       "source_checked": "2026-11-03",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Repository README reviewed",
       "thl_project": false
     },
@@ -3274,7 +3274,7 @@
       "access_notes": "Use a permission-scoped API token rather than the legacy global key, and give it only the zones and products the job needs. The published limit is 1,200 requests per five minutes per user or account token, and 200 per second per IP, with extra limits on some endpoints. Free plans exist, but metered products bill separately. Permission to manage an account is not permission to share its customers' data.",
       "source_url": "https://developers.cloudflare.com/fundamentals/api/reference/limits/",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3288,7 +3288,7 @@
       "access_notes": "Authenticate with a Console API key or workload identity federation. Billing is per token, and some Max, Ultra and Team subscriptions include monthly API credits that have to be claimed. Rate limits depend on the organisation's usage tier and the model class. Commercial API inputs and outputs aren't used for training by default, with opt-in and feedback exceptions.",
       "source_url": "https://platform.claude.com/docs/en/api/rate-limits",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3302,7 +3302,7 @@
       "access_notes": "Authenticate with an API key or a short-lived workload identity token; admin keys cover a separate administrative surface. Billing is per use, and API billing is separate from a ChatGPT plan. Limits are set per organisation and project and vary by model. API data isn't used for training by default, but abuse-monitoring logs can be kept for up to 30 days unless approved retention controls apply.",
       "source_url": "https://developers.openai.com/api/docs/guides/your-data",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3316,7 +3316,7 @@
       "access_notes": "Keys belong to a Google Cloud project, and limits (requests per minute, tokens per minute and requests per day) apply per project, with daily limits resetting on Pacific time. There is an unpaid tier for eligible models. Under the unpaid terms, Google may use what you send to improve its products and people may review it, so don't send confidential or client data on that tier. Paid use has different terms.",
       "source_url": "https://ai.google.dev/gemini-api/terms",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation and terms reviewed; not independently tested",
       "thl_project": false
     },
@@ -3330,7 +3330,7 @@
       "access_notes": "Private site data needs OAuth from a user with access to that property; request the read-only scope when you only read. Search Analytics allows 1,200 queries per minute per site and user, and URL inspection allows 2,000 a day per site. The data belongs to the property, so access follows whoever the owner has granted.",
       "source_url": "https://developers.google.com/webmaster-tools/limits",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3344,7 +3344,7 @@
       "access_notes": "Needs a Google Cloud project with billing and a restricted API key. Pricing is per SKU, and the fields you request can move a call to a dearer SKU, so ask only for the fields you need. Storing or caching results is restricted, except place IDs, and results come with display and attribution rules.",
       "source_url": "https://developers.google.com/maps/documentation/places/web-service/policies",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation and policies reviewed; not independently tested",
       "thl_project": false
     },
@@ -3358,7 +3358,7 @@
       "access_notes": "Uses Microsoft identity platform tokens with delegated or application permissions, and some permissions need an admin to consent for the tenant. Many calls come with the user's licence, but some APIs are metered. Throttling varies by service, so honour 429 responses and their Retry-After header. A token reaches only the tenant and data its permissions allow.",
       "source_url": "https://learn.microsoft.com/en-us/graph/throttling",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3372,7 +3372,7 @@
       "access_notes": "Authenticate with an API key, or use the documented OAuth flow for users. Some models have free variants, limited to 20 requests a minute with a daily ceiling that depends on credits bought; paid models use credits. Each provider has its own data policy. OpenRouter offers privacy settings and zero-retention routing, but legal and safety exceptions still apply.",
       "source_url": "https://openrouter.ai/docs/api-reference/limits",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3386,7 +3386,7 @@
       "access_notes": "Uses HTTP Basic authentication with your API login and a generated API password, which differs from the dashboard password. Pay as you go, with trial credit for new accounts and a sandbox of sample responses. The default limit rose to 10,000 requests a minute, though some endpoints have their own limits. Label which data is measured and which is modelled, and check the terms before passing data on.",
       "source_url": "https://dataforseo.com/update/api-rate-limit-10000-requests-per-minute",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3400,7 +3400,7 @@
       "access_notes": "Use a restricted API key with only the permissions the job needs, and test in a sandbox before using live keys. The published limits are 100 requests a second in live mode and 25 in a sandbox, with a 25-a-second limit on most endpoints and further exceptions. A key that can read invoices shouldn't be able to refund or pay out, so scope it accordingly.",
       "source_url": "https://docs.stripe.com/rate-limits",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3414,7 +3414,7 @@
       "access_notes": "Authenticate with an API key that can be limited by permission and domain. The free plan covers 3,000 emails a month, up to 100 a day. The default API limit is 10 requests a second per team, separate from sending quotas. Recipients' details and email content are customer data, and API access doesn't give consent to email anyone.",
       "source_url": "https://resend.com/docs/api-reference/rate-limit",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3428,7 +3428,7 @@
       "access_notes": "Connect with an internal connection token, a personal access token or OAuth; each reaches only the pages shared with it. A personal token acts as its user. Limits are 600 requests a minute per connection on Business and Enterprise plans and 180 on other plans, plus workspace limits, so honour Retry-After.",
       "source_url": "https://developers.notion.com/reference/request-limits",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3442,7 +3442,7 @@
       "access_notes": "The API uses an API key with scopes and bills against an API plan. The MCP server and CLI sign in as your web account and use its subscription credits instead, so a web plan isn't API credit. Limits vary by endpoint and plan. Using a person's likeness or voice needs their consent.",
       "source_url": "https://developers.heygen.com/docs/api-key",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3456,7 +3456,7 @@
       "access_notes": "Needs an NVIDIA developer account and API key. The Developer Program covers prototyping; production use needs separate licensing, such as NVIDIA AI Enterprise. Limits show per model in your account. Each model's licence and terms apply separately.",
       "source_url": "https://docs.api.nvidia.com/nim/docs/product",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3470,7 +3470,7 @@
       "access_notes": "Use a fine-grained personal access token, a GitHub App or OAuth; workflows get a built-in token. Unauthenticated calls to public endpoints allow 60 an hour, and an authenticated user gets 5,000 an hour, with separate limits for search and apps. A public repository still has its own licence, so check it before reusing code.",
       "source_url": "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3484,7 +3484,7 @@
       "access_notes": "The Management API uses a scoped personal access token or OAuth. Each project's data APIs use their own keys and row-level security, which is a separate layer. The free plan covers two active projects, and inactive ones pause. Never expose a management or service key in a client app.",
       "source_url": "https://supabase.com/pricing",
       "source_checked": "2026-11-04",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3498,7 +3498,7 @@
       "access_notes": "Needs an Influencers Club account with API credits, and each call spends them. A local install reads an API key from the environment, and its batch tools read and write local files. MIT licence.",
       "source_url": "https://docs.influencers.club/guides/mcp-server",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3512,7 +3512,7 @@
       "access_notes": "Needs a vidIQ account, and hosted tools may use credits. It reads data for the channels you authorise, and some tools can make approved edits to videos you own. Apache 2.0 licence for the plugin.",
       "source_url": "https://github.com/vid-io/vidiq-mcp",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3526,7 +3526,7 @@
       "access_notes": "Needs a Google Cloud project and an API key. The default quota is 10,000 units a day, and most reads cost 1 unit. Changes to a channel need its owner's OAuth consent.",
       "source_url": "https://developers.google.com/youtube/v3/getting-started",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3540,7 +3540,7 @@
       "access_notes": "Runs locally with no account. Downloads must respect each site's terms and copyright. Unlicense.",
       "source_url": "https://github.com/yt-dlp/yt-dlp",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3554,7 +3554,7 @@
       "access_notes": "Runs locally with no account or key. It reads YouTube's caption data, which can change or be rate limited. MIT licence.",
       "source_url": "https://github.com/jdepoix/youtube-transcript-api",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3568,7 +3568,7 @@
       "access_notes": "Public pages are free to read. Reports and an API are for business customers. Earnings figures are estimates from public view counts.",
       "source_url": "https://socialblade.com/info",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3582,7 +3582,7 @@
       "access_notes": "Needs OAuth consent from the channel or content owner, so it cannot read another creator's private analytics unless they grant access. The yt-analytics.readonly scope covers activity metrics, revenue needs the separate yt-analytics-monetary.readonly scope, and Google sets a quota cost for each query. The YouTube API Services Terms and Developer Policies apply, including limits on storing data and on combining data from different content owners.",
       "source_url": "https://developers.google.com/youtube/analytics/reference/reports/query",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3596,7 +3596,7 @@
       "access_notes": "Needs OAuth consent from the channel or content owner, with the same read-only and monetary scopes as the Analytics API. A new reporting job backfills 30 days, the first files can take 48 hours, and reports stay downloadable for 60 days, or 30 days for backfilled history. The YouTube API Services Terms and Developer Policies limit how long stored data can be kept without a refresh.",
       "source_url": "https://developers.google.com/youtube/reporting/v1/reports",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3610,7 +3610,7 @@
       "access_notes": "Runs locally with no account or API key and writes comments, including commenter names, to a local file. It reads YouTube's web pages rather than the official API, and YouTube's Terms of Service bar automated access without YouTube's written permission. MIT licence.",
       "source_url": "https://github.com/egbertbouman/youtube-comment-downloader",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3624,7 +3624,7 @@
       "access_notes": "Runs inside your app with no account or API key, added as a dependency from JitPack or Maven Central. It scrapes YouTube's pages, which YouTube's Terms of Service bar without permission, and changes on YouTube's side can break it. GPL-3.0 licence, so software that ships it must meet the GPL's terms.",
       "source_url": "https://github.com/TeamNewPipe/NewPipeExtractor",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3638,7 +3638,7 @@
       "access_notes": "Runs locally with no API key; an optional OAuth sign-in caches a Google token on the machine, and downloads are written to disk. It reads YouTube's web player rather than the official API, YouTube's Terms of Service bar automated access and downloads without permission, and changes on YouTube's side can break it. MIT licence.",
       "source_url": "https://github.com/JuanBindez/pytubefix",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3652,7 +3652,7 @@
       "access_notes": "Runs locally with no API key; it caches session data by default and can use your account cookies for signed-in requests, which gives it that account's access. InnerTube is undocumented and YouTube's Terms of Service bar automated access without permission, so expect breakage and check your use. MIT licence.",
       "source_url": "https://ytjs.dev/guide/getting-started.html",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3666,7 +3666,7 @@
       "access_notes": "Runs locally with no account; it needs Python, PyTorch and ffmpeg, downloads model weights on first use, and models need from about 1 GB to about 10 GB of GPU memory. You need the right to download and transcribe the audio you give it. MIT licence for the code and model weights.",
       "source_url": "https://github.com/openai/whisper",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3680,7 +3680,7 @@
       "access_notes": "Runs locally with no account and downloads converted models from the Hugging Face Hub on first use. It decodes audio with PyAV, so a system ffmpeg is not needed, while GPU use needs NVIDIA's CUDA libraries. MIT licence.",
       "source_url": "https://github.com/SYSTRAN/faster-whisper",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3694,7 +3694,7 @@
       "access_notes": "Runs locally with no account; you build it from source and download ggml model files with the included script. The command line tool reads only 16-bit WAV files, so convert other audio with ffmpeg first. MIT licence.",
       "source_url": "https://github.com/ggml-org/whisper.cpp",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3708,7 +3708,7 @@
       "access_notes": "Runs locally with no account for transcription, and GPU use needs NVIDIA's CUDA toolkit. Speaker labels need a Hugging Face read token and acceptance of the user agreement for the pyannote speaker-diarization-community-1 model, and alignment models are downloaded per language. BSD-2-Clause licence.",
       "source_url": "https://github.com/m-bain/whisperX",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3722,7 +3722,7 @@
       "access_notes": "Needs your own Google Cloud project and OAuth client, and it saves client_secret.json and youtube.token.json in the working folder unless you set its environment variables. The OAuth grant lets it create, update and delete videos, playlists and comments on that channel, and agent mode sends prompts to the Gemini or OpenAI key you supply. Data API quota applies; Apache 2.0 licence.",
       "source_url": "https://github.com/eat-pray-ai/yutu",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3736,7 +3736,7 @@
       "access_notes": "Needs a YouTube Data API key in the environment, and each search spends that key's daily quota. It can fall back to a second and third key when one runs out, but the YouTube API Services Terms forbid getting round quota limits, so configure one key. Channel results can include emails found in public metadata, which are personal information; MIT licence.",
       "source_url": "https://github.com/ZubeidHendricks/youtube-mcp-server",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3750,7 +3750,7 @@
       "access_notes": "Runs through npx with no account or key for transcripts. It reads YouTube's caption data outside the official API, which YouTube's Terms of Service restrict, and the optional video analysis tool sends a direct video URL to TwelveLabs under your own TwelveLabs key. MIT licence.",
       "source_url": "https://github.com/kimtaeyoon83/mcp-server-youtube-transcript",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3764,7 +3764,7 @@
       "access_notes": "Needs a Supadata account and API key, or OAuth sign-in for the hosted MCP server at api.supadata.ai/mcp; the local server reads SUPADATA_API_KEY. The free plan gives 100 credits a month at one request a second, a transcript costs 1 credit, and a generated transcript costs 2 credits a minute. The MCP server code is MIT licensed.",
       "source_url": "https://docs.supadata.ai/integrations/mcp",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3778,7 +3778,7 @@
       "access_notes": "Sign in with a HypeAuditor Pro or higher account; creator analytics spend AI credits at US$0.005 each, about 10 for a search and 100 for an analysed account, and the assistant asks before any paid unlock. It can also create media plans and move creators between campaigns in your account. HypeAuditor's terms bar bots and scraping outside its API, which is a separate product sold through its sales team.",
       "source_url": "https://mcp.hypeauditor.com/",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3792,7 +3792,7 @@
       "access_notes": "Sign in through your MCP client or use an arc_sk_ account key; the free plan has 1,000 credits a month and withholds the newest 30 days, and sponsor and ad-read data needs the Pro+ plan. Reads cost credits per row, and the write tool can create and pause monitors but not delete them. Speaker and sponsor labels can be incomplete, and the plugin repository is under a proprietary licence that only permits running it.",
       "source_url": "https://arcmira.com/docs/mcp-server",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3806,7 +3806,7 @@
       "access_notes": "Needs a 1of10 Pro (US$89 a month) or Ultra plan, and you connect by signing in from its Claude and ChatGPT page; the server link for other clients appears only after sign-in. Research does not use credits but generating titles, ideas or thumbnails does, and it can save videos, create trackers and link your channel without deleting anything. There is no public API reference beyond the product page.",
       "source_url": "https://1of10.com/mcp",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3820,7 +3820,7 @@
       "access_notes": "Reading segments needs no account or key, and the full database can be downloaded. The API and database are under CC BY-NC-SA 4.0 unless the maintainer gives permission, so commercial use needs that permission and reuse needs attribution. Automated submissions are not allowed, and segments are community votes rather than verified facts.",
       "source_url": "https://wiki.sponsor.ajay.app/w/API_Docs",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3834,7 +3834,7 @@
       "access_notes": "No account or key is needed, and each client is limited to 100 requests a minute and 10,000 a day. Third-party use must credit the project with a link to its repository or returnyoutubedislike.com. Dislike figures for the period since YouTube hid them are estimates, so label them as such.",
       "source_url": "https://returnyoutubedislike.com/docs/usage-rights",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3848,7 +3848,7 @@
       "access_notes": "Needs a SerpApi account and private API key; the free plan covers 250 searches a month at 50 an hour, and the Starter plan is US$25 a month for 1,000. Cached searches are free, and an output option returns Markdown for agents. SerpApi's U.S. Legal Shield, its cover for scraping and parsing search data, starts on the Production plan.",
       "source_url": "https://serpapi.com/pricing.md",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3862,7 +3862,7 @@
       "access_notes": "A free trial gives 80 one-time credits, and ongoing access uses a Nox Key set up through an account manager with quoted pricing; each key is limited to 60 requests a minute. The site's terms forbid crawling NoxInfluencer data, so use the API rather than automating the web app. Contact details it returns are personal information.",
       "source_url": "https://www.noxinfluencer.com/api-docs/docs/rest/api",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3876,7 +3876,7 @@
       "access_notes": "Needs an access token under a Modash API agreement; each call spends credits, published pricing starts at US$16,200 a year for Discovery and US$10,000 a year for Raw, and trial credits are offered after a call with the team. Modash also offers an MCP server for the same data. The API terms bar standalone resale of raw results and require a lawful basis for processing creator data.",
       "source_url": "https://www.modash.io/influencer-marketing-api",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3890,7 +3890,7 @@
       "access_notes": "Sign up for a free sandbox, then talk to sales for production access and pricing. Consented data needs each creator to connect their account through Phyllo and approve the fields shared. Its developer documentation is published under the InsightIQ name at docs.insightiq.ai.",
       "source_url": "https://www.getphyllo.com/",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3904,7 +3904,7 @@
       "access_notes": "The API uses a bearer key and prepaid credits, from 100 credits for US$24, charged per result, with free search previews and email lookups billed only when an email is found. Sponsorship tracking is part of the web app's Power and Enterprise plans, not the API. Business emails it returns are personal information, so outreach must follow spam and privacy law.",
       "source_url": "https://channelcrawler.com/api",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3918,7 +3918,7 @@
       "access_notes": "Needs an Apify account and API token; it bills per video, about US$2.40 to US$4 per 1,000 depending on plan, and results are stored in your Apify datasets. The free plan's US$5 monthly credit covers a small run. It scrapes YouTube outside the official API, which YouTube's Terms of Service bar without permission, and Apify says not to collect personal data without a legitimate reason.",
       "source_url": "https://apify.com/streamers/youtube-scraper",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -3932,7 +3932,7 @@
       "access_notes": "Needs a ThoughtLeaders account, signed in by browser OAuth, device code or API key, and every query spends credits, with recommender tools on the Intelligence plan at 25 credits a call. It can add comments to records, signing out ends every session, and tl setup writes skill files into your agent's folders. Needs Python 3.12 or later with jq, ripgrep, duckdb and yt-dlp; MIT licence.",
       "source_url": "https://github.com/ThoughtLeaders-io/thoughtleaders-cli",
       "source_checked": "2026-11-05",
-      "added": "2026-11-05",
+      "added": "2026-11-06",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -4030,7 +4030,7 @@
       "access_notes": "Runs locally with npx @playwright/mcp@latest, for example claude mcp add playwright npx @playwright/mcp@latest. Needs Node.js 18 or later. By default the browser keeps a persistent profile on disk (ms-playwright/mcp-* in your user cache folder), so sites you sign in to stay signed in; --isolated keeps the profile in memory instead. --extension connects to your running Chrome or Edge and its signed-in tabs. The README says the server is not a security boundary, and neither are --allowed-origins and --blocked-origins. --port serves it over HTTP on localhost; --host 0.0.0.0 opens it to the network. The README suggests coding agents may do better with the Playwright CLI and skills, which use fewer tokens. Apache-2.0.",
       "source_url": "https://github.com/microsoft/playwright-mcp",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation and licence reviewed; not installed or independently tested",
       "thl_project": false
     },
@@ -4044,7 +4044,7 @@
       "access_notes": "Remote URL https://mcp.sentry.dev/mcp, for example claude mcp add --transport http sentry https://mcp.sentry.dev/mcp, which opens an OAuth sign-in to your Sentry account. Adding an organisation slug, or an organisation and project slug, to the URL path limits the session to that scope. Clients that send custom headers can pass a Sentry user token as Authorization: Sentry-Bearer instead. For self-hosted Sentry, run npx @sentry/mcp-server@latest over stdio with SENTRY_AUTH_TOKEN and SENTRY_HOST; the README's token scopes include project:write, team:write and event:write. When you run it yourself, the natural-language search tools need your own OpenAI, Azure OpenAI, Anthropic or OpenRouter key. The source moved from getsentry/sentry-mcp to getsentry/toolkit. The LICENSE.md file is FSL-1.1-Apache-2.0; GitHub shows NOASSERTION.",
       "source_url": "https://github.com/getsentry/toolkit",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation and licence reviewed; not connected or independently tested",
       "thl_project": false
     },
@@ -4058,7 +4058,7 @@
       "access_notes": "Remote URL https://mcp.atlassian.com/v2/mcp (v2 is the recommended version), for example claude mcp add --transport http atlassian https://mcp.atlassian.com/v2/mcp, then /mcp to sign in. Needs an Atlassian Cloud site. Sign in with OAuth 2.1 or an API token; actions run with your existing Atlassian permissions. Jira Service Management tools work only with API tokens that an organisation admin has turned on, and the Jira delete and manage tools stay off until an admin enables them. Admins can choose which AI tools and domains may connect, and each tool call is recorded in the organisation's audit log. IP allowlists apply to MCP requests, so a hosted AI client calling from its provider's addresses may be refused. The repository's plugin files and skills are Apache-2.0; the server itself runs on Atlassian Cloud.",
       "source_url": "https://github.com/atlassian/atlassian-mcp-server",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation and licence reviewed; not connected or independently tested",
       "thl_project": false
     },
@@ -4072,7 +4072,7 @@
       "access_notes": "Remote URL https://mcp.stripe.com. npm install -g @stripe/cli@latest then stripe agent setup configures it, with Stripe's skills, for the agents it detects. Sign in with OAuth, choosing which live accounts or sandboxes the client may use, or pass an agent API key as a bearer token. From December 2026 it stops accepting full-access secret keys and restricted keys without the Agent tag. The stripe_api_write tool can call any Stripe API POST, PATCH, PUT or DELETE method. Some actions, such as refunds, wait for you to approve them in the Dashboard, and Stripe asks you to turn on tool approval in your client as well. Admins can turn MCP access on or off for live mode and for sandboxes. The older @stripe/agent-toolkit and @stripe/mcp packages are deprecated and get no security fixes. Stripe's plugin and skills repository, github.com/stripe/ai, is MIT.",
       "source_url": "https://docs.stripe.com/mcp",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation and the stripe/ai README reviewed; not connected or independently tested",
       "thl_project": false
     },
@@ -4086,7 +4086,7 @@
       "access_notes": "Remote URL https://mcp.linear.app/mcp over Streamable HTTP, for example claude mcp add --transport http linear-server https://mcp.linear.app/mcp, then /mcp to sign in with OAuth 2.1. That endpoint can read and write. For read-only access, connect to https://mcp.linear.app/mcp/readonly or request only the read OAuth scope. A Linear API key or OAuth token can go in an Authorization: Bearer header instead; a key with only the Read permission keeps it read-only. Each workspace needs its own sign-in. Clients without remote MCP support can use npx -y mcp-remote https://mcp.linear.app/mcp. The /sse endpoint is deprecated.",
       "source_url": "https://linear.app/docs/mcp",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation reviewed; not connected or independently tested",
       "thl_project": false
     },
@@ -4100,7 +4100,7 @@
       "access_notes": "Remote server at https://mcp.figma.com/mcp, for example claude mcp add --transport http figma https://mcp.figma.com/mcp, or Figma's plugin with claude plugin install figma@claude-plugins-official. You sign in with your Figma account and can reach only files you already have access to. Starter plans and View or Collab seats get up to 20 read tool calls a month; Full and Dev seats on paid plans get 200 to 600 a day. Writing outside your drafts needs a Full seat. Writing to the canvas is free during the beta and will become a usage-based paid feature. generate_image and send_prompt use Figma AI credits. A desktop server that runs through the Figma desktop app needs a Dev or Full seat. Use falls under the Figma Developer Terms.",
       "source_url": "https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation reviewed; not connected or independently tested",
       "thl_project": false
     },
@@ -4114,7 +4114,7 @@
       "access_notes": "Ready to use in Claude.ai, Claude Code, Perplexity and Cursor. A client you build must be backed by a registered Slack app, either internal or published in the Slack Marketplace, and connects to https://mcp.slack.com/mcp over Streamable HTTP with confidential OAuth (the app's client ID and secret, or PKCE for desktop clients). SSE and dynamic client registration are not supported. Workspace admins approve and manage MCP client apps. User token scopes follow the tools, for example search:read.public to search, chat:write to send and channels:history to read. MCP activity appears in Slack's audit logs, the app's IP allowlist applies, and standard Slack API rate limits apply per tool.",
       "source_url": "https://docs.slack.dev/ai/slack-mcp-server/",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation reviewed; not connected or independently tested",
       "thl_project": false
     },
@@ -4128,7 +4128,7 @@
       "access_notes": "Clients connect to https://mcp.zapier.com/api/v1/connect, and most sign in with OAuth. Plugins for Claude Code, Codex, Cursor and Gemini CLI come from github.com/zapier/zapier-mcp (MIT). Actions run through the same app connections as your Zaps, so the agent acts with those accounts. In agentic mode the AI adds the actions it needs during a conversation; managed mode limits it to a fixed set you pick. Each successful tool call uses two tasks from your Zapier plan. Sharing a server needs a Team or Enterprise plan. Clients must support Streamable HTTP; SSE is not supported.",
       "source_url": "https://docs.zapier.com/mcp/home",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation reviewed; not connected or independently tested",
       "thl_project": false
     },
@@ -4142,7 +4142,7 @@
       "access_notes": "uvx snyk-agent-scan@latest scans the whole machine; pass a path such as ~/.claude/skills or an mcp.json file to scan one target. Standalone binaries with an SBOM and signed checksums are on GitHub Releases. Needs a Snyk account and a SNYK_TOKEN. To read tool descriptions it starts the stdio MCP servers in your configs and connects to remote ones, so the README advises scanning untrusted configs inside a sandbox; interactive runs ask before contacting each server. It sends component details, tool descriptions and skill content to Snyk's analysis API, with secrets redacted, under Snyk's Agent Scan terms. The README says CLI output is experimental and may change. The repository moved from invariantlabs-ai/mcp-scan. Apache-2.0.",
       "source_url": "https://github.com/snyk/agent-scan",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation and licence reviewed; not installed or independently tested",
       "thl_project": false
     },
@@ -4156,7 +4156,7 @@
       "access_notes": "brew tap stacklok/tap then brew install thv, winget install stacklok.thv, a binary from GitHub Releases, or the ToolHive desktop app. Needs Docker, Podman, Colima or Rancher Desktop. Each server gets a container with a minimal permission file and no local credentials. Secrets are stored encrypted, with the encryption password kept in your OS keyring. Per-request access policy needs an identity provider to be configured. The CLI checks for updates and sends anonymous usage metrics (tool call counts) until you run thv config usage-metrics disable. Apache-2.0.",
       "source_url": "https://github.com/stacklok/toolhive",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation and licence reviewed; not installed or independently tested",
       "thl_project": false
     },
@@ -4170,7 +4170,7 @@
       "access_notes": "pip install nemoguardrails. Needs Python 3.11 to 3.13. Rails are set in a config.yml file and Colang flows, and call the LLM provider set there, such as OpenAI, with your own key. nemoguardrails server runs it as an HTTP API. The library sends anonymous telemetry to NVIDIA (versions, OS, provider names and rail counts; the README says no prompts, completions or keys) until you set NEMO_GUARDRAILS_NO_USAGE_STATS=1 before it starts. The README says NVIDIA Build endpoints are for evaluation only. The LICENSE file is Apache-2.0; GitHub shows NOASSERTION.",
       "source_url": "https://github.com/NVIDIA-NeMo/Guardrails",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation and licence reviewed; not installed or independently tested",
       "thl_project": false
     },
@@ -4184,7 +4184,7 @@
       "access_notes": "A free PDF from the OWASP GenAI Security Project page, downloadable without signing in. The 2026 edition was published on 9 December 2025. Risks are numbered ASI01 to ASI10 and mapped to OWASP's Agentic AI Threats and Mitigations guide. CC BY-SA 4.0.",
       "source_url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official page and PDF reviewed; not independently tested",
       "thl_project": false
     },
@@ -4198,7 +4198,7 @@
       "access_notes": "A plain file you publish. It grants no access, and agents read it on demand while they help a user. Format: an H1 name, an optional blockquote summary, then H2 sections of Markdown link lists, with an Optional section for links an agent can skip. Version 2 also proposes .md copies of pages, linked with rel=\"alternate\" type=\"text/markdown\" and rel=\"describedby\". Written by Jeremy Howard and open for community input at github.com/AnswerDotAI/llms-txt, which is Apache-2.0.",
       "source_url": "https://llmstxt.org/",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -4212,7 +4212,7 @@
       "access_notes": "Spec and docs at ucp.dev; schemas, SDKs, samples and conformance tests at github.com/Universal-Commerce-Protocol. Businesses declare the capabilities they support in a profile and offer them over REST, MCP or A2A. Identity linking uses OAuth 2.0, and payments can use AP2 mandates. Businesses stay the merchant of record. Co-developed by Google, Shopify, Etsy, Wayfair, Target, Walmart and others. The latest dated release is v2026-08-25; the lodging spec is a draft. An agent that completes a checkout can spend money, so set limits. Apache-2.0.",
       "source_url": "https://github.com/Universal-Commerce-Protocol/ucp",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
@@ -4226,7 +4226,7 @@
       "access_notes": "The spec is in beta, with dated versions; the latest stable one is 2026-04-17, published as RFCs, OpenAPI and JSON Schema files on GitHub. It works over REST or MCP. ChatGPT was the first platform to implement it, and businesses apply to sell there. Stripe was the first compatible payment provider, through its Shared Payment Token. Businesses stay the merchant of record and can accept or decline each agent transaction. An agent that completes a checkout can spend money, so set limits. Apache-2.0.",
       "source_url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol",
       "source_checked": "2026-11-07",
-      "added": "2026-11-06",
+      "added": "2026-11-07",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     }

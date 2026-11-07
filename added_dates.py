@@ -2,7 +2,7 @@
 
 Every entry in resources.json has an `added` date (YYYY-MM-DD). The dates for the entries that
 existed before the field did were taken from the git history of resources.json: each entry got
-the author date (`git log --date=short`) of the first commit on main whose resources.json holds
+the author date, in Brisbane time (Australia/Brisbane), of the first commit on main whose resources.json holds
 its id.
 
 EARLIEST_ADDED (30 October 2026) is the earliest date Gearlist records. The clone the dates were
@@ -17,6 +17,7 @@ Run it on an up-to-date main. It reads the repository with git and makes no netw
 """
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -75,16 +76,22 @@ def check(entries, updated):
     return problems
 
 
+# Gearlist's dates (updated, source_checked) are Brisbane dates, so commit times are read in
+# that time zone too. A commit at 23:07 UTC on 6 November is 7 November in Brisbane.
+TIME_ZONE = "Australia/Brisbane"
+
+
 def _git(repo, *args):
+    env = dict(os.environ, TZ=TIME_ZONE)
     return subprocess.run(
-        ["git", "-C", str(repo), *args], check=True, capture_output=True, text=True, encoding="utf-8"
+        ["git", "-C", str(repo), *args], check=True, capture_output=True, text=True, encoding="utf-8", env=env
     ).stdout
 
 
 def first_seen(repo=ROOT, ref="HEAD", path=DATA):
-    """{id: date} for every id that has ever been in `path`: the author date of the first commit
-    on the first-parent line of `ref` whose copy of the file holds that id."""
-    log = _git(repo, "log", "--first-parent", "--reverse", "--format=%H%x09%ad", "--date=short", ref, "--", path)
+    """{id: date} for every id that has ever been in `path`: the author date, in Brisbane time, of
+    the first commit on the first-parent line of `ref` whose copy of the file holds that id."""
+    log = _git(repo, "log", "--first-parent", "--reverse", "--format=%H%x09%ad", "--date=format-local:%Y-%m-%d", ref, "--", path)
     seen = {}
     for line in log.splitlines():
         if not line.strip():
