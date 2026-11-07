@@ -119,6 +119,10 @@ The skills are:
 - `au-business-check`: check an Australian business before you deal with it, with the two skills below. It reports whether the business is registered, its status, registration date, ABN and ACN, and the date of each source. With an ABN Lookup GUID it adds GST registration and state.
 - `asic-registers`: search ASIC's company and business names registers by name, ACN or ABN, through data.gov.au. No key needed.
 - `abn-lookup`: ABN details, GST registration and name matches from ABN Lookup, the Australian Business Register's free web service. Needs a free GUID.
+- `company-check`: check a company in the official register of its country: Australia with the three skills above, and the United Kingdom, the United States and New Zealand with the three below. It says which sources ran, which did not, and the environment variable each one needs.
+- `uk-companies-house`: a UK company's status, type, registered office, filing due dates and previous names from the Companies House public data API, by name or company number. Needs a free API key.
+- `us-sec-edgar`: a company's SEC EDGAR record and recent filings, by name, ticker or CIK. No key, but it needs a name and contact email to declare to the SEC. EDGAR covers mostly public companies.
+- `nz-companies-office`: a New Zealand business's record in the NZBN Register, by NZBN, name or company number, from MBIE's NZBN API. Needs a subscription key. MBIE charges no fee, but asks for a signed access agreement first.
 - `nvidia-api-catalog`: list the models on NVIDIA's hosted API catalogue and check whether a model id is live or retired, with no key. It also shows how to call a model with a key in `NVIDIA_API_KEY`. NVIDIA's free developer access is for prototyping and testing only.
 
 To install the YouTube creator pack on its own:
@@ -131,6 +135,12 @@ To install the Australian business data pack on its own:
 
 ```bash
 npx skills add techhorizonlabs/gearlist --skill au-business-check --skill asic-registers --skill abn-lookup
+```
+
+To install the business check pack for Australia, the United Kingdom, the United States and New Zealand:
+
+```bash
+npx skills add techhorizonlabs/gearlist --skill company-check --skill au-business-check --skill asic-registers --skill abn-lookup --skill uk-companies-house --skill us-sec-edgar --skill nz-companies-office
 ```
 
 [THL Open]({THL_OPEN['url']}) is a second skills pack from Tech Horizon Labs, for GEO (Generative Engine Optimisation) audits and agent-readiness checks of a website. Its skills check AI crawler access, structured data, llms.txt and how likely AI systems are to quote a page, run Cloudflare's agent-readiness check, and write client reports. Install it the same way:

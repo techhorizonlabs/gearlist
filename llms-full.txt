@@ -2323,6 +2323,30 @@ Access: Free download in .DAT files. Licensed under Creative Commons BY-NC-ND 4.
 Source checked: 2026-11-03
 Gearlist page: https://gearlist.build/tools/nsw-property-sales-information/ (Markdown: https://gearlist.build/tools/nsw-property-sales-information.md)
 
+Companies House public data API | APIs and data
+https://developer.company-information.service.gov.uk/
+The UK Companies House REST API for searching the register and reading company profiles, filing history, officers and charges.
+For: Agents and apps that check or pre-fill UK company details.
+Access: Free. Needs a Companies House account and an API key sent by HTTP Basic auth; keep the key out of code and chats. Up to 600 requests in 5 minutes. Officer and PSC records are about people.
+Source checked: 2026-11-07
+Gearlist page: https://gearlist.build/tools/companies-house-api/ (Markdown: https://gearlist.build/tools/companies-house-api.md)
+
+SEC EDGAR APIs | APIs and data
+https://www.sec.gov/search-filings/edgar-application-programming-interfaces
+The US SEC's JSON APIs on data.sec.gov for each filer's submission history and XBRL financial data.
+For: Agents and analysts researching US public companies and their filings.
+Access: No key. The SEC asks automated requests to declare a name and contact email in the User-Agent header and to stay under 10 requests a second. Covers SEC filers, mostly public companies.
+Source checked: 2026-11-07
+Gearlist page: https://gearlist.build/tools/sec-edgar-apis/ (Markdown: https://gearlist.build/tools/sec-edgar-apis.md)
+
+NZBN API | APIs and data
+https://portal.api.business.govt.nz/api/nzbn
+MBIE's API for searching the New Zealand Business Number Register and reading business details, including companies from the Companies Office registers.
+For: Agents and apps that check or pre-fill New Zealand business details.
+Access: No fee. Needs a signed MBIE API Access Agreement, an approved subscription and a subscription key sent in a header. Passed-on data must carry the search time and "Data sourced from the [Register name]".
+Source checked: 2026-11-07
+Gearlist page: https://gearlist.build/tools/nzbn-api/ (Markdown: https://gearlist.build/tools/nzbn-api.md)
+
 Public APIs | APIs and data
 https://github.com/public-apis/public-apis
 A large community list of free APIs grouped by topic, most marked with their auth type, HTTPS and CORS support.

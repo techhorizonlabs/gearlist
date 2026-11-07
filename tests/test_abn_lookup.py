@@ -115,6 +115,15 @@ class GuidTests(unittest.TestCase):
                 self.assertNotIn(echoed, out + err, (echoed, extra))
                 self.assertIn("***", out)
 
+    def test_percent_escapes_in_either_case_are_scrubbed(self):
+        # A GUID with a reserved character, echoed back with its escape in lower or upper case.
+        odd = "AbC/x"
+        for echoed in ("AbC%2fx", "AbC%2Fx", "abc%2fx"):
+            found = dict(fakes.SYNTHETIC_FOUND, EntityName=echoed, BusinessName=[echoed])
+            code, out, err, _ = run(["abn", "99000000000"], fakes.abr_details(**found), guid=odd)
+            self.assertEqual(code, al.EXIT_OK)
+            self.assertNotIn(echoed, out + err, echoed)
+
     def test_redirects_are_reported_and_not_followed(self):
         def handler(path):
             if path.startswith("/json"):

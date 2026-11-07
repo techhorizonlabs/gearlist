@@ -3251,6 +3251,48 @@
       "thl_project": false
     },
     {
+      "id": "companies-house-api",
+      "name": "Companies House public data API",
+      "category": "APIs and data",
+      "url": "https://developer.company-information.service.gov.uk/",
+      "description": "The UK Companies House REST API for searching the register and reading company profiles, filing history, officers and charges.",
+      "for_whom": "Agents and apps that check or pre-fill UK company details.",
+      "access_notes": "Free. Needs a Companies House account and an API key sent by HTTP Basic auth; keep the key out of code and chats. Up to 600 requests in 5 minutes. Officer and PSC records are about people.",
+      "source_url": "https://developer-specs.company-information.service.gov.uk/guides/rateLimiting",
+      "source_checked": "2026-11-07",
+      "added": "2026-11-07",
+      "verification": "Official documentation reviewed; public endpoints queried without a key",
+      "thl_project": false
+    },
+    {
+      "id": "sec-edgar-apis",
+      "name": "SEC EDGAR APIs",
+      "category": "APIs and data",
+      "url": "https://www.sec.gov/search-filings/edgar-application-programming-interfaces",
+      "description": "The US SEC's JSON APIs on data.sec.gov for each filer's submission history and XBRL financial data.",
+      "for_whom": "Agents and analysts researching US public companies and their filings.",
+      "access_notes": "No key. The SEC asks automated requests to declare a name and contact email in the User-Agent header and to stay under 10 requests a second. Covers SEC filers, mostly public companies.",
+      "source_url": "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data",
+      "source_checked": "2026-11-07",
+      "added": "2026-11-07",
+      "verification": "Official documentation reviewed; public endpoints queried",
+      "thl_project": false
+    },
+    {
+      "id": "nzbn-api",
+      "name": "NZBN API",
+      "category": "APIs and data",
+      "url": "https://portal.api.business.govt.nz/api/nzbn",
+      "description": "MBIE's API for searching the New Zealand Business Number Register and reading business details, including companies from the Companies Office registers.",
+      "for_whom": "Agents and apps that check or pre-fill New Zealand business details.",
+      "access_notes": "No fee. Needs a signed MBIE API Access Agreement, an approved subscription and a subscription key sent in a header. Passed-on data must carry the search time and \"Data sourced from the [Register name]\".",
+      "source_url": "https://portal.api.business.govt.nz/api/nzbn",
+      "source_checked": "2026-11-07",
+      "added": "2026-11-07",
+      "verification": "Official documentation and access agreement reviewed; public endpoints queried without a key",
+      "thl_project": false
+    },
+    {
       "id": "public-apis",
       "name": "Public APIs",
       "category": "APIs and data",
