@@ -28,6 +28,7 @@ SKILLS = ROOT / "skills"
 # earliest date Gearlist records. build.py uses the same module.
 sys.path.insert(0, str(ROOT))
 import added_dates  # noqa: E402
+import specs  # noqa: E402
 
 BASE_URL = "https://gearlist.build/"
 REPO_URL = "https://github.com/techhorizonlabs/gearlist"
@@ -1275,7 +1276,7 @@ def compare_md(g):
     cols = compare_columns(g)
     if not cols:
         return []
-    cell = lambda t: str(t).replace("|", "\\|")
+    cell = specs.md_cell
     lines = [f'## Compare {g["name"].lower()}', "", "| Name | " + " | ".join(cell(c) for c in cols) + " |",
              "|" + " --- |" * (len(cols) + 1)]
     for e in g["entries"]:
