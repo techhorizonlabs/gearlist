@@ -174,6 +174,23 @@ describe("Entry and group pages", () => {
       "owasp-agentic-top-10": "OWASP Top 10 for Agentic Applications: Agent security risks",
       "universal-commerce-protocol": "Universal Commerce Protocol (UCP): Checkout standard for agents",
       "agentic-commerce-protocol": "Agentic Commerce Protocol (ACP): Agent checkout from OpenAI and Stripe",
+      // Vendor skill packs and MCP servers added 7 Nov 2026: the cutter stopped on whose they were.
+      "cloudflare-skills": "Cloudflare Skills: Agent skills for building on Cloudflare",
+      "cloudflare-security-audit-skill": "Cloudflare security-audit skill: Six-phase security audit of a codebase",
+      "gemini-skills": "Gemini API skills: Agent skills for writing Gemini API code",
+      "gemini-docs-mcp": "Gemini Docs MCP: Search and read the Gemini API docs from an agent",
+      "google-skills": "Google Agent Skills: Skills for Google Cloud and other Google products",
+      "google-developer-knowledge-mcp": "Google Developer Knowledge MCP: Search Google's developer docs",
+      "google-maps-agent-skills": "Google Maps Platform agent skills: Add Google Maps features to an app",
+      "maps-experience-agent-tools": "Maps Experience agent tools: Places, weather and routes for agents",
+      "microsoft-graph-dev-skills": "Microsoft Graph Developer Skills: Copilot CLI plugin for Graph apps",
+      "microsoft-skills": "Microsoft Agent Skills: Skills for Azure SDKs and Microsoft Foundry",
+      "microsoft-mcp-server-for-enterprise": "Microsoft MCP Server for Enterprise: Ask about your Entra tenant",
+      "notion-skills": "Notion Skills: Agent skills for the ntn CLI and Notion Apps",
+      "notion-claude-code-plugin": "Notion plugin for Claude Code: Notion skills, commands and MCP server",
+      "openrouter-skills": "OpenRouter Skills: Agent skills for building on OpenRouter",
+      "openrouter-mcp": "OpenRouter MCP: Live models, prices and test messages from an agent",
+      "nvidia-skills": "NVIDIA Agent Skills: Skills catalogue for NVIDIA software",
     };
     for (const [id, lead] of Object.entries(expected)) {
       const html = pages.get(`/tools/${id}/`);

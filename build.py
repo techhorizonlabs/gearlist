@@ -119,6 +119,7 @@ The skills are:
 - `au-business-check`: check an Australian business before you deal with it, with the two skills below. It reports whether the business is registered, its status, registration date, ABN and ACN, and the date of each source. With an ABN Lookup GUID it adds GST registration and state.
 - `asic-registers`: search ASIC's company and business names registers by name, ACN or ABN, through data.gov.au. No key needed.
 - `abn-lookup`: ABN details, GST registration and name matches from ABN Lookup, the Australian Business Register's free web service. Needs a free GUID.
+- `nvidia-api-catalog`: list the models on NVIDIA's hosted API catalogue and check whether a model id is live or retired, with no key. It also shows how to call a model with a key in `NVIDIA_API_KEY`. NVIDIA's free developer access is for prototyping and testing only.
 
 To install the YouTube creator pack on its own:
 
