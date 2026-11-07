@@ -25,6 +25,7 @@ Every entry has a page at https://gearlist.build/tools/<id>/ with a Markdown cop
 - [Full descriptions](llms-full.txt): Purpose, intended user, access notes, check date and page links.
 - [Structured records](resources.json): The canonical directory data.
 - [Human index](https://gearlist.build/): Browse and search by category.
+- [What's new](https://gearlist.build/new.md): Entries by the date they were added, newest first. Atom feed: https://gearlist.build/feed.xml
 - [House rules](AGENTS.md): How an agent should work in this repository.
 - [Contribution guide](https://github.com/techhorizonlabs/gearlist/blob/main/CONTRIBUTING.md): How to suggest additions or corrections.
 - [Stars queue](https://raw.githubusercontent.com/techhorizonlabs/gearlist/main/stars-queue.json): All 313 starred GitHub repos. Queued rows wait for a documentation review.

@@ -25,6 +25,7 @@ The website has these for agents, as well as the files in this repository:
 - [agent-prompt.txt](https://gearlist.build/agent-prompt.txt): the prompt to give your agent.
 - A Markdown copy of the catalog page, sent when a request for `https://gearlist.build/` asks for `text/markdown`. It is also at [index.md](https://gearlist.build/index.md).
 - A page for every entry at `https://gearlist.build/tools/<id>/`, for example [Firecrawl](https://gearlist.build/tools/firecrawl/), and a page for every group at `https://gearlist.build/category/<group>/`. Each has a Markdown copy beside it, such as [tools/firecrawl.md](https://gearlist.build/tools/firecrawl.md).
+- [What's new](https://gearlist.build/new/): entries by the date they were added, newest first, with a Markdown copy at [new.md](https://gearlist.build/new.md) and an Atom feed at [feed.xml](https://gearlist.build/feed.xml).
 - Discovery files: [ai-catalog.json](https://gearlist.build/.well-known/ai-catalog.json) names the MCP server and the skills, [api-catalog](https://gearlist.build/.well-known/api-catalog) lists the APIs, and [agent-skills/index.json](https://gearlist.build/.well-known/agent-skills/index.json) lists the skills with their checksums.
 
 ## Skills

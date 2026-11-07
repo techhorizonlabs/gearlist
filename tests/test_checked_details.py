@@ -25,6 +25,8 @@ BASE = {
     "access_notes": "None beyond a public clone.",
     "source_url": "https://example.com/docs",
     "source_checked": "2026-11-07",
+    # Every entry has an added date since 7 Nov 2026. build_site.py checks it at load time.
+    "added": "2026-11-07",
     "thl_project": False,
 }
 GROUP = {"name": "Agent tools", "slug": "agent-tools", "entries": [BASE]}
@@ -70,6 +72,9 @@ class CheckedDetailsTest(unittest.TestCase):
             md,
         )
         self.assertIn('licence: "MIT"', md)
+        # The added date is an entry detail, listed above What we checked.
+        self.assertIn("- Added to Gearlist: 7 November 2026\n", md.split("## What we checked")[0])
+        self.assertIn('added: "2026-11-07"', md)
         plain = build_site.render_tool_md(BASE, GROUP, [], title="Fixture", description="d", og=OG)
         self.assertNotIn("Licence", plain)
         self.assertNotIn("licence:", plain)

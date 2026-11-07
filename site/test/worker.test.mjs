@@ -13,7 +13,9 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 import worker, { prefersMarkdown } from "../worker/index.mjs";
-import { NOTICE } from "../worker/catalog.mjs";
+import {
+  EARLIEST_ADDED, NOTICE, buildCatalog, parseSearchArgs, parseStackArgs, searchPayload, stackPayload,
+} from "../worker/catalog.mjs";
 import { MAX_BODY, MODERN_VERSION, SUPPORTED_VERSIONS } from "../worker/mcp.mjs";
 
 const SITE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -385,7 +387,7 @@ describe("tools/call", () => {
     // verification, the other has an empty verification.
     const base = {
       category: "Agent tools", description: "A test entry.", for_whom: "Tests.", access_notes: "None beyond a clone.",
-      source_checked: "2026-11-07", thl_project: false,
+      source_checked: "2026-11-07", added: "2026-11-07", thl_project: false,
     };
     const fixture = {
       updated: "2026-11-07",
@@ -415,6 +417,8 @@ describe("tools/call", () => {
       source_checked: "2026-11-07", source_url: "https://example.com/a/docs", access_notes: "None beyond a clone.", licence: "MIT",
     });
     assert.equal(a.structuredContent.entry.licence, "MIT");
+    assert.equal(a.structuredContent.entry.added, "2026-11-07");
+    assert.equal("added" in a.structuredContent.checked, false, "added is an entry fact and stays out of checked");
     const b = await ask("no-check-scope");
     assert.deepEqual(Object.keys(b.structuredContent.checked), ["source_checked", "source_url", "access_notes"]);
     assert.equal("licence" in b.structuredContent.entry, false);
@@ -636,6 +640,70 @@ describe("recommend_stack", () => {
       globalThis.fetch = realFetch;
     }
     assert.deepEqual([...fresh.ASSETS.calls].sort(), ["/.well-known/agent-skills/index.json", "/resources.json"]);
+  });
+});
+
+describe("Added dates in the tool output", () => {
+  test("get_gear and search_gear return each entry's added date from resources.json", async () => {
+    const list = (await legacy("tools/list")).json.result.tools;
+    const schema = list[1].outputSchema.properties.entry;
+    assert.ok(schema.required.includes("added"));
+    assert.match(schema.properties.added.description, new RegExp(`${EARLIEST_ADDED} is the earliest date Gearlist records, and means on or before that date`));
+    for (const want of records.resources) {
+      const entry = (await tool("get_gear", { id: want.id })).structuredContent.entry;
+      assert.equal(entry.added, want.added, want.id);
+      assert.deepEqual(Object.keys(entry).slice(8, 10), ["source_checked", "added"], `${want.id} lists added after source_checked`);
+    }
+    const found = (await tool("search_gear", { query: "browser", limit: 50 })).structuredContent.results;
+    for (const e of found) assert.equal(e.added, records.resources.find((r) => r.id === e.id).added);
+    const api = await (await call("/api/search?q=browser&limit=3")).json();
+    assert.ok(api.results.every((e) => /^\d{4}-\d{2}-\d{2}$/.test(e.added)));
+  });
+
+  test("search_gear ranks and recommend_stack answers exactly as they would without added", async () => {
+    const skills = JSON.parse(await readFile(path.join(DIST, ".well-known", "agent-skills", "index.json"), "utf8"));
+    const withDates = buildCatalog(records, skills);
+    const withoutDates = buildCatalog({ ...records, resources: records.resources.map(({ added, ...rest }) => rest) }, skills);
+    const strip = (payload) => ({ ...payload, results: payload.results.map(({ added, ...rest }) => rest) });
+    for (const query of ["browser", "browser automation", "send email", "mcp server", "youtube creator", "security scanner", "2026", "added"]) {
+      for (const catalog of [withDates, withoutDates]) assert.ok(!parseSearchArgs(catalog, { query, limit: 50 }, true).error);
+      const a = searchPayload(withDates, parseSearchArgs(withDates, { query, limit: 50 }, true).value);
+      const b = searchPayload(withoutDates, parseSearchArgs(withoutDates, { query, limit: 50 }, true).value);
+      assert.deepEqual(a.results.map((e) => e.id), b.results.map((e) => e.id), query);
+      // As sent: JSON drops the undefined added that the second catalog copies.
+      assert.deepEqual(strip(a), JSON.parse(JSON.stringify(b)), query);
+    }
+    for (const job of ["test my web app in a real browser", "review my code for security risks", "research a YouTube creator", "send email"]) {
+      const args = parseStackArgs({ job, limit: 10 }).value;
+      assert.equal(JSON.stringify(stackPayload(withDates, args)), JSON.stringify(stackPayload(withoutDates, args)), job);
+    }
+  });
+});
+
+describe("What's new and the feed over HTTP", () => {
+  test("feed.xml comes from the assets as Atom with a cache header", async () => {
+    env.ASSETS.calls.length = 0;
+    const res = await call("/feed.xml");
+    assert.equal(res.status, 200);
+    assert.deepEqual(env.ASSETS.calls, ["/feed.xml"], "a static file the Worker passes through");
+    assert.equal(res.headers.get("Content-Type"), "application/atom+xml; charset=utf-8");
+    assert.equal(res.headers.get("Cache-Control"), "public, max-age=3600");
+    assert.equal(res.headers.get("Access-Control-Allow-Origin"), "*");
+    assert.equal(res.headers.get("X-Content-Type-Options"), "nosniff");
+    const body = await res.text();
+    assert.ok(body.startsWith('<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom"'));
+  });
+
+  test("/new/ and /new.md come from the assets, and the twin points back at the page", async () => {
+    const page = await call("/new/");
+    assert.equal(page.status, 200);
+    assert.match(page.headers.get("Content-Type"), /^text\/html/);
+    assert.match(page.headers.get("Content-Security-Policy"), /default-src 'none'/);
+    assert.match(await page.text(), /<h1>What's new<\/h1>/);
+    const md = await call("/new.md");
+    assert.equal(md.status, 200);
+    assert.equal(md.headers.get("Content-Type"), "text/markdown; charset=utf-8");
+    assert.equal(md.headers.get("Link"), `<${ORIGIN}/new/>; rel="canonical"`);
   });
 });
 
