@@ -4417,7 +4417,7 @@
       "name": "OpenRouter Skills",
       "category": "Skills and learning",
       "url": "https://github.com/OpenRouterTeam/skills",
-      "description": "OpenRouter's 18 Agent Skills for its API, covering model lookup, benchmarks, usage analytics, image, speech, transcription and video generation, OAuth sign-in, its TypeScript SDK and agent scaffolds.",
+      "description": "OpenRouter's 19 Agent Skills for its API, covering model lookup, benchmarks, usage analytics, image, speech, transcription and video generation, OAuth sign-in, its TypeScript SDK and agent scaffolds.",
       "for_whom": "Developers whose coding agents build on OpenRouter or answer questions about their OpenRouter usage.",
       "access_notes": "Claude Code: /plugin marketplace add OpenRouterTeam/skills, then /plugin install openrouter@openrouter. Other agents: gh skill install OpenRouterTeam/skills, with GitHub CLI 2.90.0 or later. The scripts read OPENROUTER_API_KEY. The image, speech, transcription and video skills spend credits on that key, and the analytics and generations skills read its spend, usage and stored prompts. install-ori-harness pipes an install script from openrouter.ai into bash. The repository had no licence file on 7 November 2026.",
       "source_url": "https://github.com/OpenRouterTeam/skills",

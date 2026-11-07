@@ -2921,7 +2921,7 @@ Notion's Claude Code plugin, which installs 12 workspace skills, slash commands 
 
 ### [OpenRouter Skills](https://github.com/OpenRouterTeam/skills)
 
-OpenRouter's 18 Agent Skills for its API, covering model lookup, benchmarks, usage analytics, image, speech, transcription and video generation, OAuth sign-in, its TypeScript SDK and agent scaffolds.
+OpenRouter's 19 Agent Skills for its API, covering model lookup, benchmarks, usage analytics, image, speech, transcription and video generation, OAuth sign-in, its TypeScript SDK and agent scaffolds.
 
 **For:** Developers whose coding agents build on OpenRouter or answer questions about their OpenRouter usage.
 

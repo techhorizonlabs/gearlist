@@ -2269,7 +2269,7 @@ Gearlist page: https://gearlist.build/tools/notion-claude-code-plugin/ (Markdown
 
 OpenRouter Skills | Skills and learning
 https://github.com/OpenRouterTeam/skills
-OpenRouter's 18 Agent Skills for its API, covering model lookup, benchmarks, usage analytics, image, speech, transcription and video generation, OAuth sign-in, its TypeScript SDK and agent scaffolds.
+OpenRouter's 19 Agent Skills for its API, covering model lookup, benchmarks, usage analytics, image, speech, transcription and video generation, OAuth sign-in, its TypeScript SDK and agent scaffolds.
 For: Developers whose coding agents build on OpenRouter or answer questions about their OpenRouter usage.
 Access: Claude Code: /plugin marketplace add OpenRouterTeam/skills, then /plugin install openrouter@openrouter. Other agents: gh skill install OpenRouterTeam/skills, with GitHub CLI 2.90.0 or later. The scripts read OPENROUTER_API_KEY. The image, speech, transcription and video skills spend credits on that key, and the analytics and generations skills read its spend, usage and stored prompts. install-ori-harness pipes an install script from openrouter.ai into bash. The repository had no licence file on 7 November 2026.
 Source checked: 2026-11-07
