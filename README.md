@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 335 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 357 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -85,6 +85,8 @@ npx skills add techhorizonlabs/thl-open
 - [Protocols](#protocols) (7)
 - [Skills and learning](#skills-and-learning) (67)
 - [APIs and data](#apis-and-data) (38)
+- [Hardware](#hardware) (8)
+- [Models](#models) (14)
 
 
 ## Agent tools
@@ -3450,6 +3452,230 @@ An open-weight OCR model family that parses Chinese and English PDFs and images 
 **Access and use:** Install the SDK with python -m pip install --upgrade "minicpm-ocr[all]" (Python 3.10 or later) plus the PaddlePaddle GPU packages for layout detection, then serve the recognition model with vLLM, SGLang, llama.cpp, Ollama or FlagOS. The tutorial's vLLM route needs Linux x86_64, an NVIDIA GPU with driver 580 or later and at least 40 GB of disk, and it builds vLLM from source; the Docker image needs Linux x86-64, an NVIDIA GPU, a CUDA 12.9 compatible driver and the NVIDIA Container Toolkit. Deployed locally, document processing and inference stay on your machine, and the tutorial starts vLLM on 127.0.0.1; the first install and model downloads need internet. The free hosted API and online demo run at platform.modelbest.ai, so documents sent there leave your machine. The README suggests telling a coding agent to "Read and execute" a remote SKILL.md that sets up environments and downloads models: read it yourself before handing it over. Apache-2.0, covering code and model weights.
 
 **Source checked:** 2026-11-07. [Official source](https://github.com/OpenBMB/MiniCPM-OCR). [Gearlist page](https://gearlist.build/tools/minicpm-ocr/).
+
+## Hardware
+
+### [AMD Radeon AI PRO R9700](https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html)
+
+A workstation graphics card from AMD with 32 GB of GDDR6 memory on the RDNA 4 architecture, made for local AI inference and development.
+
+**For:** People building a Linux or Windows desktop or home server that runs local models and needs 32 GB of graphics memory on one card.
+
+**Access and use:** For local AI inference and development on a desktop PC or workstation. It has 32 GB of dedicated GDDR6 memory on a 256-bit bus with 640 GB/s peak bandwidth, and ECC memory support on Linux only. AMD lists Windows 10, Windows 11 and Linux x86 64-bit support, and the ROCm 10.1.0 compatibility matrix (dated 26 August 2026) lists the R9700 for Ubuntu 26.04.1, 24.04.5 and 22.04.5, RHEL 10.2 and 9.8, and Windows 11 25H2. It needs a PCIe 5.0 x16 slot and two slots of space, takes a 12V-2x6 power connector and has a total board power of 300 W; AMD recommends at least a 750 W power supply. Cards come from board partners and AMD says configuration varies by partner design: XFX, for example, sells its version as model RX-97XPROAIY and specifies a 1000 W minimum power supply for it. Caveats: it is not a CUDA card, and AMD's HIPIFY documentation says HIP is not a complete replacement for CUDA and cannot translate all code, so confirm your software supports ROCm. AMD says these cards are not designed or validated for data centre use. XFX states a 2 year warranty on its card.
+
+**Source checked:** 2026-11-07. [Official source](https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html). [Gearlist page](https://gearlist.build/tools/amd-radeon-ai-pro-r9700/).
+
+### [Apple Mac mini](https://www.apple.com/mac-mini/)
+
+A small Apple desktop computer with an M6 or M5 Pro chip and up to 64 GB of unified memory, used to run coding agents and local models on macOS.
+
+**For:** People who want a compact, always-on Mac to run coding agents and smaller local models, or several units as a cluster.
+
+**Access and use:** For running coding agents, local models and agent workflows on macOS. The M6 model has a 12-core CPU and 12-core GPU with 16 GB of unified memory as standard, configurable to 24 GB or 32 GB, and 153 GB/s of memory bandwidth (170 GB/s with the larger memory). The M5 Pro model has up to an 18-core CPU and 20-core GPU, 24 GB of unified memory configurable to 48 GB or 64 GB, and 307 GB/s of memory bandwidth. Memory is chosen when you order. Apple's MLX framework is built for machine learning on Apple silicon and installs on macOS with pip install mlx; Apple's page also names Claude Code and Codex for coding, and exo and LM Studio Bionic for running agents across a cluster of Mac mini units, with Thunderbolt 5 on the M5 Pro model (up to 120 Gb/s) as the clustering link. Maximum continuous power is 155 W, and a power cord is in the box. It has 2.5 Gb Ethernet, configurable to 10 Gb, and runs macOS. Apple's US store listed it from $899 (M6) and from $1,699 (M5 Pro) on 7 November 2026. Caveat: the M6 model tops out at 32 GB of unified memory; the M5 Pro goes to 64 GB.
+
+**Source checked:** 2026-11-07. [Official source](https://www.apple.com/mac-mini/specs/). [Gearlist page](https://gearlist.build/tools/apple-mac-mini/).
+
+### [Apple Mac Studio](https://www.apple.com/mac-studio/)
+
+An Apple desktop workstation with an M5 Max or M5 Ultra chip and up to 512 GB of unified memory, used to run large language models locally.
+
+**For:** People who want to run large open-weight models and local agent workflows on one desktop Mac, or across several clustered over Thunderbolt 5.
+
+**Access and use:** For running large language models and agent workflows locally. The M5 Max model has an 18-core CPU and 32-core GPU with 36 GB of unified memory at 460 GB/s; with the 40-core GPU it takes 48 GB, 64 GB or 128 GB at 614 GB/s. The M5 Ultra model has a 30-core CPU and 64-core GPU with 96 GB at 1.2 TB/s, configurable to 256 GB, or to 512 GB with the 36-core CPU and 80-core GPU version. Memory is chosen when you order. Apple's page names LM Studio Bionic for running LLMs locally and exo for clustering machines, and says Thunderbolt 5 (up to 120 Gb/s) handles clustered compute. Apple's MLX framework is built for machine learning on Apple silicon and installs on macOS with pip install mlx. Maximum continuous power is 480 W. It runs macOS. Apple's US store listed it from $2,499 (M5 Max) and from $5,499 (M5 Ultra) on 7 November 2026. Caveat: the 512 GB option is only offered on the top M5 Ultra configuration.
+
+**Source checked:** 2026-11-07. [Official source](https://www.apple.com/mac-studio/specs/). [Gearlist page](https://gearlist.build/tools/apple-mac-studio/).
+
+### [Framework Desktop (AMD Ryzen AI Max+ 395)](https://frame.work/desktop)
+
+A 4.5 litre mini-ITX desktop from Framework with an AMD Ryzen AI Max+ 395, Radeon 8060S graphics and up to 128 GB of soldered LPDDR5x memory, sold for running large AI models on hardware you own.
+
+**For:** People who want a small x86 desktop running Linux or Windows that can hold large quantised open-weight models in memory and run agents locally.
+
+**Access and use:** For running large open-weight models and local agents on an x86 desktop. The Ryzen AI Max+ 395 versions have a 16-core, 32-thread CPU, Radeon 8060S graphics with 40 graphics cores, and 64 GB or 128 GB of soldered, non-upgradeable LPDDR5x-8000 memory on a 256-bit bus. Framework's own table shows DeepSeek V4 Flash at UD-IQ2_XXS quantisation using 90.9 GB on the 128 GB model, and notes that results vary with quantisation, context length and runtime. A newer version with the Ryzen AI Max+ PRO 495 and 192 GB is also sold. AMD's ROCm 10.1.0 matrix lists the Ryzen AI Max+ 395 (Radeon 8060S) for Ubuntu 26.04.1 and 24.04.5 and for Windows 11 25H2. Framework publishes its own list of supported Linux distributions, with Linux kernel 6.11 as the minimum and 6.15 or later recommended. The Max+ 395 is sold as a DIY Edition: you bring your own operating system (Windows 11 is an optional extra) and can bring your own M.2 2280 NVMe drives for its two PCIe 4.0 slots. It has an included 400 W FlexATX power supply, and the processor runs at 120 W sustained and 140 W boost. USB4 and a PCIe x4 slot are offered for clustering several units. Caveat: check that your Linux distribution is on both Framework's supported list and AMD's ROCm matrix before relying on GPU compute. A 1 year limited warranty is included, extendable to 3 years.
+
+**Source checked:** 2026-11-07. [Official source](https://frame.work/products/desktop-diy-amd-aimax300). [Gearlist page](https://gearlist.build/tools/framework-desktop/).
+
+### [NVIDIA DGX Spark](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)
+
+A small desktop AI computer from NVIDIA built on the GB10 Grace Blackwell superchip, with 128 GB of unified memory for running and fine-tuning large models and agents locally.
+
+**For:** Developers who want a CUDA machine on their desk to run, test and fine-tune models of up to about 200 billion parameters and to host always-on agents.
+
+**Access and use:** For running, testing and fine-tuning large models and always-on agents locally. It has 128 GB of LPDDR5x unified memory at 273 GB/s, a 20-core Arm CPU and a Blackwell GPU, and NVIDIA says it supports models up to 200 billion parameters, or 405 billion with two units. A 64 GB configuration is sold only through participating OEM partners. It ships with NVIDIA DGX OS, which is based on Ubuntu, with CUDA, cuDNN, Docker and the NVIDIA Container Runtime preinstalled; use of the preinstalled CUDA Toolkit is subject to NVIDIA's CUDA Toolkit End User License Agreement. Power comes from the included 240 W external supply (the GB10 chip is rated at 140 W), and NVIDIA warns that a different or lower-rated supply can cause reduced performance, failure to boot or unexpected shutdowns. Networking is 10 GbE, two ConnectX-7 QSFP ports and Wi-Fi 7, and up to four units can be clustered. You can use it with a monitor and keyboard or over the local network with SSH, NVIDIA Sync or remote desktop tools. NVIDIA's US marketplace listed the 4 TB model at $6,950.00, marked out of stock, on 7 November 2026; NVIDIA also sells it through authorised channel and retail partners. Caveats: the processor is ARM64-based; GPU passthrough to virtual machines is not supported; major DGX OS updates come about twice a year for the first two years after initial release, with security patches between releases.
+
+**Source checked:** 2026-11-07. [Official source](https://www.nvidia.com/en-us/products/workstations/dgx-spark/). [Gearlist page](https://gearlist.build/tools/nvidia-dgx-spark/).
+
+### [NVIDIA GeForce RTX 5090](https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/)
+
+A desktop graphics card from NVIDIA with 32 GB of GDDR7 memory on the Blackwell architecture, used to run local AI models with CUDA on Windows or Linux PCs.
+
+**For:** People building a Windows or Linux PC or home server who need CUDA software support and 32 GB of graphics memory on one card.
+
+**Access and use:** For local inference and AI development on a desktop PC. It has 32 GB of GDDR7 memory on a 512-bit bus with 1,792 GB/s of bandwidth, 21,760 CUDA cores, fifth-generation Tensor Cores and CUDA compute capability 12.0. NVIDIA's CUDA Toolkit supports Windows 11 and major Linux distributions including Ubuntu, RHEL, SUSE, Debian and Fedora, and NVIDIA names LM Studio and AnythingLLM as tools for running models on RTX PCs. Total graphics power is 575 W. NVIDIA lists 1000 W required system power, based on a PC with a Ryzen 9 9950X, and recommends a PCIe CEM 5.1 compliant power supply. Power comes from one 600 W PCIe Gen 5 cable or four PCIe 8-pin cables with the adapter in the box. The Founders Edition is a 2-slot, 304 mm long PCIe Gen 5 card; partner cards differ, and NVIDIA notes that small form factor readiness varies by manufacturer. NVIDIA's US page showed "Starting at $1999" on 7 November 2026 and points to regional NVIDIA sites for local pricing and partner retailers. Caveat: NVIDIA says power requirements differ by system configuration, so size the power supply for the whole build.
+
+**Source checked:** 2026-11-07. [Official source](https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/). [Gearlist page](https://gearlist.build/tools/nvidia-geforce-rtx-5090/).
+
+### [Synology DiskStation DS925+](https://www.synology.com/en-global/products/DS925+)
+
+A four-bay network storage box (NAS) from Synology running DSM, with an AMD Ryzen V1500B, two 2.5GbE ports and two M.2 slots, used as a backup and file server.
+
+**For:** People and small teams who want a backup target with snapshots for the Macs, PCs and servers their agents run on.
+
+**Access and use:** For backups, snapshots and file sharing for the machines agents run on. It has a 4-core AMD Ryzen V1500B, 4 GB of DDR4 ECC memory (up to 32 GB), four 3.5 inch or 2.5 inch SATA bays, two M.2 2280 NVMe slots and two 2.5GbE ports, and takes up to nine drives with a DX525 expansion unit sold separately. It runs Synology DSM: a shared folder can be a Time Machine destination over SMB with Bonjour broadcast, it keeps up to 256 snapshots per shared folder, and Synology's backup tools cover PCs, file servers and virtual machines. Synology rates power at 37.91 W during access and 12.33 W in HDD hibernation, from a 100 W or 120 W adapter. Caveats: the DS925+ page points to Synology's drive policy for models from 2025, which says that with DSM 7.3 the 2025 DiskStation Plus models allow third-party HDDs and 2.5 inch SATA SSDs when creating storage pools, at the user's discretion; Synology only guarantees full functionality for drives on its compatibility list, and its page names Synology Enterprise Series SSDs for the M.2 slots; Synology will not provide complete warranty or support if non-Synology memory is added; C2 cloud storage for Hyper Backup is a paid subscription; Synology does not recommend the recycle bin or encrypted shared folders for a Time Machine destination. 3 year hardware warranty, extendable to 5 years.
+
+**Source checked:** 2026-11-07. [Official source](https://www.synology.com/en-global/products/DS925+). [Gearlist page](https://gearlist.build/tools/synology-ds925-plus/).
+
+### [UGREEN NASync DXP4800 Plus](https://nas.ugreen.com/products/ugreen-nasync-dxp4800-plus-nas-storage)
+
+A four-bay network storage box (NAS) from UGREEN with an Intel Pentium Gold 8505, 10GbE and 2.5GbE ports and two M.2 slots, used as a backup target for the computers agents run on.
+
+**For:** People who want a local Time Machine and file backup target for the Macs and PCs that run their agents, with room for Docker containers.
+
+**Access and use:** For local backups, file storage and light container work. It has a 5-core, 6-thread Intel Pentium Gold 8505, 8 GB of DDR5 memory expandable to 64 GB, four SATA bays, two M.2 NVMe slots for an SSD cache or SSD storage pool, a 128 GB system SSD, and one 10GbE and one 2.5GbE port. It runs UGREEN's UGOS, which provides a dedicated Time Machine destination over SMB and Bonjour (UGREEN advises a separate folder and quota for each Mac), a Sync & Backup app with a desktop client for backing up Windows or Mac folders, and Docker and virtual machines. It is sold without drives and accepts third-party drives from makers including Western Digital, Seagate and Toshiba; check UGREEN's compatibility list for the exact drive and memory models first. UGREEN rates it at 42.36 W during drive access and 18.12 W in drive hibernation, measured with a Seagate 2 TB hard drive. Reaching 10GbE speeds needs every part of the transfer path to support 10GbE. Caveats: RAID is not a backup, so keep a separate copy; UGOS backup packages use the .ubk format and must be restored through Sync & Backup on a compatible UGREEN NAS. 2 year warranty.
+
+**Source checked:** 2026-11-07. [Official source](https://nas.ugreen.com/products/ugreen-nasync-dxp4800-plus-nas-storage). [Gearlist page](https://gearlist.build/tools/ugreen-nasync-dxp4800-plus/).
+
+## Models
+
+### [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
+
+A Claude model from Anthropic built for long-running agentic coding and knowledge work, such as multihour autonomous coding agents, large-scale refactoring, vision-heavy workflows and computer use.
+
+**For:** Developers building long-running coding or knowledge-work agents who want the model Anthropic suggests starting with for most workloads.
+
+**Access and use:** API model id: claude-opus-5-5 (anthropic.claude-opus-5-5 on Amazon Bedrock). It is available on the Claude API, Amazon Bedrock, Claude Models on Google Cloud, Microsoft Foundry and Claude Platform on AWS. The context window is 1M tokens and max output is 128K tokens, or up to 300K on the Message Batches API with a beta header. It costs US$4 per million input tokens and US$20 per million output tokens (pricing page read 7 November 2026), with the full 1M context at standard pricing. Cache reads cost US$0.20 per million tokens, the Batch API is 50% off, fast mode costs US$8 and US$40 per million tokens, and US-only inference adds a 1.1x multiplier. It takes text and images and returns text. It supports tool use, but forced tool use (tool_choice any or tool) returns an error, and adaptive thinking is always on. Anthropic's commercial retention policy says API inputs and outputs are deleted from its backend within 30 days, except for features with longer retention under your control, zero data retention agreements, Usage Policy enforcement or legal requirements, and flagged content can be kept for up to 2 years. Anthropic's docs say retained data is never used for model training without your express permission. Proprietary; API terms apply.
+
+**Source checked:** 2026-11-07. [Official source](https://platform.claude.com/docs/en/models/opus-5-5/overview). [Gearlist page](https://gearlist.build/tools/claude-opus-5-5/).
+
+### [Claude Sonnet 5.5](https://platform.claude.com/docs/en/models/sonnet-5-5/overview)
+
+A Claude model from Anthropic that Anthropic calls its best combination of speed and intelligence, built for everyday coding, agent and enterprise work such as code generation, data analysis and agentic tool use.
+
+**For:** Teams running everyday coding and agent workloads who want lower cost and latency than Claude Opus 5.5.
+
+**Access and use:** API model id: claude-sonnet-5-5 (anthropic.claude-sonnet-5-5 on Amazon Bedrock). It is available on the Claude API, Amazon Bedrock, Claude Models on Google Cloud, Microsoft Foundry and Claude Platform on AWS. The context window is 1M tokens and max output is 128K tokens, or up to 300K on the Message Batches API with a beta header. It costs US$2 per million input tokens and US$10 per million output tokens (pricing page read 7 November 2026), with the full 1M context at standard pricing. Cache reads cost US$0.10 per million tokens, the Batch API is 50% off, and US-only inference adds a 1.1x multiplier. It takes text and images and returns text. It supports tool use, but forced tool use (tool_choice any or tool) returns an error. Adaptive thinking is on by default; setting temperature, top_p or top_k returns an error. Anthropic's commercial retention policy says API inputs and outputs are deleted from its backend within 30 days, except for features with longer retention under your control, zero data retention agreements, Usage Policy enforcement or legal requirements, and flagged content can be kept for up to 2 years. Anthropic's docs say retained data is never used for model training without your express permission. Proprietary; API terms apply.
+
+**Source checked:** 2026-11-07. [Official source](https://platform.claude.com/docs/en/models/sonnet-5-5/overview). [Gearlist page](https://gearlist.build/tools/claude-sonnet-5-5/).
+
+### [Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview)
+
+A Claude model from Anthropic built for high-volume, latency-sensitive work such as classification, routing, extraction and subagent tasks.
+
+**For:** Teams running high-volume classification, routing, extraction or subagent steps where cost and latency matter most.
+
+**Access and use:** API model id: claude-haiku-5-5 (anthropic.claude-haiku-5-5 on Amazon Bedrock). It is available on the Claude API, Amazon Bedrock, Claude Models on Google Cloud, Microsoft Foundry and Claude Platform on AWS. The context window is 1M tokens and max output is 128K tokens, or up to 300K on the Message Batches API with a beta header. It is priced by prompt length: US$0.10 per million input tokens and US$0.50 per million output tokens for prompts up to 100,000 tokens, and US$0.50 and US$2.50 for prompts over 100,000 tokens (pricing page read 7 November 2026). Cache reads cost US$0.01 per million tokens (US$0.05 over 100,000 tokens), the Batch API is 50% off, and US-only inference adds a 1.1x multiplier. Its tokenizer counts the same text as about 30 percent more tokens than Claude Haiku 4.5. It takes text and images, returns text, and supports tool use. Anthropic's commercial retention policy says API inputs and outputs are deleted from its backend within 30 days, except for features with longer retention under your control, zero data retention agreements, Usage Policy enforcement or legal requirements, and flagged content can be kept for up to 2 years. Anthropic's docs say retained data is never used for model training without your express permission. Proprietary; API terms apply.
+
+**Source checked:** 2026-11-07. [Official source](https://platform.claude.com/docs/en/models/haiku-5-5/overview). [Gearlist page](https://gearlist.build/tools/claude-haiku-5-5/).
+
+### [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)
+
+A Claude model from Anthropic for demanding reasoning and long-horizon agentic work, which Anthropic suggests when Claude Opus 5.5 at higher effort still does not meet a team's requirements.
+
+**For:** Teams whose hardest reasoning, research or long-running agent tasks still fall short on Claude Opus 5.5 and who can accept 30-day data retention.
+
+**Access and use:** API model id: claude-fable-5-1 (anthropic.claude-fable-5-1 on Amazon Bedrock). It is available on the Claude API, Amazon Bedrock, Claude Models on Google Cloud, Microsoft Foundry and Claude Platform on AWS. The context window is 1M tokens and max output is 128K tokens. It costs US$10 per million input tokens and US$50 per million output tokens (pricing page read 7 November 2026), with the full 1M context at standard pricing. Cache reads cost US$0.25 per million tokens, the Batch API halves prices to US$5 and US$25, and US-only inference adds a 1.1x multiplier. It takes text and images and returns text. It supports tool use, but forced tool use (tool_choice any or tool) returns an error. Anthropic treats it as a Covered Model: it requires 30-day data retention, so zero data retention is not available unless Anthropic expressly authorises it. Anthropic's commercial retention policy says API inputs and outputs are deleted from its backend within 30 days, except for features with longer retention under your control, zero data retention agreements, Usage Policy enforcement or legal requirements, and flagged content can be kept for up to 2 years. Anthropic's docs say retained data is never used for model training without your express permission. Proprietary; API terms apply.
+
+**Source checked:** 2026-11-07. [Official source](https://platform.claude.com/docs/en/models/fable-5-1/overview). [Gearlist page](https://gearlist.build/tools/claude-fable-5-1/).
+
+### [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)
+
+A proprietary OpenAI model that OpenAI calls its most capable for the most demanding work, for complex reasoning, coding, computer use, research and document creation.
+
+**For:** Developers building coding, computer use or research agents on the OpenAI API who want OpenAI's flagship model rather than the cheaper GPT-6.1 Sol or GPT-6 Luna.
+
+**Access and use:** Call it as gpt-6-astra through the OpenAI Responses API or Chat Completions, and through the Batch API. OpenAI says it is also available to ChatGPT Plus, Pro, Business and Enterprise users and through Microsoft Azure and Amazon Bedrock (model id openai.gpt-6-astra), with Google Cloud in private preview. The context window is 1,050,000 tokens, with up to 922,000 input tokens and 128,000 output tokens. Standard pricing is US$10 per million input tokens and US$50 per million output tokens (pricing page read 7 November 2026); prompts over 272K input tokens are charged at twice the input and cache rates and 1.5 times the output rate for the whole request. API credits can only be bought in US dollars. It takes text and image input and returns text. OpenAI says data sent to the API is not used to train its models unless you opt in. Abuse monitoring logs, which can include prompts and responses, are kept for up to 30 days by default, and the Responses API keeps response data for at least 30 days by default or when store is true. Zero Data Retention and Modified Abuse Monitoring need OpenAI's prior approval. OpenAI monitors Astra for misalignment, and its extra safety checks can stop legitimate work: in the API, a flagged task stops. Proprietary; API terms apply.
+
+**Source checked:** 2026-11-07. [Official source](https://developers.openai.com/api/docs/models/gpt-6-astra). [Gearlist page](https://gearlist.build/tools/gpt-6-astra/).
+
+### [gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b)
+
+An open-weight OpenAI reasoning model for production, general purpose and high reasoning use, with native function calling, web browsing, Python code execution and structured outputs for agentic tasks.
+
+**For:** Teams that want an OpenAI reasoning model they can download, fine-tune and run on their own GPU or cloud instead of calling a hosted API.
+
+**Access and use:** Download the weights from Hugging Face as openai/gpt-oss-120b, for example with huggingface-cli download openai/gpt-oss-120b --include "original/*" --local-dir gpt-oss-120b/, or pull it with Ollama (ollama pull gpt-oss:120b) or LM Studio (lms get openai/gpt-oss-120b). OpenAI's docs also list it on Amazon Bedrock as openai.gpt-oss-120b. The context window and maximum output are both 131,072 tokens. It takes text in and returns text, with low, medium or high reasoning effort set in the system prompt. It supports function calling with defined schemas, web browsing and Python code execution through built-in tools, and structured outputs. It must be used with OpenAI's harmony response format or it will not work correctly; the Transformers chat template applies it automatically. Its full chain of thought is visible to developers but is not intended to be shown to end users. It has 117B parameters with 5.1B active. With MXFP4 quantisation of its MoE weights it runs on a single 80GB GPU such as an NVIDIA H100 or AMD MI300X, and it can be fine-tuned on a single H100 node; the smaller gpt-oss-20b runs within 16GB of memory. The usage policy asks you to comply with all applicable law and adds no other use restrictions. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://huggingface.co/openai/gpt-oss-120b). [Gearlist page](https://gearlist.build/tools/gpt-oss-120b/).
+
+### [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)
+
+A Google reasoning model built for complex software engineering, deep mathematical and scientific problem solving, autonomous multi-step agents and very long outputs of up to 1 million tokens.
+
+**For:** Developers building coding, research or multi-step agents on the Gemini API who need a 1 million token context and long outputs.
+
+**Access and use:** API model id: gemini-4-argon. Google offers it through the Gemini API and Google AI Studio; it is not on the free tier, so API use needs a Cloud project with an active billing account. The context window is 1,048,576 tokens shared between input and output, with a default maximum output of 65,536 tokens, or up to 1,048,576 with long decode. Paid tier pricing is an introductory US$2.00 per million input tokens and US$10.00 per million output tokens through 30 November 2026, rising to US$4.00 and US$20.00 from 1 December 2026 (pricing page read 7 November 2026); output includes thinking tokens. Inputs are text, image, video, audio and PDF; output is text. Google says paid-tier prompts and responses are not used to improve its products, but it logs them for a limited period to detect Prohibited Use Policy violations and for legal disclosures, and that data may be stored or cached in any country where Google has facilities. Separately, your project's own Logs and Datasets logging is on by default for Interactions API calls and for Generate Content calls in projects created on or after 26 October 2026, with logs kept for up to 55 days by default; a dataset you choose to share with Google may be used to train its models. Proprietary; API terms apply.
+
+**Source checked:** 2026-11-07. [Official source](https://aistudio.google.com/docs/models/gemini-4-argon). [Gearlist page](https://gearlist.build/tools/gemini-4-argon/).
+
+### [Gemini 3.8 Flash](https://aistudio.google.com/docs/models/gemini-3.8-flash)
+
+A Google model, described as its most intelligent Flash model, engineered for long-horizon software engineering, autonomous agents and complex enterprise workflows with the speed and cost efficiency of the Flash line.
+
+**For:** Developers running high-volume or cost-sensitive agents on the Gemini API who still need a 1 million token context and tool use.
+
+**Access and use:** API model id: gemini-3.8-flash. Google offers it through the Gemini API, Google AI Studio and Gemini Enterprise Agent Platform. The input limit is 1,048,576 tokens and the output limit is 65,536 tokens. Paid tier pricing is an introductory US$0.75 per million input tokens and US$3.75 per million output tokens through 31 December 2026, then US$1.50 and US$7.50 from 1 January 2027 (pricing page read 7 November 2026); output includes thinking tokens. On the free tier, Google uses prompts and responses to improve its products and machine learning technologies, human reviewers may read them, and Google asks users not to submit sensitive, confidential or personal information. Google says paid-tier prompts and responses are not used to improve its products, but it logs them for a limited period to detect Prohibited Use Policy violations and for legal disclosures, and that data may be stored or cached in any country where Google has facilities. Separately, your project's own Logs and Datasets logging is on by default for Interactions API calls and for Generate Content calls in projects created on or after 26 October 2026, with logs kept for up to 55 days by default; a dataset you choose to share with Google may be used to train its models. Proprietary; API terms apply.
+
+**Source checked:** 2026-11-07. [Official source](https://aistudio.google.com/docs/models/gemini-3.8-flash). [Gearlist page](https://gearlist.build/tools/gemini-3-8-flash/).
+
+### [Gemma 4](https://gemma.ai/models/gemma-4/)
+
+A family of Google DeepMind open-weight models in five sizes that take text and image input and suit reasoning, agentic workflows, coding and multimodal understanding on devices from phones to workstations.
+
+**For:** Developers who want an Apache-2.0 model with function calling that they can run on their own phone, laptop, GPU or server.
+
+**Access and use:** Download the weights from Hugging Face (for example google/gemma-4-31B-it, not gated) or Kaggle; Google publishes official 4-bit GGUF builds for local use on CPU, Apple Silicon or consumer GPUs. The Gemini API also hosts the two largest sizes as gemma-4-31b-it and gemma-4-26b-a4b-it, free of charge on the free tier only, where Google uses prompts and responses to improve its products. The context window is 128K tokens on E2B and E4B and 256K tokens on 12B, 26B A4B and 31B. All sizes take text and image input and produce text. Google lists native function calling, a system role and configurable thinking. Parameter counts are 2.3B effective (5.1B with embeddings) for E2B, 4.5B effective (8B) for E4B, 11.95B for 12B, 30.7B for 31B, and 25.2B total with 3.8B active for the 26B A4B mixture-of-experts model. Google's own table puts the GPU or TPU memory to load the weights at 69.9 GB in 16-bit, 34.9 GB in 8-bit and 17.5 GB in 4-bit for 31B; 57.7, 28.8 and 14.4 GB for 26B A4B (all of its parameters must be loaded); 26.7, 13.4 and 6.7 GB for 12B; and 2.9 GB in 4-bit for E2B; the context window and supporting software need memory on top. Google says the models permit responsible commercial use, and its Gemma 4 licence page is the Apache License 2.0. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://gemma.ai/models/gemma-4/). [Gearlist page](https://gearlist.build/tools/gemma-4/).
+
+### [Grok 4.7](https://docs.x.ai/developers/grok-4-7)
+
+A Grok model from xAI (published under the SpaceXSI name in its current docs) that the company calls its flagship for code, agentic tool calling and knowledge work, with configurable reasoning.
+
+**For:** Developers building coding and tool-calling agents who want a hosted model with a 500,000-token context and xAI's server-side search and code execution tools.
+
+**Access and use:** Call it as grok-4.7 through the Responses API at https://api.x.ai/v1 with an API key from the xAI Console; the OpenAI SDK works with that base URL. The context window is 500,000 tokens, xAI lists no text output limit, and the knowledge cutoff is May 2026. Pricing is US$2.00 per million input tokens and US$6.00 per million output tokens for prompts under 200,000 tokens, rising to US$4.00 and US$12.00 once a prompt reaches 200,000 tokens, and the higher rate then applies to every token in that request (pricing page read 7 November 2026). It takes text and image input and returns text, with reasoning effort set to low, medium, high (the default) or xhigh. It supports function calling and structured outputs, plus xAI's server-side web search, X search and code execution tools. xAI says it never trains on API inputs or outputs without explicit permission; by default it stores requests and responses, encrypted, for 30 days for abuse auditing and then deletes them. Team admins can turn on Zero Data Retention, which also switches off the stateful Responses API, Files, Collections and the Batch API. The default endpoint does not guarantee a processing region; https://us.api.x.ai/v1 keeps inference and retained request data in the United States. Proprietary; API terms apply.
+
+**Source checked:** 2026-11-07. [Official source](https://docs.x.ai/developers/models/grok-4.7). [Gearlist page](https://gearlist.build/tools/grok-4-7/).
+
+### [DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+
+An open-weight DeepSeek mixture-of-experts model, the smallest in its V4.1 family, that takes text and images and that DeepSeek says improves on reasoning, coding and agentic tasks.
+
+**For:** Developers who want a low-cost hosted model for coding and agent harnesses, and teams with multi-GPU servers who want MIT-licensed weights to run themselves.
+
+**Access and use:** Call it as deepseek-flash on the DeepSeek API at https://api.deepseek.com (OpenAI format) or https://api.deepseek.com/anthropic (Anthropic format). The weights are published on Hugging Face and ModelScope. Context length is 1M tokens with a maximum output of 384K tokens. Peak-hour pricing is US$0.30 per million input tokens on a cache miss and US$1.20 per million output tokens, and off-peak rates are half that (pricing page read 7 November 2026). DeepSeek's Open Platform Terms handle a developer's own personal information under the DeepSeek Privacy Policy, which says DeepSeek collects, processes and stores personal data in the People's Republic of China, uses personal data to train and improve its models, gives a right to opt out of that training, and keeps personal data for as long as necessary to provide its services. DeepSeek's training disclosure says a small portion of its fine-tuning data may be based on user input, de-identified first. The open weights (deepseek-ai/DeepSeek-V4.1-Flash-1017) are a 552B-parameter mixture-of-experts model with 8B active parameters for input and 16B for output. The repository and the model weights are under the MIT License, which grants use without restriction provided the copyright and permission notice is kept. MIT.
+
+**Source checked:** 2026-11-07. [Official source](https://api-docs.deepseek.com/quick_start/pricing). [Gearlist page](https://gearlist.build/tools/deepseek-v4-1-flash/).
+
+### [Qwen3.8-2.4T-A95B](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B)
+
+A 2.4 trillion parameter open-weight mixture-of-experts model from Alibaba's Qwen team, with 95B parameters active per token, built for coding, professional work, research and long-horizon agentic tasks.
+
+**For:** Teams who want to self-host Qwen's largest open-weight model for coding and agent work, or call its hosted version, Qwen3.8-Max, through Qwen Cloud.
+
+**Access and use:** The open weights are Qwen/Qwen3.8-2.4T-A95B on Hugging Face; the hosted version on Qwen Cloud takes the API model id qwen3.8-max. Self-host with SGLang, vLLM or TokenSpeed, or reach Qwen3.8-Max through the Qwen Cloud API (OpenAI-compatible). The open weights have a native context of 262,144 tokens, extensible to 1,010,000 tokens; Qwen Cloud lists a 1M context, 991K maximum input and 131K maximum output for Qwen3.8-Max. Qwen3.8-Max costs US$2 per million input tokens and US$6 per million output tokens on Qwen Cloud (Singapore region; pricing page read 7 November 2026). Qwen Cloud's data security page says request data is stored in the region whose endpoint you call; that page does not address training on API data. The model has 2.4T total parameters with 95B activated, and the card gives no hardware requirement. The Qwen3.8-Max License permits use, modification, hosting and resale, but products with more than 100 million monthly active users or US$20 million monthly revenue must display the model name in their interface, and a Model as a Service or AI Work Assistant business with more than US$50 million revenue in 12 months needs a separate licence from Qwen for commercial use; internal use that exposes nothing to third parties is exempt. Qwen3.8-Max License (custom, not OSI).
+
+**Source checked:** 2026-11-07. [Official source](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B). [Gearlist page](https://gearlist.build/tools/qwen3-8-2-4t-a95b/).
+
+### [Mistral Large 4](https://docs.mistral.ai/models/mistral-large-4-0)
+
+An open-weight, general-purpose multimodal mixture-of-experts model from Mistral that combines instruction following, reasoning, coding and agentic workflows in one set of weights, with a 1M token context window.
+
+**For:** Developers building agents who want one open-weight model for chat, reasoning, coding and tool use, called through the Mistral API or hosted on their own GPUs.
+
+**Access and use:** The API model id is mistral-large-4 (also mistral-large-4-0), and the open weights are mistralai/Mistral-Large-4-1T-A52B on Hugging Face, with a quantised NVFP4 checkpoint that targets Blackwell GPUs. The context window is 1M tokens. It costs US$0.70 per million input tokens and US$2.10 per million output tokens on the Mistral API (pricing page read 7 November 2026). It takes text and image input and returns text. On Mistral Studio's free mode, Mistral may use API inputs and outputs to train its models unless you opt out; pay-as-you-go customers can opt out at any time; thumbs up or down feedback on any plan authorises Mistral to use that input and output. Zero data retention is available on paid plans for stateless endpoints such as /v1/chat/completions, but not for agents, conversations or batch processing files. The model has about 1 trillion total parameters with 49B active per token. The card's serving examples assume a node of 8 GPUs. The Mistral Ecosystem Open-Weight License is a modified MIT licence: a business that operates a Model as a Service must sign a separate commercial licence with Mistral before any commercial use, while internal use and use through Mistral's official products are exempt. Mistral Ecosystem Open-Weight License (custom, not OSI).
+
+**Source checked:** 2026-11-07. [Official source](https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B). [Gearlist page](https://gearlist.build/tools/mistral-large-4/).
+
+### [Muse Spark Open](https://dev.meta.ai/models/muse-spark-open/)
+
+An open-weight mixture-of-experts model from Meta with 816B total and 42B active parameters, built for coding and agentic work, natively multimodal and with a 1M token context window.
+
+**For:** Organisations with very large GPU memory, or two Mac Studios with M5 Ultra, that want to self-host a multimodal open-weight model for coding agents and long tool-using workflows.
+
+**Access and use:** The model card says the model is available by API through third party inference providers; the open weights are meta-models/Muse-Spark-Open-816B-A42B on Hugging Face, in BF16 and NVFP4 versions. Download is gated: you log in and accept the licence conditions, and the information you provide is handled under the Meta Privacy Policy. The context length is 1M tokens at inference. It takes text, image, video and audio input and returns text. The model has 816B total and 42B active parameters. Meta says it needs a GPU with at least 700GB of VRAM for NVFP4 and 2TB for BF16, and that it is optimised to run on two Mac Studios with M5 Ultra using MLX. Meta recommends deploying it inside a broader AI system with guardrails suited to the use case, and says it is not intended for individuals under 18. The Muse Model License allows use, modification, distillation and resale, but you must keep the notice and the Usage Policy with copies, follow the Usage Policy's list of prohibited uses, display "Built with Muse Spark Open" in each product's interface or its documentation, website or settings, and notify Meta and sign a separate agreement before offering it as a Model as a Service once revenue exceeds US$20 million over 12 months. Muse Model License (custom, not OSI).
+
+**Source checked:** 2026-11-07. [Official source](https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B). [Gearlist page](https://gearlist.build/tools/muse-spark-open/).
 
 ## Looking for more?
 

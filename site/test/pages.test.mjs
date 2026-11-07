@@ -351,6 +351,42 @@ describe("Entry and group pages", () => {
   });
 });
 
+describe("Comparison tables", () => {
+  test("a group with two or more entries carrying specs gets one table row per such entry, with every label", () => {
+    let tables = 0;
+    for (const g of groups) {
+      const html = pages.get(`/category/${g.slug}/`);
+      const withSpecs = g.entries.filter((e) => Array.isArray(e.specs) && e.specs.length);
+      if (withSpecs.length < 2) {
+        assert.ok(!html.includes('class="compare-table"'), `${g.name} has no comparison table`);
+        continue;
+      }
+      tables += 1;
+      const table = /<table class="compare-table">([\s\S]*?)<\/table>/.exec(html);
+      assert.ok(table, `${g.name} has a comparison table`);
+      const rows = [...table[1].matchAll(/<tr><th scope="row"><a href="#([^"]+)">/g)].map((m) => m[1]);
+      assert.deepEqual(rows, withSpecs.map((e) => e.id), `${g.name} rows follow the entries`);
+      for (const e of withSpecs) {
+        for (const [label, value] of e.specs) {
+          assert.ok(table[1].includes(`<th scope="col">${escHtml(label)}</th>`), `${g.name} has a ${label} column`);
+          assert.ok(table[1].includes(`<td>${escHtml(value)}</td>`), `${e.id} shows ${label}`);
+        }
+        assert.ok(html.includes(`id="${e.id}"`), `${e.id} row links to its card`);
+      }
+    }
+    assert.ok(tables >= 1, "at least one group has a comparison table");
+  });
+
+  test("the group's Markdown copy carries the same table", async () => {
+    for (const g of groups) {
+      const withSpecs = g.entries.filter((e) => Array.isArray(e.specs) && e.specs.length);
+      const md = await readFile(path.join(DIST, "category", `${g.slug}.md`), "utf8");
+      assert.equal(md.includes("## Compare "), withSpecs.length >= 2, `${g.name} Markdown table`);
+      for (const e of withSpecs.length >= 2 ? withSpecs : []) assert.ok(md.includes(`| [${e.name}](`), `${e.id} in Markdown table`);
+    }
+  });
+});
+
 describe("Links, images and headers", () => {
   test("every internal link resolves to a file or a Worker route", async () => {
     const ids = new Map();
