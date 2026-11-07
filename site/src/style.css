@@ -458,6 +458,18 @@ h1 {
 @media (min-width: 760px) { .others .kit { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1080px) { .others .kit { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 
+/* What's new: one section per day added */
+.page-head .when + .when { margin-top: .5rem; }
+.day { padding-top: 3rem; }
+.day h2 {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem 1rem;
+  margin: 0 0 1.25rem;
+  color: var(--cream); font: 700 clamp(1.375rem, 2.6vw, 1.75rem)/1.15 var(--sans);
+}
+.day-n { color: var(--muted); font: 400 .875rem/1 var(--mono); }
+.day > p { max-width: 46em; margin: 0; }
+.day .file small { color: var(--at); }
+
 /* Not found page */
 .lost { padding-top: 4rem; padding-bottom: 6rem; }
 .lost h1 { font-size: clamp(3rem, 10vw, 5rem); }

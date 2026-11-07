@@ -9,10 +9,12 @@ Run `python3 build.py`, then `python3 site/build_site.py`, from the repository r
 `build_site.py` reads `resources.json` and the `skills/` folder and writes `site/dist`:
 
 - `index.html`, a 404 page, `robots.txt` (with a Content-Signal line), and a `_headers` file with the security headers and the Link headers.
-- A page for every entry at `/tools/<id>/`, where `<id>` is the entry's id in `resources.json` (the same id `get_gear` takes), and a page for every group at `/category/<slug>/`. Each page has its own title, description, canonical link, breadcrumb, JSON-LD and social image, and the documentation-checked caveat. Entry pages also carry a prompt for that one tool and links to up to six related entries from the same group, and a "What we checked" box with the date the source was last read and the source link, plus what the check covered and the licence when the entry has those fields.
-- A Markdown copy beside each of those pages, at `/tools/<id>.md` and `/category/<slug>.md`. Each HTML page links its copy with `<link rel="alternate" type="text/markdown">`, and each copy sends a `Link: rel="canonical"` header back to its HTML page.
+- A page for every entry at `/tools/<id>/`, where `<id>` is the entry's id in `resources.json` (the same id `get_gear` takes), and a page for every group at `/category/<slug>/`. Each page has its own title, description, canonical link, breadcrumb, JSON-LD and social image, and the documentation-checked caveat. Entry pages also carry a prompt for that one tool and links to up to six related entries from the same group, an "Added to Gearlist" row in their details, and a "What we checked" box with the date the source was last read and the source link, plus what the check covered and the licence when the entry has those fields.
+- `new/index.html`, the What's new page at `/new/`: entries grouped by their `added` date, newest first, each linking to its entry page with its description and group. Entries dated 30 October 2026, the earliest date Gearlist records, get one line with their count and a link to the full list. The home page links it beside the entry count, and every footer links it.
+- `feed.xml`, an Atom feed of the 50 most recent additions, newest first. Entries added on the same day follow the list order. Entries dated 30 October 2026 are left out, since their exact date is not known. `_headers` serves it as `application/atom+xml; charset=utf-8` with `Cache-Control: public, max-age=3600`. The home page and the What's new page link it from their heads.
+- A Markdown copy beside each of those pages, at `/tools/<id>.md`, `/category/<slug>.md` and `/new.md`. Each HTML page links its copy with `<link rel="alternate" type="text/markdown">`, and each copy sends a `Link: rel="canonical"` header back to its HTML page.
 - `og/tools/<id>.png` and `og/category/<slug>.png`: a 1200 by 630 social image per page, drawn by `site/og_image.py` in the style of `social-preview.png`.
-- `sitemap.xml`, a sitemap index pointing at `sitemap-pages.xml` (the home page and agent files), `sitemap-categories.xml` and `sitemap-tools.xml`. An entry's `lastmod` is its `source_checked` date; a group's is the latest date among its entries.
+- `sitemap.xml`, a sitemap index pointing at `sitemap-pages.xml` (the home page, What's new and agent files), `sitemap-categories.xml` and `sitemap-tools.xml`. An entry's `lastmod` is its `source_checked` date; a group's is the latest date among its entries; What's new's is the latest `added` date.
 - `<key>.txt`, the IndexNow key file. The key lives in `site/src/indexnow-key.txt`, which is committed so the key stays the same. If the file is missing, the build writes a new random key; commit it.
 - `index.md`: the catalog page as Markdown. The Worker sends it for `/` when a request asks for `text/markdown`.
 - `agent-prompt.txt`: the prompt from `site/src/agent-prompt.txt`, also shown on the home page under "Give this to your agent".
@@ -31,12 +33,26 @@ An entry page is titled `<Name>: <short description> | Gearlist`, for example `F
 
 `site/og_image.py` needs Pillow (`python3 -m pip install Pillow`) and the Space Grotesk and Space Mono fonts. It looks for the fonts in `GEARLIST_FONT_DIR`, then in the usual font folders on macOS and Linux. Space Grotesk can be the variable font (`SpaceGrotesk[wght].ttf`) or the static files. Without Pillow or the fonts, the build prints a note and every page uses `social-preview.png` instead. The images add about 5.8 MB to `dist`.
 
+## When an entry was added
+
+Every entry in `resources.json` has an `added` date, written YYYY-MM-DD. `build.py` and `build_site.py` stop with a message when it is missing, is not a real date, is before 30 October 2026, or is after the list's `updated` date. New entries take the date they are added, set by hand (see `CONTRIBUTING.md`).
+
+The dates for the 302 entries in the list on 7 November 2026 came from the git history of `resources.json`. Each entry got the author date (`git log --date=short`) of the first commit on main whose `resources.json` holds its id. `added_dates.py`, at the repository root, does this and follows only main's own commits (`--first-parent`):
+
+```bash
+python3 added_dates.py            # fill in added for any entry that has none
+python3 added_dates.py --check    # compare every added date with the history, change nothing
+```
+
+Run it on an up-to-date main. The clone the dates came from begins at commit 578921b on 30 October 2026, and the repository on GitHub has earlier commits that the clone did not hold. So 30 October 2026 is the earliest date Gearlist records. The 209 entries already in the list that day carry it, and the site says they were added "on or before 30 October 2026". `added_dates.py` records any earlier date from the history as 30 October 2026 too. The constant is `EARLIEST_ADDED` in `added_dates.py` and in `site/worker/catalog.mjs`; keep the two the same.
+
 ## The Worker
 
 `site/worker` is plain JavaScript with no dependencies. `wrangler.jsonc` sends only these paths to it first (`run_worker_first`). Everything else is served straight from `dist`.
 
 - `/`: passes the HTML page through, or returns `index.md` when the request prefers `text/markdown`. Both carry `Vary: Accept`.
 - `/mcp`: the MCP server. Streamable HTTP, stateless, no sign-in, read-only. Tools: `search_gear`, `get_gear`, `list_categories`, `list_skills`, `recommend_stack`. It speaks MCP 2026-07-28 (per-request metadata and `server/discover`) and the older `initialize` handshake (2025-11-25, 2025-06-18 and 2025-03-26). A plain GET returns a short text explanation.
+  - Entries in `search_gear`, `get_gear` and `/api/search` results include each entry's `added` date with its other fields. `added` is not searched, so it does not change the ranking, and `recommend_stack` does not copy it.
   - `get_gear` adds a `checked` object: the entry's `source_checked`, `source_url`, `verification`, `access_notes` and `licence`, leaving out any the entry does not have.
   - `recommend_stack` takes a job in plain words and returns up to 10 entries (6 by default). It uses the search words and field weights of `search_gear`, matched at the start of words. An entry fits when at least half of the job's words, and at least two when the job has two or more, are in its name, id, group, description or audience. Fitting entries are ranked as `search_gear` ranks them, and the best entry of each kind (tool or platform, MCP server, skill, API or data, security, protocol) goes in before a kind repeats. Each item quotes the entry's own words. It makes no model or network calls.
 - `/mcp/server-card`: the MCP Server Card.
@@ -82,6 +98,7 @@ Also check one entry page and its Markdown copy:
 ```bash
 curl -sI https://gearlist.build/tools/firecrawl/ | grep -i -E "content-security"
 curl -sI https://gearlist.build/tools/firecrawl.md | grep -i -E "^link|content-type"
+curl -sI https://gearlist.build/feed.xml | grep -i -E "content-type|cache-control"
 curl -s https://gearlist.build/sitemap.xml
 ```
 

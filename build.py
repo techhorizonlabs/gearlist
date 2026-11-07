@@ -1,7 +1,10 @@
 """Generate the public directory from reviewed source records. No network access."""
 import json
 import re
+import sys
 from pathlib import Path
+
+from added_dates import check as check_added
 
 root = Path(__file__).parent
 data = json.loads((root / "resources.json").read_text())
@@ -26,6 +29,11 @@ for e in entries:
     )
     assert e["url"].startswith("https://")
     assert e["source_url"].startswith("https://")
+# Every entry records the date it was added to Gearlist. added_dates.py explains the dates.
+problems = check_added(entries, data.get("updated"))
+if problems:
+    more = f"\n...and {len(problems) - 20} more." if len(problems) > 20 else ""
+    sys.exit("build.py: " + "\n".join(problems[:20]) + more)
 
 # The website runs a read-only MCP server and JSON API (site/worker). Keep these in
 # step with site/build_site.py and site/src/agent-prompt.txt.
@@ -90,6 +98,7 @@ The website has these for agents, as well as the files in this repository:
 - [agent-prompt.txt]({SITE_URL}agent-prompt.txt): the prompt to give your agent.
 - A Markdown copy of the catalog page, sent when a request for `{SITE_URL}` asks for `text/markdown`. It is also at [index.md]({SITE_URL}index.md).
 - A page for every entry at `{SITE_URL}tools/<id>/`, for example [Firecrawl]({SITE_URL}tools/firecrawl/), and a page for every group at `{SITE_URL}category/<group>/`. Each has a Markdown copy beside it, such as [tools/firecrawl.md]({SITE_URL}tools/firecrawl.md).
+- [What's new]({SITE_URL}new/): entries by the date they were added, newest first, with a Markdown copy at [new.md]({SITE_URL}new.md) and an Atom feed at [feed.xml]({SITE_URL}feed.xml).
 - Discovery files: [ai-catalog.json]({SITE_URL}.well-known/ai-catalog.json) names the MCP server and the skills, [api-catalog]({SITE_URL}.well-known/api-catalog) lists the APIs, and [agent-skills/index.json]({SITE_URL}.well-known/agent-skills/index.json) lists the skills with their checksums.
 
 ## Skills
@@ -212,6 +221,7 @@ Every entry has a page at {SITE_URL}tools/<id>/ with a Markdown copy at {SITE_UR
 - [Full descriptions](llms-full.txt): Purpose, intended user, access notes, check date and page links.
 - [Structured records](resources.json): The canonical directory data.
 - [Human index]({SITE_URL}): Browse and search by category.
+- [What's new]({SITE_URL}new.md): Entries by the date they were added, newest first. Atom feed: {SITE_URL}feed.xml
 - [House rules](AGENTS.md): How an agent should work in this repository.
 - [Contribution guide]({REPO_BLOB}CONTRIBUTING.md): How to suggest additions or corrections.
 - [Stars queue]({REPO_RAW}stars-queue.json): All {starred_total} starred GitHub repos. Queued rows wait for a documentation review.

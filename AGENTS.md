@@ -22,7 +22,7 @@ Edit `resources.json`, then run `python3 build.py` from the repository root. Do 
 
 The maintainer skill for this is `internal/skills/add-entry/SKILL.md`. Read it before you add or correct an entry. It lives outside `skills/` so that `npx skills add techhorizonlabs/gearlist` and `/.well-known/agent-skills/index.json` do not offer it to the public. Its `metadata.internal: true` line keeps it out of `npx skills add --full-depth` lists too. Do not move it to `.agents/skills/` or `.claude/skills/`: the installer scans those folders.
 
-Every entry needs a unique `id` and `url`, a `source_url`, a `source_checked` date (YYYY-MM-DD), `access_notes`, and `verification` set to documentation review unless a later authorised test says otherwise.
+Every entry needs a unique `id` and `url`, a `source_url`, a `source_checked` date (YYYY-MM-DD), an `added` date (YYYY-MM-DD, the day it joined the list), `access_notes`, and `verification` set to documentation review unless a later authorised test says otherwise. A new entry's `added` date is the day you add it; set `updated` at the top of `resources.json` to that day too. Do not change the `added` date of an existing entry.
 
 ## What not to do
 
