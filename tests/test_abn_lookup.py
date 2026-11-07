@@ -8,6 +8,7 @@ built from the field names those live responses returned.
 import importlib.util
 import io
 import json
+import time
 import unittest
 from datetime import datetime, timezone
 from pathlib import Path
@@ -133,6 +134,31 @@ class GuidTests(unittest.TestCase):
             server.close()
         self.assertEqual(status, 302)
         self.assertEqual(len(server.hits), 1)
+
+    def test_slow_body_stops_at_the_deadline(self):
+        # One byte every 0.04 seconds: each read returns, so only a shared deadline stops it.
+        server = fakes.LocalServer(lambda path: (200, {}, [b"c"] * 100, 0.04))
+        try:
+            started = time.monotonic()
+            with self.assertRaises(al.NetworkError):
+                al.default_fetch(server.url + "/json/slow", 0.2)
+            self.assertLess(time.monotonic() - started, 0.45)
+        finally:
+            server.close()
+
+    def test_late_headers_stop_at_the_deadline(self):
+        def late(path):
+            time.sleep(1.0)
+            return 200, {}, [b"{}"], 0
+
+        server = fakes.LocalServer(late)
+        try:
+            started = time.monotonic()
+            with self.assertRaises(al.NetworkError):
+                al.default_fetch(server.url + "/json/slow", 0.2)
+            self.assertLess(time.monotonic() - started, 0.45)
+        finally:
+            server.close()
 
     def test_slow_drip_hits_the_overall_deadline(self):
         server = fakes.LocalServer(lambda path: (200, {}, [b"c"] * 15, 0.1))

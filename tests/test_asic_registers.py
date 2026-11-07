@@ -6,6 +6,7 @@ HTTP is replaced by a fake that serves responses saved from data.gov.au on 7 Nov
 import importlib.util
 import io
 import json
+import time
 import unittest
 from datetime import datetime, timezone
 from pathlib import Path
@@ -260,6 +261,31 @@ class ErrorTests(unittest.TestCase):
             server.close()
         self.assertEqual(status, 302)
         self.assertEqual(server.hits, ["/data/api/3/action/package_show?id=x"])
+
+    def test_slow_body_stops_at_the_deadline(self):
+        # One byte every 0.04 seconds: each read returns, so only a shared deadline stops it.
+        server = fakes.LocalServer(lambda path: (200, {}, [b"c"] * 100, 0.04))
+        try:
+            started = time.monotonic()
+            with self.assertRaises(ar.NetworkError):
+                ar.default_fetch(server.url + "/slow", 0.2)
+            self.assertLess(time.monotonic() - started, 0.45)
+        finally:
+            server.close()
+
+    def test_late_headers_stop_at_the_deadline(self):
+        def late(path):
+            time.sleep(1.0)
+            return 200, {}, [b"{}"], 0
+
+        server = fakes.LocalServer(late)
+        try:
+            started = time.monotonic()
+            with self.assertRaises(ar.NetworkError):
+                ar.default_fetch(server.url + "/slow", 0.2)
+            self.assertLess(time.monotonic() - started, 0.45)
+        finally:
+            server.close()
 
     def test_slow_drip_hits_the_overall_deadline(self):
         server = fakes.LocalServer(lambda path: (200, {}, [b"{"] * 15, 0.1))

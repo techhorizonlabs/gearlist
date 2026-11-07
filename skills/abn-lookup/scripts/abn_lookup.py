@@ -18,6 +18,7 @@ import json
 import os
 import re
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -156,14 +157,15 @@ class _NoRedirect(urllib.request.HTTPRedirectHandler):
 _OPENER = urllib.request.build_opener(_NoRedirect)
 
 
-def read_capped(response, timeout):
-    """Read up to MAX_BYTES + 1 bytes, giving up once the whole read takes longer than timeout."""
-    deadline = time.monotonic() + timeout
+def read_capped(response, deadline):
+    """Read up to MAX_BYTES + 1 bytes, stopping once the shared deadline has passed."""
+    # read1 returns whatever has arrived, so a slow sender cannot hold one read open.
+    read = getattr(response, "read1", None) or response.read
     chunks, size = [], 0
     while size <= MAX_BYTES:
         if time.monotonic() > deadline:
-            raise NetworkError(f"ABN Lookup took longer than {timeout} seconds to answer. Stopped reading.")
-        chunk = response.read(min(65536, MAX_BYTES + 1 - size))
+            raise NetworkError("ABN Lookup took too long to answer. Stopped reading.")
+        chunk = read(min(65536, MAX_BYTES + 1 - size))
         if not chunk:
             break
         chunks.append(chunk)
@@ -172,19 +174,44 @@ def read_capped(response, timeout):
 
 
 def default_fetch(url, timeout=TIMEOUT):
-    """GET a URL. Returns (status, body bytes). Exceptions are raised without the URL."""
+    """GET a URL. Returns (status, body bytes). Exceptions are raised without the URL.
+    One deadline covers connecting, the headers and the body. The request runs in a worker
+    thread, and this call returns when the deadline passes even if a server is still
+    sending slowly, closing the connection so the worker stops too.
+    """
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    try:
-        with _OPENER.open(request, timeout=timeout) as response:
-            return response.status, read_capped(response, timeout)
-    except urllib.error.HTTPError as exc:
-        exc.close()
-        return exc.code, b""
-    except NetworkError:
-        raise
-    except Exception as exc:  # URLError, timeouts, TLS and socket errors
-        reason = getattr(exc, "reason", exc)
-        raise NetworkError(f"Could not reach abr.business.gov.au: {reason}") from None
+    deadline = time.monotonic() + timeout
+    result, held = {}, {}
+
+    def work():
+        try:
+            with _OPENER.open(request, timeout=timeout) as response:
+                held["response"] = response
+                result["value"] = (response.status, read_capped(response, deadline))
+        except urllib.error.HTTPError as exc:
+            exc.close()
+            result["value"] = (exc.code, b"")
+        except BaseException as exc:  # handed to the caller below, without the URL
+            result["error"] = exc
+
+    worker = threading.Thread(target=work, name="ABN Lookup fetch", daemon=True)
+    worker.start()
+    worker.join(max(0.0, deadline - time.monotonic()))
+    if worker.is_alive():
+        response = held.get("response")
+        if response is not None:
+            try:
+                response.close()
+            except Exception:
+                pass
+        raise NetworkError(f"ABN Lookup took longer than {timeout} seconds to answer. Stopped reading.")
+    exc = result.get("error")
+    if exc is None:
+        return result["value"]
+    if isinstance(exc, NetworkError):
+        raise exc
+    reason = getattr(exc, "reason", exc)
+    raise NetworkError(f"Could not reach abr.business.gov.au: {reason}") from None
 
 
 def secret_forms(secret):
