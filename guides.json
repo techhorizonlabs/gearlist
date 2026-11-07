@@ -58,7 +58,7 @@
           "heading": "A subscription: one monthly price for a coding agent",
           "paragraphs": [
             "Claude Pro costs US$20 a month and includes Claude Code; Max is US$100 and Ultra US$200. ChatGPT Plus is US$20 a month, and every ChatGPT plan includes Codex. xAI's X Subscription runs from US$8 to US$200 a month, and even its US$8 Plus plan includes Grok Build, xAI's terminal coding agent. Google AI Pro is US$19.99 a month and allows 1,500 Gemini CLI requests a day. These are US prices, read on 7 November 2026.",
-            "Check where a plan may be used before you build on it. Anthropic allows its plans only in Claude Code and its own apps, and says anything built on the Agent SDK should use an API key. Google says signing in to Gemini CLI from a third-party tool can get the account suspended. OpenAI's Sign in with ChatGPT lets open-source and locally hosted apps use your plan, and xAI supports SuperGrok and X Premium plans inside OpenCode, including on a remote server. Anthropic, OpenAI and xAI all forbid sharing an account."
+            "Check where a plan may be used before you build on it. Anthropic says its plans are for Claude Code and its own apps, and that products or services built on the Agent SDK should use an API key. Google says signing in to Gemini CLI from a third-party tool can get the account suspended. OpenAI's Sign in with ChatGPT lets open-source and locally hosted apps use your plan, and xAI supports SuperGrok and X Premium plans inside OpenCode, including on a remote server. Anthropic, OpenAI and xAI all forbid sharing an account."
           ],
           "sources": [
             "https://claude.com/pricing",
@@ -74,7 +74,7 @@
         {
           "heading": "An API key: pay per token, made for automation",
           "paragraphs": [
-            "Agents that run on their own, on a server or inside a workflow, are what API keys are for, and the providers say so for their own tools: Anthropic for the Agent SDK, OpenAI for Codex in CI/CD jobs, and xAI for Grok Build where there is no browser. The table below gives each model's price per million tokens.",
+            "Agents that run on their own, on a server or inside a workflow, are what API keys are for, and the providers say so for their own tools: Anthropic for products and services built on the Agent SDK, OpenAI for Codex in CI/CD jobs, and xAI for Grok Build where there is no browser. The table below gives each model's price per million tokens.",
             "Anthropic, OpenAI and xAI say they do not train on API data without your permission. Google's paid tier does not either, but its free tier and AI Studio use what you send to improve Google products, and people may read it. Claude Max and Ultra include US$100 and US$200 of API credit a month, and ChatGPT Pro tiers include monthly API credit matching their price."
           ],
           "sources": [
@@ -91,7 +91,7 @@
         {
           "heading": "Your own model: no token bill, but it must fit in memory",
           "paragraphs": [
-            "Open-weight models such as [[gemma-4]], [[gpt-oss-120b]] and Qwen run on your own machine through Ollama, which is MIT licensed and runs on macOS, Windows and Linux, or LM Studio, which is free for running models but is not open source. Nothing you send leaves the machine, and there is no per-token bill.",
+            "Open-weight models such as [[gemma-4]], [[gpt-oss-120b]] and Qwen run on your own machine through Ollama, which is MIT licensed and runs on macOS, Windows and Linux, or LM Studio, which is free for running models but is not open source. Prompts stay on your machine when the model runs locally, and there is no per-token bill.",
             "Memory decides what fits. Google puts Gemma 4 31B at about 17.5 GB in 4-bit for the weights alone, with more needed for long conversations. OpenAI says gpt-oss-20b runs within 16 GB and gpt-oss-120b fits a single 80 GB GPU. Qwen's own model cards give no memory figure; Ollama's download of Qwen3.8 27B is 18 GB. Qwen's largest open model, [[qwen3-8-2-4t-a95b]], has 2.4 trillion parameters, and Qwen also offers it hosted as Qwen3.8-Max."
           ],
           "sources": [
