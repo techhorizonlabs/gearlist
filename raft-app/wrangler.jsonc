@@ -4,9 +4,8 @@
 // through ASSETS, as site/worker does. run_worker_first keeps every request in the Worker,
 // so nothing in ./catalog is served directly.
 //
-// Not live yet. There is no route, and workers.dev and preview URLs are off, so a deploy
-// is unreachable until the route below is added. README.md has the order: register the app
-// in Raft, set RAFT_CLIENT_ID, set the two secrets, add the route, then deploy.
+// Registered in Raft on 7 November 2026 as client key "gearlist" and served at
+// https://raft.gearlist.build. workers.dev and preview URLs stay off.
 //
 // Secrets (set with `wrangler secret put`, never in this file):
 //   RAFT_CLIENT_SECRET  the client secret Raft shows once after registration
@@ -26,7 +25,7 @@
     "APP_ORIGIN": "https://raft.gearlist.build",
     "RAFT_API_ORIGIN": "https://api.raft.build",
     // The client ID Raft gives at registration. Login and every action refuse while it is empty.
-    "RAFT_CLIENT_ID": ""
+    "RAFT_CLIENT_ID": "gearlist"
   },
   // Per-IP budget for the callback and the actions. namespace_id must not be used by
   // another Worker on the account (gearlist-site uses 4271).
@@ -41,7 +40,6 @@
   // one-time code) and request headers (the session cookie).
   "observability": { "enabled": true, "logs": { "invocation_logs": false } },
   "workers_dev": false,
-  "preview_urls": false
-  // After registration, add:
-  // "routes": [{ "pattern": "raft.gearlist.build", "custom_domain": true }]
+  "preview_urls": false,
+  "routes": [{ "pattern": "raft.gearlist.build", "custom_domain": true }]
 }
