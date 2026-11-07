@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 302 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 318 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -46,6 +46,7 @@ The skills are:
 - `au-business-check`: check an Australian business before you deal with it, with the two skills below. It reports whether the business is registered, its status, registration date, ABN and ACN, and the date of each source. With an ABN Lookup GUID it adds GST registration and state.
 - `asic-registers`: search ASIC's company and business names registers by name, ACN or ABN, through data.gov.au. No key needed.
 - `abn-lookup`: ABN details, GST registration and name matches from ABN Lookup, the Australian Business Register's free web service. Needs a free GUID.
+- `nvidia-api-catalog`: list the models on NVIDIA's hosted API catalogue and check whether a model id is live or retired, with no key. It also shows how to call a model with a key in `NVIDIA_API_KEY`. NVIDIA's free developer access is for prototyping and testing only.
 
 To install the YouTube creator pack on its own:
 
@@ -68,11 +69,11 @@ npx skills add techhorizonlabs/thl-open
 ## Contents
 
 - [Agent tools](#agent-tools) (94)
-- [MCP and integrations](#mcp-and-integrations) (41)
-- [Security and governance](#security-and-governance) (9)
+- [MCP and integrations](#mcp-and-integrations) (46)
+- [Security and governance](#security-and-governance) (10)
 - [Platforms](#platforms) (64)
 - [Protocols](#protocols) (7)
-- [Skills and learning](#skills-and-learning) (54)
+- [Skills and learning](#skills-and-learning) (64)
 - [APIs and data](#apis-and-data) (33)
 
 
@@ -1086,9 +1087,9 @@ Notion's hosted MCP server for searching, reading, creating and updating pages a
 
 **For:** People whose agents need live Notion context they already have permission to see.
 
-**Access and use:** Remote URL https://mcp.notion.com/mcp with OAuth. Can read and write workspace content. Workspace owners can manage which clients connect. Prefer the hosted server over the unmaintained self-hosted repo.
+**Access and use:** Remote URL https://mcp.notion.com/mcp with OAuth. On Business and Enterprise plans a workspace owner can also create an MCP token, which a client sends as a bearer token with no browser sign-in, and Enterprise workspaces with SAML SSO can use enterprise-managed authorization. Only workspace members can connect; guests cannot. Can read and write workspace content. Workspace owners can manage which clients connect. Prefer the hosted server over the unmaintained self-hosted repo.
 
-**Source checked:** 2026-10-27. [Official source](https://developers.notion.com/guides/mcp/get-started-with-mcp). [Gearlist page](https://gearlist.build/tools/notion-mcp/).
+**Source checked:** 2026-11-07. [Official source](https://developers.notion.com/guides/mcp/get-started-with-mcp). [Gearlist page](https://gearlist.build/tools/notion-mcp/).
 
 ### [Cloudflare MCP](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/)
 
@@ -1430,6 +1431,56 @@ Zapier's hosted MCP server that lets an AI client run actions in the 9,000 or mo
 
 **Source checked:** 2026-11-07. [Official source](https://docs.zapier.com/mcp/home). [Gearlist page](https://gearlist.build/tools/zapier-mcp/).
 
+### [Gemini Docs MCP](https://aistudio.google.com/docs/coding-agents)
+
+Google's public MCP server that lets a coding agent search and read the full Gemini API documentation.
+
+**For:** Developers whose coding agents write Gemini API code and need current model names, request schemas and limits.
+
+**Access and use:** Remote URL https://gemini-api-docs-mcp.dev. Claude Code: claude mcp add --transport http geminiDocs https://gemini-api-docs-mcp.dev, or npx add-mcp https://gemini-api-docs-mcp.dev for the agents it detects. Two tools, gemini_search_docs and gemini_get_doc, both over Google's public Gemini API documentation. Google's setup page uses no key or sign-in for it and names no price. The same documentation is also listed for agents at https://aistudio.google.com/llms.txt.
+
+**Source checked:** 2026-11-07. [Official source](https://aistudio.google.com/docs/coding-agents). [Gearlist page](https://gearlist.build/tools/gemini-docs-mcp/).
+
+### [Google Developer Knowledge MCP](https://developers.google.com/knowledge/mcp)
+
+Google's MCP server for searching and reading its official developer documentation, including Firebase, Google Cloud, Android and Google Maps Platform.
+
+**For:** Developers whose coding agents build on Google products and need current documentation.
+
+**Access and use:** Remote URL https://developerknowledge.googleapis.com/mcp. Enable the Developer Knowledge API in a Google Cloud project, then send an API key in the X-Goog-Api-Key header, or use OAuth or Application Default Credentials. Tools: search_documents, get_documents and answer_query, which writes an answer from the documentation. Default quotas per project are 100 searches and 100 document reads a minute, and 50 generated answers a day. The setup and quota pages name no price.
+
+**Source checked:** 2026-11-07. [Official source](https://developers.google.com/knowledge/mcp). [Gearlist page](https://gearlist.build/tools/google-developer-knowledge-mcp/).
+
+### [Maps Experience agent tools](https://developers.google.com/maps/ai/maps-experience-agent-tools)
+
+Google Maps Platform's MCP server, formerly Maps Grounding Lite, that lets an agent search places, look up weather, compute routes and turn place names or Maps links into place IDs.
+
+**For:** Teams building agents that answer questions about places, routes, travel times or local weather.
+
+**Access and use:** Remote URL https://mapstools.googleapis.com/mcp with a Google Maps Platform API key in the X-Goog-Api-Key header, or OAuth. Five tools: search_places, lookup_weather, compute_routes, resolve_names and resolve_maps_urls. Essentials requests are free for the first 10,000 a month, then US$7.00 per 1,000. Pro options cost US$14.00 per 1,000 after 5,000 free a month, and for now work only on allowlisted projects. Search, weather and routes each allow 300 queries a minute per project. Answers must show the Google Maps sources each response returns, and the model you use must not cache, store or train on Google Maps content. The Maps Demo Key covers it for prototyping.
+
+**Source checked:** 2026-11-07. [Official source](https://developers.google.com/maps/ai/maps-experience-agent-tools). [Gearlist page](https://gearlist.build/tools/maps-experience-agent-tools/).
+
+### [Microsoft MCP Server for Enterprise](https://learn.microsoft.com/en-us/graph/mcp-server/overview)
+
+Microsoft's MCP server, in preview, that turns plain questions about a Microsoft Entra tenant's users, groups, apps and devices into read-only Microsoft Graph calls.
+
+**For:** IT admins and helpdesk staff who want an agent to answer identity and directory questions about their own tenant.
+
+**Access and use:** Remote URL https://mcp.svc.cloud.microsoft/enterprise, in preview under the Microsoft APIs Terms of Use. An Application Administrator or Cloud Application Administrator registers it once per tenant with the Microsoft.Entra.Beta PowerShell module and grants MCP scopes to each client; Claude and other non-Microsoft clients need their own app registration. Its Graph tool, microsoft_graph_get, is read-only and honours the signed-in user's roles and the scopes granted. The server has no extra cost or licence, but you need licences for the data you read. Limit: 100 calls a minute per user, plus Graph throttling. Global cloud only. Turn on Microsoft Graph activity logs to record every call.
+
+**Source checked:** 2026-11-07. [Official source](https://learn.microsoft.com/en-us/graph/mcp-server/overview). [Gearlist page](https://gearlist.build/tools/microsoft-mcp-server-for-enterprise/).
+
+### [OpenRouter MCP](https://openrouter.ai/docs/guides/overview/mcp-server)
+
+OpenRouter's hosted MCP server that lets a coding agent look up live models, prices, benchmarks, providers and your credit balance, and send test messages to any model.
+
+**For:** Developers choosing or testing models on OpenRouter from inside their coding agent.
+
+**Access and use:** Remote URL https://mcp.openrouter.ai/mcp. Claude Code: claude mcp add --transport http openrouter https://mcp.openrouter.ai/mcp, then claude mcp login openrouter. Signing in with OAuth creates a separate key for this connection that expires within 7 days and starts with a US$10 spend cap, which you can change on the approval screen. Most of its 17 tools are read-only lookups; send-message and generate-image spend credits, and send-feedback sends a report on one of your generations to OpenRouter. OpenRouter suggests it for building and testing, and the API for running models in your app.
+
+**Source checked:** 2026-11-07. [Official source](https://openrouter.ai/docs/guides/overview/mcp-server). [Gearlist page](https://gearlist.build/tools/openrouter-mcp/).
+
 ## Security and governance
 
 ### [CISO AI](https://cisoai.au/)
@@ -1521,6 +1572,16 @@ The OWASP GenAI Security Project's list of the ten most critical security risks 
 **Access and use:** A free PDF from the OWASP GenAI Security Project page, downloadable without signing in. The 2026 edition was published on 9 December 2025. Risks are numbered ASI01 to ASI10 and mapped to OWASP's Agentic AI Threats and Mitigations guide. CC BY-SA 4.0.
 
 **Source checked:** 2026-11-07. [Official source](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/). [Gearlist page](https://gearlist.build/tools/owasp-agentic-top-10/).
+
+### [Cloudflare security-audit skill](https://github.com/cloudflare/security-audit-skill)
+
+Cloudflare's coding-agent skill for a six-phase security audit of a codebase, in which separate agents find each issue, try to disprove it and check the final record.
+
+**For:** Developers and security teams who want a coding agent to review code they own for vulnerabilities.
+
+**Access and use:** npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit. Needs a model with tool use and parallel sub-agents, and Node.js for its two validators. It reads the code and writes its reports, by default under ~/security-audit-skill/. Before it runs any of the target's own code it asks for an OS-enforced sandbox with outside networking turned off; without one, those leads stay marked needs_validation. Cloudflare says one run found about half of what repeated runs found. Audit only code you are allowed to test. MIT.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/cloudflare/security-audit-skill). [Gearlist page](https://gearlist.build/tools/cloudflare-security-audit-skill/).
 
 ## Platforms
 
@@ -2778,6 +2839,106 @@ Warp's set of 15 Agent Skills for Warp agents and Oz, covering CI fixes, pull re
 
 **Source checked:** 2026-11-03. [Official source](https://github.com/warpdotdev/oz-skills). [Gearlist page](https://gearlist.build/tools/oz-skills/).
 
+### [Cloudflare Skills](https://github.com/cloudflare/skills)
+
+Cloudflare's 22 Agent Skills for building on Workers, Durable Objects, the Agents SDK, Wrangler, Sandbox, Cloudflare One and the rest of its developer platform.
+
+**For:** Developers whose coding agents build, deploy or debug apps on Cloudflare.
+
+**Access and use:** Claude Code: /plugin marketplace add cloudflare/skills, then /plugin install cloudflare@cloudflare. Codex, VS Code and Cursor installs are in the README, and npx skills add https://github.com/cloudflare/skills installs the skills on their own. The plugin also adds Cloudflare's main MCP server, https://mcp.cloudflare.com/mcp, which signs in with OAuth or an API token and can change account settings, so grant it the smallest permissions. The turnstile-spin skill ships shell scripts that use CLOUDFLARE_API_TOKEN to create Turnstile widgets. Cloudflare usage follows your account's plan. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/cloudflare/skills). [Gearlist page](https://gearlist.build/tools/cloudflare-skills/).
+
+### [Gemini API skills](https://github.com/google-gemini/gemini-skills)
+
+Four Agent Skills from Google's Gemini team for writing Gemini API code, calling the API from the shell, building Live API streaming apps and generating video with Gemini Omni Flash.
+
+**For:** Developers whose coding agents write apps on the Gemini API.
+
+**Access and use:** npx skills add google-gemini/gemini-skills --skill gemini-api-dev installs one skill. Claude Code: /plugin marketplace add google-gemini/gemini-skills, then /plugin install gemini-skills@gemini-skills. Codex and Cursor installs are in the README. In Antigravity the repository installs as the Gemini API plugin, which Google says also adds the Gemini Docs MCP server and API key tools. The gemini-omni-flash-api skill ships Python scripts that use GEMINI_API_KEY to upload files and generate video, which uses that key's quota and billing. The README says it is not an officially supported Google product. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/google-gemini/gemini-skills). [Gearlist page](https://gearlist.build/tools/gemini-skills/).
+
+### [Google Agent Skills](https://github.com/google/skills)
+
+Google's Agent Skills for its developer products, mostly Google Cloud (GKE, BigQuery, Cloud Storage, Agent Platform, Gemini on Cloud and the gcloud CLI), plus Google Ads, Analytics, sign-in and documentation lookup.
+
+**For:** Developers and platform engineers whose coding agents build on or run Google Cloud.
+
+**Access and use:** npx skills add google/skills asks which skills to install and where. Claude Code: claude plugin marketplace add google/skills, then install a plugin such as google-cloud-developer@google-plugins. The plugins bundle skills with MCP servers; google-cloud-developer adds Google's Developer Knowledge MCP server with a key from DEVELOPERKNOWLEDGE_API_KEY. Skills that run the gcloud CLI act as whatever account gcloud is signed in to, and Google Cloud bills the project they use. 192 SKILL.md files on 7 November 2026. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/google/skills). [Gearlist page](https://gearlist.build/tools/google-skills/).
+
+### [Google Maps Platform agent skills](https://github.com/googlemaps/agent-skills)
+
+Google Maps Platform's Agent Skills for writing map, places, routes, geocoding and environment features across web, Android, iOS and web service APIs, plus a Navigation SDK migration skill.
+
+**For:** Developers whose coding agents add Google Maps features to an app.
+
+**Access and use:** npx skills add googlemaps/agent-skills. Installing it as a Gemini CLI extension also adds the Maps Code Assist MCP server, https://mapscodeassist.googleapis.com/mcp. The main skill tells the agent to fetch a skills index and sub-skills from www.gstatic.com on each request, with a client parameter naming the agent, and to send documentation questions to Google's Code Assist service. It also asks for a Google usage attribution ID, gmp_git_agentskills_v1, in the code it writes. For prototyping it points to the Maps Demo Key, which needs no billing account; production keys bill to a Google Cloud project. The README says it is not an officially supported Google product. Apache-2.0.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/googlemaps/agent-skills). [Gearlist page](https://gearlist.build/tools/google-maps-agent-skills/).
+
+### [Microsoft Graph Developer Skills](https://github.com/microsoftgraph/dev-skills)
+
+A GitHub Copilot CLI plugin from Microsoft Graph with five skills that find the Graph endpoints and least-privilege permissions for a use case, generate a small API client with Kiota or AI, and write the app code.
+
+**For:** Developers building or slimming down C#, Python or TypeScript apps that call Microsoft Graph.
+
+**Access and use:** Built for GitHub Copilot CLI: start a session and run /plugin install with the path to a clone. Needs a Copilot plan, a Microsoft Entra tenant where you can create or use an app registration, and the .NET SDK with Kiota for the default workflow. The skills work from Microsoft's docs and the public Graph OpenAPI file. Apps they generate can ask for access to organisational Microsoft 365 data, so check each permission before you grant it. Last commit 4 August 2026. The README says MIT.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/microsoftgraph/dev-skills). [Gearlist page](https://gearlist.build/tools/microsoft-graph-dev-skills/).
+
+### [Microsoft Agent Skills](https://github.com/microsoft/skills)
+
+Microsoft's Agent Skills, custom agents and MCP configurations for coding agents that build with Azure SDKs and Microsoft Foundry in Python, .NET, TypeScript, Java and Rust.
+
+**For:** Developers whose coding agents build on Azure services or Microsoft Foundry.
+
+**Access and use:** npx skills add microsoft/skills opens a picker, and the README asks you to install only the skills a project needs. In Copilot CLI, /plugin marketplace add microsoft/skills offers plugins such as azure, which uses the azure and foundry-mcp MCP servers to manage, monitor and deploy Azure resources. Azure usage bills to your subscription. The README calls the repository a work in progress. MIT.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/microsoft/skills). [Gearlist page](https://gearlist.build/tools/microsoft-skills/).
+
+### [Notion Skills](https://github.com/makenotion/skills)
+
+Notion's two Agent Skills: one for its ntn command line tool, which calls the Notion API, deploys workers and uploads files, and one for building Notion Apps such as workflows and database syncs.
+
+**For:** Developers whose agents script Notion or build Notion Apps.
+
+**Access and use:** npx skills add makenotion/skills, or add --skill notion-cli for one skill. The notion-cli skill installs ntn with curl -fsSL https://ntn.dev | bash, so read that script first. ntn uses NOTION_API_TOKEN when it is set, or ntn login in a browser, and can read and write whatever that token reaches. Last commit 22 September 2026. MIT.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/makenotion/skills). [Gearlist page](https://gearlist.build/tools/notion-skills/).
+
+### [Notion plugin for Claude Code](https://github.com/makenotion/claude-code-notion-plugin)
+
+Notion's Claude Code plugin, which installs 12 workspace skills, slash commands and the hosted Notion MCP server together.
+
+**For:** Claude Code users who want to search, plan and write in their Notion workspace from the terminal.
+
+**Access and use:** /plugin marketplace add makenotion/claude-code-notion-plugin, then /plugin install notion-workspace-plugin@notion-plugin-marketplace, then restart Claude Code. It connects to https://mcp.notion.com/mcp and signs in with OAuth, so it can search, read, create and update pages and add database rows anywhere your Notion account can. The skills are mirrored from the Notion Cookbook. Its plugin.json says MIT, but the repository had no licence file on 7 November 2026.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/makenotion/claude-code-notion-plugin). [Gearlist page](https://gearlist.build/tools/notion-claude-code-plugin/).
+
+### [OpenRouter Skills](https://github.com/OpenRouterTeam/skills)
+
+OpenRouter's 18 Agent Skills for its API, covering model lookup, benchmarks, usage analytics, image, speech, transcription and video generation, OAuth sign-in, its TypeScript SDK and agent scaffolds.
+
+**For:** Developers whose coding agents build on OpenRouter or answer questions about their OpenRouter usage.
+
+**Access and use:** Claude Code: /plugin marketplace add OpenRouterTeam/skills, then /plugin install openrouter@openrouter. Other agents: gh skill install OpenRouterTeam/skills, with GitHub CLI 2.90.0 or later. The scripts read OPENROUTER_API_KEY. The image, speech, transcription and video skills spend credits on that key, and the analytics and generations skills read its spend, usage and stored prompts. install-ori-harness pipes an install script from openrouter.ai into bash. The repository had no licence file on 7 November 2026.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/OpenRouterTeam/skills). [Gearlist page](https://gearlist.build/tools/openrouter-skills/).
+
+### [NVIDIA Agent Skills](https://github.com/NVIDIA/skills)
+
+NVIDIA's catalogue of Agent Skills for its software, covering Physical AI and robotics, simulation, CUDA-X libraries such as cuDF and cuOpt, NeMo and Nemotron, Jetson, Run:ai and RAG blueprints, copied daily from each product's own repository.
+
+**For:** Developers whose coding agents work with NVIDIA's GPU libraries, robotics, simulation or AI platform tools.
+
+**Access and use:** npx skills add nvidia/skills --skill nvidia-skill-finder --yes installs a finder skill that searches the catalogue and can install other skills itself. 438 SKILL.md files on 7 November 2026. Each skill ships a detached signature you can check against NVIDIA's root certificate. Some skills act on outside services, such as the Run:ai skills through the Run:ai MCP server, and the README warns that the software fetches outside material under separate terms. Apache-2.0 for code and CC-BY-4.0 for skills and docs.
+
+**Source checked:** 2026-11-07. [Official source](https://github.com/NVIDIA/skills). [Gearlist page](https://gearlist.build/tools/nvidia-skills/).
+
 ## APIs and data
 
 ### [ABN Lookup web services](https://abr.business.gov.au/Tools/WebServices)
@@ -2870,15 +3031,15 @@ OpenAI's API for model inference, realtime audio, images, tools and organisation
 
 **Source checked:** 2026-11-04. [Official source](https://developers.openai.com/api/docs/guides/your-data). [Gearlist page](https://gearlist.build/tools/openai-api/).
 
-### [Gemini Developer API](https://ai.google.dev/gemini-api/docs/api-key)
+### [Gemini Developer API](https://aistudio.google.com/docs/api-key)
 
 Google's API for Gemini models, with grounding, multimodal input and tool use.
 
 **For:** Teams building agents or apps on Gemini models.
 
-**Access and use:** Keys belong to a Google Cloud project, and limits (requests per minute, tokens per minute and requests per day) apply per project, with daily limits resetting on Pacific time. There is an unpaid tier for eligible models. Under the unpaid terms, Google may use what you send to improve its products and people may review it, so don't send confidential or client data on that tier. Paid use has different terms.
+**Access and use:** Keys belong to a Google Cloud project, and limits (requests per minute, tokens per minute and requests per day) apply per project, with daily limits resetting on Pacific time. There is an unpaid tier for eligible models. Under the unpaid terms, Google may use what you send to improve its products and people may review it, so don't send confidential or client data on that tier. Paid use has different terms. In the European Economic Area, Switzerland and the UK, the paid data terms apply to unpaid use too. These terms took effect on 23 March 2026.
 
-**Source checked:** 2026-11-04. [Official source](https://ai.google.dev/gemini-api/terms). [Gearlist page](https://gearlist.build/tools/gemini-api/).
+**Source checked:** 2026-11-07. [Official source](https://aistudio.google.com/docs/terms). [Gearlist page](https://gearlist.build/tools/gemini-api/).
 
 ### [Google Search Console API](https://developers.google.com/webmaster-tools)
 
@@ -2896,9 +3057,9 @@ Google's API for searching places and reading business and location details.
 
 **For:** Agents and apps that look up local businesses, addresses or opening hours.
 
-**Access and use:** Needs a Google Cloud project with billing and a restricted API key. Pricing is per SKU, and the fields you request can move a call to a dearer SKU, so ask only for the fields you need. Storing or caching results is restricted, except place IDs, and results come with display and attribution rules.
+**Access and use:** For production, needs a Google Cloud project with billing and a restricted API key. For prototyping, the Maps Demo Key needs no billing account or credit card; it has a daily limit per API and covers a set list of APIs, including Text Search, Nearby Search and Autocomplete. Pricing is per SKU, and the fields you request can move a call to a dearer SKU, so ask only for the fields you need. Storing or caching results is restricted, except place IDs, and results come with display and attribution rules.
 
-**Source checked:** 2026-11-04. [Official source](https://developers.google.com/maps/documentation/places/web-service/policies). [Gearlist page](https://gearlist.build/tools/google-places-api/).
+**Source checked:** 2026-11-07. [Official source](https://developers.google.com/maps/documentation/places/web-service/policies). [Gearlist page](https://gearlist.build/tools/google-places-api/).
 
 ### [Microsoft Graph](https://learn.microsoft.com/en-us/graph/auth/auth-concepts)
 
@@ -2910,7 +3071,7 @@ Microsoft's API for Microsoft 365 and identity data, including mail, files, cale
 
 **Source checked:** 2026-11-04. [Official source](https://learn.microsoft.com/en-us/graph/throttling). [Gearlist page](https://gearlist.build/tools/microsoft-graph/).
 
-### [OpenRouter](https://openrouter.ai/docs/api/reference/authentication)
+### [OpenRouter](https://openrouter.ai/docs/api_reference/authentication)
 
 One API for many model providers, with routing between them.
 
@@ -2918,7 +3079,7 @@ One API for many model providers, with routing between them.
 
 **Access and use:** Authenticate with an API key, or use the documented OAuth flow for users. Some models have free variants, limited to 20 requests a minute with a daily ceiling that depends on credits bought; paid models use credits. Each provider has its own data policy. OpenRouter offers privacy settings and zero-retention routing, but legal and safety exceptions still apply.
 
-**Source checked:** 2026-11-04. [Official source](https://openrouter.ai/docs/api-reference/limits). [Gearlist page](https://gearlist.build/tools/openrouter/).
+**Source checked:** 2026-11-07. [Official source](https://openrouter.ai/docs/api_reference/limits). [Gearlist page](https://gearlist.build/tools/openrouter/).
 
 ### [DataForSEO](https://docs.dataforseo.com/v3/auth/)
 
@@ -2936,9 +3097,9 @@ Stripe's API for payments, subscriptions, invoices and the events behind them.
 
 **For:** Agents and apps that read or manage billing.
 
-**Access and use:** Use a restricted API key with only the permissions the job needs, and test in a sandbox before using live keys. The published limits are 100 requests a second in live mode and 25 in a sandbox, with a 25-a-second limit on most endpoints and further exceptions. A key that can read invoices shouldn't be able to refund or pay out, so scope it accordingly.
+**Access and use:** Use a restricted API key with only the permissions the job needs, and test in a sandbox before using live keys. A restricted key for an autonomous agent can be tagged as an agent key; agent-tagged keys need a designated reviewer to approve sensitive actions, and from December 2026 Stripe's MCP server stops accepting full-access secret keys and restricted keys without the Agent tag. The published limits are 100 requests a second in live mode and 25 in a sandbox, with a 25-a-second limit on most endpoints and further exceptions. Read requests must also average no more than 500 per transaction over a rolling 30 days, with a minimum allowance of 10,000 a month. A key that can read invoices shouldn't be able to refund or pay out, so scope it accordingly.
 
-**Source checked:** 2026-11-04. [Official source](https://docs.stripe.com/rate-limits). [Gearlist page](https://gearlist.build/tools/stripe-api/).
+**Source checked:** 2026-11-07. [Official source](https://docs.stripe.com/rate-limits). [Gearlist page](https://gearlist.build/tools/stripe-api/).
 
 ### [Resend API](https://resend.com/docs/api-reference/introduction)
 
@@ -2950,15 +3111,15 @@ An email API for transactional and marketing email, with inbound handling.
 
 **Source checked:** 2026-11-04. [Official source](https://resend.com/docs/api-reference/rate-limit). [Gearlist page](https://gearlist.build/tools/resend-api/).
 
-### [Notion API](https://developers.notion.com/docs/authorization)
+### [Notion API](https://developers.notion.com/guides/authorization/overview)
 
 Notion's API for pages, databases, comments and files in a workspace.
 
 **For:** Agents that read or update a team's Notion workspace.
 
-**Access and use:** Connect with an internal connection token, a personal access token or OAuth; each reaches only the pages shared with it. A personal token acts as its user. Limits are 600 requests a minute per connection on Business and Enterprise plans and 180 on other plans, plus workspace limits, so honour Retry-After.
+**Access and use:** Connect with an internal connection token, a personal access token or OAuth; each reaches only the pages shared with it. A personal token acts as its user. Limits are 600 requests a minute per connection on Business and Enterprise plans and 180 on other plans, plus workspace limits, so honour Retry-After. Querying a data source has its own limit of about 3 requests a second per connection.
 
-**Source checked:** 2026-11-04. [Official source](https://developers.notion.com/reference/request-limits). [Gearlist page](https://gearlist.build/tools/notion-api/).
+**Source checked:** 2026-11-07. [Official source](https://developers.notion.com/reference/request-limits). [Gearlist page](https://gearlist.build/tools/notion-api/).
 
 ### [HeyGen API](https://docs.heygen.com/docs/quick-start)
 
@@ -2976,9 +3137,9 @@ Hosted model endpoints from NVIDIA for prototyping, with some models also availa
 
 **For:** Developers trying open models before choosing where to run them.
 
-**Access and use:** Needs an NVIDIA developer account and API key. The Developer Program covers prototyping; production use needs separate licensing, such as NVIDIA AI Enterprise. Limits show per model in your account. Each model's licence and terms apply separately.
+**Access and use:** Needs an NVIDIA developer account and API key. Developer Program access is for prototyping, research, development and testing only; production, which NVIDIA defines to include anything serving real end users, needs an NVIDIA AI Enterprise licence. The API trial terms bar confidential information and, unless a service allows it, personal data, and say NVIDIA sets use limits; the docs give no rate limit figure. The model list at https://integrate.api.nvidia.com/v1/models answers without a key, and a retired model's id returns HTTP 410 with its end-of-life date. Each model's licence and terms apply separately.
 
-**Source checked:** 2026-11-04. [Official source](https://docs.api.nvidia.com/nim/docs/product). [Gearlist page](https://gearlist.build/tools/nvidia-nim-api/).
+**Source checked:** 2026-11-07. [Official source](https://docs.api.nvidia.com/nim/docs/product). [Gearlist page](https://gearlist.build/tools/nvidia-nim-api/).
 
 ### [GitHub REST API](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api)
 
