@@ -79,8 +79,8 @@ def run_checks(asic, abr, kind, value, limit, environ, ckan_fetch=None, abr_fetc
     name = "ABN Lookup (Australian Business Register, live)"
     if not guid:
         sources.append({"source": name, "ran": False, "detail": (
-            f"did not run. {GUID_ENV} is not set, so GST registration, ABN status and the business "
-            "address were not checked.")})
+            f"did not run. {GUID_ENV} is not set, so GST registration, ABN status and state and "
+            "postcode were not checked.")})
     else:
         try:
             client = abr.AbrClient(guid, fetch=abr_fetch)
@@ -92,7 +92,7 @@ def run_checks(asic, abr, kind, value, limit, environ, ckan_fetch=None, abr_fetc
             if isinstance(exc, abr.GuidError):
                 source = {"source": name, "ran": False, "detail": (
                     f"did not run. ABN Lookup did not accept the GUID in {GUID_ENV}. Ask the human "
-                    "to check it. GST registration, ABN status and the business address were not checked.")}
+                    "to check it. GST registration, ABN status and state and postcode were not checked.")}
             else:
                 source = {"source": name, "ran": False, "detail": "did not run.", "error": str(exc)}
             if getattr(exc, "message", None):
@@ -171,11 +171,11 @@ def identifier_result(asic, abr, kind, value, asic_report, abr_report):
             facts.append(f"ABN in ABN Lookup: {md(asic.format_abn(details['abn']))}")
         facts.append(f"GST: {abr.gst_line(details)}")
         place = " ".join(md(x) for x in (details["address_state"], details["address_postcode"]) if x)
-        facts.append(f"State and postcode (ABN Lookup address): {place or 'none returned'}")
+        facts.append(f"State and postcode (from ABN Lookup): {place or 'none returned'}")
     else:
         why = "did not return a record" if abr_report else "did not run"
         facts.append(f"GST: not checked. The ASIC data has no GST field, and ABN Lookup {why}.")
-        facts.append(f"State: not checked. The business address comes from ABN Lookup, which {why}.")
+        facts.append(f"State: not checked. The state and postcode come from ABN Lookup, which {why}.")
     if companies and companies[0]["previous_state_of_registration"]:
         facts.append(f"ASIC records that the company was first registered in {md(companies[0]['previous_state_of_registration'])}.")
     if asic_report and "business_names" in asic_report["datasets"] and not bn_meta.get("skipped"):

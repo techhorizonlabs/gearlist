@@ -8,7 +8,7 @@ description: Check an Australian business before someone deals with it, from off
 This is the entry point for the Australian business data pack. It runs two skills and writes one short result:
 
 1. `asic-registers`: ASIC's company and business names registers, through data.gov.au. Always runs. No key.
-2. `abn-lookup`: ABN Lookup, the Australian Business Register's live web service. Runs only when `ABR_GUID` is set. This is the only source for GST registration, ABN status and the business address.
+2. `abn-lookup`: ABN Lookup, the Australian Business Register's live web service. Runs only when `ABR_GUID` is set. This is the only source for GST registration, ABN status and the business's state and postcode.
 
 Install all three together, so the scripts sit in sibling folders:
 

@@ -46,6 +46,8 @@ class WithoutGuidTests(unittest.TestCase):
         self.assertIn("- ASIC Company Dataset on data.gov.au: ran. Snapshot last modified 2 November 2026.", out)
         self.assertIn("- ASIC Business Names Dataset on data.gov.au: ran. Snapshot last modified 3 November 2026.", out)
         self.assertIn("did not run. ABR_GUID is not set", out)
+        self.assertIn("GST registration, ABN status and state and postcode were not checked.", out)
+        self.assertNotIn("address", out.split("## Sources")[1].split("## Before")[0])
         self.assertIn("Do not use it to profile people", out)
         self.assertIn("Creative Commons Attribution 3.0 Australia", out)
 
@@ -102,7 +104,7 @@ class WithGuidTests(unittest.TestCase):
         self.assertIn("<untrusted_name>\nSYNTHETIC TEST ENTITY\n</untrusted_name>", out)
         self.assertIn("- ABN status in ABN Lookup: Active, from 2020-01-01", out)
         self.assertIn("- GST: registered for GST from 2020-01-01", out)
-        self.assertIn("- State and postcode (ABN Lookup address): QLD 4000", out)
+        self.assertIn("- State and postcode (from ABN Lookup): QLD 4000", out)
         self.assertIn("- ABN Lookup (Australian Business Register, live): ran. Live data, read 7 November 2026.", out)
         self.assertIn("This does not mean the business does not exist.", out)  # the ASIC cautions
         self.assertNotIn(GUID, out + err)
