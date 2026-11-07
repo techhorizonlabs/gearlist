@@ -327,6 +327,42 @@ class ErrorTests(unittest.TestCase):
         finally:
             server.close()
 
+    def test_several_addresses_share_one_connection_budget(self):
+        # Two addresses that each hang until their timeout must not take twice the budget.
+        import socket
+        from unittest import mock
+
+        attempts = []
+
+        class HangingSocket:
+            def __init__(self, *args):
+                self.timeout = None
+
+            def settimeout(self, value):
+                self.timeout = value
+
+            def connect(self, address):
+                attempts.append(self.timeout)
+                time.sleep(self.timeout)
+                raise TimeoutError("timed out")
+
+            def close(self):
+                pass
+
+        addresses = [(socket.AF_INET, socket.SOCK_STREAM, 6, "", ("192.0.2.1", 443)),
+                     (socket.AF_INET, socket.SOCK_STREAM, 6, "", ("192.0.2.2", 443))]
+        with mock.patch.object(socket, "getaddrinfo", return_value=addresses), \
+                mock.patch.object(socket, "socket", HangingSocket):
+            started = time.monotonic()
+            with self.assertRaises(ar.NetworkError):
+                ar.default_fetch("https://fixture.invalid/path", 0.2)
+            elapsed = time.monotonic() - started
+        self.assertLess(elapsed, 0.3)
+        self.assertEqual(len(attempts), 1)
+        self.assertLessEqual(attempts[0], 0.2)
+        time.sleep(0.03)
+        self.assertEqual(fakes.fetch_threads(), [])
+
     def test_slow_drip_hits_the_overall_deadline(self):
         server = fakes.LocalServer(lambda path: (200, {}, [b"{"] * 15, 0.1))
         try:

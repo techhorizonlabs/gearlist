@@ -194,20 +194,46 @@ class _Deadline:
         return False
 
 
+# The base socket method acts on the file descriptor, so it works for TLS sockets too.
+_SHUTDOWN = socket.socket.shutdown
+
+
 def _shutdown(sock):
     try:
-        # The base socket method acts on the file descriptor, so it works for TLS sockets too.
-        socket.socket.shutdown(sock, socket.SHUT_RDWR)
-    except OSError:
+        _SHUTDOWN(sock, socket.SHUT_RDWR)
+    except Exception:  # not connected yet, already closed, or not a real socket
         pass
+
+
+def _open_socket(host, port, deadline):
+    """Connect to each address the name resolves to in turn. Every attempt is owned by the
+    deadline before it starts and gets only the time that is left, so several slow
+    addresses cannot add up past the deadline. Resolving the name itself (DNS) is the one
+    step that cannot be cut short."""
+    last = None
+    for family, kind, proto, _, address in socket.getaddrinfo(host, port, type=socket.SOCK_STREAM):
+        left = deadline.remaining()
+        sock = socket.socket(family, kind, proto)
+        deadline.own(sock)
+        try:
+            sock.settimeout(left)
+            sock.connect(address)
+            return sock
+        except OSError as exc:
+            last = exc
+            try:
+                sock.close()
+            except OSError:
+                pass
+    deadline.remaining()
+    raise last or OSError("the name did not resolve to any address")
 
 
 def _connect(parts, deadline):
     """Open the connection inside the deadline. The socket is handed to the deadline before
     any byte is read, so the TLS handshake and every later read can be cut off."""
     port = parts.port or (443 if parts.scheme == "https" else 80)
-    raw = socket.create_connection((parts.hostname, port), timeout=deadline.remaining())
-    deadline.own(raw)
+    raw = _open_socket(parts.hostname, port, deadline)
     if parts.scheme != "https":
         conn = http.client.HTTPConnection(parts.hostname, port, timeout=deadline.timeout)
         conn.sock = raw

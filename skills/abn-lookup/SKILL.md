@@ -38,7 +38,7 @@ Base URL: `https://abr.business.gov.au/json/`
 | `AcnDetails.aspx` | `acn`, `guid`, `callback` |
 | `MatchingNames.aspx` | `name`, `maxResults`, `guid`, `callback` |
 
-All three are listed on the ABR's JSON sample page, https://abr.business.gov.au/json/. The script URL-encodes every parameter and sends `callback=c`. It never follows a redirect, because the URL carries the GUID, and it gives up on a call after 30 seconds (exit 5).
+All three are listed on the ABR's JSON sample page, https://abr.business.gov.au/json/. The script URL-encodes every parameter and sends `callback=c`. It never follows a redirect, because the URL carries the GUID, and it gives up on a call after 30 seconds (exit 5). That limit covers connecting and reading, but it can't cut short the lookup of the server's address, so a slow DNS answer can make a call take longer.
 
 The response is JSONP: JSON wrapped in `c(...)`. Without a `callback` parameter the wrapper is `callback(...)`. Strip the wrapper, then parse the JSON.
 

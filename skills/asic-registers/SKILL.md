@@ -134,7 +134,7 @@ Ask for the ABN or ACN, or check ASIC Connect.
 | 4 | data.gov.au answered with an error, or without JSON | Retry once. If it fails again, ASIC may have changed the dataset: tell the human |
 | 5 | Network error | Retry once, then report it |
 
-On 7 November 2026, data.gov.au answered a resource id that does not exist with HTTP 302 and an HTML page, and a bad field name in `filters` with HTTP 409 and `"success": false`. The script reports both as exit 4. It never follows a redirect, and it gives up on a call after 60 seconds (exit 5).
+On 7 November 2026, data.gov.au answered a resource id that does not exist with HTTP 302 and an HTML page, and a bad field name in `filters` with HTTP 409 and `"success": false`. The script reports both as exit 4. It never follows a redirect, and it gives up on a call after 60 seconds (exit 5). That limit covers connecting and reading, but it can't cut short the lookup of the server's address, so a slow DNS answer can make a call take longer.
 
 ## Rules
 
