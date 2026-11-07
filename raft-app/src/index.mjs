@@ -18,7 +18,7 @@ import { MAX_BODY, runTool } from "../../site/worker/mcp.mjs";
 import { rateLimited, readBody, respond } from "../../site/worker/http.mjs";
 import { checkServer, exchangeCode, fetchUserinfo, logEvent, readConfig } from "./raft.mjs";
 import {
-  MAX_COOKIE, MAX_SESSION_SECONDS, MIN_SESSION_SECONDS, clearCookie, forgetChecked, isRaftId, markChecked, newSessionId, open,
+  MAX_COOKIE, MAX_SESSION_SECONDS, clearCookie, forgetChecked, isRaftId, markChecked, newSessionId, open,
   readCookie, recentlyChecked, seal, sessionCookie, shortText,
 } from "./session.mjs";
 import { ACTIONS, CALLBACK_PATH, MANIFEST_PATH, buildManifest } from "./manifest.mjs";
@@ -91,9 +91,10 @@ async function callback(request, url, env, cfg, deps) {
   const code = url.searchParams.get("code");
   if (code === null || !CODE.test(code)) return refuseLogin(400, "MISSING_CODE");
 
+  const startedMs = deps.now();
   const exchanged = await exchangeCode(cfg, deps, code);
   if (!exchanged.token) {
-    logEvent("token_exchange_failed", { status: exchanged.status });
+    logEvent(exchanged.invalidLifetime ? "token_lifetime_invalid" : "token_exchange_failed", { status: exchanged.status });
     return exchanged.status === 400 ? refuseLogin(409, "CODE_USED_OR_EXPIRED") : refuseLogin(502, "SIGN_IN_FAILED");
   }
   const info = await fetchUserinfo(cfg, deps, exchanged.token);
@@ -114,8 +115,16 @@ async function callback(request, url, env, cfg, deps) {
     return server === "unreachable" ? refuseLogin(502, "SIGN_IN_FAILED") : refuseLogin(403, "APP_NOT_AVAILABLE");
   }
 
+  // The session ends when the token does, counted from before the exchange, and never
+  // later than MAX_SESSION_SECONDS from now.
   const now = deps.now();
-  const seconds = Math.min(Math.max(exchanged.expiresIn, MIN_SESSION_SECONDS), MAX_SESSION_SECONDS);
+  const tokenEnd = Math.floor(startedMs / 1000) + exchanged.expiresIn;
+  const exp = Math.min(tokenEnd, Math.floor(now / 1000) + MAX_SESSION_SECONDS);
+  const seconds = exp - Math.floor(now / 1000);
+  if (seconds <= 0) {
+    logEvent("token_expired_at_login");
+    return refuseLogin(502, "SIGN_IN_FAILED");
+  }
   const session = {
     v: 1,
     sid: newSessionId(),
@@ -124,7 +133,7 @@ async function callback(request, url, env, cfg, deps) {
     srv: user.server_id,
     slug: shortText(user.server_slug),
     cid: cfg.clientId,
-    exp: Math.floor(now / 1000) + seconds,
+    exp,
     tok: exchanged.token,
   };
   const sealed = await seal(session, cfg.sessionSecret);
@@ -160,6 +169,18 @@ async function authorise(request, cfg, deps) {
     const extra = raw === null ? {} : { "Set-Cookie": clearCookie(cfg) };
     return { response: fail(401, "SESSION_REQUIRED", undefined, extra) };
   }
+  return confirm(session, cfg, deps);
+}
+
+// Confirms a session that has already been opened: it has not expired by the clock now,
+// and Raft said the app is available within CHECK_TTL_MS. Called before parameters are
+// read, and again just before a tool runs, so a slow request body cannot outlast either.
+async function confirm(session, cfg, deps) {
+  const now = deps.now();
+  if (!Number.isInteger(session.exp) || session.exp * 1000 <= now) {
+    forgetChecked(session.sid);
+    return { response: fail(401, "SESSION_REQUIRED", undefined, { "Set-Cookie": clearCookie(cfg) }) };
+  }
   if (recentlyChecked(session.sid, now)) return { session };
   const result = await checkServer(cfg, deps, session.tok, session.srv);
   if (result === "ok") {
@@ -185,9 +206,10 @@ async function readArgs(request, url, method) {
     return { response: fail(400, "INVALID_JSON") };
   }
   if (body.tooLarge) return { response: fail(413, "PAYLOAD_TOO_LARGE") };
-  if (!body.text.trim()) return { args: {} };
+  if (body.text === "") return { args: {} };
   const type = request.headers.get("Content-Type") || "";
   if (!/^application\/json\s*(;|$)/i.test(type.trim())) return { response: fail(415, "UNSUPPORTED_MEDIA_TYPE") };
+  if (!body.text.trim()) return { args: {} };
   let args;
   try {
     args = JSON.parse(body.text);
@@ -195,7 +217,9 @@ async function readArgs(request, url, method) {
     return { response: fail(400, "INVALID_JSON") };
   }
   if (args === null || typeof args !== "object" || Array.isArray(args)) return { response: fail(400, "NOT_AN_OBJECT") };
-  // A client may send a number as digits in a string. /api/search accepts limit the same way.
+  // raft integration invoke sends each --param value as text, so limit may arrive as
+  // digits in a string. This is the one input the Raft App reads differently from the MCP
+  // server, which takes limit only as a number. /api/search accepts digits the same way.
   if (typeof args.limit === "string" && /^\d{1,3}$/.test(args.limit)) args = { ...args, limit: Number(args.limit) };
   return { args };
 }
@@ -235,7 +259,10 @@ async function action(request, url, env, cfg, deps, spec) {
 
   const read = await readArgs(request, url, spec.method);
   if (read.response) return read.response;
-  const out = runTool(await loadCatalog(env), spec.tool, read.args);
+  const catalog = await loadCatalog(env);
+  const again = await confirm(session, cfg, deps);
+  if (again.response) return again.response;
+  const out = runTool(catalog, spec.tool, read.args);
   if (out.error !== undefined) {
     return out.missing ? fail(404, "ENTRY_NOT_FOUND", out.error) : fail(400, "INVALID_PARAMS", out.error);
   }
@@ -286,7 +313,10 @@ export async function handle(request, env, deps = {}) {
   try {
     return await route(request, env, resolved);
   } catch (err) {
-    logEvent("internal_error", { name: err && err.name ? String(err.name) : "Error" });
+    // Only a fixed set of error names is logged, so nothing an error carries can reach a log.
+    const known = ["Error", "TypeError", "RangeError", "SyntaxError", "AbortError", "TimeoutError"];
+    const name = err && known.includes(err.name) ? err.name : "other";
+    logEvent("internal_error", { name });
     return fail(500, "INTERNAL");
   }
 }

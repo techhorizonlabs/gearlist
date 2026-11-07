@@ -77,14 +77,21 @@ async function call(deps, url, init) {
     }
     return { status: 0, body: null, redirected: true };
   }
-  let body = null;
+  // A body that cannot be read in full, is too large, or is not JSON counts as no
+  // answer (status 0), so a cut-off reply is never taken as Raft refusing the app.
+  let read;
   try {
-    const read = await readBody(res, MAX_UPSTREAM_BODY);
-    if (!read.tooLarge && read.text) body = JSON.parse(read.text);
+    read = await readBody(res, MAX_UPSTREAM_BODY);
   } catch {
-    body = null;
+    return { status: 0, body: null };
   }
-  return { status: res.status, body };
+  if (read.tooLarge) return { status: 0, body: null };
+  if (!read.text) return { status: res.status, body: null };
+  try {
+    return { status: res.status, body: JSON.parse(read.text) };
+  } catch {
+    return { status: 0, body: null };
+  }
 }
 
 // Exchanges the one-time code from the callback for an access token, server side, with
@@ -103,8 +110,11 @@ export async function exchangeCode(cfg, deps, code) {
   const body = out.body;
   if (out.status !== 200 || body === null || typeof body !== "object") return { status: out.status };
   if (typeof body.access_token !== "string" || !body.access_token) return { status: out.status };
-  const raw = Number(body.expires_in);
-  return { token: body.access_token, expiresIn: Number.isFinite(raw) ? Math.trunc(raw) : 3600 };
+  // Raft documents expires_in in seconds (one hour). A missing, zero or negative value is
+  // refused rather than replaced, so a session never outlives its token.
+  const raw = typeof body.expires_in === "number" ? body.expires_in : NaN;
+  if (!Number.isFinite(raw) || raw <= 0) return { status: 0, invalidLifetime: true };
+  return { token: body.access_token, expiresIn: Math.floor(raw) };
 }
 
 function bearerGet(cfg, deps, path, token) {

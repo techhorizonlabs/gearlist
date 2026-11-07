@@ -8,7 +8,6 @@
 
 export const COOKIE_NAME = "gearlist_raft_session";
 export const MAX_SESSION_SECONDS = 3600;
-export const MIN_SESSION_SECONDS = 60;
 export const CHECK_TTL_MS = 60 * 1000;
 export const MAX_COOKIE = 3800;
 const MAX_CHECKED = 1000;

@@ -516,7 +516,13 @@ describe("actions give the same result as the MCP tools", () => {
     assert.equal(json.error.message + "\n\n" + NOTICE, expected.content[0].text);
   });
 
-  test("limit may be sent as digits in a string", async () => {
+  // raft integration invoke sends --param values as text, so the Raft App reads limit as
+  // digits in a string. The MCP tool refuses a string limit. This is the one known difference.
+  test("limit may be sent as digits in a string, which the MCP tool refuses", async () => {
+    assert.equal((await mcp("search_gear", { query: "browser", limit: "5" })).isError, true);
+    assert.equal((await mcp("recommend_stack", { job: "test my web app in a real browser", limit: "3" })).isError, true);
+    const stack = await invoke("recommend_stack", { job: "test my web app in a real browser", limit: "3" }, cookie);
+    assert.deepEqual(stack.json.result, (await mcp("recommend_stack", { job: "test my web app in a real browser", limit: 3 })).structuredContent);
     const expected = await mcp("search_gear", { query: "browser", limit: 5 });
     const { json } = await invoke("search_gear", { query: "browser", limit: "5" }, cookie);
     assert.deepEqual(json.result, expected.structuredContent);
@@ -635,6 +641,127 @@ describe("home page", () => {
   test("leaves out the commands before registration and escapes the client ID", () => {
     assert.ok(!homePage("").includes("raft integration login"));
     assert.ok(homePage("<x>").includes("&lt;x&gt;"));
+  });
+});
+
+describe("fixes from the security review", () => {
+  const SEARCH = ACTIONS.find((a) => a.name === "search_gear").path;
+
+  // A request body that arrives only when read, running `onRead` first.
+  function slowBody(onRead, text = '{"query":"browser"}') {
+    return new ReadableStream(
+      {
+        pull(controller) {
+          onRead();
+          controller.enqueue(new TextEncoder().encode(text));
+          controller.close();
+        },
+      },
+      { highWaterMark: 0 },
+    );
+  }
+
+  test("a session that ends while the body is still arriving gets no data", async () => {
+    const start = clock;
+    const raft = fakeRaft({ token: { status: 200, body: { access_token: ACCESS, expires_in: 120 } } });
+    const cookie = await login(raft);
+    try {
+      const out = await call(SEARCH, {
+        method: "POST",
+        headers: { Cookie: cookie, "Content-Type": "application/json" },
+        body: slowBody(() => { clock = start + 121 * 1000; }),
+        duplex: "half",
+      }, raft);
+      assert.equal(out.res.status, 401, out.text);
+      assert.equal(out.json.error.code, "SESSION_REQUIRED");
+      assert.equal(out.json.result, undefined);
+    } finally {
+      clock = start;
+    }
+  });
+
+  test("Raft is asked again before the tool runs when the body outlasts the 60 second check", async () => {
+    const start = clock;
+    const raft = fakeRaft();
+    const cookie = await login(raft);
+    try {
+      const out = await call(SEARCH, {
+        method: "POST",
+        headers: { Cookie: cookie, "Content-Type": "application/json" },
+        body: slowBody(() => {
+          clock = start + 61 * 1000;
+          raft.state.serverinfo = { status: 403, body: { error: "app_not_available" } };
+        }),
+        duplex: "half",
+      }, raft);
+      assert.equal(out.res.status, 403, out.text);
+      assert.equal(out.json.error.code, "APP_NOT_AVAILABLE");
+      assert.equal(out.json.result, undefined);
+    } finally {
+      clock = start;
+    }
+  });
+
+  test("a Raft reply cut off after its headers is a 503, and the cookie is kept", async () => {
+    const start = clock;
+    const cookie = await login();
+    const cut = fakeRaft({
+      serverinfo: () => new Response(new ReadableStream({ start(c) { c.error(new Error("connection reset")); } }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }),
+    });
+    try {
+      clock = start + 61 * 1000;
+      const out = await invoke("search_gear", { query: "browser" }, cookie, cut);
+      assert.equal(out.res.status, 503, out.text);
+      assert.equal(out.json.error.code, "RAFT_UNREACHABLE");
+      assert.equal(out.res.headers.get("Set-Cookie"), null);
+    } finally {
+      clock = start;
+    }
+  });
+
+  test("a session ends when its token does, and a token without a lifetime is refused", async () => {
+    const start = clock;
+    const short = fakeRaft({ token: { status: 200, body: { access_token: ACCESS, expires_in: 1 } } });
+    const cookie = await login(short);
+    try {
+      clock = start + 2000;
+      const out = await invoke("get_session_context", {}, cookie, short);
+      assert.equal(out.res.status, 401, out.text);
+    } finally {
+      clock = start;
+    }
+    for (const expires of [undefined, 0, -5, "3600"]) {
+      const body = { access_token: ACCESS };
+      if (expires !== undefined) body.expires_in = expires;
+      const out = await call(`${CALLBACK_PATH}?code=${CODE}`, {}, fakeRaft({ token: { status: 200, body } }));
+      assert.equal(out.res.status, 502, `expires_in ${expires}`);
+      assert.equal(out.res.headers.get("Set-Cookie"), null);
+    }
+  });
+
+  test("a whitespace body still needs Content-Type: application/json", async () => {
+    const cookie = await login();
+    const out = await invoke("search_gear", null, cookie, fakeRaft(), { headers: { "Content-Type": "text/plain" }, body: "  " });
+    assert.equal(out.res.status, 415);
+  });
+
+  test("an error's own name never reaches the log", async () => {
+    const cookie = await login();
+    const broken = baseEnv({ ASSETS: { fetch() { throw Object.assign(new Error("x"), { name: CLIENT_SECRET }); } } });
+    const before = logs.length;
+    const spec = ACTIONS.find((a) => a.name === "search_gear");
+    const res = await handle(
+      new Request(ORIGIN + spec.path, { method: "POST", headers: { Cookie: cookie, "Content-Type": "application/json" }, body: '{"query":"browser"}' }),
+      broken,
+      { upstream: fakeRaft().upstream, now: () => clock },
+    );
+    assert.equal(res.status, 500);
+    const added = logs.slice(before).join("\n");
+    assert.ok(!added.includes(CLIENT_SECRET));
+    assert.match(added, /"event":"internal_error","name":"other"/);
   });
 });
 
