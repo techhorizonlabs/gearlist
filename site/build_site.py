@@ -291,10 +291,10 @@ def load_entries():
     return data, entries
 
 
-def group_entries(entries):
+def group_entries(entries, group_guides=None):
     """Groups in first-appearance order, the same order build.py writes into README.md."""
     order = list(dict.fromkeys(e["category"] for e in entries))
-    group_guides = load_guides()
+    group_guides = group_guides or {}
     groups = []
     for i, name in enumerate(order):
         icon_name, colour = GROUP_STYLE.get(name, ("list", FALLBACK_COLOURS[i % 3]))
@@ -1241,8 +1241,16 @@ def group_ld(g, title, description, og):
 GUIDES_FILE = ROOT / "guides.json"
 
 
-def load_guides():
-    return json.loads(GUIDES_FILE.read_text(encoding="utf-8")).get("groups", {}) if GUIDES_FILE.exists() else {}
+def load_guides(entries):
+    """The checked guides by group. The same checks as build.py, so this builder refuses a bad
+    guides.json even when it is run on its own."""
+    if not GUIDES_FILE.exists():
+        return {}
+    data = json.loads(GUIDES_FILE.read_text(encoding="utf-8"))
+    problems = guides.check(data, entries)
+    if problems:
+        fail("guides.json: " + "; ".join(problems[:10]))
+    return data.get("groups", {})
 
 
 def guide_html_text(text, by_id):
@@ -1263,7 +1271,7 @@ def guide_md_text(text, by_id):
             e = by_id[value]
             out.append(f'[{specs.md_cell(e["name"])}]({absolute(tool_path(e))})')
         else:
-            out.append(value)
+            out.append(guides.md_text(value))
     return "".join(out)
 
 
@@ -1295,9 +1303,9 @@ def guide_md(g, by_id):
     guide = g.get("guide")
     if not guide:
         return []
-    lines = [f'## {guide["title"]}', ""]
+    lines = [f'## {guides.md_text(guide["title"])}', ""]
     for s in guide["sections"]:
-        lines += [f'### {s["heading"]}', ""]
+        lines += [f'### {guides.md_text(s["heading"])}', ""]
         for p in s["paragraphs"]:
             lines += [guide_md_text(p, by_id), ""]
         lines += ["Sources: " + ", ".join(f"<{u}>" for u in s["sources"]), ""]
@@ -2196,7 +2204,8 @@ def write_sitemaps(data, groups):
 
 def main():
     data, entries = load_entries()
-    groups = group_entries(entries)
+    # Checked here as in build.py, so a standalone run refuses a bad guides.json too.
+    groups = group_entries(entries, load_guides(entries))
 
     if "--indexnow-payload" in sys.argv[1:]:
         # Prints the IndexNow request body for every page. Builds nothing.

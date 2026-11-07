@@ -56,5 +56,103 @@ class GuidesTest(unittest.TestCase):
             self.assertNotRegex(p, "[\u2013\u2014]")
 
 
+class SourceTest(unittest.TestCase):
+    def test_only_plain_https_urls_with_a_hostname_pass(self):
+        good = ["https://www.apple.com/mac-mini/specs/", "https://docs.x.ai/build/overview"]
+        bad = ["http://apple.com/", "javascript:alert(1)", "https://", "https:///path", "https://user:pw@apple.com/",
+               "https://apple.com:8443/", "https://localhost/", "https://apple.com/ x", "https://apple.com/\"x",
+               "https://apple.com/\nx", "data:text/html,hi", "//apple.com/", 7]
+        for u in good:
+            self.assertTrue(guides.source_ok(u), u)
+        for u in bad:
+            self.assertFalse(guides.source_ok(u), u)
+            self.assertTrue(guides.check(guide(sources=(u,)), ENTRIES), u)
+
+
+class MarkdownTextTest(unittest.TestCase):
+    def test_text_that_would_start_a_markdown_block_is_escaped(self):
+        cases = {"- item": "\\- item", "+ item": "\\+ item", "* item": "\\* item", "# heading": "\\# heading",
+                 "1. one": "1\\. one", "2) two": "2\\) two", "--- rule": "\\--- rule", "=== rule": "\\=== rule",
+                 "> quote": "&gt; quote"}
+        for text, want in cases.items():
+            self.assertEqual(guides.md_text(text), want, text)
+
+    def test_inline_markdown_entities_and_bare_urls_stay_literal(self):
+        self.assertEqual(guides.md_text("~~gone~~"), "\\~\\~gone\\~\\~")
+        self.assertEqual(guides.md_text("&amp; and a & b"), "&amp;amp; and a &amp; b")
+        self.assertNotIn("://", guides.md_text("see https://evil.example now"))
+        self.assertNotRegex(guides.md_text("www.evil.example"), r"(?<!\\)www\.")
+        self.assertEqual(guides.md_text("Max+ 395 from US$589.99, 17 W."), "Max+ 395 from US$589.99, 17 W.")
+
+    def test_multi_line_text_is_refused(self):
+        with self.assertRaises(ValueError):
+            guides.md_text("one\n- two")
+
+
+class SiteBuilderTest(unittest.TestCase):
+    """site/build_site.py checks guides.json itself and writes literal Markdown."""
+
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("build_site_for_guides", ROOT / "site" / "build_site.py")
+        cls.site = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.site)
+
+    def load_with(self, data, entries):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "guides.json"
+            path.write_text(json.dumps(data), encoding="utf-8")
+            old = self.site.GUIDES_FILE
+            self.site.GUIDES_FILE = path
+            try:
+                return self.site.load_guides(entries)
+            finally:
+                self.site.GUIDES_FILE = old
+
+    def test_the_standalone_builder_refuses_bad_guides(self):
+        entries = [{"id": "apple-mac-mini", "category": "Hardware", "name": "Apple Mac mini"}]
+        for bad in (guide(sources=("javascript:alert(1)",)), guide(sources=("http://apple.com/",)),
+                    guide(paragraph="Has <script>x</script>."), guide(paragraph="Links [[nope]].")):
+            with self.assertRaises(SystemExit):
+                self.load_with(bad, entries)
+        self.assertIn("Hardware", self.load_with(guide(), entries))
+
+    def test_a_standalone_build_stops_on_a_bad_guide_before_writing(self):
+        import tempfile
+        from unittest import mock
+        bad = json.loads((ROOT / "guides.json").read_text())
+        first = next(iter(bad["groups"].values()))
+        first["sections"][0]["sources"] = ["javascript:alert(1)"]
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "guides.json"
+            path.write_text(json.dumps(bad), encoding="utf-8")
+            wrote = []
+            with mock.patch.object(self.site, "GUIDES_FILE", path), \
+                    mock.patch.object(self.site, "build_pages", side_effect=lambda *a, **k: wrote.append(1)), \
+                    mock.patch.object(self.site.sys, "argv", ["build_site.py"]):
+                with self.assertRaises(SystemExit) as stop:
+                    self.site.main()
+            self.assertIn("must be one https URL", str(stop.exception))
+            self.assertEqual(wrote, [])
+
+    def test_generated_markdown_keeps_links_and_escapes_text(self):
+        e = {"id": "apple-mac-mini", "category": "Hardware", "name": "Apple Mac mini"}
+        g = {"name": "Hardware", "guide": {"title": "Which set-up?", "sections": [{
+            "heading": "- Host", "paragraphs": ["- Start with [[apple-mac-mini]], 1. then ~~x~~ &amp; https://a.example"],
+            "sources": ["https://www.apple.com/mac-mini/"]}]}}
+        lines = self.site.guide_md(g, {"apple-mac-mini": e})
+        body = [l for l in lines if l and not l.startswith("Sources:")]
+        self.assertIn("[Apple Mac mini](https://gearlist.build/tools/apple-mac-mini/)", "\n".join(body))
+        for line in body:
+            self.assertNotRegex(line, r"^(?:[-+*>]\s|\d+[.)]\s)", line)
+            self.assertNotIn("~~", line.replace("\\~", ""))
+        text = "\n".join(body).replace("https://gearlist.build/tools/apple-mac-mini/", "")
+        self.assertNotIn("://", text)
+        self.assertIn("&amp;amp;", text)
+        self.assertIn("### \\- Host", lines)
+
+
 if __name__ == "__main__":
     unittest.main()
