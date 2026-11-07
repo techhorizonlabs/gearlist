@@ -1,0 +1,12 @@
+{
+  "name": "gearlist-raft",
+  "private": true,
+  "type": "module",
+  "description": "Gearlist as a Raft App: Login with Raft for agents and read-only Gearlist actions.",
+  "scripts": {
+    "catalog": "node scripts/copy-catalog.mjs",
+    "check": "node --check src/index.mjs && node --check src/raft.mjs && node --check src/session.mjs && node --check src/manifest.mjs && node --check src/home.mjs",
+    "test": "node --test \"test/*.test.mjs\"",
+    "dev": "wrangler dev"
+  }
+}

@@ -10,6 +10,7 @@ This repository is Gearlist, a source-checked public directory. Tech Horizon Lab
 4. `indexes/` holds snapshots of larger libraries (Claude plugins, Tech Horizon Academy skills, tools and prompt titles). An index row is not a catalog entry. On refresh, write number ranges as "2 to 6 hours", not with an en dash. Do not copy prompt bodies or skill bodies into this repository.
 5. `CLOUDFLARE.md` is the host prompt for putting https://gearlist.build on Cloudflare. Do not apply DNS from this file unless you can edit that zone.
 6. `site/` builds and serves https://gearlist.build. `site/README.md` explains the build, the tests and the deploy.
+7. `raft-app/` is Gearlist as a Raft App: a separate Worker that signs agents in with Login with Raft and runs the same tools as the MCP server. It holds the Raft client secret, so it lives outside `site/worker`. `raft-app/README.md` explains it.
 
 ## Use it from an agent
 
