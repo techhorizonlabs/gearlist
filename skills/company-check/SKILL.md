@@ -71,6 +71,7 @@ Sources: {register} ({live, {date} | snapshot dated {date}}). Did not run: {sour
 - EDGAR lists companies that file with the SEC, mostly public companies. For a private US business, an empty EDGAR result says almost nothing.
 - Say which sources did not run and why.
 - A registered or active status means the business is on the register. Registers say nothing about trade licences, insurance or reviews.
+- A register shows whether a business is registered, its status and what it has filed. It does not show whether the business is honest or safe to deal with. When asked whether a business is legit or real, say what the register shows and that it can't answer that question on its own.
 - Give the date of each source.
 
 ## Rules

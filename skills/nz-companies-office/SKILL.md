@@ -67,7 +67,7 @@ Some business data is shown only if the business chose to make it public, so a m
 
 ## What the script leaves out
 
-The full record can include directors, shareholders with their addresses, insolvency practitioners, phone numbers, email addresses and payment bank account numbers. Those are about people or are contact details. Checking whether a business is real and registered needs none of them, so the script does not print them. A sole trader's entity name is the person's own name, so treat it with care.
+The full record can include directors, shareholders with their addresses, insolvency practitioners, phone numbers, email addresses and payment bank account numbers. Those are about people or are contact details. Checking whether a business is registered needs none of them, so the script does not print them. A sole trader's entity name is the person's own name, so treat it with care.
 
 ## The API Access Agreement
 

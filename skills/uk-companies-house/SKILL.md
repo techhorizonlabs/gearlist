@@ -67,7 +67,7 @@ The script turns status, type and jurisdiction codes into words from Companies H
 
 ## Why there are no officers
 
-The API also lists officers and persons with significant control. Those records are about people: names, month and year of birth, nationality and correspondence addresses. Checking whether a company is real and in good standing needs only the company record, so the script does not call those endpoints. If the user has a reason to see who runs a company, point them to the company's page on Companies House's own service.
+The API also lists officers and persons with significant control. Those records are about people: names, month and year of birth, nationality and correspondence addresses. Checking a company's registration and standing needs only the company record, so the script does not call those endpoints. If the user has a reason to see who runs a company, point them to the company's page on Companies House's own service.
 
 ## When nothing matches
 
