@@ -144,6 +144,11 @@ GROUP_PAGES = {
         "Computers, graphics cards and network storage that people use to run agents and local models, "
         "and to back up the machines agents run on.",
     ),
+    "Hosting": (
+        "Servers for running AI agents",
+        "Rented virtual servers people run agents on around the clock, with prices and Australian locations "
+        "from each provider's own pages.",
+    ),
     "Models": (
         "AI models for agents compared",
         "AI models people build agents on, from frontier APIs to open-weight models you can run yourself, "
@@ -191,6 +196,7 @@ GROUP_STYLE = {
     "Skills and learning": ("layers", "pink"),
     "APIs and data": ("braces", "gold"),
     "Hardware": ("chip", "teal"),
+    "Hosting": ("grid", "teal"),
     "Models": ("spark", "pink"),
 }
 FALLBACK_COLOURS = ["gold", "pink", "teal"]

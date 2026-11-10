@@ -22,6 +22,7 @@ Every entry has a page at https://gearlist.build/tools/<id>/ with a Markdown cop
 - [APIs and data](https://gearlist.build/category/apis-and-data.md): 38 entries. Web page: https://gearlist.build/category/apis-and-data/
 - [Hardware](https://gearlist.build/category/hardware.md): 12 entries. Web page: https://gearlist.build/category/hardware/
 - [Models](https://gearlist.build/category/models.md): 14 entries. Web page: https://gearlist.build/category/models/
+- [Hosting](https://gearlist.build/category/hosting.md): 10 entries. Web page: https://gearlist.build/category/hosting/
 
 ## Directory
 - [Full descriptions](llms-full.txt): Purpose, intended user, access notes, check date and page links.

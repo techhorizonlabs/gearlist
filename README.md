@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 361 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 371 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -87,6 +87,7 @@ npx skills add techhorizonlabs/thl-open
 - [APIs and data](#apis-and-data) (38)
 - [Hardware](#hardware) (12)
 - [Models](#models) (14)
+- [Hosting](#hosting) (10)
 
 
 ## Agent tools
@@ -3716,6 +3717,108 @@ An open-weight mixture-of-experts model from Meta with 816B total and 42B active
 **Access and use:** The model card says the model is available by API through third party inference providers; the open weights are meta-models/Muse-Spark-Open-816B-A42B on Hugging Face, in BF16 and NVFP4 versions. Download is gated: you log in and accept the licence conditions, and the information you provide is handled under the Meta Privacy Policy. The context length is 1M tokens at inference. It takes text, image, video and audio input and returns text. The model has 816B total and 42B active parameters. Meta says it needs a GPU with at least 700GB of VRAM for NVFP4 and 2TB for BF16, and that it is optimised to run on two Mac Studios with M5 Ultra using MLX. Meta recommends deploying it inside a broader AI system with guardrails suited to the use case, and says it is not intended for individuals under 18. The Muse Model License allows use, modification, distillation and resale, but you must keep the notice and the Usage Policy with copies, follow the Usage Policy's list of prohibited uses, display "Built with Muse Spark Open" in each product's interface or its documentation, website or settings, and notify Meta and sign a separate agreement before offering it as a Model as a Service once revenue exceeds US$20 million over 12 months. Muse Model License (custom, not OSI).
 
 **Source checked:** 2026-11-07. [Official source](https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B). [Gearlist page](https://gearlist.build/tools/muse-spark-open/).
+
+## Hosting
+
+### [Onidel Premium VPS](https://onidel.com/services/premium-vps)
+
+Virtual servers from Onidel with NVMe storage in Sydney, Melbourne, Singapore and three other cities, used to run agents and their tools around the clock.
+
+**For:** People who want a low-cost server hosted in Australia for an always-on agent, a tracker or a small website.
+
+**Access and use:** Needs an Onidel account and a payment method, and you run the server yourself over SSH. On 10 November 2026 the Sydney plan with 2 vCPU, 4 GB memory, 40 GB NVMe and 2 TB transfer was A$15.86 a month incl. GST, and 4 vCPU, 8 GB, 80 GB and 4 TB was A$31.71 a month incl. GST. Prices shown here are what Onidel lists for Australian visitors; visitors elsewhere see their own currency. Billing terms run from hourly to three years. One IPv4 address is included; extra transfer and backup storage are charged separately. Onidel describes the vCPUs as dedicated.
+
+**Source checked:** 2026-11-10. [Official source](https://onidel.com/services/premium-vps). [Gearlist page](https://gearlist.build/tools/onidel-premium-vps/).
+
+### [BinaryLane VPS](https://www.binarylane.com.au/vps-hosting)
+
+Australian virtual servers from BinaryLane, billed by the hour in Australian dollars, in Sydney, Melbourne, Brisbane, Perth, Adelaide and Singapore.
+
+**For:** Australian businesses that want an agent server billed in Australian dollars, including the only Adelaide option on this list.
+
+**Access and use:** Needs a BinaryLane account and a payment method, and you run the server yourself. On 10 November 2026 the Standard plan with 2 vCPUs, 4 GB memory, 60 GB NVMe and 3,000 GB transfer was A$19.60 a month ex GST, and 4 vCPUs, 8 GB, 100 GB and 4,000 GB was A$39.20. Billing is hourly, in arrears, and you can cancel at any time. One IPv4 address is included; extra ones are A$2.00 each, and backups are A$0.05 per GB per backup. Dedicated-thread plans start at A$36 a month in Brisbane, Melbourne, Perth and Sydney. Caveat: the page does not say whether Standard plan CPUs are shared.
+
+**Source checked:** 2026-11-10. [Official source](https://www.binarylane.com.au/vps-hosting). [Gearlist page](https://gearlist.build/tools/binarylane-vps/).
+
+### [DigitalOcean Droplets](https://www.digitalocean.com/pricing/droplets)
+
+Virtual servers from DigitalOcean, available in Sydney, with a one-click OpenClaw setup in its marketplace for running an AI agent.
+
+**For:** People who want a well-documented cloud server with a ready-made agent install.
+
+**Access and use:** Needs a DigitalOcean account and a payment method. On 10 November 2026 the Basic Droplet with 2 vCPUs, 4 GiB memory, 80 GiB SSD and 4,000 GiB transfer was listed at US$24.00 a month, and 4 vCPUs, 8 GiB, 160 GiB and 5,000 GiB at US$48.00. Billing is per second with a 60-second minimum, capped at the monthly price. A public IPv4 address is included; backups add 20 per cent (weekly) or 30 per cent (daily). DigitalOcean's tax page lists 10 per cent for Australia. The OpenClaw 1-Click App in the DigitalOcean Marketplace installs the agent on a new Droplet.
+
+**Source checked:** 2026-11-10. [Official source](https://www.digitalocean.com/pricing/droplets). [Gearlist page](https://gearlist.build/tools/digitalocean-droplets/).
+
+### [Vultr Cloud Compute](https://www.vultr.com/pricing/)
+
+Shared-CPU virtual servers from Vultr in Sydney and Melbourne, with a one-click OpenClaw app in its marketplace.
+
+**For:** People who want an hourly-billed agent server in Sydney or Melbourne with a ready-made agent install.
+
+**Access and use:** Needs a Vultr account and a payment method. On 10 November 2026 the Regular Performance plan with 2 vCPUs, 4 GB memory, 80 GB SSD and 3 TB transfer was listed at US$20.00 a month, and 4 vCPUs, 8 GB, 160 GB and 4 TB at US$40.00. Vultr says some locations are priced differently and shows location prices only in its control panel, so check the Sydney price there. Prices exclude tax. Billing is hourly, capped at 672 hours a month; automatic backups add 20 per cent. The OpenClaw one-click app is in the Vultr Marketplace.
+
+**Source checked:** 2026-11-10. [Official source](https://www.vultr.com/pricing/). [Gearlist page](https://gearlist.build/tools/vultr-cloud-compute/).
+
+### [Akamai Cloud (Linode)](https://www.akamai.com/cloud/pricing/cpu)
+
+Shared-CPU virtual servers from Akamai Cloud, formerly Linode, in Sydney and Melbourne, with an OpenClaw Quick Deploy app.
+
+**For:** People who want an hourly-billed agent server in Sydney or Melbourne from a large network provider.
+
+**Access and use:** Needs an Akamai Cloud account and a payment method. On 10 November 2026 the shared Linode 4 GB plan with 2 vCPUs, 80 GB storage and 4 TB transfer was listed at US$24.00 a month, and Linode 8 GB with 4 vCPUs, 160 GB and 5 TB at US$48.00. Akamai says prices vary by region for some plans; its public API price list shows different prices only for Jakarta and Sao Paulo. Billing is hourly, rounded up, and powered-off servers are still billed. Akamai's tax page lists 10 per cent GST for Australia. The OpenClaw Quick Deploy app is in Akamai's app catalog.
+
+**Source checked:** 2026-11-10. [Official source](https://www.akamai.com/cloud/pricing/cpu). [Gearlist page](https://gearlist.build/tools/akamai-linode/).
+
+### [Amazon Lightsail](https://aws.amazon.com/lightsail/)
+
+Fixed-price virtual servers from Amazon Web Services, available in Sydney, with an OpenClaw blueprint that uses Amazon Bedrock for its models.
+
+**For:** People already on AWS who want a fixed monthly price and an agent install inside their AWS account.
+
+**Access and use:** Needs an AWS account and a payment method. On 10 November 2026 the General Purpose plan with 2 vCPUs, 4 GB memory, 80 GB SSD and 4 TB transfer was listed at US$24 a month with a public IPv4 address. The nearest plan with 4 vCPUs and 8 GB is Compute Optimized at US$84 a month. Plans in the Sydney region include half the listed transfer. AWS says Australian accounts are charged 10 per cent GST. The Lightsail OpenClaw blueprint, announced in March 2026, uses Amazon Bedrock as its default model provider, so model use is billed through AWS. Caveat: the pricing page does not say whether CPUs are shared.
+
+**Source checked:** 2026-11-10. [Official source](https://aws.amazon.com/lightsail/pricing/). [Gearlist page](https://gearlist.build/tools/aws-lightsail/).
+
+### [Hetzner Cloud](https://www.hetzner.com/cloud/)
+
+Shared-CPU virtual servers from Hetzner in Germany, Finland, the USA and Singapore, with no Australian location.
+
+**For:** People who can run an agent from Singapore or Europe and want a low hourly price.
+
+**Access and use:** Needs a Hetzner account and a payment method. Last recorded listing, 10 November 2026: the CPX22 plan with 2 AMD vCPUs, 4 GB memory and 80 GB NVMe was €26.99 a month excl. VAT in Singapore (€19.99 in the EU), and CPX32 with 4 vCPUs, 8 GB and 160 GB was €49.49 in Singapore (€35.99 in the EU). Singapore plans include 1 TB and 2 TB of transfer, and each extra TB there is €7.40. The order buttons carried a 'currently unavailable' notice when we checked, so stock was unconfirmed. Billing is hourly with a monthly cap. Caveat: Hetzner has no Australian location, and the page does not say how GST applies to Australian customers.
+
+**Source checked:** 2026-11-10. [Official source](https://www.hetzner.com/cloud/regular-performance/). [Gearlist page](https://gearlist.build/tools/hetzner-cloud/).
+
+### [OVHcloud VPS](https://www.ovhcloud.com/en-au/vps/)
+
+Virtual servers from OVHcloud, priced in Australian dollars, with a Sydney location and daily backups included.
+
+**For:** People who want a low-cost server billed in Australian dollars and can work within a monthly traffic quota in Sydney.
+
+**Access and use:** Needs an OVHcloud account and a payment method. Last recorded listing, 10 November 2026: VPS-1 with 2 vCores, 4 GB memory and 40 GB NVMe was from A$6.29 a month ex GST, and VPS-2 with 4 vCores, 8 GB and 75 GB was from A$11.90. These are 'from' prices: the Sydney price was not shown, and the order page said 'VPS-1 is currently unavailable' when we checked. In Asia-Pacific, including Sydney, VPS-1 has a 500 GB monthly traffic quota and VPS-2 1 TB, after which bandwidth is capped at 10 Mbps. Daily backups and an IPv4 address are included. OVHcloud has an OpenClaw VPS page that describes a Docker or npm install. Caveat: the page does not state a minimum term.
+
+**Source checked:** 2026-11-10. [Official source](https://www.ovhcloud.com/en-au/vps/). [Gearlist page](https://gearlist.build/tools/ovhcloud-vps/).
+
+### [Contabo Cloud VPS](https://contabo.com/en/vps/)
+
+Low-cost virtual servers from Contabo on terms of one to 24 months, with a Sydney data centre and a one-click OpenClaw app.
+
+**For:** People who want the most CPU and memory for the money and can commit to a term.
+
+**Access and use:** Needs a Contabo account and a payment method. Last recorded listing, 10 November 2026: the smallest Cloud VPS has 4 vCPU cores, 8 GB memory and 100 GB SSD, at €5.50 a month on a one-month term plus a €2.00 setup fee, or €4.40 a month on a 24-month term, as shown to an Australian visitor. Contabo has no 2 vCPU, 4 GB plan. Its pages showed euros in the configurator and dollars elsewhere, and the extra charge for a Sydney server was not shown. Contracts run for 1, 3, 6, 12 or 24 months and renew at the same length. OpenClaw is one of its 1-Click Apps. Caveat: check the Sydney price and tax in the configurator before ordering.
+
+**Source checked:** 2026-11-10. [Official source](https://contabo.com/en/vps/cloud-vps-core-4/). [Gearlist page](https://gearlist.build/tools/contabo-cloud-vps/).
+
+### [Runpod](https://www.runpod.io/)
+
+GPU cloud from Runpod that rents GPU instances by the second, for running open models alongside an agent.
+
+**For:** People who need a GPU to run open-weight models, rather than a small server for the agent itself.
+
+**Access and use:** Needs a Runpod account and a payment method. Last recorded listing, 10 November 2026: the cheapest GPU on the pricing page was an RTX A5000 with 24 GB of graphics memory, 25 GB memory and 9 vCPUs at US$0.27 an hour, and the H100 PCIe was US$2.89 an hour on Secure Cloud or from US$1.99 on Community Cloud, billed per second with no commitment. Left running for a whole month, the A5000 rate comes to about US$197. The pricing page lists GPU Pods, Serverless and Clusters, and does not list a CPU-only plan or an Australian region.
+
+**Source checked:** 2026-11-10. [Official source](https://www.runpod.io/pricing). [Gearlist page](https://gearlist.build/tools/runpod/).
 
 ## Looking for more?
 
