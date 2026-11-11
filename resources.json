@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "resources": [
     {
       "id": "agent-deck",
@@ -5999,6 +5999,34 @@
           "Per second, no commitment"
         ]
       ]
+    },
+    {
+      "id": "govisit-tools-mcp",
+      "name": "GoVisit Tools MCP",
+      "category": "MCP and integrations",
+      "url": "https://govisit.ai/en/docs/developers/mcp/overview",
+      "description": "A hosted, read-only MCP server for searching destinations and places and reading published travel information.",
+      "for_whom": "Developers building travel-planning agents that need published destination, place and activity data.",
+      "access_notes": "Connect to https://govisit.ai/mcp over Streamable HTTP. Public reads need no GoVisit API key, but requests send search inputs to GoVisit. GoVisit Data Use License requires attribution and limits reuse; booking, live prices and availability are outside this server.",
+      "source_url": "https://govisit.ai/en/docs/developers/mcp/overview",
+      "source_checked": "2026-11-11",
+      "added": "2026-11-11",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "govisit-agent-skills",
+      "name": "GoVisit Agent Skills",
+      "category": "Skills and learning",
+      "url": "https://govisit.ai/en/docs/developers/agent-skills/overview",
+      "description": "Twenty-two MIT-licensed Agent Skills that guide compatible assistants through GoVisit travel discovery tools.",
+      "for_whom": "Claude Code, Codex and other Agent Skills users planning trips or building travel assistants.",
+      "access_notes": "The skill packages are public and need no GoVisit API key. They call GoVisit over HTTPS with the query inputs supplied to the agent. The skill code is MIT licensed; GoVisit data is governed separately by the GoVisit Data Use License, which requires attribution and limits reuse.",
+      "source_url": "https://github.com/inhotel-io/govisit-toolkit",
+      "source_checked": "2026-11-11",
+      "added": "2026-11-11",
+      "verification": "Official documentation and public repository reviewed; not independently tested",
+      "thl_project": false
     }
   ]
 }
