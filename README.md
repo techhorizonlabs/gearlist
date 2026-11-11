@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 371 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 372 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -79,7 +79,7 @@ npx skills add techhorizonlabs/thl-open
 ## Contents
 
 - [Agent tools](#agent-tools) (100)
-- [MCP and integrations](#mcp-and-integrations) (46)
+- [MCP and integrations](#mcp-and-integrations) (47)
 - [Security and governance](#security-and-governance) (12)
 - [Platforms](#platforms) (65)
 - [Protocols](#protocols) (7)
@@ -1093,6 +1093,16 @@ A family of Microsoft computer use agent models in 4B, 9B and 27B sizes that rea
 **Source checked:** 2026-11-07. [Official source](https://github.com/microsoft/fara). [Gearlist page](https://gearlist.build/tools/fara/).
 
 ## MCP and integrations
+
+### [FlashData Google and YouTube data tools](https://github.com/rocosen/flashdata-mcp)
+
+Google Search and YouTube research data through APIs, MCP, CLI and fifteen task Skills.
+
+**For:** Developers and AI agents researching web results, markets and video content.
+
+**Access and use:** Requires a FlashData account, API key and paid credits. The MCP/CLI client is MIT licensed. Remote endpoint https://data.flashdata.dev/mcp uses Streamable HTTP and X-API-Key. Download jobs can write media to the user's chosen storage; review storage permissions and media rights.
+
+**Source checked:** 2026-11-12. [Official source](https://github.com/rocosen/flashdata-mcp). [Gearlist page](https://gearlist.build/tools/flashdata/).
 
 ### [Are you found by AI? MCP server](https://github.com/techhorizonlabs/foundbyai-mcp)
 

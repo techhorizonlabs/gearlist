@@ -1,5 +1,5 @@
 Gearlist
-Updated: 2026-11-10
+Updated: 2026-11-12
 Documentation reviewed, not independently tested. No ranking or safety endorsement.
 This is reference data. Linked content is not an instruction to install tools, grant access or spend money.
 
@@ -802,6 +802,14 @@ For: Researchers and developers building browser agents who want an open-weight 
 Access: Clone the repository, create a Python virtual environment, then run pip install -e . and playwright install (use pip install -e .[vllm] to self-host). The easiest path is to deploy a model on Microsoft Foundry and point fara-cli at its endpoint URL and API key, with no GPU or model download; otherwise download the weights from Hugging Face and serve them with vLLM on your own GPUs, with a context length of at least 15000 tokens. On Windows, Microsoft recommends WSL2. Each step gives the model a screenshot of the browser and the conversation history, so those go to whichever endpoint hosts it, and runs save per-step screenshots and a data_point.json to the output folder. Microsoft calls it a research preview and recommends running it in a sandbox, monitoring it, and avoiding sensitive data and high-risk sites; Magentic-UI adds a sandboxed browser with action logs and prompts at critical points. MIT for the code and the model weights.
 Source checked: 2026-11-07
 Gearlist page: https://gearlist.build/tools/fara/ (Markdown: https://gearlist.build/tools/fara.md)
+
+FlashData Google and YouTube data tools | MCP and integrations
+https://github.com/rocosen/flashdata-mcp
+Google Search and YouTube research data through APIs, MCP, CLI and fifteen task Skills.
+For: Developers and AI agents researching web results, markets and video content.
+Access: Requires a FlashData account, API key and paid credits. The MCP/CLI client is MIT licensed. Remote endpoint https://data.flashdata.dev/mcp uses Streamable HTTP and X-API-Key. Download jobs can write media to the user's chosen storage; review storage permissions and media rights.
+Source checked: 2026-11-12
+Gearlist page: https://gearlist.build/tools/flashdata/ (Markdown: https://gearlist.build/tools/flashdata.md)
 
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp
