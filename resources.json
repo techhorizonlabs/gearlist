@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-10",
+  "updated": "2026-11-12",
   "resources": [
     {
       "id": "agent-deck",
@@ -55,6 +55,20 @@
       "source_url": "https://github.com/cactus-compute/needle",
       "source_checked": "2026-10-25",
       "added": "2026-10-30",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "flashdata",
+      "name": "FlashData Google and YouTube data tools",
+      "category": "MCP and integrations",
+      "url": "https://github.com/rocosen/flashdata-mcp",
+      "description": "Google Search and YouTube research data through APIs, MCP, CLI and fifteen task Skills.",
+      "for_whom": "Developers and AI agents researching web results, markets and video content.",
+      "access_notes": "Requires a FlashData account, API key and paid credits. The MCP/CLI client is MIT licensed. Remote endpoint https://data.flashdata.dev/mcp uses Streamable HTTP and X-API-Key. Download jobs can write media to the user's chosen storage; review storage permissions and media rights.",
+      "source_url": "https://github.com/rocosen/flashdata-mcp",
+      "source_checked": "2026-11-12",
+      "added": "2026-11-12",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },
