@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 371 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 373 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -79,11 +79,11 @@ npx skills add techhorizonlabs/thl-open
 ## Contents
 
 - [Agent tools](#agent-tools) (100)
-- [MCP and integrations](#mcp-and-integrations) (46)
+- [MCP and integrations](#mcp-and-integrations) (47)
 - [Security and governance](#security-and-governance) (12)
 - [Platforms](#platforms) (65)
 - [Protocols](#protocols) (7)
-- [Skills and learning](#skills-and-learning) (67)
+- [Skills and learning](#skills-and-learning) (68)
 - [APIs and data](#apis-and-data) (38)
 - [Hardware](#hardware) (12)
 - [Models](#models) (14)
@@ -1553,6 +1553,16 @@ OpenRouter's hosted MCP server that lets a coding agent look up live models, pri
 **Access and use:** Remote URL https://mcp.openrouter.ai/mcp. Claude Code: claude mcp add --transport http openrouter https://mcp.openrouter.ai/mcp, then claude mcp login openrouter. Signing in with OAuth creates a separate key for this connection that expires within 7 days and starts with a US$10 spend cap, which you can change on the approval screen. Most of its 17 tools are read-only lookups; send-message and generate-image spend credits, and send-feedback sends a report on one of your generations to OpenRouter. OpenRouter suggests it for building and testing, and the API for running models in your app.
 
 **Source checked:** 2026-11-07. [Official source](https://openrouter.ai/docs/guides/overview/mcp-server). [Gearlist page](https://gearlist.build/tools/openrouter-mcp/).
+
+### [GoVisit Tools MCP](https://govisit.ai/en/docs/developers/mcp/overview)
+
+A hosted, read-only MCP server for searching destinations and places and reading published travel information.
+
+**For:** Developers building travel-planning agents that need published destination, place and activity data.
+
+**Access and use:** Connect to https://govisit.ai/mcp over Streamable HTTP. Public reads need no GoVisit API key, but requests send search inputs to GoVisit. GoVisit Data Use License requires attribution and limits reuse; booking, live prices and availability are outside this server.
+
+**Source checked:** 2026-11-11. [Official source](https://govisit.ai/en/docs/developers/mcp/overview). [Gearlist page](https://gearlist.build/tools/govisit-tools-mcp/).
 
 ## Security and governance
 
@@ -3071,6 +3081,16 @@ A plugin of agent skills from Google in which your coding agent drafts a softwar
 **Access and use:** Claude Code: claude plugin marketplace add google/elephant-goldfish-model, then claude plugin install egm@egm. Codex CLI: codex plugin marketplace add google/elephant-goldfish-model, then codex plugin add egm@egm. Antigravity CLI: agy plugin install https://github.com/google/elephant-goldfish-model. ChatGPT and Codex desktop install the published plugin listing, and the setup guide covers Claude Cowork, ChatGPT Work, omp and Muse. Install the whole plugin, because installers that copy only the skills folder break it. Brainstorm and review need a host that can start fresh subagents, and the review stops if it cannot; standalone Antigravity IDE is not supported. A recorded Muse run used 15 fresh-context reviewers across one brainstorm and one review. The skills write briefs, drafts and reports into your working directory. The setup guide notes that Codex CLI and Antigravity CLI were reported passing project AGENTS.md or GEMINI.md files into reviewer context. Not an officially supported Google product. Apache-2.0.
 
 **Source checked:** 2026-11-07. [Official source](https://github.com/google/elephant-goldfish-model). [Gearlist page](https://gearlist.build/tools/elephant-goldfish-model/).
+
+### [GoVisit Agent Skills](https://govisit.ai/en/docs/developers/agent-skills/overview)
+
+Twenty-two MIT-licensed Agent Skills that guide compatible assistants through GoVisit travel discovery tools.
+
+**For:** Claude Code, Codex and other Agent Skills users planning trips or building travel assistants.
+
+**Access and use:** The skill packages are public and need no GoVisit API key. They call GoVisit over HTTPS with the query inputs supplied to the agent. The skill code is MIT licensed; GoVisit data is governed separately by the GoVisit Data Use License, which requires attribution and limits reuse.
+
+**Source checked:** 2026-11-11. [Official source](https://github.com/inhotel-io/govisit-toolkit). [Gearlist page](https://gearlist.build/tools/govisit-agent-skills/).
 
 ## APIs and data
 
