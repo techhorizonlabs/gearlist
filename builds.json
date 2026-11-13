@@ -1288,7 +1288,15 @@
             "url": "https://docs.ollama.com/gpu"
           },
           {
-            "topic": "AMD native Linux support matrix",
+            "topic": "Current AMD ROCm Core SDK 10.1.0 GPU and OS support",
+            "url": "https://rocm.docs.amd.com/en/docs-10.1.0/about/release-notes.html"
+          },
+          {
+            "topic": "AMD Core SDK and legacy release streams",
+            "url": "https://rocm.docs.amd.com/en/docs-10.1.0/about/transition-guide-TheRock.html"
+          },
+          {
+            "topic": "Legacy ROCm 7.2.1 native Linux support matrix",
             "url": "https://rocm.docs.amd.com/projects/radeon-ryzen/en/docs-7.2.1/docs/compatibility/compatibilityrad/native_linux/native_linux_compatibility.html"
           },
           {
