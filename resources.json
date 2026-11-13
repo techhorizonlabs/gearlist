@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-10",
+  "updated": "2026-11-14",
   "resources": [
     {
       "id": "agent-deck",
@@ -1582,6 +1582,34 @@
       "source_checked": "2026-10-28",
       "added": "2026-10-30",
       "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "maxun",
+      "name": "Maxun",
+      "category": "Agent tools",
+      "url": "https://www.maxun.dev",
+      "description": "An open-source web data platform. Record a browser workflow once and it becomes a reusable extraction robot, with scraping, crawling, an API, SDK, CLI and MCP server.",
+      "for_whom": "People who want repeatable structured extraction from websites, self-hosted or on the maker's cloud.",
+      "access_notes": "Hosted at app.maxun.dev with an account, or self-hosted with Docker Compose or a local install that needs Node.js, PostgreSQL, MinIO and Redis. The Agent that finds the data on a site by itself is a Maxun Cloud feature. The self-hosted AI Mode extracts from a page you give it. Self-hosted MCP needs a built worker and a backend API key. The example environment turns telemetry on (MAXUN_TELEMETRY=true), and the source at commit 99c6bd0 passes the login email and user ID to it, so set it to false for private use. The default Compose file publishes the database, storage, app and browser ports and runs Chromium with its sandbox off, so harden it before use on a shared network. Follow each site's terms and robots.txt. AGPL-3.0: if you change it and offer it to users over a network, you must offer those users the source.",
+      "source_url": "https://github.com/getmaxun/maxun",
+      "source_checked": "2026-11-14",
+      "added": "2026-11-14",
+      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "reverse-engineer-marketing",
+      "name": "REM (Reverse Engineer Marketing)",
+      "category": "Agent tools",
+      "url": "https://github.com/dansugc/reverse-engineer-marketing",
+      "description": "A CLI, local web app and MCP server that collects a company's public marketing evidence from one link (ads, tracking pixels, sitemaps, social accounts, app stores) and drafts a cited report.",
+      "for_whom": "Marketers and founders who want a competitor's public marketing gathered in one place as a starting point for their own research.",
+      "access_notes": "npx reverse-engineer-marketing followed by a domain. Website, pixel, sitemap, Wayback, app store and Hacker News checks need no key. Ad libraries, social stats, founders and Reddit need a paid Scrape Creators key; the README puts a run at about 25 to 50 credits. The written report uses an Anthropic API key or your installed Claude Code or Codex CLI. The tool checks that the CLI is installed and does not check which account or billing it uses. Those CLI writers run with most of your environment variables, so start it from a shell that holds no other secrets. The web app runs on localhost:4321. The built-in report validation checks citation IDs and headings and does not check that the evidence supports a claim, and a source that failed to collect can show as none. Treat long-running ads and installed pixels as leads to investigate. MIT.",
+      "source_url": "https://github.com/dansugc/reverse-engineer-marketing",
+      "source_checked": "2026-11-14",
+      "added": "2026-11-14",
+      "verification": "Official documentation and source reviewed; four independent offline checks completed. Not installed or tested against live targets.",
       "thl_project": false
     },
     {
