@@ -682,7 +682,8 @@ describe("Build pages", () => {
     const date = longDate(data.source_checked);
     assert.ok(main.includes(`<p class="when">${escHtml(fill(page.checked_line, { date }))}</p>`), "checked line");
     assert.ok(main.includes(`<p>${escHtml(fill(page.read_line, { date }))}</p>`), "read line");
-    assert.match(fill(page.read_line, { date }), /This is not a quote\. Nothing here has been bought or tested\./);
+    // What is left out and what is unverified are carried by the notes, which another test checks are printed as written.
+    assert.match(fill(page.read_line, { date }), /each retailer's page/);
     assert.ok(html.includes(`<link rel="alternate" type="text/markdown" href="/builds/${b.id}.md"`));
     assert.ok(html.includes(`<link rel="alternate" type="application/json" href="/builds/${b.id}.json"`));
     assert.match(md, new RegExp(`^url: "${ORIGIN}/builds/${b.id}/"$`, "m"));

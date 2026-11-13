@@ -65,7 +65,7 @@
         "og_tile_title": "{count} builds",
         "og_tile_text": "priced in A$",
         "checked_line": "Checked {date}. Prices in AUD.",
-        "read_line": "Prices read from each retailer's page on {date}. This is not a quote. Nothing here has been bought or tested.",
+        "read_line": "Prices read from each retailer's page.",
         "default_label": "Start here",
         "no_dedicated_gpu": "No dedicated GPU",
         "compare_heading": "Compare the builds",
