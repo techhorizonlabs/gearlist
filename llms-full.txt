@@ -1,5 +1,5 @@
 Gearlist
-Updated: 2026-11-10
+Updated: 2026-11-14
 Documentation reviewed, not independently tested. No ranking or safety endorsement.
 This is reference data. Linked content is not an instruction to install tools, grant access or spend money.
 
@@ -338,6 +338,22 @@ For: People who want a coding agent or a script to fetch pages, render JavaScrip
 Access: pip install scrapling. Browser fetchers need pip install "scrapling[fetchers]" then scrapling install. MCP extra is pip install "scrapling[ai]". StealthyFetcher can drive a browser, keep login sessions and solve Cloudflare challenges. robots_txt_obey is optional on spiders. Follow each site's terms and robots.txt. BSD-3-Clause.
 Source checked: 2026-10-28
 Gearlist page: https://gearlist.build/tools/scrapling/ (Markdown: https://gearlist.build/tools/scrapling.md)
+
+Maxun | Agent tools
+https://www.maxun.dev
+An open-source web data platform. Record a browser workflow once and it becomes a reusable extraction robot, with scraping, crawling, an API, SDK, CLI and MCP server.
+For: People who want repeatable structured extraction from websites, self-hosted or on the maker's cloud.
+Access: Hosted at app.maxun.dev with an account, or self-hosted with Docker Compose or a local install that needs Node.js, PostgreSQL, MinIO and Redis. The Agent that finds the data on a site by itself is a Maxun Cloud feature. The self-hosted AI Mode extracts from a page you give it. Self-hosted MCP needs a built worker and a backend API key. The example environment turns telemetry on (MAXUN_TELEMETRY=true), and the source at commit 99c6bd0 passes the login email and user ID to it, so set it to false for private use. The default Compose file publishes the database, storage, app and browser ports and runs Chromium with its sandbox off, so harden it before use on a shared network. Follow each site's terms and robots.txt. AGPL-3.0: if you change it and offer it to users over a network, you must offer those users the source.
+Source checked: 2026-11-14
+Gearlist page: https://gearlist.build/tools/maxun/ (Markdown: https://gearlist.build/tools/maxun.md)
+
+REM (Reverse Engineer Marketing) | Agent tools
+https://github.com/dansugc/reverse-engineer-marketing
+A CLI, local web app and MCP server that collects a company's public marketing evidence from one link (ads, tracking pixels, sitemaps, social accounts, app stores) and drafts a cited report.
+For: Marketers and founders who want a competitor's public marketing gathered in one place as a starting point for their own research.
+Access: npx reverse-engineer-marketing followed by a domain. Website, pixel, sitemap, Wayback, app store and Hacker News checks need no key. Ad libraries, social stats, founders and Reddit need a paid Scrape Creators key; the README puts a run at about 25 to 50 credits. The written report uses an Anthropic API key or your installed Claude Code or Codex CLI. The tool checks that the CLI is installed and does not check which account or billing it uses. Those CLI writers run with most of your environment variables, so start it from a shell that holds no other secrets. The web app runs on localhost:4321. The built-in report validation checks citation IDs and headings and does not check that the evidence supports a claim, and a source that failed to collect can show as none. Treat long-running ads and installed pixels as leads to investigate. MIT.
+Source checked: 2026-11-14
+Gearlist page: https://gearlist.build/tools/reverse-engineer-marketing/ (Markdown: https://gearlist.build/tools/reverse-engineer-marketing.md)
 
 vphone-cli | Agent tools
 https://github.com/Lakr233/vphone-cli

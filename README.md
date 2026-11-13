@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 371 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 373 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -78,7 +78,7 @@ npx skills add techhorizonlabs/thl-open
 
 ## Contents
 
-- [Agent tools](#agent-tools) (100)
+- [Agent tools](#agent-tools) (102)
 - [MCP and integrations](#mcp-and-integrations) (46)
 - [Security and governance](#security-and-governance) (12)
 - [Platforms](#platforms) (65)
@@ -511,6 +511,26 @@ A Python scraping library with HTTP fetchers, stealth browsers, spiders and an M
 **Access and use:** pip install scrapling. Browser fetchers need pip install "scrapling[fetchers]" then scrapling install. MCP extra is pip install "scrapling[ai]". StealthyFetcher can drive a browser, keep login sessions and solve Cloudflare challenges. robots_txt_obey is optional on spiders. Follow each site's terms and robots.txt. BSD-3-Clause.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/D4Vinci/Scrapling). [Gearlist page](https://gearlist.build/tools/scrapling/).
+
+### [Maxun](https://www.maxun.dev)
+
+An open-source web data platform. Record a browser workflow once and it becomes a reusable extraction robot, with scraping, crawling, an API, SDK, CLI and MCP server.
+
+**For:** People who want repeatable structured extraction from websites, self-hosted or on the maker's cloud.
+
+**Access and use:** Hosted at app.maxun.dev with an account, or self-hosted with Docker Compose or a local install that needs Node.js, PostgreSQL, MinIO and Redis. The Agent that finds the data on a site by itself is a Maxun Cloud feature. The self-hosted AI Mode extracts from a page you give it. Self-hosted MCP needs a built worker and a backend API key. The example environment turns telemetry on (MAXUN_TELEMETRY=true), and the source at commit 99c6bd0 passes the login email and user ID to it, so set it to false for private use. The default Compose file publishes the database, storage, app and browser ports and runs Chromium with its sandbox off, so harden it before use on a shared network. Follow each site's terms and robots.txt. AGPL-3.0: if you change it and offer it to users over a network, you must offer those users the source.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/getmaxun/maxun). [Gearlist page](https://gearlist.build/tools/maxun/).
+
+### [REM (Reverse Engineer Marketing)](https://github.com/dansugc/reverse-engineer-marketing)
+
+A CLI, local web app and MCP server that collects a company's public marketing evidence from one link (ads, tracking pixels, sitemaps, social accounts, app stores) and drafts a cited report.
+
+**For:** Marketers and founders who want a competitor's public marketing gathered in one place as a starting point for their own research.
+
+**Access and use:** npx reverse-engineer-marketing followed by a domain. Website, pixel, sitemap, Wayback, app store and Hacker News checks need no key. Ad libraries, social stats, founders and Reddit need a paid Scrape Creators key; the README puts a run at about 25 to 50 credits. The written report uses an Anthropic API key or your installed Claude Code or Codex CLI. The tool checks that the CLI is installed and does not check which account or billing it uses. Those CLI writers run with most of your environment variables, so start it from a shell that holds no other secrets. The web app runs on localhost:4321. The built-in report validation checks citation IDs and headings and does not check that the evidence supports a claim, and a source that failed to collect can show as none. Treat long-running ads and installed pixels as leads to investigate. MIT.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/dansugc/reverse-engineer-marketing). [Gearlist page](https://gearlist.build/tools/reverse-engineer-marketing/).
 
 ### [vphone-cli](https://github.com/Lakr233/vphone-cli)
 
