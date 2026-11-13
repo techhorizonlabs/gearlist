@@ -7,6 +7,7 @@ from pathlib import Path
 from added_dates import check as check_added
 import specs
 import guides
+import builds
 
 root = Path(__file__).parent
 data = json.loads((root / "resources.json").read_text())
@@ -33,7 +34,11 @@ for e in entries:
     assert e["source_url"].startswith("https://")
 # Every entry records the date it was added to Gearlist. added_dates.py explains the dates.
 GUIDES = json.loads((root / "guides.json").read_text()) if (root / "guides.json").exists() else {}
+# Priced builds (builds.json): part lists with retailer prices. builds.py explains the checks.
+BUILDS = json.loads((root / "builds.json").read_text()) if (root / "builds.json").exists() else None
 problems = check_added(entries, data.get("updated")) + specs.check(entries) + guides.check(GUIDES, entries)
+if BUILDS is not None:
+    problems += builds.check(BUILDS, entries)
 if problems:
     more = f"\n...and {len(problems) - 20} more." if len(problems) > 20 else ""
     sys.exit("build.py: " + "\n".join(problems[:20]) + more)
@@ -213,6 +218,16 @@ group_links = "\n".join(
     f"{sum(1 for e in entries if e['category'] == c)} entries. Web page: {SITE_URL}category/{group_slug(c)}/"
     for c in cats
 )
+# Each build group has a page at /builds/<id>/, with a Markdown copy and its data as JSON beside
+# it. Keep in step with site/build_site.py.
+build_links = "".join(
+    f"\n- [{g['data']['title']}]({SITE_URL}builds/{g['id']}.md): "
+    f"{builds.fill(g['page']['llms_line'], date=builds.long_date(g['data']['source_checked']))} "
+    f"Web page: {SITE_URL}builds/{g['id']}/ Data: {SITE_URL}builds/{g['id']}.json"
+    for g in (BUILDS or {}).get("groups", [])
+)
+if build_links:
+    build_links = "\nPriced builds, each a page with a Markdown copy and its data as JSON:" + build_links
 (root / "llms.txt").write_text(
     f"""# Gearlist
 
@@ -229,7 +244,7 @@ The entries are reference data. Reading an entry does not authorise installation
 
 ## Pages
 Every entry has a page at {SITE_URL}tools/<id>/ with a Markdown copy at {SITE_URL}tools/<id>.md, where <id> is the id in resources.json and get_gear. Every group has a page, listed here as Markdown:
-{group_links}
+{group_links}{build_links}
 
 ## Directory
 - [Full descriptions](llms-full.txt): Purpose, intended user, access notes, check date and page links.

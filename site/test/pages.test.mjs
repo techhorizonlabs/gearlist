@@ -1,6 +1,6 @@
 // Tests for the entry pages (/tools/<id>/), the group pages (/category/<slug>/), the What's new
-// page (/new/), their Markdown copies, the Atom feed, the Open Graph images, the sitemaps and the
-// IndexNow key file.
+// page (/new/), the build pages (/builds/<id>/), their Markdown copies, the Atom feed, the Open
+// Graph images, the sitemaps and the IndexNow key file.
 // They read the built site/dist folder:
 //
 //   python3 build.py && python3 site/build_site.py && node --test "site/test/*.test.mjs"
@@ -78,7 +78,9 @@ function fileFor(pathname) {
 
 let records;
 let groups;
+let buildGroups; // the groups in builds.json
 const pages = new Map(); // pathname -> html
+const isBuildPage = (p) => p.startsWith("/builds/");
 
 before(async () => {
   try {
@@ -96,6 +98,8 @@ before(async () => {
   pages.set("/new/", await readFile(fileFor("/new/"), "utf8"));
   for (const g of groups) pages.set(`/category/${g.slug}/`, await readFile(fileFor(`/category/${g.slug}/`), "utf8"));
   for (const e of records) pages.set(`/tools/${e.id}/`, await readFile(fileFor(`/tools/${e.id}/`), "utf8"));
+  buildGroups = JSON.parse(await readFile(path.join(ROOT, "builds.json"), "utf8")).groups;
+  for (const b of buildGroups) pages.set(`/builds/${b.id}/`, await readFile(fileFor(`/builds/${b.id}/`), "utf8"));
 });
 
 describe("Entry and group pages", () => {
@@ -215,7 +219,8 @@ describe("Entry and group pages", () => {
 
   test("each page keeps the documentation-checked caveat and links its Markdown copy", async () => {
     for (const [p, html] of pages) {
-      assert.match(html, /Documentation checked means the source was read\. It does not mean the software was installed, tested or security audited\./, p);
+      // A build page is about prices, so it carries its own caveat, checked under "Build pages".
+      if (!isBuildPage(p)) assert.match(html, /Documentation checked means the source was read\. It does not mean the software was installed, tested or security audited\./, p);
       const alt = /<link rel="alternate" type="text\/markdown" href="([^"]+)"/.exec(html);
       assert.ok(alt, `${p} links a Markdown copy`);
       assert.ok(await exists(fileFor(alt[1])), `${p} Markdown copy ${alt[1]} exists`);
@@ -511,6 +516,13 @@ describe("Links, images and headers", () => {
     const newMd = headersFor("/new.md");
     assert.deepEqual(newMd.find(([k]) => k === "Link"), ["Link", `<${ORIGIN}/new/>; rel="canonical"`]);
     assert.deepEqual(newMd.find(([k]) => k === "Content-Type"), ["Content-Type", "text/markdown; charset=utf-8"]);
+    // Build pages: the Markdown twin points back at its page, and the data can be read from anywhere.
+    const b = buildGroups[0];
+    const buildMd = headersFor(`/builds/${b.id}.md`);
+    assert.deepEqual(buildMd.find(([k]) => k === "Link"), ["Link", `<${ORIGIN}/builds/${b.id}/>; rel="canonical"`]);
+    assert.equal(buildMd.find(([k]) => k === "Content-Type"), undefined);
+    assert.deepEqual(headersFor(`/builds/${b.id}.json`).find(([k]) => k === "Access-Control-Allow-Origin"), ["Access-Control-Allow-Origin", "*"]);
+    assert.equal(headersFor(`/builds/${b.id}/`).find(([k]) => k === "Link"), undefined);
     const feed = headersFor("/feed.xml");
     assert.deepEqual(feed.find(([k]) => k === "Content-Type"), ["Content-Type", "application/atom+xml; charset=utf-8"]);
     assert.deepEqual(feed.find(([k]) => k === "Cache-Control"), ["Cache-Control", "public, max-age=3600"]);
@@ -631,6 +643,289 @@ function parseXml(text) {
 }
 const kids = (node, name) => node.children.filter((c) => c.name === name);
 const kid = (node, name) => kids(node, name)[0];
+
+// Build pages --------------------------------------------------------------------------------
+
+// A$8,630 for whole dollars, A$338.50 otherwise. Takes cents, so sums stay exact.
+const money = (cents) => {
+  const dollars = Math.floor(cents / 100);
+  const rest = cents % 100;
+  return `A$${dollars.toLocaleString("en-AU")}` + (rest ? `.${String(rest).padStart(2, "0")}` : "");
+};
+const cents = (amount) => Math.round(amount * 100);
+const fill = (template, values) => template.replace(/\{(\w+)\}/g, (_, name) => values[name]);
+const mainOf = (html) => html.slice(html.indexOf("<main"), html.indexOf("</main>"));
+
+describe("Build pages", () => {
+  const each = (fn) => async () => {
+    assert.ok(buildGroups.length >= 1, "at least one build group");
+    for (const b of buildGroups) {
+      const html = pages.get(`/builds/${b.id}/`);
+      const md = await readFile(path.join(DIST, "builds", `${b.id}.md`), "utf8");
+      const rows = new Map(b.data.pricebook.map((r) => [r.id, r]));
+      const shown = b.data.builds.filter((x) => !(x.id in (b.withheld || {})));
+      await fn({ b, html, main: mainOf(html), md, rows, shown, page: b.page, data: b.data });
+    }
+  };
+
+  test("each group has one page, one Markdown copy and one data file, and there are no others", async () => {
+    const listing = await readdir(path.join(DIST, "builds"), { withFileTypes: true });
+    const ids = buildGroups.map((b) => b.id).sort();
+    assert.deepEqual(listing.filter((d) => d.isDirectory()).map((d) => d.name).sort(), ids);
+    assert.deepEqual(listing.filter((d) => d.isFile()).map((d) => d.name).sort(), ids.flatMap((id) => [`${id}.json`, `${id}.md`]).sort());
+    for (const id of ids) assert.match(id, /^[a-z0-9]+(-[a-z0-9]+)*$/);
+  });
+
+  test("the page opens with the title, the introduction and the date prices were read", each(({ b, html, main, md, page, data }) => {
+    assert.ok(main.includes(`<h1>${escHtml(data.title)}</h1>`), "h1");
+    assert.ok(main.includes(`<p class="lede">${escHtml(data.introduction)}</p>`), "introduction");
+    const date = longDate(data.source_checked);
+    assert.ok(main.includes(`<p class="when">${escHtml(fill(page.checked_line, { date }))}</p>`), "checked line");
+    assert.ok(main.includes(`<p>${escHtml(fill(page.read_line, { date }))}</p>`), "read line");
+    assert.match(fill(page.read_line, { date }), /This is not a quote\. Nothing here has been bought or tested\./);
+    assert.ok(html.includes(`<link rel="alternate" type="text/markdown" href="/builds/${b.id}.md"`));
+    assert.ok(html.includes(`<link rel="alternate" type="application/json" href="/builds/${b.id}.json"`));
+    assert.match(md, new RegExp(`^url: "${ORIGIN}/builds/${b.id}/"$`, "m"));
+    assert.match(md, new RegExp(`^data: "${ORIGIN}/builds/${b.id}.json"$`, "m"));
+    assert.ok(md.includes(`\n# ${data.title}\n`));
+    assert.ok(md.includes(fill(page.read_line, { date })));
+    const crumbs = graphNodes(jsonLd(html)).find((n) => n["@type"] === "BreadcrumbList");
+    assert.deepEqual(crumbs.itemListElement.map((i) => [i.name, i.item]), [
+      ["Gearlist", ORIGIN + "/"],
+      [b.group, `${ORIGIN}/category/${slug(b.group)}/`],
+      [data.title, `${ORIGIN}/builds/${b.id}/`],
+    ]);
+  }));
+
+  test("every total in the data equals the sum of its parts, and the page shows that sum", each(({ main, md, rows, shown, data }) => {
+    for (const x of data.builds) {
+      const sum = x.parts.reduce((n, p) => n + cents(rows.get(p.id).price_aud) * p.quantity, 0);
+      assert.equal(cents(x.total_aud), sum, `${x.id} total`);
+    }
+    assert.ok(shown.length >= 1);
+    const table = /<table class="compare-table builds-table">([\s\S]*?)<\/table>/.exec(main)[1];
+    const listed = [...table.matchAll(/<tr><th scope="row"><a href="#build-([^"]+)">([^<]+)<\/a>[\s\S]*?<td class="num">([^<]+)<\/td>/g)];
+    assert.deepEqual(listed.map((m) => m[1]), shown.map((x) => x.id), "one row per build, in the data's order");
+    for (const [i, x] of shown.entries()) {
+      assert.equal(unescape(listed[i][2]), x.name);
+      assert.equal(listed[i][3], money(cents(x.total_aud)), `${x.id} total on the page`);
+      assert.ok(table.includes(`<td class="prose">${escHtml(x.main_tradeoff)}</td><td class="prose">${escHtml(x.upgrade_path)}</td>`), `${x.id} trade-off and upgrade path`);
+      assert.ok(md.includes(`| ${money(cents(x.total_aud))} |`), `${x.id} total in Markdown`);
+    }
+  }));
+
+  test("a build on the page uses only listings that can count towards a total, and withheld builds stay off it", each(({ b, main, md, rows, shown, data, page }) => {
+    for (const x of shown) {
+      for (const p of x.parts) {
+        const row = rows.get(p.id);
+        assert.equal(row.usable_in_component_total, true, `${x.id} uses ${p.id}`);
+        assert.equal(row.stock_status, "in_stock", `${x.id} uses ${p.id}`);
+      }
+    }
+    const held = data.builds.filter((x) => x.id in (b.withheld || {}));
+    for (const x of held) {
+      assert.ok(!main.includes(`id="build-${x.id}"`), `${x.id} has no parts table`);
+      assert.ok(!main.includes(`href="#build-${x.id}"`), `${x.id} is not in the comparison`);
+      if (!shown.some((s) => s.total_aud === x.total_aud)) {
+        assert.ok(!main.includes(`>${money(cents(x.total_aud))}<`), `${x.id} total is not shown`);
+        assert.ok(!md.includes(`| ${money(cents(x.total_aud))} |`), `${x.id} total is not in Markdown`);
+      }
+    }
+    const note = fill(page.withheld_note, { names: held.map((x) => x.name).join("; ") });
+    assert.equal(main.includes(escHtml(note)), held.length > 0, "the withheld builds are named, with no total");
+    assert.ok(shown.some((x) => x.id === data.default_build), "the default build is on the page");
+  }));
+
+  test("the default build is marked in words, in the comparison and on its parts table", each(({ main, md, shown, data, page }) => {
+    const mark = `<span class="pick">${escHtml(page.default_label)}</span>`;
+    assert.equal(main.split(mark).length - 1, 2, "marked twice");
+    const x = shown.find((s) => s.id === data.default_build);
+    assert.ok(main.includes(`<a href="#build-${x.id}">${escHtml(x.name)}</a> ${mark}</th>`));
+    assert.ok(new RegExp(`<details class="build" id="build-${x.id}" open>\\s*<summary><h3 id="h-build-${x.id}">[^<]+</h3> ${mark.replace(/[.*+?^${}()|[\]\\/]/g, "\\$&")}</summary>`).test(main));
+    assert.equal((main.match(/<details class="build" id="build-[^"]+" open>/g) || []).length, 1, "only the default build starts open");
+    assert.ok(md.includes(`| ${x.name} (${page.default_label}) |`));
+  }));
+
+  test("each build has a parts table with every part, its retailer, price, stock and listing link", each(({ b, main, rows, shown, page }) => {
+    for (const x of shown) {
+      const block = new RegExp(`<details class="build" id="build-${x.id}"[\\s\\S]*?</details>`).exec(main);
+      assert.ok(block, `${x.id} parts table`);
+      const summary = fill(page.build_summary, { name: x.name, total: money(cents(x.total_aud)) });
+      assert.ok(block[0].includes(`<h3 id="h-build-${x.id}">${escHtml(summary)}</h3>`), `${x.id} heading`);
+      const trs = [...block[0].matchAll(/<tr><th scope="row">([^<]*)<\/th><td[^>]*>([\s\S]*?)<\/tr>/g)];
+      assert.equal(trs.length, x.parts.length + 1, `${x.id} has one row per part and a total row`);
+      let sum = 0;
+      for (const [i, p] of x.parts.entries()) {
+        const row = rows.get(p.id);
+        const tr = trs[i][0];
+        const line = cents(row.price_aud) * p.quantity;
+        sum += line;
+        assert.equal(unescape(trs[i][1]), b.roles[p.id], `${x.id} ${p.id} role`);
+        assert.ok(tr.includes(escHtml(row.part)), `${x.id} ${p.id} product`);
+        assert.ok(tr.includes(`<small>${escHtml(fill(page.sku, { sku: row.sku }))}</small>`), `${x.id} ${p.id} SKU`);
+        assert.ok(tr.includes(`<td>${escHtml(row.retailer)}</td><td class="num">${money(line)}`), `${x.id} ${p.id} retailer and price`);
+        assert.ok(tr.includes(`<td class="prose">${escHtml(row.stock)}`), `${x.id} ${p.id} stock`);
+        if (row.conditions) assert.ok(tr.includes(`<small>${escHtml(row.conditions)}</small>`), `${x.id} ${p.id} conditions`);
+        assert.ok(tr.includes(`<a href="${escHtml(row.source)}" rel="noopener"`), `${x.id} ${p.id} listing link`);
+        if (p.quantity > 1) {
+          assert.ok(tr.includes(`<small>${escHtml(fill(page.each, { quantity: p.quantity, price: money(cents(row.price_aud)) }))}</small>`), `${x.id} ${p.id} unit price`);
+        }
+      }
+      assert.ok(trs.at(-1)[0].includes(`<td class="num">${money(sum)}</td>`), `${x.id} total row is the sum of the rows above it`);
+      assert.equal(sum, cents(x.total_aud));
+    }
+  }));
+
+  test("the same part at different shops shows every price, and names the cheapest in-stock one in words", each(({ main, md, data, page }) => {
+    const section = /<section class="compare" aria-labelledby="h-shops">([\s\S]*?)<\/section>/.exec(main);
+    const bySku = new Map();
+    for (const r of data.pricebook) bySku.set(r.sku, [...(bySku.get(r.sku) || []), r]);
+    const multi = [...bySku.values()].filter((rs) => new Set(rs.map((r) => r.retailer)).size > 1);
+    assert.equal(Boolean(section), multi.length > 0);
+    if (!section) return;
+    const trs = [...section[1].matchAll(/<tr><th scope="row">[\s\S]*?<\/tr>/g)].map((m) => m[0]);
+    assert.equal(trs.length, multi.reduce((n, rs) => n + rs.length, 0), "one row per listing of a part sold at more than one shop");
+    const buyable = (r) => r.usable_in_component_total === true && r.stock_status === "in_stock";
+    for (const rs of multi) {
+      const prices = rs.filter(buyable).map((r) => cents(r.price_aud));
+      const low = Math.min(...prices);
+      for (const r of rs) {
+        const tr = trs.find((t) => t.includes(`href="${escHtml(r.source)}"`));
+        assert.ok(tr, `${r.id} is in the table`);
+        const price = cents(r.price_aud);
+        let note;
+        if (!buyable(r)) note = page.not_compared[r.stock_status];
+        else if (price === low) note = prices.filter((p) => p === low).length === 1 ? page.lowest : page.equal_lowest;
+        else note = fill(page.more, { amount: money(price - low) });
+        assert.ok(tr.includes(`<td>${escHtml(r.retailer)}</td><td class="num">${money(price)}</td><td><strong>${escHtml(note)}</strong></td>`), `${r.id}: ${note}`);
+        assert.ok(md.includes(`| ${r.retailer} | ${money(price)} | ${note} |`), `${r.id} in Markdown`);
+      }
+    }
+    // An out-of-stock listing is never the lowest, even when its price is.
+    for (const tr of trs.filter((t) => t.includes(`<strong>${escHtml(page.lowest)}</strong>`) || t.includes(`<strong>${escHtml(page.equal_lowest)}</strong>`))) {
+      const r = data.pricebook.find((x) => tr.includes(`href="${escHtml(x.source)}"`));
+      assert.ok(buyable(r), `${r.id} is marked lowest`);
+    }
+  }));
+
+  test("the full pricebook is listed, one row per retailer listing", each(({ main, md, data }) => {
+    const section = /<section class="compare" aria-labelledby="h-pricebook">([\s\S]*?)<\/section>/.exec(main)[1];
+    const trs = [...section.matchAll(/<tr><th scope="row">[\s\S]*?<\/tr>/g)].map((m) => m[0]);
+    assert.equal(trs.length, data.pricebook.length);
+    for (const [i, r] of data.pricebook.entries()) {
+      assert.ok(trs[i].includes(escHtml(r.part)) && trs[i].includes(`<td>${escHtml(r.retailer)}</td><td class="num">${money(cents(r.price_aud))}</td>`), r.id);
+      assert.ok(trs[i].includes(`<td class="prose">${escHtml(r.stock)}`), `${r.id} stock`);
+      assert.ok(trs[i].includes(`href="${escHtml(r.source)}"`), `${r.id} link`);
+      assert.ok(md.includes(`](${r.source})`), `${r.id} link in Markdown`);
+    }
+  }));
+
+  test("the model table shows each model's size, use, 32GB fit and link", each(({ b, main, md, data }) => {
+    const section = /<section class="compare" aria-labelledby="h-models">([\s\S]*?)<\/section>/.exec(main)[1];
+    for (const m of data.models) {
+      const size = `${m.size_gb}GB`;
+      assert.ok(section.includes(`<a href="${escHtml(m.url)}" rel="noopener"><code>${escHtml(m.tag)}</code></a>`), `${m.tag} link`);
+      assert.ok(section.includes(`<td class="num">${size}</td><td class="prose">${escHtml(m.purpose)}</td><td class="prose">${escHtml(m.fit)}</td>`), `${m.tag} row`);
+      assert.ok(md.includes(`](${m.url})`) && md.includes(`| ${size} |`), `${m.tag} in Markdown`);
+      const entry = (b.model_entries || {})[m.tag];
+      if (entry) assert.ok(section.includes(`<a href="/tools/${entry}/">`), `${m.tag} links its Gearlist entry`);
+    }
+  }));
+
+  test("the notes are printed as written, on the page and in the Markdown copy", each(({ main, md, data }) => {
+    const mdText = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/([\\`*_\[\]|#~!@])/g, "\\$1");
+    for (const key of ["totals_exclude", "unverified", "capacity_note", "stock_note", "memory_note", "model_license_note", "evaluation_note", "selection_note"]) {
+      assert.ok(main.includes(`>${escHtml(data[key])}</p>`), `${key} on the page`);
+      assert.ok(md.includes(`\n${mdText(data[key])}\n`), `${key} in Markdown`);
+    }
+    for (const s of data.technical_sources) {
+      assert.ok(main.includes(`<li><a href="${escHtml(s.url)}" rel="noopener">${escHtml(s.topic)}</a></li>`), s.topic);
+      assert.ok(md.includes(`](${s.url})`), `${s.topic} in Markdown`);
+    }
+  }));
+
+  test("listing fields kept for the record are not shown on the page or in the Markdown copy", each(({ main, md, data }) => {
+    for (const r of data.pricebook) {
+      for (const key of ["verification", "access_notes", "tax_basis"]) {
+        assert.ok(r[key], `${r.id} has ${key} in the data`);
+        assert.ok(!main.includes(escHtml(r[key])), `${r.id} ${key} is not on the page`);
+        assert.ok(!md.includes(r[key]), `${r.id} ${key} is not in Markdown`);
+      }
+    }
+  }));
+
+  test("a part that has a Gearlist entry links its name to that entry's page", each(({ b, main, md, rows, shown }) => {
+    const links = Object.entries(b.entries || {});
+    assert.ok(links.length >= 1, "at least one part has an entry");
+    for (const [rowId, entryId] of links) {
+      assert.ok(records.some((e) => e.id === entryId), `${entryId} is an entry`);
+      const row = rows.get(rowId);
+      assert.ok(main.includes(`<a href="/tools/${entryId}/">${escHtml(row.part)}</a>`), `${rowId} links ${entryId}`);
+      assert.ok(md.includes(`](${ORIGIN}/tools/${entryId}/)`), `${rowId} in Markdown`);
+    }
+    // In the comparison table, a build with a dedicated graphics card names it and links it.
+    for (const x of shown.filter((s) => s.dedicated_gpu_included)) {
+      const card = x.parts.map((p) => p.id).find((id) => b.roles[id] === "Graphics card");
+      const tr = new RegExp(`<tr><th scope="row"><a href="#build-${x.id}">[\\s\\S]*?</tr>`).exec(main)[0];
+      assert.ok(tr.includes(escHtml(rows.get(card).part)), `${x.id} names its card`);
+      if (b.entries[card]) assert.ok(tr.includes(`href="/tools/${b.entries[card]}/"`), `${x.id} links its card`);
+    }
+  }));
+
+  test("every table sits in the scrolling frame used for wide tables, and the page adds no script", each(({ html, main }) => {
+    const tables = (main.match(/<table /g) || []).length;
+    assert.ok(tables >= 4);
+    assert.equal((main.match(/<div class="compare-wrap" tabindex="0" role="region" aria-labelledby="[^"]+">\n<table class="compare-table/g) || []).length, tables);
+    // A visually hidden span inside a scrolling frame widens the whole page on a phone.
+    for (const [frame] of main.matchAll(/<div class="compare-wrap"[\s\S]*?<\/table>\n<\/div>/g)) assert.ok(!frame.includes('class="sr"'));
+    assert.equal((main.match(/<script/g) || []).length, 0);
+    assert.doesNotMatch(main, / on[a-z]+="/, "no inline event handlers");
+    const scripts = (page) => [...page.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
+    assert.deepEqual(scripts(html), scripts(pages.get("/new/")), "the same inline scripts as every other page");
+    assert.doesNotMatch(html, /<script[^>]+src=/);
+  }));
+
+  test("outside links are plain https with no query string, so no affiliate parameters", each(({ main, md }) => {
+    const hrefs = [...main.matchAll(/<a href="([^"]+)"/g)].map((m) => unescape(m[1]));
+    const outside = hrefs.filter((h) => !h.startsWith("/") && !h.startsWith("#"));
+    assert.ok(outside.length >= 10);
+    for (const h of outside) {
+      assert.match(h, /^https:\/\/[a-z0-9.-]+\//, h);
+      assert.doesNotMatch(h, /[?#]/, h);
+    }
+    for (const [, h] of md.matchAll(/\]\((https:[^)]+)\)/g)) assert.doesNotMatch(h, /[?#]/, h);
+    assert.doesNotMatch(main + md, /JW Computers|jw\.com\.au|Computer Alliance|computeralliance|RamCity|ramcity/i);
+  }));
+
+  test("the data file is the group as it stands in builds.json, with the page addresses", each(async ({ b }) => {
+    const served = JSON.parse(await readFile(path.join(DIST, "builds", `${b.id}.json`), "utf8"));
+    const { url, markdown, ...rest } = served;
+    assert.equal(url, `${ORIGIN}/builds/${b.id}/`);
+    assert.equal(markdown, `${ORIGIN}/builds/${b.id}.md`);
+    assert.deepEqual(rest, b);
+    assert.ok(!JSON.stringify(served).includes("sha256"), "no capture hashes");
+  }));
+
+  test("the group page, its Markdown copy, llms.txt and the sitemap all point at the build page", each(async ({ b, data, page }) => {
+    const date = longDate(data.source_checked);
+    const [before, after] = fill(page.group_link, { date, link: "\u0000" }).split("\u0000");
+    const g = groups.find((x) => x.name === b.group);
+    const groupHtml = pages.get(`/category/${g.slug}/`);
+    assert.ok(groupHtml.includes(`<p class="when">${escHtml(before)}<a href="/builds/${b.id}/">${escHtml(data.title)}</a>${escHtml(after)}</p>`), "one sentence on the group page");
+    const groupMd = await readFile(path.join(DIST, "category", `${g.slug}.md`), "utf8");
+    assert.ok(groupMd.includes(`[${data.title}](${ORIGIN}/builds/${b.id}/)`), "group Markdown");
+    for (const other of groups.filter((x) => x !== g)) assert.ok(!pages.get(`/category/${other.slug}/`).includes(`/builds/${b.id}/`), `${other.name} does not link it`);
+    const llms = await readFile(path.join(DIST, "llms.txt"), "utf8");
+    assert.ok(llms.includes(`- [${data.title}](${ORIGIN}/builds/${b.id}.md): ${fill(page.llms_line, { date })} Web page: ${ORIGIN}/builds/${b.id}/ Data: ${ORIGIN}/builds/${b.id}.json`), "llms.txt");
+    const xml = await readFile(path.join(DIST, "sitemap-pages.xml"), "utf8");
+    assert.ok(xml.includes(`<url><loc>${ORIGIN}/builds/${b.id}/</loc><lastmod>${data.source_checked}</lastmod></url>`), "sitemap");
+  }));
+
+  test("no en or em dashes in the build page, its Markdown copy or its data", each(async ({ b, md }) => {
+    assert.doesNotMatch(md, /[\u2013\u2014]/);
+    assert.doesNotMatch(await readFile(path.join(DIST, "builds", `${b.id}.json`), "utf8"), /[\u2013\u2014]/);
+  }));
+});
 
 describe("What's new, the feed and added dates", () => {
   test("every entry has an added date from the earliest date to the list's updated date", async () => {
