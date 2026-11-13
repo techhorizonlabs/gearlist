@@ -122,10 +122,10 @@
         "withheld_note": "Held back until a listing each one uses is confirmed: {names}.",
         "models_heading": "Model choices",
         "models_columns": [
-          "Package",
-          "Rounded size",
-          "Intended use",
-          "32GB boundary"
+          "Model",
+          "Download size",
+          "What it is for",
+          "On a 32GB card"
         ],
         "model_entry_link": "Gearlist entry",
         "sources_heading": "Technical sources",
