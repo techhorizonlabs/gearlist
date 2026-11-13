@@ -3,10 +3,7 @@
     {
       "id": "ai-server",
       "group": "Hardware",
-      "withheld": {
-        "value-base": "Its motherboard listing, board-b850-scorp, is flagged stock_status out_of_stock and usable_in_component_total false, while the listing's stock text reads in stock for delivery. The build returns once the listing is confirmed.",
-        "nvidia-workstation": "Its graphics card listing, gpu-pro4500-scorp, is flagged stock_status out_of_stock and usable_in_component_total false, while the listing's stock text reads in stock for delivery. The build returns once the listing is confirmed."
-      },
+      "withheld": {},
       "roles": {
         "cpu9700-scorp": "Processor",
         "cpu9700-umart": "Processor",
@@ -551,8 +548,8 @@
             "tax_basis": "Displayed Australian retail price; confirm invoice GST",
             "promotion_end": null,
             "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
-            "stock_status": "out_of_stock",
-            "usable_in_component_total": false,
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
             "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
           },
           {
@@ -798,8 +795,8 @@
             "tax_basis": "Displayed Australian retail price; confirm invoice GST",
             "promotion_end": null,
             "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
-            "stock_status": "out_of_stock",
-            "usable_in_component_total": false,
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
             "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
           },
           {
@@ -874,8 +871,8 @@
             "tax_basis": "Displayed Australian retail price; confirm invoice GST",
             "promotion_end": null,
             "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
-            "stock_status": "out_of_stock",
-            "usable_in_component_total": false,
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
             "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
           },
           {
