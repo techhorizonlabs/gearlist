@@ -1,0 +1,1324 @@
+{
+  "groups": [
+    {
+      "id": "ai-server",
+      "group": "Hardware",
+      "withheld": {},
+      "roles": {
+        "cpu9700-scorp": "Processor",
+        "cpu9700-umart": "Processor",
+        "cpu9700-mwave": "Processor",
+        "cpu9950-scorp": "Processor",
+        "cpu9950-umart": "Processor",
+        "board-b850-scorp": "Motherboard",
+        "board-tomahawk": "Motherboard",
+        "board-proart": "Motherboard",
+        "board-proart-scorp": "Motherboard",
+        "board-max-mwave": "Motherboard",
+        "case-mwave": "Case",
+        "case-scorp": "Case",
+        "case-define7xl": "Case",
+        "ram64-current": "Memory",
+        "ram64-kingston-scorp": "Memory",
+        "ram96-corsair": "Memory",
+        "ram96-corsair-scorp": "Memory",
+        "ram96-team": "Memory",
+        "ram128-team": "Memory",
+        "gpu-r9700-gigabyte": "Graphics card",
+        "gpu-r9700-scorp": "Graphics card",
+        "gpu-r9700-umart": "Graphics card",
+        "gpu-pro4500-scorp": "Graphics card",
+        "gpu5090-palit": "Graphics card",
+        "gpu5090-pny-scorp": "Graphics card",
+        "gpu5090-zotac": "Graphics card",
+        "gpu5090-proart": "Graphics card",
+        "ssd-kc3000-umart": "SSD",
+        "ssd-kc3000-scorp": "SSD",
+        "hdd16-umart": "Hard drive",
+        "hdd16-mwave": "Hard drive",
+        "hdd8-umart": "Hard drive",
+        "psu1000-umart": "Power supply",
+        "psu1000-mwave": "Power supply",
+        "cooler-umart": "CPU cooler",
+        "cooler9950-umart": "CPU cooler",
+        "ups900-umart": "UPS",
+        "ups1350-umart": "UPS",
+        "external20-scorp": "Recovery drive",
+        "assembly-umart": "Service"
+      },
+      "entries": {
+        "gpu-r9700-gigabyte": "amd-radeon-ai-pro-r9700",
+        "gpu-r9700-scorp": "amd-radeon-ai-pro-r9700",
+        "gpu-r9700-umart": "amd-radeon-ai-pro-r9700",
+        "gpu5090-palit": "nvidia-geforce-rtx-5090",
+        "gpu5090-pny-scorp": "nvidia-geforce-rtx-5090",
+        "gpu5090-zotac": "nvidia-geforce-rtx-5090",
+        "gpu5090-proart": "nvidia-geforce-rtx-5090"
+      },
+      "model_entries": {
+        "gpt-oss:120b": "gpt-oss-120b"
+      },
+      "page": {
+        "title_tag": "{title}: parts, prices and trade-offs",
+        "description": "{introduction} Component totals from {low} to {high}, with prices read on {date}.",
+        "og_alt": "Gearlist card for {title}, with prices read on {date}.",
+        "og_tile_title": "{count} builds",
+        "og_tile_text": "priced in A$",
+        "checked_line": "Checked {date}. Prices in AUD.",
+        "read_line": "Prices read from each retailer's page.",
+        "default_label": "Start here",
+        "no_dedicated_gpu": "No dedicated GPU",
+        "compare_heading": "Compare the builds",
+        "compare_columns": [
+          "Build",
+          "Component total",
+          "Graphics card",
+          "Main trade-off",
+          "Upgrade path"
+        ],
+        "parts_heading": "Parts in each build",
+        "parts_columns": [
+          "Part",
+          "Exact part",
+          "Retailer",
+          "Displayed price",
+          "Availability",
+          "Source"
+        ],
+        "build_summary": "{name}: {total}",
+        "sku": "SKU {sku}",
+        "each": "{quantity} at {price} each",
+        "total_row": "Component total",
+        "items_line": "{items} items from {retailers} retailers",
+        "listing_link": "Product page",
+        "listing_link_context": "for {part} at {retailer}",
+        "shops_heading": "Same part, different shop",
+        "shops_columns": [
+          "Exact part",
+          "Retailer",
+          "Displayed price",
+          "Compared",
+          "Availability",
+          "Source"
+        ],
+        "lowest": "Lowest in stock",
+        "equal_lowest": "Equal lowest in stock",
+        "more": "{amount} more",
+        "not_compared": {
+          "in_stock": "Excluded from build totals",
+          "out_of_stock": "Out of stock, not compared",
+          "conditional": "Conditional, not compared"
+        },
+        "pricebook_heading": "Parts and current prices",
+        "pricebook_columns": [
+          "Exact part",
+          "Retailer",
+          "Displayed price",
+          "Availability",
+          "Source"
+        ],
+        "integrated_graphics": "The GPU-free builds use the {link}. A dedicated GPU can be added later, subject to the exact card and system checks.",
+        "integrated_graphics_link": "Ryzen 9700X integrated Radeon graphics",
+        "withheld_note": "Held back until a listing each one uses is confirmed: {names}.",
+        "models_heading": "Model choices",
+        "models_columns": [
+          "Model",
+          "Download size",
+          "What it is for",
+          "On a 32GB card"
+        ],
+        "model_entry_link": "Gearlist entry",
+        "sources_heading": "Technical sources",
+        "notes_heading": "What these prices cover",
+        "markdown_link": "This page as Markdown",
+        "json_link": "This page's data as JSON",
+        "back_link": "Back to {group}",
+        "group_link": "See {link} for part lists with Australian retailer prices read on {date}.",
+        "llms_line": "Builds priced part by part, with Australian retailer prices read on {date}. This is not a quote, and nothing has been bought or tested."
+      },
+      "data": {
+        "schema_version": "1.0",
+        "title": "Australian AI and backup PC builds",
+        "source_checked": "2026-11-13",
+        "currency": "AUD",
+        "default_build": "expandable-base",
+        "introduction": "Compare a staged Ryzen tower with complete local AI options. Every build uses the same usable storage capacity, UPS and separate recovery drive.",
+        "price_basis": "Prices as listed on 13 November 2026. Delivery and invoice details are confirmed at checkout.",
+        "totals_exclude": "Totals exclude delivery, assembly, rental, electricity, ongoing cloud fees, payment surcharges and any extra controllers, trays, cables or cooling.",
+        "unverified": "Exact RAM kit and BIOS compatibility, final mechanical fit, loaded thermals, GPU passthrough, UPS shutdown and an independent restore have not been verified.",
+        "capacity_note": "Each build has two 16TB HDDs mirrored for about 16TB usable and two 2TB SSDs mirrored for about 2TB usable, before overhead and reserve. The separate 20TB drive holds a recovery copy. Size backup storage to allow for retention, and keep the verified copy disconnected or off-site.",
+        "integrated_graphics_source": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html",
+        "builds": [
+          {
+            "id": "value-base",
+            "name": "Value base, GPU later",
+            "parts": [
+              {
+                "id": "cpu9700-scorp",
+                "quantity": 1
+              },
+              {
+                "id": "board-b850-scorp",
+                "quantity": 1
+              },
+              {
+                "id": "ram64-current",
+                "quantity": 1
+              },
+              {
+                "id": "cooler-umart",
+                "quantity": 1
+              },
+              {
+                "id": "case-mwave",
+                "quantity": 1
+              },
+              {
+                "id": "psu1000-umart",
+                "quantity": 1
+              },
+              {
+                "id": "ssd-kc3000-umart",
+                "quantity": 2
+              },
+              {
+                "id": "hdd16-umart",
+                "quantity": 2
+              },
+              {
+                "id": "ups1350-umart",
+                "quantity": 1
+              },
+              {
+                "id": "external20-scorp",
+                "quantity": 1
+              }
+            ],
+            "total_aud": 8630,
+            "currency": "AUD",
+            "dedicated_gpu_included": false,
+            "main_tradeoff": "Lowest initial cost; secondary long slots run at PCIe 3.0 x1.",
+            "upgrade_path": "Add one dedicated GPU in the main CPU slot. More than four SATA devices needs a qualified controller and a suitable slot.",
+            "usable_hdd_capacity_tb": 16,
+            "usable_nvme_capacity_tb": 2,
+            "separate_recovery_drive_tb": 20,
+            "verification": "Sourced planning comparison; no assembled-system, hardware or workload test"
+          },
+          {
+            "id": "expandable-base",
+            "name": "Expansion base, GPU later",
+            "parts": [
+              {
+                "id": "cpu9700-scorp",
+                "quantity": 1
+              },
+              {
+                "id": "board-proart",
+                "quantity": 1
+              },
+              {
+                "id": "ram64-current",
+                "quantity": 1
+              },
+              {
+                "id": "cooler-umart",
+                "quantity": 1
+              },
+              {
+                "id": "case-mwave",
+                "quantity": 1
+              },
+              {
+                "id": "psu1000-umart",
+                "quantity": 1
+              },
+              {
+                "id": "ssd-kc3000-umart",
+                "quantity": 2
+              },
+              {
+                "id": "hdd16-umart",
+                "quantity": 2
+              },
+              {
+                "id": "ups1350-umart",
+                "quantity": 1
+              },
+              {
+                "id": "external20-scorp",
+                "quantity": 1
+              }
+            ],
+            "total_aud": 9200,
+            "currency": "AUD",
+            "dedicated_gpu_included": false,
+            "main_tradeoff": "A$570 above the value base for stronger card expansion and faster networking; no dedicated GPU is included.",
+            "upgrade_path": "Two CPU-connected graphics slots can run at x8/x8; M.2_2 changes the second slot to x4. Qualify card spacing, PSU capacity, cooling and software before adding cards.",
+            "usable_hdd_capacity_tb": 16,
+            "usable_nvme_capacity_tb": 2,
+            "separate_recovery_drive_tb": 20,
+            "verification": "Sourced planning comparison; no assembled-system, hardware or workload test"
+          },
+          {
+            "id": "balanced-radeon",
+            "name": "Balanced local AI, Radeon 32GB",
+            "parts": [
+              {
+                "id": "cpu9700-scorp",
+                "quantity": 1
+              },
+              {
+                "id": "board-tomahawk",
+                "quantity": 1
+              },
+              {
+                "id": "ram64-current",
+                "quantity": 1
+              },
+              {
+                "id": "cooler-umart",
+                "quantity": 1
+              },
+              {
+                "id": "case-mwave",
+                "quantity": 1
+              },
+              {
+                "id": "psu1000-umart",
+                "quantity": 1
+              },
+              {
+                "id": "ssd-kc3000-umart",
+                "quantity": 2
+              },
+              {
+                "id": "hdd16-umart",
+                "quantity": 2
+              },
+              {
+                "id": "ups1350-umart",
+                "quantity": 1
+              },
+              {
+                "id": "external20-scorp",
+                "quantity": 1
+              },
+              {
+                "id": "gpu-r9700-gigabyte",
+                "quantity": 1
+              }
+            ],
+            "total_aud": 11749,
+            "currency": "AUD",
+            "dedicated_gpu_included": true,
+            "main_tradeoff": "Lower-priced standalone 32GB GPU in this sample; the AMD runtime and chosen model need a supported OS and a workload trial.",
+            "upgrade_path": "The second long expansion slot suitable for a controller runs at chipset x4. Keep M.2_2 and its USB4 sharing in mind when adding SSDs.",
+            "usable_hdd_capacity_tb": 16,
+            "usable_nvme_capacity_tb": 2,
+            "separate_recovery_drive_tb": 20,
+            "verification": "Sourced planning comparison; no assembled-system, hardware or workload test"
+          },
+          {
+            "id": "expandable-radeon",
+            "name": "Expansion local AI, Radeon 32GB",
+            "parts": [
+              {
+                "id": "cpu9700-scorp",
+                "quantity": 1
+              },
+              {
+                "id": "board-proart",
+                "quantity": 1
+              },
+              {
+                "id": "ram64-current",
+                "quantity": 1
+              },
+              {
+                "id": "cooler-umart",
+                "quantity": 1
+              },
+              {
+                "id": "case-mwave",
+                "quantity": 1
+              },
+              {
+                "id": "psu1000-umart",
+                "quantity": 1
+              },
+              {
+                "id": "ssd-kc3000-umart",
+                "quantity": 2
+              },
+              {
+                "id": "hdd16-umart",
+                "quantity": 2
+              },
+              {
+                "id": "ups1350-umart",
+                "quantity": 1
+              },
+              {
+                "id": "external20-scorp",
+                "quantity": 1
+              },
+              {
+                "id": "gpu-r9700-gigabyte",
+                "quantity": 1
+              }
+            ],
+            "total_aud": 12099,
+            "currency": "AUD",
+            "dedicated_gpu_included": true,
+            "main_tradeoff": "A$350 above the balanced build for two-card lane options and 10GbE; model performance is unmeasured.",
+            "upgrade_path": "A second card can use the x8/x8 path if M.2_2 is kept free. Two cards do not automatically pool VRAM; software, thermals and power need qualification.",
+            "usable_hdd_capacity_tb": 16,
+            "usable_nvme_capacity_tb": 2,
+            "separate_recovery_drive_tb": 20,
+            "verification": "Sourced planning comparison; no assembled-system, hardware or workload test"
+          },
+          {
+            "id": "nvidia-workstation",
+            "name": "Expansion local AI, NVIDIA 32GB",
+            "parts": [
+              {
+                "id": "cpu9700-scorp",
+                "quantity": 1
+              },
+              {
+                "id": "board-proart",
+                "quantity": 1
+              },
+              {
+                "id": "ram64-current",
+                "quantity": 1
+              },
+              {
+                "id": "cooler-umart",
+                "quantity": 1
+              },
+              {
+                "id": "case-mwave",
+                "quantity": 1
+              },
+              {
+                "id": "psu1000-umart",
+                "quantity": 1
+              },
+              {
+                "id": "ssd-kc3000-umart",
+                "quantity": 2
+              },
+              {
+                "id": "hdd16-umart",
+                "quantity": 2
+              },
+              {
+                "id": "ups1350-umart",
+                "quantity": 1
+              },
+              {
+                "id": "external20-scorp",
+                "quantity": 1
+              },
+              {
+                "id": "gpu-pro4500-scorp",
+                "quantity": 1
+              }
+            ],
+            "total_aud": 16199,
+            "currency": "AUD",
+            "dedicated_gpu_included": true,
+            "main_tradeoff": "CUDA and ECC memory cost A$4,100 more than the Radeon in the same build; workload benefit is unmeasured.",
+            "upgrade_path": "The same x8/x8 expansion path is available, with the M.2_2 trade-off. Future GPU and multi-GPU support depend on the exact runtime and workload.",
+            "usable_hdd_capacity_tb": 16,
+            "usable_nvme_capacity_tb": 2,
+            "separate_recovery_drive_tb": 20,
+            "verification": "Sourced planning comparison; no assembled-system, hardware or workload test"
+          }
+        ],
+        "pricebook": [
+          {
+            "id": "cpu9700-scorp",
+            "part": "Ryzen 7 9700X",
+            "sku": "100-100001404WOF",
+            "retailer": "Scorptec",
+            "price_aud": 469,
+            "currency": "AUD",
+            "stock": "In stock for delivery; Tingalpa in stock",
+            "warranty_displayed": "3 years",
+            "conditions": "",
+            "source": "https://www.scorptec.com.au/product/cpu/amd-socket-am5/111722-100-100001404wof",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "cpu9700-umart",
+            "part": "Ryzen 7 9700X",
+            "sku": "100-100001404WOF",
+            "retailer": "Umart",
+            "price_aud": 599,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "",
+            "source": "https://www.umart.com.au/product/amd-ryzen-7-9700x-8-core-am5-5-50ghz-cpu-processor-100-100001404wof-78587",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "cpu9700-mwave",
+            "part": "Ryzen 7 9700X",
+            "sku": "100-100001404WOF",
+            "retailer": "Mwave",
+            "price_aud": 499,
+            "currency": "AUD",
+            "stock": "In stock; dispatch/pickup within 24h",
+            "warranty_displayed": "Confirm retailer warranty",
+            "conditions": "",
+            "source": "https://www.mwave.com.au/products/amd-ryzen-7-9700x-8-core-16-thread-up-to-55ghz-am5-unlocked-cpu-processor-ac76672",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "cpu9950-scorp",
+            "part": "Ryzen 9 9950X",
+            "sku": "100-100001277WOF",
+            "retailer": "Scorptec",
+            "price_aud": 888.99,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "",
+            "source": "https://www.scorptec.com.au/product/cpu/amd-socket-am5/111720-100-100001277wof",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "cpu9950-umart",
+            "part": "Ryzen 9 9950X",
+            "sku": "100-100001277WOF",
+            "retailer": "Umart",
+            "price_aud": 899,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "",
+            "source": "https://www.umart.com.au/product/amd-ryzen-9-9950x-16-core-am5-5-7-ghz-cpu-processor-100-100001277wof-78838",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "board-b850-scorp",
+            "part": "B850 AORUS ELITE WIFI7 ATX",
+            "sku": "B850 A ELITE WF7",
+            "retailer": "Scorptec",
+            "price_aud": 329,
+            "currency": "AUD",
+            "stock": "In stock for delivery; Tingalpa sold out",
+            "warranty_displayed": "3 years",
+            "conditions": "New unit; A$300 refurbished link is a separate condition",
+            "source": "https://www.scorptec.com.au/product/motherboards/amd-socket-am5/115517-b850-a-elite-wf7",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "board-tomahawk",
+            "part": "MAG X870E TOMAHAWK WIFI ATX",
+            "sku": "MAG X870E TOMAHAWK WIFI",
+            "retailer": "Umart",
+            "price_aud": 549,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "Normal Tomahawk model. MAX is a separate product.",
+            "source": "https://www.umart.com.au/product/msi-mag-x870e-tomahawk-wifi-am5-atx-motherboard-mag-x870e-tomahawk-wifi-82311",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "board-proart",
+            "part": "ProArt X870E-CREATOR WIFI ATX",
+            "sku": "PROART X870E-CREATOR WIFI",
+            "retailer": "Umart",
+            "price_aud": 899,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "",
+            "source": "https://www.umart.com.au/product/asus-proart-x870e-creator-wifi-am5-atx-motherboard-proart-x870e-creator-wifi-79276",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "board-proart-scorp",
+            "part": "ProArt X870E-CREATOR WIFI ATX",
+            "sku": "PROART X870E-CREATOR WIFI",
+            "retailer": "Scorptec",
+            "price_aud": 899,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "",
+            "source": "https://www.scorptec.com.au/product/motherboards/amd-socket-am5/113340-proart-x870e-creator-wifi",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "board-max-mwave",
+            "part": "MAG X870E TOMAHAWK MAX WIFI ATX",
+            "sku": "MAG X870E TOMAHAWK MAX WIFI / AC94356",
+            "retailer": "Mwave",
+            "price_aud": 569,
+            "currency": "AUD",
+            "stock": "In stock at Mwave",
+            "warranty_displayed": "Confirm retailer warranty",
+            "conditions": "MAX model, a separate product from the normal Tomahawk. Excluded from build totals.",
+            "source": "https://www.mwave.com.au/products/msi-mag-x870e-tomahawk-max-wifi-am5-atx-motherboard-ac94356",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "case-mwave",
+            "part": "Define 7 XL solid black",
+            "sku": "FD-C-DEF7X-01",
+            "retailer": "Mwave",
+            "price_aud": 329,
+            "currency": "AUD",
+            "stock": "In stock; dispatch/pickup within 24h",
+            "warranty_displayed": "2 years",
+            "conditions": "",
+            "source": "https://www.mwave.com.au/products/fractal-design-define-7-xl-fulltower-eatx-case-black-ac32570",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "case-scorp",
+            "part": "Define 7 XL solid black",
+            "sku": "FD-C-DEF7X-01",
+            "retailer": "Scorptec",
+            "price_aud": 349,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "2 years",
+            "conditions": "",
+            "source": "https://www.scorptec.com.au/product/cases/atx/81628-fd-c-def7x-01",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "case-define7xl",
+            "part": "Define 7 XL solid black",
+            "sku": "FD-C-DEF7X-01",
+            "retailer": "Umart",
+            "price_aud": 338.5,
+            "currency": "AUD",
+            "stock": "Out of stock",
+            "warranty_displayed": "1 year displayed",
+            "conditions": "Seller lists one year warranty; manufacturer lists two.",
+            "source": "https://www.umart.com.au/product/fractal-design-define-7-xl-full-tower-e-atx-case-black-fd-c-def7x-01-53894",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "out_of_stock",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ram64-current",
+            "part": "Vengeance 64GB (2x32), DDR5-5600 CL40",
+            "sku": "CMK64GX5M2D5600Z40",
+            "retailer": "Umart",
+            "price_aud": 1399,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "Limited lifetime",
+            "conditions": "64GB in two 32GB modules.",
+            "source": "https://www.umart.com.au/product/corsair-64gb-2x32gb-vengeance-cmk64gx5m2d5600z40-cl40-5600mt-s-ddr5-dram-grey-95766",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ram64-kingston-scorp",
+            "part": "Fury Beast 64GB (2x32), DDR5-6000 CL30",
+            "sku": "KF560C30BBEK2-64",
+            "retailer": "Scorptec",
+            "price_aud": 1244.5,
+            "currency": "AUD",
+            "stock": "Sold out",
+            "warranty_displayed": "Limited lifetime",
+            "conditions": "Excluded from buyable totals",
+            "source": "https://www.scorptec.com.au/product/memory/ddr5-desktop-memory/109682-kf560c30bbek2-64",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "out_of_stock",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ram96-corsair",
+            "part": "Vengeance 96GB (2x48), DDR5-5200 CL38",
+            "sku": "CMK96GX5M2B5200C38",
+            "retailer": "Umart",
+            "price_aud": 1499,
+            "currency": "AUD",
+            "stock": "Out of stock",
+            "warranty_displayed": "Limited lifetime",
+            "conditions": "Excluded from buyable totals",
+            "source": "https://www.umart.com.au/product/corsair-vengeance-96gb-2x48gb-c38-5200mhz-ddr5-ram-black-cmk96gx5m2b5200c38-69379",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "out_of_stock",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ram96-corsair-scorp",
+            "part": "Vengeance 96GB (2x48), DDR5-5600 CL40",
+            "sku": "CMK96GX5M2B5600C40",
+            "retailer": "Scorptec",
+            "price_aud": 1599,
+            "currency": "AUD",
+            "stock": "Sold out",
+            "warranty_displayed": "Limited lifetime",
+            "conditions": "Different kit from 5200 version; excluded from buyable totals",
+            "source": "https://www.scorptec.com.au/product/memory/ddr5-desktop-memory/109548-cmk96gx5m2b5600c40",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "out_of_stock",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ram96-team",
+            "part": "T-Create Expert 96GB (2x48), DDR5-6000 CL30",
+            "sku": "CTCED596G6000HC30DDC01",
+            "retailer": "Scorptec",
+            "price_aud": 1575,
+            "currency": "AUD",
+            "stock": "Sold out",
+            "warranty_displayed": "Limited lifetime",
+            "conditions": "Excluded from buyable totals",
+            "source": "https://www.scorptec.com.au/product/memory/ddr5-desktop-memory/126240-ctced596g6000hc30ddc01",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "out_of_stock",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ram128-team",
+            "part": "T-Create Expert 128GB (2x64), DDR5-6400 CL42",
+            "sku": "CTCED5128G6400HC42CDC01",
+            "retailer": "Scorptec",
+            "price_aud": 3999,
+            "currency": "AUD",
+            "stock": "In stock for delivery; Tingalpa sold out",
+            "warranty_displayed": "Limited lifetime",
+            "conditions": "Limit 2. Actual memory speed depends on the CPU, motherboard and BIOS.",
+            "source": "https://www.scorptec.com.au/product/memory/ddr5-desktop-memory/128962-ctced5128g6400hc42cdc01",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "gpu-r9700-gigabyte",
+            "part": "Radeon AI PRO R9700 32GB",
+            "sku": "GV-R9700AI TOP-32GD",
+            "retailer": "Umart",
+            "price_aud": 2899,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "Standalone purchase. Limit 1. Confirm the delivered card revision.",
+            "source": "https://www.umart.com.au/product/gigabyte-radeon-ai-pro-r9700-ai-top-32g-workstation-graphics-card-gv-r9700ai-top-32gd-92922",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "gpu-r9700-scorp",
+            "part": "XFX Radeon AI PRO R9700 32GB",
+            "sku": "RX-97XPROAIY",
+            "retailer": "Scorptec",
+            "price_aud": 2699,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "SYSTEM PURCHASE ONLY; limit 1. Not eligible for standalone mixed-retailer total",
+            "source": "https://www.scorptec.com.au/product/graphics-cards/workstation/119818-rx-97xproaiy",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "conditional",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "gpu-r9700-umart",
+            "part": "Sapphire Radeon AI PRO R9700 32GB",
+            "sku": "32358-01-20G",
+            "retailer": "Umart",
+            "price_aud": 2699,
+            "currency": "AUD",
+            "stock": "Out of stock",
+            "warranty_displayed": "3 years",
+            "conditions": "Limit 1; excluded from buyable totals",
+            "source": "https://www.umart.com.au/product/sapphire-amd-radeon-ai-pro-r9700-32gb-gddr6-lite-graphics-card-32358-01-20g-91108",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "out_of_stock",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "gpu-pro4500-scorp",
+            "part": "RTX PRO 4500 Blackwell 32GB",
+            "sku": "900-5G147-2550-000",
+            "retailer": "Scorptec",
+            "price_aud": 6999,
+            "currency": "AUD",
+            "stock": "In stock for delivery; Dandenong stock; Tingalpa sold out",
+            "warranty_displayed": "3 years",
+            "conditions": "While stock lasts.",
+            "source": "https://www.scorptec.com.au/product/graphics-cards/workstation/118877-900-5g147-2550-000",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "gpu5090-palit",
+            "part": "RTX 5090 GameRock 32GB",
+            "sku": "NE75090019R5-GB2020G",
+            "retailer": "Scorptec",
+            "price_aud": 12499,
+            "currency": "AUD",
+            "stock": "In stock for delivery; Tingalpa in stock",
+            "warranty_displayed": "3 years",
+            "conditions": "Limit 1. Check case and cable clearance, cooling and power.",
+            "source": "https://www.scorptec.com.au/product/graphics-cards/nvidia/116255-ne75090019r5-gb2020g",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "gpu5090-pny-scorp",
+            "part": "RTX 5090 Triple Fan OC 32GB",
+            "sku": "VCG509032TFXPB1-O",
+            "retailer": "Scorptec",
+            "price_aud": 12999,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "Limit 1",
+            "source": "https://www.scorptec.com.au/product/graphics-cards/nvidia/116124-vcg509032tfxpb1-o",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "gpu5090-zotac",
+            "part": "RTX 5090 Solid OC White 32GB",
+            "sku": "ZT-B50900Q-10P",
+            "retailer": "Umart",
+            "price_aud": 8999,
+            "currency": "AUD",
+            "stock": "Out of stock",
+            "warranty_displayed": "3 years",
+            "conditions": "Excluded from buyable totals",
+            "source": "https://www.umart.com.au/product/zotac-gaming-geforce-rtx-5090-solid-oc-32gb-graphics-card-white-zt-b50900q-10p-83140",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "out_of_stock",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "gpu5090-proart",
+            "part": "ProArt RTX 5090 OC 32GB",
+            "sku": "PROART-RTX5090-O32G",
+            "retailer": "Umart",
+            "price_aud": 15999,
+            "currency": "AUD",
+            "stock": "Out of stock",
+            "warranty_displayed": "3 years",
+            "conditions": "Excluded from buyable totals",
+            "source": "https://www.umart.com.au/product/asus-proart-geforce-rtx-5090-32gb-gddr7-oc-graphics-card-proart-rtx5090-o32g-95021",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "out_of_stock",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ssd-kc3000-umart",
+            "part": "KC3000 2TB NVMe",
+            "sku": "SKC3000D/2048G",
+            "retailer": "Umart",
+            "price_aud": 535,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "5 years",
+            "conditions": "Two drives in each build.",
+            "source": "https://www.umart.com.au/product/kingston-kc3000-2tb-pcie-4-0-m-2-2280-nvme-ssd-skc3000d-2048g-61466",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ssd-kc3000-scorp",
+            "part": "KC3000 2TB NVMe",
+            "sku": "SKC3000D/2048G",
+            "retailer": "Scorptec",
+            "price_aud": 559,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "5 years",
+            "conditions": "While stock lasts.",
+            "source": "https://www.scorptec.com.au/product/hard-drives-and-ssds/solid-state-drives--ssd/93499-skc3000d-2048g",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "hdd16-umart",
+            "part": "IronWolf Pro 16TB SATA",
+            "sku": "ST16000NT001",
+            "retailer": "Umart",
+            "price_aud": 1169,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "5 years",
+            "conditions": "Two drives in each build.",
+            "source": "https://www.umart.com.au/product/seagate-ironwolf-pro-16tb-7200rpm-3-5in-sataiii-hard-drive-st16000nt001-70546",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "hdd16-mwave",
+            "part": "IronWolf Pro 16TB SATA",
+            "sku": "ST16000NT001",
+            "retailer": "Mwave",
+            "price_aud": 1169,
+            "currency": "AUD",
+            "stock": "In stock; dispatch/pickup within 24h",
+            "warranty_displayed": "Confirm retailer warranty",
+            "conditions": "Two drives in each build.",
+            "source": "https://www.mwave.com.au/products/seagate-st16000nt001-16tb-ironwolf-pro-35-sata-nas-hard-drive-ac61097",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "hdd8-umart",
+            "part": "IronWolf 8TB SATA",
+            "sku": "ST8000VN004",
+            "retailer": "Umart",
+            "price_aud": 599,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "3 years",
+            "conditions": "Alternative 8TB usable mirror only; distinct capacity from main 16TB comparison",
+            "source": "https://www.umart.com.au/product/seagate-ironwolf-8tb-7200rpm-3-5in-nas-sataiii-hard-drive-st8000vn004-51482",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "psu1000-umart",
+            "part": "RM1000e 1000W ATX 3.1",
+            "sku": "CP-9020297-AU",
+            "retailer": "Umart",
+            "price_aud": 279,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "7 years",
+            "conditions": "Check native GPU cables and connectors against the future card.",
+            "source": "https://www.umart.com.au/product/corsair-1000w-rme-series-rm1000e-fully-modular-cybenetics-gold-atx-3-1-power-supply-cp-9020297-au-82752",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "psu1000-mwave",
+            "part": "RM1000e 1000W ATX 3.1",
+            "sku": "CP-9020297-AU",
+            "retailer": "Mwave",
+            "price_aud": 289,
+            "currency": "AUD",
+            "stock": "In stock; dispatch/pickup within 24h",
+            "warranty_displayed": "Confirm retailer warranty",
+            "conditions": "Compare using the exact MPN CP-9020297-AU.",
+            "source": "https://www.mwave.com.au/products/corsair-rm1000e-1000w-cybenetics-platinum-fully-modular-atx-31-power-supply-ac82377",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "cooler-umart",
+            "part": "NH-U12S redux",
+            "sku": "NH-U12S-REDUX",
+            "retailer": "Umart",
+            "price_aud": 109,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "6 years",
+            "conditions": "Cooler for the 9700X version.",
+            "source": "https://www.umart.com.au/product/noctua-redux-u12s-cpu-cooler-nh-u12s-redux-58961",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "cooler9950-umart",
+            "part": "NH-D15 G2",
+            "sku": "NH-D15 G2",
+            "retailer": "Umart",
+            "price_aud": 259,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "6 years",
+            "conditions": "Cooler option for the 9950X version. Check RAM and fan clearance.",
+            "source": "https://www.umart.com.au/product/noctua-dual-tower-multi-socket-pwm-cpu-cooler-nh-d15-g2-80466",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ups900-umart",
+            "part": "PR1000ELCD 1000VA/900W",
+            "sku": "PR1000ELCD",
+            "retailer": "Umart",
+            "price_aud": 779,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "1 year displayed",
+            "conditions": "900W output. Check measured load and required shutdown runtime.",
+            "source": "https://www.umart.com.au/product/cyberpower-pro-series-1000va-900w-10a-tower-ups-with-lcd-pr1000elcd-47966",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "ups1350-umart",
+            "part": "PR1500ELCD 1500VA/1350W",
+            "sku": "PR1500ELCD",
+            "retailer": "Umart",
+            "price_aud": 949,
+            "currency": "AUD",
+            "stock": "In stock for delivery",
+            "warranty_displayed": "Seller 1 year; manufacturer product 3 years / battery 2 years",
+            "conditions": "1350W output. Runtime depends on load.",
+            "source": "https://www.umart.com.au/product/cyberpower-pro-series-1500va-tower-ups-with-lcd-3-yrs-adv-replacement-pr1500elcd-23531",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "external20-scorp",
+            "part": "One Touch 20TB external recovery drive",
+            "sku": "STNB20000400",
+            "retailer": "Scorptec",
+            "price_aud": 1359,
+            "currency": "AUD",
+            "stock": "In stock for delivery; Silverwater stock; Tingalpa at supplier",
+            "warranty_displayed": "2 years",
+            "conditions": "Recovery drive. Disconnect or rotate off-site after a verified backup. Allow capacity for retention.",
+            "source": "https://www.scorptec.com.au/product/hard-drives-&-ssds/external-drives/126682-stnb20000400",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "in_stock",
+            "usable_in_component_total": true,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          },
+          {
+            "id": "assembly-umart",
+            "part": "Custom PC assembly service",
+            "sku": "38431",
+            "retailer": "Umart",
+            "price_aud": 49,
+            "currency": "AUD",
+            "stock": "Conditional service, 5 to 7 business days",
+            "warranty_displayed": "2 years labour",
+            "conditions": "Parts must be available at Mansfield. Confirm the price for mixed-retailer parts and the chosen OS. Excluded from build totals.",
+            "source": "https://www.umart.com.au/product/customise-your-pc-have-umart-build-it-38431",
+            "checked_date": "2026-11-13",
+            "tax_basis": "Displayed Australian retail price; confirm invoice GST",
+            "promotion_end": null,
+            "verification": "Retailer page reviewed; availability is not a reservation and compatibility is not tested",
+            "stock_status": "conditional",
+            "usable_in_component_total": false,
+            "access_notes": "Public product facts and source link only; no installation, purchase, account access or endorsement."
+          }
+        ],
+        "models": [
+          {
+            "tag": "qwen3.5:9b",
+            "size_gb": 7.6,
+            "quant": "Q4_K_M language weights plus vision component",
+            "purpose": "Small general/vision baseline",
+            "fit": "Should fit on one 32GB card, with room to spare. Context and concurrent sessions use extra memory.",
+            "context": "Model family advertises long context; no local maximum validated",
+            "url": "https://ollama.com/library/qwen3.5:9b"
+          },
+          {
+            "tag": "qwen3.8:27b",
+            "size_gb": 18,
+            "quant": "llama.cpp Q4_K_M language blob about 17GB plus 931MB BF16 vision projector",
+            "purpose": "Main general/vision/reasoning trial",
+            "fit": "Should fit on one 32GB card in this compressed format. Longer context and concurrent sessions need extra memory.",
+            "context": "262,144 native tokens on official model card, not a tested local allocation",
+            "url": "https://ollama.com/library/qwen3.8:27b"
+          },
+          {
+            "tag": "qwen3-coder:30b",
+            "size_gb": 19,
+            "quant": "Q4_K_M; 30.5B stored model, 3.3B active per token per README",
+            "purpose": "Coding/tool-call trial",
+            "fit": "Should fit on one 32GB card in this compressed format. Context and concurrent sessions use extra memory.",
+            "context": "256K native advertised; no local maximum validated",
+            "url": "https://ollama.com/library/qwen3-coder:30b"
+          },
+          {
+            "tag": "gpt-oss:20b",
+            "size_gb": 14,
+            "quant": "MXFP4; 20.9B on package metadata",
+            "purpose": "Open-weight reasoning/tool-call trial",
+            "fit": "Should fit on one 32GB card with a compatible MXFP4 runtime. Check the chosen GPU backend.",
+            "context": "131,072 in official OpenAI model documentation",
+            "url": "https://ollama.com/library/gpt-oss:20b"
+          },
+          {
+            "tag": "qwen3-coder-next:q4_K_M",
+            "size_gb": 52,
+            "quant": "Q4_K_M; 80B total / 3B active per token",
+            "purpose": "Larger coding option",
+            "fit": "Too big to fit wholly on one 32GB card. Needs system-memory offload, a larger card or a supported multi-GPU setup.",
+            "context": "256K advertised",
+            "url": "https://ollama.com/library/qwen3-coder-next:q4_K_M"
+          },
+          {
+            "tag": "gpt-oss:120b",
+            "size_gb": 65,
+            "quant": "MXFP4; 117B on package metadata",
+            "purpose": "Larger reasoning option",
+            "fit": "Too big to fit wholly on one 32GB card. Needs a larger-memory or supported multi-GPU setup. A 64GB host/offload configuration remains unverified.",
+            "context": "No local maximum validated",
+            "url": "https://ollama.com/library/gpt-oss:120b"
+          }
+        ],
+        "stock_note": "Prices as listed on 13 November 2026. Prices come from Umart, Scorptec and Mwave. Sold-out and system-purchase-only quotes are labelled and excluded from build totals.",
+        "memory_note": "Download sizes. Running a model needs extra memory for context and longer sessions. These packages have not been tested on the listed builds.",
+        "model_license_note": "These model packages use Apache 2.0 licences. Retain the exact licence and notices and pin the resolved digest before deployment.",
+        "technical_sources": [
+          {
+            "topic": "B850 slots and storage",
+            "url": "https://www.gigabyte.com/Motherboard/B850-AORUS-ELITE-WIFI7-rev-1x/sp"
+          },
+          {
+            "topic": "Normal X870E Tomahawk slots and sharing",
+            "url": "https://www.msi.com/Motherboard/MAG-X870E-TOMAHAWK-WIFI/Specification"
+          },
+          {
+            "topic": "ProArt x8/x8 and M.2 sharing",
+            "url": "https://www.asus.com/motherboards-components/motherboards/proart/proart-x870e-creator-wifi/techspec/"
+          },
+          {
+            "topic": "Case mounting and clearance",
+            "url": "https://assets.fractal-design.com/files/uxzbxy2o/production/5132765576dd5fff6c58e2e7fe06d7ff98f78ef7.pdf"
+          },
+          {
+            "topic": "Gigabyte R9700 revision 1.1 dimensions and PSU",
+            "url": "https://www.gigabyte.com/Graphics-Card/GV-R9700AI-TOP-32GD-rev-11/sp"
+          },
+          {
+            "topic": "RTX PRO 4500 capacity and board power",
+            "url": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-4500/"
+          },
+          {
+            "topic": "Ollama hardware support",
+            "url": "https://docs.ollama.com/gpu"
+          },
+          {
+            "topic": "Current AMD ROCm Core SDK 10.1.0 GPU and OS support",
+            "url": "https://rocm.docs.amd.com/en/docs-10.1.0/about/release-notes.html"
+          },
+          {
+            "topic": "AMD Core SDK and legacy release streams",
+            "url": "https://rocm.docs.amd.com/en/docs-10.1.0/about/transition-guide-TheRock.html"
+          },
+          {
+            "topic": "Legacy ROCm 7.2.1 native Linux support matrix",
+            "url": "https://rocm.docs.amd.com/projects/radeon-ryzen/en/docs-7.2.1/docs/compatibility/compatibilityrad/native_linux/native_linux_compatibility.html"
+          },
+          {
+            "topic": "Qwen3.8 original BF16 model and native context",
+            "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+          },
+          {
+            "topic": "AMD Qwen3.8 demonstration, Windows Vulkan",
+            "url": "https://www.amd.com/en/blogs/2026/run-qwen-3-8-27b-on-amd-ryzen-ai-max-and-radeon-graphics-cards-day-0.html"
+          },
+          {
+            "topic": "gpt-oss memory and MXFP4 implementation boundary",
+            "url": "https://developers.openai.com/cookbook/articles/gpt-oss/run-transformers"
+          },
+          {
+            "topic": "UPS output capacity and warranty",
+            "url": "https://www.cyberpower.com/au/en/product/sku/pr1500elcd"
+          }
+        ],
+        "evaluation_note": "Before choosing a GPU, trial the exact model files and compare task success, latency, throughput, memory, concurrency and wall power. Check the intended AMD or NVIDIA software path separately.",
+        "selection_note": "This dated comparison covers selected components and configurations."
+      }
+    }
+  ]
+}

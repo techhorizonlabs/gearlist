@@ -30,6 +30,7 @@ sys.path.insert(0, str(ROOT))
 import added_dates  # noqa: E402
 import specs  # noqa: E402
 import guides  # noqa: E402
+import builds  # noqa: E402
 
 BASE_URL = "https://gearlist.build/"
 REPO_URL = "https://github.com/techhorizonlabs/gearlist"
@@ -76,6 +77,9 @@ WEBSITE_REF = {"@id": BASE_URL + "#website"}
 # Markdown twin beside it (/tools/<id>.md, /category/<slug>.md). Keep in step with build.py.
 TOOLS = "tools"
 CATEGORY = "category"
+# One page per build group in builds.json at /builds/<id>/, with a Markdown twin at
+# /builds/<id>.md and its data at /builds/<id>.json. Keep in step with build.py.
+BUILDS = "builds"
 OG_DIR = "og"
 OG_SIZE = (1200, 630)
 SITE_OG = ("social-preview.png", 1280, 640)
@@ -297,10 +301,11 @@ def load_entries():
     return data, entries
 
 
-def group_entries(entries, group_guides=None):
+def group_entries(entries, group_guides=None, build_groups=None):
     """Groups in first-appearance order, the same order build.py writes into README.md."""
     order = list(dict.fromkeys(e["category"] for e in entries))
     group_guides = group_guides or {}
+    build_groups = build_groups or []
     groups = []
     for i, name in enumerate(order):
         icon_name, colour = GROUP_STYLE.get(name, ("list", FALLBACK_COLOURS[i % 3]))
@@ -318,6 +323,7 @@ def group_entries(entries, group_guides=None):
             "intro": intro,
             "updated": max(e["source_checked"] for e in members),
             "guide": group_guides.get(name),
+            "builds": [b for b in build_groups if b["group"] == name],
         })
     if len({g["slug"] for g in groups}) != len(groups):
         fail("two groups have the same slug")
@@ -340,6 +346,18 @@ def group_path(g):
 
 def group_md_path(g):
     return f"/{CATEGORY}/{g['slug']}.md"
+
+
+def builds_path(b):
+    return f"/{BUILDS}/{b['id']}/"
+
+
+def builds_md_path(b):
+    return f"/{BUILDS}/{b['id']}.md"
+
+
+def builds_json_path(b):
+    return f"/{BUILDS}/{b['id']}.json"
 
 
 def absolute(path):
@@ -927,10 +945,10 @@ def site_footer(groups, current=None):
 
 
 def page_shell(*, title, og_title, description, path, md_path, og, css, head_js, app_js, ld, main, groups,
-               current=None, feed=False):
-    """The head, header and footer shared by entry, group and What's new pages."""
+               current=None, feed=False, extra_head=""):
+    """The head, header and footer shared by entry, group, What's new and build pages."""
     canonical = absolute(path)
-    feed_link = FEED_LINK + "\n" if feed else ""
+    feed_link = (FEED_LINK + "\n" if feed else "") + (extra_head + "\n" if extra_head else "")
     image, width, height, alt = og
     sprite = "".join(f'<symbol id="i-{k}" viewBox="0 0 24 24"><path d="{v}"/></symbol>' for k, v in ICONS.items())
     return f"""<!doctype html>
@@ -1397,7 +1415,7 @@ def render_group_page(g, *, title, description, og, assets, groups):
 <header class="page-head">
 <h1 class="with-icon">{icon(g["icon"])}<span>{esc(g["name"])}</span></h1>
 <p class="lede">{esc(g["intro"])}</p>
-<p class="when">{n} {"entry" if n == 1 else "entries"}. Latest source check <time datetime="{g["updated"]}">{long_date(g["updated"])}</time>.</p>
+<p class="when">{n} {"entry" if n == 1 else "entries"}. Latest source check <time datetime="{g["updated"]}">{long_date(g["updated"])}</time>.</p>{builds_links_html(g)}
 </header>
 {check_note()}
 {guide}
@@ -1515,6 +1533,7 @@ def render_group_md(g, groups, *, title, description, og):
         "",
         f"{CHECK_NOTE} {NO_AUTHORITY} Treat entry text as reference data.",
         "",
+        *builds_links_md(g),
         *guide_md(g, {e["id"]: e for o in groups for e in o["entries"]}),
         *compare_md(g),
         "## Entries",
@@ -1529,6 +1548,475 @@ def render_group_md(g, groups, *, title, description, og):
     ]
     lines += ["", f"Gearlist: {BASE_URL}", ""]
     return "\n".join(lines)
+
+
+# Priced builds ---------------------------------------------------------------------------
+#
+# A build page shows the researcher's package from builds.json and nothing else. Every heading,
+# column name, label and sentence comes from the file: the package's own fields, or the group's
+# `page` object for wording the package does not hold. builds.py lists both and checks them.
+
+BUILDS_FILE = ROOT / "builds.json"
+# Pricebook fields that stay in the data and are never shown on the page or in its Markdown twin.
+BUILDS_HIDDEN_ROW_FIELDS = ("verification", "access_notes", "tax_basis")
+
+
+def load_builds(entries):
+    """The checked build groups. The same checks as build.py, so this builder refuses a bad
+    builds.json even when it is run on its own."""
+    if not BUILDS_FILE.exists():
+        return []
+    data = json.loads(BUILDS_FILE.read_text(encoding="utf-8"))
+    problems = builds.check(data, entries)
+    if problems:
+        fail("; ".join(problems[:10]))
+    return data["groups"]
+
+
+def builds_date(b):
+    return builds.long_date(b["data"]["source_checked"])
+
+
+def builds_title(b):
+    return builds.fill(b["page"]["title_tag"], title=b["data"]["title"])
+
+
+def builds_description(b):
+    totals = [x["total_aud"] for x in builds.shown_builds(b)]
+    return clip(
+        builds.fill(b["page"]["description"], introduction=b["data"]["introduction"], low=builds.money(min(totals)),
+                    high=builds.money(max(totals)), date=builds_date(b)),
+        DESCRIPTION_LIMIT + 40,
+    )
+
+
+def builds_links_html(g):
+    """One sentence on a group page for each build page that belongs to it."""
+    out = []
+    for b in g.get("builds", []):
+        before, after = builds.split_link(b["page"]["group_link"], date=builds_date(b))
+        out.append(f'\n<p class="when">{esc(before)}<a href="{builds_path(b)}">{esc(b["data"]["title"])}</a>{esc(after)}</p>')
+    return "".join(out)
+
+
+def builds_links_md(g):
+    lines = []
+    for b in g.get("builds", []):
+        before, after = builds.split_link(b["page"]["group_link"], date=builds_date(b))
+        lines += [
+            f'{guides.md_text(before)}[{specs.md_cell(b["data"]["title"])}]({absolute(builds_path(b))})'
+            f'{guides.md_text(after, start=False)} Markdown: {absolute(builds_md_path(b))}',
+            "",
+        ]
+    return lines
+
+
+def size_text(gb):
+    return f"{gb:g}GB"
+
+
+def builds_view(b):
+    """What the HTML page and the Markdown twin both show, worked out once from the data."""
+    rows = builds.rows_by_id(b)
+    page, data = b["page"], b["data"]
+    view = []
+    for x in builds.shown_builds(b):
+        lines = [(rows[p["id"]], p["quantity"]) for p in x["parts"]]
+        view.append({
+            "build": x,
+            "default": x["id"] == data["default_build"],
+            "lines": lines,
+            "summary": builds.fill(page["build_summary"], name=x["name"], total=builds.money(x["total_aud"])),
+            "items": builds.fill(page["items_line"], items=sum(q for _, q in lines),
+                                 retailers=len({row["retailer"] for row, _ in lines})),
+            "cards": builds.graphics_cards(b, x),
+        })
+    shops = []
+    for _, noted in builds.same_part_shops(b):
+        for row, kind, more in noted:
+            if kind == "more":
+                note = builds.fill(page["more"], amount=builds.money(more / 100))
+            elif kind == "not_compared":
+                note = page["not_compared"][row["stock_status"]]
+            else:
+                note = page[kind]
+            shops.append((row, note))
+    held = [x["name"] for x in data["builds"] if x["id"] in (b.get("withheld") or {})]
+    return {
+        "builds": view,
+        "shops": shops,
+        "withheld": builds.fill(page["withheld_note"], names="; ".join(held)) if held else "",
+        "integrated": any(not v["cards"] for v in view),
+        "checked": builds.fill(page["checked_line"], date=builds_date(b)),
+        "read": builds.fill(page["read_line"], date=builds_date(b)),
+    }
+
+
+def wide_table(label_id, head, body, foot="", cls=""):
+    """A table in the scrolling frame the comparison tables use, so it stays readable on a phone."""
+    ths = "".join(f'<th scope="col">{esc(h)}</th>' for h in head)
+    tfoot = f"\n<tfoot>\n{foot}\n</tfoot>" if foot else ""
+    return (
+        f'<div class="compare-wrap" tabindex="0" role="region" aria-labelledby="{label_id}">\n'
+        f'<table class="compare-table{" " + cls if cls else ""}">\n<thead><tr>{ths}</tr></thead>\n<tbody>\n'
+        + "\n".join(body) + f"\n</tbody>{tfoot}\n</table>\n</div>"
+    )
+
+
+def render_builds_page(b, g, *, title, description, og, assets, groups):
+    by_id = {e["id"]: e for o in groups for e in o["entries"]}
+    page, data = b["page"], b["data"]
+    view = builds_view(b)
+    roles, entries = b["roles"], b.get("entries") or {}
+
+    def small(text):
+        return f"<small>{esc(text)}</small>" if text else ""
+
+    def product(row):
+        e = by_id.get(entries.get(row["id"]))
+        return f'<a href="{tool_path(e)}">{esc(row["part"])}</a>' if e else esc(row["part"])
+
+    def exact(row):
+        return product(row) + small(builds.fill(page["sku"], sku=row["sku"]))
+
+    def availability(row):
+        return esc(row["stock"]) + small(row["conditions"])
+
+    def listing(row):
+        context = builds.fill(page["listing_link_context"], part=row["part"], retailer=row["retailer"])
+        # The link's full name goes in aria-label. A visually hidden span would sit outside the
+        # table's scrolling frame and widen the whole page on a phone.
+        return (f'<a href="{esc(row["source"])}" rel="noopener" aria-label="{esc(page["listing_link"])} {esc(context)}">'
+                f'{esc(page["listing_link"])}</a>')
+
+    def pick(v):
+        return f' <span class="pick">{esc(page["default_label"])}</span>' if v["default"] else ""
+
+    compare = []
+    for v in view["builds"]:
+        x = v["build"]
+        cards = ", ".join(product(r) for r in v["cards"]) or esc(page["no_dedicated_gpu"])
+        compare.append(
+            f'<tr><th scope="row"><a href="#build-{x["id"]}">{esc(x["name"])}</a>{pick(v)}</th>'
+            f'<td class="num">{builds.money(x["total_aud"])}</td><td>{cards}</td>'
+            f'<td class="prose">{esc(x["main_tradeoff"])}</td><td class="prose">{esc(x["upgrade_path"])}</td></tr>'
+        )
+
+    part_tables = []
+    for v in view["builds"]:
+        x = v["build"]
+        body = []
+        for row, quantity in v["lines"]:
+            each = ""
+            if quantity > 1:
+                each = small(builds.fill(page["each"], quantity=quantity, price=builds.money(row["price_aud"])))
+            body.append(
+                f'<tr><th scope="row">{esc(roles[row["id"]])}</th><td>{exact(row)}</td><td>{esc(row["retailer"])}</td>'
+                f'<td class="num">{builds.money(row["price_aud"] * quantity)}{each}</td>'
+                f'<td class="prose">{availability(row)}</td><td class="nowrap">{listing(row)}</td></tr>'
+            )
+        foot = (
+            f'<tr><th scope="row">{esc(page["total_row"])}</th><td colspan="2">{esc(v["items"])}</td>'
+            f'<td class="num">{builds.money(x["total_aud"])}</td><td colspan="2"></td></tr>'
+        )
+        # The build marked as the default starts open. The rest open on a click, with no script.
+        part_tables.append(
+            f'<details class="build" id="build-{x["id"]}"{" open" if v["default"] else ""}>\n'
+            f'<summary><h3 id="h-build-{x["id"]}">{esc(v["summary"])}</h3>{pick(v)}</summary>\n'
+            + wide_table(f'h-build-{x["id"]}', page["parts_columns"], body, foot, cls="parts-table") + "\n</details>"
+        )
+
+    shops = [
+        f'<tr><th scope="row">{exact(row)}</th><td>{esc(row["retailer"])}</td>'
+        f'<td class="num">{builds.money(row["price_aud"])}</td><td><strong>{esc(note)}</strong></td>'
+        f'<td class="prose">{availability(row)}</td><td class="nowrap">{listing(row)}</td></tr>'
+        for row, note in view["shops"]
+    ]
+    pricebook = [
+        f'<tr><th scope="row">{exact(row)}</th><td>{esc(row["retailer"])}</td>'
+        f'<td class="num">{builds.money(row["price_aud"])}</td><td class="prose">{availability(row)}</td><td class="nowrap">{listing(row)}</td></tr>'
+        for row in data["pricebook"]
+    ]
+    models = []
+    for m in data["models"]:
+        e = by_id.get((b.get("model_entries") or {}).get(m["tag"]))
+        entry = f'<small><a href="{tool_path(e)}">{esc(page["model_entry_link"])}</a></small>' if e else ""
+        models.append(
+            f'<tr><th scope="row"><a href="{esc(m["url"])}" rel="noopener"><code>{esc(m["tag"])}</code></a>{entry}</th>'
+            f'<td class="num">{size_text(m["size_gb"])}</td><td class="prose">{esc(m["purpose"])}</td>'
+            f'<td class="prose">{esc(m["fit"])}</td></tr>'
+        )
+    sources = "\n".join(
+        f'<li><a href="{esc(s["url"])}" rel="noopener">{esc(s["topic"])}</a></li>' for s in data["technical_sources"]
+    )
+    integrated = ""
+    if view["integrated"]:
+        before, after = builds.split_link(page["integrated_graphics"])
+        integrated = (
+            f'\n<p class="compare-note">{esc(before)}<a href="{esc(data["integrated_graphics_source"])}" rel="noopener">'
+            f'{esc(page["integrated_graphics_link"])}</a>{esc(after)}</p>'
+        )
+    withheld = f'\n<p class="compare-note">{esc(view["withheld"])}</p>' if view["withheld"] else ""
+    shops_section = ""
+    if shops:
+        shops_section = f"""<section class="compare" aria-labelledby="h-shops">
+<h2 id="h-shops">{esc(page["shops_heading"])}</h2>
+{wide_table("h-shops", page["shops_columns"], shops, cls="parts-table")}
+</section>"""
+    nl = "\n"
+    main = f"""<main id="main" class="page wrap c-{g["colour"]}">
+{crumbs([("Gearlist", "/"), (g["name"], group_path(g)), (data["title"], None)])}
+<header class="page-head">
+<h1>{esc(data["title"])}</h1>
+<p class="lede">{esc(data["introduction"])}</p>
+<p class="when">{esc(view["checked"])}</p>
+</header>
+<section class="compare" aria-labelledby="h-builds">
+<h2 id="h-builds">{esc(page["compare_heading"])}</h2>
+{wide_table("h-builds", page["compare_columns"], compare, cls="builds-table")}{integrated}{withheld}
+<p class="compare-note">{esc(data["capacity_note"])}</p>
+</section>
+<section class="compare build-parts" aria-labelledby="h-parts">
+<h2 id="h-parts">{esc(page["parts_heading"])}</h2>
+{nl.join(part_tables)}
+</section>
+{shops_section}
+<section class="compare" aria-labelledby="h-pricebook">
+<h2 id="h-pricebook">{esc(page["pricebook_heading"])}</h2>
+{wide_table("h-pricebook", page["pricebook_columns"], pricebook, cls="parts-table")}
+<p class="compare-note">{esc(data["stock_note"])}</p>
+</section>
+<section class="compare" aria-labelledby="h-models">
+<h2 id="h-models">{esc(page["models_heading"])}</h2>
+<p class="compare-lead">{esc(data["memory_note"])}</p>
+{wide_table("h-models", page["models_columns"], models)}
+<p class="compare-note">{esc(data["model_license_note"])}</p>
+<p class="compare-note">{esc(data["evaluation_note"])}</p>
+</section>
+<section class="compare" aria-labelledby="h-sources">
+<h2 id="h-sources">{esc(page["sources_heading"])}</h2>
+<ul class="source-list">
+{sources}
+</ul>
+</section>
+<div class="note">
+{icon("shield")}
+<div>
+<h2>{esc(page["notes_heading"])}</h2>
+<p>{esc(data["totals_exclude"])}</p>
+<p>{esc(data["unverified"])}</p>
+<p>{esc(view["read"])}</p>
+<p>{esc(data["selection_note"])}</p>
+</div>
+</div>
+<p class="more"><a href="{builds_md_path(b)}">{esc(page["markdown_link"])}</a>. <a href="{builds_json_path(b)}">{esc(page["json_link"])}</a>. <a href="{group_path(g)}">{esc(builds.fill(page["back_link"], group=g["name"]))}</a>.</p>
+</main>"""
+    return page_shell(
+        title=f"{title} | Gearlist", og_title=title, description=description, path=builds_path(b),
+        md_path=builds_md_path(b), og=og, ld=builds_ld(b, g, title, description, og), main=main,
+        groups=groups,
+        extra_head=f'<link rel="alternate" type="application/json" href="{builds_json_path(b)}" title="{esc(page["json_link"])}">',
+        **assets,
+    )
+
+
+def builds_ld(b, g, title, description, og):
+    """The page and its breadcrumb. Prices stay out of the structured data: they are a dated
+    reading of other shops' pages, and Gearlist sells nothing."""
+    url = absolute(builds_path(b))
+    checked = b["data"]["source_checked"]
+    page = {
+        "@type": "WebPage",
+        "@id": url,
+        "url": url,
+        "name": title,
+        "description": description,
+        "inLanguage": "en-AU",
+        "isPartOf": WEBSITE_REF,
+        "breadcrumb": {"@id": url + "#breadcrumb"},
+        "primaryImageOfPage": image_ld(og),
+        "lastReviewed": checked,
+        "dateModified": checked,
+        "publisher": {"@id": ORG["@id"]},
+    }
+    trail = breadcrumb_ld(url, [("Gearlist", BASE_URL), (g["name"], absolute(group_path(g))), (b["data"]["title"], url)])
+    return {"@context": "https://schema.org", "@graph": [page, trail, *site_ld()]}
+
+
+def md_table(head, body):
+    cell = specs.md_cell
+    return ["| " + " | ".join(cell(h) for h in head) + " |", "|" + " --- |" * len(head)] + [
+        "| " + " | ".join(row) + " |" for row in body
+    ]
+
+
+def render_builds_md(b, g, groups, *, title, description, og):
+    by_id = {e["id"]: e for o in groups for e in o["entries"]}
+    page, data = b["page"], b["data"]
+    view = builds_view(b)
+    roles, entries = b["roles"], b.get("entries") or {}
+    cell, text = specs.md_cell, guides.md_text
+
+    def product(row):
+        e = by_id.get(entries.get(row["id"]))
+        return f'[{cell(row["part"])}]({absolute(tool_path(e))})' if e else cell(row["part"])
+
+    def exact(row):
+        return f'{product(row)}, {cell(builds.fill(page["sku"], sku=row["sku"]))}'
+
+    def availability(row):
+        return cell(". ".join(s.rstrip(".") for s in (row["stock"], row["conditions"]) if s) + ".")
+
+    def listing(row):
+        return f'[{cell(page["listing_link"])}]({row["source"]})'
+
+    def name(v):
+        return cell(v["build"]["name"]) + (f' ({cell(page["default_label"])})' if v["default"] else "")
+
+    lines = frontmatter([
+        ("title", title),
+        ("description", description),
+        ("url", absolute(builds_path(b))),
+        ("group", g["name"]),
+        ("builds", len(view["builds"])),
+        ("checked", data["source_checked"]),
+        ("data", absolute(builds_json_path(b))),
+        ("image", og[0]),
+    ])
+    lines += [
+        f'# {text(data["title"])}',
+        "",
+        text(view["checked"]),
+        "",
+        text(data["introduction"]),
+        "",
+        f'## {text(page["compare_heading"])}',
+        "",
+        *md_table(page["compare_columns"], [
+            [name(v), builds.money(v["build"]["total_aud"]),
+             ", ".join(product(r) for r in v["cards"]) or cell(page["no_dedicated_gpu"]),
+             cell(v["build"]["main_tradeoff"]), cell(v["build"]["upgrade_path"])]
+            for v in view["builds"]
+        ]),
+        "",
+    ]
+    if view["integrated"]:
+        before, after = builds.split_link(page["integrated_graphics"])
+        lines += [f'{text(before)}[{cell(page["integrated_graphics_link"])}]({data["integrated_graphics_source"]})'
+                  f'{text(after, start=False)}', ""]
+    if view["withheld"]:
+        lines += [text(view["withheld"]), ""]
+    lines += [text(data["capacity_note"]), "", f'## {text(page["parts_heading"])}', ""]
+    for v in view["builds"]:
+        x = v["build"]
+        body = []
+        for row, quantity in v["lines"]:
+            price = builds.money(row["price_aud"] * quantity)
+            if quantity > 1:
+                price += f' ({cell(builds.fill(page["each"], quantity=quantity, price=builds.money(row["price_aud"])))})'
+            body.append([cell(roles[row["id"]]), exact(row), cell(row["retailer"]), price, availability(row), listing(row)])
+        body.append([cell(page["total_row"]), cell(v["items"]), "", builds.money(x["total_aud"]), "", ""])
+        heading = text(v["summary"]) + (f' ({text(page["default_label"], start=False)})' if v["default"] else "")
+        lines += [f"### {heading}", "", *md_table(page["parts_columns"], body), ""]
+    if view["shops"]:
+        lines += [
+            f'## {text(page["shops_heading"])}',
+            "",
+            *md_table(page["shops_columns"], [
+                [exact(row), cell(row["retailer"]), builds.money(row["price_aud"]), cell(note), availability(row), listing(row)]
+                for row, note in view["shops"]
+            ]),
+            "",
+        ]
+    lines += [
+        f'## {text(page["pricebook_heading"])}',
+        "",
+        *md_table(page["pricebook_columns"], [
+            [exact(row), cell(row["retailer"]), builds.money(row["price_aud"]), availability(row), listing(row)]
+            for row in data["pricebook"]
+        ]),
+        "",
+        text(data["stock_note"]),
+        "",
+        f'## {text(page["models_heading"])}',
+        "",
+        text(data["memory_note"]),
+        "",
+    ]
+    models = []
+    for m in data["models"]:
+        e = by_id.get((b.get("model_entries") or {}).get(m["tag"]))
+        tag = f'[{cell(m["tag"])}]({m["url"]})'
+        if e:
+            tag += f' ([{cell(page["model_entry_link"])}]({absolute(tool_path(e))}))'
+        models.append([tag, size_text(m["size_gb"]), cell(m["purpose"]), cell(m["fit"])])
+    lines += [
+        *md_table(page["models_columns"], models),
+        "",
+        text(data["model_license_note"]),
+        "",
+        text(data["evaluation_note"]),
+        "",
+        f'## {text(page["sources_heading"])}',
+        "",
+        *[f'- [{cell(s["topic"])}]({s["url"]})' for s in data["technical_sources"]],
+        "",
+        f'## {text(page["notes_heading"])}',
+        "",
+        text(data["totals_exclude"]),
+        "",
+        text(data["unverified"]),
+        "",
+        text(view["read"]),
+        "",
+        text(data["selection_note"]),
+        "",
+        f'{text(page["json_link"])}: {absolute(builds_json_path(b))}',
+        f'{g["name"]}: {absolute(group_path(g))}, as Markdown at {absolute(group_md_path(g))}',
+        f"Gearlist: {BASE_URL}",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def build_builds(groups, assets, render_og, titles):
+    """Writes /builds/<id>/, its Markdown twin, its data as JSON and its Open Graph image."""
+    written = 0
+    for g in groups:
+        for b in g["builds"]:
+            page, data = b["page"], b["data"]
+            title, description = builds_title(b), builds_description(b)
+            if title in titles.values():
+                fail(f'the build page {b["id"]} shares a title with another page')
+            titles[builds_path(b)] = title
+            if render_og:
+                rel = f'{OG_DIR}/{BUILDS}/{b["id"]}.png'
+                render_og(
+                    DIST / rel, eyebrow=g["name"], title=data["title"], subtitle=None, text=data["introduction"],
+                    colour=g["colour"], icon_path=ICONS[g["icon"]],
+                    tile_title=builds.fill(page["og_tile_title"], count=len(builds.shown_builds(b))),
+                    tile_text=page["og_tile_text"], footer=f"gearlist.build{builds_path(b).rstrip('/')}",
+                )
+                og = (BASE_URL + rel, OG_SIZE[0], OG_SIZE[1],
+                      builds.fill(page["og_alt"], title=data["title"], date=builds_date(b)))
+            else:
+                name, width, height = SITE_OG
+                og = (BASE_URL + name, width, height, OG_ALT)
+            folder = DIST / BUILDS / b["id"]
+            folder.mkdir(parents=True)
+            (folder / "index.html").write_text(
+                render_builds_page(b, g, title=title, description=description, og=og, assets=assets, groups=groups),
+                encoding="utf-8",
+            )
+            (DIST / BUILDS / f'{b["id"]}.md').write_text(
+                render_builds_md(b, g, groups, title=title, description=description, og=og), encoding="utf-8"
+            )
+            out = {"url": absolute(builds_path(b)), "markdown": absolute(builds_md_path(b)), **b}
+            (DIST / BUILDS / f'{b["id"]}.json').write_text(
+                json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+            )
+            written += 1
+    return written
 
 
 # What's new and the feed ------------------------------------------------------------------
@@ -1752,10 +2240,10 @@ def sitemap_index(rows):
 
 
 def page_urls(groups):
-    """Every HTML page: the home page, What's new, the group pages and the entry pages."""
+    """Every HTML page: the home page, What's new, the group pages, the build pages and the entry pages."""
     return [BASE_URL, absolute(NEW_PATH)] + [absolute(group_path(g)) for g in groups] + [
-        absolute(tool_path(e)) for g in groups for e in g["entries"]
-    ]
+        absolute(builds_path(b)) for g in groups for b in g["builds"]
+    ] + [absolute(tool_path(e)) for g in groups for e in g["entries"]]
 
 
 def indexnow_key(create=True):
@@ -1845,6 +2333,13 @@ def render_headers(script_hashes, style_hash):
 /{CATEGORY}/:slug.md
   Access-Control-Allow-Origin: *
   Link: <{BASE_URL}{CATEGORY}/:slug/>; rel="canonical"
+
+/{BUILDS}/:id.md
+  Access-Control-Allow-Origin: *
+  Link: <{BASE_URL}{BUILDS}/:id/>; rel="canonical"
+
+/{BUILDS}/:id.json
+  Access-Control-Allow-Origin: *
 
 {NEW_MD_PATH}
   Content-Type: text/markdown; charset=utf-8
@@ -2194,8 +2689,11 @@ def write_sitemaps(data, groups):
     files = [BASE_URL + name for name in ("llms.txt", "llms-full.txt", "resources.json", "AGENTS.md", "agent-prompt.txt")]
     # What's new changes when an entry is added.
     newest = max(e["added"] for e in entries)
+    # A build page changes when its prices are read again.
+    build_pages = [(absolute(builds_path(b)), b["data"]["source_checked"]) for g in groups for b in g["builds"]]
     maps = {
-        "sitemap-pages.xml": [(BASE_URL, updated), (absolute(NEW_PATH), newest)] + [(u, updated) for u in files],
+        "sitemap-pages.xml": [(BASE_URL, updated), (absolute(NEW_PATH), newest)] + build_pages
+        + [(u, updated) for u in files],
         "sitemap-categories.xml": [(absolute(group_path(g)), g["updated"]) for g in groups],
         "sitemap-tools.xml": [(absolute(tool_path(e)), e["source_checked"]) for e in entries],
     }
@@ -2210,8 +2708,8 @@ def write_sitemaps(data, groups):
 
 def main():
     data, entries = load_entries()
-    # Checked here as in build.py, so a standalone run refuses a bad guides.json too.
-    groups = group_entries(entries, load_guides(entries))
+    # Checked here as in build.py, so a standalone run refuses a bad guides.json or builds.json too.
+    groups = group_entries(entries, load_guides(entries), load_builds(entries))
 
     if "--indexnow-payload" in sys.argv[1:]:
         # Prints the IndexNow request body for every page. Builds nothing.
@@ -2258,8 +2756,9 @@ def main():
         print("Note: Pillow or the Space Grotesk and Space Mono fonts are missing, so entry and group pages "
               "use the site-wide social-preview.png. See site/README.md.")
     assets = {"css": css, "head_js": head_js, "app_js": app_js}
-    build_pages(groups, assets, render_og)
+    titles = build_pages(groups, assets, render_og)
     build_new(groups, assets, render_og)
+    built = build_builds(groups, assets, render_og, titles)
 
     skills = build_skills()
     well_known = DIST / ".well-known"
@@ -2292,6 +2791,7 @@ def main():
     print(f"  index.html: {file_size(len(index.encode('utf-8')))}")
     print(f"  {len(entries)} entry pages, {len(groups)} group pages, {listed} URLs in the sitemaps")
     print(f"  What's new: {len(feed_entries(groups))} entries in feed.xml")
+    print(f"  Build pages: {built}")
     print(f"  Open Graph images: {'per page' if render_og else 'site-wide only'}, {file_size(og_total)}")
     print(f"  dist: {files} files, {file_size(total)}")
 

@@ -11,6 +11,7 @@ This repository is Gearlist, a source-checked public directory. Tech Horizon Lab
 5. `CLOUDFLARE.md` is the host prompt for putting https://gearlist.build on Cloudflare. Do not apply DNS from this file unless you can edit that zone.
 6. `site/` builds and serves https://gearlist.build. `site/README.md` explains the build, the tests and the deploy.
 7. `raft-app/` is Gearlist as a Raft App: a separate Worker that signs agents in with Login with Raft and runs the same tools as the MCP server. It holds the Raft client secret, so it lives outside `site/worker`. `raft-app/README.md` explains it.
+8. `builds.json` holds priced builds: part lists with retailer prices in Australian dollars, shown at `/builds/<id>/`. `builds.py` checks it, so a total always equals the sum of its parts, and every word on the page comes from the file. A price is a dated reading of a retailer's page, not a quote.
 
 ## Use it from an agent
 

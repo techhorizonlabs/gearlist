@@ -504,3 +504,27 @@ h1 {
 .guide p { margin: 0 0 .6rem; line-height: 1.55; }
 .guide a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .guide-sources { color: var(--muted); font-size: .8125rem; }
+
+/* Build pages (builds.json). Their tables reuse the comparison table and its scrolling frame. */
+.compare-table .num { white-space: nowrap; font-family: var(--mono); color: var(--cream); }
+.compare-table small { display: block; margin-top: .2rem; color: var(--muted); font: 400 .75rem/1.4 var(--sans); white-space: normal; }
+.compare-table strong { color: var(--cream); font-weight: 700; }
+.compare-table code { font: 400 .8125rem var(--mono); color: var(--cream); }
+.compare-table td a, .compare-table small a { text-underline-offset: .2em; }
+.compare-table tfoot th, .compare-table tfoot td { border-top: 1px solid var(--line); border-bottom: 0; color: var(--cream); font-weight: 700; }
+.builds-table, .parts-table { min-width: 56rem; }
+.compare-table .prose { min-width: 14rem; }
+.compare-table .nowrap { white-space: nowrap; }
+.compare-lead { margin: 0 0 .75rem; max-width: 74ch; font-size: .9375rem; }
+.compare-note { max-width: 86ch; }
+.pick { display: inline-block; margin-left: .35rem; padding: .1rem .4rem; border: 1px solid var(--a); color: var(--cream); font: 700 .6875rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; vertical-align: middle; }
+.build { margin: 0 0 .75rem; }
+.build summary { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .5rem; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: 8px; color: var(--cream); cursor: pointer; }
+.build summary h3::before { content: "+ "; color: var(--at); font-family: var(--mono); }
+.build[open] summary h3::before { content: "- "; }
+.build summary::-webkit-details-marker { display: none; }
+.build summary h3 { margin: 0; font: 700 1.0625rem/1.3 var(--sans); }
+.build[open] summary { margin-bottom: .6rem; }
+.source-list { margin: 0; padding-left: 1.2rem; font-size: .9375rem; line-height: 1.7; }
+@media (max-width: 640px) { .builds-table, .parts-table { min-width: 54rem; } }
+@media print { .build summary h3::before { content: none; } }

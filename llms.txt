@@ -23,6 +23,8 @@ Every entry has a page at https://gearlist.build/tools/<id>/ with a Markdown cop
 - [Hardware](https://gearlist.build/category/hardware.md): 12 entries. Web page: https://gearlist.build/category/hardware/
 - [Models](https://gearlist.build/category/models.md): 14 entries. Web page: https://gearlist.build/category/models/
 - [Hosting](https://gearlist.build/category/hosting.md): 10 entries. Web page: https://gearlist.build/category/hosting/
+Priced builds, each a page with a Markdown copy and its data as JSON:
+- [Australian AI and backup PC builds](https://gearlist.build/builds/ai-server.md): Builds priced part by part, with Australian retailer prices read on 13 November 2026. This is not a quote, and nothing has been bought or tested. Web page: https://gearlist.build/builds/ai-server/ Data: https://gearlist.build/builds/ai-server.json
 
 ## Directory
 - [Full descriptions](llms-full.txt): Purpose, intended user, access notes, check date and page links.
