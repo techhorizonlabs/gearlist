@@ -1609,7 +1609,7 @@
       "source_url": "https://github.com/dansugc/reverse-engineer-marketing",
       "source_checked": "2026-11-14",
       "added": "2026-11-14",
-      "verification": "Official documentation and licence reviewed; not installed or independently tested",
+      "verification": "Official documentation and source reviewed; four independent offline checks completed. Not installed or tested against live targets.",
       "thl_project": false
     },
     {
