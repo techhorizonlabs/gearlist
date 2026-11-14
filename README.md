@@ -942,7 +942,7 @@ A Python app with a WebUI, API, CLI and agent skill that turns a topic or keywor
 
 **Source checked:** 2026-11-03. [Official source](https://github.com/harry0703/MoneyPrinterTurbo/blob/main/README-en.md). [Gearlist page](https://gearlist.build/tools/moneyprinterturbo/).
 
-### [OpenMontage](https://github.com/calesthio/OpenMontage)
+### [OpenMontage](https://github.com/OpenMontageInc/OpenMontage)
 
 A video production system your coding assistant runs through pipelines, stage skills and tools for research, scripting, asset generation, editing and rendering with Remotion, HyperFrames and FFmpeg.
 
@@ -950,7 +950,7 @@ A video production system your coding assistant runs through pipelines, stage sk
 
 **Access and use:** Needs Python 3.10+, FFmpeg, Node.js 18+ and a coding assistant such as Claude Code, Cursor, Copilot, Windsurf or Codex; run make setup after cloning. With no keys it uses Piper TTS, open archives and free stock sources. Optional keys for fal.ai, Kling, ElevenLabs, OpenAI, Google, xAI, Runway, HeyGen, Suno and others go in .env and incur provider charges. Budget controls default to a $10 total cap, with per-action approval above $0.50. Local video generation needs a GPU. AGPL-3.0, which requires offering source for modified versions run as a network service.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/calesthio/OpenMontage). [Gearlist page](https://gearlist.build/tools/openmontage/).
+**Source checked:** 2026-11-03. [Official source](https://github.com/OpenMontageInc/OpenMontage). [Gearlist page](https://gearlist.build/tools/openmontage/).
 
 ### [OpenSEO](https://github.com/every-app/open-seo)
 
@@ -2248,15 +2248,15 @@ A Java manga reader server that runs Mihon (Tachiyomi) extensions, with a bundle
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/Suwayomi/Suwayomi-Server). [Gearlist page](https://gearlist.build/tools/suwayomi-server/).
 
-### [Open Executive](https://github.com/SenteLabsAI/OpenExecutive)
+### [Open Executive](https://github.com/ForeactLabs/OpenExecutive)
 
 An Apache-licensed FastAPI and Next.js executive persona backed by nine specialist agents, with local RAG, episodic memory and optional chat and mail connectors.
 
 **For:** Teams who want a self-hosted executive assistant that drafts in one voice and leaves messages on approval cards unless Handle it for me is on.
 
-**Access and use:** git clone https://github.com/SenteLabsAI/OpenExecutive.git && make install, copy .env.example to .env, set ANTHROPIC_API_KEY, then make dev. UI is http://localhost:3000; API is http://localhost:8000. Needs Python 3.11+ and Node 22.6+. First boot downloads an embedding model of about 90 MB. Local make dev with blank AUTH_GOOGLE_ID accepts connections from this computer only. Company documents and memory are stored on the host (ChromaDB and SQLite); prompts, retrieved document chunks and memory go to the Anthropic API. Slack, mail, Telegram, Google Chat and similar connectors send messages through those services when you set their tokens. Apache-2.0.
+**Access and use:** git clone https://github.com/ForeactLabs/OpenExecutive.git && make install, copy .env.example to .env, set ANTHROPIC_API_KEY, then make dev. UI is http://localhost:3000; API is http://localhost:8000. Needs Python 3.11+ and Node 22.6+. First boot downloads an embedding model of about 90 MB. Local make dev with blank AUTH_GOOGLE_ID accepts connections from this computer only. Company documents and memory are stored on the host (ChromaDB and SQLite); prompts, retrieved document chunks and memory go to the Anthropic API. Slack, mail, Telegram, Google Chat and similar connectors send messages through those services when you set their tokens. Apache-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/SenteLabsAI/OpenExecutive). [Gearlist page](https://gearlist.build/tools/openexecutive/).
+**Source checked:** 2026-10-29. [Official source](https://github.com/ForeactLabs/OpenExecutive). [Gearlist page](https://gearlist.build/tools/openexecutive/).
 
 ### [Mailflare](https://mailflare.co)
 
@@ -2448,15 +2448,15 @@ A self-hostable platform for tracing, evaluating, simulating and guarding LLM an
 
 **Source checked:** 2026-11-03. [Official source](https://github.com/future-agi/future-agi). [Gearlist page](https://gearlist.build/tools/future-agi/).
 
-### [OpenMuse](https://github.com/CopilotKit/openmuse)
+### [OpenFuse](https://github.com/CopilotKit/openfuse)
 
 An alpha personal agent app for iOS, Android and web, built on CopilotKit and AG-UI, with a persistent Chromium browser, an optional Linux workspace, task plans with approvals, and Gmail and Calendar adapters.
 
 **For:** Developers who want a self-hosted personal agent template to fork and extend.
 
-**Access and use:** Needs Node 24, pnpm 11.19.0 and a CopilotKit Intelligence project key in every mode; Intelligence is a separate service outside the MIT licence. A model needs an OpenAI, Anthropic or Google key. Gmail and Calendar need your own Google OAuth client plus live mode with an access key and token encryption key, and each send or calendar change waits for review. Web search is on by default and sends model-generated queries and context to Parallel's Search MCP; set WEB_SEARCH_ENABLED=false to turn it off. The CopilotKit SDK sends runtime telemetry to PostHog. The optional Linux computer needs Docker. The Render blueprint runs the API and browser on Standard instances. One owner behind a shared access key; not multi-tenant. MIT.
+**Access and use:** Needs Node 24, pnpm 11.19.0 and a CopilotKit Intelligence project key in every mode; Intelligence is a separate service outside the MIT licence. A model needs an OpenAI, Anthropic or Google key. Gmail and Calendar need your own Google OAuth client plus live mode with an access key and token encryption key, and each send or calendar change waits for review. Web search is on by default and sends model-generated queries and context to Parallel's Search MCP; set WEB_SEARCH_ENABLED=false to turn it off. The CopilotKit SDK sends runtime telemetry to PostHog. The optional Linux computer needs Docker. The Render blueprint runs the API and browser on Standard instances. One owner behind a shared access key; not multi-tenant. Formerly OpenMuse. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/CopilotKit/openmuse). [Gearlist page](https://gearlist.build/tools/openmuse/).
+**Source checked:** 2026-11-03. [Official source](https://github.com/CopilotKit/openfuse). [Gearlist page](https://gearlist.build/tools/openmuse/).
 
 ### [Agent Lightning](https://github.com/microsoft/agent-lightning)
 
