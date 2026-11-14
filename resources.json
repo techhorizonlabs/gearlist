@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "resources": [
     {
       "id": "agent-deck",
@@ -6265,6 +6265,21 @@
           "Per second, no commitment"
         ]
       ]
+    },
+    {
+      "id": "aihot",
+      "name": "AIHOT",
+      "category": "Skills and learning",
+      "url": "https://aihot.news/aihot-skill/README.md",
+      "description": "Look up current AI industry news in Chinese, follow topics and read daily briefings from an agent.",
+      "for_whom": "Researchers and developers who follow model releases and AI industry developments in Chinese.",
+      "access_notes": "Install the Skill in a supported agent. Queries use a public read-only API without an account or API key. Check the documented terms for external commercial use.",
+      "source_url": "https://aihot.news/aihot-skill/README.md",
+      "source_checked": "2026-11-15",
+      "added": "2026-11-15",
+      "verification": "Official installation guide and published Skill reviewed",
+      "licence": "MIT for the Skill code. The hosted service and content have separate terms.",
+      "thl_project": false
     }
   ]
 }
