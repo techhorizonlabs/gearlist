@@ -3,6 +3,8 @@
 //   /                   HTML, or Markdown when the request prefers text/markdown
 //   /mcp                the read-only MCP server (Streamable HTTP)
 //   /mcp/server-card    the MCP Server Card
+//   /.well-known/mcp/server-card.json
+//                       the same card, at the address agent-readiness checkers try
 //   /api/*              a small JSON search API
 //   /openapi.json       the OpenAPI description of that API
 // Read-only: no stored data, no secrets, and no fetches beyond the ASSETS binding.
@@ -11,6 +13,13 @@
 import { NOTICE, SITE, REPO, loadCatalog, parseSearchArgs, searchPayload, schemas } from "./catalog.mjs";
 import { SERVER_INFO, handleMcp, handleServerCard } from "./mcp.mjs";
 import { addVary, json, rateLimited, respond } from "./http.mjs";
+
+// The card's own address is /mcp/server-card, the location the MCP Server Card extension
+// (SEP-2127) reserves, and the AI Catalog points there. isitagentready.com looks for a card only
+// under /.well-known, trying this address first (scan of 14 November 2026), so the Worker serves
+// the same card here too.
+// Not exported: workerd accepts only handlers and functions as named exports of the main module.
+const SERVER_CARD_ALIAS = "/.well-known/mcp/server-card.json";
 
 const API_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -164,7 +173,7 @@ async function route(request, env, url) {
   const path = url.pathname;
   if (path === "/") return homepage(request, env);
   if (path === "/mcp" || path === "/mcp/") return handleMcp(request, env);
-  if (path === "/mcp/server-card") return handleServerCard(request);
+  if (path === "/mcp/server-card" || path === SERVER_CARD_ALIAS) return handleServerCard(request);
   if (path === "/api/search") return apiSearch(request, env, url);
   if (path.startsWith("/api/")) {
     return json({ error: "Not found. The API is GET /api/search, described at /openapi.json." }, 404, API_HEADERS);

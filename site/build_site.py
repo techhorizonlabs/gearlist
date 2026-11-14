@@ -69,9 +69,22 @@ OG_ALT = (
     "each with the access it needs."
 )
 NO_AUTHORITY = "Reading an entry does not authorise installation, credential access or spending."
+# Who runs Gearlist. The name, legal name and web address match the Organization on techhorizonlabs.com.
+# There is no logo here: the repository holds no Tech Horizon Labs logo file.
+THL_URL = "https://techhorizonlabs.com"
 ORG = {"@type": "Organization", "@id": BASE_URL + "#org", "name": "Tech Horizon Labs",
+       "legalName": "Tech Horizon Labs Pty Ltd", "url": THL_URL,
        "sameAs": ["https://github.com/techhorizonlabs"]}
 WEBSITE_REF = {"@id": BASE_URL + "#website"}
+# Public pages about Gearlist itself, for the WebSite node: the repository and the MCP directories
+# that give the Gearlist server a page of its own (each read 14 November 2026). A directory that only
+# names Gearlist in a long list does not identify it, so it stays out.
+GEARLIST_SAME_AS = [
+    REPO_URL,
+    "https://glama.ai/mcp/connectors/build.gearlist/gearlist",
+    "https://mcptry.com/servers/build.gearlist/gearlist",
+    "https://allmcps.com/mcp/gearlist",
+]
 
 # One page per entry at /tools/<id>/ and one per group at /category/<slug>/, each with a
 # Markdown twin beside it (/tools/<id>.md, /category/<slug>.md). Keep in step with build.py.
@@ -100,6 +113,12 @@ FEED_LIMIT = 50
 FEED_TITLE = "New on Gearlist"
 FEED_LINK = f'<link rel="alternate" type="application/atom+xml" title="{FEED_TITLE}" href="{FEED_PATH}">'
 EARLIEST_ADDED = added_dates.EARLIEST_ADDED
+# About: who runs Gearlist, how entries are checked and how to suggest one, at /about/ with a
+# Markdown twin at /about.md. Every footer links it. ABOUT_UPDATED is its sitemap lastmod, so
+# change it whenever the page's wording changes.
+ABOUT_PATH = "/about/"
+ABOUT_MD_PATH = "/about.md"
+ABOUT_UPDATED = "2026-11-14"
 # The IndexNow key is generated once and committed, so it stays the same between builds.
 INDEXNOW_KEY_FILE = SRC / "indexnow-key.txt"
 # The official MCP Registry checks that we own gearlist.build by reading this public key from
@@ -785,6 +804,7 @@ def render_index(data, groups, css, head_js, app_js, sizes, prompt):
                 "inLanguage": "en-AU",
                 "dateModified": updated,
                 "publisher": {"@id": ORG["@id"]},
+                "sameAs": GEARLIST_SAME_AS,
             },
             ORG,
             {
@@ -930,6 +950,7 @@ def ld_json(obj):
 
 def site_footer(groups, current=None):
     new_here = ' aria-current="page"' if current == NEW_PATH else ""
+    about_here = ' aria-current="page"' if current == ABOUT_PATH else ""
     links = []
     for g in groups:
         here = ' aria-current="page"' if g is current else ""
@@ -937,7 +958,8 @@ def site_footer(groups, current=None):
     return (
         '<footer class="wrap"><div class="foot">\n'
         f'<nav aria-label="Groups" class="foot-groups">{"".join(links)}</nav>\n'
-        f'<nav aria-label="Project"><a href="{NEW_PATH}"{new_here}>What\'s new</a><a href="{REPO_URL}">{REPO_LABEL}</a>'
+        f'<nav aria-label="Project"><a href="{ABOUT_PATH}"{about_here}>About</a>'
+        f'<a href="{NEW_PATH}"{new_here}>What\'s new</a><a href="{REPO_URL}">{REPO_LABEL}</a>'
         f'<a href="{CONTRIBUTING_URL}">Suggest an entry</a></nav>\n'
         "<span>by Tech Horizon Labs</span>\n"
         "</div></footer>"
@@ -1026,7 +1048,7 @@ def breadcrumb_ld(page_url, items):
 def site_ld():
     return [
         {"@type": "WebSite", "@id": BASE_URL + "#website", "url": BASE_URL, "name": "Gearlist",
-         "inLanguage": "en-AU", "publisher": {"@id": ORG["@id"]}},
+         "inLanguage": "en-AU", "publisher": {"@id": ORG["@id"]}, "sameAs": GEARLIST_SAME_AS},
         ORG,
     ]
 
@@ -2189,6 +2211,172 @@ def render_new_md(groups, *, og):
     return "\n".join(lines)
 
 
+# About page -------------------------------------------------------------------------------
+
+# The method wording comes from README.md, CONTRIBUTING.md and AGENTS.md. Keep the three in step
+# with this page, and send any change to its wording to BOSUN.
+ABOUT_TITLE = "About Gearlist: who runs it and how entries are checked"
+ABOUT_DESCRIPTION = (
+    "Gearlist is run by Tech Horizon Labs Pty Ltd in Noosa, Queensland. How each entry is "
+    "source-checked, what a check covers, and how to suggest an entry."
+)
+ABOUT_OG_TEXT = "Who runs Gearlist, how entries are source-checked and how to suggest one."
+ABOUT_OG_ALT = "Gearlist card for the About page: who runs Gearlist and how entries are source-checked."
+# Each section: (anchor, heading, blocks). A block is a paragraph, given as a list of parts, or
+# ("ol", [items]). A part is plain text, ("a", text, href) or ("code", text).
+ABOUT_SECTIONS = [
+    ("who", "Who runs Gearlist", [
+        ["Gearlist is run by Tech Horizon Labs Pty Ltd, in Noosa, Queensland. Its website is ",
+         ("a", "techhorizonlabs.com", THL_URL), "."],
+        ["The list, this site and the scripts that build them are public on GitHub at ",
+         ("a", REPO_LABEL, REPO_URL), "."],
+    ]),
+    ("what", "What Gearlist is", [
+        ["Search it on this site, or connect your agent to the read-only MCP server at ", ("code", MCP_URL),
+         ". It needs no sign-in and changes nothing."],
+        ["Entries are grouped by purpose, in no particular order. Gearlist is a checked shortlist with permission "
+         "notes. For every public MCP server, use the ",
+         ("a", "official MCP Registry", "https://registry.modelcontextprotocol.io"), "."],
+    ]),
+    ("checks", "How entries are checked", [
+        ["Each entry records its official link, who it is for, the access it needs, the public source we read "
+         'and the date we read it. Each entry page shows the source and that date in its "What we checked" box.'],
+        ["Maintainers check the source before an entry is merged. Descriptions stay factual. Marketing claims "
+         "about guaranteed outcomes, security or comparative performance are left out unless there is evidence "
+         "for them."],
+        ["A GitHub star, a marketplace listing or an index row is not an entry. A starred repository joins the "
+         "list only after its public documentation has been read and an access note written."],
+    ]),
+    ("suggest", "Suggest an entry", [
+        ["Submit a pull request following ", ("a", "CONTRIBUTING.md", CONTRIBUTING_URL),
+         ". Issues are off on the repository, so there is no public issue form. Include:"],
+        ("ol", [
+            "Its name and official URL.",
+            "One sentence explaining what it does and who it is for.",
+            "The access it needs (account, data, device or payment permissions).",
+            "Its licence.",
+            "The date you checked the public source, and that source URL.",
+            "Any relationship you have with the project.",
+        ]),
+        ["Only submit public information. Do not paste group conversations, member names, personal contact "
+         "details, access tokens or private client material."],
+    ]),
+]
+
+
+def about_parts_html(parts):
+    out = []
+    for part in parts:
+        if isinstance(part, str):
+            out.append(esc(part))
+        elif part[0] == "code":
+            out.append(f"<code>{esc(part[1])}</code>")
+        else:
+            out.append(f'<a href="{esc(part[2])}">{esc(part[1])}</a>')
+    return "".join(out)
+
+
+def about_parts_md(parts):
+    out = []
+    for part in parts:
+        if isinstance(part, str):
+            out.append(part)
+        elif part[0] == "code":
+            out.append(f"`{part[1]}`")
+        else:
+            out.append(f"[{part[1]}]({part[2]})")
+    return "".join(out)
+
+
+def about_ld(og):
+    url = absolute(ABOUT_PATH)
+    page = {
+        "@type": "AboutPage",
+        "@id": url,
+        "url": url,
+        "name": ABOUT_TITLE,
+        "description": ABOUT_DESCRIPTION,
+        "inLanguage": "en-AU",
+        "isPartOf": WEBSITE_REF,
+        "about": WEBSITE_REF,
+        "breadcrumb": {"@id": url + "#breadcrumb"},
+        "primaryImageOfPage": image_ld(og),
+        "dateModified": ABOUT_UPDATED,
+        "publisher": {"@id": ORG["@id"]},
+    }
+    trail = breadcrumb_ld(url, [("Gearlist", BASE_URL), ("About", url)])
+    return {"@context": "https://schema.org", "@graph": [page, trail, *site_ld()]}
+
+
+def render_about_page(groups, *, og, assets):
+    sections = []
+    for anchor, heading, blocks in ABOUT_SECTIONS:
+        body = []
+        for block in blocks:
+            if isinstance(block, tuple) and block[0] == "ol":
+                body.append("<ol>" + "".join(f"<li>{esc(item)}</li>" for item in block[1]) + "</ol>")
+            else:
+                body.append(f"<p>{about_parts_html(block)}</p>")
+        sections.append(
+            f'<section class="about" aria-labelledby="h-{anchor}">\n<h2 id="h-{anchor}">{esc(heading)}</h2>\n'
+            + "\n".join(body) + "\n</section>"
+        )
+    nl = "\n"
+    main = f"""<main id="main" class="page wrap c-teal">
+{crumbs([("Gearlist", "/"), ("About", None)])}
+<header class="page-head">
+<h1>About Gearlist</h1>
+<p class="lede">{esc(SUMMARY)}</p>
+</header>
+{check_note()}
+{nl.join(sections)}
+</main>"""
+    return page_shell(
+        title=ABOUT_TITLE, og_title=ABOUT_TITLE, description=ABOUT_DESCRIPTION, path=ABOUT_PATH,
+        md_path=ABOUT_MD_PATH, og=og, ld=about_ld(og), main=main, groups=groups, current=ABOUT_PATH, **assets,
+    )
+
+
+def render_about_md(og):
+    lines = frontmatter([
+        ("title", ABOUT_TITLE),
+        ("description", ABOUT_DESCRIPTION),
+        ("url", absolute(ABOUT_PATH)),
+        ("updated", ABOUT_UPDATED),
+        ("image", og[0]),
+    ])
+    lines += ["# About Gearlist", "", SUMMARY, "", f"{CHECK_NOTE} {NO_AUTHORITY}", ""]
+    for _, heading, blocks in ABOUT_SECTIONS:
+        lines += [f"## {heading}", ""]
+        for block in blocks:
+            if isinstance(block, tuple) and block[0] == "ol":
+                lines += [f"{i}. {item}" for i, item in enumerate(block[1], 1)]
+            else:
+                lines.append(about_parts_md(block))
+            lines.append("")
+    lines += [f"Gearlist: {BASE_URL}", ""]
+    return "\n".join(lines)
+
+
+def build_about(groups, assets, render_og):
+    """Writes /about/, /about.md and the page's social image."""
+    if render_og:
+        rel = f"{OG_DIR}/about.png"
+        render_og(
+            DIST / rel, eyebrow="Gearlist", title="About Gearlist", subtitle=None, text=ABOUT_OG_TEXT,
+            colour="teal", icon_path=ICONS["shield"], tile_title="Run by", tile_text="Tech Horizon Labs",
+            footer="gearlist.build/about",
+        )
+        og = (BASE_URL + rel, OG_SIZE[0], OG_SIZE[1], ABOUT_OG_ALT)
+    else:
+        name, width, height = SITE_OG
+        og = (BASE_URL + name, width, height, OG_ALT)
+    folder = DIST / ABOUT_PATH.strip("/")
+    folder.mkdir(parents=True)
+    (folder / "index.html").write_text(render_about_page(groups, og=og, assets=assets), encoding="utf-8")
+    (DIST / ABOUT_MD_PATH.lstrip("/")).write_text(render_about_md(og), encoding="utf-8")
+
+
 def atom_time(iso):
     return f"{iso}T00:00:00Z"
 
@@ -2240,8 +2428,8 @@ def sitemap_index(rows):
 
 
 def page_urls(groups):
-    """Every HTML page: the home page, What's new, the group pages, the build pages and the entry pages."""
-    return [BASE_URL, absolute(NEW_PATH)] + [absolute(group_path(g)) for g in groups] + [
+    """Every HTML page: the home page, What's new, About, the group pages, the build pages and the entry pages."""
+    return [BASE_URL, absolute(NEW_PATH), absolute(ABOUT_PATH)] + [absolute(group_path(g)) for g in groups] + [
         absolute(builds_path(b)) for g in groups for b in g["builds"]
     ] + [absolute(tool_path(e)) for g in groups for e in g["entries"]]
 
@@ -2345,6 +2533,11 @@ def render_headers(script_hashes, style_hash):
   Content-Type: text/markdown; charset=utf-8
   Access-Control-Allow-Origin: *
   Link: <{absolute(NEW_PATH)}>; rel="canonical"
+
+{ABOUT_MD_PATH}
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Link: <{absolute(ABOUT_PATH)}>; rel="canonical"
 
 {FEED_PATH}
   Content-Type: application/atom+xml; charset=utf-8
@@ -2692,7 +2885,8 @@ def write_sitemaps(data, groups):
     # A build page changes when its prices are read again.
     build_pages = [(absolute(builds_path(b)), b["data"]["source_checked"]) for g in groups for b in g["builds"]]
     maps = {
-        "sitemap-pages.xml": [(BASE_URL, updated), (absolute(NEW_PATH), newest)] + build_pages
+        "sitemap-pages.xml": [(BASE_URL, updated), (absolute(NEW_PATH), newest), (absolute(ABOUT_PATH), ABOUT_UPDATED)]
+        + build_pages
         + [(u, updated) for u in files],
         "sitemap-categories.xml": [(absolute(group_path(g)), g["updated"]) for g in groups],
         "sitemap-tools.xml": [(absolute(tool_path(e)), e["source_checked"]) for e in entries],
@@ -2758,6 +2952,7 @@ def main():
     assets = {"css": css, "head_js": head_js, "app_js": app_js}
     titles = build_pages(groups, assets, render_og)
     build_new(groups, assets, render_og)
+    build_about(groups, assets, render_og)
     built = build_builds(groups, assets, render_og, titles)
 
     skills = build_skills()

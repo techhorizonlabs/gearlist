@@ -1,6 +1,6 @@
 // Tests for the entry pages (/tools/<id>/), the group pages (/category/<slug>/), the What's new
-// page (/new/), the build pages (/builds/<id>/), their Markdown copies, the Atom feed, the Open
-// Graph images, the sitemaps and the IndexNow key file.
+// page (/new/), the About page (/about/), the build pages (/builds/<id>/), their Markdown copies,
+// the Atom feed, the Open Graph images, the sitemaps and the IndexNow key file.
 // They read the built site/dist folder:
 //
 //   python3 build.py && python3 site/build_site.py && node --test "site/test/*.test.mjs"
@@ -21,7 +21,7 @@ const DIST = path.join(SITE, "dist");
 const ROOT = path.dirname(SITE);
 const ORIGIN = "https://gearlist.build";
 // Paths the Worker answers (wrangler.jsonc run_worker_first), so they have no file in dist.
-const WORKER_PATHS = new Set(["/mcp", "/mcp/server-card", "/api/search", "/openapi.json"]);
+const WORKER_PATHS = new Set(["/mcp", "/mcp/server-card", "/.well-known/mcp/server-card.json", "/api/search", "/openapi.json"]);
 // Properties the data has no source for. A page must never claim them.
 const INVENTED = ["aggregateRating", "review", "offers", "softwareVersion", "price", "ratingValue", "downloadUrl"];
 
@@ -96,6 +96,7 @@ before(async () => {
   }));
   pages.set("/", await readFile(path.join(DIST, "index.html"), "utf8"));
   pages.set("/new/", await readFile(fileFor("/new/"), "utf8"));
+  pages.set("/about/", await readFile(fileFor("/about/"), "utf8"));
   for (const g of groups) pages.set(`/category/${g.slug}/`, await readFile(fileFor(`/category/${g.slug}/`), "utf8"));
   for (const e of records) pages.set(`/tools/${e.id}/`, await readFile(fileFor(`/tools/${e.id}/`), "utf8"));
   buildGroups = JSON.parse(await readFile(path.join(ROOT, "builds.json"), "utf8")).groups;
@@ -1076,5 +1077,101 @@ describe("MCP Registry domain proof", () => {
     assert.doesNotMatch(served, /PRIVATE/);
     const headers = await readFile(path.join(DIST, "_headers"), "utf8");
     assert.match(headers, /\/\.well-known\/mcp-registry-auth\n  Content-Type: text\/plain; charset=utf-8/);
+  });
+});
+
+describe("About page and site identity", () => {
+  const THL = "https://techhorizonlabs.com";
+  const REPO = "https://github.com/techhorizonlabs/gearlist";
+  const CONTRIBUTING = REPO + "/blob/main/CONTRIBUTING.md";
+  const main = (html) => /<main[\s\S]*?<\/main>/.exec(html)[0];
+
+  test("the About page says who runs Gearlist, how entries are checked and how to suggest one", async () => {
+    const html = pages.get("/about/");
+    const body = main(html);
+    assert.match(body, /<h1>About Gearlist<\/h1>/);
+    assert.deepEqual(
+      [...body.matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map((m) => m[1]),
+      ["What a source check covers", "Who runs Gearlist", "What Gearlist is", "How entries are checked", "Suggest an entry"],
+    );
+    assert.ok(body.includes("Gearlist is run by Tech Horizon Labs Pty Ltd, in Noosa, Queensland."));
+    assert.ok(body.includes(`<a href="${THL}">techhorizonlabs.com</a>`));
+    assert.ok(body.includes(`<a href="${REPO}">github.com/techhorizonlabs/gearlist</a>`));
+    assert.ok(body.includes(`<a href="${CONTRIBUTING}">CONTRIBUTING.md</a>`));
+    // The six things CONTRIBUTING.md asks for, in its order and words.
+    const asks = [...body.matchAll(/<li>([^<]+)<\/li>/g)].map((m) => unescape(m[1]));
+    assert.equal(asks.length, 6);
+    const contributing = await readFile(path.join(ROOT, "CONTRIBUTING.md"), "utf8");
+    assert.deepEqual(asks, [...contributing.matchAll(/^\d\. (.+)$/gm)].map((m) => m[1]));
+  });
+
+  test("the About page states no entry count, and every footer links it", () => {
+    assert.doesNotMatch(main(pages.get("/about/")), /\b\d+ (entries|groups|tools)\b/);
+    for (const [p, html] of pages) {
+      const footer = /<footer[\s\S]*?<\/footer>/.exec(html)[0];
+      const here = p === "/about/" ? ' aria-current="page"' : "";
+      assert.ok(footer.includes(`<a href="/about/"${here}>About</a>`), `${p} footer links About`);
+    }
+  });
+
+  test("the About page's JSON-LD is an AboutPage about Gearlist, with its breadcrumb", () => {
+    const nodes = graphNodes(jsonLd(pages.get("/about/")));
+    const page = nodes.find((n) => n["@type"] === "AboutPage");
+    assert.equal(page.url, ORIGIN + "/about/");
+    assert.equal(page["@id"], ORIGIN + "/about/");
+    assert.deepEqual(page.about, { "@id": ORIGIN + "/#website" });
+    assert.deepEqual(page.publisher, { "@id": ORIGIN + "/#org" });
+    const crumbs = nodes.find((n) => n["@type"] === "BreadcrumbList");
+    assert.deepEqual(crumbs.itemListElement.map((i) => [i.position, i.name, i.item]), [
+      [1, "Gearlist", ORIGIN + "/"],
+      [2, "About", ORIGIN + "/about/"],
+    ]);
+  });
+
+  test("the About Markdown twin has the same sections and a canonical Link header", async () => {
+    const md = await readFile(path.join(DIST, "about.md"), "utf8");
+    assert.match(md, new RegExp(`^url: "${ORIGIN}/about/"$`, "m"));
+    assert.deepEqual([...md.matchAll(/^## (.+)$/gm)].map((m) => m[1]), [
+      "Who runs Gearlist", "What Gearlist is", "How entries are checked", "Suggest an entry",
+    ]);
+    assert.match(md, /Documentation checked means the source was read\. It does not mean the software was installed, tested or security audited\./);
+    assert.ok(md.includes(`[CONTRIBUTING.md](${CONTRIBUTING})`));
+    assert.doesNotMatch(md, /[\u2013\u2014]/);
+    const headers = await readFile(path.join(DIST, "_headers"), "utf8");
+    assert.ok(headers.includes(
+      `/about.md\n  Content-Type: text/markdown; charset=utf-8\n  Access-Control-Allow-Origin: *\n  Link: <${ORIGIN}/about/>; rel="canonical"\n`,
+    ));
+  });
+
+  test("the sitemap lists About once, with a date", async () => {
+    const xml = await readFile(path.join(DIST, "sitemap-pages.xml"), "utf8");
+    const rows = [...xml.matchAll(/<url><loc>https:\/\/gearlist\.build\/about\/<\/loc><lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod><\/url>/g)];
+    assert.equal(rows.length, 1);
+  });
+
+  test("every page names Tech Horizon Labs and Gearlist the same way in its JSON-LD", () => {
+    for (const [p, html] of pages) {
+      const nodes = graphNodes(jsonLd(html));
+      const orgs = nodes.filter((n) => n["@type"] === "Organization");
+      assert.equal(orgs.length, 1, `${p} has one Organization`);
+      const [org] = orgs;
+      assert.equal(org["@id"], ORIGIN + "/#org");
+      assert.equal(org.name, "Tech Horizon Labs");
+      assert.equal(org.legalName, "Tech Horizon Labs Pty Ltd");
+      assert.equal(org.url, THL);
+      assert.deepEqual(org.sameAs, ["https://github.com/techhorizonlabs"]);
+      const site = nodes.find((n) => n["@type"] === "WebSite");
+      assert.equal(site["@id"], ORIGIN + "/#website");
+      assert.equal(site.name, "Gearlist");
+      assert.equal(site.url, ORIGIN + "/");
+      assert.deepEqual(site.publisher, { "@id": ORIGIN + "/#org" });
+      assert.equal(site.sameAs[0], REPO, `${p} WebSite sameAs starts with the repository`);
+      for (const u of site.sameAs) {
+        const url = new URL(u);
+        assert.equal(url.protocol, "https:", u);
+        assert.equal(url.search, "", `${u} has no query string`);
+        assert.notEqual(url.hostname, "gearlist.build", `${u} is another site`);
+      }
+    }
   });
 });
