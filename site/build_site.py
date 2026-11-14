@@ -2217,7 +2217,7 @@ def render_new_md(groups, *, og):
 # with this page, and send any change to its wording to BOSUN.
 ABOUT_TITLE = "About Gearlist: who runs it and how entries are checked"
 ABOUT_DESCRIPTION = (
-    "Gearlist is run by Tech Horizon Labs Pty Ltd in Noosa, Queensland. How each entry is "
+    "Gearlist is run by Tech Horizon Labs Pty Ltd in Noosa Heads, Queensland. How each entry is "
     "source-checked, what a check covers, and how to suggest an entry."
 )
 ABOUT_OG_TEXT = "Who runs Gearlist, how entries are source-checked and how to suggest one."
@@ -2226,7 +2226,7 @@ ABOUT_OG_ALT = "Gearlist card for the About page: who runs Gearlist and how entr
 # ("ol", [items]). A part is plain text, ("a", text, href) or ("code", text).
 ABOUT_SECTIONS = [
     ("who", "Who runs Gearlist", [
-        ["Gearlist is run by Tech Horizon Labs Pty Ltd, in Noosa, Queensland. Its website is ",
+        ["Gearlist is run by Tech Horizon Labs Pty Ltd, in Noosa Heads, Queensland. Its website is ",
          ("a", "techhorizonlabs.com", THL_URL), "."],
         ["The list, this site and the scripts that build them are public on GitHub at ",
          ("a", REPO_LABEL, REPO_URL), "."],

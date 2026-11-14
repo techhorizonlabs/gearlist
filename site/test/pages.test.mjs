@@ -1094,7 +1094,7 @@ describe("About page and site identity", () => {
       [...body.matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map((m) => m[1]),
       ["What a source check covers", "Who runs Gearlist", "What Gearlist is", "How entries are checked", "Suggest an entry"],
     );
-    assert.ok(body.includes("Gearlist is run by Tech Horizon Labs Pty Ltd, in Noosa, Queensland."));
+    assert.ok(body.includes("Gearlist is run by Tech Horizon Labs Pty Ltd, in Noosa Heads, Queensland."));
     assert.ok(body.includes(`<a href="${THL}">techhorizonlabs.com</a>`));
     assert.ok(body.includes(`<a href="${REPO}">github.com/techhorizonlabs/gearlist</a>`));
     assert.ok(body.includes(`<a href="${CONTRIBUTING}">CONTRIBUTING.md</a>`));
