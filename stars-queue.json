@@ -3,9 +3,9 @@
   "starred_total": 349,
   "updated": "2026-11-07",
   "counts": {
-    "already_published": 207,
+    "already_published": 210,
     "queued": 0,
-    "stored": 115,
+    "stored": 112,
     "excluded": 27
   },
   "rule": "A star is not an entry. Promote a queued row only after a documentation review, access notes and a source_checked date in resources.json. Status queued means score 4+ on MCP, skills, awesome-list, licence or first-party signals. Status stored keeps the rest of the 349 stars for later review. Status excluded is not eligible.",
@@ -1730,8 +1730,8 @@
         "skill",
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 14 Nov 2026 as cisco-skill-scanner after a documentation review."
     },
     {
       "full_name": "Shpigford/chops",
@@ -2323,8 +2323,8 @@
       "why": [
         "skill"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 14 Nov 2026 as claude-code after a documentation review."
     },
     {
       "full_name": "jaywcjlove/awesome-mac",
@@ -3606,8 +3606,8 @@
       "why": [
         "licence"
       ],
-      "status": "stored",
-      "note": "Starred by Huxley. Not a Gearlist entry until documentation is reviewed."
+      "status": "already_published",
+      "note": "Added to resources.json on 14 Nov 2026 as e2e after a documentation review. The repository is now e2e-inc/e2e; the old path redirects."
     },
     {
       "full_name": "Leantime/leantime",
