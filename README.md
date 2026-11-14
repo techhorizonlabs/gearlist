@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 375 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 390 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -78,11 +78,11 @@ npx skills add techhorizonlabs/thl-open
 
 ## Contents
 
-- [Agent tools](#agent-tools) (104)
-- [MCP and integrations](#mcp-and-integrations) (46)
-- [Security and governance](#security-and-governance) (12)
-- [Platforms](#platforms) (65)
-- [Protocols](#protocols) (7)
+- [Agent tools](#agent-tools) (109)
+- [MCP and integrations](#mcp-and-integrations) (48)
+- [Security and governance](#security-and-governance) (16)
+- [Platforms](#platforms) (67)
+- [Protocols](#protocols) (9)
 - [Skills and learning](#skills-and-learning) (67)
 - [APIs and data](#apis-and-data) (38)
 - [Hardware](#hardware) (12)
@@ -552,6 +552,56 @@ A terminal workspace that arranges programs in panes and tabs, with floating pan
 
 **Source checked:** 2026-11-14. [Official source](https://github.com/zellij-org/zellij). [Gearlist page](https://gearlist.build/tools/zellij/).
 
+### [Claude Code](https://code.claude.com/docs/en/overview)
+
+Anthropic's coding agent that reads a project, edits files, runs commands and works with your development tools, in a terminal and other development surfaces.
+
+**For:** Developers who want an agent from Anthropic to read, change and run code in their own projects.
+
+**Access and use:** A commercial product from Anthropic. Depending on the surface and how it is deployed, it needs a Claude subscription, an Anthropic Console account or access through a supported provider, so check what your plan or account covers before you rely on a surface. It reads and edits files, runs commands and uses connected tools within the permissions you configure. The CLI runs on your machine, but it is not an offline model. Anthropic's data-use page treats consumer accounts, where you set your own privacy choices, separately from commercial arrangements, and covers feedback, usage and conversation information; read the part that applies to your account. The GitHub repository is under Anthropic's proprietary terms, not an open-source licence.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/anthropics/claude-code). [Gearlist page](https://gearlist.build/tools/claude-code/).
+
+### [Codex CLI](https://learn.chatgpt.com/docs/codex/cli)
+
+OpenAI's coding agent that runs in your terminal to inspect code, change files, run commands and automate repeatable development work.
+
+**For:** Developers who want OpenAI's coding agent to work on their code from the terminal.
+
+**Access and use:** Sign in with a ChatGPT subscription, or use an API key with usage-based billing. The choice decides which workspace and data controls apply, and what you pay depends on that plan or usage; enterprise data terms depend on your own workspace or API agreement. Credentials are cached in a local file or the OS credential store, depending on configuration. It changes files and runs commands on your machine within the permissions you allow. It runs locally, but code and prompts can go to the model provider you configure, so local execution does not mean local-only processing. Apache-2.0.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/openai/codex). [Gearlist page](https://gearlist.build/tools/codex-cli/).
+
+### [Cognee](https://github.com/topoteretes/cognee)
+
+Agent memory that uses graph and vector retrieval over documents, conversations and code, with memory operations and integrations for coding agents and MCP.
+
+**For:** Developers who want long-term memory for a coding agent or for an agent they build.
+
+**Access and use:** A keyless setup with local models is documented. Usage telemetry is on by default and covers operations, settings, identifiers and a one-way hash of your API key, but not the content of documents or queries; setting TELEMETRY_DISABLED to any non-empty value turns it off. Connector ingestion has separate telemetry considerations from dlt, so check those too. If you choose remote models or embeddings, your material goes to those providers, and each connector needs its own credentials. The API requires authentication by default, and changing deployment settings can change that. A hosted cloud service and a licensed production Postgres graph store are separate offerings. Apache-2.0.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/topoteretes/cognee). [Gearlist page](https://gearlist.build/tools/cognee/).
+
+### [Antigravity CLI](https://antigravity.google/product/antigravity-cli)
+
+The terminal client for Google Antigravity's coding agents, which understand a project, make edits across several files, use tools, run commands and work in parallel sessions.
+
+**For:** Developers who want Google's Antigravity coding agents in a terminal.
+
+**Access and use:** A commercial product from Google, not open source: no open-source licence file was found in the repository, use is governed by the Google Antigravity terms, and business contracts carry their own terms. The README documents Google sign-in with credentials in your keyring, and browser authorisation when you use it over SSH. Official onboarding also covers personal and business or provider sign-in routes; access, quotas and billing depend on the route you choose. Under the personal-service terms, your interactions can be used to improve Google's products and machine learning, including human review, unless you opt out in settings; data is still used to run and secure the service when that setting is off. The terms prohibit giving third-party services access through it, and name OpenClaw with Antigravity OAuth as an example, so do not use its sign-in as a backend for other agent harnesses. Account eligibility, regional availability, plan quotas and enterprise contract coverage were not fully verified; check them with Google.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/google-antigravity/antigravity-cli). [Gearlist page](https://gearlist.build/tools/antigravity-cli/).
+
+### [e2e](https://github.com/e2e-inc/e2e)
+
+An open-source end-to-end testing framework for web and mobile apps that mixes deterministic steps with agent-assisted steps, and replays previously verified agent actions from a cache.
+
+**For:** Developers and testers who want an agent to help run end-to-end tests of web or mobile apps.
+
+**Access and use:** It runs on your own infrastructure and calls the model or agent engine you configure, with your credentials, and adaptive agent work can add model costs. CLI telemetry is on by default and collects command, engine, version and error metadata; the documentation says it excludes test and app content and credentials. Set E2E_TELEMETRY_DISABLED=1, or use the documented CLI controls, to turn it off. This entry covers the open-source framework only: terms for any hosted service at e2e.com are unknown. Formerly TesterArmy. Apache-2.0.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/e2e-inc/e2e). [Gearlist page](https://gearlist.build/tools/e2e/).
+
 ### [vphone-cli](https://github.com/Lakr233/vphone-cli)
 
 A tool that runs a virtual iPhone on an Apple Silicon Mac for research, reverse engineering and debugging.
@@ -892,7 +942,7 @@ A Python app with a WebUI, API, CLI and agent skill that turns a topic or keywor
 
 **Source checked:** 2026-11-03. [Official source](https://github.com/harry0703/MoneyPrinterTurbo/blob/main/README-en.md). [Gearlist page](https://gearlist.build/tools/moneyprinterturbo/).
 
-### [OpenMontage](https://github.com/calesthio/OpenMontage)
+### [OpenMontage](https://github.com/OpenMontageInc/OpenMontage)
 
 A video production system your coding assistant runs through pipelines, stage skills and tools for research, scripting, asset generation, editing and rendering with Remotion, HyperFrames and FFmpeg.
 
@@ -900,7 +950,7 @@ A video production system your coding assistant runs through pipelines, stage sk
 
 **Access and use:** Needs Python 3.10+, FFmpeg, Node.js 18+ and a coding assistant such as Claude Code, Cursor, Copilot, Windsurf or Codex; run make setup after cloning. With no keys it uses Piper TTS, open archives and free stock sources. Optional keys for fal.ai, Kling, ElevenLabs, OpenAI, Google, xAI, Runway, HeyGen, Suno and others go in .env and incur provider charges. Budget controls default to a $10 total cap, with per-action approval above $0.50. Local video generation needs a GPU. AGPL-3.0, which requires offering source for modified versions run as a network service.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/calesthio/OpenMontage). [Gearlist page](https://gearlist.build/tools/openmontage/).
+**Source checked:** 2026-11-03. [Official source](https://github.com/OpenMontageInc/OpenMontage). [Gearlist page](https://gearlist.build/tools/openmontage/).
 
 ### [OpenSEO](https://github.com/every-app/open-seo)
 
@@ -1263,6 +1313,26 @@ A local Rust MCP server and CLI that turns PDFs, Office files, HTML, images, aud
 **Access and use:** npx -y @sylphx/anymd setup. Needs Node 18 or later. Also brew install sylphxai/tap/anymd, pip, Docker or cargo. Local MIT binary needs no API key. OCR and ASR model downloads need explicit opt-in. Confine the MCP server with --allow-dir. Hosted Sylphx AI parse is a paid metered service that uses the same crates. anymd Pro is an optional one-time purchase for cite-check and video timelines. MIT.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/SylphxAI/anymd). [Gearlist page](https://gearlist.build/tools/anymd/).
+
+### [Chrome DevTools for agents](https://developer.chrome.com/docs/devtools/agents)
+
+Browser debugging for coding agents from the Chrome DevTools team: an MCP server, chrome-devtools-mcp, that lets an agent inspect and control Chrome, record performance traces, debug console and network activity, take screenshots and automate pages with Puppeteer.
+
+**For:** Developers who want a coding agent to debug, test or measure web pages in Chrome.
+
+**Access and use:** The connected MCP client can inspect and change browser and DevTools data. A normal browser profile can hold signed-in sessions and other sensitive data, and this is neither a sandbox nor a read-only debugger. Usage statistics are on by default; --no-usage-statistics turns them off, and Chrome's own metrics setting is separate. Performance tools may send trace URLs to CrUX, the Chrome UX Report; --no-performance-crux turns that off. npm update checks are a further outside request. Officially supports Chrome and Chrome for Testing. Apache-2.0.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/ChromeDevTools/chrome-devtools-mcp). [Gearlist page](https://gearlist.build/tools/chrome-devtools-mcp/).
+
+### [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector)
+
+Tools for inspecting and testing MCP servers, from the Model Context Protocol project, with browser, command line and terminal interfaces for connecting to a server.
+
+**For:** Developers building, debugging or testing MCP servers.
+
+**Access and use:** It can start local stdio servers, which runs their code on your machine, and connect to remote servers using their authentication and the OAuth grants you give; the scopes depend on each server. It can save tokens, client secrets and configured environment values. Secrets go to the OS credential store when one is available; on headless or keychain-less systems they can fall back to a file that is not encrypted unless you configure a key. Some connection tooling is experimental. The current version 2 documentation differs from the legacy version 1. The licence is in transition: new code is Apache-2.0, older contributions without relicensing consent remain MIT, and documentation other than the specification is CC BY 4.0.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/modelcontextprotocol/inspector). [Gearlist page](https://gearlist.build/tools/mcp-inspector/).
 
 ### [OpenAI MCP Extensions](https://github.com/openai/mcp-extensions)
 
@@ -1636,6 +1706,46 @@ A document and deal room service that describes browser encryption and controlle
 
 **Source checked:** 2026-10-25. [Official source](https://guardstein.com/). [Gearlist page](https://gearlist.build/tools/guardstein/).
 
+### [Codex Security](https://learn.chatgpt.com/docs/security/cli)
+
+OpenAI's tool that looks for vulnerabilities in a codebase, investigates them and proposes fixes, through a Codex plugin, a CLI, a TypeScript SDK or a GitHub Action, with threat-model and report workflows.
+
+**For:** Developers and security teams checking code they own or are authorised to test.
+
+**Access and use:** It reads your repository and uses an authenticated model service, so it needs a login or API key, and the provider bills for the usage. Amazon Bedrock and other documented providers are supported alternatives. Cloud publishing and issue integrations add destinations outside your machine. The example GitHub Action uses an estimated US$5 limit per scan and warns that requests already in flight can go past it, so treat that limit as an estimate, not a hard cap. Some requests need additional cyber access. Use it only on code you own or are authorised to test. Its findings and patches are candidates for you to review, not a certified audit or proof that the code is safe. Apache-2.0.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/openai/codex-security). [Gearlist page](https://gearlist.build/tools/codex-security/).
+
+### [promptfoo](https://www.promptfoo.dev)
+
+A tool for evaluating and red-teaming LLM applications, from the command line or as a library, with test cases written as configuration and CI integration.
+
+**For:** Developers and security teams testing LLM applications they own or are authorised to assess.
+
+**Access and use:** Promptfoo is now part of OpenAI, its README says. Usage telemetry is on by default and, when you are logged in, can include account identifiers; the documentation says it excludes prompts, outputs and keys. Set PROMPTFOO_DISABLE_TELEMETRY=1 to turn it off. That does not stop requests to model providers or to optional hosted features, which are separate data paths with their own costs, and the CLI also checks for updates. Test only applications you own or are authorised to assess, and do not read passing tests as proof that an application is secure. MIT.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/promptfoo/promptfoo). [Gearlist page](https://gearlist.build/tools/promptfoo/).
+
+### [Cisco AI Defense Skill Scanner](https://cisco-ai-defense.github.io/docs/skill-scanner)
+
+A best-effort security check for agent skills, using deterministic rules, code and dataflow analysis and optional model or cloud analysers, with CI, SARIF and pre-commit integration.
+
+**For:** Developers and security teams who want to check agent skills in CI or before a commit.
+
+**Access and use:** Core scans need no model account. The optional analysers send data elsewhere: the LLM analyser sends a skill's instructions and scripts, or bounded excerpts, to the model you configure, and setups with a local provider differ; the AI Defense analyser sends extracted instructions, metadata, Markdown and code to Cisco's API; and VirusTotal checks binaries by reputation, with optional upload flags that can send unknown binaries to it. These need API access and can carry provider costs. An optional interactive wizard recommends an LLM, which a core-only command line scan does not need. No findings does not mean no risk, and it is not a certification or complete detection of malicious skills. The LICENSE file is Apache-2.0; GitHub shows NOASSERTION.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/cisco-ai-defense/skill-scanner). [Gearlist page](https://gearlist.build/tools/cisco-skill-scanner/).
+
+### [Skylos](https://skylos.dev)
+
+A code and pull request checker for dead code, security issues, secrets, dependency risks and changes written by coding agents, with completion checks, agent hooks and CI gates.
+
+**For:** Developers and teams who review changes from coding agents and want checks on the branch and in CI.
+
+**Access and use:** Language coverage varies. Local static analysis is different from its model-assisted checks: AI options send relevant source code to the provider you choose, and a configured Jev review sends up to 64 KB of first-party source to Typesafe's Jev service (api.typesafe.ai). Cloud upload can include findings, file paths, code snippets and commit and author metadata. The CI workflow it generates uses a different upload default when the machine is logged in, so read the workflow before you commit it; cloud and app setup are separate steps. Setup commands can change agent hooks and CI files. Scan coverage and the benchmark results it reports are not an independent security audit. Apache-2.0.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/duriantaco/skylos). [Gearlist page](https://gearlist.build/tools/skylos/).
+
 ### [Quicksand](https://microsoft.github.io/quicksand/)
 
 An async Python API that boots QEMU Linux VMs so agents can run commands, mounts and a desktop without root or Docker.
@@ -1878,6 +1988,26 @@ A local LLM inference server for Apple Silicon, with a menu bar app, OpenAI-comp
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/jundot/omlx). [Gearlist page](https://gearlist.build/tools/omlx/).
 
+### [Claude Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview)
+
+Python and TypeScript libraries from Anthropic that expose Claude Code's agent loop, tools and context management, and run the Claude Code binary underneath.
+
+**For:** Developers building their own agents on Claude Code's agent loop in Python or TypeScript.
+
+**Access and use:** The quickstart authenticates with an API key or a supported cloud provider, and that account is billed for usage. Agents can read and write files and run commands, as you configure them. SDK and product use is governed by Anthropic's Commercial Terms, apart from separately licensed components. Unless Anthropic approves, third-party developers may not offer claude.ai login or its rate limits in their products, including agents built on this SDK, so it is not a way to run a customer product on a personal Claude subscription. Licences differ by language: the Python source is MIT, and the TypeScript package is under Anthropic's proprietary Commercial Terms. The MIT Python wrapper does not make the Claude Code runtime or Anthropic's service open source.
+
+**Source checked:** 2026-11-14. [Official source](https://code.claude.com/docs/en/agent-sdk/overview). [Gearlist page](https://gearlist.build/tools/claude-agent-sdk/).
+
+### [OpenAI Agents SDK](https://github.com/openai/openai-agents-python)
+
+A framework for tool-using agents with handoffs, guardrails, sessions and tracing, in Python and JavaScript or TypeScript, with integrations for several model providers.
+
+**For:** Developers building agents in Python or JavaScript who want handoffs, guardrails and tracing in their own code.
+
+**Access and use:** Model provider authentication and usage charges apply. Tracing is on by default and can include model and tool inputs and outputs, which are sent to OpenAI; choosing another provider's model does not keep traces with that provider. Set OPENAI_AGENTS_DISABLE_TRACING=1 to turn tracing off everywhere, or use the documented per-run and data controls. Tracing is unavailable under OpenAI's documented Zero Data Retention policy. Connected tools decide what else an agent can reach. Guardrails are controls you program, not a full safety guarantee. The JavaScript and TypeScript SDK is at github.com/openai/openai-agents-js. Both are MIT.
+
+**Source checked:** 2026-11-14. [Official source](https://developers.openai.com/api/docs/guides/agents/integrations-observability). [Gearlist page](https://gearlist.build/tools/openai-agents-sdk/).
+
 ### [Buzz](https://github.com/block/buzz)
 
 A self-hosted workspace where humans and agents share signed events on a relay you run.
@@ -2118,15 +2248,15 @@ A Java manga reader server that runs Mihon (Tachiyomi) extensions, with a bundle
 
 **Source checked:** 2026-10-29. [Official source](https://github.com/Suwayomi/Suwayomi-Server). [Gearlist page](https://gearlist.build/tools/suwayomi-server/).
 
-### [Open Executive](https://github.com/SenteLabsAI/OpenExecutive)
+### [Open Executive](https://github.com/ForeactLabs/OpenExecutive)
 
 An Apache-licensed FastAPI and Next.js executive persona backed by nine specialist agents, with local RAG, episodic memory and optional chat and mail connectors.
 
 **For:** Teams who want a self-hosted executive assistant that drafts in one voice and leaves messages on approval cards unless Handle it for me is on.
 
-**Access and use:** git clone https://github.com/SenteLabsAI/OpenExecutive.git && make install, copy .env.example to .env, set ANTHROPIC_API_KEY, then make dev. UI is http://localhost:3000; API is http://localhost:8000. Needs Python 3.11+ and Node 22.6+. First boot downloads an embedding model of about 90 MB. Local make dev with blank AUTH_GOOGLE_ID accepts connections from this computer only. Company documents and memory are stored on the host (ChromaDB and SQLite); prompts, retrieved document chunks and memory go to the Anthropic API. Slack, mail, Telegram, Google Chat and similar connectors send messages through those services when you set their tokens. Apache-2.0.
+**Access and use:** git clone https://github.com/ForeactLabs/OpenExecutive.git && make install, copy .env.example to .env, set ANTHROPIC_API_KEY, then make dev. UI is http://localhost:3000; API is http://localhost:8000. Needs Python 3.11+ and Node 22.6+. First boot downloads an embedding model of about 90 MB. Local make dev with blank AUTH_GOOGLE_ID accepts connections from this computer only. Company documents and memory are stored on the host (ChromaDB and SQLite); prompts, retrieved document chunks and memory go to the Anthropic API. Slack, mail, Telegram, Google Chat and similar connectors send messages through those services when you set their tokens. Apache-2.0.
 
-**Source checked:** 2026-10-29. [Official source](https://github.com/SenteLabsAI/OpenExecutive). [Gearlist page](https://gearlist.build/tools/openexecutive/).
+**Source checked:** 2026-10-29. [Official source](https://github.com/ForeactLabs/OpenExecutive). [Gearlist page](https://gearlist.build/tools/openexecutive/).
 
 ### [Mailflare](https://mailflare.co)
 
@@ -2318,15 +2448,15 @@ A self-hostable platform for tracing, evaluating, simulating and guarding LLM an
 
 **Source checked:** 2026-11-03. [Official source](https://github.com/future-agi/future-agi). [Gearlist page](https://gearlist.build/tools/future-agi/).
 
-### [OpenMuse](https://github.com/CopilotKit/openmuse)
+### [OpenFuse](https://github.com/CopilotKit/openfuse)
 
 An alpha personal agent app for iOS, Android and web, built on CopilotKit and AG-UI, with a persistent Chromium browser, an optional Linux workspace, task plans with approvals, and Gmail and Calendar adapters.
 
 **For:** Developers who want a self-hosted personal agent template to fork and extend.
 
-**Access and use:** Needs Node 24, pnpm 11.19.0 and a CopilotKit Intelligence project key in every mode; Intelligence is a separate service outside the MIT licence. A model needs an OpenAI, Anthropic or Google key. Gmail and Calendar need your own Google OAuth client plus live mode with an access key and token encryption key, and each send or calendar change waits for review. Web search is on by default and sends model-generated queries and context to Parallel's Search MCP; set WEB_SEARCH_ENABLED=false to turn it off. The CopilotKit SDK sends runtime telemetry to PostHog. The optional Linux computer needs Docker. The Render blueprint runs the API and browser on Standard instances. One owner behind a shared access key; not multi-tenant. MIT.
+**Access and use:** Needs Node 24, pnpm 11.19.0 and a CopilotKit Intelligence project key in every mode; Intelligence is a separate service outside the MIT licence. A model needs an OpenAI, Anthropic or Google key. Gmail and Calendar need your own Google OAuth client plus live mode with an access key and token encryption key, and each send or calendar change waits for review. Web search is on by default and sends model-generated queries and context to Parallel's Search MCP; set WEB_SEARCH_ENABLED=false to turn it off. The CopilotKit SDK sends runtime telemetry to PostHog. The optional Linux computer needs Docker. The Render blueprint runs the API and browser on Standard instances. One owner behind a shared access key; not multi-tenant. Formerly OpenMuse. MIT.
 
-**Source checked:** 2026-11-03. [Official source](https://github.com/CopilotKit/openmuse). [Gearlist page](https://gearlist.build/tools/openmuse/).
+**Source checked:** 2026-11-03. [Official source](https://github.com/CopilotKit/openfuse). [Gearlist page](https://gearlist.build/tools/openmuse/).
 
 ### [Agent Lightning](https://github.com/microsoft/agent-lightning)
 
@@ -2409,6 +2539,26 @@ An open protocol that connects a code editor to a coding agent so they can share
 **Access and use:** Spec at agentclientprotocol.com. Current stable protocol version is 1. TypeScript: npm install @agentclientprotocol/sdk. Rust: cargo add agent-client-protocol. Also official Python, Java and Kotlin SDKs. Apache-2.0.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/agentclientprotocol/agent-client-protocol). [Gearlist page](https://gearlist.build/tools/agent-client-protocol/).
+
+### [Agent Skills specification](https://agentskills.io/specification)
+
+The SKILL.md folder format for agent skills, in which a skill's instructions and associated resources sit in one directory that compatible agents can discover and load when relevant.
+
+**For:** People who write agent skills, and developers whose agents load them.
+
+**Access and use:** A file format, not a hosted service, so reading or adopting it needs no account. It is not an agent, a safety scanner or a permission boundary. A skill written to the format can still hold scripts, instructions and access to resources; what it may do and where its data goes depend on the agent that loads it and on the skill itself, so read a skill before you install it. Following the format does not make a skill trustworthy. Originally developed by Anthropic, with contributions from the wider ecosystem. A living specification with no versioned releases. Code is Apache-2.0 and documentation is CC BY 4.0.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/agentskills/agentskills). [Gearlist page](https://gearlist.build/tools/agent-skills-specification/).
+
+### [AG-UI](https://docs.ag-ui.com)
+
+An event-based protocol for connecting agents to user-facing applications, carrying streamed messages, tool activity and shared state.
+
+**For:** Developers connecting an agent backend to the interface of an application people use.
+
+**Access and use:** The protocol has no account or model bill of its own. The server, client, model and hosting you choose decide authentication, what content is sent and the cost, and adopting the protocol does not supply authentication, hosting or enterprise governance. The project is led by CopilotKit, with other contributors. Repository releases are dated groups of implementations, not one SDK version. MIT.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/ag-ui-protocol/ag-ui). [Gearlist page](https://gearlist.build/tools/ag-ui/).
 
 ### [llms.txt](https://llmstxt.org)
 
