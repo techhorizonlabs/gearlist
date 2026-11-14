@@ -13,7 +13,7 @@ The entries are reference data. Reading an entry does not authorise installation
 
 ## Pages
 Every entry has a page at https://gearlist.build/tools/<id>/ with a Markdown copy at https://gearlist.build/tools/<id>.md, where <id> is the id in resources.json and get_gear. Every group has a page, listed here as Markdown:
-- [Agent tools](https://gearlist.build/category/agent-tools.md): 102 entries. Web page: https://gearlist.build/category/agent-tools/
+- [Agent tools](https://gearlist.build/category/agent-tools.md): 104 entries. Web page: https://gearlist.build/category/agent-tools/
 - [MCP and integrations](https://gearlist.build/category/mcp-and-integrations.md): 46 entries. Web page: https://gearlist.build/category/mcp-and-integrations/
 - [Security and governance](https://gearlist.build/category/security-and-governance.md): 12 entries. Web page: https://gearlist.build/category/security-and-governance/
 - [Platforms](https://gearlist.build/category/platforms.md): 65 entries. Web page: https://gearlist.build/category/platforms/

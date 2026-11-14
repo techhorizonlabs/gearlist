@@ -1613,6 +1613,34 @@
       "thl_project": false
     },
     {
+      "id": "plannotator",
+      "name": "Plannotator",
+      "category": "Agent tools",
+      "url": "https://plannotator.ai",
+      "description": "A local browser app where you annotate a coding agent's plans, Markdown or HTML and review code diffs, then send your comments back to the agent as structured feedback.",
+      "for_whom": "Developers who use Claude Code, Codex or another supported coding agent and want to mark up its plans and changes and send it feedback.",
+      "access_notes": "Install with curl -fsSL https://plannotator.ai/install.sh | bash (a PowerShell script on Windows), which downloads the binary from GitHub Releases and sets up hooks, skills and slash commands for each agent it finds. Read the script first, or pass --minimal for the binary only. Some agents, Claude Code among them, also need a plugin step. Plans, annotations and settings stay local by default and the README says there is no usage telemetry, but each review page checks GitHub for a newer release when it loads, and this cannot be turned off yet. Local code review can query your Git remote (--no-git-remote-check stops it), and annotating a URL fetches the page through Jina Reader by default (PLANNOTATOR_JINA=0 stops it). Ask AI and review agents send your question and the relevant plan, document or diff to the AI provider you configure. Small Markdown share links hold the content compressed in the link without encryption, so anyone or any service with the full link can read it. Larger shares are encrypted before upload, and anyone with the full link can decrypt them. PLANNOTATOR_SHARE=disabled turns sharing off, and open-source link sharing is moving to deprecated support. Workspaces, the hosted team product, is a separate service outside the local storage model. In remote or SSH mode the server listens on every network interface with no login, so keep its port closed to networks you do not trust. An agent can still misread or ignore feedback, so check what it does next. Apache-2.0 or MIT, at your option.",
+      "source_url": "https://github.com/backnotprop/plannotator",
+      "source_checked": "2026-11-14",
+      "added": "2026-11-14",
+      "verification": "Official documentation and licence reviewed for release v0.28.64, published 13 November 2026; not installed or independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "zellij",
+      "name": "Zellij",
+      "category": "Agent tools",
+      "url": "https://zellij.dev",
+      "description": "A terminal workspace that arranges programs in panes and tabs, with floating panes, layouts, sessions, multiplayer collaboration, WebAssembly plugins and a built-in web client. Programs like it are sometimes called terminal multiplexers.",
+      "for_whom": "Developers and operations staff who keep several terminal programs, coding agents among them, running in one workspace.",
+      "access_notes": "Install from your operating system's package manager, a prebuilt binary from GitHub Releases, or cargo install --locked zellij. The command to try it without installing runs a script downloaded from zellij.dev with bash; read the script first. Version 0.46.0 adds a desktop terminal, started with zellij terminal, for Linux, macOS and Windows; the Linux musl builds leave it out. The web server stays off until you start it, serves sessions from the same Zellij version on the same machine, and listens on 127.0.0.1:8082 by default. Signing in needs a token, which is shown only once. A read-only token lets someone watch a session without changing it. HTTPS is required before you share sessions beyond the local machine. Zellij does not sandbox agents or other programs in its panes. Zellij.online is a separate paid hosted sharing service in beta, run by the maintainers; self-hosting does not need it. MIT.",
+      "source_url": "https://github.com/zellij-org/zellij",
+      "source_checked": "2026-11-14",
+      "added": "2026-11-14",
+      "verification": "Official documentation and licence reviewed for release v0.46.0, published 11 November 2026; not installed or independently tested",
+      "thl_project": false
+    },
+    {
       "id": "buzz",
       "name": "Buzz",
       "category": "Platforms",
