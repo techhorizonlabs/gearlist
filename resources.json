@@ -1613,20 +1613,6 @@
       "thl_project": false
     },
     {
-      "id": "mimik",
-      "name": "Mimik",
-      "category": "Agent tools",
-      "url": "https://mimik.westpoint.io",
-      "description": "A step-by-step guide recorder for the browser and desktop that turns a workflow into an editable guide with annotated screenshots, and exports it as PDF, DOCX, HTML, Markdown, GIF, MP4 or a .mimik file that imports back into Mimik.",
-      "for_whom": "People who write how-to guides, onboarding steps or walkthroughs and want them captured while they do the task.",
-      "access_notes": "Install the extension from the Chrome Web Store, Firefox Add-ons or Microsoft Edge Add-ons. It asks for access to all sites so it can record on any page. The desktop app is for Windows 10 and later, with a Linux beta for x86_64 that needs an X11 session and cannot record on Wayland. The desktop app checks for updates a minute after launch and every four hours. No account. Guides and screenshots are stored on your device. Each guide's icon is fetched from Google's favicon service, which sends the recorded site's domain to Google; this is on by default and the privacy policy says there is no setting to turn it off yet. AI descriptions, voice narration and video voice-over are off until you turn them on with your own provider key, and the provider may charge for their use. When on, AI features send page context to that provider, including text typed into ordinary form fields; narration sends your audio, and voice-over sends each step's text. Smart blur works only after you switch it on during a recording, and it misses iframes, shadow DOM, and text inside images or drawn on a canvas, so check every exported screenshot yourself before you share it. MIT.",
-      "source_url": "https://github.com/westpoint-io/mimik",
-      "source_checked": "2026-11-14",
-      "added": "2026-11-14",
-      "verification": "Official documentation, privacy policy and licence reviewed for extension v1.6.0 and desktop app v1.2.0, both released 5 November 2026; not installed or independently tested",
-      "thl_project": false
-    },
-    {
       "id": "plannotator",
       "name": "Plannotator",
       "category": "Agent tools",

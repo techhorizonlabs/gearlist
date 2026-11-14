@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 376 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 375 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -78,7 +78,7 @@ npx skills add techhorizonlabs/thl-open
 
 ## Contents
 
-- [Agent tools](#agent-tools) (105)
+- [Agent tools](#agent-tools) (104)
 - [MCP and integrations](#mcp-and-integrations) (46)
 - [Security and governance](#security-and-governance) (12)
 - [Platforms](#platforms) (65)
@@ -531,16 +531,6 @@ A CLI, local web app and MCP server that collects a company's public marketing e
 **Access and use:** npx reverse-engineer-marketing followed by a domain. Website, pixel, sitemap, Wayback, app store and Hacker News checks need no key. Ad libraries, social stats, founders and Reddit need a paid Scrape Creators key; the README puts a run at about 25 to 50 credits. The written report uses an Anthropic API key or your installed Claude Code or Codex CLI. The tool checks that the CLI is installed and does not check which account or billing it uses. Those CLI writers run with most of your environment variables, so start it from a shell that holds no other secrets. The web app runs on localhost:4321. The built-in report validation checks citation IDs and headings and does not check that the evidence supports a claim, and a source that failed to collect can show as none. Treat long-running ads and installed pixels as leads to investigate. MIT.
 
 **Source checked:** 2026-11-14. [Official source](https://github.com/dansugc/reverse-engineer-marketing). [Gearlist page](https://gearlist.build/tools/reverse-engineer-marketing/).
-
-### [Mimik](https://mimik.westpoint.io)
-
-A step-by-step guide recorder for the browser and desktop that turns a workflow into an editable guide with annotated screenshots, and exports it as PDF, DOCX, HTML, Markdown, GIF, MP4 or a .mimik file that imports back into Mimik.
-
-**For:** People who write how-to guides, onboarding steps or walkthroughs and want them captured while they do the task.
-
-**Access and use:** Install the extension from the Chrome Web Store, Firefox Add-ons or Microsoft Edge Add-ons. It asks for access to all sites so it can record on any page. The desktop app is for Windows 10 and later, with a Linux beta for x86_64 that needs an X11 session and cannot record on Wayland. The desktop app checks for updates a minute after launch and every four hours. No account. Guides and screenshots are stored on your device. Each guide's icon is fetched from Google's favicon service, which sends the recorded site's domain to Google; this is on by default and the privacy policy says there is no setting to turn it off yet. AI descriptions, voice narration and video voice-over are off until you turn them on with your own provider key, and the provider may charge for their use. When on, AI features send page context to that provider, including text typed into ordinary form fields; narration sends your audio, and voice-over sends each step's text. Smart blur works only after you switch it on during a recording, and it misses iframes, shadow DOM, and text inside images or drawn on a canvas, so check every exported screenshot yourself before you share it. MIT.
-
-**Source checked:** 2026-11-14. [Official source](https://github.com/westpoint-io/mimik). [Gearlist page](https://gearlist.build/tools/mimik/).
 
 ### [Plannotator](https://plannotator.ai)
 
