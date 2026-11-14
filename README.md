@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 373 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 376 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -78,7 +78,7 @@ npx skills add techhorizonlabs/thl-open
 
 ## Contents
 
-- [Agent tools](#agent-tools) (102)
+- [Agent tools](#agent-tools) (105)
 - [MCP and integrations](#mcp-and-integrations) (46)
 - [Security and governance](#security-and-governance) (12)
 - [Platforms](#platforms) (65)
@@ -531,6 +531,36 @@ A CLI, local web app and MCP server that collects a company's public marketing e
 **Access and use:** npx reverse-engineer-marketing followed by a domain. Website, pixel, sitemap, Wayback, app store and Hacker News checks need no key. Ad libraries, social stats, founders and Reddit need a paid Scrape Creators key; the README puts a run at about 25 to 50 credits. The written report uses an Anthropic API key or your installed Claude Code or Codex CLI. The tool checks that the CLI is installed and does not check which account or billing it uses. Those CLI writers run with most of your environment variables, so start it from a shell that holds no other secrets. The web app runs on localhost:4321. The built-in report validation checks citation IDs and headings and does not check that the evidence supports a claim, and a source that failed to collect can show as none. Treat long-running ads and installed pixels as leads to investigate. MIT.
 
 **Source checked:** 2026-11-14. [Official source](https://github.com/dansugc/reverse-engineer-marketing). [Gearlist page](https://gearlist.build/tools/reverse-engineer-marketing/).
+
+### [Mimik](https://mimik.westpoint.io)
+
+A step-by-step guide recorder for the browser and desktop that turns a workflow into an editable guide with annotated screenshots, and exports it as PDF, DOCX, HTML, Markdown, GIF, MP4 or a .mimik file that imports back into Mimik.
+
+**For:** People who write how-to guides, onboarding steps or walkthroughs and want them captured while they do the task.
+
+**Access and use:** Install the extension from the Chrome Web Store, Firefox Add-ons or Microsoft Edge Add-ons. It asks for access to all sites so it can record on any page. The desktop app is for Windows 10 and later, with a Linux beta for x86_64 that needs an X11 session and cannot record on Wayland. The desktop app checks for updates a minute after launch and every four hours. No account. Guides and screenshots are stored on your device. Each guide's icon is fetched from Google's favicon service, which sends the recorded site's domain to Google; this is on by default and the privacy policy says there is no setting to turn it off yet. AI descriptions, voice narration and video voice-over are off until you turn them on with your own provider key, and the provider may charge for their use. When on, AI features send page context to that provider, including text typed into ordinary form fields; narration sends your audio, and voice-over sends each step's text. Smart blur works only after you switch it on during a recording, and it misses iframes, shadow DOM, and text inside images or drawn on a canvas, so check every exported screenshot yourself before you share it. MIT.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/westpoint-io/mimik). [Gearlist page](https://gearlist.build/tools/mimik/).
+
+### [Plannotator](https://plannotator.ai)
+
+A local browser app where you annotate a coding agent's plans, Markdown or HTML and review code diffs, then send your comments back to the agent as structured feedback.
+
+**For:** Developers who use Claude Code, Codex or another supported coding agent and want to mark up its plans and changes and send it feedback.
+
+**Access and use:** Install with curl -fsSL https://plannotator.ai/install.sh | bash (a PowerShell script on Windows), which downloads the binary from GitHub Releases and sets up hooks, skills and slash commands for each agent it finds. Read the script first, or pass --minimal for the binary only. Some agents, Claude Code among them, also need a plugin step. Plans, annotations and settings stay local by default and the README says there is no usage telemetry, but each review page checks GitHub for a newer release when it loads, and this cannot be turned off yet. Local code review can query your Git remote (--no-git-remote-check stops it), and annotating a URL fetches the page through Jina Reader by default (PLANNOTATOR_JINA=0 stops it). Ask AI and review agents send your question and the relevant plan, document or diff to the AI provider you configure. Small Markdown share links hold the content compressed in the link without encryption, so anyone or any service with the full link can read it. Larger shares are encrypted before upload, and anyone with the full link can decrypt them. PLANNOTATOR_SHARE=disabled turns sharing off, and open-source link sharing is moving to deprecated support. Workspaces, the hosted team product, is a separate service outside the local storage model. In remote or SSH mode the server listens on every network interface with no login, so keep its port closed to networks you do not trust. An agent can still misread or ignore feedback, so check what it does next. Apache-2.0 or MIT, at your option.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/backnotprop/plannotator). [Gearlist page](https://gearlist.build/tools/plannotator/).
+
+### [Zellij](https://zellij.dev)
+
+A terminal workspace that arranges programs in panes and tabs, with floating panes, layouts, sessions, multiplayer collaboration, WebAssembly plugins and a built-in web client. Programs like it are sometimes called terminal multiplexers.
+
+**For:** Developers and operations staff who keep several terminal programs, coding agents among them, running in one workspace.
+
+**Access and use:** Install from your operating system's package manager, a prebuilt binary from GitHub Releases, or cargo install --locked zellij. The command to try it without installing runs a script downloaded from zellij.dev with bash; read the script first. Version 0.46.0 adds a desktop terminal, started with zellij terminal, for Linux, macOS and Windows; the Linux musl builds leave it out. The web server stays off until you start it, serves sessions from the same Zellij version on the same machine, and listens on 127.0.0.1:8082 by default. Signing in needs a token, which is shown only once. A read-only token lets someone watch a session without changing it. HTTPS is required before you share sessions beyond the local machine. Zellij does not sandbox agents or other programs in its panes. Zellij.online is a separate paid hosted sharing service in beta, run by the maintainers; self-hosting does not need it. MIT.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/zellij-org/zellij). [Gearlist page](https://gearlist.build/tools/zellij/).
 
 ### [vphone-cli](https://github.com/Lakr233/vphone-cli)
 
