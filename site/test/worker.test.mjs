@@ -13,6 +13,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 import worker, { prefersMarkdown } from "../worker/index.mjs";
+import * as workerModule from "../worker/index.mjs";
 import {
   EARLIEST_ADDED, NOTICE, buildCatalog, parseSearchArgs, parseStackArgs, searchPayload, stackPayload,
 } from "../worker/catalog.mjs";
@@ -988,6 +989,36 @@ describe("Search API, OpenAPI and discovery", () => {
     assert.equal(card.version, discover._meta["io.modelcontextprotocol/serverInfo"].version);
     const again = await call("/mcp/server-card", { headers: { "If-None-Match": res.headers.get("ETag") } });
     assert.equal(again.status, 304);
+  });
+
+  test("the same server card is served at /.well-known/mcp/server-card.json, where readiness checkers look", async () => {
+    const canonical = await call("/mcp/server-card");
+    const alias = await call("/.well-known/mcp/server-card.json");
+    assert.equal(alias.status, 200);
+    for (const name of ["Content-Type", "Access-Control-Allow-Origin", "Cache-Control", "ETag"]) {
+      assert.equal(alias.headers.get(name), canonical.headers.get(name), name);
+    }
+    assert.equal(await alias.text(), await canonical.text());
+    const again = await call("/.well-known/mcp/server-card.json", { headers: { "If-None-Match": alias.headers.get("ETag") } });
+    assert.equal(again.status, 304);
+    assert.equal((await call("/.well-known/mcp/server-card.json", { method: "POST" })).status, 405);
+    assert.equal((await call("/.well-known/mcp/server-card.json", { method: "OPTIONS" })).status, 204);
+  });
+
+  test("the Worker module exports only functions besides its handler, as workerd requires", () => {
+    // workerd refuses to start a main module whose named exports are not functions or handlers.
+    for (const [name, value] of Object.entries(workerModule)) {
+      if (name !== "default") assert.equal(typeof value, "function", `export ${name}`);
+    }
+  });
+
+  test("wrangler.jsonc sends every Worker route to the Worker first", async () => {
+    const text = await readFile(path.join(SITE, "wrangler.jsonc"), "utf8");
+    const config = JSON.parse(text.split("\n").filter((line) => !/^\s*\/\//.test(line)).join("\n"));
+    const first = config.assets.run_worker_first;
+    for (const p of ["/", "/mcp", "/mcp/*", "/api/*", "/openapi.json", "/.well-known/mcp/server-card.json"]) {
+      assert.ok(first.includes(p), `${p} reaches the Worker`);
+    }
   });
 
   test("the skills index digests match the files it points to", async () => {

@@ -505,6 +505,14 @@ h1 {
 .guide a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .guide-sources { color: var(--muted); font-size: .8125rem; }
 
+/* The About page (/about/). */
+.about { margin: 1.5rem 0 2.25rem; max-width: 74ch; }
+.about h2 { margin: 0 0 .5rem; }
+.about p, .about ol { margin: 0 0 .6rem; line-height: 1.55; }
+.about ol { padding-left: 1.5rem; }
+.about li + li { margin-top: .25rem; }
+.about a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
 /* Build pages (builds.json). Their tables reuse the comparison table and its scrolling frame. */
 .compare-table .num { white-space: nowrap; font-family: var(--mono); color: var(--cream); }
 .compare-table small { display: block; margin-top: .2rem; color: var(--muted); font: 400 .75rem/1.4 var(--sans); white-space: normal; }
