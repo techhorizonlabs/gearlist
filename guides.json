@@ -114,14 +114,15 @@
           "heading": "OpenClaw installs, and the agents that came after",
           "paragraphs": [
             "Five providers on this list advertise a one-click [[openclaw]] install, so their entries say so. A lot of agent work has since moved to coding agents that added the same long-running features. Claude Code and OpenAI's Codex both run in a Linux terminal, and both can run a job with nobody at the keyboard. Hermes Agent, from Nous Research, is MIT licensed and its makers say it runs on a US$5 server. The Models group sets out what each provider's subscription allows.",
-            "A workspace such as [[raft]] is built around those agents. Raft's documentation lists Claude Code and Codex among the runtimes its agents use, and its Computer service runs on macOS, Linux and Windows, so one server can host several agents that message each other and share tasks. We run our own agents this way at Tech Horizon Labs. Any server here that gives you a Linux machine can host this kind of set-up, so compare memory and price in the entries below before you choose."
+            "A workspace such as [[raft]] is built around those agents. Raft's documentation lists Claude Code and Codex among the runtimes its agents use, and its Computer service runs on macOS, Linux and Windows, so one server can host several agents that message each other and share tasks. Raft also connects Hermes Agent as an external agent. We run our own agents this way at Tech Horizon Labs. Any server here that gives you a Linux machine can host this kind of set-up, so compare memory and price in the entries below before you choose."
           ],
           "sources": [
             "https://code.claude.com/docs/en/overview",
             "https://learn.chatgpt.com/docs/codex/cli",
             "https://github.com/NousResearch/hermes-agent",
             "https://docs.raft.build/features/agents",
-            "https://docs.raft.build/features/server/computers"
+            "https://docs.raft.build/features/server/computers",
+            "https://docs.raft.build/features/agents/external"
           ]
         }
       ]
