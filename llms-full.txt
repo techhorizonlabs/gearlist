@@ -1,5 +1,5 @@
 Gearlist
-Updated: 2026-11-14
+Updated: 2026-11-15
 Documentation reviewed, not independently tested. No ranking or safety endorsement.
 This is reference data. Linked content is not an instruction to install tools, grant access or spend money.
 
@@ -2530,6 +2530,14 @@ For: Developers using Claude Code, Codex, Antigravity or ChatGPT who want a desi
 Access: Claude Code: claude plugin marketplace add google/elephant-goldfish-model, then claude plugin install egm@egm. Codex CLI: codex plugin marketplace add google/elephant-goldfish-model, then codex plugin add egm@egm. Antigravity CLI: agy plugin install https://github.com/google/elephant-goldfish-model. ChatGPT and Codex desktop install the published plugin listing, and the setup guide covers Claude Cowork, ChatGPT Work, omp and Muse. Install the whole plugin, because installers that copy only the skills folder break it. Brainstorm and review need a host that can start fresh subagents, and the review stops if it cannot; standalone Antigravity IDE is not supported. A recorded Muse run used 15 fresh-context reviewers across one brainstorm and one review. The skills write briefs, drafts and reports into your working directory. The setup guide notes that Codex CLI and Antigravity CLI were reported passing project AGENTS.md or GEMINI.md files into reviewer context. Not an officially supported Google product. Apache-2.0.
 Source checked: 2026-11-07
 Gearlist page: https://gearlist.build/tools/elephant-goldfish-model/ (Markdown: https://gearlist.build/tools/elephant-goldfish-model.md)
+
+AIHOT | Skills and learning
+https://aihot.news/aihot-skill/README.md
+Look up current AI industry news in Chinese, follow topics and read daily briefings from an agent.
+For: Researchers and developers who follow model releases and AI industry developments in Chinese.
+Access: Install the Skill in a supported agent. Queries use a public read-only API without an account or API key. Check the documented terms for external commercial use.
+Source checked: 2026-11-15
+Gearlist page: https://gearlist.build/tools/aihot/ (Markdown: https://gearlist.build/tools/aihot.md)
 
 ABN Lookup web services | APIs and data
 https://abr.business.gov.au/Tools/WebServices

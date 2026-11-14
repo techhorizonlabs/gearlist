@@ -18,7 +18,7 @@ Every entry has a page at https://gearlist.build/tools/<id>/ with a Markdown cop
 - [Security and governance](https://gearlist.build/category/security-and-governance.md): 16 entries. Web page: https://gearlist.build/category/security-and-governance/
 - [Platforms](https://gearlist.build/category/platforms.md): 67 entries. Web page: https://gearlist.build/category/platforms/
 - [Protocols](https://gearlist.build/category/protocols.md): 9 entries. Web page: https://gearlist.build/category/protocols/
-- [Skills and learning](https://gearlist.build/category/skills-and-learning.md): 67 entries. Web page: https://gearlist.build/category/skills-and-learning/
+- [Skills and learning](https://gearlist.build/category/skills-and-learning.md): 68 entries. Web page: https://gearlist.build/category/skills-and-learning/
 - [APIs and data](https://gearlist.build/category/apis-and-data.md): 38 entries. Web page: https://gearlist.build/category/apis-and-data/
 - [Hardware](https://gearlist.build/category/hardware.md): 12 entries. Web page: https://gearlist.build/category/hardware/
 - [Models](https://gearlist.build/category/models.md): 14 entries. Web page: https://gearlist.build/category/models/
