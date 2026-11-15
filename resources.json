@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "resources": [
     {
       "id": "agent-deck",
@@ -2333,9 +2333,9 @@
       "url": "https://chums.club",
       "description": "Watch and iPhone apps that talk to Claude Code and Codex sessions running on your Mac, with a local hub.",
       "for_whom": "People who want Claude Code or Codex on an Apple silicon Mac to take voice and approvals from an Apple Watch and iPhone.",
-      "access_notes": "git clone https://github.com/lcoutodemos/chums then bin/chums-setup, bin/chums-hub, bin/chums-tunnel, bin/chums-install and bin/chums-agents install. Needs macOS 15.6, watchOS 26, iOS 26, Xcode 26, Node.js 20.11, Tailscale Funnel and Claude Code or Codex. The hub listens on 127.0.0.1:7717 and 127.0.0.1:7718. Funnel publishes the watch API at a public https://chums-hub.<tailnet>.ts.net URL; treat the watch token in ~/.chums/config.json as a secret, keep the file mode 0600, and do not share a built app. Funnel hostnames appear in certificate transparency logs. Default agents can use the home folder. Optional openai TTS in config sends reply text to OpenAI. Apache-2.0.",
+      "access_notes": "git clone https://github.com/lcoutodemos/chums then bin/chums-setup, bin/chums-hub, bin/chums-tunnel, bin/chums-install and bin/chums-agents install. Needs macOS 15.6, watchOS 26, iOS 26, Xcode 26, Node.js 20.11, Tailscale Funnel and Claude Code or Codex. The hub listens on 127.0.0.1:7717 and 127.0.0.1:7718. Funnel publishes the watch API at a public https://chums-hub.<tailnet>.ts.net URL, protected by one token built into the apps. The project's SECURITY.md says anyone who holds that token can send instructions to your agents, answer their permission requests and change their permission mode. Treat the watch token in ~/.chums/config.json as a secret, keep the file mode 0600, and do not share a built app. Funnel hostnames appear in certificate transparency logs. Every default agent is given your home folder, so narrow the folders in ~/.chums/agents.json before you use it. Keyring mode is on by default, and its setup steps turn off Wrist Detection so the watch does not lock off the wrist. Optional openai TTS in config sends reply text to OpenAI. Apache-2.0.",
       "source_url": "https://github.com/lcoutodemos/chums",
-      "source_checked": "2026-10-28",
+      "source_checked": "2026-11-14",
       "added": "2026-10-30",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
@@ -6320,6 +6320,21 @@
       "source_checked": "2026-11-15",
       "added": "2026-11-15",
       "verification": "Official repository pages reviewed; not installed or run",
+      "thl_project": false
+    }
+,
+    {
+      "id": "modern-web-guidance",
+      "name": "Modern Web Guidance",
+      "category": "Skills and learning",
+      "url": "https://developer.chrome.com/docs/modern-web-guidance",
+      "description": "A set of agent skills from the Chrome team that gives coding agents current web platform guidance, best practices and browser compatibility data, covering areas such as CSS, forms, performance, accessibility and passkeys.",
+      "for_whom": "Developers who build web front ends with a coding agent such as Claude Code, Codex, Copilot CLI or Gemini CLI.",
+      "access_notes": "Install with npx modern-web-guidance@latest install, or add it as a plugin. In Claude Code that is claude plugin marketplace add GoogleChrome/modern-web-guidance, then claude plugin install modern-web-guidance@googlechrome. It needs Node.js 22 or later and no API key. The skill has the agent run the modern-web-guidance CLI through npx to search for a guide and retrieve it, and fetching the package needs outbound network access. Google collects anonymous usage information by default, including the calling agent name, guide IDs and the search queries the agent writes. Set DISABLE_TELEMETRY=1 to opt out. If you set no Baseline target in AGENTS.md or CLAUDE.md, it defaults to Baseline Widely available. Guide content is CC-BY-4.0 and the code is Apache-2.0.",
+      "source_url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "source_checked": "2026-11-14",
+      "added": "2026-11-14",
+      "verification": "Official documentation and source reviewed; not installed or independently tested",
       "thl_project": false
     }
   ]
