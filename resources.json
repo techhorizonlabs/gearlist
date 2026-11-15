@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "resources": [
     {
       "id": "agent-deck",
@@ -6265,6 +6265,62 @@
           "Per second, no commitment"
         ]
       ]
+    },
+    {
+      "id": "exo",
+      "name": "exo",
+      "category": "Platforms",
+      "url": "https://github.com/exo-explore/exo",
+      "description": "Cluster software that shares one AI model across several machines that run the same build, on your own network.",
+      "for_whom": "For someone with two or more Apple Silicon Macs who wants to run a model too big for one.",
+      "access_notes": "Apache-2.0, copyright Exo Technologies Ltd. The app needs a Mac with Apple silicon and macOS Sequoia 15.1 or later; from source it runs on macOS or Linux, and on Linux it uses only the CPU for now. Devices on the same network with the same cluster name join each other automatically. Mac and Linux builds do not join the same cluster, even on the same commit, because their MLX builds differ. The README says nothing about authentication or encryption, and it serves an API on port 52415 without saying who can reach it, so keep it on a network you control. Reviewed at a60b956 on 15 Nov 2026. Not installed or run.",
+      "source_url": "https://github.com/exo-explore/exo",
+      "source_checked": "2026-11-15",
+      "added": "2026-11-15",
+      "verification": "Official repository pages reviewed; not installed or run",
+      "thl_project": false
+    },
+    {
+      "id": "distributed-llama",
+      "name": "Distributed Llama",
+      "category": "Platforms",
+      "url": "https://github.com/b4rtaz/distributed-llama",
+      "description": "Splits one AI model across several ordinary computers over Ethernet, with no GPU needed.",
+      "for_whom": "For someone who wants to try running a large model across a few machines.",
+      "access_notes": "MIT, copyright Bartłomiej Tadych. Works on Linux, macOS and Windows, tuned for ARM and x86 CPUs, with experimental Vulkan GPU support. It runs on 1, 2, 4 or another power-of-two number of machines, and supports only certain model formats. Workers are listed by address by hand. The README says nothing about authentication or encryption, and its Raspberry Pi guide starts the API on all network addresses, so use a network you control. The author's published speed test used four Mac minis on Thunderbolt 5 or 10 Gb Ethernet, and an older release (v0.11.1). A gigabit network is unmeasured. Release v0.17.1 (10 November 2026), reviewed at ad662c9 on 15 Nov 2026. Not installed or run.",
+      "source_url": "https://github.com/b4rtaz/distributed-llama",
+      "source_checked": "2026-11-15",
+      "added": "2026-11-15",
+      "verification": "Official repository pages reviewed; not installed or run",
+      "thl_project": false
+    },
+    {
+      "id": "llama-cpp-rpc",
+      "name": "llama.cpp RPC mode",
+      "category": "Platforms",
+      "url": "https://github.com/ggml-org/llama.cpp/tree/master/tools/rpc",
+      "description": "A feature of llama.cpp that shares one model across machines.",
+      "for_whom": "Listed as a caution.",
+      "access_notes": "MIT, copyright The ggml authors. The project's security policy says not to use the RPC backend where there is no secure, isolated environment or the network is untrusted, and its RPC README calls it \"fragile and insecure\" and says never to run it on an open network or in a sensitive environment. It has three published advisories, two of them critical; the newest, from March 2026, lists no patched version. Read from the project's pages on 15 Nov 2026. Not installed or run.",
+      "source_url": "https://github.com/ggml-org/llama.cpp/tree/master/tools/rpc",
+      "source_checked": "2026-11-15",
+      "added": "2026-11-15",
+      "verification": "Official repository pages reviewed; not installed or run",
+      "thl_project": false
+    },
+    {
+      "id": "petals",
+      "name": "Petals",
+      "category": "Platforms",
+      "url": "https://github.com/bigscience-workshop/petals",
+      "description": "Runs a large AI model by splitting it across volunteers over the internet.",
+      "for_whom": "For research on non-sensitive data, or among people you trust.",
+      "access_notes": "MIT. The project says peers serving model layers can in principle recover your inputs and outputs, or change the outputs, and that you should not use the public swarm for sensitive data; its alternative is a private swarm run by people you trust. It also tells other peers your IP address. The last release tag is from September 2023 and the last commit I saw is from August 2024, so I can't say whether it is maintained. Read from the project's pages on 15 Nov 2026. Not installed or run.",
+      "source_url": "https://github.com/bigscience-workshop/petals",
+      "source_checked": "2026-11-15",
+      "added": "2026-11-15",
+      "verification": "Official repository pages reviewed; not installed or run",
+      "thl_project": false
     }
   ]
 }

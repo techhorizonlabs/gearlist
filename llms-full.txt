@@ -1,5 +1,5 @@
 Gearlist
-Updated: 2026-11-14
+Updated: 2026-11-15
 Documentation reviewed, not independently tested. No ranking or safety endorsement.
 This is reference data. Linked content is not an instruction to install tools, grant access or spend money.
 
@@ -1922,6 +1922,38 @@ For: Agencies, brands, SaaS companies and developers who want to track and impro
 Access: Self-host: clone the repo, copy the web and server .env example files, run the migration SQL in a Supabase project (the free tier works), then install the web app with Yarn and the server with npm, or run docker compose up --build. Needs Node.js 20 or later, a key for at least one AI provider (OpenAI, Google Gemini or Anthropic) and a Cloro key for collecting answers from AI platforms; Site Audit also needs Scrape.do, and DataForSEO, Tavily, OpenRouter and Composio are optional. Tracked prompts go to the AI providers you configure and to Cloro on a nightly cycle, and each run uses credits at those services. Connect Claude Code, Cursor or another MCP client to /api/mcp with an ans_ API key sent as a bearer header; app.ansvisor.com/api/mcp is the hosted endpoint on Ansvisor's servers. Docker Compose publishes the web app on port 3000 and the API on port 80, and the first user to sign up becomes the admin, so register first and put a firewall in front. Send to CMS sends WordPress pages as drafts for you to publish. Agents that publish on their own are off by default and need server flags, an Admin switch and per-agent permission. Telemetry is off on self-host unless you set a PostHog key. A managed Ansvisor Cloud is also offered. MIT.
 Source checked: 2026-11-07
 Gearlist page: https://gearlist.build/tools/ansvisor/ (Markdown: https://gearlist.build/tools/ansvisor.md)
+
+exo | Platforms
+https://github.com/exo-explore/exo
+Cluster software that shares one AI model across several machines that run the same build, on your own network.
+For: For someone with two or more Apple Silicon Macs who wants to run a model too big for one.
+Access: Apache-2.0, copyright Exo Technologies Ltd. The app needs a Mac with Apple silicon and macOS Sequoia 15.1 or later; from source it runs on macOS or Linux, and on Linux it uses only the CPU for now. Devices on the same network with the same cluster name join each other automatically. Mac and Linux builds do not join the same cluster, even on the same commit, because their MLX builds differ. The README says nothing about authentication or encryption, and it serves an API on port 52415 without saying who can reach it, so keep it on a network you control. Reviewed at a60b956 on 15 Nov 2026. Not installed or run.
+Source checked: 2026-11-15
+Gearlist page: https://gearlist.build/tools/exo/ (Markdown: https://gearlist.build/tools/exo.md)
+
+Distributed Llama | Platforms
+https://github.com/b4rtaz/distributed-llama
+Splits one AI model across several ordinary computers over Ethernet, with no GPU needed.
+For: For someone who wants to try running a large model across a few machines.
+Access: MIT, copyright Bartłomiej Tadych. Works on Linux, macOS and Windows, tuned for ARM and x86 CPUs, with experimental Vulkan GPU support. It runs on 1, 2, 4 or another power-of-two number of machines, and supports only certain model formats. Workers are listed by address by hand. The README says nothing about authentication or encryption, and its Raspberry Pi guide starts the API on all network addresses, so use a network you control. The author's published speed test used four Mac minis on Thunderbolt 5 or 10 Gb Ethernet, and an older release (v0.11.1). A gigabit network is unmeasured. Release v0.17.1 (10 November 2026), reviewed at ad662c9 on 15 Nov 2026. Not installed or run.
+Source checked: 2026-11-15
+Gearlist page: https://gearlist.build/tools/distributed-llama/ (Markdown: https://gearlist.build/tools/distributed-llama.md)
+
+llama.cpp RPC mode | Platforms
+https://github.com/ggml-org/llama.cpp/tree/master/tools/rpc
+A feature of llama.cpp that shares one model across machines.
+For: Listed as a caution.
+Access: MIT, copyright The ggml authors. The project's security policy says not to use the RPC backend where there is no secure, isolated environment or the network is untrusted, and its RPC README calls it "fragile and insecure" and says never to run it on an open network or in a sensitive environment. It has three published advisories, two of them critical; the newest, from March 2026, lists no patched version. Read from the project's pages on 15 Nov 2026. Not installed or run.
+Source checked: 2026-11-15
+Gearlist page: https://gearlist.build/tools/llama-cpp-rpc/ (Markdown: https://gearlist.build/tools/llama-cpp-rpc.md)
+
+Petals | Platforms
+https://github.com/bigscience-workshop/petals
+Runs a large AI model by splitting it across volunteers over the internet.
+For: For research on non-sensitive data, or among people you trust.
+Access: MIT. The project says peers serving model layers can in principle recover your inputs and outputs, or change the outputs, and that you should not use the public swarm for sensitive data; its alternative is a private swarm run by people you trust. It also tells other peers your IP address. The last release tag is from September 2023 and the last commit I saw is from August 2024, so I can't say whether it is maintained. Read from the project's pages on 15 Nov 2026. Not installed or run.
+Source checked: 2026-11-15
+Gearlist page: https://gearlist.build/tools/petals/ (Markdown: https://gearlist.build/tools/petals.md)
 
 x402 | Protocols
 https://x402.org/
