@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 394 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 395 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -83,7 +83,7 @@ npx skills add techhorizonlabs/thl-open
 - [Security and governance](#security-and-governance) (16)
 - [Platforms](#platforms) (71)
 - [Protocols](#protocols) (9)
-- [Skills and learning](#skills-and-learning) (67)
+- [Skills and learning](#skills-and-learning) (68)
 - [APIs and data](#apis-and-data) (38)
 - [Hardware](#hardware) (12)
 - [Models](#models) (14)
@@ -788,9 +788,9 @@ Watch and iPhone apps that talk to Claude Code and Codex sessions running on you
 
 **For:** People who want Claude Code or Codex on an Apple silicon Mac to take voice and approvals from an Apple Watch and iPhone.
 
-**Access and use:** git clone https://github.com/lcoutodemos/chums then bin/chums-setup, bin/chums-hub, bin/chums-tunnel, bin/chums-install and bin/chums-agents install. Needs macOS 15.6, watchOS 26, iOS 26, Xcode 26, Node.js 20.11, Tailscale Funnel and Claude Code or Codex. The hub listens on 127.0.0.1:7717 and 127.0.0.1:7718. Funnel publishes the watch API at a public https://chums-hub.<tailnet>.ts.net URL; treat the watch token in ~/.chums/config.json as a secret, keep the file mode 0600, and do not share a built app. Funnel hostnames appear in certificate transparency logs. Default agents can use the home folder. Optional openai TTS in config sends reply text to OpenAI. Apache-2.0.
+**Access and use:** git clone https://github.com/lcoutodemos/chums then bin/chums-setup, bin/chums-hub, bin/chums-tunnel, bin/chums-install and bin/chums-agents install. Needs macOS 15.6, watchOS 26, iOS 26, Xcode 26, Node.js 20.11, Tailscale Funnel and Claude Code or Codex. The hub listens on 127.0.0.1:7717 and 127.0.0.1:7718. Funnel publishes the watch API at a public https://chums-hub.<tailnet>.ts.net URL, protected by one token built into the apps. The project's SECURITY.md says anyone who holds that token can send instructions to your agents, answer their permission requests and change their permission mode. Treat the watch token in ~/.chums/config.json as a secret, keep the file mode 0600, and do not share a built app. Funnel hostnames appear in certificate transparency logs. Every default agent is given your home folder, so narrow the folders in ~/.chums/agents.json before you use it. Keyring mode is on by default, and its setup steps turn off Wrist Detection so the watch does not lock off the wrist. Optional openai TTS in config sends reply text to OpenAI. Apache-2.0.
 
-**Source checked:** 2026-10-28. [Official source](https://github.com/lcoutodemos/chums). [Gearlist page](https://gearlist.build/tools/chums/).
+**Source checked:** 2026-11-14. [Official source](https://github.com/lcoutodemos/chums). [Gearlist page](https://gearlist.build/tools/chums/).
 
 ### [OpenBrowser](https://docs.openbrowser.me)
 
@@ -3301,6 +3301,16 @@ A plugin of agent skills from Google in which your coding agent drafts a softwar
 **Access and use:** Claude Code: claude plugin marketplace add google/elephant-goldfish-model, then claude plugin install egm@egm. Codex CLI: codex plugin marketplace add google/elephant-goldfish-model, then codex plugin add egm@egm. Antigravity CLI: agy plugin install https://github.com/google/elephant-goldfish-model. ChatGPT and Codex desktop install the published plugin listing, and the setup guide covers Claude Cowork, ChatGPT Work, omp and Muse. Install the whole plugin, because installers that copy only the skills folder break it. Brainstorm and review need a host that can start fresh subagents, and the review stops if it cannot; standalone Antigravity IDE is not supported. A recorded Muse run used 15 fresh-context reviewers across one brainstorm and one review. The skills write briefs, drafts and reports into your working directory. The setup guide notes that Codex CLI and Antigravity CLI were reported passing project AGENTS.md or GEMINI.md files into reviewer context. Not an officially supported Google product. Apache-2.0.
 
 **Source checked:** 2026-11-07. [Official source](https://github.com/google/elephant-goldfish-model). [Gearlist page](https://gearlist.build/tools/elephant-goldfish-model/).
+
+### [Modern Web Guidance](https://developer.chrome.com/docs/modern-web-guidance)
+
+A set of agent skills from the Chrome team that gives coding agents current web platform guidance, best practices and browser compatibility data, covering areas such as CSS, forms, performance, accessibility and passkeys.
+
+**For:** Developers who build web front ends with a coding agent such as Claude Code, Codex, Copilot CLI or Gemini CLI.
+
+**Access and use:** Install with npx modern-web-guidance@latest install, or add it as a plugin. In Claude Code that is claude plugin marketplace add GoogleChrome/modern-web-guidance, then claude plugin install modern-web-guidance@googlechrome. It needs Node.js 22 or later and no API key. The skill has the agent run the modern-web-guidance CLI through npx to search for a guide and retrieve it, and fetching the package needs outbound network access. Google collects anonymous usage information by default, including the calling agent name, guide IDs and the search queries the agent writes. Set DISABLE_TELEMETRY=1 to opt out. If you set no Baseline target in AGENTS.md or CLAUDE.md, it defaults to Baseline Widely available. Guide content is CC-BY-4.0 and the code is Apache-2.0.
+
+**Source checked:** 2026-11-14. [Official source](https://github.com/GoogleChrome/modern-web-guidance-src). [Gearlist page](https://gearlist.build/tools/modern-web-guidance/).
 
 ## APIs and data
 
