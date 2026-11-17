@@ -6321,6 +6321,20 @@
       "added": "2026-11-15",
       "verification": "Official repository pages reviewed; not installed or run",
       "thl_project": false
+    },
+    {
+      "id": "agentseo",
+      "name": "AgentSEO",
+      "category": "MCP and integrations",
+      "url": "https://www.agentseo.dev/seo-mcp-server",
+      "description": "Hosted SEO and AEO data API for live SERP, keyword research, rank tracking, competitor analysis and AI search visibility. Use REST or its hosted MCP server. Hobby includes 100 one-time credits; paid plans start at $9/month.",
+      "for_whom": "Developers and AI agents that need SEO data and workflows through REST or MCP.",
+      "access_notes": "The AgentSEO Clients repository is MIT licensed; the hosted API and MCP service are proprietary. Tool execution requires an API key in the x-api-key header; calls consume credits. Hobby includes 100 credits once.",
+      "source_url": "https://www.agentseo.dev/seo-mcp-server",
+      "source_checked": "2026-11-17",
+      "added": "2026-11-17",
+      "verification": "Official product documentation and pricing reviewed on 2026-11-17; not installed, tested or security audited.",
+      "thl_project": false
     }
   ]
 }
