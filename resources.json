@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-15",
+  "updated": "2026-11-27",
   "resources": [
     {
       "id": "agent-deck",
@@ -685,6 +685,21 @@
       "source_url": "https://github.com/OyadotAI/oya-browser",
       "source_checked": "2026-10-28",
       "added": "2026-10-30",
+      "verification": "Official documentation reviewed; not independently tested",
+      "thl_project": false
+    },
+    {
+      "id": "cloudbrowser",
+      "name": "Cloudbrowser",
+      "category": "Agent tools",
+      "url": "https://cloudbrowser.tv/virtual-browser",
+      "description": "Hosted Chrome desktops with saved profiles, a live view for manual checks, and CDP (Chrome DevTools Protocol) access for browser automation.",
+      "for_whom": "Developers and QA teams who need to reopen the same Chrome profile for repeat checks or hand a running browser to a CDP client.",
+      "access_notes": "Starting a browser needs an account with a verified email. The free allowance is one browser-hour per UTC calendar month. A CDP link grants full control of that browser and access to any signed-in tabs and stored browser data.",
+      "licence": "Proprietary hosted service",
+      "source_url": "https://cloudbrowser.tv/virtual-browser",
+      "source_checked": "2026-11-27",
+      "added": "2026-11-27",
       "verification": "Official documentation reviewed; not independently tested",
       "thl_project": false
     },

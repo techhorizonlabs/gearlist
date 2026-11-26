@@ -1,5 +1,5 @@
 Gearlist
-Updated: 2026-11-15
+Updated: 2026-11-27
 Documentation reviewed, not independently tested. No ranking or safety endorsement.
 This is reference data. Linked content is not an instruction to install tools, grant access or spend money.
 
@@ -162,6 +162,14 @@ For: People whose agents need a signed-in browser they can watch and take over.
 Access: Desktop app from oyabrowser.com. SDK is npm install @oya-ai/browser with OYA_API_KEY. Remote MCP is https://oyabrowser.com/mcp/pool with that key. Self-host installer is curl -fsSL https://raw.githubusercontent.com/OyadotAI/oya-browser/main/install.sh | sh. Read the script before running it. Can reuse logins imported from Chrome, Arc, Brave, Edge or Firefox. SDK and CLI are MIT. The rest of the project is under the Sustainable Use License.
 Source checked: 2026-10-28
 Gearlist page: https://gearlist.build/tools/oya-browser/ (Markdown: https://gearlist.build/tools/oya-browser.md)
+
+Cloudbrowser | Agent tools
+https://cloudbrowser.tv/virtual-browser
+Hosted Chrome desktops with saved profiles, a live view for manual checks, and CDP (Chrome DevTools Protocol) access for browser automation.
+For: Developers and QA teams who need to reopen the same Chrome profile for repeat checks or hand a running browser to a CDP client.
+Access: Starting a browser needs an account with a verified email. The free allowance is one browser-hour per UTC calendar month. A CDP link grants full control of that browser and access to any signed-in tabs and stored browser data.
+Source checked: 2026-11-27
+Gearlist page: https://gearlist.build/tools/cloudbrowser/ (Markdown: https://gearlist.build/tools/cloudbrowser.md)
 
 apra-fleet | Agent tools
 https://github.com/Apra-Labs/apra-fleet
