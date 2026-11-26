@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 394 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 395 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -78,7 +78,7 @@ npx skills add techhorizonlabs/thl-open
 
 ## Contents
 
-- [Agent tools](#agent-tools) (109)
+- [Agent tools](#agent-tools) (110)
 - [MCP and integrations](#mcp-and-integrations) (48)
 - [Security and governance](#security-and-governance) (16)
 - [Platforms](#platforms) (71)
@@ -1181,6 +1181,16 @@ A family of Microsoft computer use agent models in 4B, 9B and 27B sizes that rea
 **Access and use:** Clone the repository, create a Python virtual environment, then run pip install -e . and playwright install (use pip install -e .[vllm] to self-host). The easiest path is to deploy a model on Microsoft Foundry and point fara-cli at its endpoint URL and API key, with no GPU or model download; otherwise download the weights from Hugging Face and serve them with vLLM on your own GPUs, with a context length of at least 15000 tokens. On Windows, Microsoft recommends WSL2. Each step gives the model a screenshot of the browser and the conversation history, so those go to whichever endpoint hosts it, and runs save per-step screenshots and a data_point.json to the output folder. Microsoft calls it a research preview and recommends running it in a sandbox, monitoring it, and avoiding sensitive data and high-risk sites; Magentic-UI adds a sandboxed browser with action logs and prompts at critical points. MIT for the code and the model weights.
 
 **Source checked:** 2026-11-07. [Official source](https://github.com/microsoft/fara). [Gearlist page](https://gearlist.build/tools/fara/).
+
+### [Skillup](https://github.com/M1chlCZ/skill-updater)
+
+A Go terminal dashboard that inventories installed agent skills and checks their recorded sources for updates.
+
+**For:** People who share skills between Codex and Claude Code or install them from Git.
+
+**Access and use:** Install the tagged release with Go 1.25 or later and keep Git on your PATH. Skillup reads local skill folders and installer metadata and queries Git remotes. The check mode previews updates. Applying updates writes to eligible local installations. Public sources require no account or model API key. MIT.
+
+**Source checked:** 2026-11-26. [Official source](https://github.com/M1chlCZ/skill-updater). [Gearlist page](https://gearlist.build/tools/skillup/).
 
 ## MCP and integrations
 
