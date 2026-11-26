@@ -4,7 +4,7 @@
 
 A source-checked stack of AI agent tools, MCP servers and skills. Each entry says what it is, who it is for, and the access it needs, so a person can scan it and an agent can load it.
 
-By Tech Horizon Labs. This edition contains 394 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
+By Tech Horizon Labs. This edition contains 395 entries. Documentation checked means the source was read. It does not mean the software was installed, tested or security audited. Entries are grouped by purpose, in no particular order.
 
 ## How to use this
 
@@ -78,7 +78,7 @@ npx skills add techhorizonlabs/thl-open
 
 ## Contents
 
-- [Agent tools](#agent-tools) (109)
+- [Agent tools](#agent-tools) (110)
 - [MCP and integrations](#mcp-and-integrations) (48)
 - [Security and governance](#security-and-governance) (16)
 - [Platforms](#platforms) (71)
@@ -291,6 +291,16 @@ A browser people and agents share: desktop app, Node SDK, remote MCP, and option
 **Access and use:** Desktop app from oyabrowser.com. SDK is npm install @oya-ai/browser with OYA_API_KEY. Remote MCP is https://oyabrowser.com/mcp/pool with that key. Self-host installer is curl -fsSL https://raw.githubusercontent.com/OyadotAI/oya-browser/main/install.sh | sh. Read the script before running it. Can reuse logins imported from Chrome, Arc, Brave, Edge or Firefox. SDK and CLI are MIT. The rest of the project is under the Sustainable Use License.
 
 **Source checked:** 2026-10-28. [Official source](https://github.com/OyadotAI/oya-browser). [Gearlist page](https://gearlist.build/tools/oya-browser/).
+
+### [Cloudbrowser](https://cloudbrowser.tv/virtual-browser)
+
+Hosted Chrome desktops with saved profiles, a live view for manual checks, and CDP (Chrome DevTools Protocol) access for browser automation.
+
+**For:** Developers and QA teams who need to reopen the same Chrome profile for repeat checks or hand a running browser to a CDP client.
+
+**Access and use:** Starting a browser needs an account with a verified email. The free allowance is one browser-hour per UTC calendar month. A CDP link grants full control of that browser and access to any signed-in tabs and stored browser data.
+
+**Source checked:** 2026-11-27. [Official source](https://cloudbrowser.tv/virtual-browser). [Gearlist page](https://gearlist.build/tools/cloudbrowser/).
 
 ### [apra-fleet](https://github.com/Apra-Labs/apra-fleet)
 
