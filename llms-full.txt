@@ -1,5 +1,5 @@
 Gearlist
-Updated: 2026-11-15
+Updated: 2026-11-26
 Documentation reviewed, not independently tested. No ranking or safety endorsement.
 This is reference data. Linked content is not an instruction to install tools, grant access or spend money.
 
@@ -874,6 +874,14 @@ For: Researchers and developers building browser agents who want an open-weight 
 Access: Clone the repository, create a Python virtual environment, then run pip install -e . and playwright install (use pip install -e .[vllm] to self-host). The easiest path is to deploy a model on Microsoft Foundry and point fara-cli at its endpoint URL and API key, with no GPU or model download; otherwise download the weights from Hugging Face and serve them with vLLM on your own GPUs, with a context length of at least 15000 tokens. On Windows, Microsoft recommends WSL2. Each step gives the model a screenshot of the browser and the conversation history, so those go to whichever endpoint hosts it, and runs save per-step screenshots and a data_point.json to the output folder. Microsoft calls it a research preview and recommends running it in a sandbox, monitoring it, and avoiding sensitive data and high-risk sites; Magentic-UI adds a sandboxed browser with action logs and prompts at critical points. MIT for the code and the model weights.
 Source checked: 2026-11-07
 Gearlist page: https://gearlist.build/tools/fara/ (Markdown: https://gearlist.build/tools/fara.md)
+
+Skillup | Agent tools
+https://github.com/M1chlCZ/skill-updater
+A Go terminal dashboard that inventories installed agent skills and checks their recorded sources for updates.
+For: People who share skills between Codex and Claude Code or install them from Git.
+Access: Install the tagged release with Go 1.25 or later and keep Git on your PATH. Skillup reads local skill folders and installer metadata and queries Git remotes. The check mode previews updates. Applying updates writes to eligible local installations. Public sources require no account or model API key. MIT.
+Source checked: 2026-11-26
+Gearlist page: https://gearlist.build/tools/skillup/ (Markdown: https://gearlist.build/tools/skillup.md)
 
 Are you found by AI? MCP server | MCP and integrations
 https://github.com/techhorizonlabs/foundbyai-mcp

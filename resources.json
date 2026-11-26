@@ -1,6 +1,6 @@
 {
   "title": "Gearlist",
-  "updated": "2026-11-15",
+  "updated": "2026-11-26",
   "resources": [
     {
       "id": "agent-deck",
@@ -6320,6 +6320,20 @@
       "source_checked": "2026-11-15",
       "added": "2026-11-15",
       "verification": "Official repository pages reviewed; not installed or run",
+      "thl_project": false
+    },
+    {
+      "id": "skillup",
+      "name": "Skillup",
+      "category": "Agent tools",
+      "url": "https://github.com/M1chlCZ/skill-updater",
+      "description": "A Go terminal dashboard that inventories installed agent skills and checks their recorded sources for updates.",
+      "for_whom": "People who share skills between Codex and Claude Code or install them from Git.",
+      "access_notes": "Install the tagged release with Go 1.25 or later and keep Git on your PATH. Skillup reads local skill folders and installer metadata and queries Git remotes. The check mode previews updates. Applying updates writes to eligible local installations. Public sources require no account or model API key. MIT.",
+      "source_url": "https://github.com/M1chlCZ/skill-updater",
+      "source_checked": "2026-11-26",
+      "added": "2026-11-26",
+      "verification": "Official documentation and licence reviewed; project maintainer submission",
       "thl_project": false
     }
   ]
