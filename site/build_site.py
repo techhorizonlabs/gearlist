@@ -2508,11 +2508,16 @@ def render_headers(script_hashes, style_hash):
   Link: </index.md>; rel="alternate"; type="text/markdown"
   Link: </.well-known/api-catalog>; rel="api-catalog"
   Link: </.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/ai-catalog+json"
+  Link: </llms-full.txt>; rel="alternate"; type="text/plain"
+  Link: </mcp/server-card>; rel="service-desc"; type="application/mcp-server-card+json"
 
 /index.md
   Content-Type: text/markdown; charset=utf-8
   Access-Control-Allow-Origin: *
   Link: <{BASE_URL}>; rel="canonical"
+  Link: </llms.txt>; rel="describedby"; type="text/plain"
+  Link: </llms-full.txt>; rel="alternate"; type="text/plain"
+  Link: </mcp/server-card>; rel="service-desc"; type="application/mcp-server-card+json"
 
 /{TOOLS}/:id.md
   Access-Control-Allow-Origin: *
