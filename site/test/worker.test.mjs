@@ -884,6 +884,21 @@ describe("HTTP handling on /mcp", () => {
 });
 
 describe("Markdown negotiation on /", () => {
+  for (const accept of ["text/html", "text/markdown"]) {
+    test(`${accept} homepage advertises both reading files and the MCP card`, async () => {
+      const res = await call("/", { headers: { Accept: accept } });
+      assert.equal(res.status, 200);
+      const links = (res.headers.get("Link") || "").split(/,\s*/);
+      for (const expected of [
+        '</llms.txt>; rel="describedby"; type="text/plain"',
+        '</llms-full.txt>; rel="alternate"; type="text/plain"',
+        '</mcp/server-card>; rel="service-desc"; type="application/mcp-server-card+json"',
+      ]) {
+        assert.equal(links.filter(link => link === expected).length, 1, expected);
+      }
+    });
+  }
+
   test("Accept: text/markdown returns the Markdown catalog", async () => {
     const res = await call("/", { headers: { Accept: "text/markdown" } });
     assert.equal(res.status, 200);
